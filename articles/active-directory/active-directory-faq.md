@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336557"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory: вопросы и ответы
 Azure Active Directory — это комплексная служба идентификации (IDaaS), охватывающая все аспекты идентификации, управления доступом и безопасности.
@@ -175,7 +176,7 @@ Azure Active Directory — это комплексная служба иден�
 * прямой вход в федеративные приложения;
 * прямые ссылки на федеративные приложения, приложения на основе пароля или существующие приложения;
 
-Дополнительные сведения см. в разделе [Развертывание интегрированных приложений Azure AD для пользователей](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Дополнительные сведения см. в разделе [Развертывание интегрированных приложений Azure AD для пользователей](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **Вопрос. Как Azure AD обеспечивает проверку подлинности и единый вход для приложений?**
@@ -186,7 +187,7 @@ Azure Active Directory — это комплексная служба иден�
 
 * [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
 * [Протоколы проверки подлинности Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Принцип работы единого входа с Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Принцип работы единого входа с Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **Вопрос. Можно ли добавить приложения, которые я использую в локальной среде?**

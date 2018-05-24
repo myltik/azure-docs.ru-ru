@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867958"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Анализ мобильного приложения с помощью App Center и Application Insights
 

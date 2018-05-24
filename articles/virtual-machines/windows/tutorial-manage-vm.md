@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8eeba3b38e4a78bc33b995ee06f76116601c4d12
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2a1d89b1e1b7c398ae05fef5577bb1631409631b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211112"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Руководство. Создание и администрирование виртуальных машин Windows с помощью Azure PowerShell
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/11/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.7.0 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
+Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell 5.7.0 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 
@@ -65,7 +66,7 @@ $cred = Get-Credential
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
-    -Location "East US" `
+    -Location "EastUS" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `

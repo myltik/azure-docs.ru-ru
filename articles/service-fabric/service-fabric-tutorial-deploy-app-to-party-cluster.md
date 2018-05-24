@@ -3,8 +3,8 @@ title: Развертывание приложения Azure Service Fabric в �
 description: Сведения о развертывании приложения в кластере из Visual Studio.
 services: service-fabric
 documentationcenter: .net
--author: rwike77
--manager: msfussell
+author: rwike77
+manager: msfussell
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: f75a05e965a025a3041036679ac06cfe4f1ec8d7
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 4716cacf840dcf7a372923e29f758dbdc82fbf51
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208885"
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Руководство по развертыванию приложения в кластере Service Fabric в Azure
 Это руководство из цикла. В нем показано, как развернуть приложение Azure Service Fabric в новый кластер в Azure непосредственно из Visual Studio.
@@ -57,7 +58,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 В Visual Studio доступны два варианта развертывания:
 - Создание кластера в Azure с помощью Visual Studio. Этот вариант позволяет создать безопасный кластер непосредственно из Visual Studio с нужными конфигурациями. Этот тип кластера идеально подходит для тестовых сценариев, где вы можете создать кластер, а затем опубликовать его непосредственно в Visual Studio.
-- Публикация в существующем кластере в вашей подписке.  Кластеры Service Fabric можно создавать с помощью [портала Azure](https://portal.azure.com), скриптов [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) или [Azure CLI](./scripts/cli-create-cluster.md) либо [шаблона Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+- Выполните публикацию в имеющийся кластер в своей подписке.  Кластеры Service Fabric можно создавать с помощью [портала Azure](https://portal.azure.com), скриптов [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) или [Azure CLI](./scripts/cli-create-cluster.md) либо [шаблона Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 В этом руководстве объясняется, как создать кластер с помощью Visual Studio. Если кластер уже развернут, вы можете скопировать и вставить конечную точку подключения или выбрать ее из своей подписки.
 > [!NOTE]

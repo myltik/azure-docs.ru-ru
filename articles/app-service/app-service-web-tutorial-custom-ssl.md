@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bb981bcfb391362bad80aabf5808fd085e937232
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193460"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Руководство. Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
 
@@ -303,6 +304,6 @@ New-AzureRmWebAppSSLBinding `
 Перейдите к следующему руководству, чтобы научиться использовать сеть доставки содержимого Azure.
 
 > [!div class="nextstepaction"]
-> [Добавление сети доставки содержимого (CDN) в службу приложений Azure](../cdn/app-service-web-tutorial-content-delivery-network.md)
+> [Добавление сети доставки содержимого (CDN) в службу приложений Azure](../cdn/cdn-add-to-web-app.md)
 
 Дополнительные сведения см. в статье об [использовании SSL-сертификата в коде для приложения службы приложений Azure](app-service-web-ssl-cert-load.md).

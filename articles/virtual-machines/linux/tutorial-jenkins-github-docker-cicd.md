@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0bb5db0d0569cbd8a2f5aa1651522dfd117868eb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211197"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Руководство. Создание инфраструктуры развертывания на виртуальной машине Linux в Azure с помощью Jenkins, GitHub и Docker
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/28/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI версии 2.0.30 и выше. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.30 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Создание экземпляра Jenkins
 В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. В этом учебнике используется файл cloud-init для установки Jenkins и Docker на виртуальной машине. Jenkins — это популярный сервер автоматизации с открытым исходным кодом, который легко интегрируется с Azure для обеспечения непрерывной интеграции и непрерывной поставки (CI/CD). Другие руководства по использованию Jenkins см. в документации [Jenkins® в Azure](https://docs.microsoft.com/azure/jenkins/).
@@ -58,8 +59,9 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
-  - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  - apt install default-jre -y
+  - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+  - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser

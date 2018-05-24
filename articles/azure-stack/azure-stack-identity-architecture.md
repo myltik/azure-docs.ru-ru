@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257494"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Архитектура удостоверений Azure Stack
 Прежде чем выбрать поставщик удостоверений для использования с Azure Stack, ознакомьтесь с существенными различиями между вариантами Azure Active Directory (Azure AD) и службы федерации Active Directory (AD FS). 

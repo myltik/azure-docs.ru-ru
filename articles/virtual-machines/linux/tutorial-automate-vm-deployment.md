@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e3c1c0552b379ff99f27053d8f0ca8a76766a016
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fa1e95263559906ebfd0df82b2756043e38852a6
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305163"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Руководство. Настройка виртуальной машины Linux при первой загрузке с помощью cloud-init в Azure
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/28/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI версии 2.0.30 и выше. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.30 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="cloud-init-overview"></a>Обзор cloud-Init
 [Пакет cloud-init](https://cloudinit.readthedocs.io) — широко используемое средство, используемое для настройки виртуальной машины Linux при ее первой загрузке. Вы можете использовать cloud-init для установки пакетов, записи файлов или настройки пользователей и параметров безопасности. Так как cloud-init выполняется при начальной загрузке, для применения вашей конфигурации не требуются какие-либо дополнительные действия или обязательные агенты.
@@ -177,7 +178,7 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm format-secret --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret")
 ```
 
 

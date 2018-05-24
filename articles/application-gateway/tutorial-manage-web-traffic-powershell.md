@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a563d31cdde781cb17eb738a6ce153adecaee672
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2ca90677f7aff0b6664a67e73128a987c8f3f36c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355922"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Управление веб-трафиком с помощью шлюза приложений в Azure PowerShell
 
@@ -70,9 +71,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Создание шлюза приложений
 
-В этом разделе описано, как создать ресурсы с поддержкой шлюза приложения и сам шлюз приложений. Создаваемые ресурсы включают:
+В этом разделе объясняется, как создать ресурсы с поддержкой шлюза приложений и сам шлюз приложений. Вы создадите следующие ресурсы:
 
-- *IP-конфигурации и интерфейсный порт* — используются для связывания подсети, созданной ранее для шлюза приложения, и назначение порта, используемого для доступа к нему.
+- *IP-конфигурации и интерфейсный порт* — используются для связывания созданной ранее подсети с шлюзом приложений и назначения порта для доступа к нему.
 - *Пул по умолчанию* — все шлюзы приложения должны иметь по крайней мере один внутренний пул серверов.
 - *Прослушиватель и правило по умолчанию* — прослушиватель по умолчанию ожидает передачи трафика через назначенный порт, а правило по умолчанию отправляет трафик в пул по умолчанию.
 
@@ -215,7 +216,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>Установка служб IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
@@ -245,7 +246,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Вы можете удалить ненужную группу ресурсов, шлюз приложений и все связанные ресурсы, выполнив командлет [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Если группа ресурсов, виртуальная машина и все связанные с ними ресурсы вам больше не требуются, их можно удалить. Для этого выполните командлет [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
@@ -261,4 +262,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > * создание масштабируемого набора виртуальных машин с серверным пулом, используемым по умолчанию.
 
 > [!div class="nextstepaction"]
-> [Ограничение веб-трафика с помощью брандмауэра веб-приложений](./tutorial-restrict-web-traffic-powershell.md)
+> [Ограничение веб-трафика с помощью брандмауэра веб-приложения](./tutorial-restrict-web-traffic-powershell.md)
