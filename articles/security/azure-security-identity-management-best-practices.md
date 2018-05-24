@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: af01676276232f4dba5a11c219a3b83259945dfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/28/2018
 
 Наличие нескольких управляемых каталогов создает проблему администрирования не только для ИТ-специалистов, но и для пользователей, ведь им придется запомнить несколько паролей. [Единый вход](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) позволит пользователям использовать одни и те же учетные данные для входа в систему и получения доступа к ресурсам независимо от того, где они находятся — в локальном расположении или в облаке.
 
-Предоставьте пользователям возможность единого входа, чтобы они могли получать доступ к [приложениям SaaS](../active-directory/active-directory-appssoaccess-whatis.md), используя рабочую или учебную учетную запись в Azure AD. Это применимо не только к приложениям SaaS корпорации Майкрософт, но и к другим приложениям, таким как [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) и [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Ваше приложение может быть настроено для использования Azure AD в качестве поставщика [удостоверений на основе SAML](../active-directory/fundamentals-identity.md). Azure AD из соображений безопасности не выдает токен, который позволяет войти в приложение, если у пользователя нет права на доступ к приложению в Azure AD. Вы можете предоставить пользователю такое право напрямую или через одну из групп, в которые он входит.
+Предоставьте пользователям возможность единого входа, чтобы они могли получать доступ к [приложениям SaaS](../active-directory/manage-apps/what-is-single-sign-on.md), используя рабочую или учебную учетную запись в Azure AD. Это применимо не только к приложениям SaaS корпорации Майкрософт, но и к другим приложениям, таким как [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) и [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Ваше приложение может быть настроено для использования Azure AD в качестве поставщика [удостоверений на основе SAML](../active-directory/fundamentals-identity.md). Azure AD из соображений безопасности не выдает токен, который позволяет войти в приложение, если у пользователя нет права на доступ к приложению в Azure AD. Вы можете предоставить пользователю такое право напрямую или через одну из групп, в которые он входит.
 
 > [!NOTE]
 > От того, используется единый вход или нет, зависит способ интеграции локального каталога с облачным. Если вам нужна возможность единого входа, необходимо использовать федерацию, так как синхронизация каталогов имеет [такую же систему входа](../active-directory/active-directory-aadconnect.md).

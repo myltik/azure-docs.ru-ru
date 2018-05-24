@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о службе анализа сбоев | Документация Майкрософт"
-description: "В этой статье описывается служба анализа сбоев в Service Fabric, используемая для вызова ошибок и запуска сценариев тестирования для служб."
+title: Общие сведения о службе анализа сбоев | Документация Майкрософт
+description: В этой статье описывается служба анализа сбоев в Service Fabric, используемая для вызова ошибок и запуска сценариев тестирования для служб.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: f275fa5d3d6d727b016e55c188321d7e68091a33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 807e4588e23ea01c5ce435282d7af59bb108e6c6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Общие сведения о службе анализа сбоев
 Служба анализа сбоев предназначена для проверки служб, созданных с помощью платформы Microsoft Azure Service Fabric. Она позволяет вызывать значимые ошибки и запускать в приложениях тестовые сценарии. Вызываемые ошибки и сценарии позволяют воспроизвести и проверить в контролируемых, безопасных и согласованных условиях разные состояния и переходы, происходящие со службой в течение ее жизненного цикла.

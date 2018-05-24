@@ -1,24 +1,24 @@
 ---
-title: "Обновление приложений: сериализация данных | Документация Майкрософт"
-description: "Лучшие методики для сериализации данных и ее влияние на последовательные обновления приложений."
+title: 'Обновление приложений: сериализация данных | Документация Майкрософт'
+description: Лучшие методики для сериализации данных и ее влияние на последовательные обновления приложений.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a5f36366-a2ab-4ae3-bb08-bc2f9533bc5a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c5a4ff9d70ea2b9c7e3a0337e913ea224b31648c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2f6fad0ecca09ff9210b5961301fea3446a88f11
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Влияние сериализации данных на обновление приложений
 При [последовательном обновлении приложения](service-fabric-application-upgrade.md)обновление применяется к подмножеству узлов, переходя от одного домена обновления к другому. Во время этого процесса некоторые домены обновления используют более раннюю версию приложения, чем другие. В ходе развертывания новая версия вашего приложения должна иметь способность считывать старые версии данных, а старая версия приложения — новую версию данных. Если формат данных не обладает прямой и обратной совместимостью, обновление может завершиться неудачей либо данные могут быть утрачены. В этой статье обсуждаются составляющие формата данных, а также передовой опыт в обеспечении прямой и обратной совместимости данных.

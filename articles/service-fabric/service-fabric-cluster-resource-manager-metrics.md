@@ -1,24 +1,24 @@
 ---
-title: "Управление нагрузкой микрослужбы Azure с помощью метрик | Документация Майкрософт"
-description: "Узнайте, как настраивать и использовать метрики в Service Fabric, чтобы управлять потреблением ресурсов службы."
+title: Управление нагрузкой микрослужбы Azure с помощью метрик | Документация Майкрософт
+description: Узнайте, как настраивать и использовать метрики в Service Fabric, чтобы управлять потреблением ресурсов службы.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Управление потреблением ресурсов и нагрузкой в Service Fabric с помощью метрик
 *Метрики* определяют ресурсы, которые нужны вашим службам и которые предоставляются узлами в кластере. Метрика — это все, чем требуется управлять, чтобы повышать или отслеживать производительность своих служб. Например, можно отслеживать потребление памяти, чтобы знать, не перегружена ли служба. С помощью метрики вы можете определить, можно ли переместить службу в другое расположение, в котором память менее ограничена, чтобы повысить производительность.

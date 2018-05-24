@@ -1,8 +1,8 @@
 ---
-title: "Руководство по настройке Asana для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить Azure Active Directory для автоматической подготовки и отмены подготовки учетных записей пользователей в Asana."
+title: Руководство по настройке Asana для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить Azure Active Directory для автоматической подготовки и отмены подготовки учетных записей пользователей в Asana.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: sakula
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Руководство по настройке Asana для автоматической подготовки пользователей
 
@@ -93,12 +93,12 @@ ms.lasthandoff: 02/09/2018
 
 12. Щелкните **Сохранить**. 
 
-После этого запустится начальная синхронизация всех пользователей, назначенных для Asana в разделе **Пользователи**. Начальная синхронизация занимает больше времени, чем последующие операции синхронизации. Последующие операции синхронизации выполняются примерно каждые 40 минут, при условии, что служба запущена. Чтобы отслеживать ход выполнения и переходить по ссылкам для просмотра журналов действий по подготовке, используйте раздел **Сведения о синхронизации**. В журналах аудита зафиксированы все действия, выполняемые службой подготовки в приложении Asana.
+После этого запустится начальная синхронизация всех пользователей, назначенных для Asana в разделе **Пользователи**. Начальная синхронизация занимает больше времени, чем последующие операции синхронизации. Если служба запущена, они выполняются примерно каждые 40 минут. Чтобы отслеживать ход выполнения и переходить по ссылкам для просмотра журналов действий по подготовке, используйте раздел **Сведения о синхронизации**. В журналах аудита зафиксированы все действия, выполняемые службой подготовки в приложении Asana.
 
 Дополнительные сведения о чтении журналов подготовки Azure AD см. в руководстве по [созданию отчетов об автоматической подготовке учетных записей](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Managing user account provisioning for enterprise apps in the Azure portal](active-directory-enterprise-apps-manage-provisioning.md) (Управление подготовкой учетных записей пользователей для корпоративных приложений на портале Azure)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Настройка единого входа](active-directory-saas-asana-tutorial.md)

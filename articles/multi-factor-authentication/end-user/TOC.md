@@ -14,3 +14,4 @@
 ### [Вход с помощью телефона](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Резервное копирование и восстановление учетных данных](microsoft-authenticator-app-backup-and-recovery.md)
 ### [Часто задаваемые вопросы](microsoft-authenticator-app-faq.md)
+### [Обновление интерфейса для входа в систему](sign-in-experience-updates.md)

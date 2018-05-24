@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Mobile Xpense | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Mobile Xpense."
+title: Руководство по интеграции Azure Active Directory с Mobile Xpense | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Mobile Xpense.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 3beea4dc7889d84ba2724b9b4ebf88d2fae3a284
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 95d4f97104df3a196aa3d0660cf5fca0ee3d89b8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Руководство по интеграции Azure Active Directory с Mobile Xpense
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/05/2018
 - Вы можете включить автоматический вход пользователей в Mobile Xpense (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Mobile Xpense из коллекции.
+1. Добавление Mobile Xpense из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-mobile-xpense-from-the-gallery"></a>Добавление Mobile Xpense из коллекции
@@ -210,7 +210,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

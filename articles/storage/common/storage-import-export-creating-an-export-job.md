@@ -1,11 +1,11 @@
 ---
-title: "Создание задания экспорта для импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как создать задание экспорта для службы импорта и экспорта Microsoft Azure."
+title: Создание задания экспорта для импорта и экспорта Azure | Документация Майкрософт
+description: Узнайте, как создать задание экспорта для службы импорта и экспорта Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Создание задания экспорта для службы импорта и экспорта Azure
 Создание задания экспорта для службы импорта и экспорта Microsoft Azure с помощью интерфейса REST API включает следующие шаги:
@@ -91,6 +91,8 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="receiving-the-package"></a>Получение посылки
  После обработки задания экспорта вы получите диски с зашифрованными данными. Чтобы получить ключ BitLocker для каждого диска выполните операцию [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Затем разблокируйте диск с помощью ключа. Файл манифеста диска на каждом диске содержит список файлов на диске, а также исходный адрес большого двоичного объекта для каждого файла.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 
