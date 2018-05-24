@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdceb81319529a3db8b5c9809818d024acc3f80b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Руководство по интеграции Azure Active Directory с Andromeda
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/08/2018
 - Вы можете включить автоматический вход пользователей в Andromeda (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 03/08/2018
 1. Добавление Andromeda из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-andromeda-from-the-gallery"></a>Добавление Andromeda из коллекции
+## <a name="adding-andromeda-from-the-gallery"></a>Добавление Andromeda из коллекции.
 Чтобы настроить интеграцию Andromeda с Azure AD, необходимо добавить Andromeda из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Andromeda из коллекции, сделайте следующее:**
@@ -279,7 +279,7 @@ ms.lasthandoff: 03/08/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f6986df19482800ff676c0e05ad680e14dfeca1f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
 ---
 ## <a name="view-device-telemetry"></a>Просмотр телеметрии устройства
 
@@ -57,4 +57,4 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Способы настройки ускорителя решения описаны в статье [Customize the remote monitoring solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) (Настройка ускорителя решения для удаленного мониторинга).
+Способы настройки ускорителя решения описаны в статье [Customize the remote monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) (Настройка ускорителя решения для удаленного мониторинга).

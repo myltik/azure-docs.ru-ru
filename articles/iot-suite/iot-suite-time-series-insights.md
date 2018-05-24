@@ -9,11 +9,11 @@ ms.author: philmea
 ms.date: 04/29/2018
 ms.topic: article
 ms.service: iot-suite
-ms.openlocfilehash: c7ddac84a16520d6bc4c4eeb845206f84e6edd80
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 09a54e9cb1c6f063e878fd42c42699a906b60c7b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Визуализация данных удаленного мониторинга с помощью службы "Аналитика временных рядов"
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 05/07/2018
 
 Для работы с этим практическим руководством необходимо следующее:
 
-* [Развертывание предварительно настроенного решения для удаленного мониторинга](/iot-suite/iot-suite-remote-monitoring-deploy)
+* [Развертывание предварительно настроенного решения для удаленного мониторинга](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Создание группы потребителей
 

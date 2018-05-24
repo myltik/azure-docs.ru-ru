@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Dome9 Arc | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Dome9 Arc."
+title: Руководство по интеграции Azure Active Directory с Dome9 Arc | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении Dome9 Arc.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 2ce4bb1be8b0124c69991765e18ce9922bd2f4a4
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: de164f6a439fd68b4746dc96c43ff5cb0740ffe8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Руководство по интеграции Azure Active Directory с Dome9 Arc
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/20/2018
 - Вы можете включить автоматический вход пользователей в Dome9 Arc (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/20/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление приложения Dome9 Arc из коллекции.
+1. Добавление приложения Dome9 Arc из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-dome9-arc-from-the-gallery"></a>Добавление приложения Dome9 Arc из коллекции
@@ -290,7 +290,7 @@ ms.lasthandoff: 01/20/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
