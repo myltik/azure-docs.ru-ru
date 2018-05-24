@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с BambooHR | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и BambooHR."
+title: Руководство по интеграции Azure Active Directory с BambooHR | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и BambooHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Руководство по интеграции Azure Active Directory с BambooHR
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 - Вы можете включить автоматический вход пользователей в BambooHR (единый вход) с использованием учетных записей Azure AD.
 - Вы можете управлять учетными записями централизованно, через портал Azure.
 
-Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -239,7 +239,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список руководств по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

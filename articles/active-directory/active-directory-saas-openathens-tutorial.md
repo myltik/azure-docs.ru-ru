@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с OpenAthens | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и OpenAthens."
+title: Руководство по интеграции Azure Active Directory с OpenAthens | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и OpenAthens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Руководство по интеграции Azure Active Directory с OpenAthens
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в OpenAthens (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -224,7 +224,7 @@ OpenAthens поддерживает JIT-подготовку, и пользов�
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * Руководства по интеграции приложений SaaS с Azure Active Directory см. в статье [Интеграция приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md).
-* Дополнительные сведения о доступе к приложениям и едином входе с помощью Azure Active Directory см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* Дополнительные сведения о доступе к приложениям и едином входе с помощью Azure Active Directory см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
