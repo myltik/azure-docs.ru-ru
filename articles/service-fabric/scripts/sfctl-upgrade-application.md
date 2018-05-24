@@ -1,25 +1,26 @@
 ---
-title: "Пример сценария для интерфейса командной строки Service Fabric. Обновление приложения в кластере"
-description: "Пример сценария для интерфейса командной строки Service Fabric для установки новой версии приложения. Этот пример устанавливает новую версию развернутого приложения."
+title: Пример сценария для интерфейса командной строки Service Fabric. Обновление приложения в кластере
+description: Пример сценария для интерфейса командной строки Service Fabric для установки новой версии приложения. Этот пример устанавливает новую версию развернутого приложения.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.custom: 
-ms.openlocfilehash: 059022a7f447fe2b0decaacf44ef7bc2e9a241d1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: e14e65e365389b33891794a3f12b86b3a4705533
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204385"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Добавление сертификата приложения в кластер Service Fabric
 

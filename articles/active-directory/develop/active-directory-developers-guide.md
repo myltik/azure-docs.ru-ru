@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257555"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory для разработчиков
 
@@ -55,7 +56,6 @@ Azure Active Directory (Azure AD) — это облачная служба ид�
 |[Регистрация приложения](active-directory-integrating-applications.md)           | Как зарегистрировать приложение в Azure AD. |
 |[Мультитенантные приложения](active-directory-devhowto-multi-tenant-overview.md)    | Как войти в любую рабочую учетную запись Майкрософт. |
 |[Протоколы OAuth и OpenID Connect](active-directory-protocols-openid-connect-code.md)| Как обеспечить вход пользователей и вызывать веб-интерфейсы API, используя протоколы аутентификации Майкрософт. |
-|[Дополнительные руководства](active-directory-developers-guide-index.md#guides)        |  Список доступных руководств по Azure AD. |
 |  |  |
 
 ## <a name="reference-topics"></a>Справочные материалы
@@ -66,7 +66,6 @@ Azure Active Directory (Azure AD) — это облачная служба ид�
 | [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md)   | Общие сведения о библиотеках и пакетах SDK, предоставляемых Azure AD. |
 | [Примеры кода](active-directory-code-samples.md)                                  | Список всех примеров кода Azure AD. |
 | [Глоссарий](active-directory-dev-glossary.md)                                      | Термины и определения слов, используемых в этой документации. |
-| [Дополнительные справочные материалы](active-directory-developers-guide-index.md#reference)| Список доступных справочных материалов по Azure AD. |
 |  |  |
 
 

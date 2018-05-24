@@ -1,21 +1,22 @@
 ---
-title: "Отслеживание изменений виртуальной машины с помощью Azure Logic Apps и службы \"Сетка событий Azure\" | Документация Майкрософт"
-description: "Проверка наличия изменений конфигурации в виртуальных машинах с помощью службы \"Сетка событий Azure\" и Logic Apps."
-keywords: "приложения логики, сетки событий, виртуальная машина, VM"
+title: Отслеживание изменений виртуальной машины с помощью Azure Logic Apps и службы "Сетка событий Azure" | Документация Майкрософт
+description: Проверка наличия изменений конфигурации в виртуальных машинах с помощью службы "Сетка событий Azure" и Logic Apps.
+keywords: приложения логики, сетки событий, виртуальная машина, VM
 services: logic-apps
 author: ecfan
 manager: anneta
-ms.assetid: 
+ms.assetid: ''
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303119"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Отслеживание изменений виртуальной машины с помощью Azure Logic Apps и службы "Сетка событий Azure"
 

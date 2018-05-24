@@ -17,11 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 63dfa89af64e500e8ed0292ab282150636e57ab3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 165bd6770109348bd19ebb4fa1735bedf83004b1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261323"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>Руководство. Фильтрация сетевого трафика с помощью группы безопасности сети и PowerShell
 
@@ -146,14 +147,19 @@ $virtualNetwork = Get-AzureRmVirtualNetwork `
 ```
 Создайте общедоступный IP-адрес для каждой виртуальной машины с помощью командлета [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
 
+```powershell-interactive
 $publicIpWeb = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
-  -Location eastus ` -Name myVmWeb
+  -AllocationMethod Dynamic `
+  -ResourceGroupName myResourceGroup `
+  -Location eastus `
+  -Name myVmWeb
 
 $publicIpMgmt = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
-  -Location eastus ` -Name myVmMgmt
-
+  -AllocationMethod Dynamic `
+  -ResourceGroupName myResourceGroup `
+  -Location eastus `
+  -Name myVmMgmt
+```
 
 Создайте два сетевых интерфейса с помощью командлета [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) и назначьте каждому из них общедоступный IP-адрес. В следующем примере создается сетевой интерфейс, которому назначается общедоступный IP-адрес *myVmWeb*. Этот сетевой интерфейс добавляется в группу безопасности приложений *myAsgWebServers*.
 
