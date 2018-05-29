@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931270"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Устранение неполадок, возникающих при использовании портала "Мои приложения" и получении доступа к нему
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/29/2018
 
 Воспользуйтесь этими общими рекомендациями:
 
-- Сначала убедитесь в том, что используете правильный URL-адрес: [https://myapps.microsoft.com](https://myapps.microsoft.com).
+- Сначала убедитесь в том, что используете правильный URL-адрес, [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Попробуйте добавить этот URL-адрес в список надежных сайтов в браузере.
 - Убедитесь, что указан правильный пароль и срок его действия не истек. Дополнительные сведения см. в статье [Сброс пароля к рабочей или учебной учетной записи](active-directory-passwords-update-your-own-password.md).
 - Убедитесь, что ваши контактные данные для проверки подлинности актуальны и доступ не блокируется из-за них. Дополнительные сведения см. в статье [Что для меня означает служба Многофакторной идентификации Azure](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
@@ -55,9 +56,9 @@ ms.lasthandoff: 01/29/2018
 - **Edge** — в Windows 10 Anniversary Edition или более поздней версии;
 - **Chrome** — начиная с Windows 7 и Mac OS X;
 - **Firefox 26.0 или более поздней версии** — в Windows XP с пакетом обновления 2 (SP2) или более поздней версии и в Mac OS X 10.6 или более поздней версии;
-- **Internet Explorer 8, 9, 10, 11** — в ОС Windows 7 или более поздней версии (ограниченная поддержка).
+- **Internet Explorer 11** — в ОС Windows 7 или более поздней версии (ограниченная поддержка).
 
-Вы также можете скачать расширение для Chrome и Edge отсюда:
+Вы также можете скачать расширение для Chrome и Microsoft Edge отсюда:
 
 - [Расширение для Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Расширение для Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)

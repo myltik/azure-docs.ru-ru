@@ -15,20 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ce858553a67bce714ceae43a5bb2f86839d9c507
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 56839c38de135a805c51bb96ad5d7abc41ebcad7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895381"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Создание, изменение или удаление виртуальной сети
 
-Узнайте, как создать и удалить виртуальную сеть, а также как изменить такие параметры существующей виртуальной сети, как DNS-серверы и пространства IP-адресов.
-
-Виртуальная сеть — это представление вашей сети в облаке. Виртуальная сеть представляет собой логическую изоляцию облака Azure, выделенного для вашей подписки. Для каждой создаваемой виртуальной сети можно сделать следующее:
-- Выбрать назначаемое адресное пространство. Адресное пространство состоит из одного или нескольких диапазонов адресов, определяемых с помощью нотации бесклассовой междоменной маршрутизации (CIDR), например 10.0.0.0/16.
-- Выбрать для использования предоставляемый Azure или собственный DNS-сервер. Этот DNS-сервер назначается всем ресурсам, подключенным к виртуальной сети, для разрешения имен в этой виртуальной сети.
-- Разделить виртуальную сеть на подсети с собственными диапазонами адресов в адресном пространстве этой виртуальной сети. Чтобы узнать, как создавать, изменять и удалять подсети, см. статью [Создание, изменение и удаление подсетей в виртуальных сетях](virtual-network-manage-subnet.md).
+Узнайте, как создать и удалить виртуальную сеть, а также как изменить такие параметры существующей виртуальной сети, как DNS-серверы и пространства IP-адресов. Если у вас нет опыта работы с виртуальными сетями, вы можете получить дополнительные сведения в [обзорной статье](virtual-networks-overview.md) или пройти [учебник](quick-create-portal.md). Виртуальная сеть содержит подсети. Чтобы узнать, как создавать, изменять и удалять подсети, прочитайте статью [Создание, изменение или удаление виртуальной сети](virtual-network-manage-subnet.md).
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -36,8 +32,9 @@ ms.lasthandoff: 04/28/2018
 
 - Если у вас нет учетной записи Azure, зарегистрируйтесь для получения [бесплатной пробной учетной записи](https://azure.microsoft.com/free).
 - При использовании портала перейдите по адресу https://portal.azure.com и войдите с использованием своей учетной записи Azure.
-- При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 5.2.0. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
-- При использовании команд интерфейса командной строки Azure (CLI) для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/bash) или в интерфейсе командной строки на своем компьютере. Для этого руководства требуется Azure CLI версии не ниже 2.0.26. Выполните командлет `az --version`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). Если Azure CLI запущен локально, необходимо также выполнить командлет `az login`, чтобы создать подключение к Azure.
+- При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 5.7.0. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+- При использовании команд интерфейса командной строки Azure (CLI) для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/bash) или в интерфейсе командной строки на своем компьютере. Для этого руководства требуется Azure CLI 2.0.31 или более поздней версии. Выполните командлет `az --version`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). Если Azure CLI запущен локально, необходимо также выполнить командлет `az login`, чтобы создать подключение к Azure.
+- Учетной записи, в которую вы входите или с помощью которой подключаетесь к Azure, должна быть назначена роль [Участник сетей](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [пользовательская роль](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json), которой назначены соответствующие действия, перечисленные в таблице [Разрешения](#permissions).
 
 ## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
 
@@ -94,7 +91,7 @@ ms.lasthandoff: 04/28/2018
     - **Common Azure settings** (Общие параметры Azure). Дополнительные сведения об общих параметрах Azure см. по следующим ссылкам:
         *   [Журнал действий](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
         *   [Управление доступом (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-        *   [Теги](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+        *   [Теги](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Блокировки](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Сценарий автоматизации](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -167,17 +164,15 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="permissions"></a>Разрешения
 
-Для выполнения задач в виртуальных сетях учетной записи должна быть назначена одна из ролей([Участник сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [Пользователь](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)), в которой назначены соответствующие разрешения, перечисленные в следующей таблице:
+Для выполнения задач в виртуальных сетях учетной записи должна быть назначена роль [Участник сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [пользовательская](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) роль, которой назначены соответствующие действия, перечисленные в следующей таблице.
 
-|Операция                                    |   Имя операции                    |
-|-------------------------------------------  |   --------------------------------  |
-|Microsoft.Network/virtualNetworks/read       |   Получить виртуальную сеть               |
-|Microsoft.Network/virtualNetworks/write      |   Создать или обновить виртуальную сеть  |
-|Microsoft.Network/virtualNetworks/delete     |   Удалить виртуальную сеть            |
+| Действие                                  |   ИМЯ                                |
+|---------------------------------------- |   --------------------------------    |
+|Microsoft.Network/virtualNetworks/read   |   Чтение виртуальной сети.              |
+|Microsoft.Network/virtualNetworks/write  |   Создание или обновление виртуальной сети.  |
+|Microsoft.Network/virtualNetworks/delete |   Удаление виртуальной сети            |
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- Сведения о том, как создать виртуальную машину и подключить ее к виртуальной сети, см. в статье [Создание первой собственной виртуальной сети](quick-create-portal.md#create-virtual-machines).
-- Сведения о фильтрации сетевого трафика между подсетями в виртуальной сети см. статью [Создание групп безопасности сети с помощью портала Azure](virtual-networks-create-nsg-arm-pportal.md).
-- Сведения о том, как настроить пиринговую связь между виртуальными сетями, см. в статье [Create a virtual network peering](tutorial-connect-virtual-networks-portal.md) (Создание пиринговой связи между виртуальными сетями).
-- Чтобы узнать о способах подключения виртуальной сети к локальной сети, см. статью [Основные сведения о VPN-шлюзах Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
+- Создайте виртуальную сеть с помощью примеров сценариев [PowerShell](powershell-samples.md) или [Azure CLI](cli-samples.md) либо на основе [шаблонов Azure Resource Manager](template-samples.md).
+- Создайте и примените [политику Azure](policy-samples.md) для виртуальных сетей.

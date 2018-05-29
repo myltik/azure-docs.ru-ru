@@ -8,27 +8,25 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930992"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Часто задаваемые вопросы (FAQ)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Доступна ли программа использования закрытых предварительных версий новых функций и возможностей интеграции MSI?
-
-Да. Если вы хотите зарегистрироваться для использования закрытых предварительных версий, [перейдите на страницу регистрации](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Работает ли MSI с облачными службами Azure?
 
@@ -53,7 +51,7 @@ ms.lasthandoff: 04/18/2018
 
 Расширение ВМ MSI по-прежнему можно использовать, однако в дальнейшем в качестве конечной точки по умолчанию будет использоваться IMDS. Расширение ВМ MSI вскоре будет внесено в план вывода из эксплуатации. 
 
-Дополнительные сведения о службе метаданных экземпляров Azure см. в [документации по IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+Дополнительные сведения о службе метаданных экземпляров Azure см. в [документации по IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Какие дистрибутивы Linux поддерживаются?
 
@@ -91,7 +89,7 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 Расширение виртуальной машины "Управляемое удостоверение службы" в настоящее время не поддерживает возможность экспорта его схемы в шаблон группы ресурсов. Поэтому созданный шаблон не содержит параметры конфигурации для включения расширения "Управляемое удостоверение службы" в ресурсе. Эти разделы можно добавить вручную. Инструкции и примеры см. в статье [Настройка управляемого удостоверения службы (MSI) на виртуальной машине Azure с помощью шаблона](qs-configure-template-windows-vm.md).
 
-Когда функция экспорта схемы станет доступной для расширения виртуальной машины "Управляемое удостоверение службы", оно будет добавлено в раздел [Поддерживаемые расширения виртуальной машины](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+Когда функция экспорта схемы станет доступной для расширения виртуальной машины "Управляемое удостоверение службы", оно будет добавлено в раздел [Поддерживаемые расширения виртуальной машины](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>На портале Azure не отображается колонка "Конфигурация"
 
@@ -122,3 +120,16 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-identities"></a>Известные проблемы с пользовательскими удостоверениями
+
+- Назначение пользовательских удостоверений доступно только для виртуальных машин и масштабируемых наборов виртуальных машин. Важно. Назначение пользовательских удостоверений будет изменено в ближайшие месяцы.
+- Повторяющиеся пользовательские удостоверения в одной и той же виртуальной машине или масштабируемом наборе виртуальных машин приведут к сбою этой виртуальной машины или масштабируемого набора. Это относится и к удостоверениям, добавляемым в разном регистре. Например, MyUserAssignedIdentity и myuserassignedidentity. 
+- Подготовка расширения для виртуальной машины может завершиться сбоем из-за ошибок при поиске DNS. Перезапустите виртуальную машину и повторите попытку. 
+- Добавление несуществующего пользовательского удостоверения вызовет сбой виртуальной машины. 
+- При создании пользовательского удостоверения не поддерживается использование специальных знаков (например, символа подчеркивания) в имени.
+- В комплексном сценарии имена пользовательских удостоверений должны содержать не более 24 знаков. Назначение пользовательских удостоверений с именами, содержащими более 24 знаков, завершится сбоем.  
+- При добавлении второго пользовательского удостоверения clientID может оказаться недоступным для маркеров запросов для расширения виртуальной машины. Чтобы устранить эту проблему, перезапустите расширение MSI для виртуальной машины с помощью следующих двух команд Bash.
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- Если на виртуальной машине есть пользовательское удостоверение, но отсутствует системное удостоверение, то в пользовательском интерфейсе портала будет отображаться информация, что удостоверение MSI отключено. Чтобы включить системное удостоверение, используйте шаблон Azure Resource Manager, Azure CLI или пакет SDK.

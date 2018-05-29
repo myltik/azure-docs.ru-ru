@@ -2,24 +2,20 @@
 title: Общие сведения о самостоятельном сбросе пароля в Azure AD | Документация Майкрософт
 description: Чем может быть полезен самостоятельный сброс пароля Azure AD для вашей организации?
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866674"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Самостоятельный сброс пароля в Azure AD для ИТ-специалистов
 
@@ -32,6 +28,8 @@ ms.lasthandoff: 04/23/2018
    * отправка сообщения в проверенную учетную запись электронной почты;
    * ответы на свои контрольные вопросы.
 * **Самостоятельное разблокирование учетной записи**. Пользователю не удается выполнить вход с паролем, и его учетная запись блокируется. Пользователю необходимо разблокировать свою учетную запись без вмешательства администратора, воспользовавшись настроенными методами аутентификации.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>Преимущества SSPR Azure AD
 
@@ -50,7 +48,7 @@ SSPR Azure AD помогает достичь следующего:
 
 * **Azure AD Free**. Администраторы облака могут сбрасывать свои пароли.
 * **Azure AD Basic** или любая **платная подписка Office 365**. Пользователи облака могут сбрасывать свои пароли.
-* **Azure AD Premium**. Любой пользователь или администратор, включая пользователей облака, федеративных пользователей и пользователей с синхронизацией паролей, может сбрасывать свои пароли. Для локальных паролей требуется включить компонент обратной записи паролей.
+* **Azure AD Premium**. Любой пользователь или администратор, включая пользователей облака, федеративных пользователей и пользователей, применяющих сквозную аутентификацию или синхронизацию хэша паролей, может сбрасывать свои пароли. Для локальных паролей требуется включить компонент обратной записи паролей.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Цены на Azure AD, соглашение об уровне обслуживания, обновления и планы
 

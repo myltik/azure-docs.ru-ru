@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
 editor: ''
-ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19a1ae7ae7acc6fe09a529dd174363735343027e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932019"
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Использование SCIM для автоматической подготовки пользователей и групп Azure Active Directory для приложений
 
@@ -56,7 +57,7 @@ Azure Active Directory (Azure AD) может выполнять автомати
 **Подключение приложения, поддерживающего SCIM:**
 
 1. Войдите на [портал Azure](https://portal.azure.com). 
-2. Выберите **"Azure Active Directory > Корпоративные приложения", затем выберите **Новое приложение > Все > Приложение не из коллекции**.
+2. Перейдите к **Azure Active Directory > Корпоративные приложения** и выберите **Новое приложение > Все > Приложение не из коллекции**.
 3. Введите имя приложения и щелкните значок **Добавить**, чтобы создать объект приложения.
     
   ![][1]
@@ -131,12 +132,12 @@ Azure Active Directory (Azure AD) может выполнять автомати
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
   ````
 8. В Windows откройте раздел **Параметры Windows > Параметры сети и Интернета**, выберите **Брандмауэр Windows > Дополнительные параметры** и создайте **правило для входящего трафика**, разрешающее входящий доступ к порту 9000.
-9. Если компьютер Windows подключен через маршрутизатор, то на этом маршрутизаторе нужно настроить преобразование сетевых адресов между внешним портом 9000 и портом 9000 на компьютере Windows. Это необходимо, чтобы служба Azure AD могла получить доступ к этой конечной точке в облаке.
+9. Если компьютер Windows подключен через маршрутизатор, то на этом маршрутизаторе нужно настроить преобразование сетевых адресов между внешним портом 9000 и портом 9000 на компьютере Windows. Эта конфигурация необходима, чтобы служба Azure AD могла получить доступ к этой конечной точке в облаке.
 
 **Регистрация примера конечной точки SCIM в Azure AD:**
 
 1. Войдите на [портал Azure](https://portal.azure.com). 
-2. Выберите **"Azure Active Directory > Корпоративные приложения", затем выберите **Новое приложение > Все > Приложение не из коллекции**.
+2. Перейдите к **Azure Active Directory > Корпоративные приложения** и выберите **Новое приложение > Все > Приложение не из коллекции**.
 3. Введите имя приложения и щелкните значок **Добавить**, чтобы создать объект приложения. Созданный объект приложения будет представлять не только конечную точку SCIM, но и все целевое приложение, для которого вы настраиваете подготовку пользователей и единый вход.
 4. На отобразившемся экране выберите вкладку **Подготовка** в левом столбце.
 5. В меню **Режим подготовки к работе** выберите **Автоматический**.
@@ -144,7 +145,7 @@ Azure Active Directory (Azure AD) может выполнять автомати
   ![][2]
   *Рисунок 4. Настройка автоматической подготовки пользователей на портале Azure*
     
-6. В поле **URL-адрес клиента** введите доступные в Интернете URL-адрес и порт конечной точки SCIM. Это будет строка типа http://testmachine.contoso.com:9000 или http://<IP-адрес>:9000 /, где <IP-адрес> является IP-адресом, доступным в Интернете.  
+6. В поле **URL-адрес клиента** введите доступные в Интернете URL-адрес и порт конечной точки SCIM. Это будет строка типа http://testmachine.contoso.com:9000 или http://<ip-address>:9000/, где <ip-address> является IP-адресом, доступным в Интернете.  
 7. Если конечной точке SCIM требуется токен носителя OAuth от издателя, отличного от Azure AD, скопируйте необходимый токен носителя OAuth в необязательное для заполнения поле **Секретный токен**. Если оставить это поле пустым, то Azure AD будет добавлять в каждый запрос токен носителя OAuth, выданный Azure AD. Приложения, использующие Azure AD в качестве поставщика удостоверений, могут проверить этот выданный Azure AD токен.
 8. Нажмите кнопку **Проверить подключение**. Azure Active Directory попробует подключиться к конечной точке SCIM. Если подключиться не удастся, отобразятся сведения об ошибке.  
 9. Если подключиться к приложению удалось, нажмите кнопку **Сохранить**, чтобы сохранить учетные данные администратора.
@@ -347,12 +348,12 @@ Azure Active Directory (Azure AD) может выполнять автомати
 ## <a name="user-and-group-schema"></a>Схема пользователей и групп
 Azure Active Directory может предоставлять веб-службе SCIM ресурсы двух типов.  Этими типами являются пользователи и группы.  
 
-Ресурсы пользователя определяются с помощью идентификатора схемы urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, который включен в эту спецификацию протокола: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Ниже в таблице 1 приводится используемое по умолчанию сопоставление атрибутов пользователей в Azure Active Directory и атрибутов ресурсов типа urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.  
+Ресурсы пользователя определяются с помощью идентификатора схемы "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", который включен в эту спецификацию протокола: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Ниже в таблице 1 приводится используемое по умолчанию сопоставление атрибутов пользователей в Azure Active Directory и атрибутов ресурсов типа "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User".  
 
 Ресурсы группы определяются с помощью идентификатора схемы http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Ниже в таблице 2 показано используемое по умолчанию сопоставление атрибутов групп в Azure Active Directory и атрибутов ресурсов http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Таблица 1. Сопоставление атрибутов пользователя по умолчанию
-| Пользователь Azure Active Directory | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Пользователь Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |активно |
 | displayName |displayName |

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e461eaebaafab6f8a95bed333928d017c540d4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895435"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Создание, изменение или удаление сетевых интерфейсов
 
 Узнайте, как создать и удалить сетевые интерфейсы, а также изменить их параметры. Сетевой интерфейс позволяет виртуальной машине Azure взаимодействовать с Интернетом, Azure и локальными ресурсами. При создании виртуальной машины с помощью портала Azure создается один сетевой интерфейс с параметрами по умолчанию. Вместо этого можно создать сетевые интерфейсы с пользовательскими параметрами и добавить один или несколько сетевых интерфейсов для виртуальной машины при ее создании. Кроме того, можно изменить параметры имеющегося сетевого интерфейса по умолчанию. В этой статье объясняется, как создавать сетевые интерфейсы с пользовательскими параметрами, изменять имеющиеся параметры, такие как назначенный сетевой фильтр (группы безопасности сети), назначенная подсеть, параметры DNS-сервера и IP-пересылка, и как удалять сетевые интерфейсы.
 
 При необходимости изучите инструкции по [добавлению, изменению и удалению IP-адресов](virtual-network-network-interface-addresses.md) для сетевого интерфейса. Если нужно добавить или удалить сетевые интерфейсы на виртуальных машинах, ознакомьтесь со статьей [Добавление и удаление сетевых интерфейсов виртуальных машин](virtual-network-network-interface-vm.md).
-
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/28/2018
 - При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell 5.4.1 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 - При использовании команд интерфейса командной строки Azure (CLI) для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/bash) или в интерфейсе командной строки на своем компьютере. Для этого руководства требуется Azure CLI 2.0.28 или более поздней версии. Выполните командлет `az --version`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). Если Azure CLI запущен локально, необходимо также выполнить командлет `az login`, чтобы создать подключение к Azure.
 
-Войдите на портал Azure с учетной записью, которой в подписке назначены как минимум разрешения роли "Участник сети". Дополнительные сведения о назначении ролей и разрешений учетным записям см. в статье [Встроенные роли для управления доступом на основе ролей в Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+Учетной записи, в которую вы входите или с помощью которой подключаетесь к Azure, должна быть назначена роль [Участник сетей](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [пользовательская роль](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json), которой назначены соответствующие действия, перечисленные в таблице [Разрешения](#permissions).
 
 ## <a name="create-a-network-interface"></a>Создание сетевого интерфейса
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 04/28/2018
     - **Свойства.** Здесь отображаются основные параметры сетевого интерфейса, включая MAC-адрес (остается пустым, если сетевой интерфейс не подключен к виртуальной машине), а также подписка, в которой он находится.
     - **Effective security rules** (Действующие правила безопасности). Правила безопасности указываются, если сетевой интерфейс подключен к работающей виртуальной машине, а NSG связана с сетевым интерфейсом, подсетью, которой он назначен, или и с тем, и с другим. Чтобы узнать больше о том, что отображено, изучите раздел [Создание, изменение или удаление сетевых интерфейсов](#view-effective-security-rules). Дополнительные сведения о группах безопасности сети см. в статье [Фильтрация сетевого трафика с помощью групп безопасности сети](security-overview.md).
     - **Effective routes** (Действующие маршруты). Маршруты указываются, если сетевой интерфейс подключен к работающей виртуальной машине. Маршруты представляют собой сочетание маршрутов Azure по умолчанию, любых определяемых пользователем маршрутов и всех маршрутов BGP, которые могут существовать для подсети, к которой подключен сетевой интерфейс. Чтобы узнать больше о том, что отображено, изучите раздел [Создание, изменение или удаление сетевых интерфейсов](#view-effective-routes). Чтобы узнать больше о маршрутах по умолчанию Azure и определяемых пользователем маршрутах, изучите раздел [Маршрутизация трафика в виртуальной сети](virtual-networks-udr-overview.md).
-    - **Общие параметры диспетчера ресурсов Azure**. Дополнительные сведения об общих параметрах диспетчера ресурсов Azure см. в документах о [журнале действий](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [контроле доступа (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [тегах](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [блокировках](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [скрипте службы автоматизации](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Общие параметры диспетчера ресурсов Azure**. Дополнительные сведения об общих параметрах диспетчера ресурсов Azure см. в документах о [журнале действий](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [контроле доступа (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [тегах](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [блокировках](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [скрипте службы автоматизации](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Команды**
 
@@ -204,7 +204,7 @@ DNS-сервер для сетевого интерфейса в ОС вирту
 
 ## <a name="resolve-connectivity-issues"></a>Устранение проблем с подключением
 
-Если не удается подключаться к виртуальной машине или из нее, возможно, причиной проблемы являются правила безопасности группы безопасности сети или маршруты, действующие для сетевого интерфейса. Доступны следующие варианты устранения проблемы.
+Если не удается подключиться к виртуальной машине или из нее, возможно, причиной проблемы являются правила безопасности группы безопасности сети или маршруты, действующие для сетевого интерфейса. Доступны следующие варианты устранения проблемы.
 
 ### <a name="view-effective-security-rules"></a>Просмотр действующих правил безопасности
 
@@ -240,11 +240,30 @@ DNS-сервер для сетевого интерфейса в ОС вирту
 - Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>Дополнительная информация
-Чтобы создать виртуальную машину с несколькими сетевыми интерфейсами или IP-адресами, изучите приведенные ниже статьи.
+## <a name="permissions"></a>Разрешения
 
-|Задача|Средство|
-|---|---|
-|Создание виртуальной машины с несколькими сетевыми адаптерами|[Интерфейс командной строки](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько IPv4-адресов|[Интерфейс командной строки](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Создание виртуальной машины с одним сетевым адаптером, которому назначен частный IPv6-адрес (обслуживаемый Azure Load Balancer).|[Интерфейс командной строки](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [шаблон Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Для выполнения задач с сетевыми интерфейсами учетной записи должна быть назначена роль [Участник сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [пользовательская](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) роль, которой назначены соответствующие разрешения, перечисленные в следующей таблице.
+
+| Действие                                                                     | ИМЯ                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | Получение сетевого интерфейса.                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Создание или обновление сетевого интерфейса.                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Подключение сетевого интерфейса к виртуальной машине.           |
+| Microsoft.Network/networkInterfaces/delete                                 | Удаление сетевого интерфейса.                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Присоединение ресурса к сетевому интерфейсу с помощью ассоциации службы.     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Получение действующей таблицы маршрутов сетевого интерфейса.               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Получение действующих групп безопасности сети для сетевого интерфейса.           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Получение подсистем балансировки нагрузки сетевого интерфейса.                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Получение ассоциации службы.                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Создание или обновление ассоциации службы.                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Удаление ассоциации службы.                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Проверка ассоциации службы.                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Получение конфигурации IP сетевого интерфейса.                    |
+
+## <a name="next-steps"></a>Дополнительная информация
+
+- Создайте виртуальную машину с несколькими сетевыми адаптерами с помощью [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Создайте виртуальную машину с одним сетевым адаптером и несколькими IPv4-адресами с помощью [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) или [PowerShell](virtual-network-multiple-ip-addresses-powershell.md).
+- Создайте виртуальную машину с одним сетевым адаптером и частным IPv6-адресом (управляемую Azure Load Balancer) с помощью [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [шаблона Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|.
+- Создайте сетевой интерфейс с помощью примеров сценариев [PowerShell](powershell-samples.md) или [Azure CLI](cli-samples.md) либо на основе [шаблонов Azure Resource Manager](template-samples.md).
+- Создайте и примените [политику Azure](policy-samples.md) для виртуальных сетей.
