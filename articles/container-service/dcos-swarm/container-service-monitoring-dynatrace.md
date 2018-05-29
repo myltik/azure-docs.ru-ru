@@ -1,19 +1,20 @@
 ---
-title: "Мониторинг кластера DC/OS Azure с помощью Dynatrace"
-description: "Мониторинг кластера DC/OS Службы контейнеров Azure с помощью Dynatrace. Развертывание Dynatrace OneAgent с помощью панели мониторинга DC/OS."
+title: Мониторинг кластера DC/OS Azure с помощью Dynatrace
+description: Мониторинг кластера DC/OS Службы контейнеров Azure с помощью Dynatrace. Развертывание Dynatrace OneAgent с помощью панели мониторинга DC/OS.
 services: container-service
 author: MartinGoodwell
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 52a8a05f050017f5062ff986bad7ec2e6a650aa5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162047"
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Dynatrace SaaS/Managed
 
@@ -27,7 +28,7 @@ DynaTrace — облачное решение для мониторинга, п�
 ![Пользовательский интерфейс Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>предварительным требованиям 
-[Разверните](container-service-deployment.md) кластер, настроенный Службой контейнеров Azure, и [подключитесь](./../container-service-connect.md) к нему. Изучите [пользовательский интерфейс Marathon](container-service-mesos-marathon-ui.md). Перейдите по адресу [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) для настройки учетной записи Dynatrace SaaS.  
+[Разверните](container-service-deployment.md) кластер, настроенный Службой контейнеров Azure, и [подключитесь](./../container-service-connect.md) к нему. Изучите [пользовательский интерфейс Marathon](container-service-mesos-marathon-ui.md). Перейдите на сайт [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) для настройки учетной записи Dynatrace SaaS.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Настройка развертывания Dynatrace с использованием Marathon
 Ниже описано, как настраивать и развертывать в кластере приложения Dynatrace с помощью Marathon.

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по настройке Salesforce для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Salesforce."
+title: Руководство по настройке Salesforce для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140467"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Руководство по настройке Salesforce для автоматической подготовки пользователей
 
@@ -28,8 +29,12 @@ ms.lasthandoff: 02/09/2018
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 *   клиент Azure Active Directory;
-*   У вас должен быть действительный клиент для работы с Salesforce for Work или Salesforce for Education. Для любой из этих служб можно воспользоваться бесплатной пробной учетной записью.
-*   Учетная запись пользователя в Salesforce с разрешениями администратора группы.
+*   клиент Salesforce.com.
+
+>[!IMPORTANT] 
+>Если вы используете пробную учетную запись Salesforce.com, то не сможете настроить автоматическую подготовку пользователей. У пробных учетных записей нет необходимых прав доступа к API. Вы можете обойти это ограничение, используя для выполнения заданий данного руководства [бесплатную учетную запись разработчика](https://developer.salesforce.com/signup).
+
+Если вы используете изолированную среду Salesforce, ознакомьтесь с [Учебником по интеграции с изолированной средой Salesforce](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Назначение пользователей в Salesforce
 
@@ -89,7 +94,7 @@ ms.lasthandoff: 02/09/2018
 
 10. Скопируйте маркер, перейдите к окну Azure AD и вставьте его в поле **Секретный токен**.
 
-11. **URL-адрес клиента** нужно вводить, если экземпляр Salesforce находится в облаке для государственных организаций Salesforce. В других случаях это необязательный параметр. Введите URL-адрес клиента в формате https://ваш_экземпляр.my.salesforce.com, заменив "ваш_экземпляр" именем экземпляра Salesforce.
+11. **URL-адрес клиента** нужно вводить, если экземпляр Salesforce находится в облаке для государственных организаций Salesforce. В других случаях это необязательный параметр. Введите URL-адрес клиента в формате https://your-instance.my.salesforce.com, заменив your-instance именем экземпляра Salesforce.
 
 12. На портале Azure щелкните **Проверить подключение**, чтобы убедиться, что Azure AD может подключиться к приложению Salesforce.
 

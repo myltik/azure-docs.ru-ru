@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с NetSuite | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Netsuite."
+title: Руководство по интеграции Azure Active Directory с NetSuite | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Netsuite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecbadd45f964e4d4d36dcf67cf85cd878f012150
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Руководство по интеграции Azure Active Directory с NetSuite
 
@@ -183,7 +184,7 @@ ms.lasthandoff: 12/11/2017
 
     c. Нажмите кнопку **Создать роль**.
 
-    d. Введите **имя** новой роли и установите флажок **Single Sign-On Only** (Только единый вход).
+    d. Введите **имя** для новой роли.
       
       ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -193,7 +194,7 @@ ms.lasthandoff: 12/11/2017
       
        ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    ж. Выберите **Set Up SAM Single Sign-on** (Настройка единого входа управления лицензиями) и нажмите кнопку **Add** (Добавить).
+    ж. Выберите **Set Up SAML Single Sign-on** (Настройка единого входа SAML) и нажмите кнопку **Добавить**.
 
     h. Выберите команду **Сохранить**.
 
@@ -215,10 +216,6 @@ ms.lasthandoff: 12/11/2017
 
     m. Выберите команду **Сохранить**.
     
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 

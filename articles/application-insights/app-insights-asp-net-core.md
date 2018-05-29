@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157148"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights для ASP.NET Core
 
@@ -187,13 +188,13 @@ Application Insights имеет очень низкие издержки. Что
 
    ![Снимок экрана: Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (Если скрипт PowerShell все еще выполняется, отобразятся динамические метрики, если он остановлен, снова запустите скрипт с открытой службой Live Stream.)
+   (Если сценарий PowerShell все еще выполняется, отобразятся динамические метрики; если он остановлен, снова запустите сценарий с открытой службой Live Stream.)
 
 ## <a name="app-insights-sdk-comparison"></a>Сравнение наличия функций в пакетах SDK App Insights
 
 Группа по продукту Application Insights работала над тем, чтобы добиться максимальной четности функциональных возможностей между [полным пакетом SDK для .NET Framework](https://github.com/Microsoft/ApplicationInsights-dotnet) и пакетом SDK для .NET Core. В [пакете SDK для ASP.NET Core версии 2.2.0](https://github.com/Microsoft/ApplicationInsights-aspnetcore) для Application Insights максимально минимизировано различие между функциями.
 
-Чтобы узнать больше о различиях и недостатках [.NET и .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server), просмотрите следующую таблицу.
+Чтобы узнать больше о различиях и недостатках [.NET и .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server), просмотрите следующую таблицу.
 
    | Сравнение пакетов SDK | ASP.NET:        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +204,7 @@ Application Insights имеет очень низкие издержки. Что
    | **Вызовов зависимостей SQL**     | **+** |**-** | **+**|
    | **Счетчики производительности*** | **+** | **-**| **-**|
 
-_Счетчики производительности_ в этом контексте относятся к [счетчикам производительности на стороне сервера](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters), например использование процессора, памяти и диска.
+_Счетчики производительности_ в этом контексте относятся к [счетчикам производительности на стороне сервера](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters), например использование процессора, памяти и диска.
 
 ## <a name="open-source-sdk"></a>Пакет SDK с открытым исходным кодом
 [Чтение кода и дополнительные наработки](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

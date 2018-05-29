@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158567"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Настройка пакета SDK для Application Insights с использованием файла ApplicationInsights.config или ApplicationInsights.xml
 Пакет SDK .NET Application Insights состоит из нескольких пакетов NuGet. [Основной пакет](http://www.nuget.org/packages/Microsoft.ApplicationInsights) предоставляет API для отправки телеметрии в Application Insights. [Дополнительные пакеты](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) предоставляют *модули* и *инициализаторы* телеметрии для автоматического отслеживания телеметрии вашего приложения и его контекста. При настройке файла конфигурации можно включить или отключить модули телеметрии и задать для них параметры.
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/23/2018
 В этом документе описываются разделы файла конфигурации и то, как они управляют компонентами пакета SDK. Кроме того, в нем содержатся сведения о пакетах NuGet, загружающих эти компоненты.
 
 > [!NOTE]
-> ApplicationInsights.config и XML-файлы инструкций не применяются к пакету SDK для .NET Core. Для изменений в приложении .NET Core обычно используется файл appsettings.json. Пример этого можно найти в [документации по Snapshot Debugger](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications).
+> ApplicationInsights.config и XML-файлы инструкций не применяются к пакету SDK для .NET Core. Для изменений в приложении .NET Core обычно используется файл appsettings.json. Пример этого можно найти в [документации по Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications).
 
 ## <a name="telemetry-modules-aspnet"></a>Модули телеметрии (ASP.NET)
 Каждый модуль телеметрии собирает определенный тип данных и использует основной API для их отправки. Модули устанавливаются разными пакетами NuGet, что также добавляет необходимые строки в CONFIG-файл.
