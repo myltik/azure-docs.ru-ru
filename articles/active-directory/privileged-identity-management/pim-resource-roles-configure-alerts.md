@@ -1,5 +1,5 @@
 ---
-title: Управление привилегированными пользователями для ресурсов Azure — оповещения безопасности | Документация Майкрософт
+title: Управление оповещениями безопасности для ресурсов Azure с помощью управления привилегированными пользователями | Документация Майкрософт
 description: Описание оповещений безопасности в PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,20 +13,22 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 86c9a0f12b2598ffbd02810a11622b13b0363a1f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149191"
 ---
-# <a name="privileged-identity-management---resource-roles---alerts"></a>Управление привилегированными пользователями — роли ресурсов — оповещения
-Управление привилегированными пользователями (PIM) для ресурсов Azure позволяет создавать оповещения при обнаружении в среде подозрительных или небезопасных действий. Активированные оповещения отображаются на странице "Оповещения". 
+# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Управление оповещениями безопасности для ресурсов Azure с помощью управления привилегированными пользователями
+Управление привилегированными пользователями (PIM) для ресурсов Azure создает оповещения при возникновении подозрительных или небезопасных действий в вашей среде. Активированные оповещения отображаются на странице "Оповещения". 
 
-![](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Страница оповещений](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## <a name="review-alerts"></a>Просмотр оповещений
-Выберите оповещение, чтобы просмотреть список пользователей или ролей, активировавших предупреждение, и рекомендации для его устранения.
-![](media/azure-pim-resource-rbac/rbac-alert-info.png)
+Выберите оповещение, чтобы просмотреть список пользователей или ролей, вызвавших предупреждение, а также рекомендации по исправлению.
+
+![Отчет об оповещении](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Оповещения
 | Предупреждение | Уровень серьезности | Триггер | Рекомендации |
@@ -42,8 +44,8 @@ ms.lasthandoff: 04/06/2018
 * **Низкий**: немедленное действие не требуется, но предлагается рекомендуемое изменение политики.
 
 ## <a name="configure-security-alert-settings"></a>Настройка параметров оповещений системы безопасности
-Со страницы оповещений перейдите к параметрам.
-![](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+Со страницы оповещений перейдите к **параметрам**.
+![Параметры](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
 
 Настройте для оповещений параметры, которые подходят для вашей среды и целей безопасности.
-![](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Настройка параметров](media/azure-pim-resource-rbac/rbac-alert-settings.png)

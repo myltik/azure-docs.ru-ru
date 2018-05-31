@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940143"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Копирование данных из Netezza с помощью фабрики данных Azure (бета-версия)
 
@@ -50,6 +51,13 @@ ms.lasthandoff: 03/23/2018
 | Тип | Для свойства type необходимо задать значение **Netezza**. | Yes |
 | connectionString | Строка для подключения к Netezza через интерфейс ODBC. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать локальную среду выполнения интеграции или среду выполнения интеграции Azure (если хранилище данных является общедоступным). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
+
+Типичная строка подключения — `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Дополнительные свойства, которые вы можете установить в вашем случае:
+
+| Свойство | ОПИСАНИЕ | Обязательно |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | Уровень безопасности (SSL/TLS), который драйвер использует для подключения к хранилищу данных. (например, `SecurityLevel=preferredSecured`. Поддерживаемые значения:<br/>— Только незащищенный (**onlyUnSecured**): драйвер не использует SSL.<br/>- **Предпочтительно незащищенный (preferredUnSecured) (по умолчанию)**: если сервер предоставляет возможность выбора, драйвер не использует SSL. <br/>- **Предпочтительно защищенный (preferredSecured)**: если сервер предоставляет возможность выбора, драйвер использует SSL. <br/>- **Только защищенный (onlySecured)**: драйвер не подключается, если SSL-подключение недоступно. | Нет  |
+| CaCertFile | Полный путь к SSL-сертификату, используемому сервером. (например, `UseSystemTrustStore=<cert path>;`| Да, если протокол SSL включен |
 
 **Пример.**
 

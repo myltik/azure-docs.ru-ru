@@ -13,6 +13,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31531061"
 ---
 Ниже описаны распространенные сценарии выделения ресурсов, которые приводят к закреплению запросов на выделение. Каждый сценарий мы более подробно рассмотрим ниже.
 
@@ -79,7 +80,7 @@ GeneralError*
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Промежуточное и рабочее развертывание (только для "платформы как услуги")
 **Ошибка**
 
-New_General* или New_VMSizeNotSupported*
+New_General* или New_VMSizeNotSupported\*
 
 **Причина прикрепления к кластеру**
 
@@ -92,7 +93,7 @@ New_General* или New_VMSizeNotSupported*
 ## <a name="affinity-group-vmservice-proximity"></a>Территориальная группа (взаимодействие с виртуальными машинами или службами)
 **Ошибка**
 
-New_General* или New_VMSizeNotSupported*
+New_General* или New_VMSizeNotSupported\*
 
 **Причина прикрепления к кластеру**
 
@@ -105,7 +106,7 @@ New_General* или New_VMSizeNotSupported*
 ## <a name="affinity-group-based-virtual-network"></a>Виртуальная сеть на основе группы сходства
 **Ошибка**
 
-New_General* или New_VMSizeNotSupported*
+New_General* или New_VMSizeNotSupported\*
 
 **Причина прикрепления к кластеру**
 
