@@ -1,13 +1,13 @@
 ---
-title: "Преобразование хранилища управляемых дисков Azure с уровня \"Стандартный\" до уровня \"Премиум\" и наоборот | Документация Майкрософт"
-description: "Преобразование хранилища управляемых дисков Azure с уровня \"Стандартный\" до уровня \"Премиум\" и наоборот с помощью Azure PowerShell."
+title: Преобразование хранилища управляемых дисков Azure с уровня "Стандартный" до уровня "Премиум" и наоборот | Документация Майкрософт
+description: Преобразование хранилища управляемых дисков Azure с уровня "Стандартный" до уровня "Премиум" и наоборот с помощью Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: ramankum
 manager: kavithag
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 407cfe7d9eee4e226938f383c04bb359a17290fc
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 19979240e13ac822921b7f43a158d171aeea0123
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365242"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Преобразование хранилища управляемых дисков Azure с уровня "Стандартный" до уровня "Премиум" и наоборот
 
@@ -31,6 +32,7 @@ ms.lasthandoff: 01/09/2018
 
 * Процесс преобразования требует перезагрузки виртуальной машины, поэтому запланируйте перенос хранилища дисков на предварительно установленный период обслуживания. 
 * При использовании неуправляемых дисков сначала [преобразуйте их в управляемые диски](convert-unmanaged-to-managed-disks.md), чтобы воспользоваться приведенными в этой статье сведениями о переключении между двумя вариантами хранения. 
+* Для работы с этой статьей требуется модуль Azure PowerShell 6.0.0 или более поздней версии. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Кроме того, нужно выполнить команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Преобразование всех управляемых дисков на виртуальной машине с уровня "Стандартный" до уровня "Премиум" и наоборот

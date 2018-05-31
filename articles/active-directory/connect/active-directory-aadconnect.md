@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 73baef03f7b240e7bb33f3d5f827b1fc72c985f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 128a6bffe4e604eb4e02a10f13d561a336fc8c61
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354424"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Интеграция локальных каталогов с Azure Active Directory
 Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для приложений Office 365, Azure и программного обеспечения как услуги (SaaS), интегрированных с Azure AD. В этом разделе описаны шаги планирования, развертывания и использования. Здесь представлена коллекция ссылок на статьи, относящиеся к этой области.
@@ -146,7 +147,7 @@ Azure AD Connect поставляется с несколькими функци
 
 В AD FS можно настроить поддержку [нескольких доменов](active-directory-aadconnect-multiple-domains.md). Например, у вас может быть несколько доменов верхнего уровня, которые необходимо использовать для федерации.
 
-Если на сервере AD FS не настроено автоматическое обновление сертификатов из Azure AD или используется решение, отличное от AD FS, при необходимости [обновления сертификатов](active-directory-aadconnect-o365-certs.md)появится соответствующее уведомление.
+Если на сервере AD FS не настроено автоматическое обновление сертификатов из Azure AD или используется решение, отличное от AD FS, при необходимости [обновления сертификатов](active-directory-aadconnect-o365-certs.md) появится соответствующее уведомление.
 
 ### <a name="next-steps-to-configure-federation-features"></a>Дальнейшие действия по настройке функций федерации
 |Раздел |Ссылка|  

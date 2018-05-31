@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с QuickHelp | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и QuickHelp."
+title: Руководство по интеграции Azure Active Directory с QuickHelp | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и QuickHelp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4a7bc895e2ee9b4a66bc59f309971c577be8019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb51a61ebe67f583b47ad516ddb40cd5b84b905
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Руководство. Интеграция Azure Active Directory с QuickHelp
 
@@ -110,12 +111,12 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_url.png)
 
-    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://quickhelp.com/<instancename>/#/Login`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://quickhelp.com/<ROUTEURL>`
 
-    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.quickhelp.com`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес: `https://auth.quickhelp.com`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь к [группе поддержки QuickHelp](https://support.quickhelp.com/). 
+    > Значение URL-адреса входа приведено для примера. Вместо него необходимо указать фактический URL-адрес входа. Обратитесь к администратору QuickHelp вашей организации или менеджеру по работе с клиентами BrainStorm, чтобы получить это значение.
  
 4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -152,10 +153,6 @@ ms.lasthandoff: 12/11/2017
     д. В текстовое поле **Last Name** (Фамилия) введите `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. На **панели действий** щелкните **Save** (Сохранить).
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.

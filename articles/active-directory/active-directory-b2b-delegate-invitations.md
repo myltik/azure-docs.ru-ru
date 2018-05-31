@@ -1,26 +1,21 @@
 ---
-title: "Делегирование приглашений для службы совместной работы Azure Active Directory B2B | Документация Майкрософт"
-description: "Свойства пользователя службы совместной работы Azure Active Directory B2B можно настраивать."
+title: Делегирование приглашений для службы совместной работы Azure Active Directory B2B | Документация Майкрософт
+description: Свойства пользователя службы совместной работы Azure Active Directory B2B можно настраивать.
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: facf0f62823c84742986c9fb585990d7fedb2ab1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a4a1303c3992b8c576650859eea65591392b9b20
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929305"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Делегирование приглашений для службы совместной работы Azure Active Directory B2B
 
@@ -50,15 +45,10 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Другие статьи о службе совместной работы Azure AD B2B:
+Другие статьи о службе совместной работы Azure AD B2B перечислены ниже.
 
-* [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Свойства пользователя службы совместной работы Azure Active Directory B2B](active-directory-b2b-user-properties.md)
-* [Добавление пользователя службы совместной работы Azure Active Directory B2B в роль](active-directory-b2b-add-guest-to-role.md)
-* [Динамические группы и служба совместной работы Azure Active Directory B2B](active-directory-b2b-dynamic-groups.md)
-* [Примеры кода и команд PowerShell для службы совместной работы Azure Active Directory B2B](active-directory-b2b-code-samples.md)
-* [Настройка приложений SaaS для службы совместной работы B2B](active-directory-b2b-configure-saas-apps.md)
-* [Основные сведения о токенах пользователей в службе совместной работы Azure Active Directory B2B](active-directory-b2b-user-token.md)
-* [Сопоставление утверждений пользователя службы совместной работы B2B в Azure Active Directory](active-directory-b2b-claims-mapping.md)
-* [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
-* [Текущие ограничения службы совместной работы Azure Active Directory B2B](active-directory-b2b-current-limitations.md)
+- [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Add B2B collaboration guest users without an invitation](active-directory-b2b-add-user-without-invite.md) (Добавление гостевых пользователей службы совместной работы B2B без приглашения)
+- [Добавление пользователя службы совместной работы Azure Active Directory B2B в роль](active-directory-b2b-add-guest-to-role.md)
+
+

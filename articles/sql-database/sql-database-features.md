@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895577"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Сравнение функций Базы данных SQL Azure и SQL Server 
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/16/2018
 | [Автономные пользователи](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Yes | Yes |
 | [Ключевые слова языка управления потоком](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Yes | Yes |
 | [Запросы баз данных](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет. См. раздел [Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)](sql-database-elastic-query-overview.md). | Да, включая [эластичные запросы](sql-database-elastic-query-overview.md). |
-| [Межбазовые транзакции](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет  | Yes |
+| [Межбазовые транзакции](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет  | Да — ознакомьтесь с [отличиями связанного сервера](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#linked-servers). |
 | [Курсоры](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Yes |Yes | 
 | [Сжатие данных](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Yes |Yes |
 | [Компонент Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Нет  | Yes |
@@ -69,8 +70,8 @@ ms.lasthandoff: 04/16/2018
 | [Инструкции языка DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Yes | Yes |
 | [Триггеры DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Большинство. Дополнительные сведения см. в разделах по отдельным инструкциям. |  Yes |
 | [Динамические административные представления](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Большинство. Ознакомьтесь с разделами об отдельных динамических административных представлениях. |  Да. См. раздел [T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Отличия T-SQL от SQL Server). |
-|[Динамическое маскирование данных](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Да](sql-database-dynamic-data-masking-get-started.md)| Yes |
-| [Эластичные пулы](sql-database-elastic-pool.md) | Yes | У отдельного управляемого экземпляра может быть несколько баз данных, которые совместно используют один пул ресурсов. |
+|[Динамическое маскирование данных](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Да](sql-database-dynamic-data-masking-get-started.md)| [Да](sql-database-dynamic-data-masking-get-started.md) |
+| [Эластичные пулы](sql-database-elastic-pool.md) | Yes | Встроенная функция. У отдельного управляемого экземпляра может быть несколько баз данных, которые совместно используют один пул ресурсов. |
 | [Уведомления о событиях](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Нет. Дополнительные сведения см. в статье [Создание оповещений для базы данных SQL Azure и хранилища данных с помощью портала Azure](sql-database-insights-alerts-portal.md). | Yes |
 | [Выражения](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Расширенные события](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Некоторые дополнительные сведения см. в статье [Расширенные события в Базе данных SQL](sql-database-xevent-db-diff-from-svr.md) | Да. См. раздел [Extended events](sql-database-managed-instance-transact-sql-information.md#extended-events) (Расширенные события). |
@@ -83,7 +84,7 @@ ms.lasthandoff: 04/16/2018
 | [Георепликация](sql-database-geo-replication-overview.md) | Yes | Нет  |
 | [Обработка Graph](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Yes | Yes |
 | [Оптимизация в памяти](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Да, [только в категориях "Премиум" и "Критически важный для бизнеса"](sql-database-in-memory.md). | Нет  |
-| [Поддержка данных JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Yes | Yes |
+| [Поддержка данных JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Да](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Да](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Элементы языка](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Большинство. Дополнительные сведения см. в разделах по отдельным элементам. |  Да. См. раздел [T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Отличия T-SQL от SQL Server). |
 | [Связанные серверы](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет. Дополнительные сведения см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md). | Только в SQL Server и Базе данных SQL |
 | [Доставка журналов](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Функция высокого уровня доступности](sql-database-high-availability.md) включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-business-continuity.md). |[Функция высокого уровня доступности](sql-database-high-availability.md) включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-business-continuity.md). |
@@ -103,7 +104,7 @@ ms.lasthandoff: 04/16/2018
 | [Управление на основе политик](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Нет  | Нет  |
 | [Предикаты](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Yes | Yes |
 | [Службы R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Предварительная версия. Ознакомьтесь с разделом [Новые возможности службы обучения машины в SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services).  | Нет  |
-| [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Нет  | Нет  |
+| [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Нет  | Yes |
 | [Инструкции RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Нет  | Да. См. раздел [RESTORE statement](sql-database-managed-instance-transact-sql-information.md#restore-statement) (Инструкция RESTORE). |
 | [Восстановление базы данных из резервной копии](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Только из создаваемых автоматически резервных копий. См. раздел [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md). | Из создаваемых автоматически резервных копий (см. раздел [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md)) и полных резервных копий (см. раздел [Backup](sql-database-managed-instance-transact-sql-information.md#backup) (Резервное копирование)). |
 | [Безопасность на уровне строк](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Yes | Yes |
@@ -132,7 +133,7 @@ ms.lasthandoff: 04/16/2018
 | [Системные таблицы](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Некоторые. Дополнительные сведения см. в разделах по отдельным таблицам. | Да. См. раздел [T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Отличия T-SQL от SQL Server). |
 | [Представления системных каталогов](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Некоторые. Дополнительные сведения см. в разделах по отдельным представлениям. | Да. См. раздел [T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Отличия T-SQL от SQL Server). |
 | [Временные таблицы](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Глобальные временные таблицы, хранимые локально, или для конкретных баз данных | Глобальные временные таблицы, хранимые локально, или для конкретных экземпляров |
-| [Временные таблицы](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Yes | Yes |
+| [Временные таблицы](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Да](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) | [Да](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) |
 |Обнаружение угроз|  [Да](sql-database-threat-detection.md)|[Да](sql-database-managed-instance-threat-detection.md)|
 | [Флаги трассировки](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Нет  | Нет  |
 | [Переменные](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Yes | Yes |

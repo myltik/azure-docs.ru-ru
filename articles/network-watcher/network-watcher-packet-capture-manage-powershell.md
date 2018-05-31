@@ -1,11 +1,11 @@
 ---
-title: "Наблюдатель за сетями Azure: управление записью пакетов с помощью PowerShell | Документация Майкрософт"
-description: "На этой странице объясняется, как управлять функцией записи пакетов службы наблюдения за сетями с помощью PowerShell"
+title: 'Наблюдатель за сетями Azure: управление записью пакетов с помощью PowerShell | Документация Майкрософт'
+description: На этой странице объясняется, как управлять функцией записи пакетов службы наблюдения за сетями с помощью PowerShell
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: b27e0684b0914764f22b59e050e75c7be3a82cc6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6ffb1aec91899b54a153e264e346910caee84cc0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186789"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Управление записью пакетов с помощью Наблюдателя за сетями Azure в PowerShell
 
@@ -266,7 +267,7 @@ Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -Packe
 
 ## <a name="download-a-packet-capture"></a>Скачивание записи пакета
 
-После завершения сеанса записи пакета файл записи можно передать в хранилище BLOB-объектов или в локальный файл на виртуальной машине. Место хранения записи пакетов определяется при создании сеанса. Удобное средство для доступа к этим файлам записи, сохраненным в учетной записи хранения — обозреватель службы хранилища Microsoft Azure, который можно скачать по адресу http://storageexplorer.com/.
+После завершения сеанса записи пакета файл записи можно передать в хранилище BLOB-объектов или в локальный файл на виртуальной машине. Место хранения записи пакетов определяется при создании сеанса. Удобное средство для доступа к этим файлам записи, сохраненным в учетной записи хранения, — обозреватель службы хранилища Microsoft Azure, который можно скачать по адресу http://storageexplorer.com/
 
 При указании учетной записи хранения файлы записи пакетов сохраняются в ней по следующему адресу:
 
@@ -278,7 +279,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Узнайте, как автоматизировать запись пакетов, используя оповещения на виртуальной машине, в статье [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) (Создание записи пакетов, активируемой с использованием оповещений).
 
-Сведения о состоянии (разрешен или запрещен) входящего и исходящего трафика виртуальной машины см. в статье [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md) (Проверка потока IP-адресов).
+Сведения о состоянии (разрешен или запрещен) входящего и исходящего трафика виртуальной машины см. в статье [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md) (Проверка потока IP-адресов).
 
 <!-- Image references -->
 

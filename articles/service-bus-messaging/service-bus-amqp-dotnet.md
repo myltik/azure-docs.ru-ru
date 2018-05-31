@@ -1,11 +1,11 @@
 ---
-title: "Служебная шина и .NET с протоколом AMQP 1.0 | Документация Майкрософт"
-description: "Использование служебной шины Azure на платформе .NET с протоколом AMQP"
+title: Использование служебной шины Azure на платформе .NET с протоколом AMQP 1.0 | Документация Майкрософт
+description: Использование служебной шины Azure на платформе .NET с протоколом AMQP
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188503"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Использование служебной шины на платформе .NET с протоколом AMQP 1.0
 
@@ -94,14 +95,9 @@ ms.lasthandoff: 12/22/2017
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | Интервал времени |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Неподдерживаемые функции, ограничения и различия в поведении
+## <a name="behavioral-differences"></a>Различия в поведении
 
-Следующие функции API служебной шины .NET в настоящее время не поддерживаются при использовании AMQP:
-
-* Транзакции
-* Отправка через место назначения передачи
-
-Существуют также некоторые различия в поведении API .NET служебной шины при использовании AMQP в сравнении с протоколом по умолчанию:
+Существуют некоторые различия в поведении API .NET служебной шины при использовании AMQP в сравнении с протоколом по умолчанию.
 
 * Свойство [OperationTimeout][OperationTimeout] игнорируется.
 * `MessageReceiver.Receive(TimeSpan.Zero)` реализуется в виде `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.

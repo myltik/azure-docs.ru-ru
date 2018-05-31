@@ -1,11 +1,11 @@
 ---
-title: "Использование приложения Node.js с Socket.IO в Azure"
-description: "Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure."
+title: Использование приложения Node.js с Socket.IO в Azure
+description: Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011321"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Создание приложения чата Node.js с помощью Socket.IO в облачной службе Azure
 
@@ -61,7 +62,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 1. Создайте локальную копию репозитория с помощью кнопки **Клонировать** . Можно также загрузить проект при помощи кнопки **ZIP** .
    
-   ![Окно браузера со страницей https://github.com/LearnBoost/socket.io/tree/master/examples/chat с подсвеченным значком загрузки ZIP.][chat-example-view]
+   ![Просмотр окна браузера https://github.com/LearnBoost/socket.io/tree/master/examples/chat с выделенным значком загрузки ZIP-архива][chat-example-view]
 2. Перемещайтесь по структуре каталога локального репозитория, пока не доберетесь до каталога **examples\\chat**. Скопируйте содержимое этого каталога в ранее созданный каталог **C:\\node\\chatapp\\WorkerRole1**.
    
    ![Обозреватель с извлеченным из архива содержимым каталога examples\\chat][chat-contents]

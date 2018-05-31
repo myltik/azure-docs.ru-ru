@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b7141d028c496b75b061c17aa19ad6c73c0588c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32164420"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Подключение учетной записи Google Cloud Platform
 
@@ -24,7 +25,7 @@ ms.lasthandoff: 03/09/2018
 
 Начните сбор сведений о проекте.
 
-1. Войдите в консоль Google Cloud Platform по адресу [https://console.cloud.google.com](https://console.cloud.google.com).
+1. Войдите в консоль Google Cloud Platform по адресу[https://console.cloud.google.com](https://console.cloud.google.com).
 2. Просмотрите сведения о проекте, который необходимо реализовать в службе "Управление затратами", и отметьте **имя проекта** и **идентификатор проекта**. Сохраните данные для использования на следующих шагах.  
     ![Консоль Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Если выставление счетов не включено и не связано с проектом, создайте учетную запись выставления счетов. Дополнительные сведения см. в разделе [Создание учетной записи выставления счетов](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
@@ -59,7 +60,7 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="add-a-google-cloud-account-to-cost-management"></a>Добавление учетной записи Google Cloud в службу "Управление затратами"
 
-1. Откройте портал Cloudyn из портала Azure или перейдите по адресу [https://azure.cloudyn.com](https://azure.cloudyn.com/) и выполните вход.
+1. Откройте портал Cloudyn с портала Azure или перейдите по адресу [https://azure.cloudyn.com](https://azure.cloudyn.com/) и выполните вход.
 2. Щелкните **Параметры** (значок шестеренки), а затем выберите **Cloud Accounts** (Облачные учетные записи).
 3. На странице **управления учетными записями** выберите вкладку **Google Accounts** (Учетные записи Google), а затем щелкните **Add new +** (Добавить новый элемент +).
 4. В поле **Google Account Name** (Имя учетной записи Google) введите адрес электронной почты для учетной записи выставления счетов, а затем щелкните **Далее**.

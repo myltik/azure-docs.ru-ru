@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ab2cc7a0fa86becc00044cd24151822138e23a67
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ce35db90e49e0d2861dd71e80ac61f05db607338
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365072"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Руководство. Установка приложений в масштабируемые наборы виртуальных машин с помощью Azure PowerShell
 Для запуска приложений в экземплярах виртуальных машин в масштабируемом наборе необходимо сначала установить компоненты и необходимые файлы этих приложений. Из предыдущего руководства вы узнали, как создать и использовать настраиваемый образ виртуальной машины для развертывания экземпляров виртуальных машин. Этот настраиваемый образ включал ручную установку и конфигурацию приложения. Также можно автоматизировать установку приложений в масштабируемом наборе после развертывания каждого экземпляра виртуальной машины или обновить приложение, которое уже выполняется в масштабируемом наборе. Из этого руководства вы узнали, как выполнять такие задачи:
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, для работы с этим руководством необходима версия модуля Azure PowerShell версии 5.6.0 или более поздней. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 6.0.0 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Что такое расширение пользовательских скриптов Azure?
@@ -46,13 +47,7 @@ ms.lasthandoff: 04/19/2018
 
 
 ## <a name="create-a-scale-set"></a>Создание масштабируемого набора
-Первым делом настройте имя и пароль администратора для экземпляров виртуальных машин с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
-
-```azurepowershell-interactive
-$cred = Get-Credential
-```
-
-Теперь создайте масштабируемый набор виртуальных машин с помощью командлета [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Чтобы распределить трафик между отдельными экземплярами виртуальных машин, создается еще и подсистема балансировки нагрузки. Подсистема балансировки нагрузки определяет правила передачи трафика на TCP-порт 80, а также разрешает подключение удаленного рабочего стола трафик через TCP-порт 3389 и удаленное взаимодействие PowerShell через TCP-порт 5985:
+Теперь создайте масштабируемый набор виртуальных машин с помощью командлета [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Чтобы распределить трафик между отдельными экземплярами виртуальных машин, создается еще и подсистема балансировки нагрузки. Подсистема балансировки нагрузки определяет правила передачи трафика на TCP-порт 80, а также разрешает подключение удаленного рабочего стола трафик через TCP-порт 3389 и удаленное взаимодействие PowerShell через TCP-порт 5985. При появлении запроса введите учетные данные администратора для экземпляров виртуальных машин в масштабируемом наборе:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -63,7 +58,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -Credential $cred
+  -UpgradePolicyMode "Automatic"
 ```
 
 Создание и настройка всех ресурсов и виртуальных машин масштабируемого набора занимает несколько минут.

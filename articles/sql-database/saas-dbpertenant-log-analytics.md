@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942065"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Настройка и использование Log Analytics с мультитенантным приложением SaaS для Базы данных SQL
 
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/20/2018
 
 Log Analytics — это отдельная служба, которую необходимо настроить. Log Analytics собирает данные журнала, телеметрии и метрик в рабочей области Log Analytics. Рабочую область Log Analytics нужно создать, как и другие ресурсы в Azure. Рабочую область не обязательно создавать в одной группе ресурсов с приложением, которое она отслеживает. Однако зачастую это самый оптимальный вариант. Использование одной группы ресурсов с приложением Wingtip Tickets гарантирует, что рабочая область удаляется вместе с приложением.
 
-1. В интегрированной среде сценариев PowerShell откройте файл *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\**Demo-LogAnalytics.ps1***.
+1. В интегрированной среде сценариев PowerShell откройте файл *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
 2. Нажмите клавишу F5 для запуска сценария.
 
 Теперь можно открыть Log Analytics на портале Azure или на портале Operations Management Suite. Для сбора данных телеметрии и их отображения в рабочей области Log Analytics требуется несколько минут. Чем дольше выполняется сбор системных данных диагностики, тем содержательнее результат. 

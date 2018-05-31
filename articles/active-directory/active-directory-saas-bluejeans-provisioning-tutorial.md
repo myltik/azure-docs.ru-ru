@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 55a907bdab57ce73533361782a3890466e3076ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 522d94e2a6fbd8e7eb32941e2cab59de7b28384c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337254"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Руководство по настройке BlueJeans для автоматической подготовки пользователей
 
@@ -144,10 +145,14 @@ ms.lasthandoff: 03/08/2018
 
 Дополнительные сведения о чтении журналов подготовки Azure AD см. в руководстве по [отчетам об автоматической подготовке учетных записей](./active-directory-saas-provisioning-reporting.md).
 
+## <a name="connector-limitations"></a>Ограничения соединителя
+
+* В Bluejeans нельзя использовать имена пользователей длиннее 30 знаков.
+
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

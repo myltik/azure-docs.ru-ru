@@ -8,15 +8,16 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149269"
 ---
-# <a name="add-a-service-principle-to-the-server-administrator-role"></a>Добавление субъекта-службы к роли администратора сервера 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Добавление субъекта-службы к роли администратора сервера 
 
- Чтобы автоматизировать задачи PowerShell, выполняемые без участия пользователя, субъекту-службе требуется предоставить разрешения **администратора сервера** на управляемом сервере Analysis Services. В этой статье объясняется, как добавить субъект-службу к роли администратора сервера на сервере Azure Analysis Services.
+ Чтобы автоматизировать задачи PowerShell, выполняемые без участия пользователя, субъекту-службе должны быть предоставлены разрешения **администратора сервера** на управляемом сервере Analysis Services. В этой статье описывается, как добавить субъект-службу к роли администратора сервера на сервере Azure AS.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 Прежде чем приступить к этой задаче, нужно зарегистрировать субъект-службу в Azure Active Directory.
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="required-permissions"></a>Необходимые разрешения
 Для выполнения этой задачи вам потребуются разрешения [администратора сервера](analysis-services-server-admins.md) на сервере Azure Analysis Services. 
 
-## <a name="add-service-principle-to-server-administrators-role"></a>Добавление субъекта-службы к роли администратора сервера
+## <a name="add-service-principal-to-server-administrators-role"></a>Добавление субъекта-службы к роли администратора сервера
 
 1. В среде SSMS подключитесь к серверу Azure Analysis Services.
 2. Выберите **Свойства сервера** > **Безопасность** и нажмите кнопку **Добавить**.

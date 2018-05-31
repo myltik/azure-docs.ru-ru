@@ -1,29 +1,34 @@
 ---
-title: "Справочник по API аудита Azure Active Directory | Документация Майкрософт"
-description: "Как начать работу с API аудита Azure Active Directory"
+title: Справочник по API аудита Azure Active Directory | Документация Майкрософт
+description: Как начать работу с API аудита Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e620a7f488e51a60bff6943135831eea0d12816d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158053"
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Справочник по API аудита Azure Active Directory
-Эта статья входит в серию статей об API отчетов Azure Active Directory.  
-Инструмент создания отчетов Azure AD предоставляет API, с помощью которого можно получить доступ к данным аудита, используя код или связанные инструменты.
+
+> [!TIP] 
+> Ознакомьтесь с новым интерфейсом API Microsoft Graph для [отчетности](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), который в конечном итоге заменит этот API. 
+
+
+Эта статья входит в серию статей об API отчетов Azure Active Directory. Инструмент создания отчетов Azure AD предоставляет API, с помощью которого можно получить доступ к данным аудита, используя код или связанные инструменты.
 Цель этой статьи — предоставить справочные сведения об **API аудита**.
 
 См.:
@@ -35,37 +40,36 @@ ms.lasthandoff: 01/16/2018
 
 Сведения:
 
-- Ответы на вопросы см. в разделе [Часто задаваемые вопросы](active-directory-reporting-faq.md). 
+- Ответы на часто задаваемые вопросы читайте в разделе [вопросы и ответы](active-directory-reporting-faq.md) 
 
-- При возникновении проблем [создайте запрос в службу поддержки](active-directory-troubleshooting-support-howto.md). 
+- При возникновении проблем [отправьте запрос в службу поддержки](active-directory-troubleshooting-support-howto.md) 
 
 
 ## <a name="who-can-access-the-data"></a>Кто может получить доступ к данным?
 * Пользователи с ролью администратора безопасности или читателя безопасности
 * Глобальные администраторы
-* Любое приложение с разрешением на доступ к API (авторизацию приложения можно настроить только на основе разрешения глобального администратора)
+* Любое приложение, имеющее разрешение на доступ к API (авторизация приложения может быть настроена только на основании разрешения глобального администратора)
 
 ## <a name="prerequisites"></a>предварительным требованиям
-Для доступа к этому отчету с помощью API отчетов нужно:
+Чтобы получить доступ к этому отчету через API, вам нужно:
 
-* установить [Azure Active Directory Free или более поздней версии](active-directory-editions.md)
+* установить [Azure Active Directory Free или более поздней версии](active-directory-whatis.md)
 * выполнить [предварительные требования для доступа к API отчетов Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Получение доступа к API
-Получить доступ к API можно с помощью [песочницы Graph](https://graphexplorer2.cloudapp.net) или программным путем, используя, например, PowerShell. Чтобы программа PowerShell правильно интерпретировала синтаксис фильтров OData, используемых в вызовах REST AAD Graph, необходимо использовать обратный апостроф и отделить знак $ escape-символами. Обратный апостроф выступает в качестве [escape-символа PowerShell](https://technet.microsoft.com/library/hh847755.aspx), позволяя PowerShell выполнить точную интерпретацию знака $ и не спутать его с именем переменной PowerShell (т. е. $filter).
+Получить доступ к API можно с помощью [песочницы Graph](https://graphexplorer2.cloudapp.net) или программным путем, используя, например, PowerShell. Чтобы программа PowerShell правильно интерпретировала синтаксис фильтров OData, используемых в вызовах REST AAD Graph, необходимо использовать обратный апостроф и отделить знак $ escape-символами. Обратный апостроф выступает в качестве [escape-символа PowerShell](https://technet.microsoft.com/library/hh847755.aspx), позволяя PowerShell выполнить точную интерпретацию знака $ и не спутать его с именем переменной PowerShell (например, $filter).
 
-В этой статье внимание уделяется Graph Explorer. Пример PowerShell см. в этом [сценарии PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
+Основное внимание в этой статье уделяется Graph Explorer. Пример PowerShell см. в этом [сценарии PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Конечная точка API
+
 Доступ к этому API можно получить, используя следующий URI:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-Количество записей, возвращаемых API аудита Azure AD (с помощью разбиения на страницы OData), не ограничено.
-Сведения о периоде удержания данных отчетов приведены в статье [Политики периода удержания отчетов](active-directory-reporting-retention.md).
+Нет ограничений на количество записей, возвращаемых API аудита Azure AD (с использованием разбиения на страницы OData). Пределы хранения данных отчетности см. в разделе [отчеты политики хранения](active-directory-reporting-retention.md).
 
-Этот вызов возвращает данные в пакетах. В каждом пакете содержится не более 1000 записей.  
-Чтобы получить следующий пакет записей, используйте ссылку "Следующий". Получите сведения о маркере пропуска из первого набора полученных записей. Маркер пропуска можно найти в конце результирующего набора.  
+Этот вызов возвращает данные в пакетах. В каждом пакете содержится не более 1000 записей. Чтобы получить следующий пакет записей, используйте ссылку **"Следующий"**. Получите информацию об игнорируемых токенах из первого набора возвращенных записей. Маркер пропуска можно найти в конце результирующего набора.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
@@ -73,14 +77,15 @@ ms.lasthandoff: 01/16/2018
 
 
 ## <a name="supported-filters"></a>Поддерживаемые фильтры
-Можно сократить число записей, возвращаемых после вызова API, в виде фильтра.  
-Данные, связанные с API входа, поддерживают следующие фильтры:
+
+Можно сократить число записей, возвращаемых после вызова API, с помощью фильтра.  
+Для данных входа, связанных с API, поддерживаются следующие фильтры:
 
 * **$top=\<число возвращаемых записей\>** позволяет ограничить количество возвращаемых записей. Это дорогостоящая операция. Этот фильтр не следует использовать, если нужно возвратить большое количество объектов.     
 * **$filter=\<оператор фильтра\>** позволяет указать тип требуемых записей на основе полей фильтра.
 
 ## <a name="supported-filter-fields-and-operators"></a>Поддерживаемый поля и операторы фильтров
-Чтобы указать тип требуемых записей, можно создать оператор фильтра, который может содержать одно или несколько из следующих полей фильтра:
+Чтобы указать тип требуемых записей, можно создать оператор фильтра, который может содержать одно или несколько из следующих полей:
 
 * [activityDate](#activitydate) определяет дату или диапазон дат;
 * [category](#category) определяет категорию, по которой необходимо отфильтровать;
@@ -213,7 +218,7 @@ ms.lasthandoff: 01/16/2018
 **Примечания**
 
 * Без учета регистра
-* При запросе Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity необходимо добавить полное пространство имен.
+* Добавьте полное пространство имен при запросе Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
 ### <a name="targetobjectid"></a>target/objectid
@@ -234,10 +239,12 @@ ms.lasthandoff: 01/16/2018
 **Примечания**
 
 * Без учета регистра 
-* При запросе Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity необходимо добавить полное пространство имен.
+* Добавьте полное пространство имен при запросе Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -
 ## <a name="next-steps"></a>Дальнейшие действия
-* Хотите увидеть примеры отфильтрованных системных операций? См. [примеры API аудита Azure Active Directory](active-directory-reporting-api-audit-samples.md).
-* Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
+
+- Хотите увидеть примеры отфильтрованных системных операций? См. [примеры API аудита Azure Active Directory](active-directory-reporting-api-audit-samples.md).
+
+- Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 

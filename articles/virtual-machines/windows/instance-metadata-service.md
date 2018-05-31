@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b3ecddbfdc37bc58294dff41b62e0505b90ca940
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057984"
 ---
 # <a name="azure-instance-metadata-service"></a>Служба метаданных экземпляров Azure
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/06/2018
 
 регионы                                        | Доступность?                                 | Поддерживаемые версии
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия   | 2017-04-02, 2017-08-01, 2017-12-01
+[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)              | Общедоступная версия | 2017-04-02, 2017-08-01
 [Azure для Китая](https://www.azure.cn/)                                                           | Общедоступная версия | 2017-04-02, 2017-08-01
 [Azure для Германии](https://azure.microsoft.com/overview/clouds/germany/)                    | Общедоступная версия | 2017-04-02, 2017-08-01
@@ -307,6 +308,7 @@ subnet/prefix | Префикс подсети, пример 24 | 2017-04-02
 ipv6/ipAddress | Локальный IPv6-адрес виртуальной машины | 2017-04-02 
 macAddress | Mac-адрес виртуальной машины | 2017-04-02 
 scheduledevents | Ознакомьтесь со статьей [Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Windows](scheduled-events.md) | 2017-08-01
+identity | Управляемое удостоверение службы (предварительная версия). Ознакомьтесь с [получением маркера доступа](../../active-directory/managed-service-identity/how-to-use-vm-token.md). | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Примеры сценариев использования  
 
@@ -392,6 +394,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl;       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>Часто задаваемые вопросы

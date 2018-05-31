@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072055"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Создание неуправляемого образа виртуальной машины на основе виртуальной машины Azure
 
@@ -78,6 +79,11 @@ ms.lasthandoff: 04/19/2018
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Отмена распределения для виртуальной машины и установка состояния "универсальный"
+
+> [!IMPORTANT] 
+> Невозможно добавить, изменить или удалить теги виртуальной машины после того, как она помечается как "универсальная". Если вы хотите добавить тег для виртуальной машины, это необходимо сделать до того, как она станет универсальной.
+> 
+
 1. Отмените распределение ресурсов для виртуальной машины.
    
     ```powershell

@@ -1,13 +1,13 @@
 ---
-title: "Создание резервных копий и восстановление базы данных Oracle Database 12c на виртуальной машине Linux в Azure | Документация Майкрософт"
-description: "Узнайте, как создавать резервные копии и выполнять восстановление базы данных Oracle Database 12c в среде Azure."
+title: Создание резервных копий и восстановление базы данных Oracle Database 12c на виртуальной машине Linux в Azure | Документация Майкрософт
+description: Узнайте, как создавать резервные копии и выполнять восстановление базы данных Oracle Database 12c в среде Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193112"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Создание резервных копий и восстановление базы данных Oracle Database 12c на виртуальной машине Linux в Azure
 
@@ -138,7 +139,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Скачайте файл JSON.
 
-    Скачайте файл VMSnapshotScriptPluginConfig.json со страницы https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Содержимое файла будет выглядеть следующим образом:
+    Скачайте VMSnapshotScriptPluginConfig.json отсюда: https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Содержимое файла будет выглядеть следующим образом:
 
     ```azurecli
     {
@@ -262,7 +263,7 @@ ms.lasthandoff: 10/11/2017
     # /etc/azure/post_script.sh
     ```
 
-Дополнительные сведения см. в записи блога [Announcing application consistent backup for Linux VMs using Azure Backup](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/) (Объявление согласованного с приложениями резервного копирования для виртуальных машин Linux).
+Дополнительные сведения см. в записи блога [Announcing application consistent backup for Linux VMs using Azure Backup](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/) (Объявление согласованного с приложениями резервного копирования для виртуальных машин Linux).
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Шаг 5. Использование хранилищ служб восстановления Azure для резервного копирования виртуальной машины

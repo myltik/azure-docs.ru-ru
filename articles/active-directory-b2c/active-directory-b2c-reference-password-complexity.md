@@ -11,16 +11,17 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b89a404d583e9d495b65180e145295e6a106b3ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 78d90dce350282e4e7671104b5ee8ca9756897c6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200388"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Настройка требований к сложности паролей в Azure AD B2C
 
 > [!NOTE]
-> **Эта функция предоставляется в предварительной версии.**  Обратитесь по адресу [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com), чтобы в вашем тестовом клиенте включили эту функцию.  Не выполняйте эту проверку в рабочих клиентах.
+> **Эта функция предоставляется в общедоступной предварительной версии.**
 
 Azure Active Directory B2C (Azure AD B2C) поддерживает изменение требований сложности к паролям, которые пользователи указывают при создании учетной записи.  По умолчанию Azure AD B2C использует пароли уровня `Strong`.  Azure AD B2C также поддерживает параметры конфигурации для управления сложностью паролей, используемых клиентами.
 

@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: ''
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 46849d551b6996caaf020caec1ab8104d5388c8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 393af463c4145e1d865c14f2ace7d5123ab12cfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187391"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Ускорение анализа больших данных в режиме реального времени с помощью базы данных SQL Azure и SQL Server
 
@@ -38,6 +39,10 @@ ms.lasthandoff: 04/19/2018
 1. Главный узел Spark подключается к SQL Server или базе данных Azure SQL и передает данные из определенной таблицы или использует специальный SQL-запрос.
 2. Главный узел Spark распределяет данные в рабочие узлы для преобразования. 
 3. Рабочий узел подключается к SQL Server или базе данных Azure SQL и записывает данные в базу данных. Пользователь может использовать вставку по строкам или массовую вставку.
+
+На схеме ниже показан поток данных.
+
+   ![архитектура](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>Создание соединителя Spark для базы данных SQL
 Сейчас в проекте соединителя используется maven. Чтобы создать соединитель без зависимостей, выполните следующую команду:
@@ -153,7 +158,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Настройка требований
 При использовании режима аутентификации на основе маркера доступа необходимо скачать [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) и его зависимости, а затем включить их в путь сборки Java.
 
-Дополнительные сведения о том, как получить маркер доступа для базы данных SQL Azure, см. в [этой статье](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication).
+Дополнительные сведения о том, как получить маркер доступа для базы данных SQL Azure, см. в [этой статье](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -211,5 +216,5 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 -   [Примеры записных книжек Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks).
 - [Пример сценариев (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Дополнительные сведения см. также в [руководстве по SQL, таблицам и наборам данных Apache Spark](http://spark.apache.org/docs/latest/sql-programming-guide.html) и в [документации по Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/).
+Дополнительные сведения см. также в [руководстве по SQL, таблицам и наборам данных Apache Spark](http://spark.apache.org/docs/latest/sql-programming-guide.html) и в [документации по Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 

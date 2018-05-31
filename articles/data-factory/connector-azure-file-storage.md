@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e317294c673f9c22c4fa219d4db98248e9aa270e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 48087646a6de3d55d35032381691be7a927a36ba
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010794"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Копирование данных из хранилища файлов Azure и обратно с помощью фабрики данных Azure
 
@@ -86,11 +87,16 @@ ms.lasthandoff: 03/23/2018
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение **FileShare**. |Yes |
-| folderPath | Путь к папке, |Yes |
-| fileName | Укажите имя файла в **folderPath**, если нужно скопировать в него или из него. Если этому свойству не присвоить значение, набор данных будет указывать на все файлы в папке в качестве источника и автоматически создавать имя файла.<br/><br/>**Автоматическое создание fileName для приемника.** Если fileName для выходного наборах данных не указан, а **preserveHierarchy** не указан в действии приемника, действие копирования автоматически создаст имя файла со следующим шаблоном: <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`. Например: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>или `[Table name].[format].[compression if configured]` для реляционного источника, если не указан запрос. Например, MySourceTable.orc. |Нет  |
-| fileFilter | Укажите фильтр для выбора подмножества файлов из folderPath. Фильтр дает возможность выбирать только некоторые файлы, а не все. Применяется, только если не указано свойство fileName. <br/><br/>Допустимые подстановочные знаки: `*` (несколько знаков) и `?` (один знак).<br/>Пример 1. `"fileFilter": "*.log"`<br/>Пример 2. `"fileFilter": 2017-09-??.txt"` |Нет  |
+| folderPath | Путь к папке, Фильтр подстановочных знаков не поддерживается. |Yes |
+| fileName | **Имя или фильтр шаблонов** для файлов по указанному folderPath. Если этому свойству не присвоить значение, набор данных будет указывать на все файлы в папке. <br/><br/>Допустимые подстановочные знаки для фильтра: `*` (несколько знаков) и `?` (один знак).<br/>Пример 1. `"fileName": "*.csv"`<br/>Пример 2. `"fileName": "???20180427.txt"`<br/>Используйте `^` для экранирования символов, если фактическое имя файла содержит подстановочный знак или этот escape-символ.<br/><br/>Если fileName не указан для выходного набора данных и **preserveHierarchy** не указан в приемнике действий, действие копирования автоматически создает имя файла в следующем формате: *Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*. Например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz. |Нет  |
 | свойства | Если требуется скопировать файлы между файловыми хранилищами **как есть** (двоичное копирование), можно пропустить раздел форматирования в определениях входного и выходного наборов данных.<br/><br/>Если нужно проанализировать или создать файлы определенного формата, поддерживаются следующие типы форматов файлов: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Свойству **type** в разделе format необходимо присвоить одно из этих значений. Дополнительные сведения см. в разделах о [текстовом формате](supported-file-formats-and-compression-codecs.md#text-format), [формате Json](supported-file-formats-and-compression-codecs.md#json-format), [формате Avro](supported-file-formats-and-compression-codecs.md#avro-format), [формате Orc](supported-file-formats-and-compression-codecs.md#orc-format) и [ формате Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Нет (только для сценария двоичного копирования) |
 | compression | Укажите тип и уровень сжатия данных. Дополнительные сведения см. в разделе [Поддержка сжатия](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Поддерживаемые типы: **GZip**, **Deflate**, **BZip2** и **ZipDeflate**.<br/>Поддерживаемые уровни: **Optimal** и **Fastest**. |Нет  |
+
+>[!TIP]
+>Чтобы скопировать все файлы в папке, укажите только **folderPath**.<br>Чтобы скопировать один файл с заданным именем, укажите **folderPath** с частью папки и **fileName** с именем файла.<br>Чтобы скопировать подмножество файлов в папке, укажите **folderPath** с частью папки и **fileName** с фильтром подстановочных знаков.
+
+>[!NOTE]
+>Если вы использовали свойство fileFilter для фильтрации файлов, оно по-прежнему поддерживается без изменений, а вам предлагается далее использовать новую возможность фильтрации, добавленную к fileName.
 
 **Пример.**
 

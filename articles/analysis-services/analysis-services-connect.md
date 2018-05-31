@@ -1,20 +1,21 @@
 ---
-title: Подключение к службам Azure Analysis Services | Документы Майкрософт
+title: Подключение к Azure Analysis Services | Документация Майкрософт
 description: Узнайте, как подключиться к серверу служб Analysis Services в Azure и получить от него данные.
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8493ff1e2b9be48fc8eec1e727684fe09f6af72c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 53a8a1eea5ffa50fcdaf4a60c9bbd03d30d8e311
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151320"
 ---
-# <a name="connect-to-an-azure-analysis-services-server"></a>Подключение к службам Azure Analysis Services
+# <a name="connecting-to-servers"></a>Подключение к серверам
 
 В этой статье описывается подключение к серверу с помощью приложений для моделирования данных и управления, таких как SQL Server Management Studio (SSMS) или SQL Server Data Tools (SSDT). Для этого также можно использовать клиентские приложения создания отчетов, такие как Microsoft Excel, Power BI Desktop или пользовательские приложения. Для подключений к службам Azure Analysis Services используется протокол HTTPS.
 

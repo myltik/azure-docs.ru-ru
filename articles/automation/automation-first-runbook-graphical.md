@@ -4,16 +4,18 @@ description: Учебник, в котором описывается созда
 keywords: Runbook, шаблон Runbook, служба автоматизации Runbook и Azure Runbook
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7804c67871de546d217d85a4215c817f9c08f6b8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055750"
 ---
 # <a name="my-first-graphical-runbook"></a>Первый графический Runbook
 
@@ -117,6 +119,10 @@ ms.lasthandoff: 04/23/2018
 1. Так как название **Write Hello World to output** (Вывод текста Hello World) больше не нужно, щелкните значок многоточия и выберите **Удалить**.
 1. В элементе управления "Библиотека" разверните узлы **Ресурсы** и **Подключения**, а затем добавьте на холст элемент **AzureRunAsConnection**. Для этого выберите **Добавить на холст**.
 1. В элементе управления "Библиотека" в поле поиска введите текст **Connect-AzureRmAccount**.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** теперь является псевдонимом для **Connect-AzureRMAccount**. Если при поиске в библиотеке элементов вы не видите элемент **Connect-AzureRMAccount**, можно использовать **Add-AzureRmAccount** или обновить модули в своей учетной записи службы автоматизации.
+
 1. Добавьте на холст командлет **Connect-AzureRmAccount**.
 1. Наведите указатель мыши на элемент **Get Run As Connection** (Получить подключение запуска от имени), чтобы в нижней части элемента появился кружок. Щелкните этот кружок и перетащите стрелку к элементу **Connect-AzureRmAccount**. Созданная стрелка является *связью*. При запуске этот runbook выполнит действие **Get Run As Connection** (Получить подключение запуска от имени), а затем — командлет **Connect-AzureRmAccount**.<br> ![Создание связи между действиями](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. На холсте выберите элемент **Connect-AzureRmAccount** и в области управления конфигурацией в текстовое поле **Метка** введите текст **Выполнить вход в Azure**.
@@ -135,9 +141,6 @@ ms.lasthandoff: 04/23/2018
 1. Параметры из выбранного набора появятся на странице конфигурации параметров действия. Щелкните **SubscriptionID**
 1. На странице "Значение параметра" для параметра **Источник данных** выберите значение **Ресурс-контейнер переменной**, а затем в списке выберите **AzureSubscriptionId** и дважды нажмите кнопку **OК**.
 1. Наведите указатель мыши на элемент **Login to Azure** (Выполнить вход в Azure), чтобы в нижней части элемента появился кружок. Щелкните этот кружок и перетащите стрелку к элементу **Specify Subscription Id**(Указать идентификатор подписки).
-
-> [!IMPORTANT]
-> Теперь **Connect-AzureRmAccount** является псевдонимом командлета **Connect-AzureRMAccount**. Если при поиске в библиотеке элементов вы не видите элемент **Connect-AzureRMAccount**, можно использовать **Connect-AzureRmAccount** или обновить модули в своей учетной записи службы автоматизации.
 
 Теперь модуль Runbook должен выглядеть примерно так:  <br>![Настройка проверки подлинности Runbook](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

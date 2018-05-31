@@ -1,25 +1,26 @@
 ---
-title: "Общие сведения об использовании OpenShift в Azure | Документация Майкрософт"
-description: "Общие сведения об использовании OpenShift в Azure."
+title: Общие сведения об использовании OpenShift в Azure | Документация Майкрософт
+description: Общие сведения об использовании OpenShift в Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944507"
 ---
 # <a name="openshift-in-azure"></a>Использование OpenShift в Azure
 
@@ -31,14 +32,14 @@ OpenShift включает Kubernetes для оркестрации контей
 - легко развертывать и масштабировать решения;
 - обслуживать жизненный цикл команд и приложений в долгосрочной перспективе.
 
-Доступны несколько версий OpenShift, две из которых используются в Azure:
+Существует несколько версий OpenShift.
 
 - Источник OpenShift
 - Платформа контейнеров OpenShift
 - OpenShift Online
 - OpenShift Dedicated
 
-Пользователи могут использовать две версии (из четырех описанных в этой статье) для самостоятельного развертывания в Azure решений OpenShift Origin и OpenShift Container Platform.
+Пользователи могут использовать две версии (из четырех, описанных в этой статье) для развертывания в Azure решений OpenShift Origin и OpenShift Container Platform.
 
 ## <a name="openshift-origin"></a>Источник OpenShift
 

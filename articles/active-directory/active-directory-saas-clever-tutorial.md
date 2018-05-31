@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d151aba43a6795c5a691077fe6729fc9853012bf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Руководство. Интеграция Azure Active Directory с Clever
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/23/2018
 - Вы можете включить автоматический вход пользователей в Clever (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -110,10 +111,10 @@ ms.lasthandoff: 04/23/2018
 
     a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://clever.com/in/<companyname>`
 
-    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://clever.com/<companyname>`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес `https://clever.com/oauth/saml/metadata.xml`.
 
     > [!NOTE]
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов Clever](https://clever.com/about/contact/).
+    > Значение URL-адреса входа приведено для примера. Вместо него необходимо указать фактический URL-адрес входа. Чтобы получить это значение, обратитесь к [группе поддержки клиентов Clever](https://clever.com/about/contact/).
 
 4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
     
@@ -129,7 +130,8 @@ ms.lasthandoff: 04/23/2018
     
     | Имя атрибута  | Значение атрибута |
     | --------------- | -------------------- |
-    | clever.student.credentials.district\_username  | user.userprincipalname |
+    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.student.credentials.district_username| user.userprincipalname |
     | Firstname  | user.givenname |
     | Lastname  | user.surname |
 
@@ -157,19 +159,22 @@ ms.lasthandoff: 04/23/2018
 
     ![Мгновенный вход](./media/active-directory-saas-clever-tutorial/ic798984.png "Мгновенный вход")
 
+    > [!NOTE]
+    > Перед проверкой единого входа следует обратиться к [группе поддержки клиентов Clever](https://clever.com/about/contact/), чтобы включить единый вход Office 365 в серверной части.
+
 10. На странице **Мгновенный вход** выполните следующие действия.
-      
+    
       ![Мгновенный вход](./media/active-directory-saas-clever-tutorial/ic798985.png "Мгновенный вход")
-      
+    
       a. Введите **URL-адрес входа**.
-      
+    
       >[!NOTE]
       >**URL-адрес входа** является настраиваемым значением. Чтобы получить это значение, обратитесь к [группе поддержки клиентов Clever](https://clever.com/about/contact/).
-      
+    
       Б. Для параметра **Identity System** (Система идентификации) выберите значение **ADFS**.
 
       c. В текстовое поле **URL-адрес метаданных** вставьте значение **URL-адреса метаданных федерации приложения**, скопированное на портале Azure.
-      
+    
       d. Выберите команду **Сохранить**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
@@ -253,7 +258,7 @@ ms.lasthandoff: 04/23/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

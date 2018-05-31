@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942362"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Диспетчер трафика Azure: вопросы и ответы
 
@@ -29,6 +30,10 @@ ms.lasthandoff: 04/16/2018
 В [обзоре диспетчера трафика How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works) объясняется, что диспетчер трафика работает на уровне DNS. Он использует ответы DNS, чтобы направлять клиентов в соответствующую конечную точку службы. Клиенты подключаются к конечной точке службы приложения напрямую, а не через диспетчер трафика.
 
 Следовательно, диспетчер трафика не предоставляет конечную точку или IP-адрес для подключения клиентов. Если вашей службе требуется статический IP-адрес, он должен быть настроен на уровне службы, а не в диспетчере трафика.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Какого типа трафик можно маршрутизировать с помощью диспетчера трафика?
+Как описано в статье [Как работает диспетчер трафика](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), конечная точка диспетчера трафика может быть любой интернет-службой, размещенной внутри или за пределами Azure. Таким образом, диспетчер трафика может передавать трафик из общедоступного Интернета в набор конечных точек, также подключенных к Интернету. Если вы используете конечные точки в частной сети (например, если используется внутренняя версия [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) или пользователи выполняют запросы DNS из таких внутренних сетей, то диспетчер трафика не может использоваться для данного трафика.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Поддерживает ли диспетчер трафика прикрепленные сеансы?
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894259"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Создание, изменение и удаление группы безопасности сети
 
@@ -34,6 +35,8 @@ ms.lasthandoff: 05/04/2018
 - При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell 5.4.1 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 - При использовании команд интерфейса командной строки Azure (CLI) для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/bash) или в интерфейсе командной строки на своем компьютере. Для этого руководства требуется Azure CLI 2.0.28 или более поздней версии. Выполните командлет `az --version`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). Если Azure CLI запущен локально, необходимо также выполнить командлет `az login`, чтобы создать подключение к Azure.
 
+Учетной записи, в которую вы входите или с помощью которой подключаетесь к Azure, должна быть назначена роль [Участник сетей](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [пользовательская роль](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json), которой назначены соответствующие действия, перечисленные в таблице [Разрешения](#permissions).
+
 ## <a name="work-with-network-security-groups"></a>Работа с группами безопасности сети
 
 Можно создать группу безопасности сети, [просмотреть все](#view-all-network-security-groups) группы, [просмотреть сведения о](#view-details-of-a-network-security-group) группе, а также [изменить](#change-a-network-security-group) или [удалить](#delete-a-network-security-group) группу безопасности сети. Вы также можете [создать или удалить связь](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) группы безопасности сети с сетевым интерфейсом или подсетью.
@@ -44,7 +47,7 @@ ms.lasthandoff: 05/04/2018
 
 1. Выберите **+ Create a resource** (+ Создать ресурс) в левом верхнем углу портала.
 2. Выберите **Сеть**, а затем — **Группа безопасности сети**.
-3. Введите **имя** группы безопасности сети, выберите свою **подписку**, создайте **группу ресурсов** или выберите имеющуюся, выберите **расположение**, а затем щелкните **Создать**. 
+3. Введите **имя** группы безопасности сети, выберите свою **подписку**, создайте **группу ресурсов** или выберите имеющуюся, выберите **расположение**, а затем щелкните **Создать**.
 
 **Команды**
 
@@ -67,7 +70,7 @@ ms.lasthandoff: 05/04/2018
 3. Дополнительные сведения о перечисленных общих параметрах Azure доступны в следующих статьях:
     *   [Журнал действий](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Управление доступом (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Теги](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Теги](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Блокировки](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Сценарий автоматизации](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -211,7 +214,7 @@ ms.lasthandoff: 05/04/2018
 
 ### <a name="delete-an-application-security-group"></a>Удаление группы безопасности приложений
 
-Невозможно удалить группу безопасности приложений, если она содержит какие-либо сетевые интерфейсы. Необходимо удалить все сетевые интерфейсы из группы безопасности приложений, изменив параметры сетевых интерфейсов или удалив эти сетевые интерфейсы. Дополнительные сведения см. в разделах [Создание, изменение или удаление сетевых интерфейсов](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) или [Удаление сетевого интерфейса](virtual-network-network-interface.md#delete-a-network-interface).
+Невозможно удалить группу безопасности приложений, если она содержит какие-либо сетевые интерфейсы. Удалите все сетевые интерфейсы из группы безопасности приложений, изменив параметры сетевых интерфейсов или удалив эти сетевые интерфейсы. Дополнительные сведения см. в разделах [Создание, изменение или удаление сетевых интерфейсов](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) или [Удаление сетевого интерфейса](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Команды**
 
@@ -220,18 +223,33 @@ ms.lasthandoff: 05/04/2018
 
 ## <a name="permissions"></a>Разрешения
 
-Для выполнения задач с группами безопасности сети, правилами безопасности и группами безопасности приложений вашей учетной записи должна быть назначена роль [участника сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [пользовательская](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) роль, которой назначены соответствующие разрешения, перечисленные в следующей таблице.
+Для выполнения задач с группами безопасности сети, правилами безопасности и группами безопасности приложений вашей учетной записи должна быть назначена роль [Участник сетей](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) или [пользовательская](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) роль, которой назначены соответствующие разрешения, перечисленные в следующей таблице.
 
-|Операция                                                       |   Имя операции                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   Получение группы безопасности сети.                              |
-|Microsoft.Network/ruleTables/write                             |   Создание или обновление группы безопасности сети.                 |
-|Microsoft.Network/ruleTables/delete                            |   Удаление группы безопасности сети.                           |
-|Microsoft.Network/ruleTables/join/action                       |   Присоединение группы безопасности сети.                             |
-|Microsoft.Network/ruleTables/rules/read                       |   Получение правила.                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   Создание или обновление правила.                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   Удаление правила.                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   Получение сетевой группы безопасности, связанной с сетевым интерфейсом.  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Получить следующий прыжок из виртуальной машины                  |
+### <a name="network-security-groups"></a>Группы безопасности сети
 
-Операция *присоединения группы безопасности сети* требуется для привязывания группы безопасности сети к подсети.
+| Действие                                                        |   ИМЯ                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   Получение группы безопасности сети.                                          |
+| Microsoft.Network/ruleTables/write                            |   Создание или обновление группы безопасности сети.                             |
+| Microsoft.Network/ruleTables/delete                           |   Удаление группы безопасности сети.                                       |
+| Microsoft.Network/ruleTables/join/action                      |   Привязка группы безопасности сети к подсети или сетевому интерфейсу. |
+| Microsoft.Network/ruleTables/rules/read                       |   Получение правила.                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   Создание или обновление правила.                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   Удаление правила.                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Получение сетевой группы безопасности, связанной с сетевым интерфейсом.              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   Получить следующий прыжок из виртуальной машины                                         |
+
+### <a name="application-security-groups"></a>Группы безопасности приложений
+
+| Действие                                                                     | ИМЯ                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Присоединение конфигурации IP к группе безопасности приложений.|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Присоединение правила безопасности к группе безопасности приложений.    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Получение группы безопасности приложений.                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Создание или обновление группы безопасности приложений.           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | Удаление группы безопасности приложений                     |
+
+## <a name="next-steps"></a>Дополнительная информация
+
+- Создайте группу безопасности сети или группу безопасности приложений с помощью примеров сценариев [PowerShell](powershell-samples.md) или [Azure CLI](cli-samples.md) либо на основе [шаблонов Azure Resource Manager](template-samples.md).
+- Создайте и примените [политику Azure](policy-samples.md) для виртуальных сетей.

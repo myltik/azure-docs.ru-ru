@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок конфигураций ограниченного делегирования Kerberos для прокси приложения | Документация Майкрософт"
-description: "Устранение неполадок конфигураций ограниченного делегирования Kerberos для прокси приложения."
+title: Устранение неполадок конфигураций ограниченного делегирования Kerberos для прокси приложения | Документация Майкрософт
+description: Устранение неполадок конфигураций ограниченного делегирования Kerberos для прокси приложения.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068274"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Устранение неполадок конфигураций ограниченного делегирования Kerberos для прокси приложения
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 02/22/2018
 
 Для работы с этой статьей предполагается следующее:
 
--   Развертывание прокси приложения Azure выполнено согласно нашей [документации](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable), а общий доступ к приложениям без ограниченного делегирования Kerberos работает как ожидалось.
+-   Развертывание прокси приложения Azure выполнено согласно нашей [документации](manage-apps/application-proxy-enable.md), а общий доступ к приложениям без ограниченного делегирования Kerberos работает как ожидалось.
 
 -   Опубликованное целевое приложение основано на службах IIS и реализации Kerberos от корпорации Майкрософт.
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 02/22/2018
 
 Прокси приложения Azure можно развернуть в инфраструктуре или среде любого из множества типов, и конкретная архитектура наверняка будет зависеть от потребностей соответствующей организации. Одной из наиболее распространенных причин возникновения проблем, связанных с ограниченным делегированием Kerberos, являются не столько сами среды, сколько неправильная настройка или общий контроль.
 
-Поэтому до начала работы по устранению неполадок всегда рекомендуется проверить, выполнены ли все предварительные требования, изложенные в [статье об использовании единого входа с ограниченным делегированием Kerberos вместе с прокси приложения](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd).
+Поэтому до начала работы по устранению неполадок всегда рекомендуется проверить, выполнены ли все предварительные требования, изложенные в [статье об использовании единого входа с ограниченным делегированием Kerberos вместе с прокси приложения](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
 Особое внимание нужно уделить разделу о настройке ограниченного делегирования Kerberos в 2012 R2, так как там описан кардинально иной подход к настройке ограниченного делегирования Kerberos для предыдущих версий Windows. При этом не следует забывать о нескольких других аспектах:
 
@@ -68,13 +69,13 @@ ms.lasthandoff: 02/22/2018
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 
-Дальнейшая диагностика зависит от характера проблемы и наблюдаемых симптомов. Прежде чем продолжить, изучите материалы по следующим ссылкам, так как в них приведены полезные сведения, которые могут быть вам неизвестны:
+Диагностика зависит от характера проблемы и наблюдаемых симптомов. Прежде чем продолжить, изучите материалы по следующим ссылкам, так как в них приведены полезные сведения, которые могут быть вам неизвестны:
 
--   [Устранение неполадок и сообщения об ошибках прокси приложения](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Устранение неполадок и сообщения об ошибках прокси приложения](active-directory-application-proxy-troubleshoot.md)
 
--   [Ошибки и симптомы Kerberos](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Ошибки и симптомы Kerberos](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Работа с единым входом при несовпадении локальных и облачных удостоверений](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Работа с единым входом при несовпадении локальных и облачных удостоверений](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 Если вы добрались до этого места, наверняка у вас возникла серьезная проблема. Начните с разделения всей процедуры на три части, в рамках которых можно устранять неполадки.
 
@@ -98,7 +99,7 @@ ms.lasthandoff: 02/22/2018
 
 -   Используйте запись A во внутренней DNS для адреса приложения, а не запись CName.
 
--   Перепроверьте, что узлу соединителя предоставлены права на делегирование для имени субъекта-службы назначенной учетной записи и выбран параметр **Использовать любой протокол проверки подлинности**. Дополнительные сведения по этой теме см. в [статье о настройке единого входа](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd).
+-   Перепроверьте, что узлу соединителя предоставлены права на делегирование для имени субъекта-службы назначенной учетной записи и выбран параметр **Использовать любой протокол проверки подлинности**. Дополнительные сведения по этой теме см. в [статье о настройке единого входа](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
 -   Убедитесь, что в AD существует всего один экземпляр имени субъекта-службы, выполнив команду `setspn -x` из командной строки на любом узле члена домена.
 
@@ -179,4 +180,4 @@ Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'N
 -   Проверка подлинности с двумя прыжками — обычно используется в сценариях с многоуровневым приложением, где проверка подлинности требуется как для серверной, так и для интерфейсной части (например, SQL Reporting Services).
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Настройка ограниченного делегирования Kerberos в управляемом домене](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Настройка ограниченного делегирования Kerberos в управляемом домене](../active-directory-domain-services/active-directory-ds-enable-kcd.md)
