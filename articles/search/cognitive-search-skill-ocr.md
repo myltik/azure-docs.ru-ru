@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786713"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365830"
 ---
 # <a name="ocr-cognitive-skill"></a>Когнитивный навык распознавания текста
 
@@ -186,16 +186,14 @@ ms.locfileid: "33786713"
 В приведенном выше примере набора навыков предполагается наличие поля нормализованных изображений. Чтобы создать это поле, настройте конфигурацию *imageAction* в определении индексатора *generateNormalizedImages*, как показано ниже.
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-    "configuration": 
-    {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -203,3 +201,4 @@ ms.locfileid: "33786713"
 + [Предопределенные навыки](cognitive-search-predefined-skills.md)
 + [Text Merge cognitive skill](cognitive-search-skill-textmerger.md) (Когнитивный навык слияния текста)
 + [Определение набора навыков](cognitive-search-defining-skillset.md)
++ [Создание индексатора (REST)](ref-create-indexer.md)

@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bc88140bf1adea49ff4bc76667d30a379f829bbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360127"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -117,7 +118,7 @@ ms.lasthandoff: 04/03/2018
 Ниже приведен пример, который можно запустить в командной строке PowerShell. (Не забудьте изменить данные учетной записи и пароли, если это требуется).
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -179,6 +180,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DebugMode** | Отключает автоматическую очистку в случае сбоя. | Нет  |
 | **AcceptLicense** | Пропускает запрос на принятие условий лицензии GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> Отображение номеров SKU на портале может занять до часа. Вы не сможете создать базу данных, пока не будет создан номер SKU.
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Проверка развертывания с использованием портала Azure Stack
 
@@ -212,6 +215,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - емкость базы данных;
     - автоматическое резервное копирование;
     - резервирование высокопроизводительных серверов для отдельных подразделений.
+
+
+  > [!IMPORTANT]
+  > Нельзя смешивать автономные серверы с экземплярами Always On в одном SKU. Попытка смешивания типов после добавления первого сервера размещения приведет к ошибке.
  
 
 Название SKU должно отражать свойства, чтобы клиенты могли размещать свои базы данных соответствующим образом. У всех серверов размещения под одним номером SKU должны быть одинаковые возможности.
@@ -219,8 +226,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ![Создание SKU MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> Отображение номеров SKU на портале может занять до часа. Вы не сможете создать базу данных, пока не будет создан номер SKU.
+
 
 
 ## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>Чтобы протестировать развертывание, создайте первую базу данных MySQL.

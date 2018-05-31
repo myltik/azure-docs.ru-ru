@@ -1,8 +1,8 @@
 ---
-title: "Руководство по настройке LinkedIn Learning для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить Azure Active Directory для автоматической подготовки и отзыва учетных записей пользователей в LinkedIn Learning."
+title: Руководство по настройке LinkedIn Learning для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить Azure Active Directory для автоматической подготовки и отзыва учетных записей пользователей в LinkedIn Learning.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f2ef582bd3a5ecd837dd053067cae6c1ea47b6f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: da39a31777323535c90b4d57e316741295aa873a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344938"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Руководство по настройке LinkedIn Learning для автоматической подготовки пользователей
 
@@ -99,7 +100,7 @@ ms.lasthandoff: 02/09/2018
 
 11)  Заполните следующие поля в разделе **Учетные данные администратора**:
 
-* В **URL-адрес клиента** введите https://api.linkedin.com.
+* В поле **URL-адрес клиента** введите https://api.linkedin.com.
 
 * В поле **Секретный токен** введите токен доступа, созданный на шаге 1, и нажмите кнопку **Проверить подключение**.
 
@@ -124,4 +125,4 @@ ms.lasthandoff: 02/09/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

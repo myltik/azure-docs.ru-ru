@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ffd7c828087162f83812da445b0eeb71545b59db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140054"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Руководство по интеграции Azure Active Directory с QPrism
 
@@ -31,7 +31,7 @@ ms.locfileid: "32140054"
 - Вы можете включить автоматический вход пользователей в QPrism (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Дополнительные сведения об интеграции приложений SaaS с Azure AD см в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -111,7 +111,7 @@ ms.locfileid: "32140054"
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим идентификатором и URL-адресом для входа. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов QPrism](mailto:qsupport-ce@quatrro.com). 
 
-4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложения**, и вставьте его в Блокнот.
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
 
      ![Ссылка для скачивания сертификата](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
@@ -197,7 +197,7 @@ ms.locfileid: "32140054"
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

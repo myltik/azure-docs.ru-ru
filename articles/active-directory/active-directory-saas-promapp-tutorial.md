@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Promapp | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Promapp."
+title: Руководство по интеграции Azure Active Directory с Promapp | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Promapp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a0630bf015361833ed3a6949ea7b29450d53701
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02deefa82abc7d776e64de7a5a78c46b971f9ee5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Руководство по интеграции Azure Active Directory с Promapp
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в Promapp (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -113,15 +114,14 @@ ms.lasthandoff: 12/11/2017
     a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
     | |
     |--|
-    | `https://demo.promapp.com/TENANTNAME`|
-    | `https://go.promapp.com/TENANTNAME`|
-    | `https://demoau.promapp.com/TENANTNAME`|
-    | `https://au.promapp.com/TENANTNAME`|
-    | `https://demous.promapp.com/TENANTNAME`|
-    | `https://us.promapp.com/TENANTNAME`|
-    | `https://dev.promapp.com/TENANTNAME`|
-    | `https://test.promapp.com/TENANTNAME`|
-    | `https://staging.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME/`|
+    | `https://au.promapp.com/TENANTNAME/`|
+    | `https://us.promapp.com/TENANTNAME/`|
+    | `https://eu.promapp.com/TENANTNAME/`|
+    | `https://ca.promapp.com/TENANTNAME/`|
+    
+    > [!NOTE] 
+    > Сейчас интеграция Azure AD с Promapp настроена только для аутентификации, инициированной службой. Например, при переходе по URL-адресу Promapp инициируется процесс аутентификации. Но поле "URL-адрес ответа" является обязательным.
     
     Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`.
 
@@ -240,16 +240,12 @@ ms.lasthandoff: 12/11/2017
     
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
-
-Чтобы протестировать приложение в режиме, инициированном **поставщиком удостоверений**, щелкните плитку Promapp на панели доступа. Вы автоматически войдете в приложение Promapp.
-
-Чтобы протестировать приложение в режиме, инициированном **поставщиком услуг**, вам потребуется инициировать проверку подлинности на сайте Promapp. Это можно сделать, оставив поле пароля пустым при входе в систему в режиме **Optional** (Необязательно).
+Чтобы протестировать приложение в режиме, инициированном **поставщиком услуг**, вам потребуется инициировать проверку подлинности на сайте Promapp. Для этого перейдите в режим **Дополнительно** и нажмите кнопку единого входа на странице входа.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

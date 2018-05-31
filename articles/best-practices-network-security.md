@@ -1,11 +1,11 @@
 ---
-title: "Рекомендации по обеспечению безопасности в сети Azure | Документация Майкрософт"
-description: "Сведения о некоторых ключевых функциях, доступных в Azure для создания безопасных сетевых сред"
+title: Рекомендации по обеспечению безопасности в сети Azure | Документация Майкрософт
+description: Сведения о некоторых ключевых функциях, доступных в Azure для создания безопасных сетевых сред
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360478"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Облачные службы Microsoft Cloud и сетевая безопасность
 Облачные службы (Майкрософт) позволяют пользоваться масштабируемыми службами и инфраструктурой, возможностями корпоративного класса и множеством вариантов гибридных подключений. Клиенты могут обращаться к этим службам через Интернет или с помощью службы Azure ExpressRoute, которая позволяет создавать подключения к частной сети. Платформа Microsoft Azure позволяет клиентам легко добавлять в свою инфраструктуру облачные решения и создавать многоуровневую архитектуру. Кроме того, сторонние производители могут получить дополнительные возможности путем предоставления служб безопасности и виртуальных устройств. В этом техническом документе мы предлагаем обзор вопросов, касающихся безопасности и архитектуры, которые необходимо учитывать при использовании облачных служб Microsoft Cloud с помощью ExpressRoute. В нем также рассматриваются более безопасные службы в виртуальных сетях Azure.
@@ -28,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 [![0]][0]
 
 [Пример 1. Создание сети периметра (также называемой промежуточной подсетью) для защиты приложений с помощью групп безопасности сети (NSG).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
-[Пример 2. Создание сети периметра для защиты приложений с помощью брандмауэра и групп безопасности сети (NSG).](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
-[Пример 3. Создание сети периметра для защиты сетей с помощью брандмауэра, определяемого пользователем маршрута (UDR) и группы безопасности сети (NSG).](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
-[Пример 4. Добавление гибридного подключения типа "сеть — сеть" с виртуальным устройством и виртуальной частной сетью (VPN).](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
-[Пример 5. Добавление гибридного подключения типа "сеть — сеть" с VPN-шлюзом Azure.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
-[Пример 6. Добавление гибридного подключения с использованием ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
+[Пример 2. Создание сети периметра для защиты приложений с помощью брандмауэра и групп безопасности сети (NSG).](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
+[Пример 3. Создание сети периметра для защиты сетей с помощью брандмауэра, определяемого пользователем маршрута (UDR) и группы безопасности сети (NSG).](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Пример 4. Добавление гибридного подключения "сеть — сеть" с виртуальным устройством и виртуальной частной сетью (VPN).](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
+[Пример 5. Добавление гибридного подключения "сеть — сеть" с VPN-шлюзом Azure.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
+[Пример 6. Добавление гибридного подключения с использованием ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
 Примеры добавления подключений между виртуальными сетями, а также примеры высокой доступности и объединения служб в цепочки будут добавлены в этот документ в течение следующих нескольких месяцев.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Соответствие нормативным требованиям и защита инфраструктуры Майкрософт
@@ -515,10 +516,10 @@ IP-пересылка всегда используется вместе с оп
 * Доступ к Azure с Azure Resource Manager:
 * Доступ к Azure с помощью PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * Документация по виртуальным сетям: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-* Документация по группам безопасности сети: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
+* Документация по группам безопасности сети: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/security-overview.md)
 * Документация по определяемым пользователем маршрутам: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Виртуальные шлюзы Azure: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
-* VPN типа "сеть — сеть": [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* VPN "сеть — сеть": [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * Документация ExpressRoute (обязательно ознакомьтесь с разделами о начале работы и инструкциями): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
