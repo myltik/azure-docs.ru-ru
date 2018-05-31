@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 80ff76f98e563df14feacafab2420a48611d5828
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366262"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Руководство по созданию масштабируемого набора виртуальных машин с помощью Azure PowerShell
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. На протяжении жизненного цикла масштабируемого набора виртуальных машин может возникнуть необходимость выполнить одну или несколько задач управления. Из этого руководства вы узнали, как выполнять такие задачи:
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, для работы с этим руководством необходима версия модуля Azure PowerShell версии 5.6.0 или более поздней. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 6.0.0 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
@@ -188,7 +189,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet2" `
   -PublicIpAddressName "myPublicIPAddress2" `
   -LoadBalancerName "myLoadBalancer2" `
-  -UpgradePolicy "Automatic" `
+  -UpgradePolicyMode "Automatic" `
   -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" `
   -Credential $cred
 ```
@@ -245,7 +246,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet3" `
   -PublicIpAddressName "myPublicIPAddress3" `
   -LoadBalancerName "myLoadBalancer3" `
-  -UpgradePolicy "Automatic" `
+  -UpgradePolicyMode "Automatic" `
   -VmSize "Standard_F1" `
   -Credential $cred
 ```

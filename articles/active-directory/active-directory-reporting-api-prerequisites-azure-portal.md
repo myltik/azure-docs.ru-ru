@@ -1,48 +1,56 @@
 ---
-title: "Предварительные требования для доступа к API отчетов Azure AD | Документация Майкрософт"
-description: "Узнайте о предварительных требованиях для доступа к API отчетов Azure AD"
+title: Предварительные требования для доступа к API отчетов Azure Active Directory | Документация Майкрософт
+description: Узнайте о предварительных требованиях для доступа к API отчетов Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1f4d79b59d44bc1c151391290e79026051fe1df
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929988"
 ---
-# <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Предварительные требования для доступа к API отчетов Azure AD
+# <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Предварительные требования для доступа к API отчетов Azure Active Directory
 
-[Интерфейсы API отчетов Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) предоставляют программный доступ к данным с помощью набора интерфейсов API на базе REST. Эти интерфейсы API можно вызвать, используя различные языки и инструменты программирования.
+[API-интерфейсы отчетов Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) предоставляют программный доступ к данным с помощью набора API-интерфейсов на базе REST. Эти интерфейсы API можно вызвать, используя различные языки и инструменты программирования.
 
-API отчетов использует [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) для авторизации доступа к веб-API. 
+API отчетов использует [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) для авторизации доступа к веб-API.
+
+Чтобы подготовить доступ к API отчетов, сделайте следующее:
+
+1. Назначение ролей
+2. Регистрация приложения
+3. предоставьте разрешения;
+4. Сбор параметров конфигурации
+
+
+
+## <a name="assign-roles"></a>Назначение ролей
 
 Чтобы получить доступ к данным отчетов через API, необходима одна из следующих ролей:
 
 - Чтение данных безопасности
+
 - администратор безопасности;
+
 - глобальный администратор.
 
 
-Чтобы подготовить доступ к API отчетов, сделайте следующее:
 
-1. Регистрация приложения 
-2. предоставьте разрешения; 
-3. Сбор параметров конфигурации 
 
-Чтобы задать вопросы, обговорить проблемы или предоставить отзыв, [отправьте запрос в службу поддержки](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
-
-## <a name="register-an-azure-active-directory-application"></a>Регистрация приложения Azure Active Directory
+## <a name="register-an-application"></a>Регистрация приложения
 
 Приложение необходимо зарегистрировать, даже если вы обращаетесь к API отчетов с помощью сценария. Это позволит получить **идентификатор приложения**, необходимый для вызова авторизации, и ваш код сможет получать маркеры.
 
@@ -59,15 +67,15 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. В колонке **Azure Active Directory** щелкните **Регистрация приложений**.
+2. На странице **Azure Active Directory** щелкните **Регистрация приложений**.
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/02.png) 
 
-3. В колонке **Регистрация приложений** на панели инструментов вверху щелкните **Регистрация нового приложения**.
+3. На странице **Регистрация приложений** на панели инструментов вверху щелкните **Регистрация нового приложения**.
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/03.png)
 
-4. В колонке **Создание** выполните следующее.
+4. На странице **Создание** выполните следующие действия.
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/04.png)
 
@@ -82,28 +90,37 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 ## <a name="grant-permissions"></a>Предоставление разрешений 
 
-Цель этого этапа — предоставить приложению разрешения **Чтение данных каталога** для API **Windows Azure Active Directory**.
+В зависимости от API, к которому вы хотите получить доступ, приложению необходимо предоставить следующие разрешения:  
 
-![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/16.png)
+| API | Разрешение |
+| --- | --- |
+| Microsoft Azure Active Directory | Прочитать данные каталога |
+| Microsoft Graph | Прочитать все данные журнала аудита |
+
+
+![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/36.png)
+
+
+В следующем разделе перечислены шаги для получения доступа к обоим API. Если вам не нужен доступ к данным API, вы можете пропустить эти шаги.
  
 
 **Вот как можно предоставить приложению разрешения на использование API.**
 
-1. В колонке **Регистрация приложений** в списке приложений щелкните **Reporting API application** (Приложение API отчетов).
+1. На странице **Регистрация приложений** в списке приложений щелкните **Reporting API application** (Приложение API отчетов).
 
-2. В колонке **Reporting API application** (Приложение API отчетов) на панели инструментов вверху щелкните **Параметры**. 
+2. На странице **Reporting API application** (Приложение API отчетов) на панели инструментов вверху щелкните **Параметры**. 
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-3. В колонке **Параметры** щелкните **Необходимые разрешения**. 
+3. На странице **Параметры** щелкните **Необходимые разрешения**. 
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/06.png)
 
-4. В колонке **Необходимые разрешения** в списке **API** щелкните **Windows Azure Active Directory**. 
+4. На странице **Необходимые разрешения** в списке **API** щелкните **Windows Azure Active Directory**. 
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. В колонке **Включить доступ** выберите **Чтение данных каталога**. 
+5. На странице **Разрешение доступа** выберите параметр **Чтение данных каталога** и отмените выбор параметра **Sign in and read user profile** (Вход и чтение профиля пользователя). 
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
@@ -111,17 +128,37 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
-7. Щелкните **Предоставить разрешения** и выберите **Да**.
+7. На странице **Необходимые разрешения** на панели инструментов вверху нажмите кнопку **Добавить**.
+
+    ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/32.png)
+
+8. На странице **Добавить доступ через API** щелкните **Выбор API**.
+
+    ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/31.png)
+
+9. На странице **Select an API** (Выбор API) щелкните **Microsoft Graph**, а затем нажмите кнопку **Выбрать**.
+
+    ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/33.png)
+
+10. На странице **Разрешение доступа** выберите **Read all audit log data** (Прочитать все данные журнала аудита), а затем нажмите кнопку **Выбрать**.  
+
+    ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/34.png)
+
+
+11. На странице **Добавить доступ через API** щелкните **Готово**.  
+
+12. На странице **Необходимые разрешения** на панели инструментов вверху щелкните **Предоставить разрешения** и выберите **Да**.
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
 
 
 ## <a name="gather-configuration-settings"></a>Сбор параметров конфигурации 
+
 В этом разделе показано, как получить из каталога следующие параметры:
 
-* Доменное имя
-* Идентификатор клиента
-* Секрет клиента
+- Доменное имя
+- Идентификатор клиента
+- Секрет клиента
 
 Эти значения необходимы при настройке вызовов API отчетов. 
 
@@ -133,7 +170,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. В колонке **Azure Active Directory** щелкните **Имена пользовательских доменов**.
+2. На странице **Azure Active Directory** щелкните **Имена пользовательских доменов**.
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -148,9 +185,9 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. В колонке **Регистрация приложений** в списке приложений щелкните **Reporting API application** (Приложение API отчетов).
+2. На странице **Регистрация приложений** в списке приложений щелкните **Reporting API application** (Приложение API отчетов).
 
-3. В колонке **Reporting API application** (Приложение API отчетов) рядом с полем **Идентификатор приложения** щелкните **Щелкните, чтобы скопировать**.
+3. На странице **Reporting API application** (Приложение API отчетов) рядом с полем **Идентификатор приложения** щелкните **Click to copy** (Щелкните, чтобы скопировать).
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/11.png) 
 
@@ -165,19 +202,19 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. В колонке **Регистрация приложений** в списке приложений щелкните **Reporting API application** (Приложение API отчетов).
+2. На странице **Регистрация приложений** в списке приложений щелкните **Reporting API application** (Приложение API отчетов).
 
 
-3. В колонке **Reporting API application** (Приложение API отчетов) на панели инструментов вверху щелкните **Параметры**. 
+3. На странице **Reporting API application** (Приложение API отчетов) на панели инструментов вверху щелкните **Параметры**. 
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-4. В колонке **Параметры** в разделе **APIR Access** (Доступ APIR) щелкните **Ключи**. 
+4. На странице **Параметры** в разделе **APIR Access** (Доступ APIR) щелкните **Ключи**. 
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/12.png)
 
 
-5. В колонке **Ключи** выполните следующие действия.
+5. На странице **Ключи** выполните следующие действия.
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/14.png)
 
@@ -191,6 +228,10 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Хотите получать доступ к данным из API отчетов Azure AD программным образом? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
-* Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
+
+- [Получение данных с помощью API отчетов Azure Active Directory с сертификатами](active-directory-reporting-api-with-certificates.md)
+
+- [Ознакомление с API отчетов](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Создание собственного решения](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

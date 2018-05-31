@@ -1,8 +1,8 @@
 ---
-title: "Аутентификация между службами в Data Lake Store с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как реализовать аутентификацию между службами в Data Lake Store с помощью Azure Active Directory."
+title: Аутентификация между службами в Data Lake Store с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как реализовать аутентификацию между службами в Data Lake Store с помощью Azure Active Directory.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771319"
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Аутентификация между службами в Data Lake Store с помощью Azure Active Directory
 > [!div class="op_single_selector"]
@@ -77,6 +78,9 @@ Azure Data Lake Store использует Azure Active Directory для аут�
 7. В колонке **Добавить настраиваемый доступ** нажмите кнопку **ОК**. Теперь добавленная группа с соответствующими разрешениями отобразится в колонке **Доступ** .
    
     ![Назначение разрешений для группы](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Назначение разрешений для группы")
+
+> [!NOTE]
+> Если вы планируете ограничить ваше приложение Azure Active Directory указанной папкой, также понадобится предоставить этому же приложению Azure Active Directory разрешение на **выполнение** к корню, чтобы обеспечить доступ к созданию файлов через пакет SDK для .NET.
 
 > [!NOTE]
 > Если вы хотите использовать пакеты SDK для создания учетной записи Data Lake Store, необходимо назначить веб-приложение Azure AD в качестве роли группе ресурсов, в которой создается эта учетная запись.

@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f2b048d4fad1fae240904fef48842679accaa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 17e5ba3637b0ae36412e46166f7f178d4c82d179
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204774"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Копирование данных из базы данных Azure для MySQL с помощью фабрики данных Azure
 
@@ -47,6 +48,13 @@ ms.lasthandoff: 03/23/2018
 | Тип | Для свойства type необходимо задать значение **AzureMySql**. | Yes |
 | connectionString | Укажите сведения, необходимые для подключения к экземпляру базы данных Azure для MySQL. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
+
+Типичная строка подключения — `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Дополнительные свойства, которые вы можете установить в вашем случае:
+
+| Свойство | ОПИСАНИЕ | Параметры | Обязательно |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | Этот параметр указывает, использует ли драйвер SSL-шифрование и проверку при подключении к MySQL. (например, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(по умолчанию)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Нет  |
+| useSystemTrustStore | Этот параметр указывает, следует ли использовать сертификат ЦС из доверенного системного хранилища или из указанного PEM-файла. (например, `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(по умолчанию)** | Нет  |
 
 **Пример.**
 

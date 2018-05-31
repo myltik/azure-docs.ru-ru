@@ -13,16 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6f184ac0b2af3a66affecd1a3a9c247a96e616f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bfd4738797a98fda85053e689e539b93fb6d1b74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364324"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Руководство. Автомасштабирование масштабируемого набора виртуальных машин с помощью Azure CLI 2.0
+
 При создании масштабируемого набора вы определяете количество экземпляров виртуальных машин для запуска. По мере изменения потребностей приложения можно автоматически увеличивать или уменьшать это количество. Возможность автоматического масштабирования позволяет удовлетворить пользовательский спрос или среагировать на изменения производительности приложения на протяжении его жизненного цикла. Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
@@ -35,31 +37,22 @@ ms.lasthandoff: 04/16/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0.29 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
+Чтобы установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0.32 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Создание масштабируемого набора
-Чтобы создать правила автомасштабирования, задайте такие параметры, как идентификатор подписки, имя группы ресурсов, имя масштабируемого набора и расположение:
-
-```azurecli-interactive
-sub=$(az account show --query id -o tsv)
-resourcegroup_name="myResourceGroup"
-scaleset_name="myScaleSet"
-location_name="eastus"
-```
 
 Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create), как показано ниже:
 
 ```azurecli-interactive
-az group create --name $resourcegroup_name --location $location_name
+az group create --name myResourceGroup --location eastus
 ```
 
 Создайте масштабируемый набор виртуальных машин с помощью команды [az vmss create](/cli/azure/vmss#create). В следующем примере создается масштабируемый набор с *двумя* экземплярами и ключи SSH, если они еще не созданы.
 
 ```azurecli-interactive
 az vmss create \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
   --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --instance-count 2 \
@@ -67,177 +60,59 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-
 ## <a name="define-an-autoscale-profile"></a>Определение профиля автомасштабирования
-Правила автомасштабирования развертываются в виде JSON (нотация объектов JavaScript) с помощью Azure CLI 2.0. Давайте рассмотрим каждую часть этого профиля автомасштабирования, а затем создадим полный пример.
 
-Начало профиля автомасштабирования определяет используемую по умолчанию, минимальную и максимальную емкости масштабируемого набора. В примере ниже задаются минимальная и максимальная емкости (*2* и *10*), а также емкость по умолчанию экземпляров виртуальной машины.
-
-```json
-{
-  "name": "autoscale rules",
-  "capacity": {
-    "minimum": "2",
-    "maximum": "10",
-    "default": "2"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-out"></a>Создание правила для автоматического увеличения масштаба
-При увеличении потребностей приложения в масштабируемом наборе увеличивается нагрузка на экземпляры виртуальной машины. Если такая увеличенная нагрузка представляет собой не просто краткий спрос, а является согласованной, можно настроить правила автомасштабирования, чтобы увеличить число экземпляров виртуальной машины в масштабируемом наборе. После создания этих экземпляров виртуальных машин и развертывания приложений масштабируемые наборы запускают распределение трафика между ними через подсистему балансировки нагрузки. Вы можете контролировать, какие метрики отслеживать, например ЦП или диск, продолжительность соответствия нагрузки приложения заданному пороговому значению, а также количество экземпляров виртуальной машины для добавления в масштабируемый набор.
-
-Давайте создадим правило, в соответствии с которым количество экземпляров виртуальных машин в масштабируемом наборе увеличивается, когда средняя загрузка ЦП превышает 70 % в течение 5 минут. При активации правила количество экземпляров виртуальных машин увеличивается до трех.
-
-Ниже приведены параметры, используемые для этого правила.
-
-| Параметр         | Пояснение                                                                                                         | Значение           |
-|-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | Метрика производительности для мониторинга и применения действий в масштабируемом наборе.                                                   | Percentage CPU  |
-| *timegrain*       | Определяет, как часто собираются показатели для анализа.                                                                   | 1 минута        |
-| *timeAggregation* | Определяет способ вычисления собранных метрик для анализа.                                                | Средняя         |
-| *timeWindow*      | Количество времени, в течение которого выполняется отслеживание перед сравнением значений метрик и пороговых значений.                                   | 5 мин       |
-| *operator*        | Оператор для сравнения данных метрики с пороговым значением.                                                     | Больше чем    |
-| *threshold*       | Значение, при достижении которого правило автомасштабирования запускает действие.                                                      | 70 %             |
-| *direction*       | Определяет действие, применяемое к масштабируемому набору при выполнении условий правила: увеличение или уменьшение числа экземпляров.                                              | Увеличить        |
-| *type*            | Указывает, что количество экземпляров виртуальных машин необходимо изменить, использовав определенное значение.                                    | Изменение количества    |
-| *значение*           | Указывает, сколько экземпляров виртуальных машин следует добавить или удалить, когда применяется правило.                                             | 3               |
-| *cooldown*        | Время ожидания перед повторным применением правила, чтобы обеспечить время для активации действий автомасштабирования. | 5 мин       |
-
-В следующем примере определяется правило увеличения количества экземпляров виртуальных машин. В *metricResourceUri* используются переменные, определенные ранее для идентификатора подписки, имени группы ресурсов и имени масштабируемого набора.
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "GreaterThan",
-    "threshold": 70
-  },
-  "scaleAction": {
-    "direction": "Increase",
-    "type": "ChangeCount",
-    "value": "3",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-in"></a>Создание правила для автоматического уменьшения масштаба
-В вечерние часы или выходные дни потребность в приложении может снизиться. Если такая сниженная нагрузка является согласованной в течение некоторого периода времени, можно настроить правила автомасштабирования, чтобы уменьшить число экземпляров виртуальных машин в масштабируемом наборе. Это действие снижает стоимость запуска масштабируемого набора, так как вы запускаете только то количество экземпляров, которое необходимо для удовлетворения текущего спроса.
-
-Создайте еще одно правило, в соответствии с которым количество экземпляров виртуальных машин в масштабируемом наборе уменьшается, когда средняя нагрузка на ЦП не превышает 30 % в течение 5 минут. В следующем примере определяется правило уменьшения количества экземпляров виртуальных машин на один экземпляр. В *metricResourceUri* используются переменные, определенные ранее для идентификатора подписки, имени группы ресурсов и имени масштабируемого набора.
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "LessThan",
-    "threshold": 30
-  },
-  "scaleAction": {
-    "direction": "Decrease",
-    "type": "ChangeCount",
-    "value": "1",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>Применение правил автомасштабирования к масштабируемому набору
-Остается применить профиль и правила автомасштабирования к масштабируемому набору. После этого станет возможным автоматическое добавление и удаление экземпляров в зависимости от потребностей приложения. Примените профиль автомасштабирования командой [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create), как показано ниже. В следующем полном коде JSON используются профиль и правила, указанные в предыдущих разделах.
+Чтобы включить автомасштабирование в масштабируемом наборе, сначала необходимо определить профиль автомасштабирования. Этот профиль определяет используемую по умолчанию, минимальную и максимальную емкости масштабируемого набора. Эти ограничения позволяют контролировать затраты за счет того, что экземпляры виртуальных машин не создаются непрерывно, и сбалансировать приемлемую производительность с минимальным числом экземпляров, которые остаются в масштабируемом событии. Создайте профиль автомасштабирования с помощью команды [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). В примере ниже задаются минимальная и максимальная емкости (*2* и *10*), а также емкость по умолчанию экземпляров виртуальной машины.
 
 ```azurecli-interactive
-az monitor autoscale-settings create \
-    --resource-group $resourcegroup_name \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "'$location_name'",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "autoscale by percentage based on CPU usage",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "3",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'"
-    }'
+az monitor autoscale create \
+  --resource-group myResourceGroup \
+  --resource myScaleSet \
+  --resource-type Microsoft.Compute/virtualMachineScaleSets \
+  --name autoscale \
+  --min-count 2 \
+  --max-count 10 \
+  --count 2
 ```
 
+## <a name="create-a-rule-to-autoscale-out"></a>Создание правила для автоматического увеличения масштаба
+
+При увеличении потребностей приложения в масштабируемом наборе увеличивается нагрузка на экземпляры виртуальной машины. Если такая увеличенная нагрузка представляет собой не просто краткий спрос, а является согласованной, можно настроить правила автомасштабирования, чтобы увеличить число экземпляров виртуальной машины в масштабируемом наборе. После создания этих экземпляров виртуальных машин и развертывания приложений масштабируемые наборы запускают распределение трафика между ними через подсистему балансировки нагрузки. Вы можете контролировать, какие метрики отслеживать, например ЦП или диск, продолжительность соответствия нагрузки приложения заданному пороговому значению, а также количество экземпляров виртуальной машины для добавления в масштабируемый набор.
+
+Используя команду [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create), мы создадим правило, в соответствии с которым количество экземпляров виртуальной машины в масштабируемом наборе увеличивается, когда средняя загрузка ЦП превышает 70 % в течение 5 минут. При активации правила количество экземпляров виртуальных машин увеличивается до трех.
+
+```azurecli-interactive
+az monitor autoscale rule create \
+  --resource-group myResourceGroup \
+  --autoscale-name autoscale \
+  --condition "Percentage CPU > 70 avg 5m" \
+  --scale out 3
+```
+
+## <a name="create-a-rule-to-autoscale-in"></a>Создание правила для автоматического уменьшения масштаба
+
+В вечерние часы или выходные дни потребность в приложении может снизиться. Если такая сниженная нагрузка является согласованной в течение некоторого периода времени, можно настроить правила автомасштабирования, чтобы уменьшить число экземпляров виртуальных машин в масштабируемом наборе. Это действие снижает стоимость запуска масштабируемого набора, так как вы запускаете только то количество экземпляров, которое необходимо для удовлетворения текущего спроса.
+
+Используя команду [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create), создайте другое правило, в соответствии с которым количество экземпляров виртуальной машины в масштабируемом наборе уменьшается, когда средняя загрузка ЦП не превышает 30 % в течение 5 минут. В следующем примере определяется правило уменьшения количества экземпляров виртуальных машин на один экземпляр.
+
+```azurecli-interactive
+az monitor autoscale rule create \
+  --resource-group myResourceGroup \
+  --autoscale-name autoscale \
+  --condition "Percentage CPU < 30 avg 5m" \
+  --scale in 1
+```
 
 ## <a name="generate-cpu-load-on-scale-set"></a>Создание нагрузки на ЦП в масштабируемом наборе
+
 Чтобы проверить правила автомасштабирования, создайте нагрузку на ЦП в экземплярах виртуальных машин в масштабируемом наборе. В результате этой имитации нагрузки на ЦП происходит автомасштабирование и увеличение числа экземпляров виртуальных машин. Когда имитированная нагрузка на ЦП снижается, в соответствии с правилами автомасштабирования выполняется уменьшение числа экземпляров виртуальных машин.
 
 Сначала нужно получить список адресов и портов для подключения к экземплярам виртуальных машин в масштабируемом наборе. Для этого введите команду [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name
+  --resource-group myResourceGroup \
+  --name myScaleSet
 ```
 
 В следующем примере выходных данных показано имя экземпляра, общедоступный IP-адрес подсистемы балансировки нагрузки и номер порта, на который правила преобразования сетевых адресов перенаправляют трафик.
@@ -299,12 +174,13 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Мониторинг активных правил автомасштабирования
-Чтобы отслеживать количество экземпляров виртуальных машин в масштабируемом наборе, используйте **watch**. Потребуется 5 минут, чтобы в соответствии с правилами автомасштабирования началось увеличение масштаба с учетом нагрузки на ЦП, созданной программой **stress** на каждом экземпляре виртуальной машины.
+
+Чтобы отслеживать количество экземпляров виртуальных машин в масштабируемом наборе, используйте **watch**. Потребуется 5 минут, чтобы в соответствии с правилами автомасштабирования началось увеличение масштаба с учетом нагрузки на ЦП, созданной служебной программой **stress** на каждом экземпляре виртуальной машины.
 
 ```azurecli-interactive
 watch az vmss list-instances \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
   --output table
 ```
 
@@ -315,31 +191,31 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
-           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  4f92f350-2b68-464f-8a01-e5e590557955
-           2  True                  eastus      myScaleSet_2  Succeeded            MYRESOURCEGROUP  d734cd3d-fb38-4302-817c-cfe35655d48e
-           4  True                  eastus      myScaleSet_4  Creating             MYRESOURCEGROUP  061b4c90-0d73-49fc-a066-19eab0b3d95c
-           5  True                  eastus      myScaleSet_5  Creating             MYRESOURCEGROUP  4beff8b9-4e65-40cb-9652-43899309da27
-           6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           1  True                  eastus      myScaleSet_1  Succeeded            myResourceGroup  4f92f350-2b68-464f-8a01-e5e590557955
+           2  True                  eastus      myScaleSet_2  Succeeded            myResourceGroup  d734cd3d-fb38-4302-817c-cfe35655d48e
+           4  True                  eastus      myScaleSet_4  Creating             myResourceGroup  061b4c90-0d73-49fc-a066-19eab0b3d95c
+           5  True                  eastus      myScaleSet_5  Creating             myResourceGroup  4beff8b9-4e65-40cb-9652-43899309da27
+           6  True                  eastus      myScaleSet_6  Creating             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 После остановки служебной программы **stress** на начальных экземплярах виртуальной машины восстанавливается нормальная нагрузка на ЦП. На протяжении следующих 5 минут в соответствии с правилами автомасштабирования уменьшается число экземпляров виртуальных машин. При таком свертывании сначала удаляются экземпляры виртуальных машин с более высокими значениями идентификатора. Если в масштабируемом наборе используются группы доступности или зоны доступности, действия свертывания равномерно распределяются между экземплярами виртуальных машин. В следующем примере выходных данных показано удаление одного экземпляра виртуальной машины при автоматическом уменьшении масштаба масштабируемого набора:
 
 ```bash
-           6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           6  True                  eastus      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 Выйдите из программы *watch* с помощью команды `Ctrl-c`. Каждые 5 минут будет происходить уменьшение масштаба масштабируемого набора с удалением одного экземпляра виртуальной машины, пока не будет достигнуто минимальное число экземпляров (2 экземпляра).
 
-
 ## <a name="clean-up-resources"></a>Очистка ресурсов
+
 Чтобы удалить масштабируемый набор и дополнительные ресурсы, удалите группу ресурсов и все входящие в нее ресурсы с помощью команды [az group delete](/cli/azure/group#az_group_delete). При использовании параметра `--no-wait` управление возвращается в командную строку без ожидания завершения операции. Параметр `--yes` подтверждает, что вы хотите удалить ресурсы без дополнительного запроса.
 
 ```azurecli-interactive
-az group delete --name $resourcegroup_name --yes --no-wait
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
-
 ## <a name="next-steps"></a>Дополнительная информация
+
 Из этого руководства вы узнали, как выполнять автомасштабирование масштабируемого набора с помощью Azure CLI 2.0.
 
 > [!div class="checklist"]

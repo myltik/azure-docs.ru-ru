@@ -12,13 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/18/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366534"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Создание первого контейнера-приложения Service Fabric в Windows
 > [!div class="op_single_selector"]
@@ -198,6 +199,8 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 При определении конечной точки Service Fabric публикует ее в службе именования. Другие службы, работающие в кластере, могут разрешать этот контейнер. Кроме того, возможен обмен данными между контейнерами с помощью [обратного прокси-сервера](service-fabric-reverseproxy.md). Для этого нужно указать в переменных среды HTTP-порт прослушивания обратного прокси-сервера и имена служб, с которыми будет выполняться обмен данными.
+
+Служба ожидает передачи данных через определенный порт (в этом примере — 8081). Если приложение развертывается в кластере в Azure, то приложение и кластер запускаются под контролем Azure Load Balancer. Чтобы входящий трафик поступал в службу, необходимо открыть порт приложения в Azure Load Balancer.  Этот порт можно открыть в Azure Load Balancer с помощью [скрипта PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) или на [портале Azure](https://portal.azure.com).
 
 ## <a name="configure-and-set-environment-variables"></a>Настройка и установка переменных среды
 Переменные среды можно указать для каждого пакета кода в манифесте служб. Эта функция доступна для всех служб, вне зависимости от того, как они развернуты: в качестве контейнеров, процессов или гостевых исполняемых файлов. Вы можете переопределить значения переменных среды в манифесте приложения или указать их в качестве параметров приложения во время развертывания.

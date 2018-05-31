@@ -9,11 +9,12 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195174"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Оптимизация производительности с помощью технологий обработки в оперативной памяти в базе данных SQL
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 04/05/2018
 Вот несколько примеров того, как выполняющаяся в памяти OLTP помогла значительно улучшить показатели производительности:
 
 - Используя выполняющуюся в памяти OLTP, [компания Quorum Business Solutions смогла вдвое увеличить свои рабочие нагрузки, при этом улучшив показатели DTU на 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU обозначает *единицу передачи данных*. Этот параметр содержит оценку потребления ресурсов.
+    - DTU означает *единицу передачи данных* и содержит оценку потребления ресурсов.
 - В следующем видеоролике на примере рабочей нагрузки показано, как достигается значительное улучшение показателей потребления ресурсов: [In-Memory OLTP in Azure SQL DB](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Выполняющаяся в памяти OLTP в базе данных SQL Azure).
     - Дополнительные сведения см. в записи блога [In-Memory OLTP in Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Выполняющаяся в памяти OLTP в базе данных SQL Azure).
 
@@ -92,7 +93,7 @@ In-Memory OLTP включает оптимизированные для памя
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Размер данных и хранилище для индексов сolumnstore
 
-Индексы сolumnstore не обязательно должны помещаться в памяти. Поэтому для размера индексов применяется только одно ограничение — на максимальный общий размер базы данных, который описан в статье [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-service-tiers.md).
+Индексы сolumnstore не обязательно должны помещаться в памяти. Поэтому для размера индексов применяется только одно ограничение — на максимальный общий размер базы данных, который описан в статьях [Модель приобретения на основе DTU для базы данных SQL Azure](sql-database-service-tiers-dtu.md) и [Модель приобретения на основе виртуальных ядер для базы данных SQL Azure (предварительная версия)](sql-database-service-tiers-vcore.md).
 
 При использовании кластеризованных индексов сolumnstore для хранения базовых таблиц применяется сжатие по столбцам. Сжатие может значительно снизить объем хранимых пользовательских данных, позволяя разместить в базе данных больше информации. Этот эффект можно усилить, используя [архивное сжатие по столбцам](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). Степень сжатия, которой можно добиться, зависит от характера данных. Вполне можно достигнуть 10-кратного сжатия.
 
@@ -223,8 +224,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 Единственное различие между двумя следующими *хранимыми процедурами* состоит в том, что первая процедура использует оптимизированные для памяти версии таблиц, а вторая — обычные таблицы на диске:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 В этом разделе описано, как с помощью удобной служебной программы **ostress.exe** можно выполнить две хранимые процедуры в режиме нагрузочного теста. При этом вы можете сравнить время выполнения этих нагрузочных тестов.
