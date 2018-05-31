@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778347"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 04/23/2018
 1. Создайте источник данных:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
+    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/23/2018
 3. Создайте индексатор, задав ему имя и связав источник данных с целевым индексом:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -93,7 +94,7 @@ ms.lasthandoff: 04/23/2018
 
 У индексатора, созданного таким образом, нет расписания. Он автоматически выполняется один раз сразу после создания. Вы можете снова выполнить его в любой момент с помощью запроса на **запуск индексатора** :
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
     api-key: admin-key
 
 Вы можете настроить несколько аспектов поведения индексатора, например размер пакета и сколько документов можно пропустить, прежде чем выполнение индексатора завершится с ошибкой. Чтобы узнать больше, ознакомьтесь с [API создания индексатора](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -102,7 +103,7 @@ ms.lasthandoff: 04/23/2018
 
 Для наблюдения за состоянием индексатора и журналом выполнения (количество проиндексированных элементов, ошибки и т. д.) используйте запрос на получение **состояния индексатора**:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2016-09-01
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
     api-key: admin-key
 
 Ответ должен выглядеть так:
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/23/2018
 ## <a name="run-indexers-on-a-schedule"></a>Запуск индексаторов по расписанию
 Вы также можете организовать запуск индикатора по расписанию. Для этого добавьте свойство **schedule** при создании или обновлении индексатора. В примере ниже показан PUT- запрос для обновления индексатора:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2016-09-01
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 

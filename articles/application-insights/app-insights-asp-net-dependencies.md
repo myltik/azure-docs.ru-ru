@@ -1,6 +1,6 @@
 ---
-title: "Отслеживание зависимостей в Azure Application Insights | Документация Майкрософт"
-description: "Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
+title: Отслеживание зависимостей в Azure Application Insights | Документация Майкрософт
+description: Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010470"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Настройка Application Insights: отслеживание зависимостей
 *Зависимость* – это внешний компонент, который вызывается приложением. Как правило, это служба, вызываемая с использованием HTTP, база данных или файловая система. [Application Insights](app-insights-overview.md) измеряет время, в течение которого приложение ожидает зависимости, и определяет, как часто происходит сбой вызова зависимости. Можно изучить определенные вызовы и установить их взаимосвязь с теми или иными запросами и исключениями.
@@ -131,7 +132,7 @@ ms.lasthandoff: 01/24/2018
 
 ![Щелкните тип запроса, а затем его экземпляр, чтобы открыть этот же экземпляр в другом представлении. Щелкните его еще раз, чтобы просмотреть подробную информацию об исключении.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
-## <a name="analytics"></a>Аналитика
+## <a name="analytics"></a>Analytics
 Вы можете отслеживать зависимости, используя [язык запросов Log Analytics](https://docs.loganalytics.io/). Ниже приведены некоторые примеры.
 
 * Поиск неудачно завершенных вызовов зависимостей:
@@ -200,9 +201,12 @@ ms.lasthandoff: 01/24/2018
 
 *SQL-запрос отображается не полностью.*
 
-* Обновите пакет SDK до последней версии. Если используемая версия .NET меньше 4.6:
-  * Узел IIS: установите [агент Application Insights](app-insights-monitor-performance-live-website-now.md) на серверах узлов.
-  * Веб-приложение Azure: откройте вкладку "Application Insights" на панели управления веб-приложения и установите Application Insights.
+* Выполните обновление до последней стабильной версии пакета SDK Application Insights.
+
+ Если используемая версия .NET меньше 4.6:
+
+* Узел IIS: установите [агент Application Insights](app-insights-monitor-performance-live-website-now.md) на серверах узлов.
+* Веб-приложение Azure: откройте вкладку "Application Insights" на панели управления веб-приложения и установите Application Insights.
 
 ## <a name="video"></a>Видео
 

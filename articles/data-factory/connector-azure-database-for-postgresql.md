@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 4aea42bd20f01b4dae9e940b0ed101020d64c00c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 365775f840f85efe1792f376880145c7e7db1312
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205335"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Копирование данных из базы данных Azure для PostgreSQL с помощью фабрики данных Azure 
 
@@ -47,6 +48,13 @@ ms.lasthandoff: 03/23/2018
 | Тип | Для свойства type необходимо задать значение **AzurePostgreSql**. | Yes |
 | connectionString | Строка подключения к базе данных Azure для PostgreSQL через интерфейс ODBC. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
+
+Типичная строка подключения — `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>`. Дополнительные свойства, которые вы можете установить в вашем случае:
+
+| Свойство | ОПИСАНИЕ | Параметры | Обязательно |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| Метод, используемый драйвером для шифрования данных, отправленных между драйвером и сервером базы данных. (например, `ValidateServerCertificate=<0/1/6>;`| 0 (без шифрования) **(по умолчанию)** -1 (SSL) или 6 (RequestSSL) | Нет  |
+| ValidateServerCertificate (VSC) | Определяет, проверяет ли драйвер сертификат, отправленный сервером базы данных, когда включено шифрование SSL (метод шифрования = 1). (например, `ValidateServerCertificate=<0/1>;`| 0 (отключено) **(по умолчанию)** -1 (включено) | Нет  |
 
 **Пример.**
 

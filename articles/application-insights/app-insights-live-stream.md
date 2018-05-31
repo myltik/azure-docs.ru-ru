@@ -3,7 +3,7 @@ title: Live Metrics Stream с пользовательскими метрика�
 description: Мониторинг веб-приложения в реальном времени с помощью пользовательских метрик и диагностика проблем с помощью динамического веб-канала сбоев, трассировок и событий.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: mbullwin; Soubhagya.Dash
+ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193433"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: мониторинг и диагностика с задержкой в 1 секунду 
 
@@ -116,7 +117,7 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="add-api-key-to-configuration"></a>Добавление ключа API в конфигурацию
 
-# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+### <a name="classic-aspnet"></a>Классический ASP.NET
 
 В файле applicationinsights.config добавьте AuthenticationApiKey в QuickPulseTelemetryModule.
 ``` XML
@@ -128,12 +129,41 @@ ms.lasthandoff: 04/03/2018
 ```
 Или задайте его в коде для QuickPulseTelemetryModule.
 
-``` C#
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
 
-    module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+             TelemetryConfiguration configuration = new TelemetryConfiguration();
+            configuration.InstrumentationKey = "YOUR-IKEY-HERE";
+
+            QuickPulseTelemetryProcessor processor = null;
+
+            configuration.TelemetryProcessorChainBuilder
+                .Use((next) =>
+                {
+                    processor = new QuickPulseTelemetryProcessor(next);
+                    return processor;
+                })
+                        .Build();
+
+            var QuickPulse = new QuickPulseTelemetryModule()
+            {
+
+                AuthenticationApiKey = "YOUR-API-KEY"
+            };
+            QuickPulse.Initialize(configuration);
+            QuickPulse.RegisterTelemetryProcessor(processor);
+            foreach (var telemetryProcessor in configuration.TelemetryProcessors)
+                {
+                if (telemetryProcessor is ITelemetryModule telemetryModule)
+                    {
+                    telemetryModule.Initialize(configuration);
+                    }
+                }
 
 ```
-# <a name="net-core-tabnet-core"></a>[.NET Core] (#tab/.net-core)
+
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (требует пакет SDK для ASP.NET Core для Application Insights версии 2.3.0-beta или выше)
 
 Измените файл startup.cs следующим образом.
 
@@ -141,26 +171,14 @@ ms.lasthandoff: 04/03/2018
 
 ``` C#
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
 ```
 
-Затем в метод Configure добавьте следующий код.
+Затем в методе ConfigureServices добавьте:
 
 ``` C#
-  QuickPulseTelemetryModule dep;
-            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
-            foreach (var module in modules)
-            {
-                if (module is QuickPulseTelemetryModule)
-                {
-                    dep = module as QuickPulseTelemetryModule;
-                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                    dep.Initialize(TelemetryConfiguration.Active);
-                }
-            }
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
----
 
 Однако, если все подключенные серверы опознаны и надежны, можно использовать настраиваемые фильтры без аутентифицированного канала. Эта возможность доступна в течение шести месяцев. Это переопределение требуется после каждого создания сеанса или подключения нового сервера.
 

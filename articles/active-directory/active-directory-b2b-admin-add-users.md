@@ -2,29 +2,29 @@
 title: 'Добавление пользователей службы совместной работы B2B на портале Azure: Azure Active Directory | Документация Майкрософт'
 description: В этой статье вы узнаете, как администратор может добавлять гостевых пользователей в свои каталоги из партнерских организаций с помощью службы совместной работы Azure Active Directory (Azure AD) B2B.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/02/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 34bd5b51089045c4cd20f29d179bb230e5e3fac2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076771"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Добавление пользователей службы совместной работы B2B на портале Azure
 
 Находясь в роли глобального администратора или пользователя, которому назначена любая из ограниченных ролей администратора каталога, вы можете использовать портал Azure для приглашения пользователей службы совместной работы B2B. Вы можете приглашать гостевых пользователей в каталог, группу или приложение. После приглашения пользователя (любым из способов) его учетная запись добавляется в Azure Active Directory (Azure AD) с типом пользователя *Гость*. Затем для доступа к ресурсам гостевой пользователь должен активировать приглашение.
+
+После добавления гостевого пользователя в каталог вы можете отправить ему прямую ссылку на общее приложение или он может щелкнуть URL-адрес активации в электронном письме с приглашением. Дополнительные сведения о процессе активации приглашений см. в статье [Azure Active Directory B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md) (Активация приглашения службы совместной работы Azure Active Directory B2B).
+
+> [!IMPORTANT]
+> Добавьте URL-адрес заявления о конфиденциальности вашей организации, следуя инструкциям в статье [Практическое руководство. Добавление сведений о конфиденциальности организации в Azure Active Directory](https://aka.ms/adprivacystatement). В рамках процесса первой активации приглашения приглашенный пользователь должен согласиться на ваши условия конфиденциальности, чтобы продолжить. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Добавление гостевых пользователей в каталог
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 04/03/2018
  
 ## <a name="resend-invitations-to-guest-users"></a>Повторная отправка приглашений гостевым пользователям
 
-Если пользователь все еще не активировал приглашение, приглашение можно переслать.
+Если гостевой пользователь еще не активировал свое приглашение, письмо с приглашением можно переслать.
 
 1. Войдите на [портал Azure](https://portal.azure.com) с учетной записью администратора Azure AD.
 2. В области навигации выберите **Azure Active Directory**.
@@ -111,6 +111,4 @@ ms.lasthandoff: 04/03/2018
 
 - Дополнительные сведения о том, как обычный пользователь, а не администратор Azure AD, может добавить гостевых пользователей B2B, см. в статье [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
 - Дополнительные сведения о сообщениях электронной почты с приглашением см. в статье [Элементы сообщения с приглашением службы совместной работы B2B Azure Active Directory](active-directory-b2b-invitation-email.md).
-- Дополнительные сведения о процессе активации приглашений см. в статье [Активация приглашения службы совместной работы Azure Active Directory B2B](active-directory-b2b-redemption-experience.md).
-
 

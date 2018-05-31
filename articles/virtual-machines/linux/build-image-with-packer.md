@@ -1,25 +1,26 @@
 ---
-title: "Создание образов виртуальных машин Linux в Azure с помощью Packer | Документация Майкрософт"
-description: "Сведения об использовании Packer для создания образов виртуальных машин Linux в Azure"
+title: Создание образов виртуальных машин Linux в Azure с помощью Packer | Документация Майкрософт
+description: Сведения об использовании Packer для создания образов виртуальных машин Linux в Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778190"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Создание образов виртуальных машин Linux в Azure с помощью Packer
 Каждая виртуальная машина в Azure создается из образа, определяющего дистрибутив Linux и версию операционной системы. Образы могут содержать предварительно установленные приложения и конфигурации. Azure Marketplace предоставляет большое количество образов Майкрософт и сторонних разработчиков для наиболее распространенных операционных систем и приложений. Кроме того, вы можете создать собственные настраиваемые образы, отвечающие конкретным потребностям. В этой статье описывается определение и создание пользовательских образов в Azure с использованием средства с открытым кодом [Packer](https://www.packer.io/).
@@ -210,6 +211,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+Если вы хотите создать виртуальные машины не в группе ресурсов или регионе, содержащем образ Packer, укажите идентификатор образа, а не его имя. Идентификатор образа можно получить, выполнив команду [az image show](/cli/azure/image#az-image-show).
 
 Создание виртуальной машины занимает несколько минут. Когда виртуальная машина создана, запишите значение `publicIpAddress`, отображаемое в Azure CLI. Это адрес для доступа к сайту NGINX через веб-браузер.
 
