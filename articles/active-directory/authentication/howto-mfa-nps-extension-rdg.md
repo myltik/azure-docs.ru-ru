@@ -1,28 +1,23 @@
 ---
 title: Интеграция шлюза удаленных рабочих столов с Azure MFA с помощью расширения NPS | Документация Майкрософт
-description: В этой статье рассматривается интеграция инфраструктуры шлюза удаленных рабочих столов с Azure MFA с помощью расширения сервера политики сети (NPS) для Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, интеграция шлюза удаленных рабочих столов, Azure Active Directory, расширение сервера политики сети
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: Интеграция инфраструктуры шлюза удаленных рабочих столов с Azure MFA с помощью расширения сервера политики сети для Microsoft Azure.
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 0c050ee237650be7d43be2454a2bc3c07f096b8c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932104"
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Интеграция инфраструктуры шлюза удаленных рабочих столов с помощью расширения сервера политики сети (NPS) и Azure AD
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Интеграция инфраструктуры шлюза удаленных рабочих столов с помощью расширения сервера политики сети (NPS) и Azure AD
 
 В этой статье описывается интеграция инфраструктуры шлюза удаленных рабочих столов с Многофакторной идентификацией Azure (MFA) с помощью расширения сервера политики сети (NPS) для Microsoft Azure. 
 
@@ -150,8 +145,8 @@ ms.lasthandoff: 04/23/2018
 Чтобы использовать этот сценарий, укажите в расширении свои учетные данные администратора Azure AD и идентификатор клиента Azure AD, скопированный ранее. Запустите сценарий на каждом NPS-сервере, на котором установлено расширение NPS. После этого выполните описанные ниже действия.
 
 1. Откройте командную строку Windows PowerShell с правами администратора.
-2. В командной строке PowerShell введите команду **cd ‘c:\Program Files\Microsoft\AzureMfa\Config’** и нажмите клавишу **ВВОД**.
-3. Введите _.\AzureMfsNpsExtnConfigSetup.ps1_ и нажмите клавишу **ВВОД**. Сценарий проверяет, установлен ли модуль Azure Active Directory для PowerShell. Если он не установлен, сценарий автоматически установит этот модуль.
+2. В командной строке PowerShell введите `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` и нажмите клавишу **ВВОД**.
+3. Введите `.\AzureMfsNpsExtnConfigSetup.ps1` и нажмите клавишу **ВВОД**. Сценарий проверяет, установлен ли модуль Azure Active Directory для PowerShell. Если он не установлен, сценарий автоматически установит этот модуль.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

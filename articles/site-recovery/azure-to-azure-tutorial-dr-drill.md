@@ -1,21 +1,22 @@
 ---
-title: "Запуск отработки аварийного восстановления для виртуальных машин Azure в дополнительный регион Azure с помощью службы Azure Site Recovery (предварительная версия)"
-description: "Сведения о запуске отработки аварийного восстановления для виртуальных машин Azure в дополнительный регион Azure с помощью службы Azure Site Recovery."
+title: Запуск отработки аварийного восстановления для виртуальных машин Azure в дополнительный регион Azure с помощью службы Azure Site Recovery
+description: Сведения о запуске отработки аварийного восстановления для виртуальных машин Azure в дополнительный регион Azure с помощью службы Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208980"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Запуск отработки аварийного восстановления для виртуальных машин Azure в дополнительный регион Azure (предварительная версия)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Запуск отработки аварийного восстановления для виртуальных машин Azure в дополнительный регион Azure
 
 Служба [Azure Site Recovery](site-recovery-overview.md) помогает реализовать стратегию непрерывности бизнес-процессов и аварийного восстановления (BCDR), обеспечивая работоспособность и доступность бизнес-приложений во время запланированных и незапланированных простоев. Site Recovery управляет аварийным восстановлением локальных компьютеров и виртуальных машин Azure, включая операции репликации, отработки отказа и восстановления.
 
@@ -24,6 +25,8 @@ ms.lasthandoff: 02/09/2018
 > [!div class="checklist"]
 > * Проверка соблюдения предварительных требований
 > * Запуск тестовой отработки отказа для одной виртуальной машины
+
+Репликация из Azure в Azure сейчас доступна в режиме предварительной версии.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

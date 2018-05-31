@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940193"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Балансировка нагрузки в конфигурациях с несколькими IP-адресами с помощью портала Azure
 
@@ -120,7 +121,7 @@ ms.lasthandoff: 03/29/2018
 
 4. Выберите подсистему балансировки нагрузки (**mylb**), которую необходимо связать с пулом внешних IP-адресов.
 
-5. В разделе **Параметры** выберите **Интерфейсные пулы**. В верхней части следующей колонки выберите **Добавить**.
+5. В разделе **Параметры** выберите **Интерфейсная IP-конфигурация**. В верхней части следующей колонки выберите **Добавить**.
 
 6. Введите имя для внешнего IP-адреса (например, **contosofe** или **fabrikamfe**).
 
@@ -128,7 +129,7 @@ ms.lasthandoff: 03/29/2018
 
 8. Создайте второй внешний IP-адрес, повторив шаги с <a href="#step3-3">3</a> по <a href="#step3-7">7</a> из этого раздела.
 
-Настроив интерфейсный пул, IP-адреса отобразятся в разделе параметров **Frontend IP Pool** (Пул внешних IP-адресов) подсистемы балансировки нагрузки. 
+После настройки интерфейсного пула IP-адреса отображаются в параметрах **конфигурации интерфейсных IP-адресов** подсистемы балансировки нагрузки. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Шаг 4. Настройка серверного пула
 

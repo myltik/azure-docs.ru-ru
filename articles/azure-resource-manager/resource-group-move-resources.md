@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360093"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Перемещение ресурсов в новую группу ресурсов или подписку
 
@@ -156,6 +157,7 @@ ms.lasthandoff: 05/14/2018
 * Виртуальные машины (классические) — см. раздел [Ограничения классического развертывания](#classic-deployment-limitations).
 * Масштабируемые наборы виртуальных машин — см. сведения об [ограничениях для виртуальных машин](#virtual-machines-limitations)
 * Виртуальные сети — см. сведения об [ограничениях виртуальных сетей](#virtual-networks-limitations)
+* Visual Studio Team Services: учетные записи VSTS с приобретенными расширениями сторонних производителей должны [отменить свои приобретения](https://go.microsoft.com/fwlink/?linkid=871160), прежде чем смогут перемещать учетную запись между подписками.
 * VPN-шлюз
 
 ## <a name="services-that-cannot-be-moved"></a>Службы, которые невозможно переместить
@@ -170,10 +172,10 @@ ms.lasthandoff: 05/14/2018
 * Служба "Миграция Azure"
 * Службы BizTalk
 * Сертификаты. Сертификаты службы приложений можно перемещать, но для переданных сертификатов действуют [ограничения](#app-service-limitations).
-* Служба Kubernetes
 * DevTest Labs — переход на новую группу ресурсов в одной подписке включен, но перемещение между подписками не доступно.
 * Dynamics LCS.
 * ExpressRoute
+* Служба Kubernetes
 * Подсистемы балансировки нагрузки — см. [ограничения подсистемы балансировки нагрузки](#lb-limitations)
 * Управляемые приложения
 * Управляемые диски — см. сведения об [ограничениях для виртуальных машин](#virtual-machines-limitations).

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
-ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359430"
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202598"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Добавление серверов размещения для поставщика ресурсов SQL
 Экземпляры SQL Server можно использовать на виртуальных машинах в среде [Azure Stack](azure-stack-poc.md) или в экземпляре за пределами среды Azure Stack, если предоставленный поставщик ресурсов может к ней подключиться. Ниже перечислены общие требования:
@@ -97,21 +97,25 @@ ms.locfileid: "34359430"
 > [!NOTE]
 > Поставщик ресурсов адаптера SQL поддерживает _только_ SQL 2016 Enterprise с пакетом обновления 1 или более поздние версии экземпляров для Always On, так как он требует новые функции SQL, в частности автоматическое заполнение. Помимо общих вышеуказанных требований, применяется следующее.
 
-В частности, необходимо включить [Автоматическое заполнение](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) для каждой группы доступности для каждого экземпляра SQL Server.
+* Необходимо указать файловый сервер в дополнение к компьютерам SQL Always On. Существует [шаблон быстрого запуска Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha), с помощью которого можно создать эту среду. Он также может служить руководством по созданию собственного экземпляра.
 
-  ```
-  ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
-      WITH (SEEDING_MODE = AUTOMATIC)
-  GO
-  ```
+* Необходимо настроить серверы SQL. В частности, необходимо включить [автоматическое заполнение](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) в каждой группе доступности для каждого экземпляра SQL Server.
 
-В дополнительных экземплярах используйте следующие команды SQL.
+```
+ALTER AVAILABILITY GROUP [<availability_group_name>]
+    MODIFY REPLICA ON 'InstanceName'
+    WITH (SEEDING_MODE = AUTOMATIC)
+GO
+```
 
-  ```
-  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-  GO
-  ```
+В дополнительных экземплярах
+```
+ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+GO
+
+```
+
+
 
 Чтобы добавить серверы размещения для SQL Always On, выполните следующие действия:
 
@@ -121,16 +125,14 @@ ms.locfileid: "34359430"
 
     В колонке **SQL Hosting Servers** (Серверы размещения SQL) можно подключить поставщик ресурсов SQL Server к фактическим экземплярам SQL Server, которые выступают в качестве серверной части поставщика ресурсов.
 
-3. Заполните форму информацией о подключении экземпляра SQL Server. Обязательно используйте адрес FQDN прослушивателя Always On (и, если нужно, номер порта). Предоставьте информацию для учетной записи, настроенной с правами системного администратора.
+
+3. Заполните форму информацией о подключении экземпляра SQL Server. Обязательно используйте полное имя домена или IPv4-адрес прослушивателя Always On (и дополнительно номер порта). Предоставьте информацию для учетной записи, настроенной с правами системного администратора.
 
 4. Установите этот флажок, чтобы включить поддержку для экземпляров групп доступности SQL Always On.
 
     ![Серверы размещения](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Добавьте экземпляр SQL Always On в SKU. 
-
-> [!IMPORTANT]
-> Нельзя смешивать автономные серверы с экземплярами Always On в одном SKU. Попытка смешивания типов после добавления первого сервера размещения приведет к ошибке.
+5. Добавьте экземпляр SQL Always On в SKU. Нельзя смешивать автономные серверы с экземплярами Always On в одном SKU. Вы узнаете об этом при добавлении первого сервера размещения. Попытка смешивания типов впоследствии приведет к ошибке.
 
 
 ## <a name="making-sql-databases-available-to-users"></a>Предоставление пользователям баз данных SQL

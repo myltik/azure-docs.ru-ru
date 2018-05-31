@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010930"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Устранение неполадок службы синхронизации файлов Azure (предварительная версия)
 С помощью службы синхронизации файлов Azure (предварительная версия) вы можете централизованно хранить файловые ресурсы организации в службе файлов Azure, обеспечивая гибкость, производительность и совместимость локального файлового сервера. Это достигается путем преобразования Windows Server в быстрый кэш общего файлового ресурса Azure. Для локального доступа к данным вы можете использовать любой протокол, доступный в Windows Server, в том числе SMB, NFS и FTPS. Кроме того, вы можете создать любое количество кэшей в любом регионе.
@@ -34,6 +35,14 @@ ms.lasthandoff: 03/08/2018
 Если вы перемещаете ресурсы из одной подписки в другую, ресурсы синхронизации файлов (службы синхронизации хранилища) не переносятся. 
 
 ## <a name="agent-installation-and-server-registration"></a>Установка агента и регистрация сервера
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Во время регистрации сервера появляется ошибка "The term 'find-AzureRMResource' is not recognized as the name" (Термин "find-AzureRMResource" не распознан как имя).
+Проблема заключается в том, что в AzureRM версии 6 командлет find-AzureRMResource был изменен.  Следующая версия агента синхронизации будет исправлена для поддержки AzureRM версии 6.  До этого времени эту проблему можно обойти следующим образом:
+1. Остановите текущий процесс ServerRegistration.exe с помощью диспетчера задач.
+2. Откройте командную строку PowerShell в качестве администратора.
+3. Выполните команду C:\> Uninstall-Module AzureRM
+4. Выполните команду C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. Запустите файл C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Устранение сбоев при установке агента**  
 Если при установке агента службы синхронизации файлов Azure происходит сбой, то в командной строке с повышенными привилегиями выполните следующую команду, чтобы включить ведение журнала во время установки агента:
 

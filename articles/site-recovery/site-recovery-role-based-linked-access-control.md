@@ -12,13 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: d02ecc3293d0607dd3e19ade3c1d9087b544703b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071611"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Использование управления доступом на основе ролей для управления развертываниями Azure Site Recovery
 
@@ -47,7 +48,7 @@ Azure Site Recovery предоставляет 3 встроенные роли �
 
 | **Тип ресурса** | **Модель развертывания** | **Разрешение** |
 | --- | --- | --- |
-| Среда выполнения приложений | Диспетчер ресурсов | Microsoft.Compute/availabilitySets/read |
+| Службы вычислений | Диспетчер ресурсов | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -66,7 +67,7 @@ Azure Site Recovery предоставляет 3 встроенные роли �
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Классический | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Хранилище | Диспетчер ресурсов | Microsoft.Storage/storageAccounts/read |
+| Служба хранилища | Диспетчер ресурсов | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Классический | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
