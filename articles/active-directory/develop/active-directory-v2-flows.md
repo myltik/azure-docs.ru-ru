@@ -1,25 +1,28 @@
 ---
-title: "Типы приложений для конечной точки Azure Active Directory версии 2.0 | Документация Майкрософт"
-description: "Типы приложений и сценарии, поддерживаемые конечной точкой Azure Active Directory версии 2.0."
+title: Типы приложений для конечной точки Azure Active Directory версии 2.0 | Документация Майкрософт
+description: Типы приложений и сценарии, поддерживаемые конечной точкой Azure Active Directory версии 2.0.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157692"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Типы приложений для конечной точки Azure Active Directory версии 2.0
 Конечная точка Azure Active Directory версии 2.0 поддерживает аутентификацию для различных современных архитектур приложений, которые основаны на стандартном отраслевом протоколе [OAuth 2.0 или OpenID Connect](active-directory-v2-protocols.md). В этой статье описываются типы приложений, которые можно создавать с помощью Azure AD версии 2.0 вне зависимости от выбранного языка и платформы. Сведения в этой статье помогут вам получить общее представление о возможных сценариях, прежде вы [приступите к работе с кодом](active-directory-appmodel-v2-overview.md#getting-started).
@@ -95,7 +98,7 @@ Accept: application/json
 
 Чтобы узнать, как защитить веб-API с помощью маркеров доступа OAuth 2.0, изучите примеры кода веб-API в разделе [Приступая к работе](active-directory-appmodel-v2-overview.md#getting-started).
 
-Во многих случаях веб-интерфейсам API также требуется выполнять исходящие запросы к другим нижестоящим веб-API, защищенным Azure Active Directory.  Для этого веб-API могут воспользоваться преимуществами потока **От имени** Azure AD. Это позволяет им обменять входящий маркер доступа на другой маркер доступа, который будет использоваться в исходящих запросах.  Дополнительные сведения о потоке "От имени" конечной точки версии 2.0 см. [здесь](active-directory-v2-protocols-oauth-on-behalf-of.md).
+Во многих случаях веб-интерфейсам API также требуется выполнять исходящие запросы к другим нижестоящим веб-API, защищенным Azure Active Directory. Для этого веб-API могут воспользоваться преимуществами потока **От имени** Azure AD. Это позволяет им обменять входящий маркер доступа на другой маркер доступа, который будет использоваться в исходящих запросах. Дополнительные сведения о потоке "От имени" конечной точки версии 2.0 см. [здесь](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Мобильные и собственные приложения
 Приложениям, установленным на устройстве, например мобильным и классическим приложениям, часто требуется доступ к внутренним службам или интерфейсам веб-API, которые хранят данные и выполняют различные функции от имени пользователя. В этих приложениях можно реализовать процесс входа и авторизации во внутренних службах с помощью [потока кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
@@ -120,4 +123,4 @@ Accept: application/json
 
 ![Поток аутентификации управляющей программы](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Чтобы создать управляющую программу, изучите документацию по учетным данным клиентов в нашем разделе [Приступая к работе](active-directory-appmodel-v2-overview.md#getting-started) или ознакомьтесь с [примером приложения .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Чтобы создать управляющую программу, изучите [документацию по учетным данным клиентов](active-directory-v2-protocols-oauth-client-creds.md) или ознакомьтесь с [примером приложения .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

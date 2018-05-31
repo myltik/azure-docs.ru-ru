@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010070"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Использование профилей версий API и Go в Azure Stack
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 04/03/2018
 В пакете SDK для Go профили доступны в пути profiles/ с версией в формате **ГГГГ-ММ-ДД**. **2017-03-09** — последняя версия профиля Azure Stack на данный момент. Чтобы импортировать данную службу из профиля, необходимо импортировать из профиля ее соответствующий модуль. Например, чтобы импортировать службу **вычислений** из профиля **2017-03-09**, используйте следующий код:
 
 ````go
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compute" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
 ## <a name="install-azure-sdk-for-go"></a>Установка пакета Azure SDK для Go
@@ -63,7 +62,8 @@ import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compu
 Чтобы запустить пример кода GO в Azure Stack, сделайте следующее:
   1. Установите пакет Azure SDK для Go и его зависимости. Инструкции см. в предыдущем разделе: [Установка пакета Azure SDK для Go](#install-azure-sdk-for-go).
   2. Получите метаданные из конечной точки Resource Manager. Конечная точка возвращает JSON-файл со сведениями, необходимыми для запуска кода Go.
-  > [!note]  
+
+  > [!Note]  
   > В Пакете средств разработки Azure Stack (ASDK) **ResourceManagerUrl**: `https://management.local.azurestack.external/`.  
   > В интегрированных системах **ResourceManagerUrl**: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.  
   > Чтобы получить необходимые метаданные, используйте: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
@@ -129,7 +129,7 @@ func main() {
 
 В этом разделе представлен обычный способ получения токенов авторизации в Azure Stack с использованием учетных данных клиента.
 
-  1. Если в подписке доступен субъект-служба с ролью владельца, пропустите этот шаг. В противном случае создайте [субъект-службу]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) и назначьте ему роль "владельца" для своей [подписки]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Сохраните идентификатор приложения и секрет субъекта-службы. 
+  1. Если в подписке доступен субъект-служба с ролью владельца, пропустите этот шаг. В противном случае создайте [субъект-службу]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) и назначьте ему роль "владельца" для своей [подписки]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Сохраните идентификатор приложения и секрет субъекта-службы. 
 
   2. Импортируйте пакет **adal** из Go AutoRest в код. 
   
@@ -178,7 +178,8 @@ func main() {
 ## <a name="example"></a>Пример
 
 В этом разделе показан пример кода Go для создания виртуальной сети в Azure Stack. Полные примеры с использованием пакета SDK для Go см. в [этом репозитории](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Примеры Azure Stack можно найти в пути hybrid/ внутри папок службы репозитория.
-> [!note]  
+
+> [!Note]  
 > Чтобы запустить код в этом примере, убедитесь, что в используемой подписке для **поставщика сетевых ресурсов** указано **Зарегистрирован**. Чтобы проверить это, найдите подписку на портале Azure Stack и щелкните **Поставщики ресурсов.**
 
 1. Импортируйте необходимые пакеты в свой код. Для импорта модуля сети необходима последняя версия профиля Azure Stack. 
@@ -196,7 +197,7 @@ func main() {
   )
   ````
 
-2. Определите переменные своей среды. Обратите внимание, что для создания виртуальной сети необходима группа ресурсов. 
+2. Определите переменные своей среды. Для создания виртуальной сети необходима группа ресурсов. 
 
   ````go
   var (
