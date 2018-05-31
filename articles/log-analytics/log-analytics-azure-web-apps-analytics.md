@@ -12,20 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261374"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Просмотр аналитических данных для метрик ресурсов веб-приложений Azure
 
 ![Символ веб-приложений](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> Решение "Аналитика веб-приложений Azure" больше не поддерживается.  Пользователи, установившие его, могут продолжать работать с ним, но это решение нельзя добавить в новые рабочие области.
+> Решение "Аналитика веб-приложений Azure" больше не поддерживается.  Пользователи, установившие его, могут продолжать работать с ним, но это решение нельзя добавить в новые рабочие области.  Для мониторинга веб-приложений мы рекомендуем использовать [Application Insights](../application-insights/app-insights-overview.md). 
 
 Аналитику веб-приложений Azure (предварительная версия) можно использовать для углубленного анализа данных [веб-приложений Azure](../app-service/app-service-web-overview.md) при сборе разных метрик ресурсов веб-приложений Azure. Это решение позволяет анализировать и искать данные метрик ресурсов веб-приложений.
 
