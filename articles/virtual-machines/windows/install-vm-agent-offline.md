@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363300"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Установка агента виртуальной машины Azure в автономном режиме 
 
@@ -106,12 +107,11 @@ ms.lasthandoff: 05/10/2018
 
 13.  Войдите на виртуальную машину. Обратите внимание, что агент RdAgent работает, а журналы создаются.
 
-Если вы создали виртуальную машину с помощью классической модели развертывания, дополнительные шаги не требуются.
-
+Если вы создали виртуальную машину с помощью модели развертывания диспетчера ресурсов, дополнительные шаги не требуются.
 
 ### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Использование свойства ProvisionGuestAgent для виртуальных машин, созданных с помощью Azure Resource Manager
 
-При создании виртуальной машины с помощью модели развертывания Resource Manager используйте модуль Azure PowerShell для обновления свойства **ProvisionGuestAgent**. Это свойство сообщает Azure об установке агента виртуальной машины.
+При создании виртуальной машины с помощью классической модели используйте модуль Azure PowerShell для обновления свойства **ProvisionGuestAgent**. Это свойство сообщает Azure об установке агента виртуальной машины.
 
 Чтобы задать свойство **ProvisionGuestAgent**, выполните следующие команды в Azure PowerShell:
 

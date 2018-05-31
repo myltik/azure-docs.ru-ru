@@ -10,11 +10,12 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de75a7ab907655d84873949460692a921c8d3186
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166103"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Хранение данных в граничной системе с помощью баз данных SQL Server
 
@@ -95,7 +96,7 @@ ms.lasthandoff: 04/28/2018
         }
    ```
 
-3. Замените `<docker registry address>` адресом из статьи о [развертывании Функции Azure в виде модуля IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function).
+3. Замените `<docker registry address>` адресом из статьи о [развертывании Функции Azure в виде модуля IoT Edge](tutorial-deploy-function.md).
 
    >[!NOTE]
    >Адрес реестра контейнеров совпадает с адресом сервера входа, который был скопирован из реестра. Он должен быть указан в формате `<your container registry name>.azurecr.io`.

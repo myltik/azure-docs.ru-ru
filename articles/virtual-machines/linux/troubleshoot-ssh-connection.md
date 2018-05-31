@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365684"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение
 При попытке подключения к виртуальной машине Azure под управлением Linux ошибка, сбой или отклонение подключения Secure Shell (SSH) может возникнуть по нескольким причинам. В этой статье вы узнаете, как их выявить и устранить. Для устранения неполадок и решения проблем с подключением можно воспользоваться порталом Azure, Azure CLI или расширением для доступа к виртуальной машине для Linux.
@@ -34,7 +35,7 @@ ms.lasthandoff: 05/10/2018
 
 1. сбросить конфигурацию SSH.
 2. Сбросьте учетные данные пользователя.
-3. Убедитесь, что правила [группы безопасности сети](../../virtual-network/virtual-networks-nsg.md) разрешают трафик SSH.
+3. Убедитесь, что правила [группы безопасности сети](../../virtual-network/security-overview.md) разрешают трафик SSH.
    * Убедитесь, что правило для разрешения трафика SSH есть в группе безопасности сети (по умолчанию — TCP-порт 22).
    * Нельзя использовать перенаправление и сопоставление портов, не используя Azure Load Balancer.
 4. Проверьте [работоспособность ресурсов виртуальной машины](../../resource-health/resource-health-overview.md). 

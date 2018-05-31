@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: e288748d7433f4b3c7da7db1ab1ef2ee487318df
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f349158873acca9d50d4d6e5fdfa3539f26207fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786743"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362573"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Когнитивный навык объединения текста
 
@@ -129,16 +129,14 @@ Microsoft.Skills.Util.TextMerger
 В приведенном выше примере предполагается наличие поля нормализованных изображений. Чтобы создать поле normalized-images, настройте конфигурацию *imageAction* в определении индексатора *generateNormalizedImages*, как показано ниже.
 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "mergedText": "The quick brown fox jumps over the lazy dog" 
-           }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
       }
-    ]
+   }
 }
 ```
 
@@ -146,3 +144,4 @@ Microsoft.Skills.Util.TextMerger
 
 + [Предопределенные навыки](cognitive-search-predefined-skills.md)
 + [Определение набора навыков](cognitive-search-defining-skillset.md)
++ [Создание индексатора (REST)](ref-create-indexer.md)
