@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/15/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895577"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210061"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Сравнение функций Базы данных SQL Azure и SQL Server 
 
@@ -83,7 +83,7 @@ ms.locfileid: "33895577"
 | [Геовосстановление](sql-database-recovery-using-backups.md#geo-restore) | Yes | Нет. Вы можете восстанавливать периодические полные резервные копии COPY_ONLY. См. разделы [Backup](sql-database-managed-instance-transact-sql-information.md#backup) (Резервное копирование) и [RESTORE statement](sql-database-managed-instance-transact-sql-information.md#restore-statement) (Инструкция RESTORE). |
 | [Георепликация](sql-database-geo-replication-overview.md) | Yes | Нет  |
 | [Обработка Graph](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Yes | Yes |
-| [Оптимизация в памяти](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Да, [только в категориях "Премиум" и "Критически важный для бизнеса"](sql-database-in-memory.md). | Нет  |
+| [Оптимизация в памяти](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Да, [только для уровней "Премиум" и "Критически важный для бизнеса"](sql-database-in-memory.md). | Нет  |
 | [Поддержка данных JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Да](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Да](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Элементы языка](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Большинство. Дополнительные сведения см. в разделах по отдельным элементам. |  Да. См. раздел [T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Отличия T-SQL от SQL Server). |
 | [Связанные серверы](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет. Дополнительные сведения см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md). | Только в SQL Server и Базе данных SQL |

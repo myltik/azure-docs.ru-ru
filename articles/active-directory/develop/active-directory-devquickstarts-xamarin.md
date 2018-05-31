@@ -1,25 +1,28 @@
 ---
-title: "Начало работы с Xamarin и Azure AD | Документация Майкрософт"
-description: "Создание приложений Xamarin, которые интегрируются с Azure AD для входа в систему и вызывают программные интерфейсы, защищенные Azure AD, с помощью OAuth."
+title: Начало работы с Xamarin и Azure AD | Документация Майкрософт
+description: Создание приложений Xamarin, которые интегрируются с Azure AD для входа в систему и вызывают программные интерфейсы, защищенные Azure AD, с помощью OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156693"
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Начало работы с Xamarin и Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -57,8 +60,7 @@ ms.lasthandoff: 02/21/2018
   * **URI перенаправления** представляет собой сочетание схемы и строки, используемое Azure AD для возвращения ответов маркеров. Введите значение (например, http://DirectorySearcher).
 6. После завершения регистрации Azure AD присваивает приложению уникальный идентификатор. Скопируйте значение на вкладке **Приложение**. Оно потребуется вам позже.
 7. На странице **Параметры** выберите **Необходимые разрешения** и щелкните **Добавить**.
-8. Выберите API **Microsoft Graph**. В разделе **Делегированные разрешения** добавьте разрешение **Чтение данных каталога**.  
-Это действие позволяет приложению отправлять запросы в API Graph для пользователей.
+8. Выберите API **Microsoft Graph**. В разделе **Делегированные разрешения** добавьте разрешение **Чтение данных каталога**. Это действие позволяет приложению отправлять запросы в API Graph для пользователей.
 
 ## <a name="step-3-install-and-configure-adal"></a>Шаг 3. Установка и настройка ADAL
 Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку ADAL и написать код для работы с удостоверением. Чтобы обеспечить взаимодействие библиотеки ADAL с Azure AD, необходимо указать определенные сведения о регистрации приложения.
@@ -90,8 +92,8 @@ ms.lasthandoff: 02/21/2018
 3. Замените значения членов класса значениями, введенными на портале Azure. Ваш код будет ссылаться на эти значения при каждом использовании ADAL.
 
   * *tenant* — это домен вашего клиента Azure AD (например, contoso.onmicrosoft.com).
-  * *clientId* — идентификатор клиента приложения, скопированный с портала.
-  * *returnUri* — URI перенаправления, который вы указали на портале (например, http://DirectorySearcher).
+  * *clientId* — идентификатор клиента приложения, скопированный с портала.
+  * *returnUri* — это универсальный код ресурса (URI) для перенаправления, который вы указали на портале (например, http://DirectorySearcher).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Шаг 4. Использование ADAL для получения маркеров из Azure AD
 Практически вся логика для проверки подлинности приложения находится в `DirectorySearcher.SearchByAlias(...)`. Специфические для платформы проекты должны отправлять контекстный параметр в PCL `DirectorySearcher`.
@@ -103,8 +105,7 @@ ms.lasthandoff: 02/21/2018
     {
     ```
 
-2. Инициализируйте `AuthenticationContext` — основной класс ADAL.  
-Это действие отправляет в библиотеку ADAL координаты, которые требуются ей для взаимодействия с Azure AD.
+2. Инициализируйте `AuthenticationContext` — основной класс ADAL. Это действие отправляет в библиотеку ADAL координаты, которые требуются ей для взаимодействия с Azure AD.
 3. Вызовите метод `AcquireTokenAsync(...)`, который принимает объект `IPlatformParameters` и будет вызывать последовательность проверки подлинности, необходимую для возврата маркера в приложение.
 
     ```csharp

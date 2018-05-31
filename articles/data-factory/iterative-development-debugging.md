@@ -4,7 +4,7 @@ description: Сведения об итеративных разработке �
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,15 +12,20 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e403afa5c870b2d007a8c5e1d46162cd899ead29
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164828"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Итеративные разработка и отладка в фабрике данных Azure
 
 Фабрика данных Azure позволяет итерационно разрабатывать и отлаживать конвейеры фабрики данных.
+
+Общие сведения об этой функции и ее демонстрацию см. в следующем 8-минутном видео:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## <a name="iterative-debugging-features"></a>Функции итеративной отладки
 Создайте конвейеры и выполните тестовые запуски с помощью функции **Отладка** на холсте конвейера, не написав ни строки кода.

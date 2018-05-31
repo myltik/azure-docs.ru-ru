@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176292"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203783"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Мониторинг использования и ожидаемых затрат
 
@@ -93,7 +93,7 @@ ms.locfileid: "32176292"
 Оценка затрат показывает последствия этих изменений.
 
 > [!WARNING]
-> Здесь важно отметить, что если вы используете Azure Resource Manager или PowerShell для развертывания [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) или [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) в подписке, вам необходимо перейти на новую модель ценообразования. Если вы укажете уровень или план ценообразования, отличный от pergb2018 для Log Analytics или "Базовый" для Application Insights, ошибка развертывания из-за указания недопустимого уровня или плана ценообразования не появится, а развертывание выполнится успешно **, однако будет использован только допустимый уровень или план ценообразования**. 
+> Здесь важно отметить, что если вы используете Azure Resource Manager или PowerShell для развертывания [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) или [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) в подписке, вам необходимо перейти на новую модель ценообразования. Если вы укажете уровень или план ценообразования, отличный от pergb2018 для Log Analytics или "Базовый" для Application Insights, ошибка развертывания из-за указания недопустимого уровня или плана ценообразования не появится, а развертывание выполнится успешно, **однако будет использован только допустимый уровень или план ценообразования** (это не относится к уровню "Бесплатный" для Log Analytics, где создается сообщение о недопустимом уровне ценообразования).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Переход на новую модель ценообразования
