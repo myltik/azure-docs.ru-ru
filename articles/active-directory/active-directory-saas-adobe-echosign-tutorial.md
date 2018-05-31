@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Adobe Sign | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Adobe Sign."
+title: Руководство по интеграции Azure Active Directory с Adobe Sign | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении Adobe Sign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Руководство по интеграции Azure Active Directory с Adobe Sign
 
@@ -129,40 +130,31 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-
 7. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Adobe Sign в качестве администратора.
 
-8. В меню в верхней части экрана выберите **Account** (Учетная запись), а затем в области навигации с левой стороны выберите **SAML Settings** (Параметры SAML) в разделе **Account Settings** (Параметры учетной записи).
+8. В меню "SAML" щелкните **Account Settings** (Параметры учетной записи), а затем щелкните **SAML Settings** (Параметры SAML).
    
-   ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Учетная запись")
+    ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Учетная запись")
 
-9. В разделе «Параметры SAML» выполните следующие действия.
+9. В разделе **SAML Settings** (Параметры SAML) выполните следующие действия.
+  
+    ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "Параметры SAML")
    
-   ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "Параметры SAML")
+    a. В разделе **SAML Mode** (Режим SAML) выберите параметр **SAML Mandatory** (SAML обязательно).
    
-   a. В разделе **SAML Mode** (Режим SAML) выберите параметр **SAML Mandatory** (SAML обязательно).
+    Б. Установите флажок **Allow Adobe sign Account Administrators to log in using their Adobe Sign Credentials**(Разрешить администраторам учетных записей Adobe вход с использованием учетных данных Adobe).
    
-   Б. Установите флажок **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**(Разрешить администраторам учетных записей EchoSign вход с использованием учетных данных EchoSign).
-   
-   c. В разделе **User Creation** (Создание пользователей) установите флажок **Automatically add users authenticated through SAML** (Автоматически добавлять пользователей, прошедших проверку подлинности с использованием SAML).
+    c. В разделе **User Creation** (Создание пользователей) установите флажок **Automatically add users authenticated through SAML** (Автоматически добавлять пользователей, прошедших проверку подлинности с использованием SAML).
 
-10. После этого выполните следующие действия.
-
-       ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "Параметры SAML")
-
-    a. Вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure, в поле **IdP Entity ID** (Идентификатор сущности IdP).
+    d. Вставьте **идентификатор сущности SAML**, скопированный на портале Azure, в текстовое поле **Entity ID/Issuer URL** (Идентификатор сущности или URL-адрес издателя).
     
-    Б. В текстовое поле **IdP Login URL** (URL-адрес входа IdP) вставьте значение **URL-адрес службы единого входа SAML**, скопированное на портале Azure.
+    д. В текстовое поле **Login URL/SSO Endpoint** (URL-адрес входа или конечная точка единого входа) вставьте **URL-адрес службы единого входа SAML**, скопированный на портале Azure.
    
-    c. В текстовое поле **IdP Logout URL** (URL-адрес выхода IdP) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
+    f. В текстовое поле **Logout URL/SLO Endpoint** (URL-адрес выхода или конечная точка единого выхода) вставьте **URL-адрес выхода**, скопированный на портале Azure.
 
-    d. Откройте скачанный файл **сертификата (Base64)** в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **IdP Certificate** (Сертификат IdP).
+    ж. Откройте скачанный файл **сертификата (Base64)** в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **IdP Certificate** (Сертификат IdP).
 
-    д. Нажмите кнопку **Сохранить изменения**.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+    h. Нажмите кнопку **Сохранить изменения**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
@@ -208,15 +200,15 @@ ms.lasthandoff: 12/11/2017
 
 2. В меню в верхней части экрана щелкните **Account** (Учетная запись), а затем в области навигации слева выберите **Users & Groups** (Пользователи и группы), а затем — **Create a new user** (Создать пользователя).
    
-   ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Учетная запись")
+    ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Учетная запись")
    
 3. В разделе **Создание нового пользователя** выполните следующие действия.
    
-   ![Создание пользователя](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Создание пользователя")
+    ![Создание пользователя](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Создание пользователя")
    
-   a. Введите в текстовые поля **Email Address** (Адрес электронной почты), **First Name** (Имя) и **Last Name** (Фамилия) соответствующие данные действующей учетной записи AAD, которую нужно подготовить.
+    a. Введите в текстовые поля **Email Address** (Адрес электронной почты), **First Name** (Имя) и **Last Name** (Фамилия) соответствующие данные действующей учетной записи AAD, которую нужно подготовить.
    
-   Б. Нажмите кнопку **Создать пользователя**.
+    Б. Нажмите кнопку **Создать пользователя**.
 
 >[!NOTE]
 >Владелец учетной записи Azure Active Directory получит электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией. 

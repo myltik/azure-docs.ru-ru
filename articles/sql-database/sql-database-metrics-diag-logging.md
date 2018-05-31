@@ -10,11 +10,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365769"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Метрики и журналы диагностики базы данных SQL Azure 
 База данных SQL Azure может выдавать значения метрик и журналы диагностики для упрощения мониторинга. Вы можете настроить базу данных SQL для хранения сведений об использовании ресурсов, о рабочих ролях и сеансах, а также настроить подключение к одному из этих ресурсов Azure:
@@ -37,9 +38,9 @@ ms.lasthandoff: 04/23/2018
 
 При включении метрик и журналов диагностики необходимо указать ресурс Azure, где собираются выбранные данные. Доступны следующие варианты.
 
-- Служба Log Analytics
+- Log Analytics
 - Концентраторы событий
-- Хранилище 
+- Служба хранилища 
 
 Вы можете подготовить новый ресурс Azure или выбрать имеющийся. После выбора ресурса хранилища необходимо указать, какие данные нужно собирать. Доступны следующие варианты.
 
@@ -51,6 +52,7 @@ ms.lasthandoff: 04/23/2018
 - [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset). Содержит сведения о времени ожидания в базе данных.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset). Содержит сведения о блокирующих событиях, произошедших в базе данных.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset). Содержит Intelligent Insights. Дополнительные сведения об Intelligent Insights см. в [этой статье](sql-database-intelligent-insights.md).
+- **Audit** / **SQLSecurityAuditEvents**: в настоящее время недоступна.
 
 Если выбрать концентраторы событий или учетную запись хранения, можно указать политику хранения. Эта политика удаляет данные, которые хранятся дольше выбранного периода времени. При указании Log Analytics политика хранения определяется на основании выбранной ценовой категории. Дополнительные сведения см. на странице [цен на Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
@@ -154,7 +156,7 @@ ms.lasthandoff: 04/23/2018
 
 ### <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 
-Сведения об изменении параметров диагностики с помощью REST API Azure Monitor см. в [этом документе](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Сведения об изменении параметров диагностики с помощью REST API Azure Monitor см. в [этом документе](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Шаблон Resource Manager
 
@@ -183,7 +185,7 @@ ms.lasthandoff: 04/23/2018
 
 4. В форме Log Analytics введите необходимые дополнительные сведения: имя рабочей области, подписки, группы ресурсов, расположения и ценовую категорию.
 
-   ![Служба Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
+   ![Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Настройка баз данных для записи метрик и журналов диагностики
 

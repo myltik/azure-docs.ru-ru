@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect и общий регламент по защите данных | Документация Майкрософт
+title: Azure AD Connect и конфиденциальность пользователей | Документация Майкрософт
 description: В этом документе рассматривается обеспечение соответствия требованиям GDPR в Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -11,36 +11,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149395"
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>Azure AD Connect и соответствие требованиям GDPR 
+# <a name="user-privacy-and-azure-ad-connect"></a>Конфиденциальность пользователей и Azure AD Connect 
 
-В мае 2018 года в силу вступит закон о конфиденциальности ЕС, [Общий регламент по защите данных (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm). GDPR устанавливает новые правила для компаний, правительственных учреждений, некоммерческих организаций и других организаций, которые предлагают товары и услуги жителям государств Европейского Союза (ЕС) или собирают и анализируют связанные с ними данные. GDPR применяется независимо от того, где вы находитесь. 
-
-Сегодня доступны продукты и службы Майкрософт, позволяющие обеспечить соответствие требований GDPR. Дополнительные сведения о политике конфиденциальности корпорации Майкрософт см. в [центре управления безопасностью](https://www.microsoft.com/trustcenter).
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->В этой статье рассматривается соответствие требованиям GDPR в Azure AD Connect.  Дополнительные сведения о соответствии требованиям GDPR в Azure AD Connect Health см. в статье [здесь](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+>В этой статье рассматривается конфиденциальность пользователей в Azure AD Connect.  Сведения о конфиденциальности пользователей в Azure Active Directory Connect Health приведены в [этой статье](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-Соответствия требованиям общего регламента по защите данных для систем Azure AD Connect можно достичь двумя способами.
+Соответствия требованиям конфиденциальности пользователей для систем Azure AD Connect можно достичь двумя способами.
 
 1.  По запросу извлекать данные для пользователя и удалять эти данные из установленных решений.
 2.  Не хранить данные больше 48 часов.
 
 Команда Azure AD Connect рекомендует второй вариант, так как его намного проще реализовать и поддерживать.
 
-Сервер синхронизации Azure AD Connect хранит следующие данные, для которых следует обеспечить соответствие требованиям GDPR.
+На сервере синхронизации Azure AD Connect хранятся следующие данные о конфиденциальности пользователей:
 1.  Данные о пользователе в **базе данных Azure AD Connect**.
 2.  Данные в файлах **журнала событий Windows**, которые могут содержать сведения о пользователе.
 3.  Данные в **файлах журнала установки Azure AD Connect**, которые могут содержать сведения о пользователе.
 
-Чтобы обеспечить соответствие требованиям GDPR, клиенты Azure AD Connect должны следовать следующим рекомендациям.
+При удалении данных пользователя клиенты Azure AD Connect должны следовать следующим рекомендациям.
 1.  Регулярно (по крайней мере каждые 48 часов) удаляйте содержимое папки, содержащей файлы журнала установки Azure AD Connect.
 2.  Этот продукт может также создавать журналы событий.  Дополнительные сведения о журналах событий см. в [документации здесь](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
@@ -82,5 +81,5 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 
 ## <a name="next-steps"></a>Дополнительная информация
-- [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-- [Azure AD Connect Health и GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md) (Соответствие требованиям GDPR и Azure AD Connect Health)
+* [Просмотр политики конфиденциальности корпорации Майкрософт в центре управления безопасностью](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect Health и конфиденциальность пользователей](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187680"
 ---
 # <a name="sql-database-application-development-overview"></a>Обзор разработки приложений базы данных SQL
 В этой статье рассматриваются основные вопросы, которые разработчик должен учитывать при программировании подключения к базе данных SQL Azure.
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="resource-limitations"></a>Ограничения ресурсов
 База данных SQL Azure управляет ресурсами, доступными для базы данных, с использованием двух разных механизмов: управления ресурсами и принудительного применения ограничений.
 
-* Дополнительные сведения: [Ограничения ресурсов базы данных SQL Azure](sql-database-service-tiers.md).
+* Дополнительные сведения: [Ограничения модели для ресурсов службы "База данных SQL Azure" на основе DTU](sql-database-dtu-resource-limits.md) и [Ограничения для службы "База данных SQL Azure" в модели приобретения на основе виртуальных ядер (предварительная версия)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Безопасность
 База данных SQL Azure предоставляет ресурсы для ограничения доступа, защиты данных и мониторинга действий в базе данных SQL.
