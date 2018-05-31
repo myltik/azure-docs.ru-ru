@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 648b67f4b782b2a2318170ae2b655af40b7bd2a5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e9340e5db78315470052e0c0c70eeef6bf6dafa
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885525"
 ---
 # <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Выполнение массовых операций с данными Azure Cosmos DB с помощью библиотеки BulkExecutor Java
 
-В этом руководстве приведены инструкции по использованию библиотеки BulkExecutor Java в Azure Cosmos DB для импорта и обновления документов Azure Cosmos DB. В этом руководстве вы создадите приложение Java, которое формирует случайные документы, которые массово импортируются в коллекцию Azure Cosmos DB. После импорта вы массово обновите некоторые свойства документа. 
+В этом руководстве приведены инструкции по использованию библиотеки BulkExecutor Java в Azure Cosmos DB для импорта и обновления документов Azure Cosmos DB. Подробнее о библиотеке BulkExecutor и о том, как с ее помощью эффективно использовать пропускную способность и хранилище, можно узнать в статье с [общими сведениями о библиотеке BulkExecutor](bulk-executor-overview.md). В этом руководстве вы создадите приложение Java, которое формирует случайные документы, которые массово импортируются в коллекцию Azure Cosmos DB. После импорта вы массово обновите некоторые свойства документа. 
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 05/07/2018
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
 ```
-   API массового импорта принимает коллекцию сериализованных документов JSON и имеет указанный ниже синтаксис. Дополнительные сведения см. в [документации по API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async).
+   API массового импорта принимает коллекцию сериализованных документов JSON и имеет указанный ниже синтаксис. Дополнительные сведения см. в [документации по API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).
 
    ```java
    public BulkImportResponse importAll(
@@ -135,9 +136,9 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Массовое обновление данных в Azure Cosmos DB
 
-С помощью API BulkUpdateAsync можно обновить имеющиеся документы. В этом примере вы присвоите для поля Name новое значение и удалите поле Description из существующих документов. Полный набор поддерживаемых операции обновления полей см. в [документации по API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async). 
+С помощью API BulkUpdateAsync можно обновить имеющиеся документы. В этом примере вы присвоите для поля Name новое значение и удалите поле Description из существующих документов. Полный набор поддерживаемых операции обновления полей см. в [документации по API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Определите элементы для обновления вместе с соответствующими операциями обновления полей. В этом примере используйте SetUpdateOperation для обновления поля Name и UnsetUpdateOperation, чтобы удалить поле Description из всех документов. Вы также можете выполнять другие операции, такие как увеличение значения в поле документа по определенному значению, передача определенных значений в поле массива или удаление определенного значения из него. Дополнительные сведения о различных методах, предоставляемых API массового обновления, см. в [документации по API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async).  
+1. Определите элементы для обновления вместе с соответствующими операциями обновления полей. В этом примере используйте SetUpdateOperation для обновления поля Name и UnsetUpdateOperation, чтобы удалить поле Description из всех документов. Вы также можете выполнять другие операции, такие как увеличение значения в поле документа по определенному значению, передача определенных значений в поле массива или удаление определенного значения из него. Дополнительные сведения о различных методах, предоставляемых API массового обновления, см. в [документации по API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -159,7 +160,7 @@ ms.lasthandoff: 05/07/2018
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   API массового обновления принимает коллекцию обновляемых элементов. Каждый обновленный элемент указывает список операций обновлений поля, которые будут выполнены в документе, определенном значением идентификатора и ключа раздела. Дополнительные сведения см. в [документации по API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async).
+   API массового обновления принимает коллекцию обновляемых элементов. Каждый обновленный элемент указывает список операций обновлений поля, которые будут выполнены в документе, определенном значением идентификатора и ключа раздела. Дополнительные сведения см. в [документации по API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).
 
    ```java
    public BulkUpdateResponse updateAll(
