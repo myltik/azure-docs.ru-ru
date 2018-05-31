@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Shmoop For Schools | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Shmoop For Schools."
+title: Руководство по интеграции Azure Active Directory с Shmoop For Schools | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Shmoop For Schools.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 48db70834f96adbb7097457caca8489ea1a57da5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 799a88344d6c348061af19bfbbd9022025d2d66b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Руководство по интеграции Azure Active Directory с Shmoop For Schools
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в Shmoop For Schools с помощью учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -79,8 +80,6 @@ ms.lasthandoff: 12/11/2017
 В этом разделе описана настройка и проверка единого входа Azure AD в Shmoop For Schools с использованием тестового пользователя Britta Simon.
 
 Чтобы настроить единый вход в Azure AD, необходимо знать, какой пользователь в Shmoop For Schools соответствует пользователю в Azure AD. Другими словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Shmoop For Schools.
-
-Назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Shmoop For Schools. Теперь вы установили отношение связи.
 
 Чтобы настроить и проверить единый вход Azure AD в Shmoop For Schools, выполните приведенные ниже инструкции.
 
@@ -146,31 +145,11 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Для создания URL-адреса **метаданных** выполните следующие действия.
+7. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
 
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appregistrations.png)
-   
-    Б. Выберите **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpointicon.png)
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **ДОКУМЕНТА МЕТАДАННЫХ ФЕДЕРАЦИИ**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
-     
-    d. Перейдите на страницу свойств **Shmoop For Schools**. Затем скопируйте **идентификатор приложения** с помощью кнопки **Копировать**. Вставьте это значение в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.   
-
-8. Чтобы настроить единый вход на стороне **Shmoop For Schools**, отправьте в [службу поддержки Shmoop For Schools](mailto:support@shmoop.com) **URL-адрес метаданных**.
-
-> [!TIP]
-> Краткая версия этих инструкций теперь также доступна на [портале Azure](https://portal.azure.com) во время настройки приложения. После добавления этого приложения из раздела **Active Directory** > **Корпоративные приложения** выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в статье [Управление параметрами единого входа для корпоративных приложений]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+8. Чтобы настроить единый вход на стороне **Shmoop For Schools**, отправьте [группе поддержки Shmoop For Schools](mailto:support@shmoop.com) **URL-адрес метаданных федерации приложения**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
@@ -252,7 +231,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список руководств по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md).
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

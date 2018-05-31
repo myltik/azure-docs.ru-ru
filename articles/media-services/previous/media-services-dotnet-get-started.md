@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33780234"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Приступая к работе с доставкой содержимого по запросу с помощью пакета SDK для .NET
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -154,7 +155,7 @@ ms.lasthandoff: 05/07/2018
 
 Метод **UploadFile**, определенный ниже, вызывает **CreateFromFile** (этот метод определен в расширениях пакета SDK для .NET). **CreateFromFile** создает новый ресурс-контейнер, в который отправляется указанный исходный файл.
 
-Метод **CreateFromFile** получает параметры **AssetCreationOptions, которые позволяют указать один из следующих параметров создания ресурса-контейнера:
+Метод **CreateFromFile** получает параметры \*\*AssetCreationOptions, которые позволяют указать один из следующих параметров создания ресурса-контейнера:
 
 * **None** — шифрование не используется. Это значение по умолчанию. Обратите внимание, что при использовании этого параметра содержимое не защищено при передаче и хранении.
   Используйте этот параметр, если MP4-файл планируется доставить с помощью поэтапного скачивания.

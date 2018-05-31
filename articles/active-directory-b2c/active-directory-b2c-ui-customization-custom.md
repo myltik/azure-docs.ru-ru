@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: f92629a3a5d20cce050aa7f124b140b1f4eb32d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200864"
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C. Настройка пользовательского интерфейса с помощью настраиваемой политики
 
@@ -143,7 +144,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Тестирование настраиваемой политики с помощью параметра **Запустить сейчас**
 
-1. В колонке **Azure AD B2C** выберите **Все политики**.
+1. В колонке **Azure AD B2C** выберите **Все политики**.
 2. Выберите отправленную вами настраиваемую политику и нажмите кнопку **Запустить сейчас**.
 3. Вы сможете зарегистрироваться, используя адрес электронной почты.
 

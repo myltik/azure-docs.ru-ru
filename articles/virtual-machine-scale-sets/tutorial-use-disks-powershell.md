@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd28b7e1f7407b1d1ee08c2f5774d939852e57b5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6543c8fc337e56d3691c2c2eb5ddea63e72fddda
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365514"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Руководство. Создание и использование дисков с масштабируемым набором виртуальных машин с помощью Azure PowerShell
 В масштабируемых наборах виртуальных машин на дисках хранится операционная система, приложения и данные. Для создания масштабируемого набора и управления им важно выбрать размер диска и конфигурацию в соответствии с ожидаемой рабочей нагрузкой. В этом руководстве объясняется, как создать диски виртуальной машины и управлять ими. Из этого руководства вы узнали, как выполнять такие задачи:
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, для работы с этим руководством необходима версия модуля Azure PowerShell версии 5.6.0 или более поздней. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 6.0.0 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 
 ## <a name="default-azure-disks"></a>Диски Azure по умолчанию
@@ -96,7 +97,7 @@ ms.lasthandoff: 04/19/2018
 ### <a name="attach-disks-at-scale-set-creation"></a>Присоединение дисков при создании масштабируемого набора
 Создайте масштабируемый набор виртуальных машин с помощью командлета [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Когда отобразится запрос, введите имя и пароль для экземпляров виртуальных машин. Чтобы распределить трафик между отдельными экземплярами виртуальных машин, создается еще и подсистема балансировки нагрузки. Подсистема балансировки нагрузки определяет правила передачи трафика на TCP-порт 80, а также разрешает подключение удаленного рабочего стола трафик через TCP-порт 3389 и удаленное взаимодействие PowerShell через TCP-порт 5985.
 
-Создаются два диска с параметром `-DataDiskSizeGb`. Размер первого диска — *64* ГБ, а второго — *128* ГБ.
+Создаются два диска с параметром `-DataDiskSizeGb`. Размер первого диска — *64* ГБ, а второго — *128* ГБ. При появлении запроса введите учетные данные администратора для экземпляров виртуальных машин в масштабируемом наборе:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -107,8 +108,8 @@ New-AzureRmVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicy "Automatic" `
-  -DataDiskSizeGb 64,128
+  -UpgradePolicyMode "Automatic" `
+  -DataDiskSizeInGb 64,128
 ```
 
 Создание и настройка всех ресурсов и экземпляров виртуальных машин масштабируемого набора занимает несколько минут.

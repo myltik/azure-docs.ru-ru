@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с QPrism | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и QPrism."
+title: Руководство по интеграции Azure Active Directory с QPrism | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Руководство по интеграции Azure Active Directory с QPrism
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в QPrism (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -110,34 +111,15 @@ ms.lasthandoff: 12/11/2017
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим идентификатором и URL-адресом для входа. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов QPrism](mailto:qsupport-ce@quatrro.com). 
 
-4. Чтобы создать **URL-адрес метаданных**, выполните следующие действия:
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложения**, и вставьте его в Блокнот.
 
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Регистрация приложений в окне настройки единого входа](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    Б. Выберите **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка конечных точек для единого входа](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка конечных точек для единого входа](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **QPrism** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**. Вставьте это значение в Блокнот.
- 
-    ![Идентификатор приложения в окне настройки единого входа](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`. 
+     ![Ссылка для скачивания сертификата](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. Щелкните **Сохранить**.
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Чтобы настроить единый вход на стороне **QPrism**, отправьте **URL-адрес метаданных** [группе поддержки QPrism](mailto:qsupport-ce@quatrro.com). Они обеспечат правильную настройку единого входа SAML с обеих сторон.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения. Когда вы добавите приложение из раздела **Active Directory** > **Корпоративные приложения**, откройте вкладку **Единый вход** и встроенную документацию из области **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в статье [Управление параметрами единого входа для корпоративных приложений]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. Чтобы настроить единый вход на стороне **QPrism**, отправьте [группе поддержки QPrism](mailto:qsupport-ce@quatrro.com) **URL-адрес метаданных федерации приложения**. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

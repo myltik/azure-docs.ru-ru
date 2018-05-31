@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory B2C. Добавление поставщика Azure AD с помощью пользовательских политик | Документы Майкрософт"
-description: "Сведения о пользовательских политиках Azure Active Directory B2C"
+title: Azure Active Directory B2C. Добавление поставщика Azure AD с помощью пользовательских политик | Документы Майкрософт
+description: Сведения о пользовательских политиках Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140229"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C. Выполнение входа с помощью учетных записей Azure AD
 
@@ -46,12 +47,12 @@ ms.lasthandoff: 12/11/2017
 > В следующих инструкциях клиент организации Azure AD будет называться "contoso.com", а клиент Azure AD B2C — "fabrikamb2c.onmicrosoft.com".
 
 1. Войдите на [портале Azure](https://portal.azure.com).
-1. На верхней панели выберите учетную запись. В списке **Каталог** выберите клиент организации Azure AD, в котором вы хотите зарегистрировать приложение (например, contoso.com).
-1. В левой области щелкните **Больше служб** и выполните поиск по запросу "регистрация приложений".
-1. Выберите **Регистрация нового приложения**.
-1. Введите значение имя для приложения (например, `Azure AD B2C App`).
-1. Выберите в качестве типа приложения **Веб-приложение или API**.
-1. В поле **URL-адрес входа** введите следующий URL-адрес, где `yourtenant` заменяется на имя вашего клиента Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+2. На верхней панели выберите учетную запись. В списке **Каталог** выберите клиент организации Azure AD, в котором вы хотите зарегистрировать приложение (например, contoso.com).
+3. В левой области щелкните **Больше служб** и выполните поиск по запросу "регистрация приложений".
+4. Выберите **Регистрация нового приложения**.
+5. Введите значение имя для приложения (например, `Azure AD B2C App`).
+6. Выберите в качестве типа приложения **Веб-приложение или API**.
+7. В поле **URL-адрес входа** введите следующий URL-адрес, где `yourtenant` заменяется на имя вашего клиента Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >Значение для yourtenant в поле **URL-адрес входа** следует указывать в нижнем регистре.
@@ -60,10 +61,10 @@ ms.lasthandoff: 12/11/2017
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Сохраните идентификатор приложения.
-1. Щелкните созданное приложение.
-1. В колонке **Параметры** щелкните **Ключи**.
-1. Создайте ключ и сохраните его. Он понадобится для выполнения действий в следующем разделе.
+8. Сохраните идентификатор приложения.
+9. Щелкните созданное приложение.
+10. В колонке **Параметры** щелкните **Ключи**.
+11. Введите описание ключа, выберите длительность и нажмите кнопку **Сохранить**. Появится значение ключа. Скопируйте его, так как он понадобится для выполнения действий в следующем разделе.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Добавление ключа Azure AD в Azure AD B2C
 

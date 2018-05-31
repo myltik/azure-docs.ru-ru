@@ -1,8 +1,8 @@
 ---
-title: "Мониторинг приложений Docker в Azure Application Insights | Документация Майкрософт"
-description: "Счетчики производительности, события и исключения Docker могут отображаться в Application Insights вместе с данными телеметрии из контейнерных приложений."
+title: Мониторинг приложений Docker в Azure Application Insights | Документация Майкрософт
+description: Счетчики производительности, события и исключения Docker могут отображаться в Application Insights вместе с данными телеметрии из контейнерных приложений.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153699"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Мониторинг приложений Docker в Application Insights
-События жизненного цикла и счетчики производительности из контейнеров [Docker](https://www.docker.com/) можно выводить в виде диаграмм в Application Insights. Установите образ [Application Insights](app-insights-overview.md) в контейнер в узле. Он будет отображать счетчики производительности для этого узла, а также для других образов.
+События жизненного цикла и счетчики производительности из контейнеров [Docker](https://www.docker.com/) можно выводить в виде диаграмм в Application Insights. Установите образ [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) в контейнер в узле. Он будет отображать счетчики производительности для этого узла, а также для других образов.
 
 С помощью Docker ваши приложения распространяются в упрощенных контейнерах со всеми зависимостями. Их можно запустить на любом хост-компьютере с модулем Docker.
 
@@ -43,6 +44,10 @@ ms.lasthandoff: 11/01/2017
 2. Добавьте плитку Docker. Выберите **Добавить плитку**, перетащите плитку Docker из коллекции, а затем нажмите кнопку **Готово**. 
    
     ![пример](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> Сейчас панель обзора в Application Insights заблокирована и не позволяет добавлять плитки из коллекции. Вы сможете добавлять плитки Docker, как описано выше, с помощью интерфейса панели мониторинга Azure.
+
 3. Щелкните раскрывающийся список **Основные компоненты** и скопируйте ключ инструментирования. Этот ключ указывает пакету SDK, куда отправлять данные телеметрии.
 
     ![пример](./media/app-insights-docker/02-props.png)

@@ -1,24 +1,21 @@
 ---
-title: Начало работы с Azure Data Lake Analytics с помощью портала Azure | Документация Майкрософт
-description: 'Узнайте, как использовать портал Azure для создания учетной записи Data Lake Analytics, создания задания Data Lake Analytics с помощью U-SQL и его отправки. '
+title: Начало работы с Azure Data Lake Analytics с помощью портала Azure
+description: Узнайте, как использовать портал Azure для создания учетной записи Data Lake Analytics, создания задания Data Lake Analytics с помощью U-SQL и его отправки.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358291"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Начало работы с Azure Data Lake Analytics с помощью портала Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>Отправка задания U-SQL
 
-1. В учетной записи Data Lake Analytics щелкните **Новое задание**.
-2. Вставьте в текст скрипт U-SQL, представленный выше. 
-3. Щелкните **Отправить задание**.   
-4. Подождите, пока состояние задания не изменится на **Успешно**.
-5. Перейдите на вкладку **Выходные данные** и щелкните `data.csv`. 
+1. В учетной записи Data Lake Analytics выберите **Новое задание**.
+2. Вставьте в текст скрипт U-SQL, приведенный выше. Присвойте заданию имя. 
+3. Нажмите кнопку **Отправить**, чтобы запустить задание.   
+4. Отслеживайте **состояние** задания и подождите, пока оно изменится на **Успешно**.
+5. Выберите вкладку **Данные**, а затем перейдите на вкладку **Выходные данные**. Щелкните выходной файл с именем `data.csv` и просмотрите выходные данные.
 
 ## <a name="see-also"></a>См. также
 

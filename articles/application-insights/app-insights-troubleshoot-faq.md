@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310020"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: вопросы и ответы
 
@@ -254,15 +255,37 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="proxy"></a>Прокси-сервер
 
-Настройте маршрутизацию трафика с сервера в шлюз интрасети в файле ApplicationInsights.config:
+Маршрутизируйте трафик со своего сервера на шлюз в интрасети, перезаписав эти параметры в примере ApplicationInsights.config. Если эти свойства "Конечная точка" отсутствуют в вашей конфигурации, эти классы будут использовать значения по умолчанию, показанные в приведенном ниже примере.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### <a name="example-applicationinsightsconfig"></a>Пример ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-Шлюз должен направлять трафик на адрес https://dc.services.visualstudio.com:443/v2/track.
+_Примечание. ApplicationIdProvider доступен, начиная с версии 2.6.0_
+
+Шлюз должен направлять трафик на адрес https://dc.services.visualstudio.com:443.
+
+Замените значения выше на `http://<your.gateway.address>/<relative path>`
+ 
+Пример: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Можно ли выполнять веб-тесты доступности на сервере в интрасети?
 

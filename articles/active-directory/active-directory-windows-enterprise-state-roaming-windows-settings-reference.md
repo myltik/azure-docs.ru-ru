@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159083"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Справочник по перемещаемым параметрам в Windows 10
 Ниже приведен полный список всех параметров, для которых в Windows 10 будет выполнено перемещение или резервное копирование. 
@@ -47,11 +48,15 @@ ms.lasthandoff: 12/11/2017
 * Специальные возможности: экранный диктор, экранная клавиатура, экранная лупа. 
 * Другие параметры Windows: см. раздел "Подробнее о параметрах Windows".
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Конечные пользователи могут включать и отключать синхронизацию групп параметров браузера Edge (избранное, список для чтения), используя пункты меню "Параметры" браузера Edge.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+В Windows 10 версии 1803 или более поздней версии пользователи могут включить или отключить синхронизацию группы параметров Internet Explorer ("Избранное", введенные URL-адреса) с помощью пункта меню"Параметры". 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Подробнее о параметрах Windows
 В следующей таблице запись "Другие" в столбце "Группа параметров" указывает на параметры, которые можно отключить, выбрав элементы "Параметры" > "Учетные записи" > "Синхронизация параметров" > "Другие параметры Windows". 
@@ -86,21 +91,21 @@ ms.lasthandoff: 12/11/2017
 | **Персонализация рабочего стола**: параметры панели задач (положение, автоматическое скрытие и т. д.) |sync |X |Тема |
 | **Персонализация рабочего стола**: макет начального экрана |X |backup | |
 | **Устройства**: общие принтеры, к которым подключен компьютер |X |X |Другие |
-| **Браузер Microsoft Edge**: список для чтения |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: избранное |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: наиболее популярные веб-сайты <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: введенные URL-адреса <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: настройки панели "Избранное" <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: показать кнопку "На главную страницу" <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: блокирование всплывающих окон <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: спрашивать при каждой загрузке <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: предлагать сохранять пароли <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: не отслеживать запросы <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: сохранять введенную информацию в формах <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: отображать варианты поиска и веб-сайты при вводе <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: настройки файлов cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: позволять веб-сайтам сохранять лицензии для защищенных файлов мультимедиа на устройстве <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
-| **Браузер Microsoft Edge**: настройки чтения с экрана <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: список для чтения |sync |sync |Внутренние |
+| **Браузер Edge**: избранное |sync |sync |Внутренние |
+| **Браузер Edge**: наиболее популярные веб-сайты <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: введенные URL-адреса <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: настройки панели "Избранное" <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: показать кнопку "На главную страницу" <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: блокирование всплывающих окон <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: спрашивать при каждой загрузке <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: предлагать сохранять пароли <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: не отслеживать запросы <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: сохранять введенную информацию в формах <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: отображать варианты поиска и веб-сайты при вводе <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: настройки файлов cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: позволять веб-сайтам сохранять лицензии для защищенных файлов мультимедиа на устройстве <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: настройки чтения с экрана <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
 | **Высокая контрастность**: включение или отключение |sync |X |Специальные возможности |
 | **Высокая контрастность**: параметры темы |sync |X |Специальные возможности |
 | **Internet Explorer**: открытие вкладок (URL-адрес и заголовок) |sync |sync |Internet Explorer |

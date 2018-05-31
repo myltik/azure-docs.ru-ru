@@ -5,14 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abd2d2c8e220a946d08774f8e55ea968008c1757
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156279"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Подключение к локальным источникам данных с помощью локального шлюза данных Azure
 Локальный шлюз данных действует как мост, обеспечивая передачу данных между локальными источниками данных и серверами служб Azure Analysis Services в облаке. Последняя версия шлюза работает с несколькими серверами служб Azure Analysis Services в том же регионе, а также с Azure Logic Apps, Power BI, Power Apps и Microsoft Flow. Несколько служб в одном регионе можно связать с одним шлюзом. 
@@ -82,6 +83,11 @@ ms.lasthandoff: 04/16/2018
     <value>Https</value>
 </setting>
 ```
+
+## <a name="tenant-level-administration"></a>Администрирование на уровне клиента 
+
+В настоящее время нет единого места, где администраторы клиентов могут управлять всеми шлюзами, которые установили и настроили другие пользователи.  Если вы являетесь администратором клиента, рекомендуется попросить пользователей в организации добавить вас в качестве администратора для каждого устанавливаемого шлюза. Это позволит вам управлять всеми шлюзами в вашей организации на странице настроек шлюза или через [команды PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Часто задаваемые вопросы
 

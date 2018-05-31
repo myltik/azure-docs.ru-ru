@@ -12,18 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
-ms.author: shvija;sethm;sagrewal
-ms.openlocfilehash: b430b731bdb38f6fe8af347e082fdfb1ef36a945
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: shvija
+ms.openlocfilehash: 09790852d28f2f68e854b37256ca1c8edba992e6
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311300"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Интеграция Apache Spark с концентраторами событий Azure
 
-Служба "Концентраторы событий Azure" легко интегрируется с [Apache Spark](https://spark.apache.org/), что упрощает создание распределенных приложений потоковой передачи. Такая интеграция поддерживается для [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html) и [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Соединитель службы "Концентраторы событий" для Apache Spark можно найти на [GitHub](https://github.com/Azure/azure-event-hubs-spark). Эту библиотеку также можно использовать в проектах Maven из [центрального репозитория Maven](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Концентраторы событий Azure плавно интегрируются с [Apache Spark](https://spark.apache.org/) для создания распределенных потоковых приложений. Такая интеграция поддерживается для [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html) и [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Соединитель службы "Концентраторы событий" для Apache Spark можно найти на [GitHub](https://github.com/Azure/azure-event-hubs-spark). Эту библиотеку также можно использовать в проектах Maven из [центрального репозитория Maven](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
-Из этой статьи вы узнаете, как создать непрерывно работающее приложение в [Azure Databricks](https://azure.microsoft.com/services/databricks/). В этой статье используется [Azure Databricks](https://azure.microsoft.com/services/databricks/), но кластеры Spark также доступны с [HDInsight](../hdinsight/spark/apache-spark-overview.md).
+В этой статье показано, как создать непрерывное приложение в [Azure Databricks](https://azure.microsoft.com/services/databricks/). Хотя в этой статье используется [Azure Databricks](https://azure.microsoft.com/services/databricks/), кластеры Spark также доступны с [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 
 В примере ниже используются две записные книжки Scala: одна для потоковой передачи событий из концентратора событий, а другая для отправки событий в него.
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771404"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Управление ценами и объемом данных в Application Insights
 
@@ -34,17 +35,14 @@ ms.lasthandoff: 04/19/2018
 Текущие цены в валюте вашей страны для выбранного региона вы можете узнать на [странице цен на Application Insights][pricing].
 
 > [!NOTE]
-> В апреле 2018 года была [представлена](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) новая модель ценообразования для мониторинга Azure. В основе этой модели лежит принцип "Оплата по мере использования", который распространяется на весь портфель служб мониторинга. Дополнительные сведения о новой модели ценообразования можно узнать из статьи [Мониторинг использования и ожидаемых затрат](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs). О том как, основываясь на шаблонах использования, оценить влияние перехода к этой модели, можно узнать из разделов [Оценка влияния новой модели ценообразования](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) и [Переход на новую модель ценообразования](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
+> В апреле 2018 года была [представлена](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) новая модель ценообразования для служб мониторинга Azure. Эта модель использует простой принцип "с оплатой по мере использования" во всем портфеле служб мониторинга. Узнайте больше о [новой модели ценообразования](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), о том, как [оценить последствия перехода на новую модель](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model), исходя из ваших шаблонов использования, и как [перейти на эту модель](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
 
 ### <a name="basic-plan"></a>План "Базовый"
 
 План "Базовый" всегда устанавливается по умолчанию для создаваемых ресурсов Application Insights. Этот план оптимален для всех клиентов, за исключением тех, у кого имеется подписка Operations Management Suite.
 
-* При использовании плана "Базовый" плата взимается за объем данных. Этот объем данных определяется числом байтов телеметрии, полученных службой Application Insights. 
-    
-    Объем данных оценивается по размеру несжатых пакетов данных в формате JSON, получаемых службой Application Insights от вашего приложения.
-
-    Объем [табличных данных, импортированных в Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), измеряется как размер несжатых файлов, отправленных в Application Insights.
+* При использовании плана "Базовый" плата взимается за объем данных. Этот объем данных определяется числом байтов телеметрии, полученных службой Application Insights. Объем данных оценивается по размеру несжатых пакетов данных в формате JSON, получаемых службой Application Insights от вашего приложения. Объем [табличных данных, импортированных в Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), измеряется как размер несжатых файлов, отправленных в Application Insights.
+* По состоянию на апрель 2018 года плата за объем данных вашего приложения теперь сообщается в новом счетчике выставления счетов, названном **Прием данных**. Этот новый счетчик совместно используется в разных технологиях мониторинга, таких как Application Insights и Log Analytics, и сейчас называется **Службы приложений** (вскоре имя изменится на **Log Analytics**). 
 * Данные [динамического потока метрик](app-insights-live-stream.md) не учитываются при расчете стоимости.
 * С апреля 2018 года [непрерывный экспорт](app-insights-export-telemetry.md) и [соединитель Azure Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) доступны в плане "Базовый" без какой-либо дополнительной платы.
 

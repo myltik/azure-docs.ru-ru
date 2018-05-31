@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
-ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/27/2018
+ms.author: barclayn
+ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187697"
 ---
 # <a name="azure-disk-encryption-faq"></a>Шифрование дисков Azure: часто задаваемые вопросы
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Какова стоимость шифрования дисков Azure?
 
-Плата за шифрование дисков Azure для виртуальных машин не взимается.
+Плата за шифрование дисков виртуальной машины с помощью шифрования дисков Azure не взимается, однако оплачивается использование Azure Key Vault. Дополнительные сведения о ценах на Azure Key Vault приведены на странице [цен на Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Какие уровни виртуальных машин поддерживает шифрование дисков Azure?
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 04/16/2018
 | SLES | Приоритет: 11-SP4 | Диск данных |
 | SLES | 11 SP4 | Диск данных |
 
-*__ADE поддерживается для RHEL для дисков данных. Текущая реализация ADE будет работать для дисков ОС, но сейчас совместная поддержка не предоставляется. Корпорация Майкрософт и Red Hat работают над решением с совместной поддержкой. Тем временем вы можете ознакомиться с технической документацией ADE по шифрованию диска операционной системы Linux [здесь](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
+*__ADE поддерживается для RHEL для дисков данных. Текущая реализация ADE будет работать для дисков ОС, но сейчас совместная поддержка не предоставляется. Корпорация Майкрософт и Red Hat работают над решением с совместной поддержкой. Тем временем вы можете ознакомиться с технической документацией ADE по шифрованию диска операционной системы Linux [здесь](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Как приступить к работе с шифрованием дисков Azure?
 

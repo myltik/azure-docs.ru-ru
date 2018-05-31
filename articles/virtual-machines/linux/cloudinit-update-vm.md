@@ -1,24 +1,25 @@
 ---
-title: "Обновление и установка пакетов с помощью cloud-init на виртуальной машине Linux в Azure | Документация Майкрософт"
-description: "Как с помощью cloud-init обновить и установить пакеты в создаваемой виртуальной машине Linux, используя Azure CLI 2.0."
+title: Обновление и установка пакетов с помощью cloud-init на виртуальной машине Linux в Azure | Документация Майкрософт
+description: Как с помощью cloud-init обновить и установить пакеты в создаваемой виртуальной машине Linux, используя Azure CLI 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: e45bec2a71f94c66ce3044fb81bd2d7cefdf53a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8d5835b5d1b0c2f77bdf5e1a2b808478b8f4de22
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186160"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Обновление и установка пакетов с помощью cloud-init на виртуальной машине Linux в Azure
 В этой статье показано, как с помощью [cloud-init](https://cloudinit.readthedocs.io) обновлять пакеты на виртуальной машине или в масштабируемом наборе виртуальных машин при подготовке в Azure. Эти скрипты cloud-init выполняются при первой загрузке, если в Azure подготовлены все нужные ресурсы. Дополнительные сведения о встроенной поддержке cloud-init в Azure и поддерживаемых дистрибутивах Linux см. в [обзоре cloud-init](using-cloud-init.md).
@@ -58,23 +59,22 @@ az vm create \
 ssh <publicIpAddress>
 ```
 
-Запустите средство управления пакетами и проверьте наличие обновлений. В этом примере используется `apt-get` на виртуальной машине Ubuntu.
+Запустите средство управления пакетами и проверьте наличие обновлений.
 
 ```bash
-sudo apt-get upgrade
+sudo yum update
 ```
 
-После того как cloud-init проверит и установит обновления в процессе загрузки, доступных для установки обновлений не должно оставаться, как показано в следующем примере выходных данных.
+После того как cloud-init проверит и установит обновления в процессе загрузки, больше доступных для установки обновлений не должно оставаться.  Вы можете просмотреть процесс обновления, количество измененных пакетов, а также установить `httpd`. Для этого выполните команду `yum history` и просмотрите выходные данные, аналогичные приведенным ниже.
 
 ```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Loaded plugins: fastestmirror, langpacks
+ID     | Command line             | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+     3 | -t -y install httpd      | 2018-04-20 22:42 | Install        |    5
+     2 | -t -y upgrade            | 2018-04-20 22:38 | I, U           |   65
+     1 |                          | 2017-12-12 20:32 | Install        |  522
 ```
-
-Вы также можете просмотреть, установлен ли сервер `httpd`, выполнив команду `yum history` и просмотрев выходные данные, касающиеся `httpd`. 
 
 ## <a name="next-steps"></a>Дополнительная информация
 Дополнительные примеры изменения конфигурации с помощью cloud-init см. в следующих статьях:

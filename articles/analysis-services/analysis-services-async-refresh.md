@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153132"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Асинхронное обновление с помощью REST API
 Вы можете задать асинхронное обновление данных в табличных моделях Azure Analysis Services, используя любой язык программирования, с помощью которого можно вызвать REST. Обновление предусматривает также синхронизацию реплик только для чтения для развертывания запросов. 
@@ -198,7 +199,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 1.  Клонируйте или скачайте репозиторий. Откройте решение RestApiSample.
 2.  Найдите строку **client.BaseAddress = …** и укажите [базовый URL-адрес](#base-url).
 
-В образце кода используются интерактивное имя для входа, имя пользователя и пароль или [субъект-служба](#service-principle).
+В образце кода используются интерактивное имя для входа, имя пользователя и пароль или [субъект-служба](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Интерактивное имя для входа или пользователя
 

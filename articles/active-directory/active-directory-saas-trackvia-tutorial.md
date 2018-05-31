@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с TrackVia | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и TrackVia."
+title: Руководство по интеграции Azure Active Directory с TrackVia | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и TrackVia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 54e830f2ead2887c941d81a97ed619ae5cb1c750
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Руководство. Интеграция Azure Active Directory с TrackVia
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 01/20/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление TrackVia из коллекции.
+1. Добавление TrackVia из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-trackvia-from-the-gallery"></a>Добавление TrackVia из коллекции
@@ -126,11 +127,22 @@ ms.lasthandoff: 01/20/2018
 6. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Чтобы настроить единый вход на стороне **TrackVia**, отправьте скачанный **XML-файл метаданных** в [службу поддержки TrackVia](mailto:support@trackvia.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+7. В разделе **Конфигурация TrackVia** щелкните **Настроить TrackVia**, чтобы открыть окно **Настройка единого входа**. Скопируйте значение **SAML Entity ID** (Идентификатор сущности SAML) из раздела **Краткий справочник**.
+
+    ![Конфигурация TrackVia](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. В другом окне браузера войдите на корпоративный веб-сайт TrackVia с правами администратора.
+
+9. Щелкните параметры **My Account** (Моя учетная запись) TrackVia, выберите вкладку **Single Sign On** (Единый вход) и выполните следующие действия.
+
+    ![Конфигурация TrackVia](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. В текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
+
+    Б. Затем нажмите кнопку **Choose File** (Выбор файла), чтобы передать файл метаданных, скачанный с портала Azure.
+
+    c. Нажмите кнопку **Сохранить**
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
@@ -212,8 +224,6 @@ ms.lasthandoff: 01/20/2018
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_01.png
@@ -227,4 +237,3 @@ ms.lasthandoff: 01/20/2018
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-
