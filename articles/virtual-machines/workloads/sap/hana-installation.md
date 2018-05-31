@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778602"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Как установить и настроить SAP HANA (крупные экземпляры) в Azure
 
 Ниже приведено несколько важных определений, которые нужно знать перед прочтением этого руководства. В статье [Обзор и описание архитектуры SAP HANA в Azure (крупные экземпляры)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) мы представили два разных класса единиц крупных экземпляров HANA с:
 
 - S72, S72m, S144, S144m, S192 и S192m, которые обычно называются номерами SKU 1 класса;
-- S384, S384m, S384xm, S576, S768 и S960, которые обычно называются номерами SKU 2 класса.
+- S384, S384m, S384xm, S576m, S768m и S960m, которые обычно называются номерами SKU класса II.
 
 В документации по крупным экземплярам HANA описатель класса будет использоваться для ссылки на различные возможности и требования, основанные на номерах SKU крупных экземпляров HANA.
 
@@ -92,7 +93,7 @@ ms.lasthandoff: 03/23/2018
 
 
 
-## <a name="storage"></a>Хранилище
+## <a name="storage"></a>Служба хранилища
 
 Структура хранения для SAP HANA в Azure (крупные экземпляры) настраивается через управление службами SAP HANA в Azure с применением рекомендованных методик, как описано в техническом документе с описанием [требований к хранилищу для SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Приблизительные размеры разных томов с различными SKU крупных экземпляров HANA задокументированы в статье [Обзор и описание архитектуры SAP HANA в Azure (крупные экземпляры)](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -234,7 +235,7 @@ echo "export NCURSES_NO_UTF8_ACS=1" >> .bashrc
 ![SMT в yast](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Примите выбор для установки на smtserver. После установки перейдите к конфигурации сервера SMT и введите учетные данные организации, полученные ранее в Центре клиентов SUSE. В качестве URL-адреса сервера SMT введите имя узла виртуальной машины Azure. В этой демонстрации это был https://smtserver, как показано на следующих снимках.
+Примите выбор для установки на smtserver. После установки перейдите к конфигурации сервера SMT и введите учетные данные организации, полученные ранее в Центре клиентов SUSE. В качестве URL-адреса сервера SMT введите имя узла виртуальной машины Azure. В данной демонстрации это был https://smtserver, как показано на следующих рисунках.
 
 ![Конфигурация сервера SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
 
