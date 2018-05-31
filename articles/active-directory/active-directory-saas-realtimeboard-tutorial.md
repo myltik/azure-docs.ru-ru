@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 5734d9ae2f5633fc7386b5cb0754769af9bf96bc
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 5f3ab54ced6376d675b9ab79aa395a95ea1c905b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/30/2018
-ms.locfileid: "32309171"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34346927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Руководство по интеграции Azure Active Directory с RealtimeBoard
 
@@ -31,7 +31,7 @@ ms.locfileid: "32309171"
 - Вы можете включить автоматический вход пользователей в RealtimeBoard (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -209,7 +209,7 @@ ms.locfileid: "32309171"
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
