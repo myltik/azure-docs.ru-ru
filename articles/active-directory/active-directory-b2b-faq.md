@@ -2,25 +2,20 @@
 title: Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B | Документация Майкрософт
 description: Ответы на часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/06/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076579"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B
 
@@ -37,9 +32,6 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>Как можно настроить сообщения с приглашением?
 С помощью [интерфейсов API приглашения службы B2B](active-directory-b2b-api.md) можно настроить практически весь процесс приглашения.
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>Может ли приглашенный внешний пользователь покинуть организацию после приглашения?
-Администратор приглашающей организации может удалить гостевого пользователя службы совместной работы B2B из каталога, но гостевой пользователь не может сам покинуть каталог приглашающей организации. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Могут ли гостевые пользователи сбросить настройки метода Многофакторной идентификации?
 Да. Они могут это сделать таким же образом, как и обычные пользователи.
@@ -105,9 +97,7 @@ Azure AD имеет единые требования в отношении фи
 Мы также предлагаем вам отправлять свои идеи и голосовать за будущие функции на сайте с [идеями для службы совместной работы B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Можно ли отправить активированное автоматически приглашение таким образом, чтобы пользователь мог приступить к работе? Или ему всегда нужно будет щелкать URL-адрес активации?
-Приглашения, отправленные пользователем из приглашающей организации, который также является участником партнерской организации, не требуют активации пользователем B2B.
-
-Мы рекомендуем пригласить одного пользователя, который является участником партнерской организации, в приглашающую организацию. [В ресурсной организации назначьте этому пользователю роль Guest Inviter](active-directory-b2b-add-guest-to-role.md). Пользователь может приглашать других пользователей в партнерскую организацию, используя пользовательский интерфейс входа, скрипты PowerShell или API-интерфейсы. При этом пользователям службы совместной работы B2B этой организации не нужно активировать свои приглашения.
+Приглашающий может приглашать других пользователей в партнерскую организацию, используя пользовательский интерфейс, сценарии PowerShell или API-интерфейсы. Затем приглашающий может отправить гостевому пользователю прямую ссылку на общее приложение. В большинстве случаев вам больше не понадобится открывать электронное приглашение и щелкать URL-адрес активации. Дополнительные сведения см. в статье об [активации приглашения в службу совместной работы Azure Active Directory B2B](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Как работает служба совместной работы B2B, когда приглашенный партнер использует федерацию для добавления собственной локальной аутентификации?
 Если у партнера есть клиент Azure AD, включенный в федерацию с инфраструктурой локальной проверки подлинности, локальный единый вход будет выполняться автоматически. Если у партнера нет клиента Azure AD, для новых пользователей создается учетная запись Azure AD. 
@@ -129,16 +119,5 @@ Azure AD имеет единые требования в отношении фи
 
 ### <a name="next-steps"></a>Дополнительная информация
 
-Другие статьи о службе совместной работы Azure AD B2B:
+- [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
-* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
-* [Элементы сообщения с приглашением в службу совместной работы B2B](active-directory-b2b-invitation-email.md)
-* [Активация приглашения службы совместной работы B2B](active-directory-b2b-redemption-experience.md)
-* [Руководство по лицензированию службы совместной работы Azure Active Directory B2B](active-directory-b2b-licensing.md)
-* [Устранение неполадок службы совместной работы Azure Active Directory B2B](active-directory-b2b-troubleshooting.md)
-* [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
-* [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
-* [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)

@@ -1,6 +1,6 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с Jobscience | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Jobscience."
+title: Учебник. Интеграция Azure Active Directory с Jobscience | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении Jobscience.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a2840968cadb3d78dee9d35fd0048d5941508cd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cf6dccf02fa56b90ea4737e1d1c7b9a5e9d1d4af
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34346236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Руководство. Интеграция Azure Active Directory с Jobscience
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в Jobscience (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -191,7 +192,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Security Controls](./media/active-directory-saas-jobscience-tutorial/ic784368.png "Security Controls") (Средства управления безопасностью)
     
-    Выберите профиль единого входа, созданный на предыдущем этапе. На этой странице отображается URL-адрес единого входа для вашей компании (например, [https://название_компании.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid)).    
+    Выберите профиль единого входа, созданный на предыдущем этапе. На этой странице отображается URL-адрес единого входа для вашей организации (например, [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid)).    
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -311,7 +312,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

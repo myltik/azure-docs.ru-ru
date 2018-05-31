@@ -1,6 +1,6 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с DocuSign | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и DocuSign."
+title: Учебник. Интеграция Azure Active Directory с DocuSign | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 9fc4666ad73a7e4850719f936873a6c5ce0716c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c46e7071841552c5bcbf3df38d9d7771b0cfe6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Учебник. Интеграция Azure Active Directory с DocuSign
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в DocuSign (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -153,7 +154,7 @@ ms.lasthandoff: 12/11/2017
 
     ж. Для параметра **Send logout request by** (Как отправлять запрос на выход) выберите значение **GET**.
 
-12. В разделе **Custom Attribute Mapping** (Сопоставление настраиваемого атрибута) выберите поле, которое нужно сопоставить с утверждением Azure AD. Например, утверждение **emailaddress** сопоставляется со значением **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Это имя утверждения по умолчанию из Azure AD, которое используется для утверждения на электронную почту. 
+12. В разделе **Custom Attribute Mapping** (Сопоставление настраиваемого атрибута) выберите поле, которое нужно сопоставить с утверждением Azure AD. В этом примере утверждение **emailaddress** сопоставляется со значением **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Это имя утверждения по умолчанию из Azure AD, которое используется для утверждения на электронную почту. 
    
     > [!NOTE]
     > Чтобы сопоставить пользователя Azure AD с пользователем Docusign, используйте соответствующий **идентификатор пользователя**. Выберите соответствующее поле и введите подходящее значение на основе параметров вашей организации.
@@ -264,7 +265,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Руководство по настройке Google Apps для автоматической подготовки пользователей](active-directory-saas-docusign-provisioning-tutorial.md)
 
 

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936676"
 ---
 # <a name="azure-stack-1802-update"></a>Обновление 1802 Azure Stack
 
@@ -85,6 +86,8 @@ ms.lasthandoff: 04/23/2018
 
 - **Добавлена поддержка нескольких доменов сбоя**.  Дополнительные сведения см. в статье [Основные возможности и концепции Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
+- **Поддержка изменения емкости физической памяти**. После первоначального развертывания теперь можно увеличить объем памяти интегрированной системы Azure Stack. Дополнительные сведения см. в разделе [Управление емкостью физической памяти для Azure Stack](azure-stack-manage-storage-physical-memory-capacity.md).
+
 - **Различные исправления** производительности, стабильности, безопасности и операционной системы, используемой службой Azure Stack.
 
 <!--
@@ -142,7 +145,7 @@ ms.lasthandoff: 04/23/2018
 #### <a name="marketplace"></a>Marketplace
 - Пользователи могут просматривать весь Marketplace без подписки и видеть некоторые административные элементы, такие как планы и предложения. Эти элементы бесполезны для пользователей.
 
-#### <a name="compute"></a>Среда выполнения приложений
+#### <a name="compute"></a>Службы вычислений
 - Параметры масштабирования для масштабируемых наборов виртуальной машины на портале недоступны. В качестве обходного решения используйте [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Из-за различий между версиями PowerShell используйте параметр `-Name` вместо параметра `-VMScaleSetName`.
 
 - <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
@@ -268,7 +271,7 @@ ms.lasthandoff: 04/23/2018
 > Независимо от версии используемых поставщиков ресурсов, данные пользователей в базах данных не затрагиваются и остаются доступными.    
 
 
-#### <a name="app-service"></a>Служба приложений
+#### <a name="app-service"></a>Служба приложений Azure
 - Прежде чем создавать первую функцию Azure в подписке, пользователь должен зарегистрировать поставщик ресурсов хранилища.
 
 - Чтобы масштабировать инфраструктуру (рабочие роли, роли управления, внешние роли), используйте PowerShell, как описано в заметках о выпуске служб вычислений.

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192961"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Функция "Условия использования Azure Active Directory"
 Функция "Условия использования Azure AD" — это простой способ, которым организации могут предоставлять сведения своим пользователям.  Благодаря этой презентации пользователи видят соответствующие заявления об отказе согласно юридическим требованиям и для соответствия стандартам.
@@ -119,6 +120,13 @@ ms.lasthandoff: 04/18/2018
 ![Событие аудита](media/active-directory-tou/tou13a.png)
 
 4.  Здесь можно просмотреть принятые вами условия использования. 
+
+## <a name="removing-users-from-an-active-terms-of-use"></a>Удаление пользователей из условий использования Active Directory
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+По умолчанию удаленный пользователь будет оставаться удаленным в Azure AD в течение 30 дней, на протяжении которых его при необходимости может восстановить администратор.  По истечении 30 дней пользователь будет окончательно удален.  Кроме того, с помощью портала Azure Active Directory глобальный администратор может явно [навсегда удалить недавно удаленного пользователя](active-directory-users-restore.md) до истечения этого периода времени.  Если пользователь удален навсегда, впоследствии данные об этом пользователе будут удалены из правил использования Active Directory.  Сведения аудита об удаленных пользователях остаются в журнале аудита.
+
 
 
 ## <a name="additional-information"></a>Дополнительная информация
