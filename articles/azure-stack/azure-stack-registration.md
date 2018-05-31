@@ -12,20 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: f7297e938c5561328a07e22012205cc2ef3ac419
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077196"
 ---
 # <a name="register-azure-stack-with-azure"></a>Регистрация Azure Stack в Azure
 Регистрация [Azure Stack](azure-stack-poc.md) в Azure позволяет скачивать элементы Marketplace из Azure и настраивать передачу коммерческих данных в корпорацию Майкрософт. После регистрации Azure Stack данные об использовании отсылаются в отдел коммерческих предложений Azure и их можно просматривать в подписке, используемой для регистрации. 
 
 > [!IMPORTANT]
-> Регистрация является обязательной, если вы выбрали модель выставления счетов по мере использования. Иначе вы нарушите условия лицензирования развертывания Azure Stack, так как данные об использовании не будут отправляться.
+> Регистрация требуется для поддержки полной функциональности Azure Stack, включая синдикацию marketplace. Кроме того, вы нарушите условия лицензии на Azure Stack, если не выполните регистрацию при применении модели выставления счетов с оплатой по мере использования. Дополнительные сведения о лицензировании Azure Stack см. на странице [Как купить](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 Для регистрации Azure Stack в Azure необходимо следующее:
@@ -59,10 +60,10 @@ ms.lasthandoff: 04/19/2018
 ### <a name="register-the-azure-stack-resource-provider"></a>Регистрация поставщика ресурсов Azure Stack
 Чтобы зарегистрировать поставщик ресурсов Azure Stack в Azure, запустите интегрированную среду сценариев PowerShell и используйте следующие команды PowerShell с параметром **EnvironmentName**, заданным для соответствующего типа подписки Azure (см. параметры ниже). 
 
-1. Добавьте учетную запись Azure, которая использовалась для регистрации Azure Stack. Чтобы добавить учетную запись, выполните командлет **Connect-AzureRmAccount**. Вам будет предложено ввести данные учетной записи глобального администратора Azure. Возможно, потребуется выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи.
+1. Добавьте учетную запись Azure, которая использовалась для регистрации Azure Stack. Чтобы добавить учетную запись, выполните командлет **Add-AzureRmAccount**. Вам будет предложено ввести данные учетной записи глобального администратора Azure. Возможно, потребуется выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи.
 
    ```PowerShell
-      Connect-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
+      Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
    | Параметр | ОПИСАНИЕ |  
@@ -94,7 +95,7 @@ ms.lasthandoff: 04/19/2018
 2. Затем, в том же сеансе PowerShell, убедитесь, что вы вошли в правильный контекст Azure PowerShell. Это учетная запись Azure, которая использовалась для регистрации указанного выше поставщика ресурсов Azure Stack. Выполните эти команды PowerShell: 
 
   ```powershell 
-  Connect-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
+  Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
   ``` 
 
 3. В этом же сеансе PowerShell выполните командлет **Set-AzsRegistration**. Выполните эти команды PowerShell:  
@@ -147,7 +148,7 @@ Set-AzsRegistration `
 
   ```Powershell
   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<your agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
   ```
   
   > [!TIP]  
