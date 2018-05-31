@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356415"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Привязки хранилища BLOB-объектов Azure для службы "Функции Azure"
 
@@ -31,14 +32,18 @@ ms.lasthandoff: 05/11/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!NOTE]
+> Используйте триггер службы "Сетка событий" вместо триггера хранилища BLOB-объектов для учетных записей хранения только для больших двоичных объектов, чтобы обеспечить высокий уровень масштабирования или во избежание задержек при холодном запуске. Дополнительные сведения см. в разделе [Триггер](#trigger). 
+
 ## <a name="packages"></a>Пакеты
 
 Привязки большого двоичного объекта доступны в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). Исходный код для пакета находится в репозитории GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-> [!NOTE]
-> Используйте триггер службы "Сетка событий" вместо триггера хранилища BLOB-объектов для учетных записей хранения только для больших двоичных объектов, чтобы обеспечить высокий уровень масштабирования или во избежание задержек при холодном запуске. Дополнительные сведения приведены в разделе **Триггер**. 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Триггер
 
@@ -769,7 +774,7 @@ public static void Run(
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> Требует привязки in `direction` в файле *function.json* или `FileAccess.Read` в библиотеке классов C#.
+<sup>1</sup> Требует привязки in `direction` в файле *function.json* или `FileAccess.Read` в библиотеке классов C#. Однако вы можете использовать объект контейнера, предоставляемый средой выполнения для записи таких операций, как отправка больших двоичных объектов в контейнер.
 
 <sup>2</sup> Требует привязки inout `direction` в файле *function.json* или `FileAccess.ReadWrite` в библиотеке классов C#.
 

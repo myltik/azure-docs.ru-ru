@@ -1,6 +1,6 @@
 ---
-title: "Планировщик развертывания Azure Site Recovery для развертывания виртуальных машин Hyper-V в Azure | Документация Майкрософт"
-description: "В этой статье приведены рекомендации по использованию планировщика развертывания Azure Site Recovery при развертывании виртуальных машин Hyper-V в Azure."
+title: Планировщик развертывания Azure Site Recovery для развертывания виртуальных машин Hyper-V в Azure | Документация Майкрософт
+description: В этой статье приведены рекомендации по использованию планировщика развертывания Azure Site Recovery при развертывании виртуальных машин Hyper-V в Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -9,11 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: dc504ee9def6b500eee640521b57dc48dac9cca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187317"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Планировщик развертывания Site Recovery для развертывания виртуальных машин Hyper-V в Azure
 
@@ -116,9 +117,9 @@ ms.lasthandoff: 02/22/2018
 3.  Распакуйте ZIP-папку.
 Папка содержит несколько файлов и вложенных папок. Исполняемый файл ASRDeploymentPlanner.exe находится в родительской папке.
 
-Пример. Скопируйте ZIP-файл в папку E:\ drive и распакуйте его. E:\ASR Deployment Planner_v2.1.zip
+Пример. Скопируйте ZIP-файл в папку E:\ drive и распакуйте его. E:\ASR Deployment Planner_v2.2.zip
 
-E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Обновление планировщика развертывания до последней версии
 Если установлена предыдущая версия планировщика развертывания, выполните одно из следующих действий:
@@ -133,7 +134,7 @@ E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
   >Каждое обновление планировщика ресурсов с использованием ZIP-файла является накопительным. Не нужно копировать файлы новой версии в папку со старой версией. Вы можете создать и использовать папку.
 
 ## <a name="version-history"></a>Журнал версий
-Последняя версия средства Планировщика развертывания ASR — 2.1.
+Последняя версия инструмента "Планировщик развертывания ASR" — 2.2.
 Описание исправлений, добавляемых при каждом обновлении, см. на странице [журнала версий Планировщика развертывания ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
 
 

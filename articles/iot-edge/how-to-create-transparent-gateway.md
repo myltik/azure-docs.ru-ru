@@ -1,19 +1,20 @@
 ---
-title: "Создание устройства прозрачного шлюза с помощью Azure IoT Edge | Документация Майкрософт"
-description: "Использование Azure IoT Edge для создания устройства прозрачного шлюза, которое может обрабатывать сведения для нескольких устройств"
+title: Создание устройства прозрачного шлюза с помощью Azure IoT Edge | Документация Майкрософт
+description: Использование Azure IoT Edge для создания устройства прозрачного шлюза, которое может обрабатывать сведения для нескольких устройств
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0378cb2964a496a2bfe5a0bc08296cbab462a409
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32170716"
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Создание устройства IoT Edge, которое работает как прозрачный шлюз — предварительная версия
 
@@ -73,10 +74,10 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="bash"></a>Bash
 
-Создайте сертификат устройства:
+Создайте сертификат устройства.  Имя `myGatewayCAName` **НЕ ДОЛЖНО**  совпадать с именем узла шлюза.  Это приведет к ошибке сертификации клиентов для этих сертификатов.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate myGateway
+   ./certGen.sh create_edge_device_certificate myGatewayCAName
    ```
 
 Будут созданы новые файлы: 1) .\certs\new-edge-device.*, содержащий открытый ключ и PFX-файл; 2) .\private\new-edge-device.key.pem, содержащий закрытый ключ устройства.
@@ -84,6 +85,7 @@ ms.lasthandoff: 02/21/2018
 Чтобы получить полную цепочку открытого ключа устройства, в каталоге `certs` выполните следующую команду:
 
    ```bash
+   cd ./certs
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
@@ -116,11 +118,11 @@ ms.lasthandoff: 02/21/2018
 В Linux используйте выходные данные Bash:
 
    ```bash
-   sudo iotedgectl setup --connection-string {device connection string}
-        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
-        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
+   sudo iotedgectl setup --connection-string {device connection string} \
+        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com} \
+        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem \
+        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem \
+        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem \
         --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
    ```
 

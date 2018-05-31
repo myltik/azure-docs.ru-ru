@@ -13,14 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 959a483d293caa45180c946e92ac824fc56db084
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195045"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Руководство по использованию SAP HANA в Azure
 Этот документ содержит рекомендации по работе с системами SAP HANA, развернутыми на виртуальных машинах Azure. Он не предназначен для замены стандартной документации SAP, к которой относятся следующие ресурсы:
@@ -177,7 +178,7 @@ Azure предлагает два метода развертывания вир
 - 16 виртуальных жестких дисков для виртуальной машины серии M128xx;
 - 8 виртуальных жестких дисков для виртуальной машины серии M64xx.
 
-Подробные инструкции по включению ускорителя записи Azure см. в статье [Azure Write Accelerator for SAP deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator) (Ускоритель записи Azure для развертываний SAP).
+Подробные инструкции по включению ускорителя записи Azure см. в статье [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) (Ускоритель записи).
 
 Подробные сведения и ограничения для ускорителя записи Azure можно найти в той же статье.
 

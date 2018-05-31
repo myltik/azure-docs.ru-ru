@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778119"
 ---
 # <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Новые оповещения на основе метрик для служб Azure на портале Azure
 Azure Monitor теперь поддерживает новый тип оповещений на основе метрик. Далее приведены сведения об отличиях новых оповещений от [классических оповещений метрик](insights-alerts-portal.md).
 
-- **Уменьшение задержки.** Новые оповещения на основе метрик могут выполняться каждую минуту. Раньше оповещения метрик всегда проверялись с частотой в 5 минут. Задержка для оповещений журналов по-прежнему составляет более 1 минуты из-за времени, необходимого для приема журналов. 
+- **Уменьшение задержки.** Новые оповещения метрик могут выполняться каждую минуту. Раньше оповещения метрик всегда проверялись с частотой в 5 минут. Задержка для оповещений журналов по-прежнему составляет более 1 минуты из-за времени, необходимого для приема журналов. 
 - **Поддержка многомерных метрик.** Вы можете создать оповещение по многомерным метрикам, чтобы отслеживать только конкретный сегмент метрики. 
 - **Дополнительный контроль метрик.** Вы можете определить расширенные правила генерации оповещений. Новые оповещения поддерживают мониторинг максимальных, минимальных, средних и общих значений метрик. 
 - **Объединенный мониторинг нескольких метрик.** Вы сможете выполнять мониторинг нескольких метрик (пока только двух метрик) с помощью одного правила. Оповещение активируется, если обе метрики превышают соответствующие пороговые значения для заданного периода времени. 
@@ -35,7 +36,7 @@ Azure Monitor теперь поддерживает новый тип опове
 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Поддержка портала, PowerShell, CLI и REST
-В настоящее время оповещения метрик почти в реальном времени можно создать только на портале Azure или через REST API. Скоро будет доступна возможность настраивать новые оповещения с помощью PowerShell и интерфейса командной строки Azure (Azure CLI 2.0).
+В настоящее время новые оповещения на основе метрик можно создать только на портале Azure, с помощью [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) или [шаблонов диспетчера ресурсов](monitoring-create-metric-alerts-with-templates.md). Скоро будет доступна возможность настраивать новые оповещения с помощью PowerShell и интерфейса командной строки Azure (Azure CLI 2.0).
 
 ## <a name="metrics-and-dimensions-supported"></a>Поддерживаемые метрики и измерения
 Новые оповещения на основе метрик поддерживают оповещения для метрик, использующих измерения. Измерения можно использовать для фильтрации метрик до необходимого уровня. Все поддерживаемые метрики с применимыми измерениями можно изучить и визуализировать с помощью [обозревателя метрик Azure Monitor (предварительная версия)](monitoring-metric-charts.md).
@@ -50,13 +51,19 @@ Azure Monitor теперь поддерживает новый тип опове
 |Microsoft.Cache/Redis;     |    Недоступно     |[Кэш Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.Compute/virtualMachines     |    Недоступно     | [Виртуальные машины](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets;     |   Недоступно      |[Масштабируемые наборы виртуальных машин](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.ContainerInstance/containerGroups | Yes| [Группы контейнеров](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.DataFactory/datafactories| Yes| [Фабрики данных V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories;     |   Yes     |[Фабрики данных V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   Недоступно      |[База данных для MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    Недоступно     | [База данных для PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  Yes      |[Концентраторы событий](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.KeyVault/vaults| Нет  | [Хранилища](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     Недоступно    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    Недоступно     | [Шлюзы приложений](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/dnsZones/* | Недоступно| [Зоны DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
+|Microsoft.Network/loadBalancers (только для SKU "Стандартный")| Yes| [Подсистемы балансировки нагрузки.](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses;     |  Недоступно       |[Общедоступные IP-адреса](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | Недоступно | [Емкости](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   Недоступно      |[Службы поиска](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Yes       |[Служебная шина](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Yes     | [Учетные записи хранения](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|

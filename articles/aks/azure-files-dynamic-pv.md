@@ -6,24 +6,25 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/17/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 21245688076cf0a21164b549eb68bc6f55d6ec6c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356449"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Использование постоянных томов со службой файлов Azure
 
-Постоянный том — это часть хранилища, которая подготовлена к использованию в кластере Kubernetes. Постоянный том может использоваться одним или несколькими модулями pod и может быть подготовлен динамически или статически. В этом документе описана динамическая подготовка файлового ресурса Azure в качестве постоянного тома Kubernetes в кластере AKS.
+Постоянный том — это часть хранилища, которая создана для использования в кластере Kubernetes. Постоянный том может использоваться одним или несколькими модулями pod и может быть создан динамически или статически. В этом документе описано **динамическое создание** файлового ресурса Azure в качестве постоянного тома.
 
-Дополнительные сведения о постоянных томах Kubernetes см. в разделе [Kubernetes persistent volumes][kubernetes-volumes] (Постоянные тома Kubernetes).
+Дополнительные сведения о постоянных томах Kubernetes, в том числе о статическом создании см. в [этой статье][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Создать учетную запись хранения
 
-При динамической подготовке файлового ресурса Azure в качестве тома Kubernetes можно использовать любую учетную запись хранения, если она содержится в той же группе ресурсов, что и кластер AKS. При необходимости создайте учетную запись хранения в той же группе ресурсов, что и кластер AKS.
+При динамическом создании файлового ресурса Azure в качестве тома Kubernetes можно использовать любую учетную запись хранения, если она содержится в той же группе ресурсов, что и кластер AKS. При необходимости создайте учетную запись хранения в той же группе ресурсов, что и кластер AKS.
 
 Чтобы идентифицировать нужную группу ресурсов, воспользуйтесь командой [az group list][az-group-list].
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 05/11/2018
 az group list --output table
 ```
 
-Вы ищете группу ресурсов приблизительно с таким именем: `MC_clustername_clustername_locaton`. Здесь clustername — имя кластера AKS, а location — регион Azure, в котором развернут кластер.
+Найдите группу ресурсов с именем `MC_clustername_clustername_locaton`.
 
 ```
 Name                                 Location    Status
@@ -76,9 +77,9 @@ kubectl apply -f azure-file-sc.yaml
 
 Утверждение постоянного тома (PVC) использует объект класса хранения для динамической подготовки файлового ресурса Azure.
 
-Приведенный ниже манифест позволяет создать утверждение постоянного тома в размере `5GB` с доступом `ReadWriteOnce`.
+Приведенный ниже код YAML позволяет создать утверждение постоянного тома в размере `5GB` с доступом `ReadWriteOnce`. Дополнительные сведения о режимах доступа см. в документации [по постоянным томам Kubernetes][access-modes].
 
-Создайте файл `azure-file-pvc.yaml` и скопируйте в него следующий манифест. Убедитесь, что `storageClassName` соответствует классу хранения, созданному на предыдущем шаге.
+Создайте файл `azure-file-pvc.yaml` и скопируйте в него следующий код YAML. Убедитесь, что `storageClassName` соответствует классу хранения, созданному на предыдущем шаге.
 
 ```yaml
 apiVersion: v1
@@ -104,9 +105,9 @@ kubectl apply -f azure-file-pvc.yaml
 
 ## <a name="using-the-persistent-volume"></a>Использование постоянного тома
 
-Приведенный ниже манифест создает группу pod, использующую утверждение постоянного тома `azurefile` для подключения файлового ресурса Azure по пути `/mnt/azure`.
+Приведенный ниже код YAML создает группу pod, использующую утверждение постоянного тома `azurefile` для подключения файлового ресурса Azure по пути `/mnt/azure`.
 
-Создайте файл `azure-pvc-files.yaml` и скопируйте в него следующий манифест. Убедитесь, что `claimName` соответствует утверждению постоянного тома, созданному на последнем шаге.
+Создайте файл `azure-pvc-files.yaml` и скопируйте в него следующий код YAML. Убедитесь, что `claimName` соответствует утверждению постоянного тома, созданному на последнем шаге.
 
 ```yaml
 kind: Pod
@@ -146,7 +147,7 @@ kubectl apply -f azure-pvc-files.yaml
 | v1.9.0 | 0700 |
 | v1.9.1 или выше | 0755 |
 
-При использовании кластера версии 1.8.5 или выше параметры подключения можно указать в объекте класса хранения. В следующем примере задается значение `0777`.
+При динамическом создании постоянного тома с классом хранилища и использовании кластера версии 1.8.5 или выше параметры подключения можно указать в объекте класса хранения. В следующем примере задается значение `0777`.
 
 ```yaml
 kind: StorageClass
@@ -163,6 +164,29 @@ parameters:
   skuName: Standard_LRS
 ```
 
+При статическом создании постоянного тома и использовании кластера версии 1.8.5 или выше параметры подключения необходимо указать в объекте `PersistentVolume`. Дополнительные сведения о статическом создании постоянного тома см. в [этом разделе][pv-static].
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: azurefile
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  ```
+
 При использовании кластера версии 1.8.0–1.8.4 контекст безопасности можно указать, задав для `runAsUser` значение `0`. Дополнительные сведения о контексте безопасности Pod см. в разделе [Configure a Security Context][kubernetes-security-context] (Настройка контекста безопасности).
 
 ## <a name="next-steps"></a>Дополнительная информация
@@ -173,7 +197,7 @@ parameters:
 > [Подключаемый модуль Kubernetes для службы файлов Azure][kubernetes-files]
 
 <!-- LINKS - external -->
-[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
@@ -181,6 +205,7 @@ parameters:
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create

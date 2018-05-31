@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192770"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий
 База данных SQL предоставляет такие варианты восстановления базы данных с помощью [создаваемых автоматически резервных копий баз данных](sql-database-automated-backups.md) и [резервных копий в хранилище с включенной функцией долгосрочного хранения](sql-database-long-term-retention.md) Вы можете восстановить из резервной копии базы данных следующее:
@@ -97,7 +98,7 @@ ms.lasthandoff: 04/05/2018
 
 ### <a name="azure-portal"></a>Портал Azure
 
-Чтобы восстановить удаленную базу данных в течение [срока хранения](sql-database-service-tiers.md) с помощью портала Azure, откройте страницу сервера и в области операций щелкните **Удаленные базы данных**.
+Чтобы восстановить удаленную базу данных в течение [срока хранения для модели на основе DTU](sql-database-service-tiers-dtu.md) или [срока хранения ля модели на основе виртуальных ядер](sql-database-service-tiers-vcore.md) с помощью портала Azure, откройте страницу сервера и в области операций щелкните **Удаленные базы данных**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -123,7 +124,7 @@ ms.lasthandoff: 04/05/2018
 
 ### <a name="azure-portal"></a>Портал Azure
 
-Для геовосстановления базы данных в течение [срока хранения](sql-database-service-tiers.md) с помощью портала Azure, откройте страницу базы данных SQL и щелкните **Добавить**. В текстовом поле **Выбрать источник** выберите **Резервная копия**. Укажите, из какой резервной копии будет выполняться восстановление в регионе и на сервере по своему усмотрению. 
+Чтобы выполнить геовосстановление базы данных в течение ее [срока хранения для модели на основе DTU](sql-database-service-tiers-dtu.md) или [срока хранения для модели на основе виртуальных ядер](sql-database-service-tiers-vcore.md) с помощью портала Azure, откройте страницу "Базы данных SQL" и щелкните **Добавить**. В текстовом поле **Выбрать источник** выберите **Резервная копия**. Укажите, из какой резервной копии будет выполняться восстановление в регионе и на сервере по своему усмотрению. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Программное восстановление с помощью создаваемых автоматически резервных копий
 Как уже говорилось ранее, в дополнение к порталу Azure восстановление базы данных можно выполнить программно, с помощью Azure PowerShell или REST API. В приведенных ниже таблицах описан доступный для этого набор команд.

@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect: включение обратной записи устройств | Документация Майкрософт"
-description: "В этом документе объясняется, как включить функцию обратной записи устройств с помощью службы Azure AD Connect"
+title: 'Azure AD Connect: включение обратной записи устройств | Документация Майкрософт'
+description: В этом документе объясняется, как включить функцию обратной записи устройств с помощью службы Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: femila
 editor: curtand
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c813be558df9dc3bdfd9850402b9458f1fdf971a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353826"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: включение обратной записи устройств
 > [!NOTE]
 > Для обратной записи устройств требуется подписка Azure AD Premium.
->
->
+> 
+> 
 
-Следующая документация содержит сведения о том, как включить функцию обратной записи устройств в службе Azure AD Connect. Обратная запись устройств используется в следующих ситуациях:
+Следующая документация содержит сведения о том, как включить функцию обратной записи устройств в службе Azure AD Connect. Обратная запись устройств используется в ситуациях,
 
 * когда необходимо включить условный доступ на основе устройств служб ADFS (2012 R2 или более поздней версии) к защищенным приложениям (отношения доверия с проверяющей стороной).
 
@@ -34,75 +35,52 @@ ms.lasthandoff: 01/05/2018
 
 > [!IMPORTANT]
 > <li>Устройства должны находиться в том же лесу, что и пользователи. Поскольку обратная запись устройств должна производиться в один лес, эта функция в настоящий момент не поддерживает развертывание с несколькими лесами пользователей.</li>
-> <li>В локальный лес Active Directory можно добавить только один объект конфигурации регистрации. Эта функция несовместима с топологией, в которой локальный каталог Active Directory синхронизируется в несколько клиентов Azure AD.</li>
->
+> <li>В локальный лес Active Directory можно добавить только один объект конфигурации регистрации. Эта функция несовместима с топологией, в которой локальный каталог Active Directory синхронизируется в несколько каталогов Azure AD.</li>> 
 
 ## <a name="part-1-install-azure-ad-connect"></a>Часть 1. Установка Azure AD Connect
-1. Установите Azure AD Connect с использованием стандартных или пользовательских параметров. Корпорация Майкрософт рекомендует перед включением обратной записи устройства выполнить синхронизацию всех пользователей и групп.
+Установите Azure AD Connect с использованием стандартных или пользовательских параметров. Корпорация Майкрософт рекомендует перед включением обратной записи устройства выполнить синхронизацию всех пользователей и групп.
 
-## <a name="part-2-prepare-active-directory"></a>Часть 2. Подготовка Active Directory
-Выполните следующие действия для подготовки к использованию функции обратной записи устройств.
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Часть 2. Включение обратной записи устройств в Azure AD Connect
+1. Снова запустите мастер установки. Выберите **Настройка параметров устройств** на странице "Дополнительные задачи" и нажмите кнопку **Далее**. 
 
-1. На компьютере, где устанавливается служба Azure AD Connect, запустите PowerShell с повышенными правами.
-2. Если модуль PowerShell для Active Directory НЕ установлен, установите средства удаленного администрирования сервера, содержащие модуль PowerShell для AD и файл dsacls.exe. Это необходимо для выполнения скрипта. Выполните следующую команду:
+    ![Настройка параметров устройств](./media/active-directory-aadconnect-feature-device-writeback/deviceoptions.png)
 
-   ``` powershell
-   Add-WindowsFeature RSAT-AD-Tools
-   ```
+    >[!NOTE]
+    > Новая функция настройки параметров устройств доступна только в версии 1.1.819.0 и более поздних.
 
-3. Если модуль Azure Active Directory PowerShell НЕ установлен, скачайте и установите его из [модуля Azure Active Directory для Windows PowerShell (64-разрядная версия)](http://go.microsoft.com/fwlink/p/?linkid=236297). Этот компонент имеет зависимость от помощника по входу, который устанавливается вместе с Azure AD Connect.  
-4. Используя учетные данные администратора предприятия, выполните следующие команды и выйдите из PowerShell.
+2. На странице параметров устройства выберите **Настроить обратную запись устройств**. Параметр **Отключить обратную запись устройств** станет доступным после включения обратной записи устройства. Щелкните **Далее**, чтобы перейти на следующую страницу мастера.
+    ![Выбор операции устройства](./media/active-directory-aadconnect-feature-device-writeback/configuredevicewriteback1.png)
 
-   ``` powershell
-   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
-   ```
-
-   ``` powershell
-   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
-   ```
-
-Необходимо указать именно учетные данные администратора предприятия, так как изменения вносятся в пространство имен конфигурации. Администратор домена не имеет достаточных разрешений.
-
-![Powershell для включения обратной записи устройств](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)  
-
-Описание:
-
-* Если они больше не существуют, функция создает и настраивает их в разделах CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-* Если они больше не существуют, функция создает и настраивает их в разделе CN=RegisteredDevices,[domain-dn]. Объекты устройства будут созданы в этом контейнере.
-* Задает необходимые разрешения для учетной записи Azure AD Connector для управления устройствами в Active Directory.
-* Предполагает выполнение только в одном лесу, даже если служба Azure AD Connect устанавливается в нескольких лесах.
-
-Параметры
-
-* DomainName: домен Active Directory, в котором будут созданы объекты устройства. Примечание: все устройства для отдельно взятого леса Active Directory будут созданы в одном домене.
-* AdConnectorAccount: учетная запись Active Directory, которая будет использоваться службой Azure AD Connect для управления объектами в каталоге. Это учетная запись, используемая Azure AD Connect Sync для подключения к AD. При установке с помощью стандартных параметров это учетная запись с префиксом MSOL_.
-
-## <a name="part-3-enable-device-writeback-in-azure-ad-connect"></a>Часть 3. Включение обратной записи устройств в Azure AD Connect
-Используйте следующую процедуру, чтобы включить функцию обратной записи устройств в службе Azure AD Connect.
-
-1. Снова запустите мастер установки. Выберите **Настроить параметры синхронизации** на странице «Дополнительные задачи» и нажмите кнопку **Далее**.
-   ![Выборочная установка: настройка параметров синхронизации](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
-2. На странице дополнительных функций параметр «Обратная запись устройств» станет активным. Обратите внимание: если подготовительные шаги по настройке службы Connect Azure AD не завершены, параметр «Обратная запись устройств» на странице дополнительных функций будет оставаться неактивным. Установите флажок для обратной записи устройства и нажмите кнопку **Далее**. Если флажок по-прежнему отключен, см. раздел [Устранение неполадок](#the-writeback-checkbox-is-still-disabled).
-   ![Выборочная установка: дополнительные компоненты обратной записи устройства](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3. На странице обратной записи вы увидите указанный домен в качестве леса обратной записи устройств по умолчанию.
-   ![Выборочная установка: целевой лес обратной записи устройства](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
-4. Завершите установку в мастере, не изменяя другие параметры. При необходимости см. статью [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-5. Если вы включили [фильтрацию](active-directory-aadconnectsync-configure-filtering.md) в Azure AD Connect, убедитесь, что только что созданный контейнер CN=RegisteredDevices входит в нужную область.
+   ![Выборочная установка: целевой лес обратной записи устройства](./media/active-directory-aadconnect-feature-device-writeback/writebackforest.png)
 
-## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>Часть 4. Проверка синхронизации устройств с Active Directory
-Функция обратной записи устройств должна теперь работать правильно. Имейте в виду, что обратная запись объектов устройств в AD может выполняться до 3 часов. Проверить, правильно ли синхронизированы устройства, по окончании синхронизации можно так:
+4. Страница **Контейнер устройств** содержит параметр подготовки Active Directory с использованием одного из двух вариантов:
+
+    a. **Предоставление учетных данных администратора предприятия**. Если учетные данные администратора предприятия предоставлены для леса, в который необходимо выполнить обратную запись устройств, Azure AD Connect автоматически подготовит лес во время настройки обратной записи устройства.
+
+    Б. **Загрузка сценария PowerShell** . Azure AD Connect автоматически создает сценарий PowerShell, который может подготовить Active Directory для обратной записи устройства. Если учетные данные администратора предприятия не могут быть предоставлены в Azure AD Connect, предлагаем загрузить сценарий PowerShell. Предоставьте загруженный сценарий PowerShell **CreateDeviceContainer.psq** администратору предприятия леса, в который будет выполнена обратная запись устройств.
+    ![Подготовка леса Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicecontainercreds.png)
+    
+    Для подготовки леса Active Directory выполняются следующие операции:
+    * Если они больше не существуют, функция создает и настраивает их в разделах CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+    * Если они больше не существуют, функция создает и настраивает их в разделе CN=RegisteredDevices,[domain-dn]. Объекты устройства будут созданы в этом контейнере.
+    * Задает необходимые разрешения для учетной записи Azure AD Connector для управления устройствами в Active Directory.
+    * Предполагает выполнение только в одном лесу, даже если служба Azure AD Connect устанавливается в нескольких лесах.
+
+## <a name="verify-devices-are-synchronized-to-active-directory"></a>Проверка синхронизации устройств с Active Directory
+Функция обратной записи устройств должна теперь работать правильно. Имейте в виду, что обратная запись объектов устройств в AD может выполняться до 3 часов.  Проверить, правильно ли синхронизированы устройства после выполнения правила синхронизации, можно так.
 
 1. Запустите центр администрирования Active Directory.
-2. Разверните раздел RegisteredDevices в домене, который вы настроили в [части 2](#part-2-prepare-active-directory).  
+2. Разверните раздел RegisteredDevices в домене, который включается в федерацию.
 
-   ![Центр администрирования Active Directory: зарегистрированные устройства](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
-   
-3. Там будут перечислены зарегистрированные в настоящий момент устройства.  
+   ![Центр администрирования Active Directory: зарегистрированные устройства](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
 
-   ![Центр администрирования Active Directory: список зарегистрированных устройств](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)  
+3. Там будут перечислены зарегистрированные в настоящий момент устройства.
+
+   ![Центр администрирования Active Directory: список зарегистрированных устройств](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Включение условного доступа
-   Подробные инструкции о включении этого сценария см. в статье [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Подробные инструкции о включении этого сценария см. в статье [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>Флажок обратной записи по-прежнему отключен
@@ -117,8 +95,7 @@ ms.lasthandoff: 01/05/2018
   * Откройте вкладку **Соединители** .
   * Найдите соединитель с типом "Доменные службы Active Directory" и выберите его.
   * В разделе **Действия** выберите **Свойства**.
-  * Выберите **Подключиться к лесу Active Directory**. Убедитесь, что домен и имя пользователя, указанные в этом окне, совпадают с учетной записью, указанной в сценарии.  
-  
+  * Выберите **Подключиться к лесу Active Directory**. Убедитесь, что домен и имя пользователя, указанные в этом окне, совпадают с учетной записью, указанной в сценарии.
     ![Учетная запись соединителя в диспетчере службы синхронизации](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Проверьте конфигурацию Active Directory.
@@ -151,3 +128,4 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+

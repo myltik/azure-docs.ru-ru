@@ -1,6 +1,6 @@
 ---
-title: "Руководство. Интеграция Azure Active Directory с AirWatch | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и AirWatch."
+title: Руководство. Интеграция Azure Active Directory с AirWatch | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и AirWatch.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: a0e314aaf59a70107058829ea84dde362f097274
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89d9bc6a40a6ee814f92cdb4c5a26e660007e64e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344550"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Руководство. Интеграция Azure Active Directory с AirWatch
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в AirWatch (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -186,9 +187,9 @@ ms.lasthandoff: 12/11/2017
 
     d. В текстовом поле **First Name** (Имя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    д. В текстовом поле **Last Name** (Фамилия) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    д. В текстовое поле **Last Name** (Фамилия) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
-    f. В текстовом поле **Email** (Электронная почта) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    f. В текстовое поле **Email** (Электронная почта) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     ж. Выберите команду **Сохранить**.
 
@@ -290,7 +291,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355854"
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309476"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Часто задаваемые вопросы о шлюзе приложений
 
@@ -156,7 +156,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 * Разрешить входящие запросы от всех источников на порты 65503–65534 для [просмотра работоспособности серверной части ](application-gateway-diagnostics.md).
 
-* Разрешить пробы Azure Load Balancer (тег AzureLoadBalancer) и входящего виртуального сетевого трафика (тег VirtualNetwork) в [группах безопасности сети](../virtual-network/security-overview.md).
+* Разрешить пробы Azure Load Balancer (тег AzureLoadBalancer) и входящего виртуального сетевого трафика (тег VirtualNetwork) в [группах безопасности сети](../virtual-network/virtual-networks-nsg.md).
 
 * Запретить весь другой входящий трафик с помощью правила, запрещающего любой трафик.
 

@@ -8,13 +8,14 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: b45e1434d648096a67c2f12046960926d2c7640d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ea76bc4cc182902fb5618d23358579ec229a5ef4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189723"
 ---
 # <a name="securing-your-sql-database"></a>Защита Базы данных SQL
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/23/2018
 Служба "База данных SQL" обеспечивает защиту данных, шифруя передаваемые данные с использованием протокола [TLS](https://support.microsoft.com/kb/3135244), неактивные данные с использованием [прозрачного шифрования данных](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) и используемые данные с помощью функции [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Во время каждого сеанса передачи данных в Базу данных SQL Azure и из нее все подключения к базе должны быть зашифрованы (SSL/TLS). В строке подключения приложения необходимо настроить параметры шифрования подключения, а также указать *отсутствие* доверия сертификату сервера (это происходит автоматически при копировании строки подключения с портала Azure), в противном случае подключение не будет проверять подлинность сервера и будет уязвимо для атак типа "злоумышленник в середине". Например, для драйвера ADO.NET это параметры **Encrypt=True** и **TrustServerCertificate=False**. 
+>Во время каждого сеанса передачи данных в Базу данных SQL Azure и из нее все подключения к базе должны быть зашифрованы (SSL/TLS). В строке подключения приложения необходимо настроить параметры шифрования подключения, а также указать *отсутствие* доверия сертификату сервера (это происходит автоматически при копировании строки подключения с портала Azure), в противном случае подключение не будет проверять подлинность сервера и будет уязвимо для атак типа "злоумышленник в середине". Например, для драйвера ADO.NET это параметры **Encrypt=True** и **TrustServerCertificate=False**. Чтобы получить сведения о протоколе TLS и проверить возможность подключения, просмотрите [рекомендации по использованию протокола TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 Другие способы шифрования данных включают следующее:
 

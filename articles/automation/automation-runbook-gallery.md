@@ -7,13 +7,14 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a33bc9ea1750d9db34c0fad678118dc81f294c61
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 61d267898bab5e5df394d4097eacb33ada809518
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355956"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Коллекции модулей Runbook и других модулей для службы автоматизации Azure
 Вы можете не создавать собственные модули Runbook и другие модули в службе автоматизации Azure, а воспользоваться разнообразными сценариями, уже созданными корпорацией Майкрософт и сообществом.  Эти готовые сценарии можно применять без изменений или использовать в качестве отправной точки, модифицируя их под свои задачи.
@@ -90,6 +91,9 @@ ms.lasthandoff: 05/11/2018
 9. На странице **импорта** нажмите кнопку **ОК**, чтобы импортировать модуль. Когда служба автоматизации Azure импортирует модуль в вашу учетную запись, она извлекает метаданные о модуле и командлетах. Это может занять несколько минут, поскольку каждое действие необходимо извлечь.
 10. Вы получите два уведомления о начале и завершении развертывания модуля соответственно.
 11. Когда модуль будет импортирован, вы увидите доступные действия и сможете использовать его ресурсы в модулях runbook и ресурсах настройки требуемого состояния.
+
+> [!NOTE]
+> Модули, которые поддерживают только PowerShell Core, не поддерживаются в службе автоматизации Azure. Их нельзя импортировать на портале Azure и развернуть непосредственно из коллекции PowerShell.
 
 ## <a name="requesting-a-runbook-or-module"></a>Запрос на создание модуля Runbook или другого модуля
 Свой запрос можно отправить на сайте [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Если вам нужна помощь в написании модуля Runbook или освоении PowerShell, опубликуйте вопрос на нашем [форуме](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

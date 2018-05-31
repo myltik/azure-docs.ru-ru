@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Zoom | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Zoom."
+title: Руководство по интеграции Azure Active Directory с Zoom | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Zoom.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 16fca9c8d1ab18ffe6d156d6bf4549d9a687b164
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354220"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Руководство. Интеграция Azure Active Directory с Zoom
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 01/05/2018
 - Вы можете включить автоматический вход пользователей в Zoom (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -178,7 +179,7 @@ ms.lasthandoff: 01/05/2018
     д. Выберите команду **Сохранить**.
 
     > [!NOTE] 
-    > Дополнительные сведения см. в документации по приложению Zoom [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
+    > Дополнительные сведения см. в документации по приложению Zoom [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566).
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -282,7 +283,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

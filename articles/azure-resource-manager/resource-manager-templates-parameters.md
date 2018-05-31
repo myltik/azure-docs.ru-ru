@@ -1,6 +1,6 @@
 ---
-title: "Раздел параметров в шаблонах Azure Resource Manager | Документация Майкрософт"
-description: "Здесь описан раздел параметров в шаблонах Azure Resource Manager, использующий декларативный синтаксис JSON."
+title: Раздел параметров в шаблонах Azure Resource Manager | Документация Майкрософт
+description: Здесь описан раздел параметров в шаблонах Azure Resource Manager, использующий декларативный синтаксис JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359209"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Раздел параметров в шаблонах Azure Resource Manager
 В разделе параметров шаблона указываются значения, которые вы можете вводить во время развертывания ресурсов. Значения этих параметров позволяют настраивать развертывание путем предоставления значений, предназначенных для конкретной среды (например, для среды разработки, тестирования и рабочей среды). Предоставление параметров в шаблоне не является обязательным требованием, однако без параметров шаблон всегда будет развертывать одни и те же ресурсы с одинаковыми именами, расположениями и свойствами.
@@ -85,13 +86,13 @@ ms.lasthandoff: 01/22/2018
 | Имя элемента | Обязательно | ОПИСАНИЕ |
 |:--- |:--- |:--- |
 | имя_параметра |Yes |Имя параметра. Должно быть допустимым идентификатором JavaScript. |
-| Тип |Yes |Тип значения параметра. Допустимые типы и значения: **string**, **secureString**, **int**, **bool**, **object**, **secureObject** и **array**. |
+| Тип |Yes |Тип значения параметра. Допустимые типы и значения: **string**, **securestring**, **int**, **bool**, **object**, **secureObject** и **array**. |
 | defaultValue |Нет  |Значение параметра, используемое по умолчанию, если пользователь не задал иное значение. |
 | allowedValues |Нет  |Массив допустимых значений параметра, по которому сверяются правильные значения. |
 | minValue |Нет  |Минимальное значение для параметров типа int. Это включающее значение. |
 | maxValue |Нет  |Максимальное значение для параметров типа int. Это включающее значение. |
-| minLength |Нет  |Минимальная длина параметров типа string, secureString и array. Это включающее значение. |
-| maxLength |Нет  |Максимальная длина параметров типа string, secureString и array. Это включающее значение. |
+| minLength |Нет  |Минимальная длина параметров типа string, securestring и array. Это включающее значение. |
+| maxLength |Нет  |Максимальная длина параметров типа string, securestring и array. Это включающее значение. |
 | description |Нет  |Описание параметра, отображаемого для пользователей на портале. |
 
 ## <a name="template-functions-with-parameters"></a>Использование функций шаблонов с параметрами
@@ -225,7 +226,7 @@ ms.lasthandoff: 01/22/2018
    }
    ```
 
-* Используйте тип **SecureString** для всех паролей и секретов. При передаче конфиденциальных данных в объекте JSON используйте тип **secureObject**. Параметры шаблона с типами secureString и secureObject невозможно прочитать после развертывания ресурса. 
+* Используйте **securestring** для всех паролей и секретов. При передаче конфиденциальных данных в объекте JSON используйте тип **secureObject**. Параметры шаблона с типами securestring и secureObject невозможно считать после развертывания ресурса. 
    
    ```json
    "parameters": {

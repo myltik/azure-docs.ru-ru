@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e518799fb4144093e5c3caf0524254a098e4b9cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3efc351861a7d5b3c02c08b96494e83a3ccb99f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362147"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Справочная информация по API-интерфейсу службы Azure "Управление моделями Машинного обучения"
 
@@ -483,7 +484,7 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ### <a name="request"></a>Запрос
 | Метод | URI запроса |
 |------------|------------|
-| ПУБЛИКАЦИЯ |  /api/subscriptions/{идентификатор_подписки}/resourceGroups/{имя_группы_ресурсов}/accounts/{имя_учетной_записи}/services/{идентификатор}/keys | 
+| ПУБЛИКАЦИЯ |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/regenerateKeys | 
 
 ### <a name="description"></a>ОПИСАНИЕ
 Повторно создает ключи службы и возвращает их.

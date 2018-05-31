@@ -1,6 +1,6 @@
 ---
-title: "Проверка подлинности Azure Active Directory и Resource Manager | Документы Майкрософт"
-description: "Руководство разработчика по проверке подлинности с помощью API Azure Resource Manager и Azure Active Directory для интеграции приложения с другими подписками Azure."
+title: Проверка подлинности Azure Active Directory и Resource Manager | Документы Майкрософт
+description: Руководство разработчика по проверке подлинности с помощью API Azure Resource Manager и Azure Active Directory для интеграции приложения с другими подписками Azure.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: dugill
+ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359868"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Использование API аутентификации Resource Manager для доступа к подпискам
 ## <a name="introduction"></a>Введение
@@ -26,8 +27,8 @@ ms.lasthandoff: 11/16/2017
 
 Приложение может получить доступ к интерфейсам API Azure Resource Manager двумя способами:
 
-1. **Доступ от имени пользователя.**Используйте этот метод для приложений, осуществляющих доступ к ресурсам от имени выполнившего вход пользователя. Этот метод подходит для приложений, например веб-приложений и программ командной строки, которые осуществляют только интерактивное управление ресурсами Azure.
-2. **Доступ только для приложений.**Используйте этот метод для приложений, на которых запущены службы управляющих программ и запланированные задания. Удостоверение приложения предоставляет непосредственный доступ к ресурсам. Этот метод подходит для приложений, требующих долгосрочного автономного (автоматического) доступа Azure.
+1. **Доступ от имени пользователя.** Используйте этот метод для приложений, осуществляющих доступ к ресурсам от имени выполнившего вход пользователя. Этот метод подходит для приложений, например веб-приложений и программ командной строки, которые осуществляют только интерактивное управление ресурсами Azure.
+2. **Доступ только для приложений.** Используйте этот метод для приложений, на которых запущены службы управляющих программ и запланированные задания. Удостоверение приложения предоставляет непосредственный доступ к ресурсам. Этот метод подходит для приложений, требующих долгосрочного автономного (автоматического) доступа Azure.
 
 В этой статье содержатся пошаговые инструкции по созданию приложения, поддерживающего оба эти метода авторизации. Здесь показано, как выполнить каждое действие, используя REST API или C#. Полное приложение ASP.NET MVC можно получить на странице [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 

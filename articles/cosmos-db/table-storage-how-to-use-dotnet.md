@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360195"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -102,7 +103,7 @@ ms.lasthandoff: 04/16/2018
 >
 
 ### <a name="determine-your-target-environment"></a>Определение целевой среды
-Примеры из этого руководства можно выполнять в двух средах.
+Примеры из этого руководства можно выполнять в трех средах.
 
 * Вы можете выполнить код в учетной записи хранения Azure в облаке. 
 * Вы можете выполнить код в учетной записи Azure Cosmos DB в облаке.
