@@ -6,121 +6,176 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2017
+ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c886655f0f9469b742532fa940519176a773ad41
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161062"
 ---
-# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Создание пользовательских ролей для управления доступом на основе ролей в Azure
-Если ни одна из встроенных ролей не соответствует вашим требованиям к доступу, создайте пользовательскую роль с помощью механизма RBAC Azure (управление доступом на основе ролей). Настраиваемые роли можно создавать с помощью [Azure PowerShell](role-assignments-powershell.md), [интерфейса командной строки (CLI) Azure](role-assignments-cli.md) и интерфейса [REST API](role-assignments-rest.md). Пользовательские роли, так же как и встроенные, можно назначать пользователям, группам и приложениям в рамках подписки, группы ресурсов или области ресурсов. Пользовательские роли хранятся в клиенте Azure AD и могут использоваться несколькими подписками.
+# <a name="create-custom-roles-in-azure"></a>Создание настраиваемых ролей в Azure
 
-В каждом клиенте можно создать до 2000 пользовательских ролей. 
+Если [встроенные роли](built-in-roles.md) не соответствуют определенным требованиям к доступу, можно создать собственные настраиваемые роли. Пользовательские роли, так же как и встроенные, можно назначать пользователям, группам и субъектам-службам в рамках подписки, группы ресурсов или области ресурсов. Настраиваемые роли хранятся в клиенте Azure Active Directory (Azure AD) и могут использоваться несколькими подписками. Настраиваемые роли можно создавать с помощью Azure PowerShell, Azure CLI и интерфейса REST API. В этой статье описывается пример создания настраиваемых ролей с помощью Azure CLI и PowerShell.
 
-Ниже приведен пример пользовательской роли, которая позволяет выполнять мониторинг и перезапуск виртуальных машин.
+## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Создание настраиваемой роли с разрешением на открытие запросов в службу поддержки с помощью PowerShell
+
+Чтобы создать пользовательскую роль, можно начать со встроенной роли. Измените ее, а затем создайте роль. В этом примере встроенная роль [Читатель](built-in-roles.md#reader) настроена для создания пользовательской роли с именем Reader support tickets access level (Уровень доступа к запросам в службу поддержки читателя). Она разрешает пользователю просматривать все в подписке, а также открывать запросы в службу поддержки.
+
+> [!NOTE]
+> Единственными двумя встроенными ролями, разрешающими пользователю открывать запросы в службу поддержки, являются [Владелец](built-in-roles.md#owner) и [Участник](built-in-roles.md#contributor). Чтобы разрешить пользователю открывать запросы в службу поддержки, ему необходимо назначить роль на уровне подписки, так как все эти запросы создаются на основе подписки Azure.
+
+Используйте команду [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) в PowerShell, чтобы экспортировать роль [Читатель](built-in-roles.md#reader) в формате JSON.
+
+```azurepowershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
+```
+
+Ниже приведены выходные данные JSON для роли [Читатель](built-in-roles.md#reader). Стандартная роль состоит из трех основных разделов: `Actions`, `NotActions` и `AssignableScopes`. В разделе `Actions` перечислены все разрешенные операции роли. Чтобы исключить операции из `Actions`, добавьте их в `NotActions`. Действующие разрешения вычисляется путем вычитания операций `NotActions` из операций `Actions`.
 
 ```json
 {
-  "Name": "Virtual Machine Operator",
-  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
-    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
-  ]
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
 }
 ```
-## <a name="actions"></a>Действия
-Свойство **Действия** пользовательской роли определяет операции Azure, к которым эта роль предоставляет доступ. Это коллекция строк операций, которые определяют защищенные действия поставщиков ресурсов Azure. Строки операций используют формат `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Строки операций, содержащие подстановочные знаки (\*), предоставляют доступ ко всем операциям, которые соответствуют определенной строке операции. например
 
-* `*/read` предоставляет доступ к операциям чтения для всех типов ресурсов для всех поставщиков ресурсов Azure;
-* `Microsoft.Compute/*` предоставляет доступ ко всем операциям для всех типов ресурсов в поставщике ресурсов Microsoft.Compute.
-* `Microsoft.Network/*/read` предоставляет доступ к операциям чтения для всех типов ресурсов для поставщика ресурсов Microsoft.Network;
-* строка `Microsoft.Compute/virtualMachines/*` предоставляет доступ ко всем операциям виртуальных машин и их вложенных типов ресурсов;
-* строка `Microsoft.Web/sites/restart/Action` предоставляет доступ к перезапуску веб-сайтов.
+Теперь, чтобы создать пользовательскую роль, внесите правки в выходные данные JSON. В данном случае для создания запросов в службу поддержки необходимо добавить операцию `Microsoft.Support/*`. Каждая операция предоставляется поставщиком ресурсов. Чтобы получить список операций для поставщика ресурсов, можно использовать команду [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) или ознакомиться со статьей [Azure Resource Manager Resource Provider operations](resource-provider-operations.md) (Операции поставщика ресурсов Azure Resource Manager).
 
-Чтобы получить список операций поставщиков ресурсов Azure, используйте командлет `Get-AzureRmProviderOperation` (в PowerShell) или команду `azure provider operations show` (в Azure CLI). Кроме того, с помощью этих команд можно проверить, является ли строка операции допустимой, а также развернуть строки операций с подстановочными знаками.
+Роль обязательно должна содержать явные идентификаторы подписки, в которой она назначена. Идентификаторы подписки перечислены в разделе `AssignableScopes`. Если они не указаны, вы не сможете импортировать роль в подписку.
 
-```powershell
-Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
+Наконец, необходимо задать свойство `IsCustom` для `true`, чтобы указать, что это настраиваемая роль.
 
-Get-AzureRMProviderOperation Microsoft.Network/*
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
 ```
 
-![Снимок экрана PowerShell: Get-AzureRMProviderOperation](./media/custom-roles/1-get-azurermprovideroperation-1.png)
+Чтобы создать новую пользовательскую роль, используйте команду [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) и предоставьте обновленный JSON-файл определения роли.
+
+```azurepowershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+После выполнения команды [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) новые пользовательские роли будут доступны на портале Azure, и их можно назначать пользователям.
+
+![Снимок экрана пользовательской роли, импортированной на портал Azure](./media/custom-roles/18.png)
+
+![Снимок экрана назначения импортированной пользовательской роли пользователю в том же каталоге](./media/custom-roles/19.png)
+
+![Снимок экрана с разрешениями импортированной пользовательской роли](./media/custom-roles/20.png)
+
+С помощью пользовательской роли пользователи могут создавать запросы в службу поддержки.
+
+![Снимок экрана пользовательской роли, используемой для создания запросов в службу поддержки](./media/custom-roles/21.png)
+
+Пользователи этой пользовательской роли не могут совершать других действий. Например, они не могут создавать виртуальные машины или группы ресурсов.
+
+![Снимок экрана пользовательской роли, которая не имеет разрешений на создание виртуальных машин](./media/custom-roles/22.png)
+
+![Снимок экрана пользовательской роли, которая не имеет разрешений на создание групп ресурсов](./media/custom-roles/23.png)
+
+## <a name="create-a-custom-role-to-open-support-requests-using-azure-cli"></a>Создание настраиваемой роли с разрешением на открытие запросов в службу поддержки с помощью Azure CLI
+
+Шаги по созданию пользовательской роли с помощью Azure CLI соответствуют шагам, используемым в PowerShell. Но выходные данные JSON отличаются.
+
+Для этого примера можно начать со встроенной роли [Читатель](built-in-roles.md#reader). Используйте команду [az role definition list](/cli/azure/role/definition#az_role_definition_list), чтобы получить список действий роли [Читатель](built-in-roles.md#reader).
 
 ```azurecli
-azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
-
-azure provider operations show "Microsoft.Network/*"
+az role definition list --name "Reader" --output json
 ```
 
-![Снимок экрана Azure CLI: azure provider operations show "Microsoft.Compute/virtualMachines/\*/action" ](./media/custom-roles/1-azure-provider-operations-show.png)
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": [],
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
 
-## <a name="notactions"></a>NotActions
-Используйте свойство **NotActions** , если для определения набора операций, которые вы хотите разрешить, проще указать операции, которые необходимо исключить. Доступ, который предоставляет настраиваемая роль, реализуется путем исключения операций, определяемых свойством **NotActions**, из списка операций, определяемых свойством **Actions**.
+Создайте файл JSON в следующем формате. Операция `Microsoft.Support/*` была добавлена в раздел `Actions`, чтобы этот пользователь мог открывать запросы в службу поддержки, продолжая оставаться читателем. Необходимо добавить идентификатор подписки, в которой эта роль будет назначена, в разделе `AssignableScopes`.
 
-> [!NOTE]
-> Пользователю одновременно могут быть назначены две роли: первая исключает определенную операцию с помощью свойства **NotActions**, а вторая предоставляет доступ к этой же операции. В таком случае пользователь имеет право на выполнение этой операции. Свойство **NotActions** не является запрещающим правилом. Это удобный способ создания набора допустимых операций путем исключения некоторых операций.
->
->
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-## <a name="assignablescopes"></a>AssignableScopes
-Свойство настраиваемой роли **AssignableScopes** определяет области (подписки, группы ресурсов или ресурсы), в которых эта настраиваемая роль доступна для назначения. Вы можете разрешить использование пользовательской роли только в тех подписках или группах ресурсов, в которых она действительно нужна. В остальных подписках и группах ресурсов она просто не будет отображаться, чтобы не отвлекать пользователей.
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
+```
 
-Примеры допустимых назначаемых областей:
+Чтобы создать новую пользовательскую роль, используйте команду [az role definition create](/cli/azure/role/definition#az_role_definition_create).
 
-* /subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e и /subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624 — делают роль доступной для назначения в двух подписках;
-* /subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e — делает роль доступной для назначения в одной подписке;
-* /subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network — делает роль доступной для назначения только в группе ресурсов с именем Network.
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
+```
 
-> [!NOTE]
-> Необходимо использовать по крайней мере одну подписку, группу ресурсов или идентификатор ресурса.
->
->
+Новая пользовательская роль теперь доступна на портале Azure. Процесс использования такой же, как и в предыдущих разделах PowerShell.
 
-## <a name="custom-roles-access-control"></a>Контроль доступа к пользовательским ролям
-Свойство **AssignableScopes** пользовательской роли также определяет пользователей с правом просматривать, изменять и удалять эту роль.
+![Снимок экрана портала Azure с пользовательской ролью, созданной с помощью CLI 1.0](./media/custom-roles/26.png)
 
-* Кто может создавать пользовательские роли?
-    Создавать пользовательские роли для использования в подписках, группах ресурсов и отдельных ресурсах могут владельцы (и администраторы доступа пользователей) этих областей.
-    При создании роли пользователь должен иметь право выполнять операцию `Microsoft.Authorization/roleDefinition/write` во всех областях этой роли, определенных свойством **AssignableScopes** .
-* Кто может изменять пользовательские роли?
-    Изменять пользовательские роли для использования в подписках, группах ресурсов и отдельных ресурсах могут владельцы (и администраторы доступа пользователей) этих областей. Пользователь должен иметь право выполнять операцию `Microsoft.Authorization/roleDefinition/write` во всех областях этой роли, определенных свойством **AssignableScopes** .
-* Кто может просматривать пользовательские роли?
-    Все стандартные роли Azure RBAC позволяют просматривать список ролей, доступных для назначения. Просматривать роли RBAC, которые доступны для назначения в области, могут пользователи с правом выполнять операцию `Microsoft.Authorization/roleDefinition/read` для этой области.
 
 ## <a name="see-also"></a>См. также
-* [Управление доступом на основе ролей.](role-assignments-portal.md) Начало работы с RBAC на портале Azure.
-* Список доступных операций см. в статье [Операции поставщиков ресурсов Azure Resource Manager](resource-provider-operations.md).
-* Сведения об управлении доступом с помощью следующих средств:
-  * [PowerShell](role-assignments-powershell.md)
-  * [интерфейс командной строки Azure](role-assignments-cli.md)
-  * [REST API](role-assignments-rest.md)
-* [Встроенные роли.](built-in-roles.md) Сведения о стандартных ролях в RBAC.
+- [Understand role definitions](role-definitions.md) (Определения ролей)
+- [Manage role-based access control with Azure PowerShell](role-assignments-powershell.md) (Управление доступом на основе ролей с помощью Azure PowerShell)
+- [Manage Role-Based Access Control with the Azure command-line interface](role-assignments-cli.md) (Управление доступом на основе ролей с помощью интерфейса командной строки Azure)
+- [Manage Role-Based Access Control with the REST API](role-assignments-rest.md) (Управление доступом на основе ролей с помощью REST API)

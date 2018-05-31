@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198713"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Краткое руководство по созданию профиля и конечной точки Azure CDN
 С помощью этого краткого руководства вы включите сеть доставки содержимого (CDN) Azure, создав профиль и конечную точку CDN. Когда профиль и конечная точка будут созданы, можете приступить к доставке содержимого своим клиентам.
@@ -70,7 +71,7 @@ ms.lasthandoff: 05/14/2018
    ![Конечная точка сети CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    Конечная точка станет доступна не сразу. Распространение регистрационных сведений может занять некоторое время. 
-   - Для профилей **Azure CDN уровня "Стандартный" от Майкрософт** распространение обычно выполняется в течение десяти минут. 
+   - Для профилей **Azure CDN категории "Стандартный" от Майкрософт** распространение обычно выполняется в течение десяти минут. 
    - Для профилей **Azure CDN уровня "Стандартный" от Akamai** распространение обычно завершается в течение одной минуты. 
    - Для профилей **Azure CDN уровня "Стандартный" от Verizon** и **Azure CDN уровня "Премиум" от Verizon** распространение обычно выполняется в течение 90 минут. 
 
@@ -87,6 +88,6 @@ ms.lasthandoff: 05/14/2018
 Дополнительные сведения о добавлении личного домена к конечной точке CDN см. в следующем руководстве:
 
 > [!div class="nextstepaction"]
-> [Руководство по добавлению Azure CDN в веб-приложение](app-service-web-tutorial-content-delivery-network.md)
+> [Руководство. Добавление личного домена к конечной точке CDN Azure](cdn-map-content-to-custom-domain.md)
 
 

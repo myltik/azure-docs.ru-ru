@@ -2,23 +2,26 @@
 title: Узнайте, как предоставлять дополнительные утверждения для приложения Azure AD | Документация Майкрософт
 description: Руководство по добавлению пользовательских или дополнительных утверждений в токены SAML 2.0 и JSON Web Token (JWT), выдаваемых службой Azure Active Directory.
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157237"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Необязательные утверждения в Azure AD (предварительная версия)
 
@@ -65,11 +68,9 @@ ms.lasthandoff: 03/29/2018
 | `fwd`                      | IP-адрес.  Добавляет исходный IPv4-адрес запрашивающего клиента (при использовании внутри виртуальной сети)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Страна пользователя                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Страна ресурса клиента                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | Обозначает, подключено ли устройство к рабочему месту. Связанно с политикой условного доступа                                                                                                                 | SAML       |           | Для JWT, объединенных в signin_state                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | Указывает, имеет ли устройство установленное MDM. Связанно с политикой условного доступа.                                                                                                                  | SAML       |           | Для JWT, объединенных в signin_state                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | Обозначает то, что MDM определило, что устройство соответствует политикам безопасности устройств в организации.                                                                                  | SAML       |           | Для JWT, объединенных в signin_state                                                                                                                                                                                                                                                   |
-| `kmsi`                     | Обозначает, выбрал ли пользователь параметр "Оставаться в системе".                                                                                                                                    | SAML       |           | Для JWT, объединенных в signin_state                                                                                                                                                                                                                                                   |
+| `acct`    | Состояние учетной записи пользователя в клиенте.  Если пользователь является членом клиента, это значение равно `0`.  Если он является гостем, это значение равно `1`.  | JWT, SAML | | |
 | `upn`                      | Утверждение UserPrincipalName.  Несмотря на то, что это утверждение автоматически включается, можно указать его в качестве необязательного утверждения для присоединения дополнительных свойств, чтобы изменить его поведение в варианте использования гостевым пользователем. | JWT, SAML  |           | Дополнительные свойства: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>Необязательные утверждения версии 2.0
 Эти утверждения всегда включаются в токены версии 1.0, но удаляются из токенов версии 2.0, если они не запрошены.  Эти утверждения применяются только для JWT (токены идентификации и маркер доступа).  
 

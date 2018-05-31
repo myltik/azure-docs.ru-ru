@@ -1,11 +1,11 @@
 ---
-title: "Развертывание и обновление микрослужб Azure локально | Документация Майкрософт"
-description: "Установка локального кластера Service Fabric, развертывание в нем существующего приложения и обновление этого приложения."
+title: Развертывание и обновление микрослужб Azure локально | Документация Майкрософт
+description: Установка локального кластера Service Fabric, развертывание в нем существующего приложения и обновление этого приложения.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
-ms.author: ryanwi;mikhegn
-ms.openlocfilehash: 9d547039491f6b0c0d308c64d11e9c54b4b4e3d5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.author: ryanwi
+ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205252"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Начало развертывания и обновления приложений в локальном кластере
 Пакет SDK Service Fabric включает полную локальную среду разработки, которая позволяет быстро приступить к развертыванию приложений в локальном кластере и управлению ими. Следуя инструкциям в этой статье и используя Windows PowerShell, вы создадите локальный кластер, развернете в нем имеющееся приложение, а затем обновите его до новой версии.
@@ -124,7 +125,7 @@ ms.lasthandoff: 11/04/2017
    
     Набор использованных команд (например, все команды PowerShell для Service Fabric) доступен для любого локального или удаленного кластера, к которому вы можете подключиться.
    
-    Чтобы визуально контролировать взаимодействие с кластером, используйте веб-обозреватель Service Fabric. Для этого откройте в браузере адрес [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+    Чтобы визуально контролировать взаимодействие с кластером, используйте веб-инструмент Service Fabric Explorer. Для этого в браузере перейдите по адресу [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
    
     ![Просмотр сведений о приложении в обозревателе Service Fabric][sfx-service-overview]
    
@@ -148,7 +149,7 @@ ms.lasthandoff: 11/04/2017
     Когда начнется обновление, в окне PowerShell должен отобразиться примерно такой результат:
    
     ![Ход обновления в PowerShell][ps-appupgradeprogress]
-3. Если обновление будет продолжаться, вам может быть проще отслеживать его состояние из обозревателя Service Fabric. Откройте окно браузера и перейдите по адресу [http://localhost:19080/Explorer](http://localhost:19080/Explorer). В дереве слева разверните узел **Приложения** и последовательно выберите **WordCount** и **fabric:/WordCount**. На вкладке с основными сведениями отобразится состояние обновления во всех доменах обновления кластера.
+3. Если обновление будет продолжаться, вам может быть проще отслеживать его состояние из обозревателя Service Fabric. Запустите окно браузера и перейдите по адресу [http://localhost:19080/Explorer](http://localhost:19080/Explorer). В дереве слева разверните узел **Приложения** и последовательно выберите **WordCount** и **fabric:/WordCount**. На вкладке с основными сведениями отобразится состояние обновления во всех доменах обновления кластера.
    
     ![Ход обновления в обозревателе Service Fabric][sfx-upgradeprogress]
    

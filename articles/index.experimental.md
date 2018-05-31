@@ -1,13 +1,14 @@
 ---
 layout: HubPage
-hide_bc: ''
+hide_bc: true
 title: Документация по Microsoft Azure
 description: Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое.
-ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070065"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -136,6 +137,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
@@ -156,7 +158,7 @@ ms.lasthandoff: 03/09/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Управление данными и AI</h3>
+                                                <h3>Управление данными и моделями ИИ</h3>
                                                 <h4>Реляционные базы данных</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">База данных SQL как служба</a></li>
@@ -165,9 +167,9 @@ ms.lasthandoff: 03/09/2018
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">База данных Azure Cosmos</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>AI и Cognitive Services</h4>
+                                                <h4>Решения ИИ и Cognitive Services</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">API компьютерного зрения</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">API распознавания лиц</a></li>
@@ -222,7 +224,7 @@ ms.lasthandoff: 03/09/2018
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
-                                    <h3>Среда выполнения приложений</h3>
+                                    <h3>Службы вычислений</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/virtual-machines/linux/">
@@ -239,7 +241,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Наборы для масштабирования виртуальных машин</p>
+                                                <p>Масштабируемые наборы виртуальных машин Microsoft Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -251,19 +253,19 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>Служба приложений</p>
+                                                <p>Служба приложений Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Functions</p>
+                                                <p>Функции Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>пакетная служба;</p>
+                                                <p>Пакетная служба Azure</p>
                                             </a>
                                         </li>
                                         
@@ -291,7 +293,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>Хранилище данных SQL.</p>
+                                                <p>Хранилище данных SQL</p>
                                             </a>
                                         </li>
                                         <li>
@@ -321,7 +323,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>кэш Redis;</p>
+                                                <p>Кэш Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -342,7 +344,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
-                                                <p>реестр контейнеров Azure;</p>
+                                                <p>Реестр контейнеров Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -354,28 +356,28 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>Служба приложений</p>
+                                                <p>Служба приложений Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>пакетная служба;</p>
+                                                <p>Пакетная служба Azure</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Интеграция Enterprise</h3>
+                                    <h3>Корпоративная интеграция</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>приложения логики;</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>Служебная шина</p>
+                                                <p>Служебная шина Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -437,7 +439,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/networking/networking-overview">
                                                 <img src="media/index/networking-overview.svg" alt="" />
-                                                <p>Обзор сети</p>
+                                                <p>Общие сведения о Сети</p>
                                             </a>
                                         </li>
                                         <li>
@@ -449,7 +451,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Подсистема балансировки нагрузки</p>
+                                                <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -512,7 +514,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
                                                 <img src="media/index/API_Know_Academic.svg" alt="" />
-                                                <p>Academic Knowledge API</p>
+                                                <p>Academic Knowledge</p>
                                             </a>
                                         </li>
                                         <li>
@@ -566,7 +568,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/bing-web-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                <p>API Bing для поиска в сети</p>
+                                                <p>API Bing для поиска в Интернете</p>
                                             </a>
                                         </li>
                                         <li>
@@ -596,13 +598,13 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Custom Vision Service</p>
+                                                <p>Пользовательская служба визуального распознавания</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
                                                 <img src="media/index/API_Know_EntityLink.svg" alt="" />
-                                                <p>API связывания сущностей</p>
+                                                <p>Связывание сущностей</p>
                                             </a>
                                         </li>
                                         <li>
@@ -676,12 +678,12 @@ ms.lasthandoff: 03/09/2018
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Хранилище</h3>
+                                    <h3>Служба хранилища</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Хранилище</p>
+                                                <p>Служба хранилища</p>
                                             </a>
                                         </li>
                                         <li>
@@ -699,7 +701,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Архивация</p>
+                                                <p>Azure Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -822,7 +824,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Набор Azure IoT Suite</p>
+                                                <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
@@ -852,13 +854,13 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/time-series-insights/">
                                                 <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Time Series Insights</p>
+                                                <p>Аналитика временных рядов Azure</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Интернет + мобильные устройства</h3>
+                                    <h3>Интернет и мобильные устройства</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service-web/">
@@ -881,7 +883,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>приложения логики;</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -926,7 +928,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>хранилище ключей;</p>
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
@@ -971,7 +973,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/log-analytics/">
                                                 <img src="media/index/OperationsManagementSuite.svg" alt="" />
-                                                <p>Служба Log Analytics</p>
+                                                <p>Log Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -983,7 +985,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Архивация</p>
+                                                <p>Azure Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1013,7 +1015,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/advisor">
                                                 <img src="media/index/advisor.svg" alt="" />
-                                                <p>Azure Advisor</p>
+                                                <p>Помощник по Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1025,7 +1027,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Диспетчер ресурсов Azure</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1034,7 +1036,7 @@ ms.lasthandoff: 03/09/2018
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Среда выполнения приложений</a>
+                        <a data-default="true" href="#Compute">Службы вычислений</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -1067,7 +1069,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Виртуальные машины Windows</h3>
-                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
+                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1085,7 +1087,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Наборы для масштабирования виртуальных машин</h3>
+                                                    <h3>Масштабируемые наборы виртуальных машин Microsoft Azure</h3>
                                                     <p>Масштабирование от десятков до тысяч виртуальных машин Linux и Windows и управление ими</p>
                                                 </div>
                                             </div>
@@ -1123,7 +1125,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба приложений</h3>
+                                                    <h3>Служба приложений Azure</h3>
                                                     <p>Развертывание веб-приложений на платформе Linux с помощью контейнеров</p>
                                                 </div>
                                             </div>
@@ -1142,7 +1144,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Functions</h3>
+                                                    <h3>Функции Azure</h3>
                                                     <p>Обработка событий без обращения к серверу</p>
                                                 </div>
                                             </div>
@@ -1161,7 +1163,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>пакетная служба;</h3>
+                                                    <h3>Пакетная служба Azure</h3>
                                                     <p>Запуск заданий с помощью контейнеров</p>
                                                 </div>
                                             </div>
@@ -1222,7 +1224,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Обзор сети</h3>
+                                                    <h3>Общие сведения о Сети</h3>
                                                     <p>Интегрированное представление сетевых служб в Azure</p>
                                                 </div>
                                             </div>
@@ -1260,7 +1262,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Подсистема балансировки нагрузки</h3>
+                                                    <h3>Load Balancer</h3>
                                                     <p>Обеспечивайте высокий уровень доступности и производительности ваших приложений в сети.</p>
                                                 </div>
                                             </div>
@@ -1417,7 +1419,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Хранилище</h3>
+                                                    <h3>Служба хранилища</h3>
                                                     <p>Надежное облачное хранилище с высоким уровнем доступности и широким масштабированием.</p>
                                                 </div>
                                             </div>
@@ -1474,7 +1476,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Архивация</h3>
+                                                    <h3>Azure Backup</h3>
                                                     <p>Простое и надежное резервное копирование серверов в облако.</p>
                                                 </div>
                                             </div>
@@ -1504,7 +1506,7 @@ ms.lasthandoff: 03/09/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Интернет + мобильные устройства</a>
+                        <a href="#web">Интернет и мобильные устройства</a>
                         <ul id="web" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-web">
@@ -1574,7 +1576,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>приложения логики;</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Автоматический доступ и использование данных в облаках без написания кода</p>
                                                 </div>
                                             </div>
@@ -1712,7 +1714,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>реестр контейнеров Azure;</h3>
+                                                    <h3>Реестр контейнеров Azure</h3>
                                                     <p>Хранение и администрирование образов контейнеров во всех типах развертываний Azure</p>
                                                 </div>
                                             </div>
@@ -1750,7 +1752,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба приложений</h3>
+                                                    <h3>Служба приложений Azure</h3>
                                                     <p>Развертывание веб-приложений на платформе Linux с помощью контейнеров</p>
                                                 </div>
                                             </div>
@@ -1769,7 +1771,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>пакетная служба;</h3>
+                                                    <h3>Пакетная служба Azure</h3>
                                                     <p>Запуск заданий с помощью контейнеров</p>
                                                 </div>
                                             </div>
@@ -1812,7 +1814,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Хранилище данных SQL.</h3>
+                                                    <h3>Хранилище данных SQL</h3>
                                                     <p>Хранилище эластичных данных как служба с возможностями корпоративного класса</p>
                                                 </div>
                                             </div>
@@ -1907,7 +1909,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>кэш Redis;</h3>
+                                                    <h3>Кэш Redis</h3>
                                                     <p>Высокая производительность, доступ к данным с низкой задержкой для создания быстрых и масштабируемых приложений</p>
                                                 </div>
                                             </div>
@@ -1988,7 +1990,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API Bing для поиска в сети</h3>
+                                                    <h3>API Bing для поиска в Интернете</h3>
                                                     <p>Подключение мощных функций веб-поиска к приложениям</p>
                                                 </div>
                                             </div>
@@ -2026,7 +2028,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Custom Vision Service</h3>
+                                                    <h3>Пользовательская служба визуального распознавания</h3>
                                                     <p>Настраиваемая веб-служба, которая учится распознавать определенное содержимое в изображениях</p>
                                                 </div>
                                             </div>
@@ -2259,7 +2261,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>службы Analysis Services</h3>
+                                                    <h3>Analysis Services</h3>
                                                     <p>Моделирование данных корпоративного уровня в облаке</p>
                                                 </div>
                                             </div>
@@ -2340,7 +2342,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Набор Azure IoT Suite</h3>
+                                                    <h3>Azure IoT Suite</h3>
                                                     <p>Сбор и анализ необработанных данных для улучшения бизнес-показателей</p>
                                                 </div>
                                             </div>
@@ -2446,7 +2448,7 @@ ms.lasthandoff: 03/09/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">Интеграция Enterprise</a>
+                        <a href="#integration">Корпоративная интеграция</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/azure/logic-apps/">
@@ -2459,7 +2461,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>приложения логики;</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Автоматический доступ и использование данных в облаках без написания кода</p>
                                                 </div>
                                             </div>
@@ -2478,7 +2480,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служебная шина</h3>
+                                                    <h3>Служебная шина Azure</h3>
                                                     <p>Связь между частными и общедоступными облачными средами</p>
                                                 </div>
                                             </div>
@@ -2498,7 +2500,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Управление API</h3>
-                                                    <p>Безопасная публикация интерфейсов API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
+                                                    <p>Безопасная публикация API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2616,7 +2618,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>хранилище ключей;</h3>
+                                                    <h3>Key Vault</h3>
                                                     <p>Информация об управлении криптографическими ключами и секретами</p>
                                                 </div>
                                             </div>
@@ -2722,7 +2724,7 @@ ms.lasthandoff: 03/09/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Инструменты разработчика</a>
+                        <a href="#devtools">Средства для разработчиков</a>
                         <ul id="devtools" class="cardsA">
                             <li>
                                 <a href="https://www.visualstudio.com/docs/overview">
@@ -2793,7 +2795,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Управление API</h3>
-                                                    <p>Безопасная публикация интерфейсов API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
+                                                    <p>Безопасная публикация API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2854,7 +2856,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба Log Analytics</h3>
+                                                    <h3>Log Analytics</h3>
                                                     <p>Преобразование машинных данных в операционную аналитику</p>
                                                 </div>
                                             </div>
@@ -2892,7 +2894,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Архивация</h3>
+                                                    <h3>Azure Backup</h3>
                                                     <p>Простое и надежное резервное копирование серверов в облако.</p>
                                                 </div>
                                             </div>
@@ -2987,7 +2989,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Advisor</h3>
+                                                    <h3>Помощник по Azure</h3>
                                                     <p>Повышение экономичности, производительности, уровня доступности и безопасности ресурсов Azure</p>
                                                 </div>
                                             </div>
@@ -3025,7 +3027,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Диспетчер ресурсов Azure</h3>
+                                                    <h3>Azure Resource Manager</h3>
                                                     <p>Развертывание ресурсов Azure и управление ими</p>
                                                 </div>
                                             </div>
@@ -3100,7 +3102,7 @@ ms.lasthandoff: 03/09/2018
                 </ul>
             </li>
             <li>
-                <a href="#sdkstools">Пакеты SDK и средства</a>
+                <a href="#sdkstools">Пакеты SDK и инструменты</a>
                 <ul id="sdkstools">
                     <li>
                         <a href="#sdkstools-all">Все</a>
@@ -3254,6 +3256,7 @@ ms.lasthandoff: 03/09/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
