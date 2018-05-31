@@ -1,30 +1,34 @@
 ---
-title: "Справочник по API отчета о событии входа в Azure Active Directory | Документация Майкрософт"
-description: "Справочник по API отчета о действиях при входе Azure Active Directory"
+title: Справочник по API отчета о событии входа в Azure Active Directory | Документация Майкрософт
+description: Справочник по API отчета о действиях при входе Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155802"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Справочник по API отчета о действиях при входе Azure Active Directory
-Эта статья входит в серию статей об API отчетов Azure Active Directory.  
-Инструмент создания отчетов Azure AD предоставляет API, с помощью которого можно получить доступ к данным отчета о действиях при входе, используя код или связанные инструменты.
-Цель этой статьи — предоставить справочные сведения об **API отчета о действиях при входе**.
+
+> [!TIP] 
+> Ознакомьтесь с новым интерфейсом API Microsoft Graph для [отчетности](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), который в конечном итоге заменит этот API. 
+
+Эта статья входит в серию статей об API отчетов Azure Active Directory. Инструмент создания отчетов Azure AD предоставляет API, с помощью которого можно получить доступ к данным аудита, используя код или связанные инструменты.
+Цель этой статьи — предоставить справочные сведения об **API аудита**.
 
 См.:
 
@@ -35,9 +39,9 @@ ms.lasthandoff: 01/16/2018
 ## <a name="who-can-access-the-api-data"></a>Кто может получить доступ к данным API?
 * Пользователи и субъекты-службы с ролью администратора безопасности или читателя безопасности
 * Глобальные администраторы
-* Любое приложение с разрешением на доступ к API (авторизацию приложения можно настроить только на основе разрешения глобального администратора)
+* Любое приложение, имеющее разрешение на доступ к API (авторизация приложения может быть настроена только на основании разрешения глобального администратора)
 
-Чтобы настроить доступ к приложению с разрешением на доступ к API-интерфейсам, например событиям входа, используйте следующий командлет PowerShell для добавления субъекта-службы приложений в роль "Читатель безопасности".
+Для настройки доступа к приложению и доступа к API безопасности, таким как события входа в систему, используйте следующий PowerShell, чтобы добавить субъект-службу приложений в роль читателя безопасности.
 
 ```PowerShell
 Connect-MsolService
@@ -49,11 +53,11 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="prerequisites"></a>предварительным требованиям
 Для доступа к этому отчету с помощью API отчетов нужно:
 
-* установить [Azure Active Directory Premium P1 или P2](active-directory-editions.md)
+* установить [Azure Active Directory Premium P1 или P2](active-directory-whatis.md)
 * выполнить [предварительные требования для доступа к API отчетов Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Получение доступа к API
-Получить доступ к API можно с помощью [песочницы Graph](https://graphexplorer2.cloudapp.net) или программным путем, используя, например, PowerShell. Чтобы программа PowerShell правильно интерпретировала синтаксис фильтров OData, используемых в вызовах REST AAD Graph, необходимо использовать обратный апостроф и отделить знак $ escape-символами. Обратный апостроф выступает в качестве [escape-символа PowerShell](https://technet.microsoft.com/library/hh847755.aspx), позволяя PowerShell выполнить точную интерпретацию знака $ и не спутать его с именем переменной PowerShell (т. е. $filter).
+Получить доступ к API можно с помощью [песочницы Graph](https://graphexplorer2.cloudapp.net) или программным путем, используя, например, PowerShell. Чтобы программа PowerShell правильно интерпретировала синтаксис фильтров OData, используемых в вызовах REST AAD Graph, необходимо использовать обратный апостроф и отделить знак $ escape-символами. Обратный апостроф выступает в качестве [escape-символа PowerShell](https://technet.microsoft.com/library/hh847755.aspx), позволяя PowerShell выполнить точную интерпретацию знака $ и не спутать его с именем переменной PowerShell (например, $filter).
 
 В этой статье внимание уделяется Graph Explorer. Пример PowerShell см. в этом [сценарии PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -64,17 +68,16 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 
 
 
-Из-за объема данных для этого API установлено ограничение в миллион возвращенных записей. 
+Из-за объема данных этот API имеет ограничение в 1 000 000 возвращаемых записей. 
 
-Этот вызов возвращает данные в пакетах. В каждом пакете содержится не более 1000 записей.  
-Чтобы получить следующий пакет записей, используйте ссылку "Следующий". Получите сведения о [маркере пропуска](https://msdn.microsoft.com/library/dd942121.aspx) из первого набора полученных записей. Маркер пропуска можно найти в конце результирующего набора.  
+Этот вызов возвращает данные в пакетах. В каждом пакете содержится не более 1000 записей. Чтобы получить следующий пакет записей, используйте ссылку "Следующий". Получите сведения о [маркере пропуска](https://msdn.microsoft.com/library/dd942121.aspx) из первого набора полученных записей. Маркер пропуска можно найти в конце результирующего набора.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## <a name="supported-filters"></a>Поддерживаемые фильтры
 Можно сократить число записей, возвращаемых после вызова API, в виде фильтра.  
-Данные, связанные с API входа, поддерживают следующие фильтры:
+Для данных входа, связанных с API, поддерживаются следующие фильтры:
 
 * **$top=\<число возвращаемых записей\>** позволяет ограничить количество возвращаемых записей. Это дорогостоящая операция. Этот фильтр не следует использовать, если нужно возвратить большое количество объектов.  
 * **$filter=\<оператор фильтра\>** позволяет указать тип требуемых записей на основе полей фильтра.

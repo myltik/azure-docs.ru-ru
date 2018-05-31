@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/11/2018
+ms.date: 5/9/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939204"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Вопросы о службе архивации Azure
 Эта статья содержит ответы на часто задаваемые вопросы о компонентах службы Azure Backup. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Вы можете задать вопросы о службе архивации Azure, щелкнув **Комментарии** (справа). Комментарии отображаются в конце статьи. Чтобы оставлять комментарии, нужна учетная запись Livefyre. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -67,12 +68,19 @@ ms.lasthandoff: 04/19/2018
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>Можно ли зарегистрировать сервер DPM в нескольких хранилищах? <br/>
 Нет. Сервер DPM или MABS можно зарегистрировать только в одном хранилище.
 
-### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Какая версия System Center Data Protection Manager поддерживается? <br/>
-Мы советуем установить [последнюю](http://aka.ms/azurebackup_agent) версию агента службы архивации Azure на последний накопительный пакет обновления для System Center Data Protection Manager (DPM). По состоянию на август 2016 г. последним обновлением является накопительный пакет обновления версии 11.
+### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Какая версия System Center Data Protection Manager поддерживается?
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>У меня установлен агент службы архивации Azure для защиты файлов и папок. Можно ли теперь установить System Center DPM для работы с агентом службы архивации Azure, чтобы защитить рабочие нагрузки локальных приложений и виртуальных машин в Azure? <br/>
-Чтобы использовать службу архивации Azure с System Center Data Protection Manager (DPM), сначала установите DPM, а затем — агент службы архивации Azure. Только такой порядок установки компонентов службы архивации Azure обеспечивает возможность взаимодействия между агентом службы архивации Azure и DPM. Установка агента службы архивации Azure до установки DPM не рекомендуется и не поддерживается.
+Мы советуем установить [последнюю](http://aka.ms/azurebackup_agent) версию агента службы архивации Azure на последний накопительный пакет обновления для System Center Data Protection Manager (DPM). 
+- Для System Center DPM 2012 R2 последним обновлением является [накопительный пакет обновления 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager).
+- Для System Center DPM 2016 это [накопительный пакет обновления 2](https://support.microsoft.com/en-us/help/3209593).
 
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>У меня установлен агент службы архивации Azure для защиты файлов и папок. Можно ли установить System Center DPM для защиты рабочих нагрузок локальных приложений или виртуальных машин в Azure?
+
+Да. Однако, чтобы использовать Azure Backup с System Center Data Protection Manager (DPM), сначала установите DPM, а затем — агент Azure Backup. Только такой порядок установки компонентов службы архивации Azure обеспечивает возможность взаимодействия между агентом службы архивации Azure и DPM. Установка агента службы архивации Azure до установки DPM не рекомендуется и не поддерживается.
+
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Можно ли использовать DPM для резервного копирования приложений в Azure Stack?
+
+Нет. Хотя вы можете использовать службу Azure Backup для защиты Azure Stack, эта служба в настоящее время не поддерживает использование DPM для создания резервных копий приложений в Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Принцип работы службы архивации Azure
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Удаляются ли переданные данные резервной копии при отмене запущенной операции резервного копирования? <br/>
