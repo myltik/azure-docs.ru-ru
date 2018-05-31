@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770525"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258232"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Интеграция центра обработки данных Azure Stack: идентификация
 Azure Stack можно развернуть с помощью Azure Active Directory (Azure AD) или служб федерации Active Directory (AD FS) в качестве поставщика удостоверений. Сделать выбор следует перед развертыванием Azure Stack. Развертывание с помощью AD FS также называется развертыванием Azure Stack в отключенном режиме.
@@ -290,6 +290,9 @@ Graph поддерживает только интеграцию с отдель
 - использование поставщиков ресурсов Azure Stack при развертывании с AD FS;
 - различные приложения;
 - необходимость в неинтерактивном входе.
+
+> [!Important]  
+> AD FS поддерживает только сеансы интерактивного входа в систему. Если для автоматического сценария требуется не интерактивный вход в систему, необходимо использовать имя субъекта-службы.
 
 Дополнительные сведения о создании имени субъекта-службы см. в разделе [Создание субъекта-службы для AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 

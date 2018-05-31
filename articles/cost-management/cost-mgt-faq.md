@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168655"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302745"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Часто задаваемые вопросы о службе "Управление затратами Azure"
 
@@ -149,4 +149,4 @@ Cloudyn имеет следующие временные шкалы обновл
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>В отчетах Cloudyn представлено больше одного клиента AD на отчет?
 
-Да. Вы можете [создать соответствующую сущность облачной учетной записи](tutorial-user-access.md#create-entities) для каждого используемого клиента AD. Затем вы сможете просматривать все данные клиентов Azure AD и других поставщиков облачных платформ, включая Amazon Web Services и Google Cloud Platform.
+Да. Вы можете [создать соответствующую сущность облачной учетной записи](tutorial-user-access.md#create-and-manage-entities) для каждого используемого клиента AD. Затем вы сможете просматривать все данные клиентов Azure AD и других поставщиков облачных платформ, включая Amazon Web Services и Google Cloud Platform.

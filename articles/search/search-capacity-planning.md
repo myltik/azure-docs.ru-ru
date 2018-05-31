@@ -1,5 +1,5 @@
 ---
-title: Планирование загрузки для Поиска Azure | Документация Майкрософт
+title: Выделение секций и реплик для запросов и индексирования в службе "Поиск Azure" | Документация Майкрософт
 description: Настройка вычислительных ресурсов секций и реплик в Поиске Azure, в которых каждый ресурс оценивается в оплачиваемых единицах поиска.
 author: HeidiSteen
 manager: cgronlun
@@ -8,13 +8,14 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203099"
 ---
-# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Масштабирование уровней ресурсов для рабочих нагрузок запросов и индексирования в Поиске Azure
+# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Выделение секций и реплик для рабочих нагрузок запросов и индексирования в службе "Поиск Azure"
 После [выбора ценовой категории](search-sku-tier.md) и [подготовки службы поиска](search-create-service-portal.md) следующим шагом является необязательное увеличение количества реплик или секций, используемых службой. Каждый уровень предоставляет фиксированное число единиц выставления счетов. В этой статье объясняется, как выделять эти единицы для достижения оптимальной конфигурации, позволяющей сбалансировать ваши требования к для выполнению запросов, индексированию и хранению данных.
 
 Конфигурация ресурсов доступна при настройке службы на уровне [Базовый](http://aka.ms/azuresearchbasic) или на одном из уровней [Стандартный](search-limits-quotas-capacity.md). Для всех служб на этих уровнях емкость приобретается в *единицах поиска*, где каждая секция и реплика принимается за одну единицу поиска. 

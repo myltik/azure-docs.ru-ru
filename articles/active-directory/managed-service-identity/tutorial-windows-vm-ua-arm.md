@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: b81d4b669898a7acc428fe22a070ccd76dc5e546
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a2225409e4cb50d91c09207ee70b76df12925192
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932469"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301217"
 ---
-# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Получение доступа к Azure Resource Manager с помощью пользовательского управляемого удостоверения службы (MSI) на виртуальной машине Windows
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Руководство по получению доступа к Azure Resource Manager с помощью пользовательского управляемого удостоверения службы (MSI) на виртуальной машине Windows
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "33932469"
 
 > [!div class="checklist"]
 > * Создание виртуальной машины Windows 
-> * Создание пользовательского удостоверения.
+> * Создание пользовательского удостоверения
 > * Назначение пользовательского удостоверения виртуальной машине Windows.
 > * Предоставление пользовательскому удостоверению доступа к группе ресурсов в Azure Resource Manager. 
 > * Получение маркера доступа с помощью пользовательского удостоверения и вызов Azure Resource Manager с его помощью. 
@@ -81,13 +81,13 @@ New-AzureRmVm `
 Пользовательское удостоверение создается как изолированный ресурс Azure. С помощью команды [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) Azure создает в клиенте Azure AD удостоверение, которое можно назначить одному или нескольким экземплярам службы Azure.
 
 > [!IMPORTANT]
-> В пользовательских удостоверениях можно использовать только буквы, цифры и символ дефиса (0–9, a–z, A–Z и -). Кроме того, чтобы назначение виртуальной машине или масштабируемому набору виртуальных машин производилось правильно, длина имени не должна превышать 24 знака. Загляните сюда позже, чтобы проверить наличие новой информации. Дополнительные сведения см. в разделе [Часто задаваемые вопросы и известные проблемы](known-issues.md).
+> В пользовательских удостоверениях можно использовать только буквы, цифры и символ дефиса (0–9, a–z, A–Z и -). Кроме того, чтобы назначение виртуальной машине или VMSS производилось правильно, длина имени не должна превышать 24 символа. Загляните сюда позже, чтобы проверить наличие новой информации. Дополнительные сведения см. в разделе [Часто задаваемые вопросы и известные проблемы](known-issues.md).
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-Ответ содержит сведения о созданном пользовательском удостоверении, подобные приведенным в следующем примере. Запишите значение `Id` пользовательского удостоверения, так как оно будет использоваться на следующем шаге.
+Ответ содержит подробные сведения о созданном пользовательском удостоверении, приведенном в следующем примере. Запишите значение `Id` пользовательского удостоверения, так как оно будет использоваться на следующем шаге.
 
 ```azurepowershell
 {

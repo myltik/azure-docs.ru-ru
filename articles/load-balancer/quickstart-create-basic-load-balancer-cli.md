@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304925"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Краткое руководство. Создание общедоступной подсистемы балансировки нагрузки с помощью Azure CLI 2.0 для распределения нагрузки между виртуальными машинами
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 05/03/2018
 
 ### <a name="create-the-load-balancer"></a>Создание подсистемы балансировки нагрузки
 
-С помощью команды [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) создайте общедоступную подсистему балансировки нагрузки Azure **myLoadBalancer** с интерфейсным пулом **myFrontEndPool** и внутренним пулом **myBackEndPool**, связанным с общедоступным IP-адресом **myPublicIP**, созданным на предыдущем шаге.
+С помощью команды [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) создайте общедоступную подсистему балансировки нагрузки Azure Load Balancer **myLoadBalancer** с интерфейсным пулом **myFrontEndPool** и внутренним пулом **myBackEndPool**, связанным с общедоступным IP-адресом **myPublicIP**, созданным на предыдущем шаге.
 
 ```azurecli-interactive
   az network lb create \
@@ -262,4 +263,7 @@ for i in `seq 1 2`; do
 
 
 ## <a name="next-steps"></a>Дополнительная информация
-Из этого краткого руководства вы узнали, как создать подсистему балансировки нагрузки, подключить к ней виртуальные машины, настроить правило трафика подсистемы балансировки нагрузки, зонд работоспособности, а также протестировать подсистему балансировки нагрузки. Дополнительные сведения о подсистемах балансировки нагрузки и связанных с ними ресурсах см. в статьях с инструкциями.
+Из этого краткого руководства вы узнали, как создать подсистему балансировки нагрузки Load Balancer (ценовая категория "Базовый"), подключить к ней виртуальные машины, настроить правило трафика подсистемы балансировки нагрузки, зонд работоспособности, а также протестировать подсистему балансировки нагрузки. Чтобы узнать больше об Azure Load Balancer, ознакомьтесь с другими руководствами по этой службе.
+
+> [!div class="nextstepaction"]
+> [Руководства по Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

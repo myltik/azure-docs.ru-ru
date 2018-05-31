@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211567"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Управление долгосрочным хранением резервных копий базы данных SQL Azure
 
@@ -80,6 +81,10 @@ ms.lasthandoff: 04/19/2018
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Настройка политик долгосрочного хранения и восстановление резервных копий с помощью PowerShell
 
 В следующем разделе показано, как настроить долгосрочное хранение резервных копий, просматривать резервные копии в хранилище SQL Azure и выполнять восстановление из резервной копии в хранилище SQL Azure с помощью PowerShell.
+
+> [!IMPORTANT]
+> Чтобы установить политики LTR версии 2, необходимо использовать последнюю версию PowerShell для AzureRM. Текущая версия — [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview). Это предварительная версия. Чтобы ее установить, выполните следующую команду: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Сведения об установке предварительной версии см. в статье [Установка PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). Версия PowerShell для AzureRM за май 2018 г. выпущена несколько дней назад (18.05.2018). Вы можете не использовать параметр -AllowPrelease при установке доступной версии этого выпуска. Вместо этого выполните следующую команду: `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>Создание политики LTR
 

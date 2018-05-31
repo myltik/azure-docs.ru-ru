@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 5/18/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 8fea502457275c89d99084a5b025b620872d796b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b3c09582f5135655640768bcbcbef91750827bfa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075312"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358896"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Установка PowerShell для Azure Stack
 
@@ -73,10 +73,10 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
-# Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
+# Install Module Version 1.2.11 if Azure Stack is running a lower version than 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
   ```
 
@@ -92,8 +92,8 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 В автономном режиме вам следует сначала скачать модули PowerShell на компьютер с подключением к Интернету, а затем перенести их туда, где будет устанавливаться Пакет средств разработки Azure Stack.
 
-> [!IMPORTANT]
-> Выпуск модуля PowerShell AzureRM 1.2.12 поставляется со списком критически важных изменений. Чтобы выполнить обновление с версии 1.2.10, см. [руководство по миграции](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
+> [!IMPORTANT]  
+> Выпуск модуля PowerShell для Azure Stack 1.3.0 сопровождается списком критических изменений. Чтобы выполнить обновление версии 1.2.11, прочитайте [руководство по миграции](https://aka.ms/azspowershellmigration).
 
 1. Войдите на компьютер с подключением к Интернету и выполните следующий скрипт для скачивания пакетов AzureRM и AzureStack на локальный компьютер:
 
@@ -106,7 +106,7 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
@@ -114,11 +114,11 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12 
+     -RequiredVersion 1.3.0 
    ```
 
-> [!Important]  
-> Если вы не используете Azure Stack с обновлением 1804 или более поздней версии, измените значение параметра **requiredversion** на `1.2.11`. 
+  > [!Important]  
+  > Если вы не используете Azure Stack с обновлением 1804 или более поздней версии, измените значение параметра **requiredversion** на `1.2.11`. 
 
 2. Скопируйте скачанные пакеты на USB-устройство.
 
