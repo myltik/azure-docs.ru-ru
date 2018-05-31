@@ -1,8 +1,8 @@
 ---
-title: "Использование когнитивных возможностей U-SQL в Azure Data Lake Analytics | Документация Майкрософт"
-description: "Использование аналитики когнитивных возможностей в U-SQL"
+title: Использование когнитивных возможностей U-SQL в Azure Data Lake Analytics | Документация Майкрософт
+description: Использование аналитики когнитивных возможностей в U-SQL
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311120"
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Руководство по началу работы с когнитивными возможностями U-SQL
 
@@ -37,8 +38,8 @@ ms.lasthandoff: 11/08/2017
 
 В целом этот процесс прост:
 
-* Включите когнитивные функции для сценария U-SQL с помощью инструкции REFERENCE ASSEMBLY.
-* Создайте выходной набор строк, вызвав операцию PROCESS для входного набора строк, используя определяемый пользователем оператор для когнитивных возможностей.
+* Включите когнитивные функции для сценария U-SQL, вызвав инструкцию `REFERENCE ASSEMBLY`.
+* Создайте выходной набор строк, вызвав операцию `PROCESS` для входного набора строк, используя определяемый пользователем оператор для когнитивных возможностей.
 
 ### <a name="detecting-objects-in-images"></a>Распознавание объектов на изображениях
 

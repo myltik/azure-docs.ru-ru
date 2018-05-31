@@ -6,24 +6,27 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762376"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Подключения к учетным записям LinkedIn для приложений и служб Майкрософт
 В статье рассматриваются вопросы управления подключениями к учетным записям LinkedIn для вашего клиента в центре администрирования Azure Active Directory (Azure AD). 
 
 > [!IMPORTANT]
 > В настоящий момент для клиентов Azure AD происходит внедрение функции подключения к учетным записям LinkedIn. Если она внедрена для вашего клиента, она включена по умолчанию. Эта функция недоступна для клиентов из правительства США и организаций с почтовыми ящиками электронной почты Exchange Online, размещенными в Австралии, Канаде, Китае, Франции, Германии, Индии, Южной Корее, Соединенном Королевстве, Японии или Южной Африке. Поддержка этих расположений почтовых ящиков ожидается в ближайшее время.  Актуальные сведения о выпусках см. на странице [стратегии развития Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
+
+## <a name="benefit-to-users"></a>Преимущества для пользователей
+Когда пользователи подключат свои учетные записи LinkedIn, сведения из LinkedIn будут использоваться для отображения личных сведений и компонентов в различных приложениях или службах Майкрософт. Пользователи могут просматривать информацию о людях, с которыми они работают, в их карточке профиля Майкрософт, даже если эти люди не принадлежат к их организации. Со временем информация в LinkedIn станет более релевантной и адаптированной к работе пользователей. Например, LinkedIn может предлагать новые подключения на основе того, с кем работают пользователи, или размещать сведения о людях в их календаре в тот день.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Возможности использования подключений к учетной записи LinkedIn для пользователей
 Подключение к учетной записи LinkedIn позволяет пользователям просматривать общедоступные сведения профиля LinkedIn непосредственно в некоторых приложениях Майкрософт. Для просмотра дополнительных сведений о профиле в LinkedIn пользователи в вашем клиенте могут подключить учетную запись LinkedIn к рабочей или учебной учетной записи Майкрософт. Дополнительные сведения см. в разделе [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740) (Сведения из LinkedIn и возможности в приложениях и службах Майкрософт).

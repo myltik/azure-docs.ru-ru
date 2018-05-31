@@ -1,27 +1,21 @@
 ---
-title: "Руководство по лицензированию службы совместной работы Azure Active Directory B2B | Документация Майкрософт"
-description: "Служба совместной работы Azure Active Directory B2B не требует платных лицензий Azure AD, но вы можете получить платные функции для гостевых пользователей B2B"
+title: Руководство по лицензированию службы совместной работы Azure Active Directory B2B | Документация Майкрософт
+description: Служба совместной работы Azure Active Directory B2B не требует платных лицензий Azure AD, но вы можете получить платные функции для гостевых пользователей B2B
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 08/09/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.custom: it-pro
-ms.openlocfilehash: d4a739e5cb4dc4a6ccafac683fe913592f985ce2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5709c6db422a2357589f35fd77a2b1681a3e446a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928870"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Руководство по лицензированию службы совместной работы Azure Active Directory B2B
 
@@ -71,16 +65,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Другие статьи о службе совместной работы Azure AD B2B:
+Другие статьи о службе совместной работы Azure AD B2B перечислены ниже.
 
 * [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
-* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
-* [Элементы сообщения с приглашением в службу совместной работы B2B](active-directory-b2b-invitation-email.md)
-* [Активация приглашения службы совместной работы B2B](active-directory-b2b-redemption-experience.md)
-* [Устранение неполадок службы совместной работы Azure Active Directory B2B](active-directory-b2b-troubleshooting.md)
 * [Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B](active-directory-b2b-faq.md)
-* [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
-* [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
-* [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)

@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7799eeb65a109a6ff517d50bb9603fe83f80ed14
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769885"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Перемещение данных с FTP-сервера с использованием фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,6 +76,9 @@ ms.lasthandoff: 03/23/2018
 | порт |Укажите порт, прослушиваемый FTP-сервером. |Нет  |21 |
 | enableSsl |Укажите, какой канал следует использовать (FTP через SSL или TLS). |Нет  |Да |
 | enableServerCertificateValidation |Укажите, следует ли включать проверку SSL-сертификата на сервере при использовании канала FTP через SSL или TLS. |Нет  |Да |
+
+>[!NOTE]
+>Соединитель FTP поддерживает доступ к FTP-серверу без шифрования или с явным шифрованием SSL/TLS. Он не поддерживает неявное шифрование SSL/TLS.
 
 ### <a name="use-anonymous-authentication"></a>Использование анонимной проверки подлинности
 

@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769834"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Копирование данных из Dynamics 365 (Common Data Service) или Dynamics CRM и в эти решения с помощью фабрики данных Azure
 
@@ -276,7 +277,11 @@ ms.lasthandoff: 04/28/2018
 | ignoreNullValues | Указывает, следует ли игнорировать значения NULL из входных данных (за исключением ключевых полей) во время операции записи.<br/>Допустимые значения: **true** и **false**.<br>- **True**: при выполнении операции upsert или update оставьте данные в целевом объекте неизменными. При выполнении операции вставки (insert) вставьте определенное значение по умолчанию.<br/>- **False**: при выполнении операции upsert или update обновите данные в целевом объекте до значения NULL. При выполнении операции вставки (insert) вставьте значение NULL. | Нет (по умолчанию используется значение false) |
 
 >[!NOTE]
->В качестве значения по умолчанию свойства writeBatchSize приемника и свойства [parallelCopies](copy-activity-performance.md#parallel-copy) действия копирования для приемника Dynamics задано 10. Таким образом в Dynamics одновременно отправляются 100 записей.
+>Значение по умолчанию для приемника "**writeBatchSize**" и операция копирования "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" для приемника Dynamics равны 10. Таким образом в Dynamics одновременно отправляются 100 записей.
+
+Для Dynamics 365 в сети существует ограничение на [2 одновременных пакетных вызова на организацию](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Если этот предел превышен, возникает ошибка "сервер занят" до того, как будет выполнен первый запрос. Поддержание "writeBatchSize", меньшее или равное 10, позволит избежать такого регулирования количества одновременных вызовов.
+
+Оптимальное сочетание "**writeBatchSize**" и "**parallelCopies**" зависит от схемы вашего объекта, например количество столбцов, размер строки, количество подключаемых модулей/рабочих процессов/рабочих процессов, подключенных к этим вызовам и т. д. Значение по умолчанию 10 writeBatchSize * 10 parallelCopies — это рекомендация в соответствии с сервисом Dynamics, которая будет работать для большинства объектов Dynamics, но может иметь не самую лучшую производительность. Вы можете настроить производительность путем корректировки комбинации в настройках активности копирования.
 
 **Пример.**
 
@@ -322,12 +327,13 @@ ms.lasthandoff: 04/28/2018
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | длинное целое | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Логическое | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Строка | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
 | AttributeType.ManagedProperty | Логическое | ✓ | |
 | AttributeType.Memo | Строка | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |

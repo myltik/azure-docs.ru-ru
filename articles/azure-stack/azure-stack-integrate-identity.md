@@ -6,15 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770525"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Интеграция центра обработки данных Azure Stack: идентификация
 Azure Stack можно развернуть с помощью Azure Active Directory (Azure AD) или служб федерации Active Directory (AD FS) в качестве поставщика удостоверений. Сделать выбор следует перед развертыванием Azure Stack. Развертывание с помощью AD FS также называется развертыванием Azure Stack в отключенном режиме.
@@ -60,6 +61,8 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 ## <a name="setting-up-graph-integration"></a>Настройка интеграции Graph
 
+Graph поддерживает только интеграцию с отдельным лесом Active Directory. Если существует несколько лесов, только лес, указанный в конфигурации, будет использоваться для получения пользователей и групп.
+
 Необходимо указать следующие сведения в качестве входных данных для параметров службы автоматизации.
 
 
@@ -95,12 +98,14 @@ Azure Stack можно развернуть с помощью Azure Active Direc
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   При появлении запроса укажите данные учетной записи пользователя, которую требуется использовать для службы Graph (например, graphservice).
+   При появлении запроса укажите данные учетной записи пользователя, которую требуется использовать для службы Graph (например, graphservice). Для командлета Register-DirectoryService нужно указать имя леса и корневой домен в лесу, а не другие домены в лесу.
 
    > [!IMPORTANT]
    > Дождитесь появления всплывающего элемента для ввода учетных данных (Get-Credential не поддерживается на привилегированной конечной точке) и укажите данные учетной записи службы Graph.
 
 #### <a name="graph-protocols-and-ports"></a>Протоколы и порты Graph
+
+Служба Graph в Azure Stack использует перечисленные ниже протоколы и порты для связи с доступным для записи глобальным сервером каталога (GC) и центром распространения ключей (KDC), который может обрабатывать запросы на вход в целевом лесу Active Directory.
 
 Служба Graph в Azure Stack использует приведенные ниже протоколы и порты для связи с целевой службой Active Directory.
 

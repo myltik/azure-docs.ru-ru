@@ -9,11 +9,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 87cd4c565a7429ffb7096034823a1f5ff49df195
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1fe162beca258fe8ec3d03ce2844c1abe3176dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188979"
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Управление ресурсами отдельной базы данных в Базе данных SQL Azure
 
@@ -109,6 +110,6 @@ ALTER DATABASE <myDatabaseName>
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- Дополнительные сведения об уровнях служб, уровнях производительности и объемах хранилища см. в разделе [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md).
+- Узнайте больше об уровнях служб, уровнях производительности и объемах хранилища в разделах [Модель приобретения на основе DTU для базы данных SQL Azure](sql-database-service-tiers-dtu.md) и [Модель приобретения на основе виртуальных ядер для базы данных SQL Azure (предварительная версия)](sql-database-service-tiers-vcore.md).
 - Узнайте об [эластичных пулах](sql-database-elastic-pool.md).
 - Узнайте о [лимитах, квотах и ограничениях подписок и служб Azure](../azure-subscription-service-limits.md).

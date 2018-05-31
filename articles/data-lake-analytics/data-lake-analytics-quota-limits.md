@@ -12,11 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311137"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Квота Azure Data Lake Analytics
 
@@ -24,9 +25,13 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="azure-subscriptions-limits"></a>Ограничения подписок Azure
 
-**Максимальное количество учетных записей Azure Data Lake Analytics в одной подписке:** 5.
+**Максимальное количество учетных записей Azure Data Lake Analytics в одной подписке:** 5
 
-Это максимальное число учетных записей Azure Data Lake Analytics, которые можно создать в одной подписке в одном регионе. Если вы попытаетесь создать шестую учетную запись Azure Data Lake Analytics, то увидите сообщение о том, что достигнуто максимальное количество учетных записей Data Lake Analytics (5) для текущего региона и подписки. В этом случае можно выбрать другой регион, удалить все неиспользуемые учетные записи ADLA в том же регионе или [отправить в службу поддержки Azure запрос](#increase-maximum-quota-limits) на увеличение квоты.
+Если вы попытаетесь создать шестую учетную запись Azure Data Lake Analytics, то увидите сообщение о том, что достигнуто максимальное количество учетных записей Data Lake Analytics (5) для текущего региона и подписки. 
+
+Если вы хотите выйти за рамки этого ограничения, можно воспользоваться этими вариантами:
+* Выберите другой подходящий регион.
+* [Отправьте запрос в службу поддержки Azure](#increase-maximum-quota-limits) с запросом на увеличение квоты.
 
 ## <a name="adla-account-limits"></a>Ограничения учетной записи Azure Data Lake Analytics
 

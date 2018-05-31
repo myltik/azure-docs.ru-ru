@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781169"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Интеграция виртуальной сети для служб Azure
 
@@ -56,7 +57,8 @@ ms.lasthandoff: 01/29/2018
 - [Управление API](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [VPN-шлюз](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Шлюз приложений (внешний)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Обработчик Службы контейнеров Azure](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): служба контейнера Azure создает виртуальную сеть по умолчанию. Вы можете создать собственную виртуальную сеть с [обработчиком Службы контейнеров Azure](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
+- [Служба Azure Kubernetes (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Обработчик службы контейнеров Azure](https://github.com/Azure/acs-engine) с [подключаемым модулем](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI для виртуальной сети Azure
 - [Доменные службы Azure Active Directory](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): только виртуальная сеть (классическая).
 - [Пакетная служба Azure](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Облачные службы](https://msdn.microsoft.com/library/azure/jj156091): только виртуальная сеть (классическая).

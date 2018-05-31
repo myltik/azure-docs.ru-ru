@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159000"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: учетные записи и разрешения
 Мастер установки Azure AD Connect предлагает два разных варианта.
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/23/2018
 
 | Разрешение | Область использования |
 | --- | --- |
-| <li>Репликация изменений каталога</li><li>Репликация всех изменений каталога |Синхронизация паролей |
+| <li>Репликация изменений каталога</li><li>Репликация всех изменений каталога |Синхронизация хэша паролей |
 | Чтение и запись всех свойств для пользователя |Гибридный импорт и обмен |
 | Чтение и запись всех свойств для iNetOrgPerson |Гибридный импорт и обмен |
 | Чтение и запись всех свойств для группы |Гибридный импорт и обмен |
@@ -87,7 +88,7 @@ ms.lasthandoff: 04/23/2018
 | Функция | Разрешения |
 | --- | --- |
 | msDS-ConsistencyGuid feature |Разрешения на запись для атрибута msDS-ConsistencyGuid, описанного в статье [Azure AD Connect: принципы проектирования](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Синхронизация паролей |<li>Репликация изменений каталога</li>  <li>Репликация всех изменений каталога |
+| Синхронизация хэша паролей |<li>Репликация изменений каталога</li>  <li>Репликация всех изменений каталога |
 | Гибридное развертывание Exchange |Запишите разрешения в атрибуты, описанные в статье [Гибридная обратная запись Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) для пользователей, групп и контактов. |
 | Общедоступная папка почты Exchange |Разрешения на чтение для атрибутов, описанных в статье [Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder), для общедоступных папок. | 
 | Компонент обратной записи паролей |Запишите разрешения в атрибуты, описанные в статье [Приступая к работе с компонентами управления паролями](../authentication/howto-sspr-writeback.md) для пользователей. |
