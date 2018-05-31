@@ -9,11 +9,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5451046eb2bfc611db863d18cee93a248e651f88
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194255"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL, управляемого экземпляра или хранилища данных SQL
 
@@ -100,11 +101,18 @@ ms.lasthandoff: 04/23/2018
 Ниже описаны две процедуры по подготовке администратора Azure Active Directory для сервера Azure SQL Server на портале Azure или с помощью PowerShell.
 
 ### <a name="azure-portal"></a>Портал Azure
-1. В правом верхнем углу [портала Azure](https://portal.azure.com/)щелкните имя подключения, чтобы открыть список доступных каталогов Active Directory. Выберите нужный экземпляр Active Directory в качестве Azure AD по умолчанию. На этом шаге связанный с подпиской каталог Active Directory связывается с Azure SQL Server, чтобы одна и та же подписка использовалась для Azure AD и SQL Server. (На сервере Azure SQL Server может размещаться база данных SQL Azure или хранилище данных SQL Azure.)   
+1. В правом верхнем углу [портала Azure](https://portal.azure.com/) щелкните имя подключения, чтобы открыть список доступных каталогов Active Directory. Выберите нужный экземпляр Active Directory в качестве Azure AD по умолчанию. На этом шаге связанный с подпиской каталог Active Directory связывается с Azure SQL Server, чтобы одна и та же подписка использовалась для Azure AD и SQL Server. (На сервере Azure SQL Server может размещаться база данных SQL Azure или хранилище данных SQL Azure.)   
     ![choose-ad][8]   
     
-2. В области слева выберите **Серверы SQL Server**, выберите свой сервер **SQL Server**, а затем на странице **SQL Server** щелкните **Администратор Active Directory**.   
-3. На странице **Администратор Active Directory** щелкните **Задать администратора**.   
+2. На баннере слева выберите **Все службы**, затем в поле фильтра введите **SQL Server**. Выберите **Серверы SQL Server**. 
+
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)    
+
+    >[!NOTE]
+    > На этой странице, прежде чем выбрать **Серверы SQL Server**, можно щелкнуть **звезду** рядом с именем, чтобы добавить категорию в *Избранное* и добавить **серверы SQL Server** на левую панель навигации. 
+
+1. На странице **SQL Server** выберите **Администратор Active Directory**.   
+2. На странице **Администратор Active Directory** щелкните **Задать администратора**.   
     ![выбор Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
 4. На странице **Добавление администратора** найдите пользователя, выберите пользователя (или группу), чтобы назначить его администратором, и щелкните **Выбрать**. На странице "Администратор Active Directory" отобразятся все участники и группы Active Directory. Пользователей или группы, которые выделены серым цветом, нельзя выбрать; они не поддерживаются ролью администратора Azure AD. (Список поддерживаемых администраторов см. в разделе о **функциях и ограничениях Azure AD** статьи [Использование аутентификации Azure Active Directory для аутентификации с помощью базы данных SQL или хранилища данных SQL](sql-database-aad-authentication.md).) Управление доступом на основе ролей (RBAC) применяется только к порталу и не распространяется на SQL Server.   

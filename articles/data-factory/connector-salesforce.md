@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176904"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Копирование данных в Salesforce и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -287,7 +288,7 @@ ms.lasthandoff: 04/28/2018
 Чтобы запросить из корзины Salesforce обратимо удаленные записи, укажите в своем запросе **"IsDeleted = 1"**. Например: 
 
 * Чтобы запросить только удаленные записи, укажите "select \* from MyTable__c **where IsDeleted= 1**".
-* Чтобы запросить все записи, включая существующие и удаленные, укажите "select from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**".
+* Чтобы запросить все записи, включая существующие и удаленные, укажите "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**".
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Извлечение данных с использованием предложения where для столбца даты и времени
 

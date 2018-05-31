@@ -1,6 +1,6 @@
 ---
-title: "Просмотр данных HockeyApp в Azure Application Insights | Документация Майкрософт"
-description: "Анализ использования и производительности приложения Azure с помощью Application Insights."
+title: Просмотр данных HockeyApp в Azure Application Insights | Документация Майкрософт
+description: Анализ использования и производительности приложения Azure с помощью Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: bec2b2dc8a29e5c94e3d3c7f2f0333e07bfe3a4f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: cd185d799be5051340c2bfea44a1d1e69a1eb002
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309850"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Просмотр данных HockeyApp в Application Insights
 
 > [!NOTE]
-> Теперь рекомендуемой службой корпорации Майкрософт для мониторинга новых мобильных приложений является Visual Studio App Center. [Узнайте, как настраивать приложения с помощью App Center и Application Insights](app-insights-mobile-center-quickstart.md).
-> 
-> 
+> HockeyApp больше недоступно для новых приложений. Имеющиеся развертывания HockeyApp будут продолжать работать. Теперь рекомендуемой службой корпорации Майкрософт для мониторинга новых мобильных приложений является Visual Studio App Center. [Узнайте, как настраивать приложения с помощью App Center и Application Insights](app-insights-mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) — это служба мониторинга живых классических и мобильных приложений. В HockeyApp можно не только получать данные о сбоях, но и отправлять данные пользовательской телеметрии и телеметрии трассировки, чтобы отслеживать показатели использования и выполнять диагностику. Этот поток телеметрии можно запрашивать с помощью мощной функции [аналитики](app-insights-analytics.md) в [Azure Application Insights](app-insights-overview.md). Кроме того, вы можете [экспортировать данные пользовательской телеметрии и телеметрии трассировки](app-insights-export-telemetry.md). Чтобы включить эти функции, следует настроить мост (связующее приложение), который ретранслирует пользовательские данные HockeyApp в Application Insights.
 
