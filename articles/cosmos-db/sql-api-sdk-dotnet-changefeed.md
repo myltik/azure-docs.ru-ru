@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885142"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Пакет SDK для обработчика канала изменений в .NET: скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
@@ -50,6 +51,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Улучшение стабильности.
+  * Устранение проблемы с отмененными задачами, которая могла вызывать остановку работы наблюдателей в некоторых секциях.
 * Поддержка использования контрольных точек вручную.
 * Совместимость с [пакетом SDK .NET для SQL](sql-api-sdk-dotnet.md) версии 1.21 и выше.
 
@@ -72,7 +74,14 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="pre-release-builds"></a>Сборки в предварительной версии
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>Предварительный выпуск 2.0.2:
+* Незначительные изменения в API:
+  * Удаление ChangeFeedProcessorOptions.IsAutoCheckpointEnabled как устаревшего.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Улучшения стабильности:
+  * Улучшение обработки при инициализации хранилища аренды. Если хранилище аренды пустое, инициализировать его может только один экземпляр обработчика. Остальные будут находиться в состоянии ожидания.
+  * Более стабильное и эффективное обновление и освобождение аренды. Обновление и освобождение аренды одной секции не зависит от обновления других. В версии 1 процедура последовательно выполнялась для всех секций.
 * Новый API версии 2:
   * Шаблон построителя для повышения гибкости при создании процессора: класс ChangeFeedProcessorBuilder.
     * Может принимать любое сочетание параметров.
@@ -85,6 +94,7 @@ ms.lasthandoff: 05/07/2018
     * IPartitionProcessor — для пользовательского обработки изменений в секции.
 * Для ведения журнала используется библиотека [LibLog](https://github.com/damianh/LibLog).
 * Полная обратная совместимость с API версии 1.
+* Новая база кода.
 * Совместимость с [пакетом SDK .NET для SQL](sql-api-sdk-dotnet.md) версии 1.21.1 и выше.
 
 ## <a name="release--retirement-dates"></a>Даты выпуска и выбытия

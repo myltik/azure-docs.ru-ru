@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f1fa79ed32969f5087107d6105fd2f4baf7640e3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2bc47c8963630351d3097938bc7f3d65116d9e4b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205420"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Копирование данных из Веб-таблицы с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +80,7 @@ ms.lasthandoff: 03/29/2018
 
 Полный список разделов и свойств, доступных для определения наборов данных, см. в статье о наборах данных. Этот раздел содержит список свойств, поддерживаемых набором данных веб-таблиц.
 
-Чтобы скопировать данные из веб-таблиц, задайте для свойства type набора данных значение **RelationalTable**. Поддерживаются следующие свойства:
+Чтобы скопировать данные из веб-таблиц, задайте для свойства type набора данных значение **WebTable**. Поддерживаются следующие свойства:
 
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
@@ -94,7 +95,10 @@ ms.lasthandoff: 03/29/2018
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
+        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"

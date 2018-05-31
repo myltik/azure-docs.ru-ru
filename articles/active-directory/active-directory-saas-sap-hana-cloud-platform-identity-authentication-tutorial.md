@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с приложением SAP Cloud Platform Identity Authentication | Документация Майкрософт"
-description: "Сведения о настройке единого входа в Azure Active Directory и SAP Cloud Platform Identity Authentication."
+title: Руководство по интеграции Azure Active Directory с приложением SAP Cloud Platform Identity Authentication | Документация Майкрософт
+description: Сведения о настройке единого входа в Azure Active Directory и SAP Cloud Platform Identity Authentication.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e7cc1df5e550dec62869c2a6f68cdc2a84167142
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Руководство по интеграции Azure Active Directory с приложением SAP Cloud Platform Identity Authentication
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в приложения SAP (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -126,21 +127,25 @@ ms.lasthandoff: 12/11/2017
  
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Если нужно настроить приложение в режиме, инициированном **поставщиком удостоверений**, в разделе **Домен и URL-адреса приложения SAP Cloud Platform Identity Authentication** введите в поле **Идентификатор** URL-адрес следующего вида: `https://<entity-id>.accounts.ondemand.com`.  
+3. Если нужно настроить приложение в режиме, инициированном **поставщиком удостоверений**, в разделе **Домен и URL-адреса приложения SAP Cloud Platform Identity Authentication** выполните следующие действия.  
 
     ![Сведения для единого входа в разделе "Домен и URL-адреса приложения SAP Cloud Platform Identity Authentication"](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > Это значение приведено в качестве примера. Замените его реальным идентификатором. Обратитесь в [службу поддержки SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html), чтобы узнать это значение. Если вы не знаете, что оно означает, изучите документацию по [настройке клиента SAML 2.0](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) для SAP Cloud Platform Identity Authentication.
+    a. В поле **Идентификатор** введите URL-адрес в следующем формате: `<IAS-tenant-id>.accounts.ondemand.com`.
 
-4. Если вы хотите настроить в приложении режим, инициируемый **поставщиком услуг**, установите флажок **Показать дополнительные параметры URL-адресов**. 
+    Б. В поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Обратитесь в [службу поддержки SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html), чтобы узнать эти значения. Если вы не знаете, что такое значение идентификатора, изучите документацию по [настройке клиента SAML 2.0](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) для SAP Cloud Platform Identity Authentication.
+
+4. Если вы хотите настроить в приложении режим, инициируемый **поставщиком услуг**, установите флажок **Показать дополнительные параметры URL-адресов**.
 
     ![Сведения для единого входа в разделе "Домен и URL-адреса приложения SAP Cloud Platform Identity Authentication"](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    В текстовое поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<entity-id>.accounts.ondemand.com/admin`.
+    В текстовое поле **URL-адрес для входа** введите URL-адрес в следующем формате: `{YOUR BUSINESS APPLICATION URL}`.
 
-    > [!NOTE] 
-    > Это значение приведено в качестве примера. Вместо него необходимо указать фактический URL-адрес входа. Обратитесь в [службу поддержки SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html), чтобы узнать это значение.
+    > [!NOTE]
+    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес входа. Используйте свой URL-адрес входа для бизнес-приложения. Если у вас возникнут сомнения, обратитесь в [службу поддержки SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html).
 
 5. В разделе **Сертификат подписи SAML** выберите **XML метаданных**. Затем сохраните файл метаданных на компьютере.
 
@@ -274,7 +279,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -289,4 +294,3 @@ ms.lasthandoff: 12/11/2017
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

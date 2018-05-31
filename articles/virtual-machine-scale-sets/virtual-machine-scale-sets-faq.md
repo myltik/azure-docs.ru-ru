@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895333"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Часто задаваемые вопросы о масштабируемых наборах виртуальных машин Azure
 
@@ -450,9 +451,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
 
 Если виртуальная машина восстановлена, она рассматривается как прошедшая перезагрузку, и расширения повторно не запускаются. Пересоздание образа напоминает замену диска ОС на исходный образ. В этом случае запускаются все специализации, например расширения, из последней модели.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Как присоединить масштабируемый набор виртуальных машин к домену Azure Active Directory (Azure AD)?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Как присоединить масштабируемый набор виртуальных машин к домену Active Directory?
 
-Чтобы присоединить масштабируемый набор виртуальных машин к домену Azure AD, можно определить расширение. 
+Чтобы присоединить масштабируемый набор виртуальных машин к домену Active Directory (AD), можно определить расширение. 
 
 Чтобы определить расширение, используйте свойство JsonADDomainExtension.
 

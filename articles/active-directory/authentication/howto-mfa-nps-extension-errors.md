@@ -1,25 +1,21 @@
 ---
 title: Устранение ошибок, связанных с расширением NPS для Azure MFA | Документация Майкрософт
-description: Узнайте, как решить проблемы, связанные с расширением NPS для Многофакторной идентификации Azure, с помощью способов устранения, актуальных для распространенных сообщений об ошибках.
+description: Узнайте, как решить проблемы, связанные с расширением NPS для Многофакторной идентификации Azure
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867671"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Устранение ошибок, связанных с расширением NPS для Многофакторной идентификации Azure.
 
@@ -86,7 +82,7 @@ ms.lasthandoff: 04/19/2018
 | ---------- | ------------- |
 | **InvalidParameter** | Запрос не может иметь значение null. |
 | **InvalidParameter** | Параметр ObjectId не может иметь значение null или быть пустым для ReplicationScope:{0} |
-| **InvalidParameter** | Длина CompanyName \{0}\ не должна превышать максимально допустимое значение {1}. |
+| **InvalidParameter** | Длина CompanyName \{0}\ не должна превышать максимально допустимое значение {1} |
 | **InvalidParameter** | Параметр UserPrincipalName не может иметь значение null или быть пустым. |
 | **InvalidParameter** | Идентификатор клиента указан в неправильном формате. |
 | **InvalidParameter** | Параметр SessionId не может иметь значение null или быть пустым. |

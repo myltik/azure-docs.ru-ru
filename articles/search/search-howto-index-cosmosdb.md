@@ -7,14 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 3e6c7c70acbfde9d82d40c884711db8e9eb6946a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777497"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Подключение Cosmos DB к службе поиска Azure с помощью индексаторов
 
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/23/2018
 ## <a name="step-1-create-a-data-source"></a>Шаг 1. Создание источника данных
 Чтобы создать источник данных, выполните POST:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -146,7 +147,7 @@ ms.lasthandoff: 04/23/2018
 
 В следующем примере создается индекс с идентификатором и полем описания.
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -192,7 +193,7 @@ ms.lasthandoff: 04/23/2018
 
 Когда индекс и источник данных уже созданы, можно создать индексатор:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -211,7 +212,7 @@ ms.lasthandoff: 04/23/2018
 ### <a name="running-indexer-on-demand"></a>Запуск индексатора по требованию
 Помимо периодического выполнения по расписанию индексатор также можно вызывать по запросу:
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -223,7 +224,7 @@ ms.lasthandoff: 04/23/2018
 ### <a name="getting-indexer-status"></a>Получение состояния индексатора
 Вы можете получить сведения о состоянии и журнал выполнения индексатора:
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 Ответ содержит сведения об общем состоянии индексатора, последнем (или текущем) вызове индексатора, а также журнал последних вызовов индексатора.
@@ -297,7 +298,7 @@ ms.lasthandoff: 04/23/2018
 
 В следующем примере создается источник данных с политикой мягкого удаления:
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

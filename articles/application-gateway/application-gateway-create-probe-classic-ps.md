@@ -1,11 +1,11 @@
 ---
-title: "Создание пользовательской пробы для шлюза приложений Azure с помощью PowerShell (классическая модель) | Документация Майкрософт"
-description: "Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания."
+title: Создание пользовательской пробы для шлюза приложений Azure с помощью PowerShell (классическая модель) | Документация Майкрософт
+description: Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания.
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201952"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Создание пользовательской проверки для шлюза приложений (классического) Azure с помощью PowerShell
 
@@ -151,7 +152,7 @@ Get-AzureApplicationGateway AppGwTest
 |---|---|
 |**Имя** |Имя пользовательской пробы. |
 * **Protocol** | Используемый протокол (возможные значения: HTTP или HTTPS).|
-| **Host** и **Path** | Полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.|
+| **Host** и **Path** | Полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, можно настроить пользовательскую пробу для http://contoso.com/path/custompath.htm для проверки возможности успешного ответа HTTP.|
 | **Интервал** | Задает интервал между пробами в секундах.|
 | **Время ожидания** | Определяет время ожидания для проверки ответа HTTP.|
 | **UnhealthyThreshold** | Количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.|

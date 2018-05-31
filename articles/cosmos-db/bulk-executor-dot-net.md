@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887248"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Использование библиотеки BulkExecutor .NET для выполнения массовых операций в Azure Cosmos DB
 
-В этом руководстве приведены инструкции по использованию библиотеки BulkExecutor .NET в Azure Cosmos DB для импорта и обновления документов в коллекциях Azure Cosmos DB. В этом руководстве вы познакомитесь с примером приложения .NET, которое массово импортирует случайно созданные документы в коллекцию Azure Cosmos DB. Затем в нем показано, как можно массово обновить импортированные данные, указав исправления как операции для выполнения в определенных полях документа.
+В этом руководстве приведены инструкции по использованию библиотеки BulkExecutor .NET в Azure Cosmos DB для импорта и обновления документов в коллекциях Azure Cosmos DB. Подробнее о библиотеке BulkExecutor и о том, как с ее помощью эффективно использовать пропускную способность и хранилище, можно узнать в статье с [общими сведениями о библиотеке BulkExecutor](bulk-executor-overview.md). В этом руководстве вы познакомитесь с примером приложения .NET, которое массово импортирует случайно созданные документы в коллекцию Azure Cosmos DB. Затем в нем показано, как можно массово обновить импортированные данные, указав исправления как операции для выполнения в определенных полях документа.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

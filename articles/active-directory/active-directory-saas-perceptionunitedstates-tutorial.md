@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Perception United States (Non-UltiPro) | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Perception United States (Non-UltiPro)."
+title: Руководство по интеграции Azure Active Directory с Perception United States (Non-UltiPro) | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Perception United States (Non-UltiPro).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d94d233a12e51bf851a791fda481b91c513d64b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da0529897bb02745a2346f6a0282be86923468ba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Руководство по интеграции Azure Active Directory с Perception United States (Non-UltiPro)
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в Perception United States (Non-UltiPro) (единый вход) с использованием их учетных записей Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -125,7 +126,7 @@ ms.lasthandoff: 12/11/2017
 
 6. В разделе **Настройка Perception United States (Non-UltiPro)** щелкните **Настроить Perception United States (Non-UltiPro)**, чтобы открыть окно **Настройка единого входа**. Скопируйте значение **SAML Entity ID** (Идентификатор сущности SAML) из раздела **Краткий справочник**.
 
-    a. Приложению **Perception United States (Non-UltiPro)** необходимо значение **идентификатора сущности SAML**, которое вы скопировали, чтобы закодировать в формате URI. Для получения значения, закодированного в формате URI, перейдите по следующей ссылке: **http://www.url-encode-decode.com/**.
+    a. Приложению **Perception United States (Non-UltiPro)** необходимо значение **идентификатора сущности SAML**, которое вы скопировали, чтобы закодировать в формате URI. Чтобы получить значение, закодированное в формате URI, перейдите по ссылке **http://www.url-encode-decode.com/**.
 
     Б. Получив это значение, объедините его с **URL-адресом ответа**, как показано ниже:
 
@@ -249,7 +250,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 05/07/2018
 ms.author: danis
-ms.openlocfilehash: f04a9b812a86f999d5c0ec52be85f77158094c27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f5d3754d97e44d9944cd09f1ec082e9c04ad206
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895982"
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Расширение виртуальной машины OMS для Linux
 
@@ -47,6 +48,7 @@ Log Analytics предоставляет возможности монитори
 
 | Версия расширения виртуальной машины Linux | Версия пакета агента OMS | 
 |--------------------------------|--------------------------|
+| 1.6.42.0 | [1.6.42.0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3–174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2–125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
@@ -199,6 +201,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 10 | Виртуальная машина уже подключена к рабочей области Log Analytics | Для подключения виртуальной машины к рабочей области, указанной в схеме расширения, задайте для stopOnMultipleConnections значение false в общих параметрах или удалите это свойство. Счет для этой виртуальной машины выставляется за каждую рабочую область, к которой она подключена. |
 | 11 | Для расширения предоставлена недопустимая конфигурация | Изучите приведенные выше примеры, чтобы задать все значения свойств, необходимые для развертывания. |
 | 12 | Диспетчер пакетов dpkg заблокирован | Убедитесь, что все операции обновления dpkg на компьютере завершились и повторите попытку. |
+| 19 | Сбой установки OMI | 
 | 20 | Сбой установки пакета SCX |
 | 51 | Это расширение не поддерживается в операционной системе виртуальной машины | |
 | 55 | Не удается подключиться к службе Microsoft Operations Management Suite | Убедитесь, что система имеет доступ к Интернету или что предоставлен допустимый прокси-сервер HTTP. Кроме того, проверьте правильность идентификатора рабочей области. |
