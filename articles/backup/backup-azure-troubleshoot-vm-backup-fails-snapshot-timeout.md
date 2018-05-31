@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196769"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Устранение неполадок службы Azure Backup. Проблемы с агентом или расширением
 
@@ -194,21 +195,6 @@ ms.lasthandoff: 04/23/2018
 
 #### <a name="solution"></a>Решение
 
-Чтобы устранить проблему, выполните следующие шаги для удаления коллекции точек восстановления: <br>
- 
-1. Удалите блокировку в группе ресурсов, в которой находится виртуальная машина. 
-2. Установите ARMClient с помощью Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Войдите в ARMClient: <br>
-    `.\armclient.exe login`
-4. Получите коллекцию точек восстановления, соответствующую виртуальной машине: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Пример: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Удалите коллекцию точек восстановления: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. При следующем запланированном резервном копировании автоматически создается коллекция точек восстановления и новые точки восстановления.
-
- 
-Проблема снова появится, если вы повторно заблокируете группу ресурсов. 
+Чтобы устранить проблему, отмените блокировку группы ресурсов. После этого служба Azure Backup сможет очистить коллекцию точек восстановления и базовые моментальные снимки в следующей резервной копии.
+Затем можно возобновить блокировку группы ресурсов виртуальной машины. 
 
