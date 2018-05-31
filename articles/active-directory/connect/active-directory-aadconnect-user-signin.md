@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055092"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Параметры входа в Azure AD Connect
 Служба Azure Active Directory (Azure AD) Connect позволяет входить в облачные и локальные ресурсы, используя те же пароли. В этой статье рассматриваются основные сведения о каждой модели идентификации, с помощью которых вы можете выбрать удостоверение для входа в Azure AD.
@@ -28,6 +29,7 @@ ms.lasthandoff: 04/05/2018
 * [Синхронизация хэша паролей](#password-hash-synchronization) с [простым единым входом (SSO)](active-directory-aadconnect-sso.md)
 * [Сквозная проверка подлинности](active-directory-aadconnect-pass-through-authentication.md) с [простым единым входом (SSO)](active-directory-aadconnect-sso.md)
 * [Федеративный единый вход (со службами федерации Active Directory (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Федерация с PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > Важно помнить, что при настройке федерации для Azure AD между клиентом Azure AD и вашими федеративными доменами устанавливаются отношения доверия. Такой федеративный домен предоставляет пользователям доступ к облачным ресурсам Azure AD в рамках клиента.  
@@ -88,6 +90,13 @@ ms.lasthandoff: 04/05/2018
 * компьютер, на котором запущен мастер и который способен подключаться к другим компьютерам, на которых нужно установить AD FS или прокси-службу веб-приложения, используя службу удаленного управления Windows.
 
 Дополнительные сведения см. в разделе [Настройка федерации с AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### <a name="federation-with-pingfederate"></a>Федерация с PingFederate
+С помощью федеративного входа ваши пользователи могут входить в службы Azure AD со своими локальными паролями, а в корпоративной сети — даже без необходимости повторного ввода паролей.
+
+Дополнительные сведения о настройке PingFederate для использования с Azure Active Directory см. в разделе [PingFederate Integration with Azure Active Directory and Office 365](https://www.pingidentity.com/AzureADConnect) (Интеграция PingFederate с Azure Active Directory и Office 365).
+
+Сведения о настройке Azure AD Connect с помощью PingFederate см. в разделе [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate).
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Вход с помощью более ранней версии AD FS или стороннего решения
 Если вы уже настроили облачный вход с помощью более ранней версии AD FS (например AD FS 2.0) или стороннего поставщика услуг федерации, то можете пропустить настройку входа пользователей через Azure AD Connect. В результате вы получите последнюю синхронизацию и другие возможности Azure AD Connect, при этом используя существующее решение для входа.
