@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 412098ad6b8a6620b165b6cecaa0d0b3ee05f63e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161164"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Управление доступом на основе ролей для StorSimple
 
@@ -108,7 +109,7 @@ RBAC можно назначить на основе ролей. Роли пре
 
 ![Просмотр ролей RBAC](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-Дополнительные сведения см. в разделе [Создание настраиваемой роли RBAC с разрешением на открытие запросов в службу поддержки с помощью PowerShell](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+Дополнительную информацию см. в разделе [Пользовательские роли](../role-based-access-control/custom-roles.md).
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Пример выходных данных для создания пользовательской роли через PowerShell
 

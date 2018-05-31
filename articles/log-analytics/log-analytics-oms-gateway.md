@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271655"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Подключения компьютеров с помощью шлюза OMS без доступа к Интернету
 В этом документе описывается, как настроить связь между службой автоматизации Azure и Log Analytics с помощью шлюза OMS, когда компьютеры, подключенные напрямую или отслеживаемые Operations Manager, не имеют доступа к Интернету.  Шлюз OMS, являющийся прокси-сервером переадресации HTTP, в котором HTTP-туннелирование осуществляется с помощью команды HTTP CONNECT, может выполнять сбор и отправку данных в службу автоматизации Azure и Log Analytics от их имени.  
@@ -131,20 +132,18 @@ ms.lasthandoff: 05/14/2018
 
 Сведения о проектировании и развертывании кластера балансировки сетевой нагрузки Windows Server 2016 см. в статье о [балансировке сетевой нагрузки](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Ниже описана процедура настройки кластера балансировки сетевой нагрузки Майкрософт.  
 
-1.  Войдите на сервер Windows, который входит в кластер балансировки сетевой нагрузки, с использованием учетной записи администратора.  
-2.  Откройте диспетчер балансировки сетевой нагрузки в диспетчере сервера, щелкните **Инструменты**, а затем — **Диспетчер балансировки сетевой нагрузки**.
+1. Войдите на сервер Windows, который входит в кластер балансировки сетевой нагрузки, с использованием учетной записи администратора.  
+2. Откройте диспетчер балансировки сетевой нагрузки в диспетчере сервера, щелкните **Инструменты**, а затем — **Диспетчер балансировки сетевой нагрузки**.
 3. Чтобы подключить сервер шлюза OMS с установленным компонентом Microsoft Monitoring Agent, щелкните правой кнопкой мыши IP-адрес кластера и выберите **Добавить узел в кластер**.<br><br> ![Диспетчер балансировки сетевой нагрузки — "Добавить узел в кластер"](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. Введите IP-адрес сервера шлюза, который нужно подключить.<br><br> ![Диспетчер балансировки сетевой нагрузки — "Добавить узел в кластер: подключить"](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Настройка агента OMS и группы управления Operations Manager
 В следующем разделе представлены инструкции по настройке взаимодействия между подключенными напрямую агентами OMS, группами управления Operations Manager или гибридными рабочими ролями Runbook службы автоматизации Azure или Log Analytics с помощью шлюза OMS.  
 
-Требования к установке агента OMS на компьютерах Windows, подключенных к OMS напрямую, а также процедуру такой установки см. в статье [Connect Windows computers to the Log Analytics service in Azure](log-analytics-windows-agents.md) (Подключение компьютеров Windows к службе Log Analytics в Azure) или для компьютеров Linux см. статью [Сбор данных с компьютеров Linux, размещенных в вашем окружении](log-analytics-quick-collect-linux-computer.md).  Сведения о гибридной рабочей роли Runbook службы автоматизации см. в разделе [Развертывание гибридной рабочей роли Runbook](../automation/automation-hybrid-runbook-worker.md).
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Настройка агента OMS и Operations Manager для использования шлюза OMS в качестве прокси-сервера
-
 ### <a name="configure-standalone-oms-agent"></a>Настройка автономного агента OMS
-Сведения о настройке параметров прокси-сервера (в нашем случае это шлюз) для агента см. в статье [Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics](log-analytics-proxy-firewall.md).  При развертывании нескольких серверов шлюзов после балансировщика сетевой нагрузки конфигурацией прокси-сервера агента OMS является виртуальный IP-адрес балансировщика сетевой нагрузки:<br><br> ![Свойства Microsoft Monitoring Agent — настройки прокси-сервера](./media/log-analytics-oms-gateway/nlb04.png)
+Требования к установке агента OMS на компьютерах Windows, подключенных к OMS напрямую, а также процедуру такой установки см. в статье [Connect Windows computers to the Log Analytics service in Azure](log-analytics-windows-agents.md) (Подключение компьютеров Windows к службе Log Analytics в Azure) или для компьютеров Linux см. статью [Сбор данных с компьютеров Linux, размещенных в вашем окружении](log-analytics-quick-collect-linux-computer.md). При настройке агента вместо указания прокси-сервера необходимо заменить это значение IP-адресом сервера шлюза OMS и номером соответствующего порта.  При развертывании нескольких серверов шлюзов за подсистемой балансировки сетевой нагрузки конфигурацией прокси-сервера агента OMS является виртуальный IP-адрес подсистемы балансировки сетевой нагрузки.  
+
+Сведения о гибридной рабочей роли Runbook службы автоматизации см. в разделе [Развертывание гибридной рабочей роли Runbook](../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Настройка Operations Manager (все агенты используют один прокси-сервер)
 Operations Manager позволяет добавить сервер шлюза.  Конфигурация прокси-сервера Operations Manager применяется ко всем агентам, передающим данные в Operations Manager, автоматически, даже если соответствующий параметр не указан.  

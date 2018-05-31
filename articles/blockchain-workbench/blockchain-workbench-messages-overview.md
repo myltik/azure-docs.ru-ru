@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 9fa0d74b2c07d3e460abc54ea6ef9733f07a64d1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4a2e85cc619d17745be9d8f72af5f99049ce7c6b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302098"
 ---
 # <a name="azure-blockchain-workbench-messages-overview"></a>Обзор сообщений Azure Blockchain Workbench
 
@@ -246,4 +247,5 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* [Архитектура Azure Blockchain Workbench](blockchain-workbench-architecture.md)
+> [!div class="nextstepaction"]
+> [Шаблоны интеграции смарт-контрактов](blockchain-workbench-integration-patterns.md)

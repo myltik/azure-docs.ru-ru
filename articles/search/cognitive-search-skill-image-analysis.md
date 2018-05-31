@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: f4b0758ed6f1a0d11aeb1061cac34f1e9084ef53
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 271f3231078b8842b040509ccf0406ed2415e5ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786883"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363950"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Когнитивный навык анализа изображений
 
@@ -40,9 +40,9 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 ## <a name="skill-inputs"></a>Входные данные навыков
 
-| Входные данные     | ОПИСАНИЕ |
-|--------------------|-------------|
-| URL-адрес | Уникальный указатель для изображения. Это может быть URL-адрес или расположение хранилища BLOB-объектов.|
+| Ввод имени      | ОПИСАНИЕ                                          |
+|---------------|------------------------------------------------------|
+| изображение         | Сложный тип. В настоящее время работает только с полем /document/normalized_images, созданным индексатором большого двоичного объекта Azure, если для ```imageAction``` установлено значение ```generateNormalizedImages```. Дополнительные сведения см. в [этом примере](#sample-output).|
 
 
 
@@ -63,8 +63,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
     "defaultLanguageCode": "en",
     "inputs": [
         {
-            "name": "url",
-            "source": "/document/metadata_storage_path"
+            "name": "image",
+            "source": "/document/normalized_images/*"
         }
     ],
     "outputs": [
@@ -249,3 +249,4 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 + [Предопределенные навыки](cognitive-search-predefined-skills.md)
 + [Определение набора навыков](cognitive-search-defining-skillset.md)
++ [Создание индексатора (REST)](ref-create-indexer.md)

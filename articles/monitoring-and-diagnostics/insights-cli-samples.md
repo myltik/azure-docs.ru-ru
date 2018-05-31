@@ -2,7 +2,7 @@
 title: Примеры для быстрого начала работы с интерфейсом командной строки 2.0 в Azure Monitor | Документация Майкрософт
 description: Примеры команд интерфейса командной строки 2.0 для функций Azure Monitor. Azure Monitor — это служба Microsoft Azure, которая позволяет отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии, а также выполнять автоматическое масштабирование облачных служб, виртуальных машин и веб-приложений.
 author: kamathashwin
-manager: orenr
+manager: ''
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/09/2018
 ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34009764"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Примеры для быстрого начала работы с интерфейсом командной строки 2.0 в Azure Monitor
 В этой статье приведены примеры команд интерфейса командной строки для работы с функциями Azure Monitor. Azure Monitor позволяет выполнять автомасштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии.
@@ -89,18 +90,17 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>Работа с оповещениями
+## <a name="work-with-alerts"></a>Работа с оповещениями 
+[!NOTE] Сейчас в интерфейсе командной строки поддерживаются только оповещения (классические). 
 
-В этом разделе описана работа с оповещениями.
-
-### <a name="get-alert-rules-in-a-resource-group"></a>Получение правил генерации оповещений в группе ресурсов
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Получение правил оповещений (классических) в группе ресурсов
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-rule"></a>Создание правила генерации оповещения для метрики
+### <a name="create-a-metric-alert-classic-rule"></a>Создание метрики правил оповещения (классические)
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -110,7 +110,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-rule"></a>Удаление правила генерации оповещения
+### <a name="delete-an-alert-classic-rule"></a>Удаление правил оповещений (классических)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -206,7 +206,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>Установка параметров автомасштабирования
+### <a name="set-autoscale-settings"></a>Настройка параметров автоматического масштабирования
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207212"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Краткое руководство. Создание приложения .NET Service Fabric в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
@@ -109,6 +110,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
     - Наконец, верните ответ внутренней службы клиенту **(3)**.
 
 4. Нажмите клавишу **F5**, чтобы продолжить выполнение кода.
+    - При появлении запроса в браузере предоставьте группе ServiceFabricAllowedUsers права на чтение и выполнение в режиме отладки.
     - Теперь вы находитесь в точке останова внутренней службы.
     
     ![Добавление внутренней службы Vote](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -175,13 +177,15 @@ Thumbprint                                Subject
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Масштабирование приложений и служб в кластере
 Службы Service Fabric могут легко масштабироваться в кластере с учетом изменения нагрузки на службы. Масштабирование службы осуществляется путем изменения числа экземпляров, запущенных в кластере. Существует несколько способов масштабирования служб — вы можете использовать сценарии PowerShell или команды интерфейса командной строки Service Fabric (sfctl). В этом примере используйте Service Fabric Explorer.
 
-Service Fabric Explorer выполняется во всех кластерах Service Fabric. Чтобы его открыть, укажите адрес кластера и порт управления кластерами HTTP (19080) в адресной строке, например `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer выполняется во всех кластерах Service Fabric. Чтобы его открыть, укажите адрес кластера и порт управления кластерами HTTP (19080) в адресной строке, например `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-В браузере может появиться предупреждение, что расположение не является доверенным. Причина — сертификат является самозаверяющим. Вы можете пропустить это предупреждение и продолжить работу. При появлении запроса в браузере выберите установленный сертификат для подключения. 
+В браузере может появиться предупреждение, что расположение не является доверенным. Причина — сертификат является самозаверяющим. Вы можете пропустить это предупреждение и продолжить работу.
+1. При появлении запроса в браузере выберите установленный сертификат для подключения. Выбранный в списке сертификат кластера сообщества должен соответствовать кластеру сообщества, к которому вы пытаетесь получить доступ. Например win243uja6w62r.westus.cloudapp.azure.com.
+2. При появлении запроса в браузере предоставьте доступ к своему закрытому ключу CryptoAPI для этого сеанса.
 
 Для масштабирования службы веб-интерфейса выполните следующие действия:
 
-1. Откройте Service Fabric Explorer в своем кластере (например, по ссылке `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`). 
+1. Откройте Service Fabric Explorer в своем кластере (например, по ссылке `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`). 
 2. В представлении дерева последовательно разверните разделы **Приложения**->**VotingType**->**fabric:/Voting**. Щелкните многоточие рядом с узлом **fabric:/Voting/VotingWeb** в дереве и выберите **Масштабировать службу**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
