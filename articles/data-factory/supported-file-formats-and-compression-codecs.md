@@ -7,13 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940160"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Поддерживаемые форматы файлов и кодеки сжатия в фабрике данных Azure
 
@@ -300,7 +301,7 @@ ms.lasthandoff: 03/29/2018
 | `ordernumber` | `orderdate` | `order_pd` | `order_price` | `city` |
 | --- | --- | --- | --- | --- |
 | 01 | 20170122 | P1 | 23 | `[{"sanmateo":"No 1"}]` |
-| 01 | 20170122 | P2 | 13. | `[{"sanmateo":"No 1"}]` |
+| 01 | 20170122 | P2 | 13 | `[{"sanmateo":"No 1"}]` |
 | 01 | 20170122 | P3 | 231 | `[{"sanmateo":"No 1"}]` |
 
 
@@ -486,7 +487,7 @@ ms.lasthandoff: 03/29/2018
 Обратите внимание на следующие моменты.
 
 * Данные сложных типов (MAP, LIST) не поддерживаются.
-* Parquet-файл имеет следующие варианты сжатия: NONE, SNAPPY, GZIP и LZO. Фабрика данных поддерживает чтение данных из ORC-файла в любом из этих форматов. Для чтения данных используется кодек сжатия из метаданных. Однако при записи в Parquet-файл фабрика данных по умолчанию выбирает SNAPPY. В настоящее время изменить это поведение нельзя.
+* Parquet-файл имеет следующие варианты сжатия: NONE, SNAPPY, GZIP и LZO. Фабрика данных поддерживает чтение данных из Parquet-файла в любом из этих сжатых форматов. Для чтения данных используется кодек сжатия из метаданных. Однако при записи в Parquet-файл фабрика данных по умолчанию выбирает SNAPPY. В настоящее время изменить это поведение нельзя.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Сопоставление типов данных для файлов Parquet
 

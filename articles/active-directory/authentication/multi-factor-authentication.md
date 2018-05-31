@@ -1,27 +1,24 @@
 ---
 title: Описание двухэтапной проверки в Azure MFA | Документация Майкрософт
-description: 'Что такое многофакторная идентификация Azure, зачем нужно ее использовать, дополнительные сведения о клиенте MFA и различных доступных методах и версиях. '
-keywords: общие сведения об MFA, обзор MFA, что такое многофакторная проверка подлинности
+description: Сведения о службе "Многофакторная идентификация Azure", преимуществах ее использования, а также доступных методах и версиях.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 74441b5053a9c7c25d94406293828fe92f210bee
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2bf2cbefb2b60ad5278bdee7bd97aff1ed6212a4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867164"
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Что такое Многофакторная идентификация Azure?
+
 Двухшаговая проверка — это метод проверки подлинности, который требует применения нескольких методов проверки и добавляет критически важный второй уровень безопасности для операций входа пользователей и транзакций. Во время работы он требует использования двух и более методов проверки следующего характера:
 
 * Что-то, что известно вам (обычно это пароль).

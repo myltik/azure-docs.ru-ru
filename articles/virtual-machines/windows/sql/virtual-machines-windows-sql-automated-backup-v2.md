@@ -1,11 +1,10 @@
 ---
-title: "Автоматическая архивация версии 2 для виртуальных машин SQL Server 2016 в Azure | Документация Майкрософт"
-description: "Описывает функцию автоматической архивации для виртуальных машин SQL Server 2016 в Azure. Данная статья относится к виртуальным машинам, использующим модель развертывания с помощью Resource Manager."
+title: Автоматическая архивация версии 2 для виртуальных машин SQL Server 2016 или 2017 в Azure | Документация Майкрософт
+description: Описывает функцию автоматической архивации для виртуальных машин SQL Server 2016 или 2017 в Azure. Данная статья относится к виртуальным машинам, использующим модель развертывания с помощью Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -13,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/15/2018
+ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894515"
 ---
-# <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Автоматическая архивация версии 2 для виртуальных машин SQL Server 2016 в Azure (Resource Manager)
+# <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Автоматическая архивация версии 2 для виртуальных машин Azure (Resource Manager)
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
-> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
+> * [SQL Server 2016 или SQL Server 2017](virtual-machines-windows-sql-automated-backup-v2.md)
 
-Служба автоматической архивации версии 2 автоматически настраивает [управляемую архивацию на портал Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) для всех существующих и новых баз данных на виртуальной машине Azure под управлением SQL Server 2016 Standard, SQL Server 2016 Enterprise или SQL Server 2016 Developer. Это позволяет настроить регулярную архивацию базы данных с использованием надежного хранилища больших двоичных объектов Azure. Автоматическая архивация версии 2 зависит от [расширения агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+Служба автоматической архивации версии 2 автоматически настраивает [управляемую архивацию на портале Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) для всех имеющихся и новых баз данных на виртуальной машине Azure под управлением SQL Server 2016 или 2017 Standard, SQL Server 2016 Enterprise или SQL Server 2016 Developer. Это позволяет настроить регулярную архивацию базы данных с использованием надежного хранилища больших двоичных объектов Azure. Автоматическая архивация версии 2 зависит от [расширения агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -41,22 +41,17 @@ ms.lasthandoff: 02/21/2018
 
 **Версия/выпуск SQL Server**
 
-- SQL Server 2016 Standard
-- SQL Server 2016 Enterprise
-- SQL Server 2016 Developer.
+- SQL Server 2016: Developer, Standard или Enterprise.
+- SQL Server 2017: Developer, Standard или Enterprise.
 
 > [!IMPORTANT]
-> Автоматическая архивация версии 2 работает с SQL Server 2016. Если используется SQL Server 2014, то для архивации баз данных можно применять автоматическую архивацию версии 1. Дополнительную информацию см. в статье [Автоматическая архивация для виртуальных машин SQL Server 2014 в Azure](virtual-machines-windows-sql-automated-backup.md).
+> Автоматическая архивация версии 2 работает с SQL Server 2016 или выше. Если используется SQL Server 2014, то для архивации баз данных можно применять автоматическую архивацию версии 1. Дополнительную информацию см. в статье [Автоматическая архивация для виртуальных машин SQL Server 2014 в Azure](virtual-machines-windows-sql-automated-backup.md).
 
 **Конфигурация базы данных**
 
 - В конечных базах данных должна использоваться модель полного восстановления. Дополнительные сведения о влиянии модели полного восстановления на резервные копии см. в разделе [Резервное копирование в модели полного восстановления](https://technet.microsoft.com/library/ms190217.aspx).
 - Для системных баз данных нет необходимости использовать модель полного восстановления. Тем не менее, если требуется создавать резервные копии журналов для базы данных Model или MSDB, то необходимо использовать модель полного восстановления.
 - Конечные базы данных должны находиться в экземпляре SQL Server по умолчанию. Расширение IaaS SQL Server не поддерживает именованные экземпляры.
-
-**Модель развертывания Azure**
-
-- Диспетчер ресурсов
 
 > [!NOTE]
 > Автоматическая архивация зависит от **расширения агента IaaS для SQL Server**. В текущей коллекции образов виртуальных машин SQL это расширение присутствует по умолчанию. Дополнительные сведения см. в статье [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) (Расширение агента SQL Server IaaS).
@@ -68,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 
 | Параметр | Диапазон (по умолчанию) | ОПИСАНИЕ |
 | --- | --- | --- |
-| **Автоматическая архивация** | Включено/отключено (отключено) | Включает или отключает автоматическую архивацию для виртуальной машины Azure под управлением SQL Server 2016 Standard или SQL Server 2016 Enterprise. |
+| **Автоматическая архивация** | Включено/отключено (отключено) | Включает или отключает автоматическую архивацию для виртуальной машины Azure под управлением SQL Server 2016 или 2017 Developer, Standard или Enterprise. |
 | **Срок хранения** | 1–30 дней (30 дней) | Число дней хранения резервных копий. |
 | **Учетная запись хранения** | Учетная запись хранения Azure. | Учетная запись хранения Azure для хранения файлов автоматической архивации в хранилище больших двоичных объектов. Там же создается контейнер для хранения всех файлов резервных копий. Соглашение об именовании файлов резервных копий включает в себя дату, время и GUID базы данных. |
 | **Шифрование** |Включено/отключено (отключено) | Включает или отключает шифрование. Если шифрование включено, то сертификаты, используемые для восстановления резервной копии, сохраняются в указанной учетной записи хранения. Она размещена в том же контейнере **automaticbackup** с использованием того же соглашения об именовании файлов. При изменении пароля создается новый сертификат; при этом старый сертификат сохраняется для восстановления предыдущих резервных копий. |
@@ -89,7 +84,7 @@ ms.lasthandoff: 02/21/2018
 Важно понимать разницу между ежедневными и еженедельными полными резервными копиями. Давайте рассмотрим два следующих примера.
 
 ### <a name="scenario-1-weekly-backups"></a>Сценарий 1. Еженедельные резервные копии
-У вас есть виртуальная машина SQL Server, которая содержит несколько очень больших баз данных.
+У вас есть виртуальная машина SQL Server, которая содержит несколько больших баз данных.
 
 В понедельник вы включили автоматическую архивацию версии 2 со следующими параметрами:
 
@@ -107,7 +102,7 @@ ms.lasthandoff: 02/21/2018
 Этот сценарий показывает, что автоматическое резервное копирование будет выполняться только в пределах указанного временного интервала, а резервное копирование каждой базы данных будет выполняться раз в неделю. Также показано, что создание резервных копий может длиться несколько дней, если невозможно завершить архивацию всех баз данных за один день.
 
 ### <a name="scenario-2-daily-backups"></a>Сценарий 2. Ежедневные резервные копии
-У вас есть виртуальная машина SQL Server, которая содержит несколько очень больших баз данных.
+У вас есть виртуальная машина SQL Server, которая содержит несколько больших баз данных.
 
 В понедельник вы включили автоматическую архивацию версии 2 со следующими параметрами:
 
@@ -123,43 +118,41 @@ ms.lasthandoff: 02/21/2018
 > [!IMPORTANT]
 > При планировании ежедневной архивации рекомендуется выделить достаточное временное окно, чтобы гарантировать архивацию всех баз данных. Это особенно важно в случае, когда архивировать предстоит большой объем данных.
 
-## <a name="configuration-in-the-portal"></a>Настройка на портале
+## <a name="configure-in-the-portal"></a>Настройка на портале
 
-Для настройки автоматической архивации версии 2 при подготовке виртуальных машин SQL Server 2016 или для существующих виртуальных машин SQL Server 2016 можно использовать портал Azure.
+Для настройки автоматической архивации версии 2 при подготовке виртуальных машин SQL Server 2016 или 2017 или для имеющихся виртуальных машин SQL Server 2016 или 2017 можно использовать портал Azure.
 
-### <a name="new-vms"></a>Новые виртуальные машины
+## <a name="configure-for-new-vms"></a>Настройка новых виртуальных машин
 
-При создании новой виртуальной машины SQL Server 2016 с моделью развертывания с помощью Resource Manager настройте автоматическую архивацию версии 2, используя портал Azure. 
+При создании виртуальной машины SQL Server 2016 или 2017 с моделью развертывания с помощью Resource Manager настройте автоматическую архивацию версии 2, используя портал Azure.
 
-В колонке **Параметры SQL Server** выберите **Автоматизированная архивация**. Колонка **Автоматизированная архивация SQL** показана на следующем снимке экрана портала Azure.
+В области **Параметры SQL Server** выберите **Автоматическая архивация**. На представленном ниже снимке экрана портала Azure показаны параметры **автоматического резервного копирования SQL**.
 
 ![Настройка автоматической архивации SQL на портале Azure](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
 > [!NOTE]
 > По умолчанию автоматическая архивация версии 2 отключена.
 
-Сведения о контексте приведены в полном описании в статье [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md).
+## <a name="configure-existing-vms"></a>Настройка имеющихся виртуальных машин
 
-### <a name="existing-vms"></a>Существующие виртуальные машины
-
-Выберите существующую виртуальную машину SQL Server. Затем в колонке **Параметры** выберите раздел **Конфигурация SQL Server**.
+Выберите существующую виртуальную машину SQL Server. Выберите раздел **Конфигурация SQL Server** в области **Параметры** виртуальной машины.
 
 ![Автоматизированная архивация SQL для существующих виртуальных машин](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-В колонке **Конфигурация SQL Server** нажмите кнопку **Изменить** в разделе "Автоматизированная архивация".
+В области **Конфигурация SQL Server** в разделе "Автоматическая архивация" нажмите кнопку **Изменить**.
 
 ![Настройка автоматизированной архивации SQL для существующих виртуальных машин](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
 
-По завершении нажмите кнопку **ОК** в нижней части колонки **Конфигурация SQL Server**, чтобы сохранить изменения.
+По завершении нажмите кнопку **ОК** в нижней части раздела параметров области **Конфигурация SQL Server**, чтобы сохранить изменения.
 
 Если автоматизированная архивация включается впервые, Azure настроит агент IaaS SQL Server в фоновом режиме. При этом портал Azure может не сообщать о том, что выполняется настройка автоматической архивации. Установка и настройка агента занимают несколько минут. После этого новые параметры отобразятся на портале Azure.
 
-## <a name="configuration-with-powershell"></a>Настройка с помощью PowerShell
+## <a name="configure-with-powershell"></a>Настройка с помощью PowerShell
 
 Для настройки автоматической архивации версии 2 можно также использовать PowerShell. Предварительно необходимо выполнить следующее.
 
 - [Скачайте и установите последнюю версию Azure PowerShell](http://aka.ms/webpi-azps).
-- Откройте компонент Windows PowerShell и свяжите его со своей учетной записью. Это можно сделать, выполнив действия, описанные в посвященном подготовке разделе [Настройка подписки](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription).
+- Откройте сеанс Windows PowerShell и свяжите его с учетной записью, выполнив команду **Connect-AzureRmAccount**.
 
 ### <a name="install-the-sql-iaas-extension"></a>Установка расширения IaaS для SQL Server
 Если виртуальная машина SQL Server подготовлена на портале Azure, то на ней уже должно быть установлено расширение IaaS для SQL Server. Выяснить, установлено ли оно на виртуальной машины, можно, выполнив команду **Get-AzureRmVM** и изучив свойство **Extensions**.
@@ -321,10 +314,24 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
+## <a name="monitoring"></a>Мониторинг
+
+Для отслеживания автоматического резервного копирования в SQL Server 2016 или 2017 имеются две основные возможности. Так как автоматическое резервное копирование использует функцию управляемого резервного копирования SQL Server, к обоим этим методам применяются одинаковые способы мониторинга.
+
+Во-первых, можно опрашивать состояние, вызывая [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Кроме того, можно запрашивать функцию с табличным значением [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql).
+
+Другой вариант — воспользоваться преимуществами встроенного компонента Database Mail для отправки уведомлений.
+
+1. Вызовите хранимую процедуру [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql), чтобы назначить адрес электронной почты параметру **SSMBackup2WANotificationEmailIds**. 
+1. Включите [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) для отправки электронных сообщений из виртуальной машины Azure.
+1. SMTP-сервер и имя пользователя позволяют настроить компонент Database Mail. Настроить компонент Database Mail можно в SQL Server Management Studio или с помощью команд Transact-SQL. Дополнительные сведения см. в разделе о [компоненте Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
+1. [Настройте почту агента SQL Server для использования компонента Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+1. Убедитесь, что SMTP-порт открыт в локальном брандмауэре виртуальных машин и группе безопасности сети виртуальной машины.
+
 ## <a name="next-steps"></a>Дополнительная информация
 Служба автоматической архивации версии 2 позволяет настроить управляемую архивацию на виртуальных машинах Azure. В связи с этим важно изучить [документацию по управляемой архивации](https://msdn.microsoft.com/library/dn449496.aspx) и понять, как она работает.
 
-Дополнительные сведения об архивации и восстановлении SQL Server на виртуальных машинах Azure см. в статье [Архивация и восстановление SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-backup-recovery.md).
+Дополнительные указания по резервному копированию и восстановлению для SQL Server на виртуальных машинах Azure можно найти в [этой статье](virtual-machines-windows-sql-backup-recovery.md).
 
 Сведения о других доступных задачах автоматизации см. в разделе [Расширение агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

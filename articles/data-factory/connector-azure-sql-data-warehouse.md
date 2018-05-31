@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886856"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Копирование данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +104,7 @@ ms.lasthandoff: 04/16/2018
     - Ключ приложения
     - Tenant ID
 
-2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали). Администратор AAD может быть пользователем AAD или группой AAD. При предоставлении группе с MSI роли администратора пропустите шаги 3 и 4, так как администратор будет иметь полный доступ к базе данных.
+2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали). Администратор AAD может быть пользователем AAD или группой AAD. При предоставлении группе с MSI роли администратора пропустите шаги 3 и 4, так как администратор будет иметь полный доступ к базе данных.
 
 3. **Создайте пользователя автономной базы данных для субъекта-службы**. Для этого подключитесь к хранилищу данных, из которого или в которое требуется скопировать данные, с помощью таких средств, как среда SSMS, используя идентификатор AAD по крайней мере с разрешением ALTER ANY USER, и выполните следующий сценарий T-SQL. Дополнительные сведения о пользователе автономной базы данных см. [здесь](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/16/2018
 4. **Предоставьте субъекту-службе необходимые разрешения** точно так же, как вы предоставляете разрешения пользователям SQL. Например, выполните эту команду:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. Настройте в ADF связанную службу хранилища данных SQL Azure.
@@ -151,6 +152,9 @@ ms.lasthandoff: 04/16/2018
 
 Фабрика данных может быть связана с [управляемым удостоверением службы (MSI)](data-factory-service-identity.md), которое представляет это решение. Это удостоверение службы можно использовать для проверки подлинности хранилища данных SQL Azure, которое позволяет этой назначенной фабрике получать доступ к хранилищу данных и копировать данные из него и в него.
 
+> [!IMPORTANT]
+> Обратите внимание, что в настоящее время PolyBase не поддерживается для проверки подлинности по MSI.
+
 Чтобы использовать проверку подлинности по маркеру приложения AAD на основе управляемого удостоверения службы, выполните следующие действия:
 
 1. **Создайте группу в Azure AD и сделайте MSI фабрики ее участником**.
@@ -163,7 +167,7 @@ ms.lasthandoff: 04/16/2018
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали).
+2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали).
 
 3. **Создайте пользователя автономной базы данных для группы AAD**. Для этого подключитесь к хранилищу данных, из которого или в которое требуется скопировать данные, с помощью таких средств, как среда SSMS, используя идентификатор AAD по крайней мере с разрешением ALTER ANY USER, и выполните следующий сценарий T-SQL. Дополнительные сведения о пользователе автономной базы данных см. [здесь](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -174,7 +178,7 @@ ms.lasthandoff: 04/16/2018
 4. **Предоставьте группе AAD необходимые разрешения** точно так же, как вы предоставляете разрешения пользователям SQL. Например, выполните эту команду:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. Настройте в ADF связанную службу хранилища данных SQL Azure.
@@ -381,7 +385,7 @@ GO
 * Если хранилище и формат исходных данных изначально не поддерживаются PolyBase, то можно использовать функцию **[промежуточного копирования с помощью PolyBase](#staged-copy-using-polybase)**. Она также обеспечивает лучшую пропускную способность за счет автоматического преобразования данных в формат, совместимый с PolyBase, и хранения данных в хранилище BLOB-объектов Azure. После этого данные загружаются в хранилище данных SQL.
 
 > [!IMPORTANT]
-> Примечание. PolyBase поддерживают только проверку подлинности SQL хранилища данных SQL Azure, но не проверку подлинности Azure Active Directory.
+> Обратите внимание, что в настоящее время PolyBase не поддерживается для проверки подлинности по маркерам приложения Azure Active Directory на основе управляемых удостоверений службы (MSI).
 
 ### <a name="direct-copy-using-polybase"></a>Прямое копирование с помощью PolyBase
 

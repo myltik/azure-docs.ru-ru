@@ -1,24 +1,21 @@
 ---
-title: Пакет средств разработки программного обеспечения MFA для пользовательских приложений | Документация Майкрософт
+title: Пакет средств разработки программного обеспечения MFA для пользовательских приложений
 description: В этой статье описывается, как скачать и использовать пакет SDK для Azure MFA, чтобы включить двухфакторную проверку подлинности для пользовательских приложений.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: 1c152f67-be02-42a5-a0c7-246fb6b34377
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: 28efd5a5e9e757f3e2eae64fc770393608c9c028
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 28b48df27bf9b2f7176b886ef684f9281b3c4f37
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866049"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Построение Многофакторной идентификации в пользовательских приложениях (SDK)
 

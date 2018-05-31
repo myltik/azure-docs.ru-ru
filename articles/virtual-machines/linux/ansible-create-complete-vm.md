@@ -1,13 +1,13 @@
 ---
-title: "Использование Ansible для создания готовой виртуальной машины Linux в Azure | Документы Майкрософт"
-description: "Узнайте, как использовать Ansible для создания готовой среды виртуальных машин Linux в Azure и управления ею."
+title: Использование Ansible для создания готовой виртуальной машины Linux в Azure | Документы Майкрософт
+description: Узнайте, как использовать Ansible для создания готовой среды виртуальных машин Linux в Azure и управления ею.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896186"
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Создание готовой среды виртуальных машин Linux в Azure с помощью Ansible
 Ansible позволяет автоматизировать развертывание и настройку ресурсов в среде. Ansible можно использовать для управления виртуальными машинами в Azure так же, как любым другим ресурсом. В этой статье показано, как создать готовую среду Linux и вспомогательные ресурсы с помощью Ansible. Вы также можете узнать, как [создать простейшую виртуальную машину с помощью Ansible](ansible-create-vm.md).
@@ -29,7 +30,7 @@ Ansible позволяет автоматизировать развертыва
 Для управления ресурсами Azure с помощью Ansible необходимо следующее:
 
 - Ansible и модули SDK Python для Azure, установленные в системе узла.
-    - Ansible можно установить в [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) и [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2).
+    - Установленный экземпляр Ansible в [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts) или [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2).
 - Учетные данные Azure, настроенные для использования в Ansible.
     - [Создание учетных данных Azure и настройка Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. 

@@ -1,30 +1,27 @@
 ---
-title: "Приступая к работе с аутентификацией на основе сертификата в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить в своей среде аутентификацию на основе сертификата."
-author: MarkusVi
-documentationcenter: na
-manager: mtillman
-ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
+title: Начало работы с аутентификацией на основе сертификата в Azure Active Directory
+description: Узнайте, как настроить в своей среде аутентификацию на основе сертификата.
+services: active-directory
 ms.service: active-directory
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 01/15/2018
-ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 5c96f33b8f678155dc4b7a84718e5eadc541f441
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: annaba
+ms.openlocfilehash: db2c19bdc303f6f7773772dd7873878ceb892cc3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33882857"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Приступая к работе с аутентификацией на основе сертификата в Azure Active Directory
 
 Аутентификация на основе сертификата позволяет Azure Active Directory выполнять аутентификацию с помощью сертификата клиента на устройстве Windows, Android или iOS при подключении учетной записи Exchange Online к:
 
-- мобильным приложениям Microsoft, таким как Microsoft Outlook и Microsoft Word;   
-
+- мобильным приложениям Microsoft, таким как Microsoft Outlook и Microsoft Word;
 - клиентам Exchange ActiveSync (EAS).
 
 Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах.
@@ -32,43 +29,31 @@ ms.lasthandoff: 01/16/2018
 В этой статье:
 
 - Показано, как настроить и использовать аутентификацию на основе сертификата для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования и для государственных организаций США. В тарифных планах Office 365 China, US Government Defense и US Government Federal доступна предварительная версия этой функции.
-
-- Предполагается, что у вас уже настроены [инфраструктура открытых ключей (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) и [AD FS](connect/active-directory-aadconnectfed-whatis.md).    
-
+- Предполагается, что у вас уже настроены [инфраструктура открытых ключей (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) и [AD FS](connect/active-directory-aadconnectfed-whatis.md).
 
 ## <a name="requirements"></a>Требования
 
-Для настройки аутентификации на основе сертификата должны выполняться следующие условия:  
+Для настройки аутентификации на основе сертификата должны выполняться следующие условия:
 
-- Аутентификация на основе сертификата (CBA) поддерживается только для браузерных приложений и собственных клиентов в федеративных средах, использующих современную аутентификацию (ADAL). Единственным исключением является решение Exchange Active (EAS) для EXO, которое можно использовать для федеративных и управляемых учетных записей.
-
-- Корневой центр сертификации и все промежуточные центры сертификации должны быть настроены в Azure Active Directory.  
-
-- Каждый центр сертификации должен иметь список отзыва сертификатов (CRL), на который можно сослаться с помощью URL-адреса для Интернета.  
-
-- В Azure Active Directory должен быть настроен хотя бы один центр сертификации. Соответствующие действия описаны в разделе [Настройка центров сертификации](#step-2-configure-the-certificate-authorities).  
-
-- Для клиентов Exchange ActiveSync: в сертификате клиента в поле "Альтернативное имя субъекта" в качестве значения имени субъекта или имени RFC822 должен быть указан маршрутизируемый адрес электронной почты пользователя в Exchange Online. Azure Active Directory сопоставляет значение RFC822 с атрибутом прокси-адреса в каталоге.  
-
-- Устройство клиента должно иметь доступ хотя бы к одному центру сертификации, выдающему сертификаты клиента.  
-
-- Для аутентификации вашего клиента должен быть выдан сертификат клиента.  
-
-
-
+- Аутентификация на основе сертификата (CBA) поддерживается только для браузерных приложений и собственных клиентов в федеративных средах, использующих современную аутентификацию (ADAL). Единственным исключением является решение Exchange Active (EAS) для Exchange Online (EXO), которое можно использовать для федеративных и управляемых учетных записей.
+- Корневой центр сертификации и все промежуточные центры сертификации должны быть настроены в Azure Active Directory.
+- Каждый центр сертификации должен иметь список отзыва сертификатов (CRL), на который можно сослаться с помощью URL-адреса для Интернета.
+- В Azure Active Directory должен быть настроен хотя бы один центр сертификации. Соответствующие действия описаны в разделе [Настройка центров сертификации](#step-2-configure-the-certificate-authorities).
+- Для клиентов Exchange ActiveSync: в сертификате клиента в поле "Альтернативное имя субъекта" в качестве значения имени субъекта или имени RFC822 должен быть указан маршрутизируемый адрес электронной почты пользователя в Exchange Online. Azure Active Directory сопоставляет значение RFC822 с атрибутом прокси-адреса в каталоге.
+- Устройство клиента должно иметь доступ хотя бы к одному центру сертификации, выдающему сертификаты клиента.
+- Для аутентификации вашего клиента должен быть выдан сертификат клиента.
 
 ## <a name="step-1-select-your-device-platform"></a>Шаг 1. Выбор платформы устройства
 
 При выборе платформы устройства для начала необходимо ознакомиться со следующими сведениями:
 
 - Поддержка мобильных приложений Office
-- Особые требования к реализации  
+- Особые требования к реализации
 
 Эта информация доступна для следующих платформ устройств:
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
-
 
 ## <a name="step-2-configure-the-certificate-authorities"></a>Шаг 2. Настройка центров сертификации
 
@@ -81,7 +66,7 @@ ms.lasthandoff: 01/16/2018
 
     class TrustedCAsForPasswordlessAuth
     {
-       CertificateAuthorityInformation[] certificateAuthorities;    
+       CertificateAuthorityInformation[] certificateAuthorities;
     }
 
     class CertificateAuthorityInformation
@@ -93,7 +78,7 @@ ms.lasthandoff: 01/16/2018
         string deltaCrlDistributionPoint;
         string trustedIssuer;
         string trustedIssuerSKI;
-    }                
+    }
 
     enum CertAuthorityType
     {
@@ -101,14 +86,14 @@ ms.lasthandoff: 01/16/2018
         IntermediateAuthority = 1
     }
 
-Для настройки можно использовать [Azure Active Directory PowerShell версии 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
+Для настройки можно использовать [Azure Active Directory PowerShell версии 2](/powershell/azure/install-adv2?view=azureadps-2.0):
 
 1. Запустите Windows PowerShell с правами администратора.
-2. Установите модуль Azure AD. Необходимо установить версию [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) или более позднюю.  
+2. Установите модуль Azure AD версии [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) или более поздней.
 
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
 
-В качестве первого шага настройки необходимо установить подключение к клиенту. Как только установлено подключение к клиенту, вы можете просмотреть, добавить, удалить или изменить доверенные центры сертификации, определенные в каталоге.
+В качестве первого шага настройки необходимо установить подключение к клиенту. Когда будет установлено подключение к клиенту, вы сможете просмотреть, добавить, удалить или изменить доверенные центры сертификации, определенные в каталоге.
 
 ### <a name="connect"></a>Подключение
 
@@ -116,13 +101,11 @@ ms.lasthandoff: 01/16/2018
 
     Connect-AzureAD
 
-
 ### <a name="retrieve"></a>Получение
 
 Чтобы получить доверенные центры сертификации, определенные в каталоге, используйте командлет [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     Get-AzureADTrustedCertificateAuthority
-
 
 ### <a name="add"></a>Добавить
 
@@ -135,7 +118,6 @@ ms.lasthandoff: 01/16/2018
     $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
-
 ### <a name="remove"></a>Удалить
 
 Чтобы удалить доверенный центр сертификации, используйте командлет [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
@@ -143,15 +125,13 @@ ms.lasthandoff: 01/16/2018
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
 
-
-### <a name="modfiy"></a>Изменение
+### <a name="modify"></a>Изменить
 
 Чтобы изменить доверенный центр сертификации, используйте командлет [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
-
 
 ## <a name="step-3-configure-revocation"></a>Шаг 3. Настройка отзыва
 
@@ -181,7 +161,6 @@ ms.lasthandoff: 01/16/2018
 
 Задаваемая дата должна быть в будущем. Если дата не в будущем, свойство **StsRefreshTokensValidFrom** не будет задано. Если дата в будущем, для **StsRefreshTokensValidFrom** задается актуальное время (не дата, указанная командой Set-MsolUser).
 
-
 ## <a name="step-4-test-your-configuration"></a>Шаг 4. Тестирование конфигурации
 
 ### <a name="testing-your-certificate"></a>Тестирование сертификата
@@ -191,8 +170,7 @@ ms.lasthandoff: 01/16/2018
 Успешный вход подтверждает, что:
 
 - для тестируемого устройства подготовлен сертификат пользователя;
-- службы AD FS настроены правильно.  
-
+- службы AD FS настроены правильно.
 
 ### <a name="testing-office-mobile-applications"></a>Тестирование мобильных приложений Office
 
@@ -214,11 +192,17 @@ ms.lasthandoff: 01/16/2018
 
 - конечная точка EAS (например, outlook.office365.com).
 
-Профиль EAS можно настроить и поместить на устройство с помощью системы управления мобильными устройствами (MDM), такой как Intune, либо вручную поместить сертификат в профиль EAS на устройстве.  
+Профиль EAS можно настроить и поместить на устройство с помощью системы управления мобильными устройствами (MDM), такой как Intune, либо вручную поместить сертификат в профиль EAS на устройстве.
 
 ### <a name="testing-eas-client-applications-on-android"></a>Тестирование клиентских приложений EAS на Android
 
-**Чтобы протестировать аутентификацию на основе сертификата, выполните следующие действия:**  
+**Чтобы протестировать аутентификацию на основе сертификата, выполните следующие действия:**
 
-1. Настройте профиль EAS в приложении, удовлетворяющем изложенным выше требованиям.  
+1. Настройте профиль EAS в приложении, удовлетворяющем требованиям, изложенным в предыдущем разделе.
 2. Откройте приложение и убедитесь, что почта синхронизируется.
+
+## <a name="next-steps"></a>Дополнительная информация
+
+[Дополнительные сведения об аутентификации на основе сертификата на устройствах Android](active-directory-certificate-based-authentication-android.md)
+
+[Дополнительные сведения об аутентификации на основе сертификата на устройствах iOS](active-directory-certificate-based-authentication-ios.md)

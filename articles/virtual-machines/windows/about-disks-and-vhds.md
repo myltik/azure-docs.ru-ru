@@ -10,11 +10,12 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: 3d82416b7382b8e09706fd7fb8af9e1d3fe79f01
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32313517"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Основные сведения о дисковых хранилищах для виртуальных машин Windows в Azure
 Как и любой другой компьютер, виртуальные машины в Azure используют диски как место хранения операционной системы, приложений и данных. Все виртуальные машины Azure имеют как минимум два диска — диск операционной системы Windows и временный диск. Диск операционной системы создается из образа, при этом и диск операционной системы, и образ являются виртуальными жесткими дисками (VHD), расположенными в учетной записи хранения Azure. Кроме того, виртуальные машины могут иметь один или несколько дисков данных, которые также хранятся на виртуальных жестких дисках. 
@@ -70,7 +71,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Примечание. Поддержка функции Trim начинается с Windows Server 2012 или Windows 8 и более поздних версий. Дополнительные сведения см. в статье [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints) (Новый API позволяет приложением отправлять подсказки (TRIM и Unmap) на носитель данных).
+> Примечание. Поддержка функции Trim начинается с Windows Server 2012 или Windows 8 и более поздних версий. Дополнительные сведения см. в статье [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints) (Новый API позволяет приложениям отправлять подсказки (TRIM и Unmap) на носитель данных).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
