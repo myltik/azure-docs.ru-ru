@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с O.C. Tanner — AppreciateHub | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и O.C. Tanner — AppreciateHub."
+title: Руководство по интеграции Azure Active Directory с O.C. Tanner — AppreciateHub | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и O.C. Tanner — AppreciateHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ae98e6fce3507e023a72cab35894c7c2f7a87656
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 57cdd0d8a58fd88ab1dda63d32397e726c7a2eb2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Руководство по интеграции Azure Active Directory с O.C. Tanner — AppreciateHub
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в O.C. Tanner — AppreciateHub (единый вход) под учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -110,7 +111,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
-    a. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`.
+    a. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.octanner.net/sp/ACS.saml2`.
 
     > [!NOTE] 
     > Это значение приведено для справки. Вместо него нужно указать фактический URL-адрес ответа. Обратитесь в [службу поддержки O.C. Tanner — AppreciateHub](mailto:sso@octanner.com), чтобы получить это значение.
@@ -216,7 +217,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

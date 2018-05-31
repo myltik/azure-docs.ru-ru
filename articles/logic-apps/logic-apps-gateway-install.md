@@ -1,25 +1,26 @@
 ---
-title: "Установка локального шлюза данных в Azure Logic Apps | Документация Майкрософт"
-description: "Прежде чем получить доступ к локальным источникам данных, установите локальный шлюз данных для быстрой передачи и шифрования данных между локальными источниками данных и приложениями логики."
-keywords: "доступ к данным, локальный, передача данных, шифрование, источники данных"
+title: Установка локального шлюза данных в Azure Logic Apps | Документация Майкрософт
+description: Прежде чем получить доступ к локальным источникам данных, установите локальный шлюз данных для быстрой передачи и шифрования данных между локальными источниками данных и приложениями логики.
+keywords: доступ к данным, локальный, передача данных, шифрование, источники данных
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179016"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Установка локального шлюза данных для Azure Logic Apps
 
@@ -242,6 +243,11 @@ TcpTestSucceeded       : True
 6. Результаты отправляются из источника данных обратно в шлюз, а затем — в облачную службу шлюза. Затем облачная служба шлюза использует эти результаты.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Администрирование на уровне клиента 
+
+В настоящее время нет единого места, где администраторы клиентов могут управлять всеми шлюзами, которые установили и настроили другие пользователи.  Если вы являетесь администратором клиента, рекомендуется попросить пользователей в организации добавить вас в качестве администратора для каждого устанавливаемого шлюза. Это позволит вам управлять всеми шлюзами в вашей организации на странице настроек шлюза или через [команды PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 

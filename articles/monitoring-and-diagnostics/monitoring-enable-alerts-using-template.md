@@ -1,9 +1,9 @@
 ---
-title: "Создание оповещения метрики с помощью шаблона Resource Manager | Документация Майкрософт"
-description: "Узнайте, как использовать шаблон Resource Manager для создания оповещения метрики, чтобы получать уведомления по электронной почте или вызывать webhook."
+title: Создание классического оповещения на основе метрик в Azure с помощью шаблона Resource Manager | Документация Майкрософт
+description: Узнайте, как создать классическое оповещение на основе метрик, чтобы получать уведомления по электронной почте или с использованием веб-перехватчика, с помощью шаблона Resource Manager.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
@@ -12,16 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/21/2017
+ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177305"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Создание оповещения метрики с помощью шаблона Resource Manager
+# <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Создание классического оповещения метрики с помощью шаблона Resource Manager
 В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) для настройки оповещений метрик Azure. Это позволяет автоматически настраивать оповещения для ресурсов при их создании, чтобы обеспечить правильный мониторинг всех ресурсов.
+
+> [!NOTE]
+> 
+> В этой статье описывается создание **классических оповещений на основе метрик** с помощью шаблонов Resource Manager. Если вам нужно создать [новые оповещения на основе метрик](monitoring-near-real-time-metric-alerts.md) с использованием шаблонов, [в этой статье](monitoring-create-metric-alerts-with-templates.md) приведены подробности.
+>
+
 
 Основные этапы:
 
@@ -30,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 Ниже описано, как сначала создать шаблон Resource Manager только для оповещения, а затем — как это сделать во время создания другого ресурса.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>Шаблон Resource Manager для оповещения метрики
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Шаблон Resource Manager для классического оповещения на основе метрик
 Чтобы создать оповещение с помощью шаблона Resource Manager, создайте ресурс типа `Microsoft.Insights/alertRules` и заполните все связанные свойства. Ниже приведен шаблон, который создает правило генерации оповещений.
 
 ```json
@@ -180,7 +187,7 @@ ms.lasthandoff: 10/11/2017
 
 Описание схемы и свойств правила генерации оповещений [доступно здесь](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Шаблон Resource Manager для ресурса с оповещением
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Шаблон Resource Manager для ресурса с классическим оповещением на основе метрик
 Оповещение в шаблоне Resource Manager чаще всего используется, чтобы создать оповещение при создании ресурса. Например, может потребоваться задавать правило "Загрузка ЦП > 80 %" при каждом развертывании виртуальной машины. Для этого следует добавить в массив ресурсов для шаблона виртуальной машины правило генерации оповещений в качестве ресурса, а также добавить зависимость с помощью свойства `dependsOn` , указав в нем идентификатор ресурса виртуальной машины. Ниже приведен полный пример, который создает виртуальную машину Windows и добавляет оповещение, которое уведомляет администраторов подписки, когда загрузка ЦП превышает 80 %.
 
 ```json

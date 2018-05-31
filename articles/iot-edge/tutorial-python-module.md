@@ -9,11 +9,12 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3c46df85f95377f5740526542ac1baf5a8fd77c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177841"
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Разработка модуля IoT Edge с кодом Python и его развертывание на имитированном устройстве (предварительная версия)
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/20/2018
 Модуль IoT Edge, создаваемый в этом руководстве, фильтрует данные температуры, созданные вашим устройством. Оно отправляет сообщения, только если температура превышает заданное пороговое значение. Такой тип пограничного анализа удобен для сокращения объема данных, передаваемых в облако и сохраняемых в нем. 
 
 > [!IMPORTANT]
-> В настоящее время модуль Python может быть запущен только в контейнерах Linux amd64. Он не работает в контейнерах Windows или контейнерах на основе ARM. 
+> В настоящее время модуль Python может выполняться только в контейнерах Linux на платформе AMD64. Он не может выполняться в контейнерах Windows или контейнеры на основе ARM. 
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/20/2018
 * [Расширение Visual Studio Code для Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker](https://docs.docker.com/engine/installation/) на компьютере с Visual Studio Code. Для этого руководства достаточно выпуска Community Edition (CE). 
 * [Python](https://www.python.org/downloads/).
-* [Pip](https://pip.pypa.io/en/stable/installing/#installation) для установки пакетов Python.
+* [PIP](https://pip.pypa.io/en/stable/installing/#installation) для установки пакетов Python (обычно входит в состав установки Python).
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров
 В этом руководстве вы используете расширение Azure IoT Edge для Visual Studio Code, чтобы создать модуль, и создадите **образ контейнера** из файлов. Затем вы отправите этот образ в **реестр**, содержащий ваши образы и управляющий ими. Наконец, вы развернете свой образ из реестра для выполнения на устройстве IoT Edge.  
@@ -57,10 +58,10 @@ ms.lasthandoff: 04/20/2018
 ## <a name="create-an-iot-edge-module-project"></a>Создание проекта модуля IoT Edge
 Описанный ниже процесс позволяет создать модуль Python для IoT Edge с использованием Visual Studio Code и расширения Azure IoT Edge.
 1. В Visual Studio Code выберите **Вид** > **Интегрированный терминал**, чтобы открыть интегрированный терминал VS Code.
-2. Во встроенном терминале введите следующую команду для установки (или обновления) **Cookiecutter**:
+2. Введите приведенную ниже команду в интегрированном терминале, чтобы установить (или обновить) **cookiecutter** (мы советуем сделать это в виртуальной среде либо в качестве установки пользователя, как показано ниже).
 
     ```cmd/sh
-    pip install -U cookiecutter
+    pip install --upgrade --user cookiecutter
     ```
 
 3. Создайте проект для нового модуля. Приведенная ниже команда создает папку проекта **FilterModule** в указанном репозитории контейнеров. Если вы используете реестр контейнеров Azure, параметр `image_repository` должен иметь формат `<your container registry name>.azurecr.io/filtermodule`. В текущей рабочей папке введите следующую команду:
@@ -78,11 +79,11 @@ ms.lasthandoff: 04/20/2018
     import json
     ```
 
-8. Добавьте `TEMPERATURE_THRESHOLD` и `TWIN_CALLBACKS` в разделе глобальных счетчиков. Порог температуры задает значение измеренной температуры, при превышении которого данные отправляются в Центр Интернета вещей.
+8. Добавьте `TEMPERATURE_THRESHOLD`, `RECEIVE_CALLBACKS` и `TWIN_CALLBACKS` в разделе глобальных счетчиков. Порог температуры задает значение измеренной температуры, при превышении которого данные отправляются в Центр Интернета вещей.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
-    TWIN_CALLBACKS = 0
+    TWIN_CALLBACKS = RECEIVE_CALLBACKS = 0
     ```
 
 9. Обновите функцию `receive_message_callback`, присвоив ей приведенное ниже содержимое.
@@ -97,16 +98,16 @@ ms.lasthandoff: 04/20/2018
         message_buffer = message.get_bytearray()
         size = len(message_buffer)
         message_text = message_buffer[:size].decode('utf-8')
-        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+        print("    Data: <<<{}>>> & Size={:d}".format(message_text, size))
         map_properties = message.properties()
         key_value_pair = map_properties.get_internals()
-        print ( "    Properties: %s" % key_value_pair )
+        print("    Properties: {}".format(key_value_pair))
         RECEIVE_CALLBACKS += 1
-        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
+        print("    Total calls received: {:d}".format(RECEIVE_CALLBACKS))
         data = json.loads(message_text)
         if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
-            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+            print("Machine temperature {} exceeds threshold {}".format(data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
@@ -118,14 +119,14 @@ ms.lasthandoff: 04/20/2018
     def device_twin_callback(update_state, payload, user_context):
         global TWIN_CALLBACKS
         global TEMPERATURE_THRESHOLD
-        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
+        print("\nTwin callback called with:\nupdateStatus = {}\npayload = {}\ncontext = {}".format(update_state, payload, user_context))
         data = json.loads(payload)
         if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
         if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
-        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+        print("Total calls confirmed: {:d}\n".format(TWIN_CALLBACKS))
     ```
 
 11. В классе `HubManager` добавьте в метод `__init__` новую строку, которая инициализирует только что добавленную функцию `device_twin_callback`.

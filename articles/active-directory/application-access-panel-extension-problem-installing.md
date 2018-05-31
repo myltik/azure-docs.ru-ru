@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 87396204933ca964634656f9eb84c6d245c0c6c0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201204"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Установка расширения браузера для панели доступа
 
@@ -83,6 +84,12 @@ ms.lasthandoff: 04/28/2018
    3. Выполните поиск приложения, которое доступно на портале "Мои приложения".
    4. В списке результатов поиска выберите приложение.  
        В списке **Недавно использованные** отобразятся последние три запущенные приложения.
+       
+* Чтобы использовать внутренние URL-адреса компании во время удаленного доступа, выполните следующие действия.
+    1. [Настройте прокси приложения](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) на вашем клиенте.
+    2. [Опубликуйте приложение](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) и URL-адрес с помощью прокси приложения.
+    3. Установите расширение и войдите в него, выбрав "Войти", чтобы приступить к работе.
+    4. Теперь вы можете просматривать внутренний URL-адрес компании даже при удаленном подключении.
 
 > [!NOTE]
 > Описанные выше параметры доступны только в Edge, Chrome и Firefox.

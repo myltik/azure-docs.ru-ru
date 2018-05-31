@@ -1,14 +1,14 @@
 ---
-title: "Упаковка и развертывание приложения-контейнера Service Fabric | Документация Майкрософт"
-description: "Из этого руководства вы узнаете, как создать определение приложения Azure Service Fabric с помощью Yeoman и упаковать приложение."
+title: Упаковка и развертывание приложения-контейнера Service Fabric | Документация Майкрософт
+description: Из этого руководства вы узнаете, как создать определение приложения Azure Service Fabric с помощью Yeoman и упаковать приложение.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, контейнеры, микрослужбы, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, контейнеры, микрослужбы, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365391"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Руководство. Упаковка и развертывание контейнеров в виде приложения Service Fabric
 
@@ -45,7 +46,8 @@ Service Fabric предоставляет средства формирован�
 1. Установите Node.js и NPM на компьютере. Обратите внимание на то, что пользователям Mac OSX придется воспользоваться диспетчером пакетов Homebrew.
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Установите на компьютере генератор шаблонов Yeoman из NPM. 
 

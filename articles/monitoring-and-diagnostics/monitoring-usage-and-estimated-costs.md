@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176292"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Мониторинг использования и ожидаемых затрат
 
@@ -39,12 +40,11 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="new-pricing-model"></a>Новая модель ценообразования
 
-В апреле 2018 года была выпущена новая модель ценообразования. В ней поддерживается удобная для облака ценовая политика, основанная на потреблении. Вы платите только за те ресурсы, которые используете, без обязательств по узлам. Подробные сведения о новой модели ценообразования доступны для [оповещений, метрик, уведомлений](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) и [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+В апреле 2018 года [была выпущена новая модель ценообразования](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Она обеспечивает удобную для облака ценовую политику, основанную на потреблении. Вы платите только за те ресурсы, которые используете, без обязательств по узлам. Подробные сведения о новой модели ценообразования доступны для [оповещений, метрик, уведомлений](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) и [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
 Для клиентов, подключающихся к Log Analytics или Application Insights после 2 апреля 2018 года, новая модель ценообразования является единственным доступным вариантом. Для клиентов, которые уже использовали эти службы, переход на новую модель ценообразования необязателен.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Оценка влияния новой модели ценообразования
-
 Новая модель ценообразования будет по-разному влиять на каждого клиента, исходя из мониторинга шаблонов использования. Для пользователей, которые использовали Log Analytics или Application Insights до 2 апреля 2018 г., на странице **Usage and estimated cost** (Данные об использовании и предполагаемые расходы) в Azure Monitor оцениваются любые изменения в стоимости при их переходе на новую модель ценообразования. Это предоставляет возможность перевести подписку на новую модель. Для большинства клиентов новая модель ценообразования будет выгодной. Однако это может быть не так для клиентов с особенно высокими показателями использования данных или в более дорогих регионах.
 
 Чтобы просмотреть оценку затрат по выбранным подпискам на странице **Usage and estimated costs** (Использование и ожидаемые затраты), выберите синий баннер в верхней части страницы. Лучше всего просматривать по одной подписке за раз, потому что это является уровнем, на котором может применяться новая модель ценообразования.
@@ -71,11 +71,30 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Новая модель ценообразования и назначения в подписке Operations Management Suite
 
-Клиенты, которые приобрели Microsoft Operations Management Suite E1 и E2, имеют право на назначение приема данных для [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) и [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Чтобы получить эти назначения для рабочих областей Log Analytics либо ресурсов Application Insights в конкретной подписке, для этой подписки должна по-прежнему применяться модель ценообразования, используемая до апреля 2018 г. Так как в нем доступны ценовая категория "За узел (OMS)" для Log Analytics и тарифный план "Корпоративный" для Application Insights. В зависимости от количества узлов в наборе, приобретенном организацией, переход некоторых подписок на новую модель ценообразования по-прежнему может быть выгодным. Но это требует тщательного анализа.
+Клиенты, которые приобрели Microsoft Operations Management Suite E1 и E2, имеют право на назначение приема данных для [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) и [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Чтобы получить эти назначения для рабочих областей Log Analytics либо ресурсов Application Insights в конкретной подписке, необходимо следующее: 
+
+- для этой подписки должна по-прежнему применяться модель ценообразования, используемая до апреля 2018 г;
+- для рабочих областей Log Analytics должна использоваться ценовая категория "За узел (OMS)";
+- для ресурсов Application Insights должен использоваться тарифный план "Корпоративный".
+
+В зависимости от количества узлов в наборе, приобретенном организацией, переход некоторых подписок на новую модель ценообразования может быть выгодным, но это требует тщательного анализа. В целом, рекомендуем просто использовать ту же модель, что и до апреля 2018 года, как описано выше.
+
+> [!WARNING]
+> Если ваша организация приобрела Microsoft Operations Management Suite E1 и E2, обычно для подписок лучше всего использовать ту же модель ценообразования, что и до апреля 2018. 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Изменения при переходе на новую модель ценообразования
 
-Перемещение подписки на новую модель ценообразования изменит ценовую категорию для каждого экземпляра Log Analytics на новую категорию с оплатой за каждый гигабайт и перенесет имеющиеся ресурсы ("pergb2018" в Azure Resource Manager). Этот переход также изменит все ресурсы Application Insights с планом "Корпоративный" на план "Базовый". Оценка затрат показывает последствия этих изменений.
+Новая модель ценообразования упрощает параметры ценообразования Log Analytics и Application Insights только для одного уровня (или плана). Перемещение подписки на новую модель ценообразования:
+
+- изменит ценовую категорию для каждого экземпляра Log Analytics на новый уровень с оплатой за каждый гигабайт (pergb2018 в Azure Resource Manager);
+- изменит все ресурсы Application Insights с планом "Корпоративный" на план "Базовый".
+
+Оценка затрат показывает последствия этих изменений.
+
+> [!WARNING]
+> Здесь важно отметить, что если вы используете Azure Resource Manager или PowerShell для развертывания [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) или [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) в подписке, вам необходимо перейти на новую модель ценообразования. Если вы укажете уровень или план ценообразования, отличный от pergb2018 для Log Analytics или "Базовый" для Application Insights, ошибка развертывания из-за указания недопустимого уровня или плана ценообразования не появится, а развертывание выполнится успешно **, однако будет использован только допустимый уровень или план ценообразования**. 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>Переход на новую модель ценообразования
 

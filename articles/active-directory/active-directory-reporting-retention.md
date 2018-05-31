@@ -1,32 +1,33 @@
 ---
-title: "Политики хранения отчетов Azure Active Directory | Документация Майкрософт"
-description: "Политики хранения данных отчета в Azure Active Directory"
+title: Политики хранения отчетов Azure Active Directory | Документация Майкрософт
+description: Политики хранения данных отчета в Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9101b3877f8a011878baeed0d5c23d29fddaeaad
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055177"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Политики хранения отчетов Azure Active Directory
 
 
 Эта статья содержит ответы на часто задаваемые вопросы о хранении данных для разных отчетов о действиях в Azure Active Directory. 
 
-**Вопрос. Как начать сбор данных о действиях?**
+### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>Вопрос. Как начать сбор данных о действиях?
 
 **Ответ.**
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 12/16/2017
 | Azure AD уровня "Бесплатный" | При первом открытии [колонки Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) или использовании [API-интерфейсов отчетности](https://aka.ms/aadreports)  |
 
 ---
-**Вопрос. Когда данные о действиях становятся доступными на портале Azure?**
+### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>Вопрос. Когда данные о действиях становятся доступными на портале Azure?
 
 **Ответ.**
 
@@ -44,13 +45,15 @@ ms.lasthandoff: 12/16/2017
 - **В течение 2 часов** — если вы не включили функцию отчетности на портале Azure.
 
 ---
-**Вопрос. Как начать сбор сигналов системы безопасности?**  
+
+### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>Вопрос. Как начать сбор сигналов системы безопасности?  
 
 **Ответ.** Процесс сбора сигналов системы безопасности начинается, когда вы соглашаетесь использовать центр защиты идентификации. 
 
 
 ---
-**Вопрос. Как долго хранятся собранные данные?**
+
+### <a name="q-for-how-long-is-the-collected-data-stored"></a>Вопрос. Как долго хранятся собранные данные?
 
 **Ответ.**
 

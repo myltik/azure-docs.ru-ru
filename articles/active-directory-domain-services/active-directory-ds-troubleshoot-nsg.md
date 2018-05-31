@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: ce03ee0e0936cea4b96e48fbc949f40ee0fe83a0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2336277a960925a92af3578850453ba6ae78abda
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201272"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Устранение неполадок недопустимой конфигурации сети для управляемого домена
 Эта статья поможет вам определить и устранить ошибки конфигурации сети, которые приводят к появлению следующего оповещения.
@@ -28,6 +29,13 @@ ms.lasthandoff: 04/19/2018
 
 Наиболее частой причиной сетевых ошибок для доменных служб Azure AD являются неправильные конфигурации NSG. Группа безопасности сети (NSG), настроенная для виртуальной сети, должна разрешать доступ к [определенным портам](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Если эти порты заблокированы, корпорация Майкрософт не может отслеживать или обновлять управляемый домен. Кроме того, это негативно повлияет на синхронизацию между вашим каталогом Azure AD и управляемым доменом. Не закрывайте эти порты при создании NSG, чтобы не прерывать работу службы.
 
+### <a name="checking-your-nsg-for-compliance"></a>Проверка группы безопасности сети на соответствие
+
+1. Перейдите к странице [Группы безопасности сети](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) на портале Azure.
+2. В таблице выберите NSG, связанную с подсетью, в которой включен управляемый домен.
+3. На панели слева в разделе **Параметры** щелкните **Правила безопасности для входящего трафика**.
+4. Проверьте настроенные правила и определите, какие правила блокируют доступ к [этим портам](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
+5. Измените NSG, чтобы обеспечить соответствие требованиям, удалив правило, добавив правило или создав NSG. Шаги по [добавлению правила](#add-a-rule-to-a-network-security-group-using-the-azure-portal) или [созданию соответствующей требованиям NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) представлены ниже.
 
 ## <a name="sample-nsg"></a>Пример NSG
 В следующей таблице описывается пример NSG, который будет обеспечивать защиту управляемого домена, что позволит корпорации Майкрософт отслеживать и обновлять сведения, а также управлять ими.
@@ -47,7 +55,7 @@ ms.lasthandoff: 04/19/2018
 5. Убедитесь, что правило создано. Для этого найдите его в таблице правил.
 
 
-## <a name="create-an-nsg-for-azure-ad-domain-services-using-powershell"></a>Создание NSG для доменных служб Azure AD с помощью PowerShell
+## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>Создание NSG для доменных служб Azure AD с помощью PowerShell
 Эта NSG настраивается таким образом, чтобы разрешить входящий трафик для портов, необходимых для работы доменных служб Azure AD, и запретить другой нежелательный входящий доступ.
 
 [Предварительные требования: установите и настройте Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json). Выполните инструкции по **установке модуля Azure PowerShell и его подключению к вашей подписке Azure**.

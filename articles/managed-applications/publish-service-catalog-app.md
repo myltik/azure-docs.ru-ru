@@ -1,20 +1,21 @@
 ---
-title: "Создание и публикация управляемого приложения каталога услуг Azure | Документация Майкрософт"
-description: "Показано, как создать управляемое приложение Azure, предназначенное для членов вашей организации."
+title: Создание и публикация управляемого приложения каталога услуг Azure | Документация Майкрософт
+description: Показано, как создать управляемое приложение Azure, предназначенное для членов вашей организации.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305316"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Публикация управляемого приложения для внутреннего использования
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 12/19/2017
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -138,7 +139,7 @@ ms.lasthandoff: 12/19/2017
 }
 ```
 
-Сохраните файл createUIDefinition.json.
+Сохраните файл createUiDefinition.json.
 
 ## <a name="package-the-files"></a>Упаковка файлов
 
@@ -152,8 +153,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +173,9 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 Требуется идентификатор объекта группы пользователей для управления ресурсами. 
 
-![Получение идентификатора группы](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>Получение идентификатора определения роли
 
@@ -203,21 +205,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Создание управляемого приложения с помощью портала
+## <a name="create-the-managed-application"></a>Создание управляемого приложения
+
+Управляемое приложение можно развернуть с помощью портала, PowerShell или Azure CLI.
+
+### <a name="powershell"></a>PowerShell
+
+Для начала давайте развернем управляемое приложение с помощью PowerShell.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+Теперь управляемое приложение и управляемая инфраструктура существуют в подписке.
+
+### <a name="portal"></a>Microsoft Azure
 
 Теперь давайте развернем управляемое приложение с помощью портала. Вы увидите пользовательский интерфейс, созданный в пакете.
 
-1. Перейдите на портал Azure. Выберите **+ Создать** и выполните поиск словосочетания **каталог услуг**.
+1. Перейдите на портал Azure. Выберите **+ Создать ресурс** и выполните поиск по фразе **каталог услуг**.
 
-   ![Поиск каталога услуг](./media/publish-service-catalog-app/select-new.png)
+   ![Поиск каталога услуг](./media/publish-service-catalog-app/create-new.png)
 
 1. Выберите **Управляемое приложение каталога услуг**.
 
-   ![Выбор каталога услуг](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Выбор каталога услуг](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Нажмите кнопку **Создать**.
 
@@ -229,15 +259,15 @@ New-AzureRmManagedApplicationDefinition `
 
 1. Укажите основные сведения, необходимые для создания управляемого приложения. Укажите подписку и новую группу ресурсов, к которой будет относиться управляемое приложение. Выберите расположение **Западно-центральная часть США**. Когда все будет готово, нажмите кнопку **ОК**.
 
-   ![Выбор параметров управляемого приложения](./media/publish-service-catalog-app/provide-basics.png)
+   ![Выбор параметров управляемого приложения](./media/publish-service-catalog-app/add-basics.png)
 
 1. Укажите значения для ресурсов в управляемом приложении. Когда все будет готово, нажмите кнопку **ОК**.
 
-   ![Выбор параметров ресурсов](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Выбор параметров ресурсов](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. Шаблон проверяет введенные значения. Если проверка прошла успешно, нажмите кнопку **ОК**, чтобы запустить развертывание.
 
-   ![Проверка управляемого приложения](./media/publish-service-catalog-app/validate.png)
+   ![Проверка управляемого приложения](./media/publish-service-catalog-app/view-summary.png)
 
 По завершении развертывания управляемое приложение появится в группе ресурсов applicationGroup. Учетная запись хранения появится в группе ресурсов applicationGroup вместе с хэшированным строковым значением.
 

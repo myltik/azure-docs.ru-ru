@@ -1,24 +1,25 @@
 ---
-title: "Приступая к работе с Azure AD версии 1 и веб-сервером ASP.NET | Документация Майкрософт"
-description: "Реализация входа Майкрософт в решении ASP.NET с традиционным браузерным приложением с использованием стандарта OpenID Connect"
+title: Приступая к работе с Azure AD версии 1 и веб-сервером ASP.NET | Документация Майкрософт
+description: Реализация входа Майкрософт в решении ASP.NET с традиционным браузерным приложением с использованием стандарта OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156467"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Добавление возможности входа в веб-приложение ASP.NET с помощью учетной записи Майкрософт
@@ -250,7 +251,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>Тестирование кода
 
-Щелкните `F5`, чтобы запустить проект в Visual Studio. Откроется браузер, и вы будете перенаправлены на страницу *http://localhost:{порт}*, где вы увидите кнопку *Вход с помощью учетной записи Майкрософт*. Щелкните ее, чтобы выполнить вход.
+Щелкните `F5`, чтобы запустить проект в Visual Studio. Откроется браузер, и вы будете перенаправлены на страницу *http://localhost:{port}*, где вы увидите кнопку *Войдите с помощью учетной записи Майкрософт*. Щелкните ее, чтобы выполнить вход.
 
 Когда все будет готово для тестирования, используйте для входа в рабочую учетную запись (Azure Active Directory). 
 
@@ -280,7 +281,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Проверка доступа к методу, включающему атрибут *[Authorize]* (необязательно)
 На этом шаге вы проверите доступ к контроллеру утверждений в качестве анонимного пользователя.<br/>
 Выберите ссылку для выхода пользователя и завершения процесса выхода.<br/>
-Теперь в окне браузера введите http://localhost:{порт}/claims, чтобы получить доступ к контроллеру, защищенному атрибутом `[Authorize]`.
+Теперь в окне браузера введите http://localhost:{port}/claims, чтобы получить доступ к контроллеру, защищенному атрибутом `[Authorize]`.
 
 #### <a name="expected-results"></a>Ожидаемые результаты
 Вы должны получить запрос на выполнение проверки подлинности, чтобы открылось представление.
