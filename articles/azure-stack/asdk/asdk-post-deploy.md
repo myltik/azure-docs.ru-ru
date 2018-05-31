@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2183576e87aa2fb31f8be8f676a5aee7d52f68df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204638"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Настройка, выполняемая после установки ASDK
 После [установки ASDK](asdk-install.md) мы рекомендуем внести некоторые изменения в конфигурацию. 
@@ -37,7 +38,10 @@ Set-PSRepository `
 
  Совместимые с Azure Stack модули AzureRM устанавливаются с использованием профилей версии API. Для использования Azure Stack требуется профиль версии API 2017-03-09-profile, который можно получить при установке модуля AzureRM.Bootstrapper. 
  
- PowerShell для Azure Stack можно установить в двух режимах: с подключением главного компьютера ASDK к Интернету или без него.
+ Последнюю версию модуля PowerShell для Azure Stack можно установить в двух режимах: с подключением главного компьютера ASDK к Интернету или без него.
+
+> [!IMPORTANT]
+> Прежде чем устанавливать нужную версию, обязательно [удалите все установленные модули Azure PowerShell](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
 
 - **При наличии подключения к Интернету** с главного компьютера ASDK. Выполните следующий скрипт PowerShell, чтобы установить эти модули там, где установлен пакет средств разработки.
 

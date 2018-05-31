@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с RealtimeBoard | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении RealtimeBoard."
+title: Руководство по интеграции Azure Active Directory с RealtimeBoard | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении RealtimeBoard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5734d9ae2f5633fc7386b5cb0754769af9bf96bc
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/30/2018
+ms.locfileid: "32309171"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Руководство по интеграции Azure Active Directory с RealtimeBoard
 
@@ -124,7 +125,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Чтобы настроить единый вход на стороне **RealtimeBoard**, отправьте в [службу поддержки RealtimeBoard](mailto:support@realtimeboard.com) скачанный **XML-файл метаданных**. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+7. Для настройки единого входа на стороне **RealtimeBoard** выполните [инструкции для RealtimeBoard](https://help.realtimeboard.com/support/solutions/articles/11000023465-saml-based-single-sign-on-) и используйте информацию из скачанных **метаданных в формате XML**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

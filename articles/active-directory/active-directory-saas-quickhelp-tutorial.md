@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: feb51a61ebe67f583b47ad516ddb40cd5b84b905
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9eaa9032a60b6b2906034df10d6eef8671255483
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203193"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34349341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Руководство. Интеграция Azure Active Directory с QuickHelp
 
@@ -30,7 +30,7 @@ ms.locfileid: "33203193"
 - вы можете включить автоматический вход пользователей в QuickHelp (единый вход) под учетной записью Azure AD;
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -234,7 +234,7 @@ QuickHelp поддерживает JIT-подготовку. Это означа
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

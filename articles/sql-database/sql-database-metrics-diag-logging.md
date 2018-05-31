@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c63429e80b2e38e9e5c08c6b589afa0086e7171d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365769"
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312826"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Метрики и журналы диагностики базы данных SQL Azure 
 База данных SQL Azure может выдавать значения метрик и журналы диагностики для упрощения мониторинга. Вы можете настроить базу данных SQL для хранения сведений об использовании ресурсов, о рабочих ролях и сеансах, а также настроить подключение к одному из этих ресурсов Azure:
@@ -38,9 +38,9 @@ ms.locfileid: "34365769"
 
 При включении метрик и журналов диагностики необходимо указать ресурс Azure, где собираются выбранные данные. Доступны следующие варианты.
 
-- Log Analytics
+- Служба Log Analytics
 - Концентраторы событий
-- Служба хранилища 
+- Хранилище 
 
 Вы можете подготовить новый ресурс Azure или выбрать имеющийся. После выбора ресурса хранилища необходимо указать, какие данные нужно собирать. Доступны следующие варианты.
 
@@ -156,7 +156,7 @@ ms.locfileid: "34365769"
 
 ### <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 
-Сведения об изменении параметров диагностики с помощью REST API Azure Monitor см. в [этом документе](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
+Сведения об изменении параметров диагностики с помощью REST API Azure Monitor см. в [этом документе](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
 
 ### <a name="resource-manager-template"></a>Шаблон Resource Manager
 
@@ -185,7 +185,7 @@ ms.locfileid: "34365769"
 
 4. В форме Log Analytics введите необходимые дополнительные сведения: имя рабочей области, подписки, группы ресурсов, расположения и ценовую категорию.
 
-   ![Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
+   ![Служба Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Настройка баз данных для записи метрик и журналов диагностики
 

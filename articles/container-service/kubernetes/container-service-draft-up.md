@@ -1,19 +1,20 @@
 ---
-title: "Использование черновика со службой контейнеров Azure и реестром контейнеров Azure"
-description: "Создайте кластер ACS Kubernetes и реестр контейнеров Azure, чтобы создать свое первое приложение в Azure с помощью черновика."
+title: Использование черновика со службой контейнеров Azure и реестром контейнеров Azure
+description: Создайте кластер ACS Kubernetes и реестр контейнеров Azure, чтобы создать свое первое приложение в Azure с помощью черновика.
 services: container-service
 author: squillace
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168543"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Использование черновика со Службой контейнеров Azure и реестром контейнеров Azure для создания и развертывания приложения в Kubernetes
 
@@ -99,8 +100,8 @@ waiting for AAD role to propagate.done
 ## <a name="install-and-configure-draft"></a>Установка и настройка черновика
 
 
-1. Скачайте черновик для своей среды по адресу https://github.com/Azure/draft/releases и установите его в свой путь, чтобы использовать команду.
-2. Скачайте Helm для своей среды по адресу https://github.com/kubernetes/helm/releases и [установите его в свой путь, чтобы использовать команду](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+1. Скачайте черновик для своей среды в https://github.com/Azure/draft/releases и установите его в пути, чтобы можно было использовать команду.
+2. Скачайте Helm для своей среды в https://github.com/kubernetes/helm/releases и [, установите ее в свой путь, чтобы можно было использовать команду ](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Настройте черновик, чтобы использовать реестр и создать поддомены для каждого чарта Helm, который он создает. Чтобы настроить черновик, вам потребуется следующее:
   - имя реестра контейнеров Azure (в этом примере — `draftacsdemo`);
   - раздел реестра или пароль, полученный из `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`;

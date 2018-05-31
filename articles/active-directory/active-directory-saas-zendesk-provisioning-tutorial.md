@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 87ed987b53b45ef9dacb771d8dd057432712fb16
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 342c535464ad4145137c89fe38281e85c9dd0463
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354121"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32161377"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Руководство по настройке Zendesk для автоматической подготовки пользователей
 
@@ -167,7 +167,7 @@ ms.locfileid: "34354121"
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

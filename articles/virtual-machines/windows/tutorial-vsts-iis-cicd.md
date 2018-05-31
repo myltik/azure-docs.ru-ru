@@ -1,6 +1,6 @@
 ---
-title: Создание конвейера CI/CD в Azure с помощью служб Team Services | Документация Майкрософт
-description: Сведения о создании с помощью Visual Studio Team Services конвейера для непрерывной интеграции и доставки, который выполняет развертывание веб-приложения в IIS на виртуальной машине Windows
+title: Руководство по созданию конвейера CI/CD в Azure с помощью Team Services | Документация Майкрософт
+description: В этом руководстве вы узнаете, как создать конвейер Visual Studio Team Services для непрерывной интеграции и доставки, который выполняет развертывание веб-приложения в службах IIS на виртуальной машине Windows в Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192226"
 ---
-# <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Создание конвейера для непрерывной интеграции с помощью Visual Studio Team Services и IIS
+# <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Руководство по созданию конвейера непрерывной интеграции с помощью Visual Studio Team Services и IIS
 Чтобы автоматизировать этапы создания, тестирования и развертывания проекта приложения, вы можете использовать конвейер для непрерывной интеграции и развертывания (CI/CD). В рамках этого руководства вы создадите конвейер CI/CD с помощью Visual Studio Team Services и виртуальной машины Windows в Azure, где выполняются службы IIS. Вы узнаете, как выполнять такие задачи.
 
 > [!div class="checklist"]
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 > * создавать определение выпуска для публикации новых пакетов веб-развертывания в IIS;
 > * Тестирование конвейера CI/CD
 
-Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 5.7.0. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Создание проекта в Team Services
@@ -94,29 +95,30 @@ Visual Studio Team Services обеспечивает совместную раб
 ## <a name="create-virtual-machine"></a>Создание виртуальной машины
 Чтобы предоставить платформу для выполнения веб-приложения ASP.NET, вам необходима виртуальная машина Windows, где выполняются службы IIS. Team Services использует агент для взаимодействия с экземпляром IIS после фиксации кода и активации сборок.
 
-Создайте виртуальную машину Windows Server 2016 с помощью [этого примера скрипта](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). Выполнение скрипта и создание виртуальной машины занимает несколько минут. После создания виртуальной машины откройте порт 80 для веб-трафика с помощью команды [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup), как показано ниже.
+Создайте виртуальную машину Windows Server 2016 с помощью команды [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). В следующем примере создается виртуальная машина *myVM* в расположении *EastUS*. Также создается группа ресурсов *myResourceGroupVSTS* и вспомогательные ресурсы сети. Чтобы разрешить веб-трафик, для виртуальной машины открывается TCP-порт *80*. При появлении запроса укажите имя пользователя и пароль в качестве учетных данных для входа на виртуальную машину.
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "East US" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 Чтобы подключиться к виртуальной машине, получите общедоступный IP-адрес с помощью команды [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress), как показано ниже.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Создайте сеанс подключения к удаленному рабочему столу виртуальной машины:

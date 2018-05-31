@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f184c30f1f39563d6e029d506237e6b0e23ec482
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1b3cf423181eeee2fbc2b0909a5ccd27f8e5f538
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364579"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Руководство. Автоматическое масштабирование масштабируемого набора виртуальных машин с помощью Azure PowerShell
 При создании масштабируемого набора вы определяете количество экземпляров виртуальных машин для запуска. По мере изменения потребностей приложения можно автоматически увеличивать или уменьшать это количество. Возможность автоматического масштабирования позволяет удовлетворить пользовательский спрос или среагировать на изменения производительности приложения на протяжении его жизненного цикла. Из этого руководства вы узнали, как выполнять такие задачи:
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, для работы с этим руководством необходима версия модуля Azure PowerShell версии 5.6.0 или более поздней. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 6.0.0 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 
 ## <a name="create-a-scale-set"></a>Создание масштабируемого набора
@@ -48,13 +49,7 @@ $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 ```
 
-Настройте имя и пароль администратора для экземпляров виртуальных машин с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
-
-```azurepowershell-interactive
-$cred = Get-Credential
-```
-
-Теперь создайте масштабируемый набор виртуальных машин с помощью командлета [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Чтобы распределить трафик между отдельными экземплярами виртуальных машин, создается еще и подсистема балансировки нагрузки. Подсистема балансировки нагрузки определяет правила передачи трафика на TCP-порт 80, а также разрешает подключение удаленного рабочего стола трафик через TCP-порт 3389 и удаленное взаимодействие PowerShell через TCP-порт 5985:
+Теперь создайте масштабируемый набор виртуальных машин с помощью командлета [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Чтобы распределить трафик между отдельными экземплярами виртуальных машин, создается еще и подсистема балансировки нагрузки. Подсистема балансировки нагрузки определяет правила передачи трафика на TCP-порт 80, а также разрешает подключение удаленного рабочего стола трафик через TCP-порт 3389 и удаленное взаимодействие PowerShell через TCP-порт 5985. При появлении запроса введите учетные данные администратора для экземпляров виртуальных машин в масштабируемом наборе:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -64,8 +59,7 @@ New-AzureRmVmss `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
-  -Credential $cred
+  -LoadBalancerName "myLoadBalancer"
 ```
 
 Создание и настройка всех ресурсов и виртуальных машин масштабируемого набора занимает несколько минут.
@@ -137,7 +131,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
   -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
-  -Rules $myRuleScaleOut,$myRuleScaleIn `
+  -Rule $myRuleScaleOut,$myRuleScaleIn `
   -Name "autoprofile"
 ```
 

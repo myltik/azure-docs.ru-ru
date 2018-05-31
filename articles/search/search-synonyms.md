@@ -1,21 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: Предварительная документация по компоненту Synonyms (предварительная версия), доступному в REST API Поиска Azure.
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Использование синонимов для расширения области поискового запроса
 authors: mhko
-services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 07/07/2016
+ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 612bf30281703bd9cdec3a904f27df8e7dba3641
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186914"
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Synonyms в Поиске Azure (предварительная версия)
+# <a name="synonyms-in-azure-search"></a>Синонимы в службе "Поиск Azure"
 
 Synonyms представляет собой поисковые системы, связывающие эквивалентные термины, которые неявно расширяют область запроса, даже если пользователь не указал их. Например, если имеется термин "пес" с синонимами "собака" и "щенок", то документы, содержащие термины "пес", "собака" и "щенок", попадут в область запроса.
 
@@ -23,7 +23,7 @@ Synonyms представляет собой поисковые системы, 
 
 ## <a name="feature-availability"></a>Доступность функций
 
-Сейчас возможности синонимов доступны в предварительной версии и поддерживаются только последней предварительной версией API (api-version=2016-09-01-Preview). Портал Azure такую поддержку пока не предоставляет. Так как версия API указывается в запросе, можно совмещать общедоступную и предварительную версии API в одном приложении. Тем не менее предварительные версии API не регулируются соглашением об уровне обслуживания, и их возможности могут измениться, поэтому мы не рекомендуем использовать их в рабочих приложениях.
+Сейчас функция синонимов поддерживается только последней версией API (версия API 2017-11-11). Портал Azure такую поддержку пока не предоставляет.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Как использовать синонимы в Поиске Azure
 
@@ -43,11 +43,11 @@ Synonyms представляет собой поисковые системы, 
 
 Для передачи карты синонимов в службу используется запрос POST или PUT. Правила должны быть разделены символами новой строки (\n). Можно определить до 5000 правил на карту синонимов в службе уровня "Бесплатный" и до 10 000 правил для всех прочих номеров SKU. Каждое правило может содержать до 20 расширений.
 
-В этой предварительной версии должны использоваться карты синонимов в формате Apache Solr, который описан ниже. Если у вас есть словарь синонимов в другом формате и вы хотите использовать его напрямую, сообщите нам об этом с помощью [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Должны использоваться карты синонимов в формате Apache Solr, который описан ниже. Если у вас есть словарь синонимов в другом формате и вы хотите использовать его напрямую, сообщите нам об этом с помощью [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 Карту синонимов можно создать с помощью запроса HTTP POST, как показано в следующем примере.
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -60,7 +60,7 @@ Synonyms представляет собой поисковые системы, 
 
 Кроме того, можно использовать запрос PUT и указать имя карты синонимов в универсальном коде ресурса (URI). Если такой карты синонимов не существует, она будет создана.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -86,24 +86,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Вывод карт синонимов в службе.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Получение карты синонимов в службе.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Удаление карты синонимов в службе.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Настройка поля, поддерживающего поиск, для использования карты синонимов в определении индекса.
 
 Новое свойство поля **synonymMaps** можно использовать для указания карты синонимов для поля, поддерживающего поиск. Карты синонимов — это ресурсы уровня службы, и на них может ссылаться любое поле индекса в службе.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -138,7 +138,7 @@ Washington, Wash., WA => WA
 Свойство **synonymMaps** можно указать полей, поддерживающих поиск, типа Edm.String или Collection(Edm.String).
 
 > [!NOTE]
-> В этой предварительной версии можно использовать только одну карту синонимов на поле. Если вы хотите использовать несколько карт синонимов, сообщите нам об этом с помощью [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Вы можете использовать только одну карту синонимов на поле. Если вы хотите использовать несколько карт синонимов, сообщите нам об этом с помощью [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>Влияние синонимов на другие функции поиска
 
