@@ -1,6 +1,6 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с Lifesize Cloud | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Lifesize Cloud."
+title: Учебник. Интеграция Azure Active Directory с Lifesize Cloud | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Lifesize Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae2c59d672c00b466d13aad1d304f4669a38c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 84af3a9b726d990e585e2b12b1c0a6f4609fcb7e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Учебник. Интеграция Azure Active Directory с Lifesize Cloud
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в Lifesize Cloud (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -156,11 +157,11 @@ ms.lasthandoff: 12/11/2017
 
     c. Откройте в блокноте сертификат в кодировке Base-64, скачанный с портала Azure, скопируйте его в буфер обмена и вставьте в текстовое поле **Сертификат X.509**.
   
-    d. В разделе "SAML Attribute Mappings" (Сопоставления атрибутов SAML) в текстовом поле "First Name" (Имя) введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    d. В разделе SAML Attribute Mappings (Сопоставления атрибутов SAML) в текстовом поле First Name (Имя) введите значение в следующем формате: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
     
-    д. В разделе "SAML Attribute Mappings" (Сопоставления атрибутов SAML) в текстовом поле **Last Name** (Фамилия) введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    д. В разделе SAML Attribute Mappings (Сопоставления атрибутов SAML) в текстовом поле **Last Name** (Фамилия) введите значение в следующем формате: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
     
-    f. В разделе "SAML Attribute Mappings" (Сопоставления атрибутов SAML) в текстовом поле **Email** (Электронный адрес) введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    f. В разделе SAML Attribute Mappings (Сопоставления атрибутов SAML) в текстовом поле **Email** (Электронная почта) введите значение в следующем формате: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
 
 11. Чтобы проверить конфигурацию, можно нажать кнопку **Test** (Проверить).
    
@@ -251,7 +252,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

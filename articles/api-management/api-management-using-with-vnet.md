@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 223fa9bc4a19264cc1dcba9830726b30b0f7446c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355089"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Как использовать управление API Azure с виртуальными сетями
 Виртуальные сети Azure позволяют размещать любые ресурсы Azure в сети, недоступной из Интернета, доступом к которой управляете вы сами. Эти сети можно подключать к локальным сетям с помощью различных технологий VPN. Начать изучение виртуальных сетей Azure лучше всего со статьи [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md).
@@ -116,7 +117,7 @@ ms.lasthandoff: 03/28/2018
 | * / 1886 |Исходящие |TCP |VIRTUAL_NETWORK — INTERNET|Необходимо опубликовать сведения о работоспособности в службе "Работоспособность ресурсов" |Внешний и внутренний |
 | * / 25028 |Исходящие |TCP |VIRTUAL_NETWORK — INTERNET|Подключение SMTP-ретранслятору для отправки сообщений электронной почты |Внешний и внутренний |
 | * / 6381 - 6383 |Входящий и исходящий |TCP |VIRTUAL_NETWORK — VIRTUAL_NETWORK|Доступ к экземплярам кэша Redis между экземплярами RoleInstance |Внешний и внутренний |
-| * / \* | Входящий трафик |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Подсистема балансировки нагрузки инфраструктуры Azure |Внешний и внутренний |
+| * / * | Входящий трафик |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Подсистема балансировки нагрузки инфраструктуры Azure |Внешний и внутренний |
 
 >[!IMPORTANT]
 > Порты, для которых *назначение* выделено **полужирным**, требуются для успешного развертывания службы управления API. Но блокировка остальных портов приведет к снижению производительности при использовании и отслеживании работающей службы.
@@ -168,6 +169,7 @@ Azure резервирует некоторые IP-адреса в каждой 
 * Эта подсеть и служба управления API должны находиться в одной подписке.
 * Невозможно переместить между подписками подсеть, содержащую экземпляры службы управления API.
 * Если служба управления API развернута в нескольких регионах в режиме внутренней виртуальной сети, пользователи должны самостоятельно настроить балансировку нагрузки, так как они отвечают за маршрутизацию.
+* Подключение от ресурса, находящегося в пиринговой виртуальной сети в другом регионе, к службе управления API во внутреннем режиме невозможно из-за ограничений платформы. Дополнительные сведения см. в разделе [Требования и ограничения](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
 
 ## <a name="related-content"> </a>Связанная информация
@@ -188,4 +190,4 @@ Azure резервирует некоторые IP-адреса в каждой 
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
+[Network Security Group]: ../virtual-network/security-overview.md

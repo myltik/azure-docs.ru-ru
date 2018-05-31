@@ -1,8 +1,8 @@
 ---
-title: "Руководство по настройке Cerner Central для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить Azure Active Directory для автоматической подготовки пользователей и их добавления в список в Cerner Central."
+title: Руководство по настройке Cerner Central для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить Azure Active Directory для автоматической подготовки пользователей и их добавления в список в Cerner Central.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337118"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Руководство по настройке Cerner Central для автоматической подготовки пользователей
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 02/09/2018
 В этом разделе мы подключим Azure AD к списку пользователей Cerner Central с помощью API подготовки учетных записей Cerner (через протокол SCIM), а также настроим службу подготовки для создания, изменения и отключения назначенных учетных записей пользователей в Cerner Central на основе назначения пользователей и групп в Azure AD.
 
 > [!TIP]
-> Для Cerner Central также можно включить единый вход на основе SAML. Для этого следуйте инструкциям, указанным на [портале Azure(https://portal.azure.com). Единый вход можно настроить независимо от автоматической подготовки, хотя две эти функции дополняют друг друга. Дополнительные сведения см. в [руководстве по настройке единого входа в Cerner Central](active-directory-saas-cernercentral-tutorial.md).
+> Для Cerner Central также можно включить единый вход на основе SAML. Для этого следуйте инструкциям, представленным на портале Azure (https://portal.azure.com). Единый вход можно настроить независимо от автоматической подготовки, хотя две эти функции дополняют друг друга. Дополнительные сведения см. в [руководстве по настройке единого входа в Cerner Central](active-directory-saas-cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Настройка автоматической подготовки учетных записей пользователей Azure AD в Cerner Central
@@ -69,25 +70,25 @@ ms.lasthandoff: 02/09/2018
 
    * Песочница: https://sandboxcernercare.com/accounts/create
 
-   * Производственная среда: https://cernercare.com/accounts/create  
+   * Производство: https://cernercare.com/accounts/create  
 
 2.  Далее создайте для Azure AD системную учетную запись. Выполните инструкции ниже, чтобы отправить запрос на получение системной учетной записи для песочницы и рабочей среды.
 
-   * Инструкции: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Указания: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
    * Песочница: https://sandboxcernercentral.com/system-accounts/
 
-   * Производственная среда: https://cernercentral.com/system-accounts/
+   * Производство: https://cernercentral.com/system-accounts/
 
 3.  Далее создайте токен носителя OAuth для каждой системной учетной записи. Для этого выполните приведенные ниже инструкции.
 
-   * Инструкции: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Указания: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
    * Песочница: https://sandboxcernercentral.com/system-accounts/
 
-   * Производственная среда: https://cernercentral.com/system-accounts/
+   * Производство: https://cernercentral.com/system-accounts/
 
-4. Наконец, необходимо получить идентификаторы области списка пользователей для песочницы и рабочей среды в Cerner, чтобы завершить настройку. Сведения о получении идентификатора см. по адресу https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Наконец, необходимо получить идентификаторы области списка пользователей для песочницы и рабочей среды в Cerner, чтобы завершить настройку. Дополнительные сведения о том, как их получить, см. в статье https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
 5. Теперь можно настроить Azure AD для подготовки учетных записей пользователей в Cerner. Войдите на [портал Azure](https://portal.azure.com) и перейдите в раздел **Azure Active Directory > Корпоративные приложения > Все приложения**.
 
@@ -105,7 +106,7 @@ ms.lasthandoff: 02/09/2018
 
 > Песочница: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Рабочая среда: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Производство: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * В поле **Секретный токен** введите токен носителя OAuth, созданный на шаге 3, и нажмите кнопку **Проверить подключение**.
 
@@ -130,7 +131,7 @@ ms.lasthandoff: 02/09/2018
 * [Cerner Central: публикация данных удостоверений с помощью Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Руководство. Интеграция Azure Active Directory с Cerner Central](active-directory-saas-cernercentral-tutorial.md)
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Сведения о просмотре журналов и получении отчетов о действиях по подготовке](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

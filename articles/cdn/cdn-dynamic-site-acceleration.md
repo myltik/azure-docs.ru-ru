@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359991"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Динамическое ускорение сайтов с помощью Azure CDN
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/14/2018
 >   
 > Для профилей **Azure CDN от Verizon** возможность изменения оптимизации конечной точки CDN после ее создания недоступна.
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Настройка конечной точки CDN для ускорения доставки динамических файлов
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Настройка конечной точки CDN для ускорения доставки динамических файлов
 
 Чтобы настроить конечную точку CDN для оптимизации доставки динамических файлов, можно использовать портал Azure. То же самое можно сделать программным образом с помощью REST API или любого клиентского пакета SDK. 
 
