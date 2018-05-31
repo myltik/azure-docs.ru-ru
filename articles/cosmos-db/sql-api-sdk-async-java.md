@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359532"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK Async Java для API-интерфейса SQL
 > [!div class="op_single_selector"]
@@ -55,6 +56,18 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* Добавлена поддержка политики уникальных индексов.
+* Добавлена поддержка ограничения размера маркера продолжения ответа в параметрах веб-канала.
+* Добавлена поддержка разбиения секций в запросах между секциями.
+* Исправлена ошибка в сериализации метки времени JSON ([№32 на сайте GitHub](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Исправлена ошибка в сериализации перечисления JSON.
+* Исправлена ошибка в управлении документами размером 2 МБ ([№33 на сайте GitHub](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Зависимость com.fasterxml.jackson.core:jackson-databind обновлена до версии 2.9.5 из-за ошибки ([jackson-databind: №1599 на сайте GitHub](https://github.com/FasterXML/jackson-databind/issues/1599)).
+* Зависимость от rxjava-extras обновлена до версии 0.8.0.17 из-за ошибки ([rxjava-extras: №30 на сайте GitHub](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Описание метаданных в POM-файле обновлено в соответствии с остальной документацией.
+* Улучшение синтаксиса ([№41 на сайте GitHub ](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([№40 на сайте GitHub](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * В запросах добавлена поддержка обратной реакции.
 * В запросах добавлена поддержка идентификатора диапазона для ключей секции.
@@ -79,6 +92,7 @@ ms.lasthandoff: 05/07/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |18 мая 2018 г.|--- |
 | [1.0.1](#1.0.1) |20 апреля 2018 г.|--- |
 | [1.0.0](#1.0.0) |27 февраля 2018 г|--- |
 
