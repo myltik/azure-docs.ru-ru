@@ -1,27 +1,29 @@
 ---
-title: "Протоколы проверки подлинности Azure Active Directory | Документация Майкрософт"
-description: "Обзор протоколов проверки подлинности, поддерживаемых в Azure Active Directory (AD)"
+title: Протоколы аутентификации Azure Active Directory | Документация Майкрософт
+description: Обзор протоколов проверки подлинности, поддерживаемых в Azure Active Directory (AD)
 documentationcenter: dev-center-name
-author: priyamohanram
+author: CelesteDG
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1387ce5f3f16301786cf4111a081a5486788fa77
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71b12b848b1be309823bac46a219c0bb25e26092
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156523"
 ---
-# <a name="azure-active-directory-authentication-protocols"></a>Протоколы проверки подлинности Azure Active Directory
+# <a name="azure-active-directory-authentication-protocols"></a>Протоколы аутентификации Azure Active Directory
 Служба Azure Active Directory (Azure AD) поддерживает несколько широко используемых протоколов проверки подлинности и авторизации. В перечисленных ниже разделах мы рассказываем о поддерживаемых протоколах и их реализации в Azure AD. Эти разделы содержат обзор поддерживаемых типов утверждений, основные сведения об использовании метаданных федерации, подробную документацию по протоколам OAuth 2.0. и SAML 2.0, а также советы по устранению неполадок.
 
 ## <a name="authentication-protocols-articles-and-reference"></a>Статьи и другие справочные материалы по протоколам проверки подлинности
