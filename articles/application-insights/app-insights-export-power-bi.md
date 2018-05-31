@@ -1,9 +1,9 @@
 ---
-title: "Экспорт в Power BI из Azure Application Insights | Документация Майкрософт"
-description: "Аналитические запросы можно просматривать в Power BI."
+title: Экспорт в Power BI из Azure Application Insights | Документация Майкрософт
+description: Аналитические запросы можно просматривать в Power BI.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869059"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Использование данных Application Insights в Power BI
 [Power BI](http://www.powerbi.com/) — это набор бизнес-инструментов для анализа данных и обмена сведениями. На каждом устройстве доступны панели мониторинга с широкими возможностями. Вы можете объединять данные из различных источников, в том числе аналитические запросы из [ Application Insights](app-insights-overview.md).
@@ -121,8 +122,8 @@ ms.lasthandoff: 11/29/2017
 
 1. Создайте [ключ API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Обновите сценарий Power BI на языке M, экспортированный из Analytics, заменив URL-адрес Azure Resource Manager интерфейсом API Application Insights.
-   * Замените **https://management.azure.com/subscriptions/...**
-   * на **https://api.applicationinsights.io/beta/apps/...**
+   * Вместо **https://management.azure.com/subscriptions/...**
+   * укажите  **https://api.applicationinsights.io/beta/apps/...**
 3. Наконец, измените учетные данные на базовые и используйте свой ключ API.
   
 

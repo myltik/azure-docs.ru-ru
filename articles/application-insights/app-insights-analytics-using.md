@@ -1,9 +1,9 @@
 ---
-title: "Использование аналитики — мощного инструмента поиска Azure Application Insights | Документация Майкрософт"
-description: "Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. "
+title: Использование аналитики — мощного инструмента поиска Azure Application Insights | Документация Майкрософт
+description: 'Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869892"
 ---
 # <a name="using-analytics-in-application-insights"></a>Использование аналитики в Application Insights
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов Log Analytics.
@@ -143,7 +144,7 @@ IntelliSense подскажет вам операторы и элементы в
 Если таблица содержит четыре столбца или меньше, вы можете закрепить ее на панели мониторинга. Отображаются только семь верхних строк.
 
 ### <a name="dashboard-refresh"></a>Обновление панели мониторинга
-Диаграмма, закрепленная на панели мониторинга, обновляется автоматически при повторном выполнении запроса приблизительно каждые два часа. Вы также можете нажать кнопку "Обновить".
+Диаграмма, закрепленная на панели мониторинга, обновляется автоматически при повторном выполнении запроса приблизительно каждый час. Вы также можете нажать кнопку "Обновить".
 
 ### <a name="automatic-simplifications"></a>Автоматические упрощения
 
