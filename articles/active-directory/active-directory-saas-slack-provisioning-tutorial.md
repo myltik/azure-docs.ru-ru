@@ -1,8 +1,8 @@
 ---
-title: "Руководство по настройке Slack для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить Azure Active Directory для автоматической подготовки и отмены подготовки учетных записей пользователей в Slack."
+title: Руководство по настройке Slack для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить Azure Active Directory для автоматической подготовки и отмены подготовки учетных записей пользователей в Slack.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 897121e0dcaaf417430b892c501a243303ae9b6e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344353"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Руководство по настройке Slack для автоматической подготовки пользователей
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 02/09/2018
 
 В этом разделе описывается подключение к API подготовки учетной записи пользователя Azure AD в Slack и настройка подготовки службы для создания, обновления и отмены назначения учетных записей пользователей в Slack на основе назначения пользователей и групп в Azure AD.
 
-**Совет.** Для Slack также можно включить единый вход на основе SAML, следуя инструкциям на портале Azure [https://portal.azure.com]. Единый вход можно настроить независимо от автоматической подготовки, хотя эти две возможности дополняют друг друга.
+**Совет.** Для Slack можно также включить единый вход на основе SAML. Для этого следуйте инструкциям, указанным на портале Azure[https://portal.azure.com]. Единый вход можно настроить независимо от автоматической подготовки, хотя эти две возможности дополняют друг друга.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Настройка автоматической подготовки учетных записей пользователей Azure AD в Slack.
@@ -115,4 +116,4 @@ ms.lasthandoff: 02/09/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

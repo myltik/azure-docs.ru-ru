@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с 123ContactForm | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении 123ContactForm."
+title: Руководство по интеграции Azure Active Directory с 123ContactForm | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении 123ContactForm.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 70955676e78642e6c8a6eb85f8165b327baece3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f7ad606fc8ee394125300a55dc0586a055a33be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Руководство по интеграции Azure Active Directory с 123ContactForm
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в 123ContactForm (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -133,7 +134,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-123contactform-tutorial/tutorial_general_400.png)
 
-7. Чтобы настроить единый вход на стороне **123ContactForm**, перейдите по адресу [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) и выполните следующие действия.
+7. Чтобы настроить единый вход на стороне **123ContactForm**, перейдите по адресу [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) и выполните следующие действия:
 
     ![Настройка единого входа](./media/active-directory-saas-123contactform-tutorial/submit.png) 
 
@@ -232,7 +233,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

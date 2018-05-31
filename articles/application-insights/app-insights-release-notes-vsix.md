@@ -1,9 +1,9 @@
 ---
-title: "Заметки о выпуске расширения Visual Studio для аналитических средств для разработчиков"
-description: "Последние обновления аналитических средств Visual Studio для разработчиков."
+title: Заметки о выпуске расширения Visual Studio для аналитических средств для разработчиков
+description: Последние обновления аналитических средств Visual Studio для разработчиков.
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869552"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Заметки о выпуске — средства анализа для разработчиков
 
@@ -289,8 +290,3 @@ Application Insights теперь поддерживает проекты ASP.NE
 
 ![Диалоговое окно "Новый проект"](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Поддержка устройств
-На конференции *Connect();* 2015 мы [анонсировали](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) HockeyApp — наше решение для разработки мобильных устройств. HockeyApp помогает рассылать бета-сборки тестировщикам, собирать и анализировать все сбои в приложении и получать отзывы непосредственно от клиентов.
-HockeyApp поддерживает любую платформу, на которой может быть собрано приложение, будь то iOS, Android, Windows или межплатформенное решение, такое как Xamarin, Cordova или Unity.
-
-В следующие выпуски расширения Application Insights будут добавлены новые возможности, обеспечивающие более интегрированное взаимодействие между HockeyApp и Visual Studio. Сейчас работу с HockeyApp можно начать, просто добавив ссылку на NuGet. Дополнительные сведения см. в [документации](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone).
