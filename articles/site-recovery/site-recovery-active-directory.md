@@ -1,19 +1,20 @@
 ---
-title: "Защита Active Directory и DNS с помощью Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье описывается, как реализовать решение аварийного восстановления для Active Directory с помощью Azure Site Recovery."
+title: Защита Active Directory и DNS с помощью Azure Site Recovery | Документация Майкрософт
+description: В этой статье описывается, как реализовать решение аварийного восстановления для Active Directory с помощью Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072612"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Защита Active Directory и DNS с помощью Azure Site Recovery
 
@@ -57,16 +58,16 @@ Site Recovery можно использовать для защиты вирту
 Создайте контроллер домена на дополнительном сайте. При повышении роли сервера до роли контроллера домена укажите имя домена, которое используется на основном сайте. Чтобы настроить параметры объекта связывания сайтов, в который добавляются сайты, можно использовать оснастку **Active Directory — сайты и службы**. Настраивая параметры связи между сайтами, можно указать время и периодичность репликации между двумя или несколькими сайтами. Дополнительные сведения см. в статье [Расписание репликации между сайтами](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Защита "сайт-Azure"
-Сначала [создайте контроллер домена в виртуальной сети Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). При повышении роли сервера до роли контроллера домена укажите имя домена, которое используется на основном сайте.
+Сначала создайте контроллер домена в виртуальной сети Azure. При повышении роли сервера до роли контроллера домена укажите имя домена, которое используется на основном сайте.
 
-Затем [измените конфигурацию DNS-сервера для виртуальной сети](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network), так чтобы использовался сервер DNS в Azure.
+Затем измените конфигурацию DNS-сервера для виртуальной сети так, чтобы использовался DNS-сервер в Azure.
 
 ![Сеть Azure](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Защита "Azure — Azure"
-Сначала [создайте контроллер домена в виртуальной сети Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). При повышении роли сервера до роли контроллера домена укажите имя домена, которое используется на основном сайте.
+Сначала создайте контроллер домена в виртуальной сети Azure. При повышении роли сервера до роли контроллера домена укажите имя домена, которое используется на основном сайте.
 
-Затем [измените конфигурацию DNS-сервера для виртуальной сети](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network), так чтобы использовался сервер DNS в Azure.
+Затем измените конфигурацию DNS-сервера для виртуальной сети так, чтобы использовался DNS-сервер в Azure.
 
 ## <a name="test-failover-considerations"></a>Рекомендации по тестированию отработки отказа
 Чтобы не мешать выполнению рабочих нагрузок, тестовая отработка отказа проводится в сети, изолированной от рабочей сети.
