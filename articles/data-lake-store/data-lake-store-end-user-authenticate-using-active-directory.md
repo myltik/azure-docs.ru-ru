@@ -1,8 +1,8 @@
 ---
-title: "Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как реализовать аутентификацию пользователей в Data Lake Store с помощью Azure Active Directory."
+title: Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как реализовать аутентификацию пользователей в Data Lake Store с помощью Azure Active Directory.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 39ee32ec8b1d005aac12cb88262d7e2f37898721
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33938585"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory
 > [!div class="op_single_selector"]
@@ -83,7 +84,7 @@ Azure Data Lake Store использует Azure Active Directory для аут�
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Шаг 2. Получение идентификатора приложения и URI перенаправления
 
-В разделе [Получение идентификатора приложения и ключа проверки подлинности](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) описывается, как получить идентификатор приложения (также называемый идентификатором клиента на классическом портале Azure) для собственного приложения Azure AD.
+Ознакомьтесь с разделом [Получение идентификатора приложения и ключа проверки подлинности](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key), чтобы извлечь идентификатор приложения.
 
 Чтобы получить URI перенаправления, выполните следующие действия.
 

@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310610"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Резервное копирование виртуальных машин Azure в хранилище служб восстановления
 
@@ -39,7 +40,9 @@ ms.lasthandoff: 04/19/2018
 Чтобы узнать больше о том, для каких объектов можно создавать резервные копии, ознакомьтесь с разделом [Подготовка среды к архивации виртуальных машин, развернутых с помощью Resource Manager](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> В этом руководстве предполагается, что в вашей подписке Azure уже есть виртуальная машина. Кроме того, вам нужно предоставить службе архивации доступ к виртуальной машине.
+> Служба Backup создает группу ресурсов, отличную от группы ресурсов виртуальной машины, для сохранения коллекции точек восстановления. Пользователям рекомендуется не блокировать группу ресурсов, созданную для использования службой Backup.
+Формат именования группы ресурсов, созданной службой Backup: AzureBackupRG_`<Geo>`_`<number>`
+<br>Например: AzureBackupRG_northeurope_1
 >
 >
 
