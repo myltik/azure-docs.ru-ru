@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771054"
 ---
 # <a name="data-management-gateway"></a>Шлюз управления данными
 > [!NOTE]
@@ -276,30 +277,30 @@ ms.lasthandoff: 04/19/2018
 
 (Для шлюза с одним узлом)
 1. Запустите Windows PowerShell на компьютере шлюза.
-2. Перейдите в папку C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Перейдите в папку C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Выполните следующую команду, чтобы отключить функцию автоматического обновления.   
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
     ```
 4. Чтобы снова включить ее:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
 [Для предварительной версии высокодоступного и масштабируемого шлюза с несколькими узлами](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Запустите Windows PowerShell на компьютере шлюза.
-2. Перейдите в папку C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Перейдите в папку C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Выполните следующую команду, чтобы отключить функцию автоматического обновления.   
 
     Для шлюза с функцией высокой доступности (предварительная версия) требуется дополнительный параметр AuthKey.
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
 4. Чтобы снова включить ее:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
     ```
 
 ## <a name="configuration-manager"></a>Менеджер конфигураций

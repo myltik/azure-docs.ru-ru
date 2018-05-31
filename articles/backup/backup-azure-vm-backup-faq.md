@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205777"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин
 В этой статье содержатся ответы на часто задаваемые вопросы о компонентах службы Azure Backup для резервного копирования виртуальных машин. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -54,6 +55,9 @@ ms.lasthandoff: 04/19/2018
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>На резервных копиях виртуальных машин с управляемыми дисками включена блокировка группы ресурсов. Будет ли после этого работать резервное копирование?
 Если пользователь блокирует группу ресурсов, служба Backup не сможет удалить устаревшие точки восстановления. Из-за этого новые операций резервного копирования завершаются сбоем, так как серверная часть ограничивает максимальное число точек восстановления до 18. Если операции резервного копирования завершаются внутренним сбоем после блокировки RG, выполните эти [шаги, чтобы удалить коллекцию точек восстановления](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Политика Backup учитывает переход на летнее время?
+Нет. Имейте в виду, что дата и время на локальном компьютере отображаются по местному времени и с вашем текущим смещением летнего времени. Поэтому время, настроенное для запланированного резервного копирования, может отличаться от местного времени из-за перехода на летнее время.
 
 ## <a name="restore"></a>восстановление;
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Что лучше выбрать — восстановление дисков или полное восстановление виртуальной машины?
