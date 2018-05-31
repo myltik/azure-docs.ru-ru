@@ -1,5 +1,5 @@
 ---
-title: Устранение неполадок с заданиями Azure Data Lake Analytics с помощью портала Azure | Документация Майкрософт
+title: Мониторинг заданий в Azure Data Lake Analytics с помощью портала Azure | Документация Майкрософт
 description: 'Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных. '
 services: data-lake-analytics
 documentationcenter: ''
@@ -14,42 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14b1f4ec9dff78e4b5d2480755a4b1f2579ec135
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33884785"
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Устранение неполадок с заданиями Azure Data Lake Analytics с помощью портала Azure
-Узнайте, как использовать портал Azure для устранения неполадок с заданиями Data Lake Analytics.
-
-Работая с этим руководством, вы смоделируете проблему с отсутствующим исходным файлом и устраните ее с помощью портала Azure.
-
-## <a name="submit-a-data-lake-analytics-job"></a>Отправка задания аналитики озера данных
-
-Отправьте следующее задание U-SQL:
-
-```
-@searchlog =
-   EXTRACT UserId          int,
-           Start           DateTime,
-           Region          string,
-           Query           string,
-           Duration        int?,
-           Urls            string,
-           ClickedUrls     string
-   FROM "/Samples/Data/SearchLog.tsv1"
-   USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-   TO "/output/SearchLog-from-adls.csv"
-   USING Outputters.Csv();
-```
-    
-В сценарии определен исходный файл **/Samples/Data/SearchLog.tsv1**, а должен быть **/Samples/Data/SearchLog.tsv**.
-
-
-## <a name="troubleshoot-the-job"></a>Устранение неполадок задания
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Мониторинг заданий в Azure Data Lake Analytics с помощью портала Azure
 
 **Просмотр всех заданий**
 
@@ -81,5 +53,4 @@ OUTPUT @searchlog
 ## <a name="see-also"></a>См. также
 * [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md)
 * [Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Начало работы с аналитикой озера данных Azure и U-SQL с помощью Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)

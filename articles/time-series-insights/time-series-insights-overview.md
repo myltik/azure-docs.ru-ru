@@ -11,17 +11,18 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 01/26/2018
-ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941539"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Что собой представляет служба "Аналитика временных рядов Azure"
 
 Служба "Аналитика временных рядов" позволяет сохранять, визуализировать и запрашивать большие объемы данных временных рядов, например созданных устройствами Интернета вещей.  Если вам нужно хранить, контролировать, визуализировать и запрашивать данные временных рядов в облаке, служба "Аналитика временных рядов" — идеальный вариант.  
 
-![Time Series Insights flowchart] (media/overview/time-series-insights-flowchart.png)
+![Блок-схема службы "Аналитика временных рядов"](media/overview/time-series-insights-flowchart.png)
 
 У службы "Аналитика временных рядов" имеются четыре основные задачи.
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 04/20/2018
 4.  Уже через несколько минут вы увидите данные в обозревателе службы "Аналитика временных рядов".
 
 ## <a name="time-series-insights-explorer"></a>Обозреватель службы "Аналитика временных рядов"
-На этой схеме показан пример данных, отображаемых в обозревателе службы "Аналитика временных рядов":![Обозреватель службы "Аналитика временных рядов"] (media/time-series-insights-explorer/explorer4.png)
+На этой схеме показан пример данных, отображаемых в ![обозревателе службы "Аналитика временных рядов"](media/time-series-insights-explorer/explorer4.png).
 
 ## <a name="next-steps"></a>Дополнительная информация
  - [Использование обозревателя службы "Аналитика временных рядов" в демонстрационной среде](./time-series-quickstart.md).

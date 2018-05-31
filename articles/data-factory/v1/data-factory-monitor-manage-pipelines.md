@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3fb7c0be6f69f15b5b761f0c36d983f008282e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771370"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Мониторинг конвейеров фабрики данных Azure и управление ими с помощью портала Azure и PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +29,13 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [отслеживанием конвейеров фабрики данных и управлением ими в версии 2](../monitor-visually.md).
 
+В этой статье описываются мониторинг и отладка конвейеров, а также управление ими с помощью портала Azure и PowerShell.
+
 > [!IMPORTANT]
 > Приложение для мониторинга и управления предоставляет улучшенную поддержку мониторинга и управления конвейерами данных и усовершенствованное устранение проблем. Чтобы узнать больше об этом приложении, ознакомьтесь со статьей [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления](data-factory-monitor-manage-app.md). 
 
-
-В этой статье описываются мониторинг и отладка конвейеров, а также управление ими с помощью портала Azure и PowerShell. В ней также приводятся инструкции по настройке оповещений в случае сбоев.
+> [!IMPORTANT]
+> Фабрика данных Azure версии 1 теперь использует новую [инфраструктуру оповещения Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Старая инфраструктура оповещения не рекомендуется к использованию. В результате существующие оповещения, настроенные для фабрик данных версии 1, больше не будут работать. Существующие оповещения для фабрик данных версии 1 не переносятся автоматически. Вы должны воссоздать эти оповещения в новой инфраструктуре оповещений. Войдите на портал Azure и выберите **Монитор**, чтобы создать оповещения о метриках (например, неудачные или успешные выполнения) для ваших фабрик данных версии 1.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Состояния конвейеров и действий
 Используя портал Azure, можно делать следующее:
@@ -103,7 +106,7 @@ ms.lasthandoff: 03/23/2018
 <td>ActivityResume</td><td>Действие приостановлено, и до его возобновления выполнять срезы нельзя.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Действие выполняется повторно.</td>
+<td>Повторить попытку</td><td>Действие выполняется повторно.</td>
 </tr>
 <tr>
 <td>Проверка</td><td>Проверка еще не начата.</td>
@@ -133,10 +136,10 @@ ms.lasthandoff: 03/23/2018
 <td>Ready</td><td>-</td><td>Срез готов к использованию.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>Нет</td><td>Срез не обрабатывается.</td>
+<td>Skipped</td><td>None</td><td>Срез не обрабатывается.</td>
 </tr>
 <tr>
-<td>Нет</td><td>-</td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
+<td>None</td><td>-</td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
 </tr>
 </table>
 
@@ -196,7 +199,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Отладка конвейеров
 Фабрика данных Azure предоставляет широкие возможности отладки и устранения неполадок с конвейерами с помощью портала Azure и Azure PowerShell.
 
-> Примечание. Гораздо проще устранять ошибки и проблемы с помощью приложения для мониторинга и управления. Чтобы узнать больше об этом приложении, ознакомьтесь со статьей [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления](data-factory-monitor-manage-app.md). 
+> [!NOTE] 
+> Гораздо проще устранять ошибки и проблемы с помощью приложения для мониторинга и управления. Чтобы узнать больше об этом приложении, ознакомьтесь со статьей [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Поиск ошибок в конвейере
 Если при выполнении действия в конвейере происходит сбой, созданный конвейером набор данных будет находиться в состоянии "Ошибка". Вы можете устранить неполадки или выполнить отладку в фабрике данных Azure, используя следующие методы.
@@ -296,360 +300,35 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Создание оповещений на портале Azure
 
-## <a name="create-alerts"></a>Создание оповещений
-Azure регистрирует пользовательские события, когда ресурс Azure (например, фабрика данных) создается, обновляется или удаляется. Вы можете создавать оповещения об этих событиях. Фабрика данных позволяет собирать различные метрики и создавать по ним оповещения. Мы советуем использовать события для наблюдения в режиме реального времени, а метрики — для статистических целей.
+1.  Войдите на портал Azure и выберите **Монитор -> Оповещения**, чтобы открыть страницу оповещений.
 
-### <a name="alerts-on-events"></a>Оповещения о событиях
-События Azure позволяют получить представление о том, что происходит в ресурсах Azure. При использовании фабрики данных Azure события создаются, когда:
+    ![Откройте страницу "Оповещения".](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
 
-* фабрика данных создается, обновляется или удаляется;
-* запускается или завершается обработка данных (цикл выполнения);
-* создается и удаляется кластер HDInsight по требованию.
+2.  Нажмите кнопку **+ Новое правило генерации оповещений**, чтобы создать оповещение.
 
-Вы можете создавать оповещения в этих пользовательских событиях и настраивать их для отправки уведомлений по электронной почте администраторам и соадминистраторам подписки. Кроме того, вы можете указать дополнительные адреса электронной почты пользователей, которые должны получать уведомления по электронной почте при выполнении определенных условий. Эта функция удобна, когда нужно получать уведомления о сбоях, но не требуется постоянно отслеживать состояние фабрики данных.
+    ![Создание оповещения](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-> [!NOTE]
-> В настоящее время портал не отображает оповещения о событиях. Используйте [приложение по мониторингу и управлению](data-factory-monitor-manage-app.md) для просмотра всех оповещений.
+3.  Определите **условия оповещения**. (Выберите значение **Фабрики данных** в поле **фильтрации по типу ресурсов**.) Вы также можете указать значения для **измерений**.
 
+    ![Определение условия оповещения — выбор цели](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
-#### <a name="specify-an-alert-definition"></a>Задание определения оповещения
-Чтобы задать определение оповещения, создайте файл JSON, описывающий операции, о которых вы хотите получать оповещения. В следующем примере отправляется электронное уведомление об операции RunFinished. Другими словами, оно отправляется в случае завершения цикла выполнения действия в фабрике данных со сбоем (состояние = FailedExecution).
+    ![Определение условия оповещения — добавление критерия оповещения](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
 
-```JSON
-{
-    "contentVersion": "1.0.0.0",
-     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "parameters": {},
-    "resources":
-    [
-        {
-            "name": "ADFAlertsSlice",
-            "type": "microsoft.insights/alertrules",
-            "apiVersion": "2014-04-01",
-            "location": "East US",
-            "properties":
-            {
-                "name": "ADFAlertsSlice",
-                "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
-                "isEnabled": true,
-                "condition":
-                {
-                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
-                    "dataSource":
-                    {
-                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
-                        "operationName": "RunFinished",
-                        "status": "Failed",
-                        "subStatus": "FailedExecution"   
-                    }
-                },
-                "action":
-                {
-                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                    "customEmails": [ "<your alias>@contoso.com" ]
-                }
-            }
-        }
-    ]
-}
-```
+    ![Определение условия оповещения — добавление логики оповещения](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-Вы можете удалить **subStatus** в определении JSON, если не хотите получать оповещение при конкретном сбое.
+4.  Определите **сведения об оповещении**.
 
-Этот пример устанавливает оповещение для всех фабрик данных в вашей подписке. Если вам необходимо установить оповещение для определенной фабрики данных, можно указать ее значение **resourceUri** в **dataSource**:
+    ![Определение сведений об оповещении](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-```JSON
-"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
-```
+5.  Определите **группу действий**.
 
-Список возможных операций и состояний (а также дополнительных состояний) см. в следующей таблице.
+    ![Определение группы действий — создание группы действий](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 
-| Имя операции | Status | Подсостояние |
-| --- | --- | --- |
-| RunStarted |Started |Запуск |
-| RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned |
-| OnDemandClusterCreateStarted |Started | |
-| OnDemandClusterCreateSuccessful |Succeeded | |
-| OnDemandClusterDeleted |Succeeded | |
+    ![Определение группы действий — настройка свойств](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
 
-Дополнительные сведения об элементах JSON, используемых в примере, см. в статье о том, как [создать правило оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
-
-#### <a name="deploy-the-alert"></a>Развертывание оповещения
-Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере.
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
-```
-
-После успешного завершения развертывания группы ресурсов вы увидите следующие сообщения:
-
-```
-VERBOSE: 7:00:48 PM - Template is valid.
-WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
-Please update scripts to remove this parameter.
-VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
-VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
-
-DeploymentName    : ADFAlertFailedSlice
-ResourceGroupName : adf
-ProvisioningState : Succeeded
-Timestamp         : 10/11/2014 2:01:00 AM
-Mode              : Incremental
-TemplateLink      :
-Parameters        :
-Outputs           :
-```
-
-> [!NOTE]
-> Можно использовать REST API [Создать правило оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx) для создания правила оповещения. Полезные данные JSON аналогичны JSON в примере.  
-
-
-#### <a name="retrieve-the-list-of-azure-resource-group-deployments"></a>Получение списка развертываний групп ресурсов Azure
-Чтобы получить список развертываний групп ресурсов Azure, используйте командлет **Get-AzureRmResourceGroupDeployment**, как показано в следующем примере.
-
-```powershell
-Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
-```
-
-```
-DeploymentName    : ADFAlertFailedSlice
-ResourceGroupName : adf
-ProvisioningState : Succeeded
-Timestamp         : 10/11/2014 2:01:00 AM
-Mode              : Incremental
-TemplateLink      :
-Parameters        :
-Outputs           :
-```
-
-#### <a name="troubleshoot-user-events"></a>Устранение неполадок пользовательских событий
-1. Вы можете просмотреть все созданные события, щелкнув плитку **Метрики и операции**.
-
-    ![Элемент "Метрики и операции"](./media/data-factory-monitor-manage-pipelines/metrics-and-operations-tile.png)
-2. Щелкните плитку **События** для просмотра событий.
-
-    ![Плитки "События"](./media/data-factory-monitor-manage-pipelines/events-tile.png)
-3. В колонке **События** можно просмотреть подробные сведения о событиях, фильтровать их и т. д.
-
-    ![Колонка "События"](./media/data-factory-monitor-manage-pipelines/events-blade.png)
-4. В списке операций выберите **операцию**, которая вызывает ошибку.
-
-    ![Выберите операцию](./media/data-factory-monitor-manage-pipelines/select-operation.png)
-5. Щелкните событие **ошибки**, чтобы просмотреть сведения об ошибке.
-
-    ![Ошибка события](./media/data-factory-monitor-manage-pipelines/operation-error-event.png)
-
-Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье о [командлетах Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**:
-
-```powershell
-get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
-```
-
-```
-Properties :
-Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
-Condition   :
-DataSource :
-EventName             :
-Category              :
-Level                 :
-OperationName         : RunFinished
-ResourceGroupName     :
-ResourceProviderName  :
-ResourceId            :
-Status                : Failed
-SubStatus             : FailedExecution
-Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
-Condition      :
-Description : One or more of the data slices for the Azure Data Factory has failed processing.
-Status      : Enabled
-Name:       : ADFAlertsSlice
-Tags       :
-$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
-Location   : West US
-Name       : ADFAlertsSlice
-```
-
-```powershell
-Get-AlertRule -res $resourceGroup
-```
-```
-Properties : Microsoft.Azure.Management.Insights.Models.Rule
-Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-Location   : West US
-Name       : FailedExecutionRunsWest0
-
-Properties : Microsoft.Azure.Management.Insights.Models.Rule
-Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
-Location   : West US
-Name       : FailedExecutionRunsWest3
-```
-
-```powershell
-Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
-```
-
-```
-Properties : Microsoft.Azure.Management.Insights.Models.Rule
-Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-Location   : West US
-Name       : FailedExecutionRunsWest0
-```
-
-Выполните следующие команды get-help, чтобы просмотреть сведения и примеры для командлета Get-AlertRule.
-
-```powershell
-get-help Get-AlertRule -detailed
-```
-
-```powershell
-get-help Get-AlertRule -examples
-```
-
-
-Если события-триггеры отображаются в колонке на портале, но вы не получаете электронных уведомлений, убедитесь, что ваш адрес электронной почты может получать сообщения от внешних отправителей. Получение оповещений может быть заблокировано в параметрах электронной почты.
-
-### <a name="alerts-on-metrics"></a>Оповещения по метрикам
-Фабрика данных позволяет собирать различные метрики и создавать по ним оповещения. Вы можете отслеживать и создавать оповещения по следующим метрикам срезов в фабрике данных:
-
-* **циклы выполнения со сбоем**;
-* **успешные циклы выполнения**.
-
-Эти метрики позволяют получать общее представление обо всех успешных и проблемных циклах в фабрике данных. Метрики создаются при каждом цикле выполнения действия со срезом. Все созданные за час метрики собираются и передаются в вашу учетную запись хранения. Чтобы включить метрики, необходимо настроить учетную запись хранения.
-
-#### <a name="enable-metrics"></a>Включить метрики
-Чтобы включить метрики, в колонке **Фабрика данных** выберите следующее:
-
-**Мониторинг** > **Метрика** > **Параметры диагностики** > **Диагностика**
-
-![Ссылка диагностики](./media/data-factory-monitor-manage-pipelines/diagnostics-link.png)
-
-В колонке **Диагностика** щелкните **Вкл.**, выберите учетную запись хранения и щелкните **Сохранить**.
-
-![Выноска "Диагностика"](./media/data-factory-monitor-manage-pipelines/diagnostics-blade.png)
-
-Так как метрики агрегируются ежечасно, между сохранением и отображением метрик в колонке **Мониторинг** может пройти час.
-
-### <a name="set-up-an-alert-on-metrics"></a>Настройка оповещений по метрикам
-Щелкните плитку **Метрики фабрики данных**.
-
-![Элемент "Метрики фабрики данных"](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
-
-В колонке **Метрика** щелкните **+ Add alert** (+ Добавить оповещение) на панели инструментов.
-![Колонка "Метрики фабрики данных", добавление оповещения](./media/data-factory-monitor-manage-pipelines/add-alert.png)
-
-На странице **Добавление правила оповещения** сделайте следующее и нажмите кнопку **ОК**.
-
-* Введите имя для оповещения (например, оповещение о сбое).
-* Введите описание для оповещения (например, отправка сообщения при сбое).
-* Выберите метрику (неудачные и успешные выполнения).
-* Укажите условие и пороговое значение.   
-* Укажите период времени.
-* Укажите, кому следует отправлять сообщение (владельцам, участникам или читателям).
-
-![Колонка "Метрики фабрики данных", добавление правила оповещения](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
-
-После успешного добавления правила оповещения колонка закрывается и в колонке **Метрика** появляется новое оповещение.
-
-![Колонка "Метрики фабрики данных", добавление нового оповещения](./media/data-factory-monitor-manage-pipelines/failed-alert-in-metric-blade.png)
-
-В плитке **Правила оповещений** также появится количество оповещений. Щелкните плитку **Правила оповещений**.
-
-![Колонка "Метрики фабрики данных", правила оповещения](./media/data-factory-monitor-manage-pipelines/alert-rules-tile-rules.png)
-
-В колонке **Правила оповещений** можно увидеть все имеющиеся оповещения. Чтобы добавить оповещение, нажмите кнопку **Добавить оповещение** на панели инструментов.
-
-![Колонка "Правила оповещения"](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
-
-### <a name="alert-notifications"></a>Оповещения
-После возникновения условия, по которому срабатывает правило оповещения, вы будете получать соответствующее электронное уведомление о том, что оповещение активировано. После устранения условия (т. е. оно больше не соответствует правилу оповещения) вы получите электронное уведомление о том, что причина оповещения устранена.
-
-Такое поведение отличается от ситуации, когда уведомление отправляется по каждому сбою, соответствующему правилу оповещения.
-
-### <a name="deploy-alerts-by-using-powershell"></a>Развертывание оповещений с помощью PowerShell
-Вы можете развернуть оповещения по метрикам так же, как и по событиям.
-
-**Определение оповещения**
-
-```JSON
-{
-    "contentVersion" : "1.0.0.0",
-    "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "parameters" : {},
-    "resources" : [
-    {
-            "name" : "FailedRunsGreaterThan5",
-            "type" : "microsoft.insights/alertrules",
-            "apiVersion" : "2014-04-01",
-            "location" : "East US",
-            "properties" : {
-                "name" : "FailedRunsGreaterThan5",
-                "description" : "Failed Runs greater than 5",
-                "isEnabled" : true,
-                "condition" : {
-                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-                    "dataSource" : {
-                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-                        "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
->/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
-                        "metricName" : "FailedRuns"
-                    },
-                    "threshold" : 5.0,
-                    "windowSize" : "PT3H",
-                    "timeAggregation" : "Total"
-                },
-                "action" : {
-                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                    "customEmails" : ["abhinav.gpt@live.com"]
-                }
-            }
-        }
-    ]
-}
-```
-
-Замените *subscriptionId*, *resourceGroupName* и *dataFactoryName* в примере на соответствующие значения.
-
-*metricName* на данный момент поддерживает два значения:
-
-* FailedRuns и
-* SuccessfulRuns.
-
-**Развертывание оповещения**
-
-Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере.
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
-```
-
-В случае успешного развертывания вы увидите следующее сообщение:
-
-```
-VERBOSE: 12:52:47 PM - Template is valid.
-VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
-VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
-
-
-DeploymentName    : FailedRunsGreaterThan5
-ResourceGroupName : adf
-ProvisioningState : Succeeded
-Timestamp         : 7/27/2015 7:52:56 PM
-Mode              : Incremental
-TemplateLink      :
-Parameters        :
-Outputs           
-```
-
-Вы также можете использовать командлет **Add-AlertRule**, чтобы развернуть правило оповещения. Дополнительные сведения и примеры см. в документации [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).  
+    ![Определение группы действий — создана группа действий](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Перемещение фабрики данных в другую группу ресурсов или подписку
 Фабрику данных можно переместить в другую группу ресурсов или подписку, воспользовавшись кнопкой **Переместить** в командной строке на домашней странице фабрики данных.

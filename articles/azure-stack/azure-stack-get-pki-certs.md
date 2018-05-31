@@ -15,24 +15,27 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cbc1efaee7404c3ffc82acea0846136c43eba2a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936170"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Создание запроса на подпись сертификата Azure Stack
 
-Инструмент проверки готовности Azure Stack, описанный в этой статье, доступен в [коллекции PowerShell](https://aka.ms/AzsReadinessChecker). С его помощью можно создавать запросы на подпись сертификатов, которые подходят для развертывания Azure Stack. Сертификаты необходимо запросить, создать и проверить, а также выделить достаточно времени на их тестирование перед развертыванием. 
+Инструмент проверки готовности Azure Stack, описанный в этой статье, доступен в [коллекции PowerShell](https://aka.ms/AzsReadinessChecker). С его помощью можно создавать запросы на подпись сертификатов, которые подходят для развертывания Azure Stack. Сертификаты необходимо запросить, создать и проверить, а также выделить достаточно времени на их тестирование перед развертыванием.
 
 Инструмент проверки готовности Azure Stack (AzsReadinessChecker) выполняет следующие запросы сертификатов:
 
  - **Стандартные запросы сертификатов**  
-    В [этой статье](azure-stack-get-pki-certs.md) описано, как выполнять эти запросы. 
+    В [этой статье](azure-stack-get-pki-certs.md) описано, как выполнять эти запросы.
  - **Тип запроса**  
-    Запросите несколько шаблонов SAN-сертификата, сертификаты доменов и единый групповой сертификат.
+    Указывает, будет ли передан отдельный запрос на подпись сертификата или несколько запросов.
  - **Платформа как услуга (PaaS)**  
     При необходимости запросите сертификаты PaaS, как описано в разделе [Необязательные сертификаты PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
+
+
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -44,6 +47,9 @@ ms.lasthandoff: 04/28/2018
     - Внешнее полное доменное имя (FQDN)
     - Субъект
  - Windows 10 или Windows Server 2016;
+ 
+  > [!NOTE]
+  > После получения сертификатов из центра сертификации действия, описанные в разделе [Подготовка сертификатов PKI Azure Stack](azure-stack-prepare-pki-certs.md), необходимо будет выполнить в той же системе.
 
 ## <a name="generate-certificate-signing-requests"></a>Создание запроса на подпись сертификата
 
@@ -68,10 +74,23 @@ ms.lasthandoff: 04/28/2018
     ````PowerShell  
     $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
     ````
+4.  Объявление определения системы
 
-4. Объявите **имя региона** и **внешнее полное доменное имя**, которые предназначены для развертывания Azure Stack.
+    Azure Active Directory
 
-    ```PowerShell  
+    ```PowerShell
+    $IdentitySystem = "AAD"
+    ````
+
+    службы федерации Active Directory;
+
+    ```PowerShell
+    $IdentitySystem = "ADFS"
+    ````
+
+5. Объявите **имя региона** и **внешнее полное доменное имя**, которые предназначены для развертывания Azure Stack.
+
+    ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ````
@@ -79,19 +98,23 @@ ms.lasthandoff: 04/28/2018
     > [!note]  
     > На основе `<regionName>.<externalFQDN>` создаются все внешние DNS-имена в Azure Stack. В этом примере используется портал `portal.east.azurestack.contoso.com`.
 
-5. Чтобы создать единый запрос на сертификат с несколькими альтернативными именами субъекта, в том числе те, которые необходимы для службы PaaS, выполните следующую команду:
+6. Чтобы создать отдельный запрос на сертификат с несколькими альтернативными именами субъекта, выполните следующую команду.
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-6. Чтобы создать отдельные запросы на подпись сертификатов для каждого DNS-имени (без необходимых службам PaaS), выполните следующую команду:
+    Для включения служб PaaS укажите параметр ```-IncludePaaS```
+
+7. Чтобы создать отдельные запросы на подпись сертификатов для каждого DNS-имени, выполните следующую команду.
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-7. Просмотрите выходные данные:
+    Для включения служб PaaS укажите параметр ```-IncludePaaS```
+
+8. Просмотрите выходные данные:
 
     ````PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
@@ -109,9 +132,8 @@ ms.lasthandoff: 04/28/2018
     AzsReadinessChecker Completed
     ````
 
-8.  Отправьте созданный **REQ-файл** в центр сертификации (внутренний или общедоступный).  В выходном каталоге **Start-AzsReadinessChecker** содержится запрос на подпись сертификатов, который необходимо отправить в центр сертификации.  Он также содержит дочерний каталог, содержащий INF-файлы, которые используются во время создания запроса сертификата. Убедитесь, что сертификаты в центре сертификации создаются с помощью запроса, который соответствует требованиям из статьи [Требования к сертификатам инфраструктуры открытых ключей Azure Stack](azure-stack-pki-certs.md).
+9.  Отправьте созданный **REQ-файл** в центр сертификации (внутренний или общедоступный).  В выходном каталоге **Start-AzsReadinessChecker** содержится запрос на подпись сертификатов, который необходимо отправить в центр сертификации.  Он также содержит дочерний каталог, содержащий INF-файлы, которые используются во время создания запроса сертификата. Убедитесь, что сертификаты в центре сертификации создаются с помощью запроса, который соответствует требованиям из статьи [Требования к сертификатам инфраструктуры открытых ключей Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
 
 [Подготовка сертификатов PKI Azure Stack](azure-stack-prepare-pki-certs.md)
-
