@@ -1,11 +1,11 @@
 ---
-title: "Развертывание шаблонов в Azure Stack с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как развернуть виртуальную машину с помощью шаблона Resource Manager и PowerShell."
+title: Развертывание шаблонов в Azure Stack с помощью PowerShell | Документация Майкрософт
+description: Развертывание шаблонов в Azure Stack с помощью PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: d271b155d65a7dd95a92262da338cf3a272d140b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359821"
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Развертывание шаблонов в Azure Stack с помощью PowerShell
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Развертывание шаблонов в Azure Stack с помощью PowerShell
 
-*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-С помощью PowerShell можно развертывать шаблоны Azure Resource Manager в Пакет средств разработки Azure Stack.  Используя шаблоны Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции.
+С помощью PowerShell можно развертывать шаблоны Azure Resource Manager в Azure Stack. В этой статье показано, как использовать PowerShell для развертывания шаблона.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Выполнение командлетов PowerShell для AzureRM
-В этом примере вы выполните скрипт для развертывания виртуальной машины в пакет средств разработки Azure Stack с помощью шаблона Resource Manager.  Прежде чем продолжить, [настройте PowerShell](azure-stack-powershell-configure-user.md).  
 
-В этом примере шаблона в качестве виртуального жесткого диска используется WindowsServer-2012-R2-Datacenter.
+Этот пример использует командлеты PowerShell для AzureRM и шаблон, хранящийся на сайте GitHub. Этот шаблон создает виртуальную машину Windows Server 2012 R2 Datacenter.
 
-1. Откройте <http://aka.ms/AzureStackGitHub>, найдите шаблон **101-simple-windows-vm** и сохраните его в следующее расположение: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
-2. В PowerShell выполните следующий сценарий развертывания. Замените *username* и *password* своими значениями. При последующем использовании увеличивайте значение параметра *$myNum*, чтобы избежать перезаписи развертывания.
-   
+>[!NOTE]
+>Прежде чем выполнять этот пример, убедитесь, что вы [настроили PowerShell](azure-stack-powershell-configure-user.md) для пользователя Azure Stack.
+
+1. Перейдите по адресу <http://aka.ms/AzureStackGitHub> и найдите шаблон **101-simple-windows-vm**. Сохраните этот шаблон в этом расположении: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+2. Откройте командную строку PowerShell с повышенными привилегиями.
+3. Замените *username* и *password* в приведенном ниже сценарии, указав свои имя пользователя и пароль, затем запустите этот сценарий.
+
    ```PowerShell
        # Set Deployment Variables
        $myNum = "001" #Modify this per deployment
@@ -56,9 +60,12 @@ ms.lasthandoff: 02/22/2018
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Откройте портал Azure Stack, выберите последовательно **Обзор**, **Виртуальные машины** и найдите созданную вами новую виртуальную машину (*myDeployment001*).
 
+   >[!IMPORTANT]
+   >При каждом последующем запуске этого сценария увеличивайте значение параметра $myNum, чтобы избежать перезаписи развертывания.
 
-## <a name="next-steps"></a>Дальнейшие действия
+4. Откройте портал Azure Stack, выберите **Обзор** > **Виртуальные машины** и найдите свою новую виртуальную машину (*myDeployment001*).
+
+## <a name="next-steps"></a>Дополнительная информация
+
 [Развертывание шаблонов с помощью Visual Studio](azure-stack-deploy-template-visual-studio.md)
-

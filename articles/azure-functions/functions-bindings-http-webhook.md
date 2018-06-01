@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356330"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Привязки HTTP и webhook в функциях Azure
 
@@ -37,11 +38,13 @@ ms.lasthandoff: 04/16/2018
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>Триггер
 
 Триггер HTTP позволяет вызвать функцию с помощью HTTP-запроса. Триггер HTTP можно использовать для создания независимых от сервера API-интерфейсов и для ответа веб-перехватчикам. 
 
-По умолчанию триггер HTTP возвращает на запрос ответ с кодом состояния HTTP "200 ОК" и пустым текстом. Чтобы изменить ответ, настройте [выходную привязку HTTP](#http-output-binding).
+По умолчанию в Функциях версии 1.x триггер HTTP возвращает ответ HTTP "200 — OK" с пустым текстом, а в Функциях версии 2.x — ответ "204 — содержимое отсутствует" с пустым текстом. Чтобы изменить ответ, настройте [выходную привязку HTTP](#http-output-binding).
 
 ## <a name="trigger---example"></a>Пример триггера
 
@@ -54,7 +57,7 @@ ms.lasthandoff: 04/16/2018
 
 ### <a name="trigger---c-example"></a>Пример C# в триггере
 
-В следующем примере показана [функция C#](functions-dotnet-class-library.md), выполняющая поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), выполняющая поиск параметра `name` в строке запроса или в тексте HTTP-запроса. Обратите внимание, что возвращаемое значение используется для привязки выходных данных, но атрибут возвращаемого значения не является обязательным.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -85,15 +88,29 @@ public static async Task<HttpResponseMessage> Run(
 
 В следующем примере показаны привязка триггера в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. В функции выполняется поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
 
-Данные привязки в файле *function.json*:
+Ниже показан файл *function.json*.
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
@@ -145,15 +162,25 @@ public class CustomObject {
 
 В следующем примере показаны привязка триггера в файле *function.json* и [функция F#](functions-reference-fsharp.md), которая использует эту привязку. В функции выполняется поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
 
-Данные привязки в файле *function.json*:
+Ниже показан файл *function.json*.
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
@@ -201,15 +228,25 @@ let Run(req: HttpRequestMessage) =
 
 В следующем примере показана привязка триггера в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует привязку. В функции выполняется поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
 
-Данные привязки в файле *function.json*:
+Ниже показан файл *function.json*.
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
@@ -222,7 +259,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -261,15 +298,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 В следующем примере показаны привязка триггера веб-перехватчика в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция регистрирует комментарии к проблемам GitHub.
 
-Данные привязки в файле *function.json*:
+Ниже показан файл *function.json*.
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
@@ -301,15 +348,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 В следующем примере показаны привязка триггера веб-перехватчика в файле *function.json* и [функция F#](functions-reference-fsharp.md), которая использует эту привязку. Функция регистрирует комментарии к проблемам GitHub.
 
-Данные привязки в файле *function.json*:
+Ниже показан файл *function.json*.
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
@@ -345,11 +402,21 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
@@ -384,7 +451,6 @@ public static HttpResponseMessage Run(
 ## <a name="trigger---configuration"></a>Конфигурация триггера
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `HttpTrigger`.
-
 
 |свойство function.json | Свойство атрибута |ОПИСАНИЕ|
 |---------|---------|----------------------|
@@ -470,13 +536,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -547,35 +613,24 @@ module.exports = function (context, req) {
 
 ## <a name="output"></a>Выходные данные
 
-Привязка для вывода HTTP используется для ответа отправителю запроса HTTP. Эта привязка требует наличия триггера HTTP и позволяет настроить ответ, возвращаемый на запрос этого триггера. Если привязка для вывода HTTP отсутствует, триггер HTTP возвращает ответ HTTP "200 ОК" с пустым текстом. 
+Привязка для вывода HTTP используется для ответа отправителю запроса HTTP. Эта привязка требует наличия триггера HTTP и позволяет настроить ответ, возвращаемый на запрос этого триггера. Если привязка выходных данных HTTP не указана, в Функциях версии 1.x триггер HTTP возвращает ответ HTTP "200 — OK" с пустым текстом, а в Функциях версии 2.x — ответ "204 — содержимое отсутствует" с пустым текстом.
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
-Для библиотек класса C# не предусмотрены свойства конфигурации привязки для выходных данных. Чтобы отправить HTTP-ответ, измените тип возвращаемого значения функции на `HttpResponseMessage` или `Task<HttpResponseMessage>`.
-
-Для других языков выходная привязка HTTP определяется как объект JSON в массиве `bindings` файла function.json, как показано в следующем примере.
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json*.
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json*. Для библиотек класса C# свойства атрибута, соответствующие этим свойствам *function.json*, отсутствуют. 
 
 |Свойство  |ОПИСАНИЕ  |
 |---------|---------|
 | **type** |Нужно задать значение `http`. |
 | **direction** | Нужно задать значение `out`. |
-|**name** | Имя переменной, используемой в коде функции для ответа. |
+|**name** | Имя переменной, используемое в коде функции для ответа, или `$return` для использования возвращаемого значения. |
 
 ## <a name="output---usage"></a>Использование выходной привязки
 
-Используйте параметр вывода для ответа отправителю запроса HTTP или веб-перехватчика. Вы также можете использовать шаблоны ответов языкового стандарта. Примеры ответов см. в разделе с [примером триггера](#trigger---example) и [примером веб-перехватчика](#trigger---webhook-example).
+Чтобы отправить ответ HTTP, используйте шаблоны ответов языкового стандарта. В C# или скрипте C# задайте тип возвращаемого значения функции `HttpResponseMessage` или `Task<HttpResponseMessage>`. В C# атрибут возвращаемого значения не является обязательным.
+
+Примеры ответов см. в разделе с [примером триггера](#trigger---example) и [примером веб-перехватчика](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-> [!div class="nextstepaction"]
-> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)
+[Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

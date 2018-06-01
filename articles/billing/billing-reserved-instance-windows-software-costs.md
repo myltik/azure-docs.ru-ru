@@ -1,6 +1,6 @@
 ---
-title: Затраты на программное обеспечение Windows в зарезервированных экземплярах виртуальных машин Azure | Документация Майкрософт
-description: Узнайте, какие счетчики программного обеспечения Windows не учитываются в затратах на зарезервированный экземпляр виртуальной машины.
+title: Затраты на программное обеспечение Windows в зарезервированных экземплярах Azure. Выставление счетов в Azure | Документация Майкрософт
+description: Узнайте, какие счетчики программного обеспечения Windows не учитываются в затратах на зарезервированные экземпляры виртуальных машин Azure.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303357"
 ---
-# <a name="windows-software-costs-not-included-with-reserved-instances"></a>Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров
+# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров Azure
 
 Если не применяется преимущество гибридного использования Azure для зарезервированного экземпляра виртуальной машины, плата будет взиматься за единицы измерения программного обеспечения Windows, приведенные в разделе ниже.
 
@@ -52,11 +53,18 @@ ms.lasthandoff: 05/04/2018
 Стоимость каждой из этих единиц измерения можно узнать с помощью API Azure RateCard. Сведения о том, как узнать тарифы на единицы измерения в Azure, см. в статье [Get price and metadata information for resources used in an Azure subscription](https://msdn.microsoft.com/library/azure/mt219004) (Получение сведений о ценах и метаданных для ресурсов, используемых в подписке Azure).
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные сведения об Azure Reserved Virtual Machine Instances см. в следующих статьях.
+Дополнительные сведения о зарезервированных экземплярах Azure см. в следующих статьях:
 
-- [Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
 - [Сокращение затрат с помощью зарезервированных экземпляров виртуальных машин Azure](billing-save-compute-costs-reservations.md)
-- [Сведения о применении скидки на использование службы Azure Reserved Virtual Machine Instances](billing-understand-vm-reservation-charges.md)
+- [Предоплата за виртуальные машины с зарезервированными экземплярами](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
+- [Сведения о применении скидки на зарезервированный экземпляр виртуальной машины](billing-understand-vm-reservation-charges.md)
 - [Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования](billing-understand-reserved-instance-usage.md)
-- [Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Общие сведения об использовании зарезервированных экземпляров с Соглашением о регистрации Enterprise](billing-understand-reserved-instance-usage-ea.md)
+
+## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
+
+Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
+
+
+

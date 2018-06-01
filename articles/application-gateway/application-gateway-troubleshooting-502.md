@@ -1,11 +1,11 @@
 ---
-title: "Устранение ошибок \"Недопустимый шлюз (502)\" шлюза приложений Azure | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как устранять ошибки 502 шлюза приложений."
+title: Устранение ошибок "Недопустимый шлюз (502)" шлюза приложений Azure | Документация Майкрософт
+description: Из этой статьи вы узнаете, как устранять ошибки 502 шлюза приложений.
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356041"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Устранение ошибок "Недопустимый шлюз" в шлюзе приложений
 
@@ -89,10 +90,10 @@ DhcpOptions            : {
 
 * Убедитесь, что стандартный сайт настроен и ожидает передачи данных по адресу 127.0.0.1.
 * Если в параметре BackendHttpSetting задан порт, отличный от 80, на стандартном сайте нужно настроить ожидание передачи данных через этот порт.
-* Вызов к http://127.0.0.1:port должен вернуть HTTP-код результата 200 (в течении 30-секундного периода ожидания).
+* Вызов к http://127.0.0.1:port должен вернуть код результата HTTP 200. (в течении 30-секундного периода ожидания).
 * Откройте настроенный порт и удалите правила брандмауэра и группы безопасности сети Azure. Иначе они будут блокировать входящий и исходящий трафик через настроенный порт.
 * Если классические виртуальные машины Azure или облачная служба используются с полным доменным именем или общедоступным IP-адресом, откройте соответствующую [конечную точку](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) .
-* Если виртуальная машина настроена с помощью Azure Resource Manager и находится за пределами виртуальной сети, в которой развернут шлюз приложений, настройте в [группе безопасности сети](../virtual-network/virtual-networks-nsg.md) доступ через нужный порт.
+* Если виртуальная машина настроена с помощью Azure Resource Manager и находится за пределами виртуальной сети, в которой развернут шлюз приложений, настройте в [группе безопасности сети](../virtual-network/security-overview.md) доступ через нужный порт.
 
 ## <a name="problems-with-custom-health-probe"></a>Проблемы с пользовательскими пробами работоспособности
 

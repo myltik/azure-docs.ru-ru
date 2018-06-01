@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770935"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360331"
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Как планировать запуск и остановку среды выполнения интеграции Azure SSIS 
 Запуск среды выполнения интеграции (IR) Azure SSIS (SQL Server Integration Services) связан с издержками. Поэтому следует запускать IR только в том случае, когда требуется выполнение пакетов SSIS в Azure, и останавливать ее при ненадобности. Вы можете [запустить или остановить IR Azure SSIS вручную](manage-azure-ssis-integration-runtime.md) с помощью пользовательского интерфейса фабрики данных или Azure PowerShell. В этой статье описан процесс планирования запуска и остановки IR Azure SSIS с помощью службы автоматизации Azure и фабрики данных Azure. Ниже приведены общие шаги, описанные в этой статье:
@@ -71,9 +71,6 @@ ms.locfileid: "33770935"
 ### <a name="import-data-factory-modules"></a>Импорт модулей фабрики данных
 
 1. Выберите **Модули** в разделе **Общие ресурсы** в меню слева и проверьте, есть ли в списке модулей **AzureRM.Profile** и **AzureRM.DataFactoryV2**.
-
-    > [!IMPORTANT]
-    > В настоящее время можно использовать только модули **AzureRM.DataFactoryV2 0.5.2** и **AzureRM.Profile 4.5.0**.
 
     ![Проверка необходимых модулей](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
