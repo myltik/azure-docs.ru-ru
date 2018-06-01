@@ -6,15 +6,15 @@ ms.service: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 4bdd0ef182e0d18409ca608a645ff4011f00f9fa
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055825"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193358"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Подключение решений для управления обновлениями, отслеживания изменений и инвентаризации
 
