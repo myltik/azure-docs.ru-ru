@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358087"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Служба приложений в заметках о выпуске обновления 1 Azure Stack
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/28/2018
 ### <a name="prerequisites"></a>предварительным требованиям
 
 > [!IMPORTANT]
-> Теперь для новых развертываний службы приложений Azure в Azure Stack нужен [трехсубъектный групповой сертификат](azure-stack-app-service-before-you-get-started.md#get-certificates). Это связано с улучшением обработки единого входа для Kudu в службе приложений Azure. Новый субъект — ***.sso.appservice.<region>.<domainname>.<extension>**
+> Теперь для новых развертываний службы приложений Azure в Azure Stack нужен [трехсубъектный групповой сертификат](azure-stack-app-service-before-you-get-started.md#get-certificates). Это связано с улучшением обработки единого входа для Kudu в службе приложений Azure. Новый субъект — **\*.sso.appservice.\<регион\>.\<доменное_имя\>.\<расширение\>**
 >
 >
 
