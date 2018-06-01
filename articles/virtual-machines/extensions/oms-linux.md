@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 05/16/2018
 ms.author: danis
-ms.openlocfilehash: 5c292bf0f92423826d58fb0e9175f51d0599bf44
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: dcc5637b159341fc4b6cc8130b1807c8a2f604fc
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944856"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261831"
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Расширение виртуальной машины OMS для Linux
 
@@ -36,12 +36,12 @@ Log Analytics предоставляет возможности монитори
 
 | Дистрибутив | Version (версия) |
 |---|---|
-| CentOS Linux | 5, 6 и 7 |
-| Oracle Linux | 5, 6 и 7 |
-| Сервер Red Hat Enterprise Linux | 5, 6 и 7 |
-| Debian GNU/Linux | 6, 7 и 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
-| SUSE Linux Enterprise Server | 11 и 12 |
+| CentOS Linux | 5, 6 и 7 (x86/x64) |
+| Oracle Linux | 5, 6 и 7 (x86/x64) |
+| Сервер Red Hat Enterprise Linux | 5, 6 и 7 (x86/x64) |
+| Debian GNU/Linux | 6, 7 и 8 (x86/x64) |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 11 и 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Версия агента и расширения виртуальной машины
 Приведенная ниже таблица содержит сопоставление версий расширения виртуальной машины OMS и пакетов агента OMS для каждого выпуска. В ней также указана ссылка на заметки о выпуске для версии пакета агента OMS. Заметки о выпуске содержат сведения об исправлениях ошибок и новых функциях, доступных в данном выпуске агента.  
