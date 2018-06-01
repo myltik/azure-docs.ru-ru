@@ -1,1 +1,0 @@
-**ОБЛАСТЬ ПРИМЕНЕНИЯ:**![да](media/analysis-services-appliesto/yes.png)Azure Analysis Services![да](media/analysis-services-appliesto/yes.png)SQL Server Analysis Services (начиная с 2017 г.)
