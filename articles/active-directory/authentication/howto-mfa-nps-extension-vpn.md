@@ -1,26 +1,21 @@
 ---
 title: Интеграция VPN и Azure MFA с помощью расширения сервера политики сети | Документация Майкрософт
-description: В этой статье рассматривается интеграция инфраструктуры VPN с Azure MFA с помощью расширения сервера политики сети для Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, интеграция удаленных рабочих столов, Azure Active Directory, расширение сервера политики сети
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: Интеграция инфраструктуры VPN с Azure MFA с помощью расширения сервера политики сети для Microsoft Azure.
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 15d69c6b964c0efdc5578d09c5dea8dde85df83f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cfdb89ae833dc2450a4670a84af305f1caa10591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869518"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Интеграция инфраструктуры VPN с Azure MFA с помощью расширения сервера политики сети для Azure
 
