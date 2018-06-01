@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c3b7e7178ef68475f331edf058ca0f23661af3ea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34338879"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Руководство по интеграции Azure Active Directory с Adobe Sign
 
@@ -30,7 +30,7 @@ ms.locfileid: "34338879"
 - Вы можете включить автоматический вход пользователей в Adobe Sign (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -104,7 +104,7 @@ ms.locfileid: "34338879"
     ![Настройка единого входа][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
-
+ 
     ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения Adobe Sign** сделайте следующее.
@@ -116,8 +116,8 @@ ms.locfileid: "34338879"
     Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь к [группе поддержки Adobe Sign](https://helpx.adobe.com/in/contact/support.html).
-
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь к [группе поддержки Adobe Sign](https://helpx.adobe.com/in/contact/support.html). 
+ 
 4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
 
     ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -128,34 +128,15 @@ ms.locfileid: "34338879"
 
 6. В разделе **Конфигурация Adobe Sign** щелкните **Настроить Adobe Sign**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-7. Перед настройкой необходимо связаться с [группой поддержки клиентов Adobe Sign](https://helpx.adobe.com/in/contact/support.html), чтобы добавить домен в белый список Adobe Sign. Чтобы добавить домен, следуйте приведенным ниже инструкциям.
+7. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Adobe Sign в качестве администратора.
 
-    a. [Группа поддержки клиентов Adobe Sign](https://helpx.adobe.com/in/contact/support.html) отправит случайно сгенерированный маркер безопасности. Для вашего домена будет соответствовать маркер безопасности: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
-
-    Б. Необходимо будет опубликовать маркер безопасности проверки в текстовой записи DNS и уведомить [группу поддержки клиентов Adobe Sign](https://helpx.adobe.com/in/contact/support.html).
-    
-    > [!NOTE]
-    > Это может занять несколько дней или больше. Обратите внимание, что задержки распространения DNS означают, что значение, опубликованное в DNS, может не отображаться в течение часа или более. Предполагается, что ИТ-администратор должен быть осведомлен о том, как публиковать этот маркер безопасности в текстовой записи DNS.
-    
-    c. После направления запроса в службу поддержки с уведомлением [группы поддержки клиентов Adobe Sign](https://helpx.adobe.com/in/contact/support.html) и публикации маркера безопасности домен проверят и добавят его к учетной записи.
-    
-    d. Что можно предпринять для публикации маркера безопасности в записи DNS
-
-    * Войдите в учетную запись домена
-    * Найдите страницу для обновления записи DNS. Эта страница может называться "Управление DNS", "Управление именами сервера" или "Дополнительные параметры".
-    * Найдите текстовые записи для домена.
-    * Добавить текстовую запись с полным значением маркера безопасности, предоставленным Adobe
-    * Сохраните изменения.
-
-8. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Adobe Sign в качестве администратора.
-
-9. В меню "SAML" щелкните **Account Settings** (Параметры учетной записи), а затем щелкните **SAML Settings** (Параметры SAML).
+8. В меню "SAML" щелкните **Account Settings** (Параметры учетной записи), а затем щелкните **SAML Settings** (Параметры SAML).
    
     ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Учетная запись")
 
-10. В разделе **SAML Settings** (Параметры SAML) выполните следующие действия.
+9. В разделе **SAML Settings** (Параметры SAML) выполните следующие действия.
   
     ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "Параметры SAML")
    
@@ -270,7 +251,7 @@ ms.locfileid: "34338879"
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -285,3 +266,4 @@ ms.locfileid: "34338879"
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
+
