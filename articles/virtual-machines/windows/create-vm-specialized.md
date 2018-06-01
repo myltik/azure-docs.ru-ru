@@ -1,11 +1,11 @@
 ---
-title: "Создание виртуальной машины Windows с помощью специализированного VHD в Azure | Документация Майкрософт"
-description: "Создание новой виртуальной машины Windows на основе подключенного специализированного управляемого диска операционной системы в модели развертывания с помощью Resource Manager."
+title: Создание виртуальной машины Windows с помощью специализированного VHD в Azure | Документация Майкрософт
+description: Создание новой виртуальной машины Windows на основе подключенного специализированного управляемого диска операционной системы в модели развертывания с помощью Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012790"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Создание виртуальной машины Windows из специализированного диска с помощью PowerShell
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 Если вы используете PowerShell, убедитесь, что у вас установлена последняя версия модуля PowerShell AzureRM.Compute. 
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM -RequiredVersion 6.0.0
 ```
 Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
 
@@ -137,7 +138,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Создание управляемого диска из VHD
 
-Создайте управляемый диск на основе специализированного виртуального жесткого диска в своей учетной записи хранения с помощью командлета [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). В этом примере в качестве имени диска используется **myOSDisk1**, диск переносится в хранилище *StandardLRS*, а в качестве универсального кода ресурса (URI) для исходного виртуального жесткого диска используется *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd*.
+Создайте управляемый диск на основе специализированного виртуального жесткого диска в своей учетной записи хранения с помощью командлета [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). В этом примере используется имя диска **myOSDisk1**. Этот диск переносится в хранилище *Standard_LRS* и использует *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* в качестве универсального кода ресурса (URI) исходного VHD.
 
 Создайте группу ресурсов для новой виртуальной машины.
 
@@ -153,7 +154,7 @@ New-AzureRmResourceGroup -Location $location `
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -337,7 +338,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Добавьте диск операционной системы в конфигурацию с помощью [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). В этом примере для диска устанавливается размер *128 ГБ*, а управляемый диск подключается в качестве диска ОС *Windows*.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
@@ -367,5 +368,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация
-Чтобы войти на новую виртуальную машину, найдите ее на [портале](https://portal.azure.com), нажмите кнопку **Подключение**и откройте RDP-файл "Удаленный рабочий стол". Для входа на новую виртуальную машину используйте учетные данные для входа в новую виртуальную машину. Дополнительные сведения см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее](connect-logon.md).
+Войдите на свою новую виртуальную машину. Дополнительные сведения см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее](connect-logon.md).
 
