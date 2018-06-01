@@ -9,11 +9,12 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9cb627c4d8eff2226717dd675d24349730e90d5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068729"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Краткое руководство. Развертывание первого модуля IoT Edge на устройстве Linux или Mac (предварительная версия)
 
@@ -27,6 +28,15 @@ Azure IoT Edge переносит мощь облака на ваши устро
 
 * PIP на Python для установки среды выполнения IoT Edge.
    * Для Linux — `sudo apt-get install python-pip`.
+      
+      > [!Note]
+      > Для некоторых дистрибутивов (например, Raspbian) нужно также обновить определенные пакеты PIP и установить дополнительные зависимости:
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * Для MacOS — `sudo easy_install pip`.
 * Docker для запуска модулей IoT Edge.
    * [Установите среду Docker для Linux][lnk-docker-ubuntu] и убедитесь, что она работает. 

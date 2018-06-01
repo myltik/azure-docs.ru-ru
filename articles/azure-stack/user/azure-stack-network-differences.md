@@ -1,29 +1,28 @@
 ---
-title: "Сети Azure Stack. Различия и рекомендации"
-description: "Дополнительные сведения о различиях и рекомендациях при работе с сетями в Azure Stack."
+title: Сети Azure Stack. Различия и рекомендации
+description: Дополнительные сведения о различиях и рекомендациях при работе с сетями в Azure Stack.
 services: azure-stack
-keywords: 
+keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 02/28/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196259"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Рекомендации по работе с сетями Azure Stack
 
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-Возможности работы с сетями в Azure Stack позволяют использовать многие функции, доступные в Azure. Но есть и некоторые отличия, о которых следует помнить, прежде чем приступать к развертыванию.
+Сети Azure Stack обеспечивают множество функций, предоставляемых сетями Azure. Однако существуют ключевые различия, которые следует учесть перед развертыванием сети Azure Stack.
 
-
-В этой статье представлены рекомендации по работе с сетями и их компонентами в Azure Stack. См. дополнительные сведения о [ключевых различиях](azure-stack-considerations.md) между Azure Stack и Azure.
-
+В этой статье представлен обзор уникальных рекомендаций по сетям Azure Stack и их компонентам. См. дополнительные сведения о [ключевых различиях](azure-stack-considerations.md) между Azure Stack и Azure.
 
 ## <a name="cheat-sheet-networking-differences"></a>Памятка. Различия между сетевыми службами
 

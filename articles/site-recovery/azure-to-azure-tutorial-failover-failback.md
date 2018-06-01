@@ -1,21 +1,22 @@
 ---
-title: "Отработка отказа и восстановление размещения виртуальных машин Azure, реплицированных в дополнительный регион Azure, с помощью Azure Site Recovery (предварительная версия)"
-description: "Сведения об отработке отказа и восстановлении размещения при репликации виртуальных машин Azure в дополнительный регион Azure с помощью Azure Site Recovery"
+title: Отработка отказа и восстановление размещения виртуальных машин Azure, реплицированных в дополнительный регион Azure, с помощью Azure Site Recovery
+description: Сведения об отработке отказа и восстановлении размещения при репликации виртуальных машин Azure в дополнительный регион Azure с помощью Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209279"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Отработка отказа и восстановление размещения виртуальных машин Azure между регионами Azure (предварительная версия)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Отработка отказа и восстановление размещения виртуальных машин Azure между регионами Azure
 
 Служба [Azure Site Recovery](site-recovery-overview.md) помогает реализовать стратегию аварийного восстановления за счет управления процессами репликации, отработки отказа и восстановления локальных компьютеров и виртуальных машин Azure.
 
@@ -26,6 +27,8 @@ ms.lasthandoff: 03/09/2018
 > * Повторная защита дополнительной виртуальной машины Azure, чтобы обеспечить ее репликацию в основной регион
 > * Восстановление размещения дополнительной виртуальной машины
 > * Повторная защита основной виртуальной машины для использования дополнительного региона
+
+Репликация из Azure в Azure сейчас доступна в режиме предварительной версии.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

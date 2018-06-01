@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: feb31b0cc89c511f7487f995ba6045f89767abbb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3678eb20429d9e5123272499d474fdec2cdab065
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202192"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -53,13 +54,13 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="deploy-function-app"></a>Развертывание приложения-функции
 
-1. Щелкните раскрывающееся меню **Задачи** в Visual Studio Code и выберите **Запустить задачу...** - **cloud-deploy**.
+1. Щелкните раскрывающееся меню **Задачи** в Visual Studio Code и выберите **Запустить задачу...**, **cloud-deploy**.
 2. Дождитесь, пока завершится передача кода приложения-функции (появится сообщение *function app deploys: Done* (Развертывание приложения-функции: выполнено)).
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Настройка строки подключения к устройству Центра Интернета вещей в DevKit
 
 1. Подключите MXChip IoT DevKit к компьютеру.
-2. Щелкните раскрывающееся меню **Задачи** в Visual Studio Code и выберите **Запустить задачу...** - **config-device-connection**.
+2. Щелкните раскрывающееся меню **Задачи** в Visual Studio Code и выберите **Запустить задачу...**, **config-device-connection**.
 3. На MXChip IoT DevKit нажмите и удерживайте кнопку **A**, дополнительно нажмите кнопку **Сброс**, а затем отпустите кнопку **A**, чтобы DevKit вошел в режим настройки.
 4. Дождитесь окончания процесса настройки строки подключения.
 
@@ -86,6 +87,9 @@ ms.lasthandoff: 05/10/2018
 ## <a name="example-operation"></a>Пример действий
 
 ![Пример процедуры тестирования](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
+
+> [!NOTE]
+> Вы можете просмотреть необработанные данные двойника устройства на портале Azure: "Центр Интернета вещей" —\> "Устройства Интернета вещей" —\> *\<ваше_устройство\>* -\> "Двойник устройства".
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -1,9 +1,9 @@
 ---
-title: "Включение службы Enterprise State Roaming в Azure Active Directory | Документация Майкрософт"
-description: "Часто задаваемые вопросы о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства."
+title: Включение службы Enterprise State Roaming в Azure Active Directory | Документация Майкрософт
+description: Часто задаваемые вопросы о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства.
 services: active-directory
-keywords: "Enterprise State Roaming, облака Windows, включение службы Enterprise State Roaming"
-documentationcenter: 
+keywords: Enterprise State Roaming, облака Windows, включение службы Enterprise State Roaming
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dba749b6d85898e6438ce1160b9bf6eaff6f4ac9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257977"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Включение службы Enterprise State Roaming в Azure Active Directory
 Enterprise State Roaming доступна для любой организации с лицензий Azure AD Premium или Enterprise Mobility + Security (EMS). Дополнительные сведения о том, как получить подписку Azure AD, см. на [странице продукта Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
-Если вы включите службу Enterprise State Roaming, организация автоматически получит бесплатную ограниченную лицензию на службу Azure Rights Management. В бесплатной подписке можно выполнять только шифрование и расшифровку параметров предприятия и данных приложений, которые синхронизируются в Enterprise State Roaming. Чтобы использовать все возможности службы Azure Rights Management, вам нужна [платная подписка](https://azure.microsoft.com/pricing/details/active-directory/).
+Если включить службу Enterprise State Roaming, ваша организация автоматически получит бесплатную ограниченную лицензию на службу защиты Azure Rights Management, которая включена в Azure Information Protection. В бесплатной подписке можно выполнять только шифрование и расшифровку параметров предприятия и данных приложений, которые синхронизируются в Enterprise State Roaming. Чтобы использовать все возможности службы Azure Rights Management, у вас должна быть [платная подписка](https://azure.microsoft.com/pricing/details/information-protection/).
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Включение Enterprise State Roaming
 
@@ -39,7 +40,7 @@ Enterprise State Roaming доступна для любой организаци
 Службу Enterprise State Roaming могут использовать устройства Windows 10, которые прошли аутентификацию с удостоверением Azure AD. В качестве основного идентификатора для входа устройств, присоединенных к Azure AD, используется удостоверение Azure AD, поэтому дополнительная настройка не требуется. Если используются устройства с локальной версией службы Active Directory, ИТ-администратору следует [подключить присоединенные к домену устройства к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md).
 
 ## <a name="data-storage"></a>Хранилище данных
-Данные Enterprise State Roaming размещаются в одном или нескольких [регионах Azure](https://azure.microsoft.com/regions/), которые лучше всего сочетаются со страной и (или) регионом, выбранным в экземпляре Azure Active Directory. Данные Enterprise State Roaming разделяются на три основных географических региона: Северная Америка, EMEA (Европа, Ближний Восток и Африка) и APAC (Азия, Тихоокеанский регион и Австралия). Данные Enterprise State Roaming для клиента находятся локально в географическом регионе и не реплицируются между регионами.  Вот несколько примеров.
+Данные Enterprise State Roaming размещаются в одном или нескольких [регионах Azure](https://azure.microsoft.com/regions/), которые лучше всего сочетаются со страной и (или) регионом, выбранным в экземпляре Azure Active Directory. Данные Enterprise State Roaming разделяются на три основных географических региона: Северная Америка, EMEA (Европа, Ближний Восток и Африка) и APAC (Азия, Тихоокеанский регион и Австралия). Данные Enterprise State Roaming для клиента находятся локально в географическом регионе и не реплицируются между регионами.  Например: 
 Выбранная страна (или регион) | Где размещаются данные
 ---------------------|-------------------------
 Страна Европы, Ближнего Востока или Африки или (например, Франция или Замбия) | Один или несколько регионов Azure в Европе 

@@ -1,64 +1,66 @@
 ---
-title: Структура определения политики Azure |Документация Майкрософт
-description: Описывается, как определение политики ресурсов, описывающее условия применения данной политики и соответствующее действие, используется службой "Политика Azure", чтобы установить соглашения о ресурсах в вашей организации.
+title: Структура определения службы "Политика Azure"
+description: Описывается, как определение политики ресурсов, описывающее условия применения данной политики и соответствующий эффект, используется службой "Политика Azure", чтобы установить соглашения о ресурсах в вашей организации.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/18/2018
-ms.topic: article
+ms.date: 05/07/2018
+ms.topic: conceptual
 ms.service: azure-policy
-ms.custom: ''
-ms.openlocfilehash: 8b89e1c8ccfcfd7b53ecdd9172590424d1c7ae4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+manager: carmonm
+ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194654"
 ---
 # <a name="azure-policy-definition-structure"></a>Структура определения службы "Политика Azure"
 
-Определение политики ресурсов, используемое службой "Политика Azure" и описывающее условия применения данной политики и соответствующее действие, позволяет установить соглашения о ресурсах в вашей организации. Это соглашения помогут вам контролировать расходы и управлять ресурсами. Например, можно указать, что разрешены только определенные типы виртуальных машин. Кроме того, можно требовать наличие определенного тега для каждого ресурса. Политики наследуются всеми дочерними ресурсами. Это значит, что политики, применяемые к группе ресурсов, применяются также ко всем ресурсам в этой группе.
+Определение политики ресурсов, используемое службой "Политика Azure" и описывающее условия применения данной политики и соответствующий эффект, позволяет установить соглашения о ресурсах в вашей организации. Это соглашения помогут вам контролировать расходы и управлять ресурсами. Например, можно указать, что разрешены только определенные типы виртуальных машин. Кроме того, можно требовать наличие определенного тега для каждого ресурса. Политики наследуются всеми дочерними ресурсами. Это значит, что политики, применяемые к группе ресурсов, применяются также ко всем ресурсам в этой группе.
+
+Схему, используемую службой "Политика Azure", можно найти здесь: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 Для создания определения политики используется JSON. Определение политики содержит следующие элементы:
 
-* mode;
-* parameters
-* display name
-* description
-* policy rule
-  * logical evaluation
-  * effect
+- mode;
+- parameters
+- display name
+- description
+- policy rule
+  - logical evaluation
+  - effect
 
 В следующем примере JSON показана политика, которая налагает ограничения на расположения для развертывания ресурсов.
 
 ```json
 {
-  "properties": {
-    "mode": "all",
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+    "properties": {
+        "mode": "all",
+        "parameters": {
+            "allowedLocations": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of locations that can be specified when deploying resources",
+                    "strongType": "location",
+                    "displayName": "Allowed locations"
+                }
+            }
+        },
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters('allowedLocations')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
         }
-      }
-    },
-    "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "not": {
-          "field": "location",
-          "in": "[parameters('allowedLocations')]"
-        }
-      },
-      "then": {
-        "effect": "deny"
-      }
     }
-  }
 }
 ```
 
@@ -67,10 +69,11 @@ ms.lasthandoff: 04/28/2018
 ## <a name="mode"></a>Mode
 
 **Режим** определяет типы ресурсов, которые будут оцениваться для политики. Ниже приведены поддерживаемые режимы.
-* `all`: оценка групп ресурсов и всех типов ресурсов.
-* `indexed`: оцениваются только типы ресурсов, которые поддерживают теги и расположение.
 
-В большинстве случаев рекомендуется задать для параметра **mode** значение `all`. Во всех определениях политик, создаваемых на портале, используется режим `all`. Если используется PowerShell или Azure CLI, необходимо указать параметр **mode** вручную. Если в определении политики не задано значение для параметра **mode**, для обеспечения обратной совместимости используется значение по умолчанию `indexed`.
+- `all`: оценка групп ресурсов и всех типов ресурсов.
+- `indexed`: оцениваются только типы ресурсов, которые поддерживают теги и расположение.
+
+В большинстве случаев рекомендуется задать для параметра **mode** значение `all`. Во всех определениях политик, создаваемых на портале, используется режим `all`. Если используется PowerShell или Azure CLI, необходимо указать параметр **mode** вручную. Если в определении политики не задано значение для параметра **mode**, оно считается значением по умолчанию для `all` в Azure PowerShell и для `null` в Azure CLI, что эквивалентно `indexed` для обратной совместимости.
 
 `indexed` следует использовать при создании политик, которые будут принудительно применять теги или расположения. Это не обязательно, но помешает отображению ресурсов, которые не поддерживают теги и расположения, в качестве несоответствующих в результатах проверки соответствия. Единственным исключением являются **группы ресурсов**. В политиках, которые пытаются принудительно применить расположение или теги к группе ресурсов, следует задать для параметра **mode** значение `all` и явно указать целевой тип `Microsoft.Resources/subscriptions/resourceGroup`. Пример см. в статье о [принудительном применении тегов к группам ресурсов](scripts/enforce-tag-rg.md).
 
@@ -80,17 +83,16 @@ ms.lasthandoff: 04/28/2018
 
 Например, можно определить политику для свойства ресурса, чтобы ограничить расположения, в которых могут развертываться ресурсы. В этом случае при создании политики можно объявить следующие параметры.
 
-
 ```json
 "parameters": {
-  "allowedLocations": {
-    "type": "array",
-    "metadata": {
-      "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations",
-      "strongType": "location"
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+            "description": "The list of allowed locations for resources.",
+            "displayName": "Allowed locations",
+            "strongType": "location"
+        }
     }
-  }
 }
 ```
 
@@ -98,12 +100,12 @@ ms.lasthandoff: 04/28/2018
 
 В свойстве метаданных можно использовать **strongType**, чтобы предоставить список с множественным выбором параметров на портале Azure.  К допустимым значениям для **strongType** относится следующее:
 
-* `"location"`
-* `"resourceTypes"`
-* `"storageSkus"`
-* `"vmSKUs"`
-* `"existingResourceGroups"`
-* `"omsWorkspace"`
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 В правилах политики полученные параметры используются так:
 
@@ -113,6 +115,15 @@ ms.lasthandoff: 04/28/2018
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+## <a name="definition-location"></a>Расположение определения
+
+При создании определения инициативы или политики важно указывать определение расположения.
+
+Расположение определения указывает область, которой можно назначить определение инициативы или политики. Расположение может быть задано как группа управления или подписка.
+
+> [!NOTE]
+> Если вы планируете применять это определение политики к нескольким подпискам, расположение должно быть группой управления, содержащей подписки, которым вы назначите инициативу или политику.
 
 ## <a name="display-name-and-description"></a>Отображаемое имя и описание
 
@@ -126,12 +137,12 @@ ms.lasthandoff: 04/28/2018
 
 ```json
 {
-  "if": {
-    <condition> | <logical operator>
-  },
-  "then": {
-    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
-  }
+    "if": {
+        <condition> | <logical operator>
+    },
+    "then": {
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+    }
 }
 ```
 
@@ -139,9 +150,9 @@ ms.lasthandoff: 04/28/2018
 
 Ниже перечислены поддерживаемые логические операторы.
 
-* `"not": {condition  or operator}`
-* `"allOf": [{condition or operator},{condition or operator}]`
-* `"anyOf": [{condition or operator},{condition or operator}]`
+- `"not": {condition  or operator}`
+- `"allOf": [{condition or operator},{condition or operator}]`
+- `"anyOf": [{condition or operator},{condition or operator}]`
 
 Оператор **not** инвертирует результат условия. Оператор **allOf** действует как логическая операция **And**, то есть требует соблюдения всех входящих в него условий. Оператор **anyOf** действует как логическая операция **Or**, то есть проверяет соблюдение хотя бы одного из входящих в него условий.
 
@@ -149,18 +160,17 @@ ms.lasthandoff: 04/28/2018
 
 ```json
 "if": {
-  "allOf": [
-    {
-      "not": {
-        "field": "tags",
-        "containsKey": "application"
-      }
-    },
-    {
-      "field": "type",
-      "equals": "Microsoft.Storage/storageAccounts"
-    }
-  ]
+    "allOf": [{
+            "not": {
+                "field": "tags",
+                "containsKey": "application"
+            }
+        },
+        {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+        }
+    ]
 },
 ```
 
@@ -168,42 +178,44 @@ ms.lasthandoff: 04/28/2018
 
 Условие определяет, соответствует ли свойство **field** определенным параметрам. Поддерживаются такие условия:
 
-* `"equals": "value"`
-* `"notEquals": "value"`
-* `"like": "value"`
-* `"notLike": "value"`
-* `"match": "value"`
-* `"notMatch": "value"`
-* `"contains": "value"`
-* `"notContains": "value"`
-* `"in": ["value1","value2"]`
-* `"notIn": ["value1","value2"]`
-* `"containsKey": "keyName"`
-* `"notContainsKey": "keyName"`
-* `"exists": "bool"`
+- `"equals": "value"`
+- `"notEquals": "value"`
+- `"like": "value"`
+- `"notLike": "value"`
+- `"match": "value"`
+- `"notMatch": "value"`
+- `"contains": "value"`
+- `"notContains": "value"`
+- `"in": ["value1","value2"]`
+- `"notIn": ["value1","value2"]`
+- `"containsKey": "keyName"`
+- `"notContainsKey": "keyName"`
+- `"exists": "bool"`
 
 При использовании условий **like** и **notLike** можно указать в значении подстановочный знак (*).
 
-При использовании условий **match** и **notMatch** укажите `#` для представления цифры, `?` для буквы и любой другой символ — для представления фактического символа. Примеры приведены в разделе [Утвержденные образы виртуальных машин](scripts/allowed-custom-images.md).
+При использовании условий **match** и **notMatch** укажите `#` для представления цифры, `?` для буквы и любой другой символ — для представления фактического символа. Примеры см. в статье [Разрешение на использование нескольких шаблонов имен](scripts/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Поля
+
 Условия создаются на основе полей. Поле представляет свойства в полезных данных запроса ресурса, используемые для описания состояния ресурса.  
 
 Поддерживаются следующие поля.
 
-* `name`
-* `fullName`
-  * Возвращает полное имя ресурса, включая все родительские ресурсы (например, "myServer/myDatabase").
-* `kind`
-* `type`
-* `location`
-* `tags`
-* `tags.tagName`
-* `tags[tagName]`
-  * Этот синтаксис в скобках поддерживает имена тегов, содержащие точки.
-* Список псевдонимов свойств указан в разделе [Псевдонимы](#aliases).
+- `name`
+- `fullName`
+  - Возвращает полное имя ресурса, включая все родительские ресурсы (например, myServer/myDatabase).
+- `kind`
+- `type`
+- `location`
+- `tags`
+- `tags.tagName`
+- `tags[tagName]`
+  - Этот синтаксис в скобках поддерживает имена тегов, содержащие точки.
+- Список псевдонимов свойств указан в разделе [Псевдонимы](#aliases).
 
 ### <a name="alternative-accessors"></a>Альтернативные методы доступа
+
 **Field** (поле) — основной метод доступа, используемый в правилах политики. Он непосредственно проверяет ресурс, который вычисляется. Однако политика поддерживает еще один метод доступа — **source**.
 
 ```json
@@ -213,27 +225,26 @@ ms.lasthandoff: 04/28/2018
 
 **Source** поддерживает только одно значение, **action**. Action возвращает действие авторизации запроса, который оценивается. Действия авторизации предоставляются в разделе авторизации [журнала действий](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
-Когда политика оценивает существующие ресурсы в фоновом режиме, она задает в качестве **action** действие авторизации `/write` для типа ресурса.
+Когда политика оценивает имеющиеся ресурсы в фоновом режиме, она задает в качестве **action** действие авторизации `/write` для типа ресурса.
 
 ### <a name="effect"></a>Результат
+
 Политика поддерживает следующие типы действий:
 
-* **Deny** создает событие в журнале аудита и отклоняет запрос;
-* **Audit** создает событие в журнале аудита, но выполняет запрос;
-* **Append** добавляет в запрос некоторый набор полей;
-* **AuditIfNotExists** включает аудит, если ресурс не существует;
-* **DeployIfNotExists** развертывает ресурс, если он еще не существует. Сейчас этот эффект поддерживается только с помощью встроенных политик.
+- **Deny** создает событие в журнале аудита и отклоняет запрос;
+- **Audit** создает событие в журнале аудита, но выполняет запрос;
+- **Append** добавляет в запрос некоторый набор полей;
+- **AuditIfNotExists** включает аудит, если ресурс не существует;
+- **DeployIfNotExists** развертывает ресурс, если он еще не существует. Сейчас этот эффект поддерживается только с помощью встроенных политик.
 
 Для типа **append**необходимо указать следующие сведения:
 
 ```json
 "effect": "append",
-"details": [
-  {
+"details": [{
     "field": "field name",
     "value": "value of the field"
-  }
-]
+}]
 ```
 
 Значением может быть строка или объект формата JSON.
@@ -241,132 +252,71 @@ ms.lasthandoff: 04/28/2018
 С помощью параметров **AuditIfNotExists** и **DeployIfNotExists** можно проверить существование связанного ресурса и применить правило и соответствующее действие, если такой ресурс не существует. Например можно потребовать, чтобы наблюдатель за сетями был развернут для всех виртуальных сетей.
 Пример аудита наличия развернутого расширения для виртуальных машин приведен в разделе [Проверка наличия расширения](scripts/audit-ext-not-exist.md).
 
-
 ## <a name="aliases"></a>Псевдонимы
 
 Псевдонимы свойств позволяют обращаться к определенным свойствам для типа ресурса. Псевдонимы позволяют ограничить значения или условия, разрешенные для свойства ресурса. Каждый псевдоним сопоставляется с путями в разных версиях API для заданного типа ресурса. Во время оценки политики модуль политики получает путь свойства для этой версии API.
 
-**Microsoft.Cache/Redis**
+Список псевдонимов постоянно пополняется. Чтобы определить, какие псевдонимы в настоящее время поддерживаются службой "Политика Azure", используйте один из следующих методов:
 
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Указывает, включен ли на сервере Redis порт без поддержки SSL (6379). |
-| Microsoft.Cache/Redis/shardCount | Задает число сегментов, создаваемых в кэше кластера уровня "Премиум".  |
-| Microsoft.Cache/Redis/sku.capacity | Задает размер развертываемого кэша Redis.  |
-| Microsoft.Cache/Redis/sku.family | Задает используемое семейство SKU. |
-| Microsoft.Cache/Redis/sku.name | Задает тип развертываемого кэша Redis. |
+- Azure PowerShell
 
-**Microsoft.Cdn/profiles**
+  ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | Задает имя ценовой категории. |
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+  $authHeader = @{
+      'Content-Type'='application/json'
+      'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-**Microsoft.Compute/disks**
+  # Invoke the REST API
+  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
 
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+  # Create an Array List to hold discovered aliases
+  $aliases = New-Object System.Collections.ArrayList
 
+  foreach ($ns in $response.value) {
+      foreach ($rT in $ns.resourceTypes) {
+          if ($rT.aliases) {
+              foreach ($obj in $rT.aliases) {
+                  $alias = [PSCustomObject]@{
+                      Namespace       = $ns.namespace
+                      resourceType    = $rT.resourceType
+                      alias           = $obj.name
+                  }
+                  $aliases.Add($alias) | Out-Null
+              }
+          }
+      }
+  }
 
-**Microsoft.Compute/virtualMachines**
+  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  ```
 
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Задайте идентификатор образа, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/licenseType | Указывает, используется ли для образа или диска локальная лицензия. Это значение используется только для образов, содержащих операционную систему Windows Server.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/virtualMachines/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/virtualMachines/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Задает универсальный код ресурса (URI) виртуального жесткого диска. |
-| Microsoft.Compute/virtualMachines/sku.name | Задайте размер виртуальной машины. |
-| Microsoft.Compute/virtualMachines/availabilitySet.id | Задает идентификатор группы доступности для виртуальной машины. |
+- Инфраструктура CLI Azure
 
-**Microsoft.Compute/virtualMachines/extensions**
+  ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
 
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | Задает имя издателя расширения. |
-| Microsoft.Compute/virtualMachines/extensions/type | Задает тип расширения. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Задает версию расширения. |
+  # Get Azure Policy aliases for a specific Namespace
+  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
 
-**Microsoft.Compute/virtualMachineScaleSets**
+- REST API или ARMClient
 
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Задайте идентификатор образа, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
-| Microsoft.Compute/licenseType | Указывает, используется ли для образа или диска локальная лицензия. Это значение используется только для образов, содержащих операционную систему Windows Server. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Задает префикс имени компьютера для всех виртуальных машин в масштабируемом наборе. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Задает универсальный код ресурса (URI) большого двоичного объекта для пользовательского образа. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Задает URL-адреса контейнеров, которые используются для хранения ОС для масштабируемого набора. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Задает размер виртуальных машин в масштабируемом наборе. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Задает уровень виртуальных машин в масштабируемом наборе. |
-
-**Microsoft.Network/applicationGateways**
-
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Network/applicationGateways/sku.name | Задает размер шлюза. |
-
-**Microsoft.Network/virtualNetworkGateways**
-
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Network/virtualNetworkGateways/gatewayType | Задает тип шлюза виртуальной сети. |
-| Microsoft.Network/virtualNetworkGateways/sku.name | Задает номера SKU шлюза. |
-
-**Microsoft.Sql/servers**
-
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Sql/servers/version | Задает версию сервера. |
-
-**Microsoft.Sql/databases**
-
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Sql/servers/databases/edition | Задает выпуск базы данных. |
-| Microsoft.Sql/servers/databases/elasticPoolName | Задает имя эластичного пула, в котором размещена база данных. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Задает идентификатор настроенного целевого уровня обслуживания для базы данных. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Задает имя настроенного целевого уровня обслуживания для базы данных.  |
-
-**Microsoft.Sql/elasticpools**
-
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Задает совокупное число общих единиц DTU для эластичного пула базы данных. |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Задает выпуск эластичного пула. |
-
-**Microsoft.Storage/storageAccounts**
-
-| Alias | ОПИСАНИЕ |
-| ----- | ----------- |
-| Microsoft.Storage/storageAccounts/accessTier | Задает уровень доступа, используемый для выставления счетов. |
-| Microsoft.Storage/storageAccounts/accountType | Задает имя SKU. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Указывает, шифрует ли служба данные, хранящиеся в службе хранилища BLOB-объектов. |
-| Microsoft.Storage/storageAccounts/enableFileEncryption | Указывает, шифрует ли служба данные, хранящиеся в службе хранилища файлов. |
-| Microsoft.Storage/storageAccounts/sku.name | Задает имя SKU. |
-| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Позволяет разрешить только передачу трафика HTTPS в службу хранилища. |
-| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Проверяет, включена ли конечная точка службы виртуальной сети. |
+  ```http
+  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  ```
 
 ## <a name="initiatives"></a>Инициативы
 
 Инициативы дают возможность сгруппировать несколько связанных определений политик, чтобы упростить их назначение и управление ими, так как это позволяет работать с группой как с единым элементом. Например, можно сгруппировать все связанные определения политик тегов в одной инициативе. Вместо назначения каждой политики по отдельности вы сможете применить инициативу.
 
 В следующем примере показано, как создать инициативу для обработки двух тегов, `costCenter` и `productName`. Для применения значения тега по умолчанию используются две встроенные политики.
-
 
 ```json
 {
@@ -388,8 +338,7 @@ ms.lasthandoff: 04/28/2018
                 }
             }
         },
-        "policyDefinitions": [
-            {
+        "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "parameters": {
                     "tagName": {

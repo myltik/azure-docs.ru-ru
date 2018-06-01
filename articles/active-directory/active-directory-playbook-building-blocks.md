@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157706"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки
 
@@ -162,7 +163,7 @@ ms.lasthandoff: 05/03/2018
 
 ### <a name="considerations"></a>Рекомендации
 
-1. Предыдущий [учебник](active-directory-saas-servicenow-tutorial.md) ссылается на старый интерфейс управления Azure AD. Однако подтверждение концепции основано на интерфейсе [быстрого запуска](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away).
+1. Предыдущий [учебник](active-directory-saas-servicenow-tutorial.md) ссылается на старый интерфейс управления Azure AD. Однако подтверждение концепции основано на интерфейсе [быстрого запуска](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
 2. Если целевое приложение отсутствует в коллекции, можно использовать собственное приложение. Дополнительные сведения: [Новые возможности управления корпоративными приложениями в Azure Active Directory. Добавление пользовательских приложений из одного расположения](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>Настройка единого входа SaaS с помощью пароля
@@ -241,27 +242,27 @@ ms.lasthandoff: 05/03/2018
 
 | Предварительные требования | Ресурсы |
 | --- | --- |
-| Подписка на Microsoft Azure AD Basic или Premium, а также каталог Azure AD, для которого вы являетесь глобальным администратором. | [Выпуски Azure Active Directory](active-directory-editions.md) |
+| Подписка на Microsoft Azure AD Basic или Premium, а также каталог Azure AD, для которого вы являетесь глобальным администратором. | [Выпуски Azure Active Directory](active-directory-whatis.md) |
 | Размещенное локально веб-приложение, которое нужно настроить для удаленного доступа. |  |
-| Сервер под управлением Windows Server 2012 R2 или Windows 8.1 или более поздней версии, на котором можно установить соединитель прокси приложения. | [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md) |
-| Если в сетевом пути используется брандмауэр, убедитесь, что он открыт для запросов HTTPS (TCP), поступающих из соединителя в прокси приложения. | [Включение прокси приложения на портале Azure: необходимые условия для прокси приложения](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
-| Если ваша организация использует прокси-серверы для подключения к Интернету, изучите сведения об их настройке в записи блога "Working with existing on-premises proxy servers" (Работа с имеющимися локальными прокси-серверами). | [Работа с имеющимися локальными прокси-серверами](application-proxy-working-with-proxy-servers.md) |
+| Сервер под управлением Windows Server 2012 R2 или Windows 8.1 или более поздней версии, на котором можно установить соединитель прокси приложения. | [Сведения о соединителях прокси приложения Azure AD](manage-apps/application-proxy-connectors.md) |
+| Если в сетевом пути используется брандмауэр, убедитесь, что он открыт для запросов HTTPS (TCP), поступающих из соединителя в прокси приложения. | [Включение прокси приложения на портале Azure: необходимые условия для прокси приложения](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
+| Если ваша организация использует прокси-серверы для подключения к Интернету, изучите сведения об их настройке в записи блога "Working with existing on-premises proxy servers" (Работа с имеющимися локальными прокси-серверами). | [Работа с имеющимися локальными прокси-серверами](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Действия
 
 | Шаг | Ресурсы |
 | --- | --- |
-| Установите соединитель на сервере. | [Включение прокси приложения на портале Azure: установка и регистрация соединителя](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| Опубликуйте локальное приложение в Azure AD в качестве приложения прокси приложения. | [Публикация приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md) |
-| Назначьте тестовых пользователей. | [Публикация приложений с помощью прокси приложения Azure AD: добавление тестового пользователя](application-proxy-publish-azure-portal.md#add-a-test-user) |
-| При необходимости настройте процедуру единого входа для пользователей. | [Реализация единого входа с помощью прокси приложения Azure AD](application-proxy-sso-azure-portal.md) |
+| Установите соединитель на сервере. | [Включение прокси приложения на портале Azure: установка и регистрация соединителя](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| Опубликуйте локальное приложение в Azure AD в качестве приложения прокси приложения. | [Публикация приложений с помощью прокси приложения Azure AD](manage-apps/application-proxy-publish-azure-portal.md) |
+| Назначьте тестовых пользователей. | [Публикация приложений с помощью прокси приложения Azure AD: добавление тестового пользователя](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
+| При необходимости настройте процедуру единого входа для пользователей. | [Реализация единого входа с помощью прокси приложения Azure AD](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | Протестируйте приложение, войдя на портал MyApps в качестве назначенного пользователя. | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Рекомендации
 
-1. Хотя рекомендуется поместить соединитель в корпоративной сети, в некоторых случаях его размещение в облаке повышает производительность. Дополнительные сведения: [Аспекты топологии сети при использовании прокси приложения Azure Active Directory](application-proxy-network-topology-considerations.md).
-2. Дополнительные сведения о безопасности и том, как получить решение для безопасного удаленного доступа, поддерживая только исходящие подключения, см. в статье [Вопросы безопасности при удаленном доступе к приложениям через прокси приложения Azure AD](application-proxy-security-considerations.md).
+1. Хотя рекомендуется поместить соединитель в корпоративной сети, в некоторых случаях его размещение в облаке повышает производительность. Дополнительные сведения: [Аспекты топологии сети при использовании прокси приложения Azure Active Directory](manage-apps/application-proxy-network-topology.md).
+2. Дополнительные сведения о безопасности и том, как получить решение для безопасного удаленного доступа, поддерживая только исходящие подключения, см. в статье [Вопросы безопасности при удаленном доступе к приложениям через прокси приложения Azure AD](manage-apps/application-proxy-security.md).
 
 ## <a name="generic-ldap-connector-configuration"></a>Настройка универсального соединителя LDAP
 

@@ -2,22 +2,20 @@
 title: Предоставление пользователям B2B в Azure AD доступа к локальным приложениям | Документация Майкрософт
 description: В этой статье описано, как предоставить облачным пользователям B2B доступ к локальным приложениям с помощью службы совместной работы Azure AD B2B.
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 04/20/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0eb567c8587b0eec367160facc86f163ef6b3c15
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068802"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Предоставление пользователям B2B в Azure AD доступа к локальным приложениям
 
@@ -30,7 +28,7 @@ ms.lasthandoff: 04/23/2018
 Выполните два следующих действия.
 
 - Интегрируйте приложение SAML с помощью шаблона приложения, не включенного в коллекцию, как описано в статье [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](active-directory-saas-custom-apps.md). Обязательно запишите значение, которое вы используете для параметра **URL-адрес входа**.
--  С помощью AD Application Proxy опубликуйте локальное приложение и укажите для него источник аутентификации **Azure Active Directory**. Этот процесс описан в статье [Публикация приложений с помощью Azure Active Directory Application Proxy](application-proxy-publish-azure-portal.md). 
+-  С помощью AD Application Proxy опубликуйте локальное приложение и укажите для него источник аутентификации **Azure Active Directory**. Этот процесс описан в статье [Публикация приложений с помощью Azure Active Directory Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
 
    При настройке **внутреннего URL-адреса** введите URL-адрес входа, указанный ранее в шаблоне приложения, не включенного в коллекцию. Это позволит сторонним пользователям обращаться к этому приложению. Прокси приложения реализует функции единого входа SAML для локального приложения.
  
@@ -40,13 +38,13 @@ ms.lasthandoff: 04/23/2018
 
 Чтобы предоставить пользователям B2B доступ к локальным приложениям, защищенным с помощью встроенной проверки подлинности Windows и ограниченного делегирования Kerberos, требуются следующие компоненты:
 
-- **Аутентификация через Azure Active Directory Application Proxy**. Возможность аутентификации пользователей B2B в локальном приложении. Чтобы предоставить эту возможность, локальное приложение следует опубликовать через AD Application Proxy. Дополнительные сведения см. в статье [Начало работы с прокси приложения и установка соединителя](active-directory-application-proxy-enable.md) и [Публикация приложений с помощью Azure Active Directory Application Proxy](application-proxy-publish-azure-portal.md).
-- **Авторизация через объект пользователя B2B в локальном каталоге**. Приложение должно иметь возможность проверять права пользователей и правильно предоставлять им доступ к ресурсам. Встроенная проверка подлинности Windows и ограниченное делегирование Kerberos требуют наличия объекта пользователя в локальном каталоге Active Directory на Windows Server. Как описано в разделе [Принцип работы единого входа с применением KCD](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works), прокси приложения использует этот объект пользователя для олицетворения пользователя и получения маркера Kerberos для приложения. 
+- **Аутентификация через Azure Active Directory Application Proxy**. Возможность аутентификации пользователей B2B в локальном приложении. Чтобы предоставить эту возможность, локальное приложение следует опубликовать через AD Application Proxy. Дополнительные сведения см. в статье [Начало работы с прокси приложения и установка соединителя](manage-apps/application-proxy-enable.md) и [Публикация приложений с помощью Azure Active Directory Application Proxy](manage-apps/application-proxy-publish-azure-portal.md).
+- **Авторизация через объект пользователя B2B в локальном каталоге**. Приложение должно иметь возможность проверять права пользователей и правильно предоставлять им доступ к ресурсам. Встроенная проверка подлинности Windows и ограниченное делегирование Kerberos требуют наличия объекта пользователя в локальном каталоге Active Directory на Windows Server. Как описано в разделе [Принцип работы единого входа с применением KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), прокси приложения использует этот объект пользователя для олицетворения пользователя и получения маркера Kerberos для приложения. 
 
    При работе с пользователями B2B вы можете использовать два метода создания объектов для гостевых пользователей, которым нужна авторизации в локальном каталоге.
 
-   - [Microsoft Identity Manager (MIM) и агент управления MIM для Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). Для этого решения вам потребуется подписка Azure AD Premium P1. 
-   - [Скрипт PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). Решение на основе скрипта проще в реализации и не требует наличия MIM или Azure AD Premium. 
+   - Microsoft Identity Manager (MIM) и [агент управления MIM для Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). 
+   - [Скрипт PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). Решение на основе сценария проще в реализации и не требует наличия MIM. 
 
 Ниже представлена обобщенная схема совместной работы AD Application Proxy и создания объекта пользователя B2B в локальном каталоге для предоставления пользователям B2B доступа к локальным приложениям на основе IWA и KCD. Порядок шагов описан на схеме ниже.
 
@@ -86,6 +84,6 @@ ms.lasthandoff: 04/23/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 - [Служба совместной работы Azure Active Directory B2B для гибридных организаций](active-directory-b2b-hybrid-organizations.md)
-- [Предоставление локально управляемым партнерским учетным записям доступа к облачным ресурсам через службу совместной работы AAD B2B](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 - Общие сведения об Azure AD Connect см. в статье [Интеграция локальных каталогов с Azure Active Directory](connect/active-directory-aadconnect.md).
 

@@ -1,11 +1,11 @@
 ---
-title: "Руководство по устранению неполадок службы DNS Azure | Документация Майкрософт"
-description: "Описывается, как устранять распространенные неполадки службы DNS Azure."
+title: Руководство по устранению неполадок службы DNS Azure | Документация Майкрософт
+description: Описывается, как устранять распространенные неполадки службы DNS Azure.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
 ms.service: dns
 ms.devlang: na
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
-ms.author: jonatul
-ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069105"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Руководство по устранению неполадок службы DNS Azure
 
@@ -39,9 +40,9 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="recommended-documents"></a>**Рекомендуемые документы**
 
-[DNS zones and records](dns-zones-records.md)
- (Зоны и записи DNS)<br>
-[Создание зоны DNS на портале Azure](dns-getstarted-create-dnszone-portal.md)
+[Зоны и записи DNS](dns-zones-records.md)
+<br>
+[Создание зоны DNS](dns-getstarted-create-dnszone-portal.md)
 
 ## <a name="i-cant-create-a-dns-record"></a>Не удается создать запись DNS
 
@@ -56,9 +57,9 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="recommended-documents"></a>**Рекомендуемые документы**
 
-[DNS zones and records](dns-zones-records.md)
- (Зоны и записи DNS)<br>
-[Создание зоны DNS на портале Azure](dns-getstarted-create-dnszone-portal.md)
+[Зоны и записи DNS](dns-zones-records.md)
+<br>
+[Создание зоны DNS](dns-getstarted-create-dnszone-portal.md)
 
 
 
@@ -92,9 +93,9 @@ Azure DNS управляет записями DNS как наборами зап
 
 ### <a name="recommended-documents"></a>**Рекомендуемые документы**
 
-[DNS zones and records](dns-zones-records.md)
- (Зоны и записи DNS)<br>
-[Создание наборов записей и записей DNS с помощью портала Azure](dns-getstarted-create-recordset-portal.md)
+[Зоны и записи DNS](dns-zones-records.md)
+<br>
+[Get started with Azure DNS using the Azure portal](dns-getstarted-create-recordset-portal.md) (Начало работы с Azure DNS с использованием портала Azure)
 <br>
 [SRV-запись (Википедия)](https://en.wikipedia.org/wiki/SRV_record)
 

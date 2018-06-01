@@ -1,6 +1,6 @@
 ---
-title: Создание шлюза приложений с завершением SSL-запросов с помощью портала Azure | Документация Майкрософт
-description: Узнайте, как создать шлюз приложений и добавить сертификат для завершения SSL-запросов с помощью портала Azure.
+title: Настройка шлюза приложений с завершением SSL-запросов с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как настроить шлюз приложений и добавить сертификат для завершения SSL-запросов с помощью портала Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195919"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Создание шлюза приложений с завершением SSL-запросов с помощью портала Azure
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Настройка шлюза приложений с завершением SSL-запросов с помощью портала Azure
 
-С помощью портала Azure можно создать [шлюз приложений](overview.md) с сертификатом для завершения SSL-запросов, в котором используются виртуальные машины для внутренних серверов.
+С помощью портала Azure можно настроить [шлюз приложений](overview.md) с сертификатом для завершения SSL-запросов, в котором используются виртуальные машины для внутренних серверов.
 
 В этой статье раскрываются следующие темы:
 

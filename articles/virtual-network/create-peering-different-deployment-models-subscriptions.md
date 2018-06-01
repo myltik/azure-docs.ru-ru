@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012923"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Создание пиринга виртуальных сетей с разными моделями развертывания в разных подписках
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/19/2018
 |[Обе виртуальные сети Resource Manager](create-peering-different-subscriptions.md) |Разные|
 |[Одна виртуальная сеть Resource Manager, одна классическая виртуальная сеть](create-peering-different-deployment-models.md) |Аналогично|
 
-Невозможно создать пиринг между двумя виртуальными сетями, созданными с помощью классической модели развертывания. В этом руководстве используются виртуальные сети, существующие в одном и том же регионе. Это руководство по созданию пиринга между виртуальными сетями в одном регионе. Пиринг можно создавать между виртуальными сетями в разных [поддерживаемых регионах](virtual-network-manage-peering.md#cross-region).  
+Невозможно создать пиринг между двумя виртуальными сетями, созданными с помощью классической модели развертывания. В этом руководстве используются виртуальные сети, существующие в одном и том же регионе. Это руководство по созданию пиринга между виртуальными сетями в одном регионе. Пиринг можно создавать между виртуальными сетями в разных [поддерживаемых регионах](virtual-network-manage-peering.md#cross-region). Рекомендуется ознакомиться с [требованиями и ограничениями пиринга](virtual-network-manage-peering.md#requirements-and-constraints) перед созданием пиринга виртуальных сетей.
 
 При создании пиринга между виртуальными сетями, которые существуют в разных подписках, эти подписки должны быть связаны с одним клиентом Azure Active Directory. Если у вас еще нет клиента Azure Active Directory, можно быстро [создать его](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Вы можете соединить виртуальные сети в разных подписках и с разными клиентами Azure Active Directory, используя [VPN-шлюз](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 

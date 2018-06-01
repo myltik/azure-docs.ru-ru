@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304119"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Привязки служебной шины Azure для службы "Функции Azure"
 
@@ -33,6 +34,8 @@ ms.lasthandoff: 04/23/2018
 Привязки служебной шины доступны в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Исходный код для пакета находится в репозитории GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Триггер
 
@@ -49,16 +52,22 @@ ms.lasthandoff: 04/23/2018
 
 ### <a name="trigger---c-example"></a>Пример C# в триггере
 
-В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая заносит в журнал сообщение из очереди службы "Служебная шина".
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая считывает [метаданные сообщения](#trigger---message-metadata) и заносит в журнал сообщение из очереди службы "Служебная шина".
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +75,7 @@ public static void Run(
  
 ### <a name="trigger---c-script-example"></a>Пример скрипта C# в триггере
 
-В следующем примере показаны привязка триггера служебной шины в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Эта функция заносит в журнал сообщение очереди служебной шины.
+В следующем примере показаны привязка триггера служебной шины в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция считывает [метаданные сообщения](#trigger---message-metadata) и заносит в журнал сообщение из очереди службы "Служебная шина".
 
 Данные привязки в файле *function.json*:
 
@@ -88,9 +97,19 @@ public static void Run(
 Ниже приведен код скрипта C#.
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +143,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Пример JavaScript в триггере
 
-В следующем примере показаны привязка триггера служебной шины в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку. Эта функция заносит в журнал сообщение очереди служебной шины. 
+В следующем примере показаны привязка триггера служебной шины в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку. Функция считывает [метаданные сообщения](#trigger---message-metadata) и заносит в журнал сообщение из очереди службы "Служебная шина". 
 
 Данные привязки в файле *function.json*:
 
@@ -148,6 +167,9 @@ let Run(myQueueItem: string, log: TraceWriter) =
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -247,7 +269,30 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---peeklock-behavior"></a>Поведение PeekLock в триггере
 
-Среда выполнения службы "Функции" получает сообщение в [режиме PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Она вызывает `Complete` для сообщения, если функция выполнена успешно, или `Abandon` в случае сбоя. Если функция выполняется дольше времени ожидания `PeekLock` , блокировка возобновляется автоматически.
+Среда выполнения службы "Функции" получает сообщение в [режиме PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Она вызывает `Complete` для сообщения, если функция выполнена успешно, или `Abandon` в случае сбоя. Если функция выполняется дольше времени ожидания `PeekLock`, блокировка возобновляется автоматически до тех пор, пока выполняется функция. 
+
+Функции версии 1.x позволяют настроить в файле *host.json* параметр `autoRenewTimeout`, который сопоставляется с [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). В соответствии с документацией по служебной шине максимально допустимое значение для этого параметра равно 5 минутам, тогда как ограничение времени выполнения функций можно увеличить с 5 минут по умолчанию до 10 минут. Этого не стоит делать для функций служебной шины, потому что лимит продления служебной шины будет превышен.
+
+## <a name="trigger---message-metadata"></a>Метаданные сообщения триггера
+
+Триггер служебной шины предоставляет несколько [свойств метаданных](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Эти свойства можно использовать как часть выражений привязки в других привязках или как параметры в коде. Эти свойства относятся к классу [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+
+|Свойство|type|ОПИСАНИЕ|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|Число доставок.|
+|`DeadLetterSource`|`string`|Источник недоставленных сообщений.|
+|`ExpiresAtUtc`|`DateTime`|Время окончания срока действия в формате UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|Время попадания в очередь в формате UTC.|
+|`MessageId`|`string`|Определяемое пользователем значение, используемое служебной шиной для выявления повторяющихся сообщений.|
+|`ContentType`|`string`|Идентификатор типа содержимого, используемый отправителем и получателем для логики конкретного приложения.|
+|`ReplyTo`|`string`|Адрес очереди для ответа.|
+|`SequenceNumber`|`Int64`|Уникальный номер, назначенный сообщению службой "Служебная шина".|
+|`To`|`string`|Адрес для отправки.|
+|`Label`|`string`|Метка конкретного приложения.|
+|`CorrelationId`|`string`|Идентификатор корреляции.|
+|`Properties`|`IDictionary<String,Object>`|Свойства сообщения конкретного приложения.|
+
+См. [примеры кода](#trigger---example), в которых используются эти свойства, в предыдущих разделах этой статьи.
 
 ## <a name="trigger---hostjson-properties"></a>Свойства host.json в триггере
 
@@ -404,7 +449,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -415,9 +460,9 @@ module.exports = function (context, myTimer) {
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```
@@ -490,8 +535,8 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 
 | Привязка | Справочные материалы |
 |---|---|
-| Служебная шина | [Коды ошибок службы "Служебная шина"](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Служебная шина | [Ограничения службы "Служебная шина"](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Служебная шина Azure | [Коды ошибок службы "Служебная шина"](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| Служебная шина Azure | [Ограничения службы "Служебная шина"](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -7,13 +7,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072442"
 ---
 # <a name="install-a-linux-master-target-server"></a>Установка главного целевого сервера Linux
 После отработки отказа виртуальных машин в Azure для них можно восстановить размещение на локальном сайте. Для восстановления размещения из Azure на локальном сайте необходимо повторно включить защиту виртуальной машины. Для этого понадобится локальный главный целевой сервер, который будет получать трафик. 
@@ -240,18 +241,13 @@ ms.lasthandoff: 03/16/2018
 
 1. Подключите новый диск объемом 1 ТБ к виртуальной машине главного целевого сервера Linux и запустите виртуальную машину.
 
-2. Выполните команду **multipath -ll**, чтобы узнать идентификатор Multipath диска хранения.
-    
-     `multipath -ll`
+2. Выполните команду **multipath -ll**, чтобы узнать идентификатор Multipath диска хранения: **multipath -ll**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![Идентификатор Multipath](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Отформатируйте диск и создайте файловую систему на новом диске.
-
+3. Отформатируйте диск и затем создайте файловую систему на новом диске: **mkfs.ext4 /dev/mapper/<ИД Multipath диска хранения>**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Создание файловой системы на диске](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![Файловая система](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. После создания файловой системы подключите диск хранения.
 
@@ -335,9 +331,9 @@ ms.lasthandoff: 03/16/2018
      Дождитесь завершения скрипта. Если регистрация главного целевого сервера пройдет успешно, вы увидите его на портале на странице **Site Recovery Infrastructure** (Инфраструктура Site Recovery).
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Установка инструментов VMware на главном целевом сервере
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Установка инструментов VMware и open-vm-tools на главном целевом сервере
 
-На главном целевом сервере нужно установить инструменты VMware, чтобы он мог обнаруживать хранилища данных. Если они не установлены, то на экране повторного включения защиты не будут отображены хранилища данных. После установки инструментов VMware необходимо выполнить перезагрузку.
+На главном целевом сервере нужно установить инструменты VMware или open-vm-tools, чтобы он мог обнаруживать хранилища данных. Если они не установлены, то на экране повторного включения защиты не будут отображены хранилища данных. После установки инструментов VMware необходимо выполнить перезагрузку.
 
 ### <a name="upgrade-the-master-target-server"></a>Обновление главного целевого сервера
 

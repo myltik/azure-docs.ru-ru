@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197816"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Хранилище Azure Stack. Отличия и рекомендации
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 
 Хранилище Azure Stack — это набор облачных служб хранилища в Microsoft Azure Stack. Хранилище Azure Stack предоставляет такие согласованные с Azure компоненты и функции: большой двоичный объект, таблицу, очередь и функцию управления учетными записями.
 
-В этой статье перечислены известные различия между хранилищем Azure Stack и службой хранилища Azure. Здесь также содержатся дополнительные рекомендации, которые необходимо учитывать при развертывании Azure Stack. См. дополнительные сведения о [ключевых различиях](azure-stack-considerations.md) между Azure Stack и Azure.
+В этой статье перечислены известные различия между хранилищем Azure Stack и службой хранилища Azure. Кроме того, статья содержит рекомендации по развертыванию Azure Stack. См. дополнительные сведения о [ключевых различиях](azure-stack-considerations.md) между Azure Stack и Azure.
 
 ## <a name="cheat-sheet-storage-differences"></a>Памятка. Различия хранилищ
 
@@ -49,17 +50,19 @@ ms.lasthandoff: 04/28/2018
 |Ключ секции таблицы и размер ключа строки|1024 символов (2048 байт)|400 символов (800 байт)
 |Моментальный снимок большого двоичного объекта|Максимальное число моментальных снимков одного большого двоичного объекта не ограничено.|Максимальное число моментальных снимков одного большого двоичного объекта — 1000.|
 
-### <a name="metrics"></a>Метрики
-Кроме того, есть некоторые различия в метриках хранилища:
+Кроме того, есть различия в метриках хранилища:
+
 * Данные транзакций в метриках хранилища не различают внутреннюю или внешнюю пропускную способность сети.
 * Данные транзакции в метриках хранилища не включают доступ виртуальных машин к подключенным дискам.
 
 ## <a name="api-version"></a>Версия API
+
 Хранилище Azure Stack поддерживает следующие версии:
 
 API-интерфейсы служб хранилища Azure.
 
 Обновление 1802 или более новые версии:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17);
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31);
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11);
@@ -67,8 +70,8 @@ API-интерфейсы служб хранилища Azure.
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05).
 
 Предыдущие версии:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05).
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05).
 
 API управления службами хранилища Azure:
 
@@ -94,4 +97,3 @@ API управления службами хранилища Azure:
 
 * [Приступая к работе со средствами разработки хранилища Azure Stack](azure-stack-storage-dev.md)
 * [Общие сведения о хранилище Azure Stack](azure-stack-storage-overview.md)
-

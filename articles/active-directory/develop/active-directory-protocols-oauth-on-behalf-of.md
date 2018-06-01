@@ -1,25 +1,28 @@
 ---
-title: "Проверка подлинности между службами в Azure AD с использованием черновой спецификации потока On-Behalf-Of в OAuth 2.0 | Документы Майкрософт"
-description: "В этой статье описывается, как использовать HTTP-сообщения для проверки подлинности между службами с помощью потока On-Behalf-Of в OAuth 2.0."
+title: Проверка подлинности между службами в Azure AD с использованием черновой спецификации потока On-Behalf-Of в OAuth 2.0 | Документы Майкрософт
+description: В этой статье описывается, как использовать HTTP-сообщения для проверки подлинности между службами с помощью потока On-Behalf-Of в OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157220"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Вызовы между службами с использованием делегированного удостоверения пользователя в потоке On-Behalf-Of
 Поток On-Behalf-Of в OAuth 2.0 используется в том случае, когда приложение вызывает API службы или веб-API, который, в свою очередь, должен вызывать другой API службы или веб-API. Идея состоит в том, чтобы распространить делегированное удостоверение пользователя и разрешения с помощью цепочки запросов. Для того чтобы служба среднего уровня могла выполнять запросы к службе нижнего уровня с проверкой подлинности, служба среднего уровня должна защитить токен доступа из Azure Active Directory (Azure AD) от имени пользователя.
@@ -85,7 +88,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 | scope |обязательно | Список областей для запроса токена, разделенный пробелами. Для OpenID Connect необходимо указать область **openid**.|
 
 #### <a name="example"></a>Пример
-Следующий запрос HTTP POST запрашивает токен доступа для веб-API https://graph.windows.net. Параметр `client_id` определяет службу, которая запрашивает токен доступа.
+Ниже приведен HTTP-запрос POST маркера доступа для веб-API https://graph.windows.net. Параметр `client_id` определяет службу, которая запрашивает токен доступа.
 
 ```
 // line breaks for legibility only
@@ -112,7 +115,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | assertion |обязательно | Значение токена, используемого в запросе. |
 | client_id |обязательно | Идентификатор приложения, назначенный для вызывающей службы при регистрации в Azure AD. Чтобы узнать идентификатор приложения, щелкните **Active Directory** на портале управления Azure, затем выберите каталог и приложение. |
 | client_assertion_type |обязательно |Значение должно быть `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |обязательно | Утверждение (JSON Web Token), которое необходимо создать и подписать с помощью сертификата, зарегистрированного как учетные данные для приложения.  Ознакомьтесь с [учетными данными сертификата](active-directory-certificate-credentials.md), чтобы узнать, как зарегистрировать сертификат и отформатировать утверждение.|
+| client_assertion |обязательно | Утверждение (JSON Web Token), которое необходимо создать и подписать с помощью сертификата, зарегистрированного как учетные данные для приложения. Ознакомьтесь с [учетными данными сертификата](active-directory-certificate-credentials.md), чтобы узнать, как зарегистрировать сертификат и отформатировать утверждение.|
 | resource |обязательно | URI идентификатора приложения принимающей службы (защищенный ресурс). Чтобы узнать URI идентификатора приложения, щелкните **Active Directory** на портале управления Azure, выберите каталог и приложение, щелкните **Все параметры** и **Свойства**. |
 | requested_token_use |обязательно | Указывает, как должен быть обработан запрос. Для потока On-Behalf-Of это значение должно быть равно **on_behalf_of**. |
 | scope |обязательно | Список областей для запроса токена, разделенный пробелами. Для OpenID Connect необходимо указать область **openid**.|
@@ -120,7 +123,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 Обратите внимание на то, что параметры являются почти такими же, как и при использовании запроса с помощью общего секрета, за исключением параметра client_secret, который заменяется двумя параметрами: client_assertion_type и client_assertion.
 
 #### <a name="example"></a>Пример
-Следующий запрос HTTP POST запрашивает маркер доступа для веб-API https://graph.windows.net с сертификатом. Параметр `client_id` определяет службу, которая запрашивает токен доступа.
+Ниже приведен HTTP-запрос POST маркера доступа для веб-API https://graph.windows.net с сертификатом. Параметр `client_id` определяет службу, которая запрашивает токен доступа.
 
 ```
 // line breaks for legibility only
@@ -154,7 +157,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | refresh_token |Токен обновления для запрошенного токена доступа. Вызывающая служба может использовать этот токен для запроса другого токена доступа после того, как срок действия текущего токена доступа истек. |
 
 ### <a name="success-response-example"></a>Пример ответа с успешным предоставлением доступа
-В следующем примере показано сообщение о предоставлении доступа в ответ на запрос токена доступа для веб-API https://graph.windows.net.
+В следующем примере показано сообщение о предоставлении доступа в ответ на запрос маркера доступа к веб-API https://graph.windows.net.
 
 ```
 {
