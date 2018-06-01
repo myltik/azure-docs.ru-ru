@@ -1,9 +1,9 @@
 ---
 title: Функции языка определения рабочих процессов в Azure Logic Apps | Документация Майкрософт
-description: Сведения о функциях, которые можно использовать в определениях рабочих процессов приложений логики
+description: Дополнительные сведения о возможности создания приложений логики с помощью языка определения рабочих процессов
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182254"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886618"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Руководство по функциям языка определения рабочих процессов в Azure Logic Apps
 
-В этой статье описываются функции, которые можно использовать при создании рабочих процессов с помощью [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Дополнительные сведения об определениях приложений логики см. в статье [Схема языка определения рабочих процессов в Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md). 
+В этой статье описываются функции, которые можно использовать при создании рабочих процессов с помощью [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Дополнительные сведения о функциях в определениях приложений логики см. в статье [Схема языка определения рабочих процессов в Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > В синтаксисе для определения параметров знак вопроса (?), который расположен после параметра, означает, что параметр является необязательным. Примеры см. в разделе о [getFutureTime()](#getFutureTime).
