@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 35a45947c2766ccc5e64f4c3523ce163a9680680
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258045"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Использование приложений в Azure Blockchain Workbench
 
@@ -33,7 +34,7 @@ Blockchain Workbench позволяет создавать контракты и
 
 ## <a name="create-new-contract"></a>Создание контракта 
 
-Чтобы создать контракт, вам нужно быть членом роли **AllowedInstanceRoles**. 
+Чтобы создать новый контракт, необходимо быть членом, который указан как **инициатор** контракта. Сведения об определении ролей приложения и инициаторов контракта см. в разделе [Рабочие процессы](blockchain-workbench-configuration-overview.md#workflows). Сведения о назначении членам ролей приложения см. в разделе [Добавление участника в приложение](blockchain-workbench-manage-users.md#add-member-to-application).
 
 1. В разделе приложения Blockchain Workbench выберите плитку приложения, которое содержит создаваемый контракт. Отобразится список активных контрактов.
 
@@ -51,15 +52,10 @@ Blockchain Workbench позволяет создавать контракты и
 
 ## <a name="take-action-on-contract"></a>Действия с контрактами
 
+В зависимости от состояния контракта члены могут выполнять действия для перехода в следующее состояние контракта. Действия определяются как [переходы](blockchain-workbench-configuration-overview.md#transitions) в [состояние](blockchain-workbench-configuration-overview.md#states). Члены, относящиеся к разрешенным приложениям или экземплярам ролей для перехода, могут выполнять действия. 
+
 1. В разделе приложения Blockchain Workbench выберите плитку приложения, которое содержит контракт, с которым вы хотите выполнить действия.
-
-    ![Список приложений](media/blockchain-workbench-use/apps-list.png)
-
-2. В списке выберите контракт.
-
-    ![Список контрактов](media/blockchain-workbench-use/select-contract.png)
-
-    Сведения о контракте отображаются в других разделах. 
+2. В списке выберите контракт. Сведения о контракте отображаются в других разделах. 
 
     ![Сведения о контракте](media/blockchain-workbench-use/contract-details.png)
 
@@ -74,9 +70,14 @@ Blockchain Workbench позволяет создавать контракты и
 
 4. На панели отобразятся сведения о текущем состоянии контракта. Выберите в раскрывающемся списке действие, которое вы намерены выполнить. 
 
+    ![Выбор действия](media/blockchain-workbench-use/choose-action.png)
+
+5. Чтобы инициировать действие, выберите **Выполнить действие**.
+6. Если параметры являются обязательными для действия, укажите соответствующие значения.
+
     ![Выполнить действие](media/blockchain-workbench-use/take-action.png)
 
-5. Щелкните **Выполнить**, чтобы применить выбранное действие.
+7. Чтобы выполнить действие, выберите **Выполнить действие**.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157798"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258318"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Настройка гибридных устройств, присоединенных к Azure Active Directory
 
@@ -96,6 +96,7 @@ Azure AD Connect выполняет следующие функции:
 
 - Кроме того, в зоне интрасети пользователя должен быть включен следующий параметр: "Разрешить обновление строки состояния в сценарии".
 
+Если ваша организация использует управляемую (нефедеративную) конфигурацию с локальной службой AD и не использует ADFS для образования федерации с Azure AD, то соединение посредством гибридной среды Azure AD в Windows 10 зависит от синхронизации объектов-компьютеров в AD с Azure AD. Убедитесь в том, что для всех подразделений с компьютерами-объектами, которые должны быть соединены посредством гибридной среды Azure AD, обеспечивается синхронизация в конфигурации синхронизации Azure AD Connect.
 
 Если вашей организации требуется доступ к Интернету через исходящий прокси-сервер, необходимо реализовать автоматическое обнаружение веб-прокси (WPAD), чтобы компьютеры Windows 10 можно было зарегистрировать в Azure AD.
 
@@ -187,6 +188,14 @@ Azure AD Connect выполняет следующие функции:
 
     $deSCP.CommitChanges()
 
+В приведенном выше сценарии
+
+- `$verifiedDomain = "contoso.com"` — заполнитель, который необходимо заменить одним из проверенных доменных имен в Azure AD. Необходимо будет стать владельцем этого домена, прежде чем использовать его.
+
+Дополнительные сведения о проверенных доменных именах см. в статье [Добавление имени личного домена в Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+Чтобы получить список проверенных доменов компании, можно использовать командлет [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0). 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Шаг 2. Настройка выдачи утверждений
 
@@ -330,6 +339,7 @@ Azure AD Connect выполняет следующие функции:
 
 
 Дополнительные сведения о проверенных доменных именах см. в статье [Добавление имени личного домена в Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+
 Чтобы получить список проверенных доменов компании, можно использовать командлет [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

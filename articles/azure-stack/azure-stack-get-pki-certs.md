@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 69a4529e009d9fdd7081bc4d4b53c468befd8e6d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936170"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304364"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Создание запроса на подпись сертификата Azure Stack
 
@@ -69,10 +69,10 @@ ms.locfileid: "33936170"
     > [!note]  
     > Если указано общее имя (CN), оно будет использоваться в качестве первого DNS-имени запроса сертификата.
 
-3.  Объявите имеющийся выходной каталог:
+3.  Объявите имеющийся выходной каталог. Например: 
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
 4.  Объявление определения системы
 
@@ -96,7 +96,7 @@ ms.locfileid: "33936170"
     ````
 
     > [!note]  
-    > На основе `<regionName>.<externalFQDN>` создаются все внешние DNS-имена в Azure Stack. В этом примере используется портал `portal.east.azurestack.contoso.com`.
+    > На основе `<regionName>.<externalFQDN>` создаются все внешние DNS-имена в Azure Stack. В этом примере используется портал `portal.east.azurestack.contoso.com`.  
 
 6. Чтобы создать отдельный запрос на сертификат с несколькими альтернативными именами субъекта, выполните следующую команду.
 
