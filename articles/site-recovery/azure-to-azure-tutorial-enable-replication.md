@@ -1,21 +1,22 @@
 ---
-title: Настройка аварийного восстановления виртуальных машин Azure в дополнительный регион Azure с помощью службы Azure Site Recovery (предварительная версия)
+title: Настройка аварийного восстановления виртуальных машин Azure в дополнительный регион Azure с помощью службы Azure Site Recovery
 description: Сведения о настройке аварийного восстановления виртуальных машин Azure в другой регион Azure с помощью службы Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211673"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Настройка аварийного восстановления виртуальных машин Azure в дополнительный регион Azure (предварительная версия)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Настройка аварийного восстановления виртуальных машин Azure в дополнительный регион Azure
 
 Служба [Azure Site Recovery](site-recovery-overview.md) помогает реализовать стратегию аварийного восстановления за счет управления процессами репликации, отработки отказа и восстановления локальных компьютеров и виртуальных машин Azure.
 
@@ -27,6 +28,7 @@ ms.lasthandoff: 05/08/2018
 > * Настройка исходящего доступа для виртуальных машин
 > * Включение репликации для виртуальных машин.
 
+Репликация из Azure в Azure сейчас доступна в режиме предварительной версии.
 ## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
@@ -109,7 +111,7 @@ ms.lasthandoff: 05/08/2018
 ### <a name="select-the-source"></a>Выбор источника
 
 1. В хранилище служб восстановления щелкните имя хранилища и выберите **Реплицировать**.
-2. В поле **Источник** выберите **Azure Preview**.
+2. В поле **Источник** выберите **Azure**.
 3. В поле **Исходное расположение** выберите исходный регион Azure, в котором сейчас запущены виртуальные машины.
 4. Для виртуальных машин **Resource Manager** или **классических** виртуальных машин выберите **модель развертывания виртуальной машины Azure**.
 5. Выберите **исходную группу ресурсов** для виртуальных машин Resource Manager или **облачную службу** для классических виртуальных машин.
