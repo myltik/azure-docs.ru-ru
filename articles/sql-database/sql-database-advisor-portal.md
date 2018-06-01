@@ -3,17 +3,18 @@ title: Применение рекомендаций по производите
 description: Чтобы найти рекомендации по производительности, позволяющие оптимизировать работу базы данных SQL Azure, используйте портал Azure.
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364358"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Поиск и применение рекомендаций по производительности
 
@@ -98,7 +99,11 @@ ms.lasthandoff: 04/16/2018
     ![Настройки помощника](./media/sql-database-advisor-portal/settings.png)
 2. Выберите действия для автоматизации.
    
-    ![Рекомендованные индексы](./media/sql-database-advisor-portal/automation.png)
+    ![Рекомендованные индексы](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Обратите внимание, что параметр **DROP_INDEX** сейчас не поддерживается в приложениях, использующих переключения секций и подсказки индекса. В этих случаях его следует отключить.
+>
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Выполнение рекомендованного сценария T-SQL вручную
 Выберите рекомендацию и щелкните **Показать скрипт**. Выполните этот сценарий для базы данных, чтобы применить рекомендацию вручную.
