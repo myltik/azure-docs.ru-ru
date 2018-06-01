@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 43f364ed7e8539397fe8662a8c75804883a82e4f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303374"
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Создание правил на основе атрибутов для динамического членства в группах в Azure Active Directory
 В Azure Active Directory (Azure AD) можно создать дополнительные правила для включения сложного, основанного на атрибутах динамического членства в группах. В этой статье подробно описываются атрибуты и синтаксис для создания правил динамического членства пользователей или устройств. Вы можете настроить правило динамического членства для групп безопасности или групп Office 365.
@@ -278,7 +279,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  deviceModel | Любое строковое значение | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
  domainName | Любое строковое значение | (device.domainName -eq "contoso.com")
- enrollmentProfileName | Имя профиля регистрации устройства Apple. | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Имя профиля регистрации устройства Apple или профиля Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true, false | (device.isRooted -eq true)
  managementType | MDM (для мобильных устройств).<br>PC (для компьютеров, управляемых агентом Intune PC). | (device.managementType -eq "MDM")
  organizationalUnit | Любое строковое значение, соответствующее имени подразделения, заданному в локальном каталоге Active Directory. | (device.organizationalUnit -eq "US PCs")

@@ -9,16 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212829"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Что бы вы хотели узнать о Service Fabric?
 Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые и надежные микрослужбы, но и управлять ими.  Service Fabric имеет большую контактную зону и вы можете многому научиться.  Здесь представлен краткий обзор Service Fabric и описаны основные понятия, модели программирования, жизненный цикл приложения, тестирование, кластеры и мониторинг работоспособности. Обзор и сведения о том, как создавать микрослужбы с помощью Service Fabric, см. в статьях [Общие сведения о Service Fabric](service-fabric-overview.md) и [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md). Эта статья не содержит полный список связанной документации, но предоставляет ссылки на руководства по началу работы для каждой области Service Fabric. 

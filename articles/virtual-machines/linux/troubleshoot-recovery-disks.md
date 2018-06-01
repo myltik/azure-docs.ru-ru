@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bff31dafdf3263ec189f67da7de8fea6eb3d2662
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271492"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Устранение неполадок виртуальной машины Linux путем подключения диска ОС к виртуальной машине восстановления с помощью Azure CLI 2.0
 Если возникает проблема с загрузкой или диском на виртуальной машине Linux, возможно, вам нужно устранить неполадки, связанные с самим виртуальным жестким диском. Например, такая ситуация возникает из-за неправильной записи в `/etc/fstab`, которая мешает успешно загрузить виртуальную машину. В этой статье подробно описано, как с помощью Azure CLI 2.0 подключить виртуальный жесткий диск к другой виртуальной машине Linux для устранения ошибок, а затем воссоздать исходную виртуальную машину. Эти действия можно также выполнить с помощью [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,6 +32,8 @@ ms.lasthandoff: 04/06/2018
 3. Подключитесь к этой виртуальной машине. Измените файлы или запустите средства, которые нужны для устранения неполадок на исходном виртуальном жестком диске.
 4. Отключите и отсоедините виртуальный жесткий диск от виртуальной машины, на которой выполняется устранение неполадок.
 5. Создайте другую виртуальную машину, используя исходный виртуальный жесткий диск.
+
+Сведения о виртуальной машине, используемой управляемый диск, см. в разделе [Устранение неполадок виртуальной машины с управляемым диском путем подключения нового диска операционной системы](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 Чтобы выполнить эти действия по устранению неполадок, нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/reference-index#az_login).
 
@@ -183,6 +186,13 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Устранение неполадок виртуальной машины с управляемым диском путем подключения нового диска операционной системы
+1. Остановите затронутую виртуальную машину Windows с управляемым диском.
+2. [Создайте моментальный снимок управляемого диска](../windows/snapshot-copy-managed-disk.md) операционной системы виртуальной машины.
+3. [Создайте управляемый диск на основе моментального снимка](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Подключите управляемый диск в качестве диска данных виртуальной машины](../windows/attach-disk-ps.md).
+5. [Замените диск данных из шага 4 на диск операционной системы](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
 При возникновении проблем с подключением к виртуальной машине см. статью [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Для решения проблем с доступом к приложениям, выполняющимся на виртуальной машине, см. статью [Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
