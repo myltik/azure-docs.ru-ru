@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160552"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Рекомендации по обеспечению безопасности виртуальных машин Azure
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/28/2018
 
 - [Участник виртуальных машин](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) — может управлять виртуальными машинами, но не виртуальными сетями и учетными записями хранения, к которым они подключены.
 - [Участник классических виртуальных машин](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor) — может управлять виртуальными машинами, созданными с помощью классической модели развертывания, но не может управлять виртуальными сетями и учетными записями хранения, к которым подключены виртуальные машины.
-- [Диспетчер безопасности](../role-based-access-control/built-in-roles.md#security-manager) — может управлять компонентами безопасности, политиками безопасности и виртуальными машинами.
+- [Администратор безопасности](../role-based-access-control/built-in-roles.md#security-admin) — может управлять компонентами безопасности и политиками безопасности.
 - [Пользователь DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user) — может просматривать все, а также подключать, запускать, перезапускать виртуальные машины и завершать их работу.
 
 Не предоставляйте администраторам одни и те же учетные записи и пароли, а также не используйте пароли повторно для нескольких учетных записей или служб, особенно пароли для доступа к социальным сетям или для выполнения других действий, не связанных c администрированием. В идеале для безопасной настройки виртуальных машин следует использовать шаблоны [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). С помощью такого подхода можно ограничить выбор вариантов развертывания и принудительно применить к развертыванию параметры безопасности.

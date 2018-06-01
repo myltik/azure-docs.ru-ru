@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 588da055d06d7e63510085ff48169f3ea756c53c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257648"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Общие сведения об Azure Stack Marketplace
 
@@ -29,7 +30,7 @@ Marketplace — это коллекция служб, приложений и р
 
 Как оператор Azure Stack вы определяете, какие элементы следует добавить (опубликовать) в Marketplace. Опубликовать можно, например, базы данных, службы приложений и т. д. Публикация сделает их видимыми для всех пользователей. Вы можете опубликовать настраиваемые элементы, которые вы создали. Также можно опубликовать элементы из постоянно растущего [списка элементов Azure Marketplace](azure-stack-marketplace-azure-items.md). После публикации элемента в Marketplace он станет видимым для пользователей в течение пяти минут.
 
-Чтобы открыть на Marketplace, щелкните **New**(Создать).
+Чтобы открыть marketplace, в консоли администрирования выберите **New** (Создать).
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -47,5 +48,6 @@ Marketplace — это коллекция служб, приложений и р
 Начиная с версии 1803 и выше, Azure Stack преобразует изображения в разреженные файлы при скачивании из Azure или отправке пользовательских образов. Этот процесс увеличивает время добавления изображения, но позволяет сэкономить место и ускорить развертывание этих образов. Преобразование применяется только для новых образов.  Существующие образы не изменяются. 
 
 ## <a name="next-steps"></a>Дополнительная информация
+[Скачивание элементов marketplace](azure-stack-download-azure-marketplace-item.md)  
 [Создание и публикация элемента Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 
