@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34273972"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Балансировка нагрузки виртуальных машин по всем зонам доступности с помощью Azure CLI
 
@@ -218,17 +219,19 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>Создание зональных виртуальных машин
 Создайте виртуальные машины с помощью команды [az vm create](/cli/azure/vm#az_vm_create) в зонах 1, 2 и 3. В следующем примере создается виртуальная машина в каждой зоне и ключи SSH, если они не существуют.
 
-Создание виртуальных машин в зоне 1
+Создайте виртуальную машину в каждой зоне (в зонах 1, 2 и 3) в расположении *westeurope*.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## <a name="test-the-load-balancer"></a>Тестирование подсистемы балансировки нагрузки
 

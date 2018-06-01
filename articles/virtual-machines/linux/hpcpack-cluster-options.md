@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 10/26/2017
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 96e77b739550c935316f7bade57b8aac7e634f02
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 281867e30c78c7ed36ac739c8ae1a902463199cd
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166460"
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-linux-hpc-workloads-in-azure"></a>Варианты создания и администрирования кластера HPC для рабочих нагрузок Linux с помощью пакета HPC в Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-Эта статья посвящена вариантам использования пакета HPC для запуска рабочих нагрузок Linux. Существуют также возможности запуска [рабочих нагрузок HPC Windows с помощью пакета HPC](../windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Эта статья посвящена вариантам использования пакета HPC для запуска рабочих нагрузок Linux в Azure. Существуют также возможности запуска [рабочих нагрузок HPC Windows с помощью пакета HPC](../windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="hpc-pack-cluster-in-azure-vms-and-vm-scale-sets"></a>Кластер пакета HPC на виртуальных машинах Azure и масштабируемые наборы виртуальных машин
-### <a name="azure-templates"></a>Шаблоны Azure
-* (GitHub) [Шаблоны кластера пакета HPC 2016](https://github.com/MsHpcPack/HPCPack2016)
+### <a name="azure-resource-manager-templates"></a>Шаблоны Azure Resource Manager
+* (GitHub) [Шаблоны кластера пакета HPC 2016 с обновлением 1](https://github.com/MsHpcPack/HPCPack2016)
 * (GitHub) [Шаблоны кластера пакета HPC 2012 R2](https://github.com/MsHpcPack/HPCPack2012R2)
-* (Marketplace) [Кластер пакета HPC для рабочих нагрузок Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
-* (Краткое руководство) [Создание кластера HPC с вычислительными узлами Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
+* (Краткое руководство) [Создание кластера HPC 2012 R2 с вычислительными узлами Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
-### <a name="powershell-deployment-script-for-hpc-pack-2012-r2"></a>Скрипт развертывания PowerShell для пакета HPC 2012 R2
+### <a name="azure-vm-images"></a>Образы виртуальных машин Azure
+Просмотрите [образы пакета HPC в Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?page=1&search=%22HPC%20%20Pack%22), если вы хотите создать кластер пакета HPC в Azure.
+
+## <a name="hpc-pack-2012-r2-cluster-in-classic-deployment-model"></a>Кластер пакета HPC 2012 R2 в классической модели развертывания
 * [Создание кластера HPC Linux с помощью сценария развертывания IaaS пакета HPC](../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-
-### <a name="tutorials"></a>Учебники
+* [Настройка кластера Linux RDMA для выполнения приложений MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Руководство. Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Руководство. запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](classic/hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Руководство. выполнение заданий OpenFOAM с помощью пакета Microsoft HPC в кластере Linux RDMA в Azure](classic/hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Руководство. Выполнение заданий STAR-CCM+ в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](classic/hpcpack-cluster-starccm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-### <a name="cluster-management"></a>Управление кластерами
+## <a name="job-submisssion"></a>Отправка заданий
 * [Отправка заданий в кластер пакета HPC в Azure](../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Управление заданиями в пакете HPC](https://technet.microsoft.com/library/jj899585.aspx)
 
-## <a name="rdma-clusters-for-mpi-workloads"></a>Кластеры RDMA для рабочих нагрузок MPI
-* [Руководство. выполнение заданий OpenFOAM с помощью пакета Microsoft HPC в кластере Linux RDMA в Azure](classic/hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Настройка кластера Linux RDMA для выполнения приложений MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+
+
 

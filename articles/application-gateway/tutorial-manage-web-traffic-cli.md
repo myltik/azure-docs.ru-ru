@@ -7,14 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 4/27/2018
+ms.date: 5/16/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 60d67693b7fa5a4c806f9fcd0f28506417f4a198
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: eb5a5090c0de56cecab47d05877cf14b56ca5e0c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257394"
 ---
 # <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Руководство по управлению веб-трафиком с помощью шлюза приложений и Azure CLI
 
@@ -97,7 +98,7 @@ az network application-gateway create \
 - *appGatewayFrontendIP* — назначает адрес *myAGPublicIPAddress* для прослушивателя *appGatewayHttpListener*.
 - *rule1* — правило маршрутизации по умолчанию, связанное с прослушивателем *appGatewayHttpListener*.
 
-## <a name="create-a-virtual-machine-scale-set"></a>создавать масштабируемый набор виртуальных машин;
+## <a name="create-a-virtual-machine-scale-set"></a>Создание масштабируемого набора виртуальных машин
 
 В этом примере вы создаете масштабируемый набор виртуальных машин, чтобы предоставить серверы для внутреннего пула в шлюзе приложений. Виртуальные машины в масштабируемом наборе связаны с подсетью *myBackendSubnet* и пулом *appGatewayBackendPool*. Чтобы создать масштабируемый набор, выполните команду [az vmss create](/cli/azure/vmss#az_vmss_create).
 
@@ -119,6 +120,8 @@ az vmss create \
 
 ### <a name="install-nginx"></a>Установка nginx
 
+Теперь можно установить NGINX в масштабируемом наборе виртуальных машин, чтобы проверить возможность подключения по протоколу HTTP для серверного пула.
+
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -126,7 +129,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Тестирование шлюза приложений
@@ -145,7 +148,7 @@ az network public-ip show \
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Можно удалить группу ресурсов, шлюз приложений и все связанные с ними ресурсы, если они больше не требуются.
+При необходимости вы можете удалить группу ресурсов, шлюз приложений и все связанные ресурсы.
 
 ```azurecli-interactive
 az group delete --name myResourceGroupAG --location eastus
