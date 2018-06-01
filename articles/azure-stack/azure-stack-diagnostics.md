@@ -1,25 +1,24 @@
 ---
-title: "Диагностика в Azure Stack"
-description: "Как собирать файлы журналов для диагностики в Azure Stack"
+title: Диагностика в Azure Stack
+description: Как собирать файлы журналов для диагностики в Azure Stack
 services: azure-stack
 author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 04/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196469"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Средства диагностики Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
- 
 Azure Stack — это большая коллекция компонентов, взаимодействующих между собой. Все эти компоненты создают свои собственные уникальные журналы. Это может усложнить диагностику проблем, особенно в случае с ошибками, поступающими из нескольких взаимодействующих компонентов Azure Stack. 
 
 Наши средства диагностики обеспечивают простоту и эффективность механизма сбора журналов. На следующей схеме показана работа средств сбора журналов в Azure Stack.
@@ -48,7 +47,7 @@ Azure Stack — это большая коллекция компонентов
 
 Эти файлы собираются и сохраняются в файловом ресурсе сборщиком трассировки. Затем при необходимости их можно будет собрать с помощью командлета PowerShell **Get-AzureStackLog**.
  
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Выполнение командлета Get-AzureStackLog в системе комплекта SDK Azure Stack (ASDK)
+### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Выполнение командлета Get-AzureStackLog в системе Пакета средств разработки Azure Stack (ASDK)
 1. Войдите на узел как **AzureStack\CloudAdmin**.
 2. Откройте окно PowerShell от имени администратора.
 3. Выполните командлет PowerShell **Get-AzureStackLog**.
@@ -79,7 +78,36 @@ Azure Stack — это большая коллекция компонентов
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Выполнение командлета Get-AzureStackLog в интегрированной системе Azure Stack
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Выполнение командлета Get-AzureStackLog в интегрированных системах Azure Stack версии 1804 или более поздней версии
+
+Чтобы запустить средство сбора журналов в интегрированной системе, необходимо иметь доступ к привилегированной конечной точке (PEP). Ниже приведен пример скрипта, который можно запустить с помощью PEP для сбора журналов в интегрированной системе:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Параметры **OutputSharePath** и **OutputShareCredential** используются при передаче журналов во внешнюю общую папку.
+- Как показано в предыдущем примере, параметры **FromDate** и **ToDate** можно использовать для сбора журналов за конкретный период времени. Это может быть полезным для таких сценариев, как сбор журналов после применения пакета обновления в интегрированной системе.
+
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Выполнение командлета Get-AzureStackLog в интегрированных системах Azure Stack версии 1803 или более ранней версии
 
 Чтобы запустить средство сбора журналов в интегрированной системе, необходимо иметь доступ к привилегированной конечной точке (PEP). Ниже приведен пример скрипта, который можно запустить с помощью PEP для сбора журналов в интегрированной системе:
 
@@ -108,6 +136,7 @@ if($s)
 - Параметры **OutputSharePath** и **OutputShareCredential** являются необязательными и используются при передаче журналов во внешнюю общую папку. Используйте эти параметры *в дополнение* к **OutputPath**. Если параметр **OutputPath** не указан, инструмент сбора журналов будет использовать для хранения системный диск виртуальной машины PEP. Это может вызвать ошибку скрипта, так как место на диске ограничено.
 - Как показано в предыдущем примере, параметры **FromDate** и **ToDate** можно использовать для сбора журналов за конкретный период времени. Это может быть полезным для таких сценариев, как сбор журналов после применения пакета обновления в интегрированной системе.
 
+
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Рекомендации по настройке параметров для ASDK и интегрированных систем
 
 - Если параметры **FromDate** и **ToDate** не указаны, по умолчанию журналы собираются за последние четыре часа.
@@ -117,26 +146,35 @@ if($s)
 
    |   |   |   |
    | - | - | - |
-   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
-   | ACS                     | ACSFabric              | ACSFrontEnd        |
-   | ACSTableMaster          | ACSTableServer         | ACSWac             |
-   | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | CPI                |
-   | CRP                     | DeploymentMachine      | DHCP               |
-   | Домен                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | FRP                |
-   | Шлюз                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
-   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
-   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | Хранилище                | StorageController  |
-   | URP                     | UsageBridge            | VirtualMachines    |  
-   | WAS                     | WASPUBLIC              | WDS                |
-
+   | ACS                    | DeploymentMachine                | NC                         |
+   | ACSBlob                | DiskRP                           | Сеть                    |
+   | ACSFabric              | Домен                           | NonPrivilegedAppGateway    |
+   | ACSFrontEnd            | ECE                              | NRP                        |
+   | ACSMetrics             | ExternalDNS                      | OEM                        |
+   | ACSMigrationService    | Fabric                           | PXE                        |
+   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
+   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
+   | ACSTableMaster         | FRP                              | SLB                        |   
+   | ACSTableServer         | Коллекция                          | SlbVips                    |
+   | ACSWac                 | Шлюз                          | SQL                        |   
+   | ADFS                   | HealthMonitoring                 | SRP                        |
+   | ASAppGateway           | HRP                              | Служба хранилища                    |   
+   | NCAzureBridge          | IBC                              | Учетные записи хранения            |    
+   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
+   | AzureStackBitlocker    | iDns                             | Клиент                     |
+   | BareMetal              | InfraServiceController           | TraceCollector             |
+   | BRP                    | Инфраструктура                   | URP                        |
+   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
+   | Облако                  | KeyVaultControlPlane             | VirtualMachines            |
+   | HDInsight                | KeyVaultDataPlane                | WAS                        |
+   | Службы вычислений                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
+   | CRP                    | KeyVaultNamingService            |                            |
+   | DatacenterIntegration  | MonitoringAgent                  |                            |
+   |                        |                                  |                            |
 
 ### <a name="bkmk_gui"></a>Сбор журналов с помощью графического пользовательского интерфейса
-Вместо того, чтобы указывать обязательные параметры командлета Get-AzureStackLog для получения журналов Azure Stack, можно также использовать доступные инструменты Azure Stack с открытым кодом, размещенные в главном репозитории GitHub инструментов Azure Stack по адресу http://aka.ms/AzureStackTools.
+Вместо того, чтобы указывать обязательные параметры командлета Get-AzureStackLog для получения журналов Azure Stack, можно также использовать доступные инструменты Azure Stack с открытым кодом, размещенные в главном репозитории GitHub инструментов для Azure Stack по адресу http://aka.ms/AzureStackTools.
 
 Сценарий PowerShell **ERCS_AzureStackLogs.ps1** хранится в репозитории GitHub инструментов и регулярно обновляется. Чтобы обеспечить наличие самой последней доступной версии, необходимо скачать ее по адресу http://aka.ms/ERCS. Если запустить его из сеанса администратора PowerShell, этот сценарий подключается к привилегированной конечной точке и выполняет командлет Get-AzureStackLog с указанными параметрами. Если параметры не указаны, скрипт по умолчанию ожидает ввода параметров через графический пользовательский интерфейс.
 
@@ -145,7 +183,7 @@ if($s)
 ### <a name="additional-considerations"></a>Дополнительные замечания
 
 * Выполнение команды займет некоторое время в зависимости от того, по какой роли (ролям) собираются журналы. К ключевым факторам также относится промежуток времени, указанный для сбора журналов, а также количество узлов в среде Azure Stack.
-* После завершения сбора журналов проверьте новую папку, созданную в расположении, которое задано в параметре **OutputPath**, указанном в команде.
+* После завершения сбора журналов проверьте новую папку, созданную в расположении, которое задано в параметре **OutputSharePath**, указанном в команде.
 * Журналы каждой роли хранятся в отдельных ZIP-файлах. В зависимости от размера собранных журналов роли могут быть разделены на несколько ZIP-файлов. Если необходимо распаковать все файлы такой роли в одну папку, используйте средство, которое может распаковать в пакетном режиме (например, 7zip). Выберите все ZIP-файлы для роли и щелкните **extract here** (Извлечь сюда). После этого все файлы журналов для этой роли будут распакованы в одну объединенную папку.
 * Файл **Get-AzureStackLog_Output.log** также создается в папке, содержащей ZIP-файлы журналов. Этот файл представляет собой журнал выходных данных команды, который можно использовать для устранения неполадок во время сбора журналов.
 * Для изучения конкретного сбоя могут понадобиться журналы из нескольких компонентов.
