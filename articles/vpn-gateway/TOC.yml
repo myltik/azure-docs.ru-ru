@@ -30,7 +30,7 @@
       href: vpn-gateway-highlyavailable.md
     - name: Сведения о подключениях "точка — сеть"
       href: point-to-site-about.md
-    - name: Сведения о маршрутизации "точка — сеть"
+    - name: "Сведения о маршрутизации VPN-подключений типа \"точка\_— сеть\""
       href: vpn-gateway-about-point-to-site-routing.md
 - name: Практические руководства
   items:

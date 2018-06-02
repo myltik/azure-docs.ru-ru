@@ -23,13 +23,12 @@
 ### [Обзор Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Безопасность
-### [Мониторинг ресурсов](oms-security-monitoring-resources.md)
-### [Реагирование на оповещения системы безопасности](oms-security-responding-alerts.md)
-### [Оценка базовых показателей](oms-security-baseline.md)
-### [Оценка вредоносных программ](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Оценка системных обновлений](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Подключение средств обеспечения безопасности](oms-security-connect-products.md)
-### [Оценка базовых показателей в Интернете](oms-security-web-baseline-assessment.md)
+### [Мониторинг ресурсов](../security-center/security-center-monitoring.md)
+### [Реагирование на оповещения системы безопасности](../security-center/security-center-managing-and-responding-alerts.md)
+### [Оценка базовых показателей](../security-center/security-center-customize-os-security-config.md)
+### [Оценка вредоносных программ](../security-center/security-center-install-endpoint-protection.md)
+### [Подключение средств обеспечения безопасности](../security-center/quick-security-solutions.md)
+### [Оценка базовых показателей в Интернете](../security-center/security-center-customize-os-security-config.md)
 
 ## Использование решений
 ### [Решения для управления](../monitoring/monitoring-solutions.md)

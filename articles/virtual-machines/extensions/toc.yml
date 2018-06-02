@@ -63,8 +63,6 @@
           href: dsc-template.md
     - name: Антивредоносное ПО IaaS для Windows
       href: iaas-antimalware-windows.md
-    - name: Key Vault
-      href: key-vault-windows.md
     - name: Моментальный снимок виртуальной машины
       items:
         - name: Linux

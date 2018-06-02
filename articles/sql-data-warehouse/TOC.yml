@@ -6,6 +6,10 @@
       href: sql-data-warehouse-overview-what-is.md
     - name: Краткий справочник
       href: cheat-sheet.md
+- name: Заметки о выпуске
+  items:
+    - name: Май 2018 г.
+      href: release-notes-may-2018.md
 - name: Быстрое начало работы
   expanded: true
   items:
