@@ -137,24 +137,20 @@
           href: log-analytics-powerbi.md
     - name: Создание оповещений
       items:
-        - name: Основные сведения об оповещениях
-          href: log-analytics-alerts.md
-        - name: Действия оповещений
-          href: log-analytics-alerts-actions.md
-        - name: Создание правил генерации оповещений
-          items:
-            - name: Портал OMS
-              href: log-analytics-alerts-creating.md
-            - name: ИНТЕРФЕЙС REST API
-              href: log-analytics-api-alerts.md
-            - name: Шаблон Resource Manager
-              href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
-        - name: Пример действия веб-перехватчика
-          href: log-analytics-alerts-webhooks.md
-        - name: Решение по управлению оповещениями
-          href: log-analytics-solution-alert-management.md
+        - name: Основные сведения об оповещениях журналов
+          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
+        - name: Создание оповещения журнала
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+        - name: Действия веб-перехватчика для оповещений журнала
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+        - name: Создание оповещения журнала с помощью шаблона Resource Manager
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+        - name: Копирование оповещений из Log Analytics в оповещения Azure
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
     - name: управление
       items:
+        - name: Обработка персональных данных
+          href: log-analytics-personal-data-mgmt.md
         - name: Управление агентами
           href: log-analytics-agent-manage.md
         - name: Управление затратами на рабочую область
@@ -218,8 +214,6 @@
               href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
             - name: Настраиваемая схема отслеживания Logic Apps B2B
               href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Оценка вредоносных программ
-          href: log-analytics-malware.md
         - name: Анализ сетевой активности
           href: log-analytics-azure-networking-analytics.md
         - name: Монитор производительности сети
@@ -239,7 +233,7 @@
         - name: Проверка работоспособности SCOM
           href: log-analytics-scom-assessment.md
         - name: Аудит безопасности
-          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../security-center/security-center-intro.md
         - name: Service Fabric с использованием Azure PowerShell
           href: log-analytics-service-fabric.md
           items:
