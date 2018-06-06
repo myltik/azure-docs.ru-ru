@@ -1,4 +1,4 @@
-# [Документация по доменным службам Azure AD](index.md)
+# [Документация по доменным службам Azure AD](index.yml)
 
 # Обзор
 ## [Что такое доменные службы Azure AD?](active-directory-ds-overview.md)

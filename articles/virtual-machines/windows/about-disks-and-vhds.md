@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "32313517"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Основные сведения о дисковых хранилищах для виртуальных машин Windows в Azure

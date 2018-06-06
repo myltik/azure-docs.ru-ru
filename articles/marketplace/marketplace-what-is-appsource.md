@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "32178242"
 ---
 # <a name="what-is-appsource"></a>Что такое AppSource
 AppSource позволяет партнерам Майкрософт делать свои технологии и услуги доступными для клиентов в интернет-магазине, поддерживаемом Майкрософт. Как издатель AppSource вы можете привлечь бизнес-пользователей с помощью AppSource, чтобы найти, протестировать и получить бизнес-приложения SaaS и службы внедрения для достижения бизнес-результатов и ускорения окупаемости инвестиций: 
@@ -97,7 +98,7 @@ AppSource позволяет партнерам Майкрософт делат�
 *   [Видеоролики Microsoft Azure, посвященные Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory "Видеоролики об Azure AD")
 
 **Обучение**
-*   [Серия материалов "Microsoft Azure для ИТ-специалистов": Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965 "Серия материалов "Microsoft Azure для ИТ-специалистов": Azure AD")
+*   [Серия материалов "Microsoft Azure для ИТ-специалистов": Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965 "Серия материалов \"Microsoft Azure для ИТ-специалистов\": Azure AD")
 
 **Обновления службы Azure Active Directory**
 *   [Обновления службы Azure AD](https://azure.microsoft.com/updates/?product=active-directory "Azure AD — обновления службы")

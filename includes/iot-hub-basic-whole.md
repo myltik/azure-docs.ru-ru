@@ -9,10 +9,11 @@ ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: 490260a1cda8ed467d3fc7ad0c1020e6e459bd13
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "30325418"
 ---
 >[!NOTE]
 >Функции, описанные в этой статье, доступны только на стандартном уровне Центра Интернета вещей. Дополнительные сведения о базовом и стандартном уровнях см. в статье о [выборе нужного уровня Центра Интернета вещей](../articles/iot-hub/iot-hub-scaling.md).

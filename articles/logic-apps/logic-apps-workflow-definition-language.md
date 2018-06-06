@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
 ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "33886817"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Определения рабочих процессов приложений логики с помощью схемы языка определений рабочих процессов

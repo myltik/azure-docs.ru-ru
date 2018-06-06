@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "34070504"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Проблемы конфигурации и управления для облачных служб Azure. Вопросы и ответы (FAQ)
@@ -230,7 +230,7 @@ Windows 10 и Windows Server 2016 в стандартной конфигурац
 
 Автомасштабирование на основе метрик памяти в настоящее время не поддерживается для облачных служб. 
 
-Чтобы обойти эту проблему, используйте Application Insights. Автомасштабирование поддерживает Application Insights в качестве источника метрик и позволяет изменять число экземпляров роли по любой гостевой метрике, в том числе "Память".  Чтобы реализовать такой механизм, настройте параметры для Application Insights в файле пакета для проекта облачной службы (\*.CSPKG) и включите для службы расширение диагностики Azure.
+Чтобы обойти эту проблему, используйте Application Insights. Автомасштабирование поддерживает Application Insights в качестве источника метрик и позволяет изменять число экземпляров роли по любой гостевой метрике, в том числе "Память".  Чтобы реализовать такой механизм, настройте параметры для Application Insights в файле пакета для проекта облачной службы (CSPKG) и включите для службы расширение диагностики Azure.
 
 Дополнительные сведения о применении пользовательских метрик Application Insights для автомасштабирования облачных служб вы найдете в статье [Get started with auto scale by custom metric in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) (Начало работы с автомасштабированием в Azure по пользовательским метрикам).
 
