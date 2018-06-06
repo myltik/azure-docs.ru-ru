@@ -1,8 +1,8 @@
 ---
-title: "Настройка исходной среды (репликация физических серверов в Azure) | Документация Майкрософт"
-description: "В этой статье приведены сведения о настройке локальной среды для запуска репликации физических серверов под управлением Windows или Linux в Azure."
+title: Настройка исходной среды (репликация физических серверов в Azure) | Документация Майкрософт
+description: В этой статье приведены сведения о настройке локальной среды для запуска репликации физических серверов под управлением Windows или Linux в Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811141"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Настройка исходной среды (репликация физических серверов в Azure)
 
