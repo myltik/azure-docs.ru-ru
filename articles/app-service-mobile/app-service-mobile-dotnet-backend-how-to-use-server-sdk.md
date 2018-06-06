@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "31589634"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/19/2018
 Справочную документацию по пакету SDK для сервера см. здесь: [Справочник по .NET для мобильных приложений Azure][1].
 
 ## <a name="create-app"></a>Практическое руководство. Создание серверной части мобильного приложения .NET
-Если вы начинаете новый проект, приложение службы приложений можно создать с помощью [портала Azure] или программы Visual Studio. Вы можете запустить приложение службы приложений локально или опубликовать проект в мобильном приложении облачной службы приложений.
+Если вы начинаете новый проект, приложение службы приложений можно создать с помощью [портал Azure] или программы Visual Studio. Вы можете запустить приложение службы приложений локально или опубликовать проект в мобильном приложении облачной службы приложений.
 
 Если вы добавляете мобильные возможности к имеющемуся проекту, см. раздел [Практическое руководство. Скачивание и инициализация пакета SDK](#install-sdk).
 
@@ -468,7 +469,7 @@ SID является производным от идентификатора п
 В приведенном выше примере необходимо настроить параметры приложения *authAudience* и *authIssuer* в файле Web.config, задав для каждого из них значение URL-адреса корня приложения в формате HTTPS. Точно так же для параметра *authSigningKey* нужно задать значение ключа подписывания приложения.
 Чтобы получить ключ подписывания, сделайте следующее:
 
-1. Перейдите в свое приложение на [портала Azure]
+1. Перейдите в свое приложение на [портал Azure]
 2. Щелкните **Инструменты**, **Kudu**, **Перейти**.
 3. На сайте управления Kudu щелкните **Среда**.
 4. Найдите значение для *WEBSITE\_AUTH\_SIGNING\_KEY*.
@@ -481,7 +482,7 @@ SID является производным от идентификатора п
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[портала Azure]: https://portal.azure.com
+[портал Azure]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
