@@ -54,6 +54,7 @@
 ### [Встраивание в пользовательские приложения (пакет SDK)](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## [Отчеты](../active-directory/authentication/howto-mfa-reporting.md)
+### [Сбор данных](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 ## [Руководство пользователя MFA](./end-user/multi-factor-authentication-end-user.md)
 

@@ -4,7 +4,7 @@
 ## [Что такое Resource Manager?](resource-group-overview.md)
 ## [Поставщики и типы ресурсов](resource-manager-supported-services.md)
 ## [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](resource-manager-deployment-model.md)
-## [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md)
+## [Корпоративный каркас Azure: рекомендуемая система управления подписками](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Упорядочение ресурсов с помощью групп управления](management-groups-overview.md)
 
 # Начало работы
@@ -50,7 +50,6 @@
 ### [Создание подписок EA программными средствами](programmatically-create-subscription.md)
 ### [Создание групп управления](management-groups-create.md)
 ### [Администрирование групп управления](management-groups-manage.md)
-### [Примеры реализации корпоративного каркаса Azure](resource-manager-subscription-examples.md)
 
 ## Контроль доступа
 ### Создание субъекта-службы

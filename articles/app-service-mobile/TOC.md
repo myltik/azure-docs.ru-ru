@@ -4,15 +4,14 @@
 ## [Что представляют собой мобильные приложения?](app-service-mobile-value-prop.md)
 ## [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Начало работы
-## Создание мобильных приложений
-### [Android](app-service-mobile-android-get-started.md)
-### [Cordova](app-service-mobile-cordova-get-started.md)
-### [iOS](app-service-mobile-ios-get-started.md)
-### [Windows](app-service-mobile-windows-store-dotnet-get-started.md)
-### [Xamarin.Android](app-service-mobile-xamarin-android-get-started.md)
-### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
-### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
+# Быстрое начало работы
+## [Android](app-service-mobile-android-get-started.md)
+## [Cordova](app-service-mobile-cordova-get-started.md)
+## [iOS](app-service-mobile-ios-get-started.md)
+## [Windows](app-service-mobile-windows-store-dotnet-get-started.md)
+## [Xamarin.Android](app-service-mobile-xamarin-android-get-started.md)
+## [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
+## [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
 # Практическое руководство
 
@@ -136,7 +135,7 @@
 #### [Реализация многоуровневой архитектуры безопасности](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Безопасное подключение к серверным ресурсам](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Архивация
+## Azure Backup
 ### [Архивация приложения в Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Восстановление приложения в Azure](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
