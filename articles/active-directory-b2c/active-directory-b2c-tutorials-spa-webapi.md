@@ -3,16 +3,19 @@ title: Руководство. Предоставление доступа к в
 description: Руководство по использованию Active Directory B2C для защиты веб-API .NET Core и его вызова из одностраничного приложения.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34711099"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Руководство. Предоставление доступа к веб-API ASP.NET Core из одностраничного приложения с помощью Azure Active Directory B2C
 
@@ -155,13 +158,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. Откройте файл **launchSettings.json** в разделе **Свойства**, найдите параметр *applicationURL* и запишите его значение. Оно будет использоваться в следующем разделе.
+
 ### <a name="configure-the-single-page-app"></a>Настройка одностраничного приложения
 
 Одностраничное приложение использует Azure AD B2C для регистрации и входа пользователей, а также вызывает защищенный веб-API ASP.NET Core. Для вызова веб-API .NET Core в одностраничное приложение необходимо внести изменения.
 Чтобы изменить параметры приложения:
 
 1. Откройте файл `index.html` в примере одностраничного приложения Node.js.
-2. Настройте пример, указав сведения о регистрации клиента Azure AD B2C. Измените значения **b2cScopes** и **webApi** в следующих строках кода:
+2. Настройте пример, указав сведения о регистрации клиента Azure AD B2C. В следующем коде добавьте имя клиента в **b2cScopes** и измените значение **webApi** на ранее сохраненное значение *applicationURL*:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -169,7 +174,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 
