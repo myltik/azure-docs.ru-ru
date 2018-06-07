@@ -81,6 +81,8 @@
               href: n-series-driver-setup.md
         - name: Для высокопроизводительных вычислений
           href: sizes-hpc.md
+        - name: Предыдущие поколения
+          href: sizes-previous-gen.md
         - name: Единицы вычислений Azure (ACU)
           href: acu.md
         - name: Результаты теста производительности
@@ -190,7 +192,12 @@
         - name: Добавление тега для виртуальной машины
           href: tag.md
         - name: Выполнение скриптов на виртуальной машине
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Расширение пользовательских сценариев
+              href: ../extensions/custom-script-windows.md
+            - name: Запуск команды
+              href: run-command.md
         - name: Изменение буквы временного диска
           href: change-drive-letter.md
         - name: Изменение группы доступности
@@ -329,41 +336,7 @@
         - name: Разрешение DNS
           href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Использование расширений виртуальной машины
-      items:
-        - name: Обзор расширений виртуальной машины
-          href: extensions-features.md
-        - name: Расширение пользовательских сценариев
-          href: extensions-customscript.md
-        - name: Расширение агента OMS
-          href: extensions-oms.md
-        - name: Расширение PowerShell DSC
-          href: extensions-dsc-overview.md
-          items:
-            - name: Обработка учетных данных расширения PowerShell DSC
-              href: extensions-dsc-credentials.md
-            - name: Использование DSC и VMSS с шаблонами
-              href: extensions-dsc-template.md
-        - name: Расширение сборщика журналируемых данных Azure
-          href: log-collector-extension.md
-        - name: Расширение системы диагностики Azure
-          href: extensions-diagnostics.md
-          items:
-            - name: Схема расширения
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-            - name: Включение с помощью PowerShell
-              href: ps-extensions-diagnostics.md
-            - name: Включение с помощью шаблонов
-              href: extensions-diagnostics-template.md
-            - name: Устранение неполадок
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-        - name: Экспорт расширений виртуальной машины
-          href: extensions-export-templates.md
-        - name: Устранение неполадок расширений
-          href: extensions-troubleshoot.md
-        - name: Агент службы "Наблюдатель за сетями"
-          href: extensions-nwa.md
-        - name: Ограничение установки расширения
-          href: ../extensions/extensions-rmpolicy-howto-ps.md
+      href: ../extensions/overview.md
     - name: Перенос виртуальных машин
       items:
         - name: Миграция AWS и локальных виртуальных машин

@@ -7,9 +7,9 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Docker Swarm для Linux
-      href: container-service-swarm-walkthrough.md
-    - name: DC/OS Linux
+    - name: Docker Swarm
+      href: container-service-swarm-mode-walkthrough.md
+    - name: DC/OS
       href: container-service-dcos-quickstart.md
 - name: Учебники
   items:
@@ -27,10 +27,6 @@
       href: container-service-security.md
 - name: Практические руководства
   items:
-    - name: Создание кластера ACS
-      href: container-service-create-acs-cluster-cli.md
-    - name: Подключение к кластеру ACS
-      href: container-service-connect.md
     - name: Масштабирование кластера ACS
       href: container-service-scale.md
     - name: DC/OS

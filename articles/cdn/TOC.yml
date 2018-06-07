@@ -10,10 +10,12 @@
   items:
     - name: Создание профиля и конечной точки
       href: cdn-create-new-endpoint.md
+    - name: Интеграция учетной записи хранения
+      href: cdn-create-a-storage-account-with-cdn.md
 - name: Учебники
   items:
     - name: Добавление Azure CDN в веб-приложение
-      href: app-service-web-tutorial-content-delivery-network.md
+      href: cdn-add-to-web-app.md
     - name: Добавление личного домена
       href: cdn-map-content-to-custom-domain.md
     - name: Настройка HTTPS в личном домене
@@ -28,29 +30,21 @@
   items:
     - name: Как выполняется кэширование
       href: cdn-how-caching-works.md
+    - name: Доставка содержимого для Китая
+      href: cdn-china-delivery.md
+    - name: Поддержка HTTP/2
+      href: cdn-http2.md
 - name: Практические руководства
   items:
-    - name: Интеграция
-      items:
-        - name: Служба хранилища
-          items:
-            - name: Интеграция учетной записи хранения
-              href: cdn-create-a-storage-account-with-cdn.md
-            - name: Поддержка хранилища SAS
-              href: cdn-sas-storage-support.md
-        - name: Общий доступ к ресурсам независимо от источника
-          href: cdn-cors.md
     - name: Оптимизация содержимого
+      href: cdn-optimization-overview.md
       items:
-        - name: Общие сведения об оптимизации
-          href: cdn-optimization-overview.md
-          items:
-            - name: Оптимизация больших файлов
-              href: cdn-large-file-optimization.md
-            - name: Оптимизация потоковой передачи мультимедиа
-              href: cdn-media-streaming-optimization.md
-            - name: Динамическое ускорение сайтов
-              href: cdn-dynamic-site-acceleration.md
+        - name: Оптимизация больших файлов
+          href: cdn-large-file-optimization.md
+        - name: Оптимизация потоковой передачи мультимедиа
+          href: cdn-media-streaming-optimization.md
+        - name: Динамическое ускорение сайтов
+          href: cdn-dynamic-site-acceleration.md
     - name: управление
       items:
         - name: Управление с помощью Azure PowerShell
@@ -61,8 +55,6 @@
           href: cdn-improve-performance.md
         - name: Управление поведением кэширования
           items:
-            - name: Как выполняется кэширование
-              href: cdn-how-caching-works.md
             - name: Управление поведением кэширования с помощью правил
               href: cdn-caching-rules.md
             - name: Кэширование содержимого по строкам запросов
@@ -83,35 +75,35 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: Аутентификация на основе маркера
           href: cdn-token-auth.md
+        - name: Поддержка хранилища SAS
+          href: cdn-sas-storage-support.md
+        - name: Общий доступ к ресурсам независимо от источника
+          href: cdn-cors.md
         - name: Мониторинг ресурсов
           href: cdn-resource-health.md
         - name: Блокировка поведения с помощью правил
           href: cdn-rules-engine.md
-        - name: Получение оповещений в реальном времени
-          href: cdn-real-time-alerts.md
-        - name: Поддержка HTTP/2
-          href: cdn-http2.md
     - name: Анализ
+      href: cdn-log-analysis.md
       items:
-        - name: Анализ вариантов использования CDN Azure
-          href: cdn-log-analysis.md
+        - name: Журналы диагностики Azure
+          href: cdn-azure-diagnostic-logs.md
+        - name: Средства аналитики для Azure CDN от Verizon
           items:
-            - name: Журналы диагностики Azure
-              href: cdn-azure-diagnostic-logs.md
-            - name: Средства аналитики для Azure CDN от Verizon
-              items:
-                - name: Основные отчеты Verizon
-                  href: cdn-analyze-usage-patterns.md
-                - name: Пользовательские отчеты из Verizon
-                  href: cdn-verizon-custom-reports.md
-            - name: Средства аналитики для Azure CDN уровня "Премиум" от Verizon
-              items:
-                - name: Создание расширенных отчетов HTTP
-                  href: cdn-advanced-http-reports.md
-                - name: Просмотр статистики в реальном времени
-                  href: cdn-real-time-stats.md
-                - name: Анализ производительности граничного узла
-                  href: cdn-edge-performance.md
+            - name: Основные отчеты Verizon
+              href: cdn-analyze-usage-patterns.md
+            - name: Пользовательские отчеты из Verizon
+              href: cdn-verizon-custom-reports.md
+        - name: Средства аналитики для Azure CDN уровня "Премиум" от Verizon
+          items:
+            - name: Создание расширенных отчетов HTTP
+              href: cdn-advanced-http-reports.md
+            - name: Просмотр статистики в реальном времени
+              href: cdn-real-time-stats.md
+            - name: Анализ производительности граничного узла
+              href: cdn-edge-performance.md
+            - name: Получение оповещений в реальном времени
+              href: cdn-real-time-alerts.md
     - name: Разработка
       items:
         - name: .NET

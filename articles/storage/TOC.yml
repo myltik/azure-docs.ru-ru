@@ -13,7 +13,7 @@
 - name: Очереди
   href: ./queues/storage-queues-introduction.md
 - name: Таблицы
-  href: ../cosmos-db/table-storage-overview.md
+  href: ./tables/table-storage-overview.md
 - name: диски;
   items:
     - name: Windows

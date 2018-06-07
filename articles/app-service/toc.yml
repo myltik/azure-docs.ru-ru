@@ -73,10 +73,15 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Функции ОС
       href: web-sites-available-operating-system-functionality.md
+    - name: Безопасность
+      href: app-service-security.md
+      items:
+        - name: Аутентификация и авторизация
+          href: app-service-authentication-overview.md
+        - name: Установка исправлений для ОС и среды выполнения
+          href: app-service-patch-os-runtime.md
     - name: Входящие и исходящие IP-адреса
       href: app-service-ip-addresses.md
-    - name: Аутентификация и авторизация
-      href: app-service-authentication-overview.md
     - name: Гибридные подключения
       href: app-service-hybrid-connections.md
     - name: Интеграция диспетчера трафика
@@ -85,8 +90,6 @@
       href: app-service-local-cache-overview.md
     - name: Диагностика
       href: app-service-diagnostics.md
-    - name: Установка исправлений для ОС и среды выполнения
-      href: app-service-patch-os-runtime.md
 - name: Практические руководства
   items:
     - name: Настройка приложения

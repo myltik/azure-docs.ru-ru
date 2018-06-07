@@ -125,7 +125,7 @@
   items:
     - name: Решения
       items:
-        - name: Предварительно настроенные решения Azure IoT Suite
+        - name: Акселераторы решений для Интернета вещей
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

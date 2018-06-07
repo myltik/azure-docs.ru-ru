@@ -268,6 +268,8 @@
           href: app-insights-export-power-bi.md
     - name: Безопасность
       items:
+        - name: Обработка персональных данных
+          href: app-insights-customer-data.md
         - name: Сбор и хранение данных
           href: app-insights-data-retention-privacy.md
         - name: 'Ресурсы, роли и контроль доступа'
