@@ -151,11 +151,6 @@
 #### [Использование сериализатора](iot-hub-device-sdk-c-serializer.md)
 ### [Разработка приложений для устройств с ограниченным ресурсами](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Разработка приложений для мобильных устройств](iot-hub-how-to-develop-for-mobile-devices.md)
-### Маршрутизация сообщений
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
 ### [Запрос данных Avro из маршрута концентратора](iot-hub-query-avro-data.md)
 ### Отправка сообщений из облака на устройство
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
