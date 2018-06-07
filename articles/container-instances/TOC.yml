@@ -51,6 +51,8 @@
           href: container-instances-exec.md
         - name: Мониторинг использования ЦП и памяти
           href: container-instances-monitor.md
+        - name: Ведение журнала с помощью Azure Log Analytics
+          href: container-instances-log-analytics.md
     - name: Выполнение рабочих нагрузок
       items:
         - name: Выполнение контейнерных задач

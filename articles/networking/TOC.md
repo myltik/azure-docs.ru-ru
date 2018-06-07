@@ -43,11 +43,9 @@
 ### [Создание выделенного частного подключения (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## управления
+### [Общие сведения о мониторинге сетей](network-monitoring-overview.md)
+### [Проверка использования ресурсов в соответствии с ограничениями Azure](check-usage-against-limits.md)
 ### [Просмотр топологии сети](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Управление захватом пакетов](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Определение следующего прыжка маршрута](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Проверка IP-потоков для виртуальной машины](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Общие сведения о мониторинге сетей](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Примеры сценариев
 ### [интерфейс командной строки Azure](cli-samples.md)

@@ -141,6 +141,8 @@
           href: functions-run-local.md
         - name: Разработка в Visual Studio
           href: functions-develop-vs.md
+        - name: Управление подключениями
+          href: manage-connections.md
         - name: Обработка ошибок
           href: functions-bindings-error-pages.md
     - name: Развертывание
@@ -200,7 +202,11 @@
         - name: Хранилище BLOB-объектов
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-cosmosdb.md
+          items:
+            - name: Функции 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: Функции 2.x
+              href: functions-bindings-cosmosdb-v2.md
         - name: Сетка событий Azure
           href: functions-bindings-event-grid.md
         - name: Концентраторы событий

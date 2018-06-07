@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Заметки о выпуске
       items:
+        - name: Обновление 1805
+          href: azure-stack-update-1805.md
         - name: Обновление 1804
           href: azure-stack-update-1804.md
         - name: Обновление 1803
           href: azure-stack-update-1803.md
         - name: Обновление 1802
           href: azure-stack-update-1802.md
-        - name: Обновление 1712
-          href: azure-stack-update-1712.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -52,6 +52,12 @@
               items:
                 - name: Публикации конечных точек
                   href: azure-stack-integrate-endpoints.md
+        - name: Интеграция удостоверений
+          items:
+            - name: Выбор поставщика удостоверений
+              href: azure-stack-integrate-identity.md
+            - name: Проверка удостоверения Azure
+              href: azure-stack-validate-identity.md
         - name: Требования к инфраструктуре открытых ключей (PKI) для развертывания Azure Stack
           href: azure-stack-pki-certs.md
           items:
@@ -63,20 +69,17 @@
               href: azure-stack-validate-pki-certs.md
             - name: Исправление сертификатов PKI
               href: azure-stack-remediate-certs.md
-            - name: Ресурсы развертывания
-              items:
-                - name: Справочник по командлетам Start-AzsReadiness
-                  href: azure-stack-azsreadiness-cmdlet.md
-                - name: Просмотр отчета о готовности
-                  href: azure-stack-validation-report.md
-            - name: Интеграция удостоверений
-              items:
-                - name: Выбор поставщика удостоверений
-                  href: azure-stack-integrate-identity.md
-                - name: Проверка удостоверения Azure
-                  href: azure-stack-validate-identity.md
+        - name: Ресурсы развертывания
+          items:
+            - name: О подключении для развертывания
+              href: deployment-networking.md
         - name: Проверка регистрации в Azure
           href: azure-stack-validate-registration.md
+          items:
+            - name: Справочник по командлетам Start-AzsReadiness
+              href: azure-stack-azsreadiness-cmdlet.md
+            - name: Просмотр отчета о готовности
+              href: azure-stack-validation-report.md
         - name: Внешний мониторинг
           href: azure-stack-integrate-monitor.md
         - name: Интеграция решений для обеспечения безопасности

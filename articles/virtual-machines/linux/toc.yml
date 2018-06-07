@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: Для высокопроизводительных вычислений
           href: sizes-hpc.md
+        - name: Предыдущие поколения
+          href: sizes-previous-gen.md
         - name: Единицы вычислений Azure (ACU)
           href: acu.md
         - name: Результаты теста производительности
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: Использование шаблона
           href: create-ssh-secured-vm-from-template.md
+        - name: Использование REST API
+          href: create-vm-rest-api.md
         - name: Копирование или клонирование виртуальной машины
           href: copy-vm.md
     - name: Защита виртуальных машин
@@ -188,7 +192,12 @@
         - name: Добавление тега для виртуальной машины
           href: tag.md
         - name: Выполнение скриптов на виртуальной машине
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Расширение пользовательских сценариев
+              href: ../extensions/custom-script-linux.md
+            - name: Запуск команды
+              href: run-command.md
         - name: Использование удаленного рабочего стола
           href: use-remote-desktop.md
         - name: Присоединение виртуальной машины к Azure Active Directory
@@ -416,21 +425,7 @@
             - name: Использование внутренней службы DNS
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: Использование расширений виртуальной машины
-      items:
-        - name: Общие сведения о расширениях виртуальной машины
-          href: extensions-features.md
-        - name: Расширение пользовательских сценариев
-          href: extensions-customscript.md
-        - name: Расширение агента OMS
-          href: extensions-oms.md
-        - name: Диагностическое расширение для Linux
-          href: diagnostic-extension.md
-        - name: Агент службы "Наблюдатель за сетями"
-          href: extensions-nwa.md
-        - name: Расширение VMAccess
-          href: using-vmaccess-extension.md
-        - name: Ограничение установки расширения
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: Перенос виртуальных машин
       items:
         - name: Миграция AWS и локальных виртуальных машин

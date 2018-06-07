@@ -35,9 +35,9 @@
       href: azure-stack-rest-api-use.md
     - name: Безопасность и соответствие требованиям
       items:
-        - name: Управление RBAC
+        - name: Использование контроля доступа на основе ролей
           href: azure-stack-manage-permissions.md
-        - name: Создание субъектов-служб
+        - name: Использование субъектов-служб
           href: Azure-stack-create-service-principals.md
     - name: Использование служб
       items:
@@ -107,7 +107,7 @@
           items:
             - name: Установка PowerShell для Azure Stack
               href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Загрузка средств
+            - name: Скачивание средств Azure Stack
               href: azure-stack-powershell-download.md
             - name: Настройка PowerShell для пользователя
               href: azure-stack-powershell-configure-user.md
@@ -128,13 +128,13 @@
                   href: azure-stack-version-profiles-python.md
                 - name: 'API поставщика ресурсов, поддерживаемые в профилях'
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Использование модуля политики
+        - name: Использование модуля политики Azure Stack
           href: azure-stack-policy-module.md
         - name: Использование шаблонов
           items:
             - name: Обзор шаблонов
               href: azure-stack-arm-templates.md
-            - name: Разработка шаблонов
+            - name: Рекомендации по использованию шаблонов
               href: azure-stack-develop-templates.md
             - name: Проверка шаблонов
               href: azure-stack-validate-templates.md

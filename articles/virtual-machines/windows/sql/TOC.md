@@ -19,7 +19,8 @@
 #### [Настройка интеграции с хранилищем ключей Azure](virtual-machines-windows-ps-sql-keyvault.md)
 ## Архивация и восстановление
 ### [Резервное копирование и восстановление](virtual-machines-windows-sql-backup-recovery.md)
-### [Автоматическое резервное копирование](virtual-machines-windows-sql-automated-backup.md)
+### [Автоматизированное резервное копирование для SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Автоматизированное резервное копирование для SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Использование службы хранилища Azure для резервного копирования и восстановления](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Практические руководства

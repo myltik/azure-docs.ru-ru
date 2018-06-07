@@ -8,7 +8,7 @@
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Быстрое начало работы
   items:
-    - name: Создайте учетную запись хранения.
+    - name: Создание учетной записи хранения
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Работа с большими двоичными объектами на портале Azure
       href: storage-quickstart-blobs-portal.md
@@ -78,22 +78,43 @@
       href: storage-samples-blobs-cli.md
 - name: Основные понятия
   items:
-    - name: Планирование и проектирование
+    - name: учетные записи хранения;
       items:
-        - name: Параметры учетной записи хранения
+        - name: Общие сведения об учетной записи хранения
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Избыточность данных
+        - name: Авторизация
+          href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           items:
-            - name: Общие сведения о избыточности
-              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: "Проверка подлинности с помощью Azure\_AD"
+              href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Управление правами доступа с помощью RBAC
+                  href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Аутентификация из приложения
+                  href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Аутентификация из Управляемого удостоверения службы
+                  href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Использование удостоверения Azure AD с CLI или PowerShell
+                  href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Авторизация с помощью общего ключа
+              href: /rest/api/storageservices/authenticate-with-shared-key
+            - name: Авторизация с помощью SAS
+              href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Анонимный доступ к большим двоичным объектам
+              href: storage-manage-access-to-resources.md
+        - name: Избыточность данных
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
             - name: Локально избыточное хранилище
               href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 'Хранилище, избыточное в пределах зоны'
               href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Геоизбыточное хранилище
               href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: '"Горячий", "холодный" и архивный уровни данных'
+        - name: Уровни доступа
           href: storage-blob-storage-tiers.md
+        - name: Управление жизненным циклом хранилища BLOB-объектов Azure
+          href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Реагирование на события
           href: storage-blob-event-overview.md
         - name: Целевые показатели масштабируемости и производительности хранилища
@@ -165,12 +186,6 @@
           href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Требование безопасной передачи
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Проверка подлинности на основе общего ключа
-          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
-        - name: Подписанные URL-адреса (SAS)
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Анонимный доступ к большим двоичным объектам
-          href: storage-manage-access-to-resources.md
         - name: Использование Azure CDN для доступа к BLOB-объектам с пользовательскими доменами по протоколу HTTPs
           href: storage-https-custom-domain-cdn.md
     - name: Мониторинг и устранение неполадок
@@ -189,9 +204,82 @@
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Включение и просмотр метрик (классическая модель)
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Импорт и экспорт данных
+      href: ../common/storage-import-export-service.md
+      items:
+        - name: Обзор требований
+          href: ../common/storage-import-export-requirements.md
+        - name: Импорт данных в большие двоичные объекты
+          href: ../common/storage-import-export-data-to-blobs.md
+        - name: Импорт данных в файлы
+          href: ../common/storage-import-export-data-to-files.md
+        - name: Экспорт данных из больших двоичных объектов
+          href: ../common/storage-import-export-data-from-blobs.md
+        - name: Инструкции
+          items:
+            - name: Просмотр состояния диска
+              href: ../common/storage-import-export-view-drive-status.md
+            - name: Просмотр состояния задания
+              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+            - name: Исправление задания импорта
+              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+            - name: Исправление задания экспорта
+              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: Часто задаваемые вопросы
+          href: ../common/storage-import-export-service-faq.md
+        - name: ИНТЕРФЕЙС REST API
+          href: 'https://docs.microsoft.com/rest/api/storageimportexport/jobs'
+        - name: Обратиться в службу поддержки
+          href: ../common/storage-import-export-contact-microsoft-support.md
+        - name: Архив
+          items:
+            - name: Подготовка дисков для импорта (версия 1)
+              href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+              items:
+                - name: Настройка свойств и метаданных
+                  href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+                - name: Пример. Подготовка дисков для импорта
+                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+                - name: Краткий справочник по командам импорта
+                  href: ../common/storage-import-export-tool-quick-reference-v1.md
+            - name: Подготовка дисков для импорта (версия 2)
+              href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+              items:
+                - name: Настройка свойств и метаданных
+                  href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+                - name: Пример. Подготовка дисков для импорта
+                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+                - name: Краткий справочник по командам импорта
+                  href: ../common/storage-import-export-tool-quick-reference-v1.md
+            - name: Создание задания импорта
+              href: ../common/storage-import-export-creating-an-import-job.md
+            - name: Создание задания экспорта
+              href: ../common/storage-import-export-creating-an-import-job.md
+            - name: Получение сведений о состоянии задания
+              href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+            - name: Создание задания экспорта
+              href: ../common/storage-import-export-creating-an-import-job.md
+            - name: Перечисление заданий
+              href: ../common/storage-import-export-enumerating-jobs.md
+            - name: Отмена и удаление заданий
+              href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+            - name: Резервное копирование манифеста диска
+              href: ../common/storage-import-export-backing-up-drive-manifests.md
+            - name: Перечисление заданий
+              href: ../common/storage-import-export-enumerating-jobs.md
+            - name: Диагностика и восстановление после ошибок
+              href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+            - name: Команды для заданий импорта
+              href: ../common/storage-import-export-tool-quick-reference-v1.md
+            - name: Файл манифеста службы
+              href: ../common/storage-import-export-file-format-manifest.md
+            - name: Файл свойств и метаданных службы
+              href: ../common/storage-import-export-file-format-metadata-and-properties.md
+            - name: Файл журнала службы
+              href: ../common/storage-import-export-file-format-log.md
 - name: Практическое руководство
   items:
-    - name: Создайте учетную запись хранения.
+    - name: Создание учетной записи хранения
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Разработка
       items:
@@ -251,87 +339,6 @@
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Подключение хранилища BLOB-объектов как файловой системы в Linux
           href: storage-how-to-mount-container-linux.md
-        - name: Использование службы импорта и экспорта
-          href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Использование средства импорта и экспорта
-          href: ../common/storage-import-export-tool-how-to.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          items:
-            - name: Настройка средства импорта и экспорта
-              href: ../common/storage-import-export-tool-setup.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Подготовка жестких дисков для задания импорта
-              href: ../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: Настройка свойств и метаданных во время импорта
-                  href: ../common/storage-import-export-tool-setting-properties-metadata-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Пример рабочего процесса подготовки жестких дисков для задания импорта
-                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Краткий справочник по часто используемым командам для заданий импорта
-                  href: ../common/storage-import-export-tool-quick-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Предварительный просмотр использования дисков для задания экспорта
-              href: ../common/storage-import-export-tool-previewing-drive-usage-export-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Просмотр состояния задания с помощью файлов журнала копирования
-              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Исправление задания импорта
-              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Исправление задания экспорта
-              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Устранение неполадок в средстве импорта и экспорта
-              href: ../common/storage-import-export-tool-troubleshooting-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Формат файла манифеста службы импорта и экспорта
-              href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Формат файла свойств и метаданных службы импорта и экспорта
-              href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Формат файла журнала службы импорта и экспорта
-              href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: "Использование средства импорта и экспорта (версия\_1)"
-          href: ../common/storage-import-export-tool-how-to-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          items:
-            - name: Настройка средства импорта и экспорта
-              href: ../common/storage-import-export-tool-setup-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Подготовка жестких дисков для задания импорта
-              href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: Настройка свойств и метаданных во время импорта
-                  href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Пример рабочего процесса подготовки жестких дисков для задания импорта
-                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Краткий справочник по часто используемым командам для заданий импорта
-                  href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Предварительный просмотр использования дисков для задания экспорта
-              href: ../common/storage-import-export-tool-previewing-drive-usage-export-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Просмотр состояния задания с помощью файлов журнала копирования
-              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Исправление задания импорта
-              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Исправление задания экспорта
-              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Устранение неполадок в средстве импорта и экспорта
-              href: ../common/storage-import-export-tool-troubleshooting-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Формат файла манифеста службы импорта и экспорта
-              href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Формат файла свойств и метаданных службы импорта и экспорта
-              href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Формат файла журнала службы импорта и экспорта
-              href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Использование REST API службы импорта и экспорта Azure
-          href: ../common/storage-import-export-using-the-rest-api.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          items:
-            - name: Создание задания импорта
-              href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Создание задания экспорта
-              href: ../common/storage-import-export-creating-an-export-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Получение сведений о состоянии задания
-              href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Перечисление заданий
-              href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Отмена и удаление заданий
-              href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Резервное копирование манифестов дисков
-              href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Диагностика и восстановление после ошибок для заданий импорта и экспорта
-              href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Обращение в службу поддержки по вопросам импорта и экспорта Microsoft Azure
-          href: ../common/storage-import-export-contact-microsoft-support.md
         - name: 'Миграция хранилища: часто задаваемые вопросы'
           href: ../common/storage-migration-faq.md
 - name: Справочные материалы

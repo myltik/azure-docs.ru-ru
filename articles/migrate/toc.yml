@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: Основные понятия
   items:
-    - name: Общие сведения о сборщиках
+    - name: О сборщике
       href: concepts-collector.md
     - name: Вычисление оценок
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: Практические руководства
   items:
-    - name: Перенос локальных ресурсов в Azure
+    - name: 'Миграция Contoso: серия'
       items:
-        - name: Обзор сценария. Перенос локальных ресурсов в Azure
-          href: migrate-scenarios-overview.md
-        - name: Сценарий 1. Оценка готовности локальных компьютеров к переносу в Azure
+        - name: '1. Миграция Contoso: обзор'
+          href: contoso-migration-overview.md
+        - name: '2. Contoso: настройка инфраструктуры Azure'
+          href: contoso-migration-infrastructure.md
+        - name: '3. Contoso: оценка готовности локальных компьютеров к переносу в Azure'
           href: migrate-scenarios-assessment.md
-        - name: Сценарий 2. Миграция в Azure по методике lift-аnd-shift
+        - name: '4. Contoso: повторное размещение на виртуальных машинах Azure и в Управляемом экземпляре Azure SQL'
           href: migrate-scenarios-lift-and-shift.md
     - name: Обнаружение и оценка крупной среды
       href: how-to-scale-assessment.md

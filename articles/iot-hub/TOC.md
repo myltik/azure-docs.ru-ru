@@ -9,6 +9,7 @@
 ## [Отправка данных телеметрии (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [Отправка данных телеметрии (Java)](quickstart-send-telemetry-java.md)
 ## [Отправка данных телеметрии (Python)](quickstart-send-telemetry-python.md)
+## [Отправка данных телеметрии (iOS)](quickstart-send-telemetry-ios.md)
 ## [Управление устройством (Node.js)](quickstart-control-device-node.md)
 ## [Управление устройством (.NET)](quickstart-control-device-dotnet.md)
 ## [Управление устройством (Java)](quickstart-control-device-java.md)
@@ -18,29 +19,19 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Маршрутизация сообщений](tutorial-routing.md)
+## [Настройка устройства](tutorial-device-twins.md)
+## [Проверка подключения устройства](tutorial-connectivity.md)
 ## Отправка сообщений из облака на устройство
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## Приступая к работе с двойниками устройств
-### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-getstarted.md)
-### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)
-### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java: серверный компонент и устройство](iot-hub-java-java-twin-getstarted.md)
-### [Серверная часть и устройство Python](iot-hub-python-twin-getstarted.md)
 ## Начало работы с управлением устройствами
 ### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-device-management-get-started.md)
 ### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-device-management-get-started.md)
 ### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java: серверный компонент и устройство](iot-hub-java-java-device-management-getstarted.md)
 ### [Серверная часть и устройство Python](iot-hub-python-python-device-management-get-started.md)
-## Как использовать свойства двойников
-### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-how-to-configure.md)
-### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
-### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java: серверный компонент и устройство](iot-hub-java-java-twin-how-to-configure.md)
-### [Серверная часть и устройство Python](iot-hub-python-python-twin-how-to-configure.md)
 ## Использование заданий устройства для обновления встроенного ПО устройства
 ### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-firmware-update.md)
 ### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-firmware-update.md)
@@ -80,6 +71,8 @@
 ### [Квоты и регулирование](iot-hub-devguide-quotas-throttling.md)
 ### [Примеры цен](iot-hub-devguide-pricing.md)
 ### [Пакеты SDK для устройств и служб](iot-hub-devguide-sdks.md)
+### [Разработка приложений для устройств с ограниченным ресурсами](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Разработка приложений для мобильных устройств](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [Поддержка MQTT](iot-hub-mqtt-support.md)
 ### [Глоссарий](iot-hub-devguide-glossary.md)
 
@@ -89,7 +82,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [Использование пакета SDK для устройств Azure IoT для C](iot-hub-device-sdk-c-intro.md)
 ### [Использование IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Использование сериализатора](iot-hub-device-sdk-c-serializer.md)
@@ -157,17 +149,26 @@
 ### [Использование пакета SDK для устройств Azure IoT для C](iot-hub-device-sdk-c-intro.md)
 #### [Использование IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Использование сериализатора](iot-hub-device-sdk-c-serializer.md)
+### [Разработка приложений для устройств с ограниченным ресурсами](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Разработка приложений для мобильных устройств](iot-hub-how-to-develop-for-mobile-devices.md)
 ### Маршрутизация сообщений
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
+### [Запрос данных Avro из маршрута концентратора](iot-hub-query-avro-data.md)
 ### Отправка сообщений из облака на устройство
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### Приступая к работе с двойниками устройств
+#### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-getstarted.md)
+#### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)
+#### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java: серверный компонент и устройство](iot-hub-java-java-twin-getstarted.md)
+#### [Серверная часть и устройство Python](iot-hub-python-twin-getstarted.md)
 ### Передача файлов с устройств
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -217,13 +218,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## Планирование и трансляция заданий
-### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-schedule-jobs.md)
-### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-schedule-jobs.md)
-### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java: серверный компонент и устройство](iot-hub-java-java-schedule-jobs.md)
-### [Серверная часть и устройство Python](iot-hub-python-python-schedule-jobs.md)
 
 ## Создание Центра Интернета вещей 
 ### [Использование портала Azure](iot-hub-create-through-portal.md)

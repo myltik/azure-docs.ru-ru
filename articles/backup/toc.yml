@@ -63,6 +63,8 @@
           items:
             - name: Подготовка рабочих нагрузок Azure Backup Server на портале Azure
               href: backup-azure-microsoft-azure-backup.md
+            - name: Установка Azure Backup Server в Azure Stack
+              href: backup-mabs-install-azure-stack.md
             - name: Добавление хранилища для Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: "Обновление Azure Backup Server до версии\_2"
@@ -157,12 +159,10 @@
           href: backup-dpm-automation.md
         - name: Windows Server на портале Azure
           href: backup-client-automation.md
-    - name: Базы данных SQL Azure
+    - name: Использование SQL с виртуальными машинами Azure
       items:
-        - name: 'Настройка и восстановление резервных копий базы данных SQL: хранилище SQL'
-          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: 'Настройка и восстановление резервных копий базы данных SQL: хранилище служб восстановления'
-          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Создание резервной копии базы данных SQL Azure
+          href: backup-azure-sql-database.md
     - name: Windows Server
       items:
         - name: Резервное копирование файлов и папок Windows Server

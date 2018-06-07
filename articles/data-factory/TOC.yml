@@ -374,7 +374,7 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Запуск пакетов служб SSIS в Azure
       items:
-        - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
+        - name: Присоединение среды выполнения интеграции Azure Integration Services к виртуальной сети
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Включение аутентификации Azure AD для среды выполнения интеграции Azure Integration Services
           href: enable-aad-authentication-azure-ssis-ir.md
@@ -384,7 +384,7 @@
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Настройка среды выполнения интеграции Azure Integration Services
           href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Развертывание лицензированных компонентов для среды выполнения интеграции Azure Integration Services
+        - name: Установка лицензированных компонентов для среды выполнения интеграции Azure Integration Services
           href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Запуск пакетов Integration Services с помощью действия выполнения пакета Integration Services
           href: how-to-invoke-ssis-package-ssis-activity.md

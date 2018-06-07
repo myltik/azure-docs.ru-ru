@@ -12,9 +12,15 @@
 - name: Учебники
   items:
     - name: 'Отправка, кодирование и потоковая передача'
-      href: stream-files-tutorial-with-api.md
+      items:
+        - name: Использование .NET
+          href: stream-files-tutorial-with-api.md
+        - name: С помощью REST
+          href: stream-files-tutorial-with-rest.md
     - name: Анализ видео
-      href: analyze-videos-tutorial-with-api.md
+      items:
+        - name: Использование .NET
+          href: analyze-videos-tutorial-with-api.md
 - name: Примеры
   items:
     - name: Примеры кода Azure
@@ -25,18 +31,24 @@
   items:
     - name: Активы
       href: assets-concept.md
-    - name: Автоматическое создание схемы передачи с переменной скоростью
-      href: autogen-bitrate-ladder.md
+    - name: Кодирование
+      items:
+        - name: Обзор
+          href: encoding-concept.md
+        - name: Автоматическое создание схемы передачи с переменной скоростью
+          href: autogen-bitrate-ladder.md
     - name: Мультимедиа-аналитика
       href: intelligence-concept.md
+    - name: Реагирование на события
+      href: reacting-to-media-services-events.md
     - name: учетные записи хранения;
       href: storage-account-concept.md
     - name: Преобразования и задания
       href: transform-concept.md
-    - name: Реагирование на события
-      href: reacting-to-media-services-events.md
 - name: Практические руководства
   items:
+    - name: Миграция из версии 2 в версию 3
+      href: migrate-from-v2-to-v3.md
     - name: "Создание учетной записи\_— CLI"
       href: create-account-cli-how-to.md
     - name: "Доступ к API\_— CLI"
@@ -49,8 +61,14 @@
           href: job-input-from-http-how-to.md
         - name: Из локального файла
           href: job-input-from-local-file-how-to.md
+    - name: Настройка предустановок преобразования
+      items:
+        - name: Использование .NET Core
+          href: customize-encoder-presets-how-to.md
 - name: Справочные материалы
   items:
+    - name: Спецификация OpenAPI (Swagger)
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
     - name: "Azure CLI\_2.0"
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
@@ -61,6 +79,8 @@
       href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
+    - name: Node.js
+      href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Схемы событий
       href: media-services-event-schemas.md
 - name: Ресурсы
@@ -77,3 +97,5 @@
       href: release-notes.md
     - name: Квоты и ограничения
       href: limits-quotas-constraints.md
+    - name: Часто задаваемые вопросы
+      href: frequently-asked-questions.md

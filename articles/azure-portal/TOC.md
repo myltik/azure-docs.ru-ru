@@ -15,6 +15,7 @@
 ### [Создание панелей мониторинга Azure программными средствами](azure-portal-dashboards-create-programmatically.md)
 ## управление
 ### [Включение режима высокой контрастности или изменение темы](azure-portal-change-theme-high-contrast.md)
+### [Экспорт или удаление параметров пользователя](azure-portal-export-delete-settings.md)
 ### [Управление ресурсами с помощью портала](../azure-resource-manager/resource-group-portal.md)
 ### [Управление доступом на основе ролей](../role-based-access-control/role-assignments-portal.md)
 ### [Предоставление общего доступа с управлением доступом на основе ролей](azure-portal-dashboard-share-access.md)

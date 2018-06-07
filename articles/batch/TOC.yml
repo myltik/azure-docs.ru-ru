@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: Создание пула в виртуальной сети
           href: batch-virtual-network.md
+        - name: Подключение файлового ресурса Azure
+          href: pool-file-shares.md
         - name: Использование виртуальных машин для ресурсоемких вычислений
           href: batch-pool-compute-intensive-sizes.md
         - name: Использование вычислительных узлов Linux

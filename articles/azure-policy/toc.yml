@@ -17,26 +17,50 @@
   items:
     - name: Создание политики Azure и управление ею
       href: create-manage-policy.md
+    - name: Сведения о Политике Azure (практические занятия)
+      href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Примеры
   items:
-    - name: Шаблоны политик
+    - name: Примеры для Политики Azure
       href: json-samples.md
 - name: Основные понятия
   items:
     - name: Структура определения службы "Политика Azure"
       href: policy-definition.md
+    - name: Сведения о действии политики
+      href: policy-effects.md
 - name: Практические руководства
   items:
     - name: Программное создание политик
       href: policy-insights.md
+    - name: Сбор сведений о соответствии
+      href: policy-compliance.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
+    - name: ИНТЕРФЕЙС REST API
+      items:
+        - name: События
+          href: /rest/api/policy-insights/policyevents
+        - name: States
+          href: /rest/api/policy-insights/policystates
+        - name: Назначения
+          href: /rest/api/resources/policyassignments
+        - name: Определения политик
+          href: /rest/api/resources/policydefinitions
+        - name: Определения инициатив
+          href: /rest/api/resources/policysetdefinitions
 - name: Ресурсы
   items:
+    - name: 'GitHub: примеры для Политики Azure'
+      href: 'https://github.com/Azure/azure-policy'
+    - name: 'Видео: Build 2018'
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: 'Видео: Ignite 2017'
+      href: 'https://myignite.microsoft.com/videos/54781'
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Калькулятор цен

@@ -3,13 +3,13 @@
 
 # Обзор
 ## [Общие сведения об архитектуре Интернета вещей](iot-accelerators-what-is-azure-iot.md)
-## [Сравнение параметров Azure IoT](../iot-suite/iot-suite-options.md)
+## [Сравнение параметров Azure IoT](iot-accelerators-options.md)
 ## [Общие сведения об акселераторах решений](iot-accelerators-what-are-solution-accelerators.md)
 
 # Начало работы
 ## Удаленный мониторинг
 ### [Развертывание акселератора решений](iot-accelerators-remote-monitoring-deploy.md)
-### [Работа с акселератором решений](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [Работа с акселератором решений](iot-accelerators-remote-monitoring-explore.md)
 
 ## Удаленный мониторинг (предыдущая версия)
 ### [Что собой представляют акселераторы решений](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -43,8 +43,8 @@
 
 
 ## Прогнозное обслуживание
-### [Обзор акселератора решений для диагностического обслуживания](../iot-suite/iot-suite-predictive-overview.md)
-### [Пошаговое руководство по акселератору решений для диагностического обслуживания](../iot-suite/iot-suite-predictive-walkthrough.md)
+### [Обзор акселератора решений для диагностического обслуживания](iot-accelerators-predictive-overview.md)
+### [Пошаговое руководство по акселератору решений для диагностического обслуживания](iot-accelerators-predictive-walkthrough.md)
 
 ## Подключенная фабрика
 ### [Что собой представляет подключенная фабрика](iot-accelerators-connected-factory-features.md)
@@ -70,7 +70,7 @@
 ### [Настройка и повторное развертывание микрослужбы](iot-accelerators-microservices-example.md)
 ### [Развертывание с помощью интерфейса командной строки](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Развертывание в локальной среде](iot-accelerators-remote-monitoring-deploy-local.md)
-### [Визуализация данных с помощью службы "Аналитика временных рядов"](../iot-suite/iot-suite-time-series-insights.md)
+### [Визуализация данных с помощью службы "Аналитика временных рядов"](iot-accelerators-time-series-insights.md)
 ### [Интеграция с Data Lake Store](iot-accelerators-integrate-data-lake.md)
 ### Подключение физического устройства
 #### [C в Windows](iot-accelerators-connecting-devices.md)
@@ -78,7 +78,7 @@
 #### [Node.js (универсальная версия)](iot-accelerators-connecting-devices-node.md)
 #### [Использование Node.js с Raspberry Pi](iot-accelerators-connecting-pi-node.md)
 #### [Использование C с Raspberry Pi](iot-accelerators-connecting-pi-c.md)
-#### [Набор MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
+#### [Набор MX Chip AZ3166 DevKit](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Основные понятия
 #### [Сведения о реализации удаленного мониторинга](iot-accelerators-remote-monitoring-sample-walkthrough.md)
@@ -89,19 +89,19 @@
 ### [Настройка подключенной фабрики](iot-accelerators-connected-factory-customize.md)
 ### [Использование издателя OPC для подключенной фабрики](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Конфигурирование подключенной фабрики](iot-accelerators-connected-factory-configure.md)
-## [Разрешения для azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
+## [Разрешения для azureiotsuite.com](iot-accelerators-permissions.md)
 
 # Справочные материалы
 ## [Справочник разработчика](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Руководство по устранению неполадок для разработчиков](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Архитектура безопасности](../iot-suite/iot-security-architecture.md)
-## [Рекомендации по обеспечению безопасности](../iot-suite/iot-security-best-practices.md)
-## [Защита развертывания Интернета вещей](../iot-suite/iot-suite-security-deployment.md)
-## [Все аспекты безопасности](../iot-suite/securing-iot-ground-up.md)
+## [Архитектура безопасности](iot-security-architecture.md)
+## [Рекомендации по обеспечению безопасности](iot-security-best-practices.md)
+## [Защита развертывания Интернета вещей](iot-accelerators-security-deployment.md)
+## [Все аспекты безопасности](securing-iot-ground-up.md)
 
 # Сопутствующие материалы
 ## Решения 
-### [Предварительно настроенные решения Azure IoT Suite](/azure/iot-suite) 
+### [акселераторы решений Интернета вещей](/azure/iot-suite); 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Службы платформы 
 ### [Центр Интернета вещей](/azure/iot-hub) 

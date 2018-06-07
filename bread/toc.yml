@@ -113,7 +113,7 @@
     - name: Искусственный интеллект пакетной службы
       tocHref: /azure/batch-ai/
       topicHref: /azure/batch-ai/
-    - name: Выставление счетов
+    - name: Управление затратами и выставление счетов
       tocHref: /azure/billing/
       topicHref: /azure/billing/
     - name: Службы BizTalk

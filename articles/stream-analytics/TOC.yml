@@ -50,8 +50,6 @@
   items:
     - name: управление
       items:
-        - name: Обновление задания
-          href: stream-analytics-job-reliability.md
         - name: Обновление учетных данных
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Настройка оповещений
@@ -60,6 +58,10 @@
           href: stream-analytics-test-query.md
         - name: Просмотр результатов на панели мониторинга
           href: stream-analytics-power-bi-dashboard.md
+        - name: Очистка задания
+          href: stream-analytics-clean-up-your-job.md
+        - name: Связывание заданий для обеспечения надежности
+          href: stream-analytics-job-reliability.md
     - name: Создание решений
       items:
         - name: Анализ тональности в Twitter
