@@ -3,7 +3,7 @@
 # Обзор
 ## [Что такое Resource Manager?](resource-group-overview.md)
 ## [Поставщики и типы ресурсов](resource-manager-supported-services.md)
-## [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](resource-manager-deployment-model.md)
+## [Развертывание с помощью Azure Resource Manager и классическая модель развертывания](resource-manager-deployment-model.md)
 ## [Корпоративный каркас Azure: рекомендуемая система управления подписками](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Упорядочение ресурсов с помощью групп управления](management-groups-overview.md)
 
