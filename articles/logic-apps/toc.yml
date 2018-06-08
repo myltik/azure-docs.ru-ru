@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Области действия
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Создание переменных для хранения значений
+          href: logic-apps-create-variables-store-values.md
         - name: Добавление пользовательского кода с помощью решения "Функции Azure"
           href: logic-apps-azure-functions.md
         - name: Вызов приложений логики с помощью решения "Функции Azure"
@@ -61,6 +63,8 @@
           href: logic-apps-content-type.md
         - name: Обработка ошибок и исключений
           href: logic-apps-exception-handling.md
+        - name: Обработка больших сообщений
+          href: logic-apps-handle-large-messages.md
         - name: Защита приложений логики
           href: logic-apps-securing-a-logic-app.md
         - name: Разработка настраиваемых соединителей

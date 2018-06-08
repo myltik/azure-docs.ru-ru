@@ -109,6 +109,8 @@
           href: security-center-just-in-time.md
         - name: Адаптивные элементы управления приложениями
           href: security-center-adaptive-application.md
+        - name: Мониторинг целостности файлов
+          href: security-center-file-integrity-monitoring.md
     - name: Управление решениями по обеспечению безопасности
       href: security-center-partner-integration.md
       items:
@@ -145,6 +147,8 @@
           href: security-center-threat-intel.md
         - name: Исследование
           href: security-center-investigation.md
+        - name: Управление пользовательскими данными исследования
+          href: security-center-investigation-user-data.md
     - name: Автоматизация рабочих процессов безопасности
       items:
         - name: Модули Playbook в Logic Apps
@@ -169,6 +173,8 @@
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
 - name: Ресурсы
   items:
+    - name: Управление данными пользователей
+      href: security-center-privacy.md
     - name: Часто задаваемые вопросы
       href: security-center-faq.md
     - name: Поддерживаемые платформы

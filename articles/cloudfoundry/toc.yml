@@ -13,6 +13,8 @@
       href: /azure/virtual-machines/linux/cloudfoundry-get-started
     - name: Развертывание CF OMS Nozzle
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+    - name: Интеграция Cloud Foundry и Azure
+      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

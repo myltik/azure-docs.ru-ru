@@ -25,9 +25,11 @@
         - name: '2. Contoso: настройка инфраструктуры Azure'
           href: contoso-migration-infrastructure.md
         - name: '3. Contoso: оценка готовности локальных компьютеров к переносу в Azure'
-          href: migrate-scenarios-assessment.md
-        - name: '4. Contoso: повторное размещение на виртуальных машинах Azure и в Управляемом экземпляре Azure SQL'
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: '4. Contoso: повторное размещение приложения на виртуальных машинах Azure и в Управляемом экземпляре Azure SQL'
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: '5. Contoso: повторное размещение приложения на виртуальных машинах Azure'
+          href: contoso-migration-rehost-vm.md
     - name: Обнаружение и оценка крупной среды
       href: how-to-scale-assessment.md
     - name: Группирование компьютеров
@@ -48,3 +50,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Часто задаваемые вопросы
+      href: resources-faq.md

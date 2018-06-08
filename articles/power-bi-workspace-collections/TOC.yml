@@ -1,0 +1,74 @@
+- name: Обзор
+  items:
+    - name: Что такое коллекции рабочих областей Power BI?
+      href: what-are-power-bi-workspace-collections.md
+    - name: Новые возможности в коллекциях рабочих областей Power BI
+      href: whats-new.md
+- name: Начало работы
+  items:
+    - name: "Начало работы с коллекциями рабочих областей Power\_BI"
+      href: get-started.md
+    - name: Начало работы с примером
+      href: get-started-sample.md
+    - name: Часто задаваемые вопросы
+      href: faq.md
+- name: Практическое руководство
+  items:
+    - name: Планирование и проектирование
+      items:
+        - name: Распространенные сценарии
+          href: scenarios.md
+    - name: управление
+      items:
+        - name: Подключение к источнику данных
+          href: connect-datasource.md
+        - name: "Внедрение отчета Power\_BI"
+          href: embed-report.md
+        - name: Взаимодействие с отчетами
+          href: interact-with-reports.md
+        - name: Создание отчета из набора данных
+          href: create-report-from-dataset.md
+        - name: Сохранение отчетов
+          href: save-reports.md
+        - name: Переключение между представлениями и изменениями
+          href: toggle-mode.md
+    - name: Безопасность
+      items:
+        - name: Аутентификация и авторизация
+          href: app-token-flow.md
+        - name: Безопасность уровня строк в коллекциях рабочих областей Power BI
+          href: row-level-security.md
+- name: Справочные материалы
+  items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/resources/samples/?service=power-bi-embedded'
+    - name: PowerShell
+      href: /powershell/module/azurerm.powerbiembedded
+    - name: Использование Azure Resource Manager с .NET
+      href: /dotnet/api/microsoft.azure.management.powerbiembedded
+    - name: Скачивание пакета SDK для .NET
+      href: 'https://www.nuget.org/profiles/powerbi'
+    - name: JavaScript
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript/wiki'
+    - name: Интерфейсы REST API управления
+      href: /rest/api/powerbiembedded/
+    - name: Интерфейсы API REST
+      href: 'https://msdn.microsoft.com/library/azure/mt711507.aspx'
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Пример внедрения JavaScript
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+    - name: Репозиторий JavaScript Git
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
+    - name: "Репозиторий Git C# для Power\_BI"
+      href: 'https://github.com/Microsoft/PowerBI-CSharp'
+    - name: Сообщество Power BI
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Пример приложения
+      href: 'https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/powerbi'

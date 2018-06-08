@@ -30,12 +30,14 @@
       href: render-coverage.md
     - name: Наличие информации о маршрутизации
       href: routing-coverage.md
-    - name: Категории поиска
-      href: search-categories.md
+    - name: Поддерживаемые категории поиска
+      href: supported-search-categories.md
     - name: Поддерживаемые языки
       href: supported-languages.md
     - name: Модель потребления
       href: consumption-model.md
+    - name: Расширение geoJSON
+      href: extend-geojson.md
 - name: Практические руководства
   items:
     - name: Управление учетными записями службы "Карты"
@@ -70,17 +72,33 @@
           href: map-show-traffic.md
         - name: Взаимодействие с событиями мыши
           href: map-events.md
+        - name: Доступные приложения карт
+          href: map-accessibility.md
 - name: Справочные материалы
   items:
-    - name: "API служб\_— REST"
-      href: 'https://docs.microsoft.com/rest/api/maps/'
-    - name: "API элементов управления картой\_— Javascript"
-      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+    - name: REST
+      items:
+        - name: Служба отрисовки
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/renderservice'
+        - name: Служба построения маршрутов
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/routeservice'
+        - name: Служба поиска
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/searchservice'
+        - name: Служба часового пояса
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice'
+        - name: Служба отслеживания дорожного движения
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/trafficservice'
+        - name: Управление учетными записями службы Maps
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: Управление картами
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
 - name: Сопутствующие материалы
   items:
     - name: Решения
       items:
-        - name: Предварительно настроенные решения Azure IoT Suite
+        - name: Акселераторы решений для Интернета вещей
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

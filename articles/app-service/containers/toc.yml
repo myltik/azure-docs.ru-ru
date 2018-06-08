@@ -37,6 +37,8 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Пользовательский контейнер Python с PostgreSQL
           href: tutorial-docker-python-postgresql-app.md
+    - name: Многоконтейнерное приложение
+      href: tutorial-multi-container-app.md
     - name: Пользовательский образ Docker
       href: tutorial-custom-docker-image.md
     - name: Сопоставление личного домена
@@ -129,6 +131,8 @@
           href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Мониторинг приложения
       items:
+        - name: Подключение к приложению по протоколу SSH
+          href: app-service-linux-ssh-support.md
         - name: Квоты и оповещения
           href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Включение журналов

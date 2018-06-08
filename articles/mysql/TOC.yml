@@ -75,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: Настройка SSL
           href: concepts-ssl-connection-security.md
+        - name: Виртуальная сеть
+          href: concepts-data-access-and-security-vnet.md
     - name: Непрерывность бизнес-процессов
       items:
         - name: Обзор
@@ -89,6 +91,10 @@
           href: concepts-compatibility.md
         - name: Разработка приложений
           href: concepts-database-application-development.md
+    - name: Репликация
+      items:
+        - name: Репликация входных данных
+          href: concepts-data-in-replication.md
 - name: Практические руководства
   items:
     - name: Управление сервером
@@ -141,18 +147,30 @@
       items:
         - name: Создание оповещений на основе метрик
           href: howto-alert-on-metric.md
+    - name: Репликация
+      items:
+        - name: Настройка репликации входных данных
+          href: howto-data-in-replication.md
     - name: Устранение неполадок
       items:
         - name: Решение проблем с производительностью запросов
           href: howto-troubleshoot-query-performance.md
         - name: Как использовать представления в схеме sys
           href: howto-troubleshoot-sys-schema.md
+    - name: Виртуальная сеть
+      items:
+        - name: Портал Azure
+          href: howto-manage-vnet-using-portal.md
+        - name: Инфраструктура CLI Azure
+          href: howto-manage-vnet-using-cli.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/mysql
     - name: ИНТЕРФЕЙС REST API
       href: /rest/api/mysql
+    - name: Хранимые процедуры репликации входных данных
+      href: reference-data-in-stored-procedures.md
 - name: Ресурсы
   items:
     - name: Шаблоны развертывания

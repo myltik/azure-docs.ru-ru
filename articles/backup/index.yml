@@ -1,36 +1,37 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по Azure Backup"
+title: Документация по Azure Backup
 metadata:
-  title: "Документация по службе архивации Azure. Руководства и справочник по API | Документация Майкрософт"
-  description: "Служба Azure Backup позволяет создавать резервную копию данных для локальных серверов, виртуальных машин, виртуализованных рабочих нагрузок, сервера SQL, сервера SharePoint и т. д. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как создавать резервную копию данных и восстанавливать их."
+  title: Документация по службе архивации Azure. Руководства и справочник по API | Документация Майкрософт
+  description: Служба Azure Backup позволяет создавать резервную копию данных для локальных серверов, виртуальных машин, виртуализованных рабочих нагрузок, сервера SQL, сервера SharePoint и т. д. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как создавать резервную копию данных и восстанавливать их.
   services: backup
-  author: czeumault
-  manager: carolz
+  author: markgalioto
+  manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/11/2017
-  ms.author: carolz
-  ms.openlocfilehash: f2654916ee61a548537c8887ff7d1923fb6f29ac
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.date: 05/22/2018
+  ms.author: markgal
+  ms.openlocfilehash: b2907330477c62cce2ee5e9498cc4445580161a2
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34606874"
 abstract:
-  description: "Служба Azure Backup позволяет создавать резервную копию данных для локальных серверов, виртуальных машин, виртуализованных рабочих нагрузок, сервера SQL, сервера SharePoint и т. д. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как создавать резервную копию данных и восстанавливать их."
+  description: Служба Azure Backup защищает данные для локальных серверов, виртуальных машин, виртуализованных рабочих нагрузок, сервера SQL, сервера SharePoint и т. д. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как создавать резервную копию данных и восстанавливать их.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как выполнять резервное копирование виртуальных машин в Azure."
+    text: Узнайте, как выполнять резервное копирование виртуальных машин в Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: quick-backup-vm-portal
     - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
@@ -38,36 +39,38 @@ sections:
       href: quick-backup-vm-powershell
     - image:
         src: https://docs.microsoft.com/media/common/cli.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: quick-backup-vm-cli
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как выполнять резервное копирование и восстановление виртуальных машин в Azure или с помощью Windows Server."
+    text: Узнайте, как выполнять резервное копирование и восстановление виртуальных машин в Azure или с помощью Windows Server.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-backup-vm-at-scale\">Резервное копирование нескольких виртуальных машин Azure</a>"
-    - html: "<a href=\"tutorial-restore-disk\">Восстановление диска и создание восстановленной виртуальной машины</a>"
-    - html: "<a href=\"tutorial-restore-files\">Восстановление файлов на виртуальной машине в Azure</a>"
-    - html: "<a href=\"tutorial-backup-windows-server-to-azure\">Резервное копирование Windows Server в Azure</a>"
-    - html: "<a href=\"tutorial-backup-restore-files-windows-server\">Восстановление файлов из Azure в Windows Server</a>"
-- title: "Примеры"
+    - html: <a href="tutorial-backup-vm-at-scale">Резервное копирование нескольких виртуальных машин Azure</a>
+    - html: <a href="tutorial-restore-disk">Восстановление диска и создание восстановленной виртуальной машины</a>
+    - html: <a href="tutorial-restore-files">Восстановление файлов на виртуальной машине в Azure</a>
+    - html: <a href="tutorial-backup-windows-server-to-azure">Резервное копирование Windows Server в Azure</a>
+    - html: <a href="tutorial-backup-restore-files-windows-server">Восстановление файлов из Azure в Windows Server</a>
+- title: Примеры
   items:
   - type: paragraph
-    text: "Используйте приведенные ниже примеры для защиты данных в Azure."
+    text: Используйте приведенные ниже примеры для защиты данных в Azure.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-- title: "Ссылка"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p>
-    - title: "Языки"
+    - title: Командная строка
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">интерфейс командной строки Azure</a></p>
+    - title: Языки
       html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/backup/">Справочник по API Azure Backup</a></p>

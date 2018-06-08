@@ -48,24 +48,39 @@
     - name: Поддержка перенаправления
       href: redirect-overview.md
     - name: Поддержка мультитенантного режима
+      href: application-gateway-web-app-overview.md
     - name: Мониторинг работоспособности
       href: application-gateway-probe-overview.md
     - name: Поддержка WebSocket
       href: application-gateway-websocket.md
 - name: Практические руководства
   items:
-    - name: Создание шлюза приложений
+    - name: Управление веб-трафиком
       items:
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
         - name: Шаблон
           href: create-vmss-template.md
-        - name: Использование веб-приложений с помощью PowerShell
-          href: create-web-app.md
-        - name: Настройка внутренней подсистемы балансировки нагрузки
-          href: application-gateway-ilb.md
-    - name: Настройка завершения SSL-запросов с помощью портала
-      href: create-ssl-portal.md
-    - name: Размещение нескольких сайтов с помощью портала
-      href: create-multiple-sites-portal.md
+    - name: Настройка внутреннего балансировщика нагрузки
+      items:
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: Настройка завершения SSL-запросов
+      items:
+        - name: Завершение SSL-запросов с помощью портала Azure
+          href: create-ssl-portal.md
+        - name: Завершение SSL-запросов с помощью Azure PowerShell
+          href: tutorial-ssl-powershell.md
+        - name: Обновление сертификатов
+          href: renew-certificates.md
+        - name: Настройка политики SSL
+          href: application-gateway-configure-ssl-policy-powershell.md
+    - name: Настройка брандмауэра веб-приложения
+      items:
+        - name: Портал Azure
+          href: application-gateway-web-application-firewall-portal.md
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
     - name: Настройка правил WAF
       items:
         - name: Портал Azure
@@ -74,40 +89,36 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Инфраструктура CLI Azure
           href: application-gateway-customize-waf-rules-cli.md
-    - name: Перенаправление внешнего трафика
+    - name: Маршрутизация на основе URL-адреса
       items:
+        - name: Портал Azure
+          href: create-url-route-portal.md
         - name: Azure PowerShell
-          href: redirect-external-site-powershell.md
-        - name: Инфраструктура CLI Azure
-          href: redirect-external-site-cli.md
-    - name: Перенаправление трафика HTTP в HTTPS
+          href: tutorial-url-route-powershell.md
+    - name: Размещение нескольких сайтов
       items:
+        - name: Портал Azure
+          href: create-multiple-sites-portal.md
         - name: Azure PowerShell
-          href: redirect-http-to-https-powershell.md
-        - name: Инфраструктура CLI Azure
-          href: redirect-http-to-https-cli.md
-    - name: Перенаправление внутреннего трафика
+          href: tutorial-multiple-sites-powershell.md
+    - name: Перенаправление трафика
       items:
-        - name: Azure PowerShell
-          href: redirect-internal-site-powershell.md
-        - name: Инфраструктура CLI Azure
-          href: redirect-internal-site-cli.md
-    - name: Ограничение веб-трафика с помощью портала
-      href: create-waf-portal.md
-    - name: Маршрутизация на основе URL-адреса с помощью портала
-      href: create-url-route-portal.md
-    - name: Управление веб-трафиком с помощью Azure PowerShell
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: Ограничение веб-трафика с помощью Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Завершение SSL-запросов с помощью Azure PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: Обновление сертификатов
-      href: renew-certificates.md
-    - name: Размещение нескольких сайтов с помощью Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
-    - name: Маршрутизация веб-трафика с помощью Azure PowerShell
-      href: tutorial-url-route-powershell.md
+        - name: Перенаправление с HTTP на HTTPS
+          items:
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: Инфраструктура CLI Azure
+              href: redirect-http-to-https-cli.md
+        - name: Перенаправление внутреннего трафика
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: Инфраструктура CLI Azure
+              href: redirect-internal-site-cli.md
+    - name: Поддержка мультитенантного режима
+      items:
+        - name: Настройка поддержки нескольких клиентов
+          href: create-web-app.md
     - name: Перенаправление веб-трафика с помощью Azure PowerShell
       href: tutorial-url-redirect-powershell.md
     - name: 'Создание шлюза приложений, избыточного в пределах зоны'

@@ -1,42 +1,52 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по Azure Time Series Insights"
+title: Документация по Azure Time Series Insights
 metadata:
-  title: "Документация по Azure Time Series Insights. Руководства и справочник по API | Документация Майкрософт"
-  description: "Узнайте, как выполнять в облаке аналитику IoT с помощью полностью управляемого модуля обработки событий. Анализируйте в реальном времени данные, поступающие от приложений, датчиков, устройств и из других источников."
+  title: Документация по Azure Time Series Insights. Руководства и справочник по API | Документация Майкрософт
+  description: Узнайте, как выполнять в облаке аналитику IoT с помощью полностью управляемого модуля обработки событий. Анализируйте в реальном времени данные, поступающие от приложений, датчиков, устройств и из других источников.
   services: time-series-insights
-  author: kfile
-  manager: jhubbard
+  author: bryanla
+  manager: timlt
   ms.service: time-series-insights
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/13/2017
-  ms.author: kfile
-  ms.openlocfilehash: 8ccc0fe8ca23fabb6d2cb697836e8f402dbaf672
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.date: 05/16/2018
+  ms.author: bryanla
+  ms.openlocfilehash: 5ea126c2095e6bada8752f4b4187f504bbd67a46
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34651028"
 abstract:
-  description: "Настройка среды службы \"Аналитика временных рядов\", а также просмотр и анализ данных временных рядов для решений Интернета вещей или подключенных устройств. Документация включает описание требований, руководства, справочники по API и другие статьи, которые помогут вам быстро приступить к работе."
+  description: Настройка среды службы "Аналитика временных рядов", а также просмотр и анализ данных временных рядов для решений Интернета вещей или подключенных устройств. Документация включает описание требований, руководства, справочники по API и другие статьи, которые помогут вам быстро приступить к работе.
+  aside:
+    image:
+      alt: Видео с общими сведениями о функциях службы "Аналитика временных рядов Azure" для приложений Интернета вещей.
+      height: 110
+      src: media/index/tsi-intro-shannon-bloch.png
+      width: 250
+    title: Служба "Аналитика временных рядов" для приложений Интернета вещей (16:09)
+    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Time-Series-Insight-for-IoT-apps/player
+    width: 250
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как развернуть Log Analytics и настроить сбор данных в Azure, в локальных ресурсах и ресурсах других поставщиков облачных служб."
+    text: Узнайте, как развернуть Log Analytics и настроить сбор данных в Azure, в локальных ресурсах и ресурсах других поставщиков облачных служб.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-      text: "Знакомство со службой \"Аналитика временных рядов Azure\""
+      text: Знакомство со службой "Аналитика временных рядов Azure"
       href: /azure/time-series-insights/time-series-quickstart
-- title: "Ссылка"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Интерфейсы API"
-      html: "<p><a href=\"/rest/api/time-series-insights-management\">API управления ресурсами</a></p>   <p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">API запроса</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Синтаксис запросов</a></p>"
+    - title: Интерфейсы API
+      html: <p><a href="/rest/api/time-series-insights-management">API управления ресурсами</a></p>   <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">API запроса</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Синтаксис запросов</a></p>

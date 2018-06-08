@@ -101,6 +101,14 @@
               href: hyper-v-vmm-secondary-support-matrix.md
             - name: 'Архитектура: репликация Hyper-V на дополнительный сайт'
               href: hyper-v-vmm-architecture.md
+    - name: Сеть
+      items:
+        - name: Диспетчер трафика Azure и Site Recovery
+          href: concepts-traffic-manager-with-site-recovery.md
+        - name: ExpressRoute и Site Recovery
+          href: concepts-expressroute-with-site-recovery.md
+        - name: Группы безопасности сети и Site Recovery
+          href: concepts-network-security-group-with-site-recovery.md
     - name: Аварийное восстановление для приложений
       href: site-recovery-workload.md
     - name: Сведения о планах восстановления
@@ -109,10 +117,6 @@
       href: migrate-overview.md
     - name: Об управлении доступом на основе ролей с помощью Site Recovery
       href: site-recovery-role-based-linked-access-control.md
-    - name: Диспетчер трафика Microsoft Azure и Site Recovery
-      href: concepts-traffic-manager-with-site-recovery.md
-    - name: ExpressRoute и Site Recovery
-      href: concepts-expressroute-with-site-recovery.md
     - name: Часто задаваемые вопросы
       href: site-recovery-faq.md
 - name: Практические руководства

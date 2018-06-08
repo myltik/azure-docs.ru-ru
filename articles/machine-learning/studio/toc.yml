@@ -63,6 +63,8 @@
               href: deploy-with-resource-manager-template.md
             - name: Создание в другом регионе
               href: multi-geo.md
+            - name: Просмотр и удаление данных учетной записи Studio
+              href: export-delete-personal-data-dsr.md
     - name: Получение и интерпретация данных
       items:
         - name: Импорт данных для обучения
@@ -215,6 +217,8 @@
           href: gallery-collections.md
         - name: Пользовательские модули
           href: gallery-custom-modules.md
+        - name: Просмотр и удаление данных учетной записи
+          href: ai-gallery-control-personal-data-dsr.md
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

@@ -63,6 +63,8 @@
           href: internal-lb.md
         - name: Входящий трафик с поддержкой TLS
           href: ingress.md
+        - name: Исходящий трафик
+          href: egress.md
         - name: Маршрутизация приложений HTTP
           href: http-application-routing.md
     - name: Безопасность и проверка подлинности

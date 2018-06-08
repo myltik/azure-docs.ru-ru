@@ -1,5 +1,7 @@
 - name: Документация по фабрике данных версии 1
   href: null
+- name: Переход к документации по текущей версии
+  href: ../index.yml
 - name: Обзор
   items:
     - name: Введение в фабрику данных Azure
@@ -76,7 +78,7 @@
               href: data-factory-azure-documentdb-connector.md
             - name: Хранилище озера данных Azure
               href: data-factory-azure-datalake-connector.md
-            - name: поиск Azure;
+            - name: Поиск Azure
               href: data-factory-azure-search-connector.md
             - name: Базы данных SQL Azure
               href: data-factory-azure-sql-connector.md

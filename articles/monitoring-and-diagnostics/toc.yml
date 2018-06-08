@@ -129,6 +129,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Примеры сценариев Azure PowerShell
           href: insights-powershell-samples.md
+        - name: "Примеры Azure\_CLI"
+          href: insights-cli-samples.md
     - name: Использование расширения системы диагностики Azure
       items:
         - name: Отправка в службу хранилища Azure
