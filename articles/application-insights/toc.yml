@@ -162,6 +162,8 @@
               href: app-insights-proactive-low-utilization-cloud-resources.md
             - name: Обнаружение системой безопасности
               href: app-insights-proactive-application-security-detection-pack.md
+            - name: Облачные службы Azure
+              href: app-insights-proactive-cloud-services.md
         - name: Создание ресурса
           href: app-insights-create-new-resource.md
     - name: Анализ

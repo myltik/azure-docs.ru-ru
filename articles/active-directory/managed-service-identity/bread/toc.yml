@@ -7,19 +7,27 @@
       topicHref: /azure/active-directory/index
       items:
         - name: Удостоверение управляемой службы
-          tocHref: /azure/event-hubs-managed-service-identity/
+          tocHref: /azure/event-hubs/
           topicHref: /azure/active-directory/managed-service-identity/index
+- name: Таблицы Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
     - name: Active Directory
       tocHref: /azure/service-bus-messaging/
       topicHref: /azure/active-directory/index
       items:
         - name: Удостоверение управляемой службы
-          tocHref: /azure/service-bus-managed-service-identity/
+          tocHref: /azure/service-bus-messaging/
           topicHref: /azure/active-directory/managed-service-identity/index
+- name: Таблицы Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
     - name: Active Directory
       tocHref: /azure/app-service/
       topicHref: /azure/active-directory/index
       items:
         - name: Удостоверение управляемой службы
-          tocHref: /azure/app-service-managed-service-identity/
+          tocHref: /azure/app-service/
           topicHref: /azure/active-directory/managed-service-identity/index

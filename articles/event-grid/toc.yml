@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Отправка событий в хранилище очередей
       href: custom-event-to-queue-storage.md
+    - name: Отправка событий в службу "Концентраторы событий"
+      href: custom-event-to-eventhub.md
 - name: Учебники
   items:
     - name: Сообщение электронной почты при изменении виртуальной машины

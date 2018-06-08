@@ -9,27 +9,11 @@
       href: asdk-release-notes.md
 - name: Учебники
   items:
-    - name: 1. Развертывание пакета SDK для Azure Stack
-      items:
-        - name: Развертывание ASDK с помощью установщика
-          href: asdk-deploy.md
-        - name: Развертывание ASDK с помощью PowerShell
-          href: asdk-deploy-powershell.md
-        - name: Повторное развертывание ASDK
-          href: asdk-redeploy.md
-    - name: 2. Добавление элемента Marketplace
-      items:
-        - name: Скачивание из Azure
-          href: asdk-marketplace-item.md
-        - name: Добавление из локального источника
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Предложение служб IaaS
-      href: asdk-offer-services.md
-    - name: 4. Подписка на предложение
+    - name: Подписка на предложение
       href: asdk-subscribe-services.md
-    - name: 5. Обновление предложений и планов
+    - name: Обновление предложений и планов
       href: asdk-update-offers.md
-    - name: 6. Создание виртуальной машины на основе шаблона
+    - name: Создание виртуальной машины на основе шаблона
       href: asdk-create-vm-template.md
 - name: Основные понятия
   items:
@@ -49,10 +33,14 @@
           href: asdk-download.md
         - name: Подготовка главного компьютера для ASDK
           href: asdk-prepare-host.md
-        - name: Установка ASDK
+        - name: Развертывание ASDK с помощью установщика
           href: asdk-install.md
+        - name: Развертывание ASDK с помощью PowerShell
+          href: asdk-deploy-powershell.md
         - name: Настройка после развертывания
           href: asdk-post-deploy.md
+        - name: Повторное развертывание ASDK
+          href: asdk-redeploy.md
     - name: Регистрация ASDK
       href: asdk-register.md
     - name: Настройка параметров телеметрии Azure Stack
