@@ -199,6 +199,8 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: Создание плана
               href: azure-stack-create-plan.md
+            - name: Создание дополнительного плана
+              href: create-add-on-plan.md
             - name: Создание предложения
               href: azure-stack-create-offer.md
             - name: Подписка на предложение

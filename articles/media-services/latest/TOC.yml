@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: С помощью REST
           href: stream-files-tutorial-with-rest.md
+    - name: Потоковая передача в реальном времени
+      items:
+        - name: Использование .NET Core
+          href: stream-live-tutorial-with-api.md
     - name: Анализ видео
       items:
         - name: Использование .NET
@@ -37,6 +41,8 @@
           href: encoding-concept.md
         - name: Автоматическое создание схемы передачи с переменной скоростью
           href: autogen-bitrate-ladder.md
+    - name: Потоковая передача в реальном времени
+      href: live-streaming-overview.md
     - name: Мультимедиа-аналитика
       href: intelligence-concept.md
     - name: Реагирование на события

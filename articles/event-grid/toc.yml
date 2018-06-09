@@ -49,6 +49,8 @@
       href: powershell-samples.md
     - name: Шаблоны диспетчера ресурсов
       href: template-samples.md
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid'
 - name: Основные понятия
   items:
     - name: Основные понятия службы "Сетка событий Azure"

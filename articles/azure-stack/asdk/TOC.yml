@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: Заметки о выпуске ASDK
       href: asdk-release-notes.md
-- name: Учебники
-  items:
-    - name: Подписка на предложение
-      href: asdk-subscribe-services.md
-    - name: Обновление предложений и планов
-      href: asdk-update-offers.md
-    - name: Создание виртуальной машины на основе шаблона
-      href: asdk-create-vm-template.md
 - name: Основные понятия
   items:
     - name: Рекомендации по планированию развертывания

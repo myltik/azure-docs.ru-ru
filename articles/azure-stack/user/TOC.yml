@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: Настройка подключения гибридного облака
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: Подписка на предложение
+      href: azure-stack-subscribe-services.md
+    - name: Создание виртуальной машины на основе шаблона
+      href: azure-stack-create-vm-template.md
 - name: Практические руководства
   items:
     - name: Использование портала Azure Stack
