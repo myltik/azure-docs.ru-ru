@@ -125,7 +125,7 @@
 #### [Уведомления](active-directory-reporting-notifications.md)
 #### [Справочные материалы по действиям аудита](active-directory-reporting-activity-audit-reference.md)
 #### [Коды ошибок входа в систему](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Многофакторная проверка подлинности](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
@@ -326,6 +326,7 @@
 #### [Условия](active-directory-conditional-access-conditions.md)
 #### [Условия расположения](active-directory-conditional-access-locations.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
+#### [Базовая защита](active-directory-conditional-access-baseline-protection.md)
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)

@@ -63,8 +63,6 @@
           items:
             - name: Подготовка рабочих нагрузок Azure Backup Server на портале Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Установка Azure Backup Server в Azure Stack
-              href: backup-mabs-install-azure-stack.md
             - name: Добавление хранилища для Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: "Обновление Azure Backup Server до версии\_2"
@@ -83,10 +81,18 @@
               href: backup-azure-sql-mabs.md
             - name: Защита состояния системы и восстановление исходного состояния системы
               href: backup-mabs-system-state-and-bmr.md
-            - name: Файлы и приложения в Azure Stack
-              href: backup-mabs-files-applications-azure-stack.md
         - name: Восстановление данных с сервера Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure Backup Server в Azure Stack
+      items:
+        - name: Установка Azure Backup Server
+          href: backup-mabs-install-azure-stack.md
+        - name: Защита файлов и приложений
+          href: backup-mabs-files-applications-azure-stack.md
+        - name: Защита фермы SharePoint
+          href: backup-mabs-sharepoint-azure-stack.md
+        - name: Защита базы данных SQL Server
+          href: backup-mabs-sql-azure-stack.md
     - name: Общие папки Azure
       items:
         - name: Резервное копирование общих папок Azure
