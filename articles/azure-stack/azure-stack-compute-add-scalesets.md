@@ -7,14 +7,15 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800646"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Обеспечение доступности масштабируемых наборов виртуальных машин в Azure Stack
 
@@ -28,52 +29,27 @@ ms.lasthandoff: 05/12/2018
 * [Марк Руссинович (Mark Russinovich) рассказывает о масштабируемых наборах Azure.](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Масштабируемые наборы виртуальных машин с Гаем Бауэрманом (Guy Bowerman).](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Azure Stack не поддерживает автоматическое масштабирование для масштабируемых наборов виртуальных машин. Добавить дополнительные экземпляры в масштабируемый набор можно с помощью портала Azure Stack, шаблонов Resource Manager или PowerShell.
+Azure Stack не поддерживает автоматическое масштабирование для масштабируемых наборов виртуальных машин. В масштабируемый набор можно добавить дополнительные экземпляры с помощью портала, шаблонов Resource Manager или PowerShell.
 
 ## <a name="prerequisites"></a>предварительным требованиям
-* **PowerShell и средства**
 
-   Установите и настройте PowerShell для Azure Stack и средства Azure Stack. См. статью [Начало работы с PowerShell в Azure Stack](azure-stack-powershell-configure-quickstart.md).
-
-   После установки средств Azure Stack не забудьте импортировать следующий модуль PowerShell (путь относительно папки .\ComputeAdmin в папке AzureStack-Tools-master):
-  ````PowerShell
-        Import-Module .\AzureStack.ComputeAdmin.psm1
-  ````
-
-* **Образ операционной системы**
-
-   Если образ операционной системы еще не добавлен в Azure Stack Marketplace, см. статью [Добавление образа виртуальной машины Windows Server 2016 в Azure Stack Marketplace](azure-stack-add-default-image.md).
-
-   Для поддержки Linux скачайте Ubuntu Server 16.04 и добавьте его с помощью ```Add-AzsPlatformImage``` со следующими параметрами: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
-
+- **Синдикация Marketplace**  
+    Регистрация Azure Stack в глобальной среде Azure для включения синдикации Marketplace. См. инструкции по [регистрации Azure Stack в Azure](azure-stack-registration.md).
+- **Образ операционной системы**  
+    При необходимости [добавьте образ виртуальной машины Windows Server 2016 в Azure Stack Marketplace](asdk/asdk-marketplace-item.md).
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Добавление масштабируемого набора виртуальных машин
 
-Отредактируйте следующий скрипт PowerShell для вашей среды, а затем запустите его, чтобы добавить масштабируемый набор виртуальных машин в Azure Stack Marketplace. 
+1. Откройте Azure Stack Marketplace и подключитесь к Azure. Выберите **Управление Marketplace**> **+Добавить из Azure**.
 
-``$User`` — учетная запись, используемая для подключения портала администрирования. Например, serviceadmin@contoso.onmicrosoft.com.
+    ![Управление Marketplace](media/azure-stack-compute-add-scalesets/image01.png)
 
-````PowerShell  
-$Arm = "https://adminmanagement.local.azurestack.external"
-$Location = "local"
+2. Добавьте и скачайте элемент Marketplace масштабируемого набора виртуальных машин.
 
-Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
+    ![Масштабируемый набор виртуальных машин](media/azure-stack-compute-add-scalesets/image02.png)
 
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Обновление образов в масштабируемом наборе виртуальных машин
 
-$User = "<your Azure Stack service administrator user name>"
-
-$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
-
-$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-
-Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
-
-Add-AzsVMSSGalleryItem -Location $Location
-````
-
-## <a name="update-images-in-a-virtual-machine-scale-set"></a>Обновление образов в масштабируемом наборе виртуальных машин 
 После создания масштабируемого набора виртуальных машин пользователи смогут обновлять образы в этом наборе, не создавая набор масштабирования заново. Процесс обновления образа будет разным в следующих сценариях.
 
 1. В шаблоне развертывания для масштабируемого набора виртуальных машин указано значение **latest** для параметра *version*.  
@@ -102,7 +78,7 @@ Add-AzsVMSSGalleryItem -Location $Location
 
 2. В шаблоне масштабируемого набора виртуальных машин для параметра *version* указано не значение **latest**, а конкретный номер версии.  
 
-     Если вы скачаете образ более поздней версии (с изменением номера доступной версии), увеличение масштаба для этого масштабируемого набора становится невозможным. Это сделано намеренно, поскольку указанная в шаблоне версия образа должна быть всегда доступна.  
+    Если вы скачаете образ более поздней версии (с изменением номера доступной версии), увеличение масштаба для этого масштабируемого набора становится невозможным. Это сделано намеренно, поскольку указанная в шаблоне версия образа должна быть всегда доступна.  
 
 Дополнительные сведения см. в разделе [Диски и образы операционной системы](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
@@ -112,7 +88,7 @@ Add-AzsVMSSGalleryItem -Location $Location
 Чтобы удалить из коллекции элемент масштабируемого набора виртуальных машин, выполните следующую команду PowerShell:
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]
