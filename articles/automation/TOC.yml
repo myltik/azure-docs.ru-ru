@@ -29,6 +29,8 @@
   items:
     - name: Переход
       items:
+        - name: Подключение нескольких виртуальных машин на портале
+          href: automation-onboard-solutions-from-browse.md
         - name: Подключение из виртуальной машины Azure
           href: automation-onboard-solutions-from-vm.md
         - name: Подключение из учетной записи службы автоматизации

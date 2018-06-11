@@ -10,11 +10,11 @@
       href: tutorial-assessment-vmware.md
 - name: Основные понятия
   items:
-    - name: О сборщике
+    - name: Сведения о сборщике
       href: concepts-collector.md
     - name: Вычисление оценок
       href: concepts-assessment-calculation.md
-    - name: Визуализация зависимостей
+    - name: Сведения о визуализации зависимостей
       href: concepts-dependency-visualization.md
 - name: Практические руководства
   items:
@@ -30,6 +30,8 @@
           href: contoso-migration-rehost-vm-sql-managed-instance.md
         - name: '5. Contoso: повторное размещение приложения на виртуальных машинах Azure'
           href: contoso-migration-rehost-vm.md
+        - name: '6. Contoso: повторное размещение приложения на виртуальных машинах Azure и в группах доступности AlwaysOn SQL Azure'
+          href: contoso-migration-rehost-vm-sql-ag.md
     - name: Обнаружение и оценка крупной среды
       href: how-to-scale-assessment.md
     - name: Группирование компьютеров
