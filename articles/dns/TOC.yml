@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: Обратные зоны DNS
       href: dns-reverse-dns-overview.md
+    - name: Аварийное восстановление с помощью Azure DNS и диспетчера трафика
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Практическое руководство
   items:
     - name: Создание частной настраиваемой зоны и записи DNS с помощью Azure CLI

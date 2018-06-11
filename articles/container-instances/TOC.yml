@@ -47,6 +47,8 @@
           href: container-instances-using-azure-container-registry.md
         - name: Настройка переменных среды (env)
           href: container-instances-environment-variables.md
+        - name: Настройка проб активности
+          href: container-instances-liveness-probe.md
     - name: управление
       items:
         - name: Выполнение команды (exec)
