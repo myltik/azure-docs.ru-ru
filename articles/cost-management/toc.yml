@@ -43,6 +43,8 @@
       href: storage-accounts.md
     - name: Использование отчетов службы "Управление затратами"
       href: use-reports.md
+    - name: Использование панелей мониторинга
+      href: dashboards.md
 - name: Ресурсы
   items:
     - name: Видео по управлению затратами

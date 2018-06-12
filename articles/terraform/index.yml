@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Terraform в документации по Azure"
+title: Terraform в документации по Azure
 metadata:
-  title: "Terraform в документации по Azure — руководства и справочные материалы"
+  title: Terraform в документации по Azure — руководства и справочные материалы
   meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
   author: rloutlaw
@@ -13,55 +13,57 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
-  ms.openlocfilehash: 71ffbc2f8d6728a414a8e001198b8c9f9b36c485
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
+  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 03/16/2018
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35300615"
 abstract:
-  description: "Используйте Terraform для надежного управления версиями и создания инфраструктуры в Azure. Из наших руководств вы узнаете, как создавать ресурсы с помощью модулей Azure Terraform и обслуживать инфраструктуру с помощью кода."
+  description: Используйте Terraform для надежного управления версиями и создания инфраструктуры в Azure. Из наших руководств вы узнаете, как создавать ресурсы с помощью модулей Azure Terraform и обслуживать инфраструктуру с помощью кода.
 sections:
-- title: "Быстрое начало работы"
+- title: Быстрое начало работы
   items:
   - type: paragraph
-    text: "Настройте и используйте Terraform для создания виртуальной машины Linux в Azure."
+    text: Настройте и используйте Terraform для создания виртуальной машины Linux в Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
-      text: "Установка и настройка Terraform"
+      text: Установка и настройка Terraform
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
     - image:
         src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
-      text: "Создание виртуальной машины Linux"
+      text: Создание виртуальной машины Linux
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Описание способов создания вычислительной и сетевой инфраструктуры Azure из кода с помощью Terraform."
+    text: Описание способов создания вычислительной и сетевой инфраструктуры Azure из кода с помощью Terraform.
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/azure/terraform/terraform-vm-msi\">Создание виртуальной машины Terraform с поддержкой проверки подлинности MSI с помощью образа Azure Marketplace</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-module\">Создание кластера виртуальной машины с балансировкой нагрузки с помощью модулей Azure Terraform</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-with-infrastructure\">Создание кластера виртуальной машины с балансировкой нагрузки в Azure Cloud Shell</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl\">Настройка масштабируемого набора виртуальных машин с сетью и хранилищем</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl\">Подготовка масштабируемого набора виртуальных машин из пользовательского образа Packer.</a>"
-- title: "Примеры"
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Создание кластера Kubernetes с помощью AKS и Terraform</a>.
+    - html: <a href="/azure/terraform/terraform-vm-msi">Создание виртуальной машины Terraform с поддержкой проверки подлинности MSI с помощью образа Azure Marketplace</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Создание кластера виртуальной машины с балансировкой нагрузки с помощью модулей Azure Terraform</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Создание кластера виртуальной машины с балансировкой нагрузки в Azure Cloud Shell</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Настройка масштабируемого набора виртуальных машин с сетью и хранилищем</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Подготовка масштабируемого набора виртуальных машин из пользовательского образа Packer.</a>
+- title: Примеры
   items:
   - type: paragraph
-    text: "Примеры шаблонов конфигурации для стандартных задач развертывания."
+    text: Примеры шаблонов конфигурации для стандартных задач развертывания.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
-- title: "Справочные материалы"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Модули Azure Terraform"
-      html: "<p><a href=\"https://registry.terraform.io/modules/Azure/database/azurerm\">Azure RM для базы данных</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/loadbalancer\">Azure RM для подсистемы балансировки нагрузки</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/computegroup\">Группа вычислений Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/network\">Сеть Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/compute\">Вычисления Azure RM</a></p>"
+    - title: Модули Azure Terraform
+      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM для базы данных</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM для подсистемы балансировки нагрузки</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Группа вычислений Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Сеть Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Вычисления Azure RM</a></p>

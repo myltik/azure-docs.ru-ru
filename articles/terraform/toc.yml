@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Учебники
   items:
+    - name: Создание кластера Kubernetes с помощью AKS и Terraform
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
     - name: Слоты развертывания поставщика Azure и Terraform
       href: terraform-slot-walkthru.md
     - name: Создание виртуальной машины Terraform с поддержкой MSI
