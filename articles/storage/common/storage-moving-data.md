@@ -1,8 +1,8 @@
 ---
-title: "Перемещение больших объемов данных в облачное хранилище, размещенное в Azure, и из него | Документация Майкрософт"
-description: "Обзор различных методов перемещения данных в службу хранилища Azure и из нее."
+title: Перемещение больших объемов данных в облачное хранилище, размещенное в Azure, и из него | Документация Майкрософт
+description: Обзор различных методов перемещения данных в службу хранилища Azure и из нее.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984601"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Перемещение данных в службу хранилища Azure и обратно
 Существует множество способов переместить локальные данные в службу хранилища Azure (и обратно). Выбор оптимального метода зависит от ситуации. В этой статье приводится краткий обзор разных сценариев и подходящих способов для каждого из них.

@@ -16,7 +16,7 @@
       href: storage-how-to-use-files-windows.md
     - name: Подключение в Linux
       href: storage-how-to-use-files-linux.md
-    - name: Подключение в Mac
+    - name: Подключение в macOS
       href: storage-how-to-use-files-mac.md
     - name: Управление с помощью портала Azure
       href: storage-how-to-use-files-portal.md

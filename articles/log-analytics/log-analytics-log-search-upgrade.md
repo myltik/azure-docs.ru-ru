@@ -1,11 +1,11 @@
 ---
-title: "Обновление Azure Log Analytics до нового поиска по журналам | Документация Майкрософт"
-description: "Новый язык запросов Log Analytics практически доступен, и вы сможете участвовать в общедоступной предварительной версии.  В этой статье описаны преимущества нового языка и процедура преобразования рабочей области."
+title: Обновление Azure Log Analytics до нового поиска по журналам | Документация Майкрософт
+description: Новый язык запросов Log Analytics практически доступен, и вы сможете участвовать в общедоступной предварительной версии.  В этой статье описаны преимущества нового языка и процедура преобразования рабочей области.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983994"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Обновление Azure Log Analytics до нового поиска по журналам
 

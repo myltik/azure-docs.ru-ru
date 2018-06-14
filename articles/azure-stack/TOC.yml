@@ -128,6 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: Управление сетевыми ресурсами
           href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Изменение владельца пользовательской подписки
+          href: azure-stack-change-subscription-owner.md
         - name: Управление виртуальными машинами Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Запуск и остановка Azure Stack
@@ -216,7 +218,7 @@
           items:
             - name: Развертывание поставщика ресурсов SQL Server.
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Добавление серверов размещения
+            - name: Добавление серверов размещения SQL
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Создание баз данных SQL
               href: azure-stack-sql-resource-provider-databases.md
@@ -227,7 +229,20 @@
             - name: Удаление поставщика ресурсов SQL Server
               href: azure-stack-sql-resource-provider-remove.md
         - name: Предложение MySQL как PaaS
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: Развертывание поставщика ресурсов MySQL Server
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Добавление серверов размещения MySQL
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: Создание базы данных MySQL
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: Обновление поставщика ресурсов MySQL Server
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: Обслуживание поставщика ресурсов MySQL Server
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: Удаление поставщика ресурсов MySQL Server
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: Предложение службы приложений как PaaS
           items:
             - name: Обзор службы приложений в Azure Stack

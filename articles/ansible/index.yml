@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Ansible в документации Azure"
+title: Ansible в документации Azure
 metadata:
-  title: "Ansible в документации Azure: руководства, примеры, справочные материалы и ресурсы"
+  title: 'Ansible в документации Azure: руководства, примеры, справочные материалы и ресурсы'
   meta.description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   services: terraform
   author: tomarcher
@@ -18,41 +18,42 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 01/29/2018
+  ms.locfileid: "28207710"
 abstract:
-  description: "Используйте <a href=\"http://www.ansible.com\">Ansible</a> для автоматизированной подготовки облачных решений, управления конфигурацией и развертывания приложений."
+  description: Используйте <a href="http://www.ansible.com">Ansible</a> для автоматизированной подготовки облачных решений, управления конфигурацией и развертывания приложений.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Настройте и используйте Ansible для создания виртуальной машины Linux в Azure."
+    text: Настройте и используйте Ansible для создания виртуальной машины Linux в Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/media/index/azure_dev-9.svg
-      text: "Настройка Ansible"
+      text: Настройка Ansible
       href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
     - image:
         src: /azure/media/index/VirtualMachine.svg
-      text: "Создание виртуальной машины Linux"
+      text: Создание виртуальной машины Linux
       href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как создать вычислительную и сетевую инфраструктуру Azure с помощью Ansible."
+    text: Узнайте, как создать вычислительную и сетевую инфраструктуру Azure с помощью Ansible.
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json\">Создание виртуальной машины Linux вместе с виртуальной сетью, общедоступным IP-адресом и виртуальным сетевым интерфейсом.</a>"
-    - html: "<a href=\"./ansible-run-playbook-in-cloudshell\">Подключение к виртуальной машине Azure и запуск файла сценариев Ansible в Cloud Shell.</a>"
-    - html: "<a href=\"./ansible-manage-azure-dynamic-inventories\">Создание динамического списка ресурсов Azure и управление им.</a>"
-- title: "Справочные материалы"
+    - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Создание виртуальной машины Linux вместе с виртуальной сетью, общедоступным IP-адресом и виртуальным сетевым интерфейсом.</a>
+    - html: <a href="./ansible-run-playbook-in-cloudshell">Подключение к виртуальной машине Azure и запуск файла сценариев Ansible в Cloud Shell.</a>
+    - html: <a href="./ansible-manage-azure-dynamic-inventories">Создание динамического списка ресурсов Azure и управление им.</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Роли Playbook"
+    - title: Роли Playbook
       html: <p><a href="https://galaxy.ansible.com/Azure/azure_modules/">azure_module</a></p><p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>
-    - title: "Выпуски и компоненты"
-      html: "<p><a href=\"./ansible-matrix.md\">Матрица модулей и ролей</a></p>"
+    - title: Выпуски и компоненты
+      html: <p><a href="./ansible-matrix.md">Матрица модулей и ролей</a></p>

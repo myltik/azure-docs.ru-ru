@@ -1,8 +1,8 @@
 ---
-title: "Доступ к службе хранилища Azure с использованием MSI виртуальной машины Windows"
-description: "Из этого руководства вы узнаете, как получить доступ к службе хранилища Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
+title: Доступ к службе хранилища Azure с использованием MSI виртуальной машины Windows
+description: Из этого руководства вы узнаете, как получить доступ к службе хранилища Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984839"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Доступ к службе хранилища Azure с помощью ключа доступа и управляемого удостоверения службы виртуальной машины Windows
 
