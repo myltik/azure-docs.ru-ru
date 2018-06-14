@@ -1,13 +1,13 @@
 ---
-title: "Перенос связанных виртуальных сетей ExpressRoute из классической модели на модель Resource Manager (Azure PowerShell) | Документация Майкрософт"
-description: "В этой статье описывается перенос связанных виртуальных сетей на модель Resource Manager после перемещения канала."
+title: Перенос связанных виртуальных сетей ExpressRoute из классической модели на модель Resource Manager (Azure PowerShell) | Документация Майкрософт
+description: В этой статье описывается перенос связанных виртуальных сетей на модель Resource Manager после перемещения канала.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013209"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Перенос связанных виртуальных сетей ExpressRoute из классической модели на модель Resource Manager
 

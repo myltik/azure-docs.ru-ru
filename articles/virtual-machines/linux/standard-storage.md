@@ -1,8 +1,8 @@
 ---
-title: "Хранилище уровня \"Стандартный\" для дисков виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Сведения об экономичном хранилище уровня \"Стандартный\", а также об управляемых и неуправляемых дисках виртуальной машины Linux."
+title: Хранилище уровня "Стандартный" для дисков виртуальной машины Linux в Azure | Документация Майкрософт
+description: Сведения об экономичном хранилище уровня "Стандартный", а также об управляемых и неуправляемых дисках виртуальной машины Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23666876"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

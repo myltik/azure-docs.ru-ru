@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по Azure Monitor"
+title: Документация по Azure Monitor
 metadata:
-  title: "Документация по Azure Monitor. Руководства и справочник по API | Документация Майкрософт"
-  description: "Azure Monitor является частью общего решения мониторинга Microsoft Azure. Azure Monitor помогает отслеживать производительность, обеспечивать безопасность и определять тенденции. Ознакомьтесь с нашими руководствами, чтобы узнать, как вести аудит, создавать оповещения и архивировать данные."
+  title: Документация по Azure Monitor. Руководства и справочник по API | Документация Майкрософт
+  description: Azure Monitor является частью общего решения мониторинга Microsoft Azure. Azure Monitor помогает отслеживать производительность, обеспечивать безопасность и определять тенденции. Ознакомьтесь с нашими руководствами, чтобы узнать, как вести аудит, создавать оповещения и архивировать данные.
   services: monitoring-and-diagnostics
   author: czeumault
   manager: carolz
@@ -18,60 +18,61 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23070741"
 abstract:
-  description: "Azure Monitor является частью общего решения мониторинга Microsoft Azure. Azure Monitor помогает отслеживать производительность, обеспечивать безопасность и определять тенденции. Ознакомьтесь с нашими руководствами, чтобы узнать, как вести аудит, создавать оповещения и архивировать данные."
+  description: Azure Monitor является частью общего решения мониторинга Microsoft Azure. Azure Monitor помогает отслеживать производительность, обеспечивать безопасность и определять тенденции. Ознакомьтесь с нашими руководствами, чтобы узнать, как вести аудит, создавать оповещения и архивировать данные.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как получать уведомления при возникновении определенных условий в приложении Azure."
+    text: Узнайте, как получать уведомления при возникновении определенных условий в приложении Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/Chart.svg
-      text: "Метрики мониторинга"
+      text: Метрики мониторинга
       href: monitor-quick-resource-metric-alert-portal
     - image:
         src: https://docs.microsoft.com/media/common/i_alert.svg
-      text: "Оповещения и аудит подписки"
+      text: Оповещения и аудит подписки
       href: monitor-quick-audit-notify-action-in-subscription
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте об автоматическом масштабировании и архивировании данных мониторинга."
+    text: Узнайте об автоматическом масштабировании и архивировании данных мониторинга.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"monitor-tutorial-autoscale-performance-schedule\">Create an Autoscale Setting for Azure resources based on performance data or a schedule</a> (Создание автоматического масштабирования для ресурсов Azure на основе данных производительности или по расписанию)"
-    - html: "<a href=\"monitor-tutorial-archive-monitoring-data\">Архивирование данных мониторинга</a>"
-- title: "Бесплатные видеоуроки PluralSight"
+    - html: <a href="monitor-tutorial-autoscale-performance-schedule">Create an Autoscale Setting for Azure resources based on performance data or a schedule</a> (Создание автоматического масштабирования для ресурсов Azure на основе данных производительности или по расписанию)
+    - html: <a href="monitor-tutorial-archive-monitoring-data">Архивирование данных мониторинга</a>
+- title: Бесплатные видеоуроки PluralSight
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Начало работы с мониторингом IaaS"
+    - title: Начало работы с мониторингом IaaS
       href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
-    - title: "Управление инфраструктурой в Microsoft Azure"
+    - title: Управление инфраструктурой в Microsoft Azure
       href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
-- title: "Справочные материалы"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/monitor?view=azure-cli-latest\">интерфейс командной строки Azure</a></p><p><a href=\"/powershell/module/azurerm.insights\">Azure PowerShell</a></p>"
+    - title: Командная строка
+      html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">интерфейс командной строки Azure</a></p><p><a href="/powershell/module/azurerm.insights">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/monitor/">REST</a></p>
-    - title: "Мониторинг"
-      html: "<p><a href=\"monitoring-supported-metrics\">Поддерживаемые метрики</a></p><p><a href=\"monitoring-diagnostic-logs-schema\">Службы, категории и схемы для журналов диагностики</a></p><p><a href=\"monitoring-activity-log-schema\">Схема событий журнала действий</a></p>"
-    - title: "Диагностика"
-      html: "<p><a href=\"azure-diagnostics-schema\">Схема расширения системы диагностики Azure</a></p>"
+    - title: Мониторинг
+      html: <p><a href="monitoring-supported-metrics">Поддерживаемые метрики</a></p><p><a href="monitoring-diagnostic-logs-schema">Службы, категории и схемы для журналов диагностики</a></p><p><a href="monitoring-activity-log-schema">Схема событий журнала действий</a></p>
+    - title: Диагностика
+      html: <p><a href="azure-diagnostics-schema">Схема расширения системы диагностики Azure</a></p>

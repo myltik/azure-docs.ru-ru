@@ -1,9 +1,9 @@
 ---
-title: "Архитектура шаблона решения Cortana Intelligence для прогнозирования энергопотребления | Документация Майкрософт"
-description: "Архитектура шаблона решения Microsoft Cortana Intelligence для прогнозирования энергопотребления в электроэнергетической компании."
-keywords: "акселератор решений; cortana analytics, прогнозирование энергопотребления"
+title: Архитектура шаблона решения Cortana Intelligence для прогнозирования энергопотребления | Документация Майкрософт
+description: Архитектура шаблона решения Microsoft Cortana Intelligence для прогнозирования энергопотребления в электроэнергетической компании.
+keywords: акселератор решений; cortana analytics, прогнозирование энергопотребления
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23002389"
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Архитектура шаблона решения Cortana Intelligence для прогнозирования энергопотребления
 Приведенная ниже схема демонстрирует архитектуру [шаблона решения Cortana Intelligence для прогнозирования энергопотребления](cortana-analytics-playbook-demand-forecasting-energy.md).

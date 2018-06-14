@@ -1,11 +1,11 @@
 ---
-title: "Защита приложений в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе рассматриваются рекомендации в центре безопасности Azure, которые помогают защитить приложения Azure и обеспечить соответствие политикам безопасности."
+title: Защита приложений в центре безопасности Azure | Документация Майкрософт
+description: В этом документе рассматриваются рекомендации в центре безопасности Azure, которые помогают защитить приложения Azure и обеспечить соответствие политикам безопасности.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: b5fc7a9e-24b1-415f-b3b5-62a53f5dd424
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040229"
 ---
 # <a name="protecting-your-applications-in-azure-security-center"></a>Защита приложений в центре безопасности Azure
 Центр безопасности Azure анализирует состояние безопасности ресурсов Azure. Когда центр безопасности выявляет потенциальные уязвимости в системе безопасности, он создает рекомендации по настройке необходимых элементов управления.  Рекомендации относятся к следующим типам ресурсов Azure: виртуальные машины (ВМ), сети, SQL и приложения.

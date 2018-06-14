@@ -1,11 +1,11 @@
 ---
-title: "Обновление версии ОС в центре безопасности Azure | Документация Майкрософт"
-description: "В этой статье объясняется, как выполнить рекомендацию центра безопасности Azure **Обновление версии ОС**."
+title: Обновление версии ОС в центре безопасности Azure | Документация Майкрософт
+description: В этой статье объясняется, как выполнить рекомендацию центра безопасности Azure **Обновление версии ОС**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040669"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Обновление версии ОС в центре безопасности Azure
 Для виртуальных машин (ВМ) в облачных службах центр безопасности Azure порекомендует обновить версию операционной системы (ОС) на более новую, если она есть.  Мониторинг выполняется только для облачных служб и рабочих ролей, запущенных в слотах рабочей среды.

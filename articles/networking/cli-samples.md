@@ -1,17 +1,17 @@
 ---
-title: "Примеры Azure CLI | Документация Майкрософт"
-description: "Примеры Azure CLI"
+title: Примеры Azure CLI | Документация Майкрософт
+description: Примеры Azure CLI
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036579"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Примеры Azure CLI для работы с сетью
 

@@ -1,6 +1,6 @@
 ---
-title: "Использование очередей служебной шины Azure с Java | Документация Майкрософт"
-description: "Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Java."
+title: Использование очередей служебной шины Azure с Java | Документация Майкрософт
+description: Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Java.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044259"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Как использовать очереди служебной шины с Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

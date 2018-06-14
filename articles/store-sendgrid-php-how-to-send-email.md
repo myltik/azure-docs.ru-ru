@@ -1,8 +1,8 @@
 ---
-title: "Как использовать службу электронной почты SendGrid (PHP) | Документация Майкрософт"
-description: "Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP."
+title: Как использовать службу электронной почты SendGrid (PHP) | Документация Майкрософт
+description: Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP.
 documentationcenter: php
-services: 
+services: ''
 manager: sendgrid
 editor: mollybos
 author: thinkingserious
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059929"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Как использовать службу электронной почты SendGrid в языке PHP
 В этом руководстве показано, как выполнять типовые задачи программирования для службы электронной почты SendGrid в Azure. Примеры написаны на PHP.
