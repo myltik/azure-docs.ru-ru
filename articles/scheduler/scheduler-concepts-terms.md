@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418848"
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Основные понятия, терминология и иерархия сущностей планировщика
 ## <a name="scheduler-entity-hierarchy"></a>Иерархия сущностей планировщика

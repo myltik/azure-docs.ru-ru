@@ -1,11 +1,11 @@
 ---
-title: "Статистика в режиме реального времени в Azure CDN | Документация Майкрософт"
-description: "Статистика в реальном времени предоставляет актуальные данные о производительности сети Azure CDN при доставке содержимого клиентам."
+title: Статистика в режиме реального времени в Azure CDN | Документация Майкрософт
+description: Статистика в реальном времени предоставляет актуальные данные о производительности сети Azure CDN при доставке содержимого клиентам.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997909"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Статистика в реальном времени в сети CDN Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]

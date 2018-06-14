@@ -1,11 +1,11 @@
 ---
-title: "Документация по планировщику Azure. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как использовать планировщик для планирования и вызова заданий, таких как повторяющиеся действия в приложениях и плановое обслуживание. Руководства, справочники по API и другие документы."
+title: Документация по планировщику Azure. Руководства и справочник по API | Документация Майкрософт
+description: Узнайте, как использовать планировщик для планирования и вызова заданий, таких как повторяющиеся действия в приложениях и плановое обслуживание. Руководства, справочники по API и другие документы.
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071353"
 ---
 # <a name="scheduler-documentation"></a>Документация по планировщику
 

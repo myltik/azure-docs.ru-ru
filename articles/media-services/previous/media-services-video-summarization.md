@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786013"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Использование Azure Media Video Thumbnail для формирования сводных данных видео
 ## <a name="overview"></a>Обзор

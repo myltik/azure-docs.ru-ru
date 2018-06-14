@@ -1,11 +1,11 @@
 ---
-title: "Условные выражения обработчика правил Azure CDN | Документация Майкрософт"
-description: "Справочная документация по условиям соответствия и функциям обработчика правил Azure CDN."
+title: Условные выражения обработчика правил Azure CDN | Документация Майкрософт
+description: Справочная документация по условиям соответствия и функциям обработчика правил Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997979"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Условные выражения обработчика правил Azure CDN
 В этой статье подробно описаны условные выражения для [обработчика правил](cdn-rules-engine.md) сети доставки содержимого (CDN) Azure.

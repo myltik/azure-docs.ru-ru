@@ -1,8 +1,8 @@
 ---
-title: "Создание и использование подписанного URL-адреса (SAS) с хранилищем BLOB-объектов Azure | Документация Майкрософт"
-description: "В этом руководстве показано, как создать подписанные URL-адреса для использования с хранилищем больших двоичных объектов и как использовать их в клиентских приложениях."
+title: Создание и использование подписанного URL-адреса (SAS) с хранилищем BLOB-объектов Azure | Документация Майкрософт
+description: В этом руководстве показано, как создать подписанные URL-адреса для использования с хранилищем больших двоичных объектов и как использовать их в клиентских приложениях.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056799"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов
 

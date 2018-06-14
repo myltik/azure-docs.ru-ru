@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по базе данных Azure для MySQL"
+title: Документация по базе данных Azure для MySQL
 metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
-  title: "Документация по Azure MySQL. Руководства и справочник по API"
-  description: "База данных Azure для MySQL — это служба реляционной базы данных в облаке Microsoft, созданная для разработчиков на основе СУБД MySQL с открытым исходным кодом."
+  title: Документация по Azure MySQL. Руководства и справочник по API
+  description: База данных Azure для MySQL — это служба реляционной базы данных в облаке Microsoft, созданная для разработчиков на основе СУБД MySQL с открытым исходным кодом.
   services: mysql
   author: czeumault
   manager: carolz
@@ -19,38 +19,39 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23070809"
 abstract:
-  description: "База данных Azure для MySQL — это служба реляционной базы данных на основе СУБД MySQL Server с открытым исходным кодом.  Эта полностью управляемая база данных как услуга может обслуживать критически важные рабочие нагрузки с прогнозируемой производительностью и динамическим масштабированием. Разрабатывайте приложения на основе базы данных Azure для MySQL, используя привычные средства с открытым исходным кодом и платформу. Узнайте, как использовать базу данных Azure для MySQL, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
+  description: База данных Azure для MySQL — это служба реляционной базы данных на основе СУБД MySQL Server с открытым исходным кодом.  Эта полностью управляемая база данных как услуга может обслуживать критически важные рабочие нагрузки с прогнозируемой производительностью и динамическим масштабированием. Разрабатывайте приложения на основе базы данных Azure для MySQL, используя привычные средства с открытым исходным кодом и платформу. Узнайте, как использовать базу данных Azure для MySQL, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как создать базу данных MySQL в Azure с помощью следующих средств:"
+    text: 'Узнайте, как создать базу данных MySQL в Azure с помощью следующих средств:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
     - image:
         src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как проектировать базы данных и разрабатывать приложения:"
+    text: 'Узнайте, как проектировать базы данных и разрабатывать приложения:'
   - type: list
     style: ordered
     items:
-    - html: "Проектирование базы данных: <a href=\"/azure/mysql/tutorial-design-database-using-portal\">портал Azure</a> | <a href=\"/azure/mysql/tutorial-design-database-using-cli\">Azure CLI</a>"
-    - html: "Создание веб-приложения: <a href=\"https://portal.azure.com/#create/hub\">Wordpress — портал</a> | <a href=\"../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json\">PHP — Azure CLI</a>"
-- title: "Справочные материалы"
+    - html: 'Проектирование базы данных: <a href="/azure/mysql/tutorial-design-database-using-portal">портал Azure</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
+    - html: 'Создание веб-приложения: <a href="https://portal.azure.com/#create/hub">Wordpress — портал</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP — Azure CLI</a>'
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/mysql\">интерфейс командной строки Azure</a></p>"
+    - title: Командная строка
+      html: <p><a href="/cli/azure/mysql">интерфейс командной строки Azure</a></p>
