@@ -1,11 +1,11 @@
 ---
-title: "Рекомендации по обеспечению безопасности для образов Azure Marketplace | Документация Майкрософт"
-description: "В этой статье содержатся рекомендации для образов, включенных в Marketplace."
+title: Рекомендации по обеспечению безопасности для образов Azure Marketplace | Документация Майкрософт
+description: В этой статье содержатся рекомендации для образов, включенных в Marketplace.
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23465409"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Рекомендации по обеспечению безопасности для образов Azure Marketplace
 

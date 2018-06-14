@@ -1,11 +1,11 @@
 ---
-title: "Пример сети периметра. Создание сети периметра для защиты приложений с брандмауэром и группами безопасности сети | Документация Майкрософт"
-description: "Построение сети периметра с брандмауэром и группами безопасности сети"
+title: Пример сети периметра. Создание сети периметра для защиты приложений с брандмауэром и группами безопасности сети | Документация Майкрософт
+description: Построение сети периметра с брандмауэром и группами безопасности сети
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23126932"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Пример 2. Построение сети периметра для защиты приложений с брандмауэром и группами безопасности сети
 [Вернуться на страницу с советами и рекомендациями по построению периметра безопасности][HOME]
