@@ -1,8 +1,8 @@
 ---
-title: "Перенос активного DNS-имени в службу приложений Azure | Документы Майкрософт"
-description: "Узнайте, как перенести DNS-имя, которое уже назначено работающему сайту, в службу приложений Azure без простоев."
+title: Перенос активного DNS-имени в службу приложений Azure | Документы Майкрософт
+description: Узнайте, как перенести DNS-имя, которое уже назначено работающему сайту, в службу приложений Azure без простоев.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27566497"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Перенос активного DNS-имени в службу приложений Azure
 

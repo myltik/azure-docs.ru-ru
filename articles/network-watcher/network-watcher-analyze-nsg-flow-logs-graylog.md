@@ -1,13 +1,13 @@
 ---
-title: "Анализ журналов потоков для групп безопасности сети с помощью Graylog | Документация Майкрософт"
-description: "Узнайте, как анализировать журналы потоков для групп безопасности сети и управлять ими в Azure с помощью Наблюдателя за сетями и Graylog."
+title: Анализ журналов потоков для групп безопасности сети с помощью Graylog | Документация Майкрософт
+description: Узнайте, как анализировать журналы потоков для групп безопасности сети и управлять ими в Azure с помощью Наблюдателя за сетями и Graylog.
 services: network-watcher
 documentationcenter: na
 author: mareat
 manager: vitinnan
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26738309"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Анализ журналов потоков для групп безопасности сети и управление ими в Azure с помощью Наблюдателя за сетями и Graylog
 

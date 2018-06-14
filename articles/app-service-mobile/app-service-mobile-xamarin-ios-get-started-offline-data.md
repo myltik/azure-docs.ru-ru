@@ -1,10 +1,10 @@
 ---
-title: "Включение автономной синхронизации для мобильного приложения Azure (Xamarin iOS)"
-description: "Использование мобильного приложения службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin iOS"
+title: Включение автономной синхронизации для мобильного приложения Azure (Xamarin iOS)
+description: Использование мобильного приложения службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin iOS
 documentationcenter: xamarin
 author: conceptdev
 manager: cfowler
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594672"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Включение автономной синхронизации для мобильного приложения Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

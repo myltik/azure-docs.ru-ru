@@ -1,6 +1,6 @@
 ---
-title: "Настройка MPIO на узле Linux StorSimple | Документация Майкрософт"
-description: "Настройка MPIO на устройстве StorSimple, подключенному к узлу Linux под управлением CentOS 6.6"
+title: Настройка MPIO на узле Linux StorSimple | Документация Майкрософт
+description: Настройка MPIO на устройстве StorSimple, подключенному к узлу Linux под управлением CentOS 6.6
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779097"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Настройка MPIO на узле StorSimple под управлением CentOS
 В этой статье описаны этапы настройки многоканального ввода-вывода (MPIO) на сервере узла под управлением CentOS 6.6. Сервер узла подключен к устройству Microsoft Azure StorSimple через инициаторы iSCSI для обеспечения высокой доступности. Здесь также подробно описано автоматическое обнаружение устройств с поддержкой нескольких каналов ввода-вывода и приведены настройки для томов StorSimple.

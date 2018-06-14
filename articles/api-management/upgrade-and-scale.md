@@ -1,11 +1,11 @@
 ---
-title: "Обновление и масштабирование экземпляра службы управления API Azure | Документация Майкрософт"
-description: "В этой статье описано, как обновлять и масштабировать экземпляры службы управления API Azure."
+title: Обновление и масштабирование экземпляра службы управления API Azure | Документация Майкрософт
+description: В этой статье описано, как обновлять и масштабировать экземпляры службы управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26738930"
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Обновление и масштабирование экземпляра API Management 
 

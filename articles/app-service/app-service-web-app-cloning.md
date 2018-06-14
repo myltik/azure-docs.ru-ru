@@ -1,11 +1,11 @@
 ---
-title: "Клонирование веб-приложения с помощью PowerShell"
-description: "Узнайте, как клонировать веб-приложения, создавая новые веб-приложения, с помощью PowerShell."
+title: Клонирование веб-приложения с помощью PowerShell
+description: Узнайте, как клонировать веб-приложения, создавая новые веб-приложения, с помощью PowerShell.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27867478"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Клонирование приложений службы приложений Azure с помощью PowerShell
 С выходом Microsoft Azure PowerShell версии 1.1.0 был добавлен новый параметр `New-AzureRMWebApp`, позволяющий клонировать существующее веб-приложение во вновь созданное приложение, размещенное в том же или в другом регионе. Так пользователи смогут легко и быстро развернуть целый ряд приложений в различных регионах.
