@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31514410"
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Приступая к созданию решений с помощью клиентской библиотеки пакетной службы для .NET
 

@@ -1,12 +1,12 @@
 ---
-title: "Подключение Azure Stack к Azure с помощью ExpressRoute"
-description: "Сведения о подключении виртуальных сетей в Azure Stack к виртуальным сетям в Azure с помощью ExpressRoute."
+title: Подключение Azure Stack к Azure с помощью ExpressRoute
+description: Сведения о подключении виртуальных сетей в Azure Stack к виртуальным сетям в Azure с помощью ExpressRoute.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
 ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29844927"
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Подключение Azure Stack к Azure с помощью ExpressRoute
 

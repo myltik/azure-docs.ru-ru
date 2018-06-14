@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23126682"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Пример 1. Создание сети периметра с группами безопасности сети с помощью шаблона Azure Resource Manager
 [Вернуться на страницу с советами и рекомендациями по построению периметра безопасности][HOME]

@@ -1,12 +1,12 @@
 ---
-title: "Часто задаваемые вопросы о локально закрепленных томах StorSimple | Документация Майкрософт"
-description: "В этой статье приводятся ответы на часто задаваемые вопросы о локально закрепленных томах StorSimple."
+title: Часто задаваемые вопросы о локально закрепленных томах StorSimple | Документация Майкрософт
+description: В этой статье приводятся ответы на часто задаваемые вопросы о локально закрепленных томах StorSimple.
 services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109472"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Локально закрепленные тома StorSimple: часто задаваемые вопросы
 ## <a name="overview"></a>Обзор
@@ -161,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 
 **Вопрос.** Можно ли изменить тип тома во время восстановления?
 
-**Ответ.**Нет, изменить тип тома во время восстановления нельзя.
+**Ответ.** Нет, изменить тип тома во время восстановления нельзя.
 
 * Удаленные тома восстанавливаются на основе типа, сохраненного в моментальном снимке.
 * Существующие тома восстанавливаются на основе текущего типа, независимо от типа, сохраненного в моментальном снимке (см. предыдущие два вопроса).

@@ -1,12 +1,12 @@
 ---
-title: "Управление контейнерами томов StorSimple на устройстве StorSimple серии 8000 | Документация Майкрософт"
-description: "В данной статье рассказывается, как на странице контейнеров томов службы диспетчера устройств StorSimple добавить, изменить или удалить контейнер томов."
+title: Управление контейнерами томов StorSimple на устройстве StorSimple серии 8000 | Документация Майкрософт
+description: В данной статье рассказывается, как на странице контейнеров томов службы диспетчера устройств StorSimple добавить, изменить или удалить контейнер томов.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108242"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Использование службы диспетчера устройств StorSimple для управления контейнерами томов StorSimple
 

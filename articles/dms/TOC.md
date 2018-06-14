@@ -13,11 +13,11 @@
 
 # Ресурсы
 ## [Отзывы на User Voice](https://feedback.azure.com/forums/906100-azure-database-migration-service)
-## [Стратегия развития Azure](https://azure.microsoft.com/en-us/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Руководство по переносу баз данных](https://aka.ms/datamigration)
 ## [Помощник по миграции данных](https://aka.ms/dma)
 ## [Цены](https://aka.ms/dms-pricing)
 ## [Обзор предварительных требований](pre-reqs.md)
 ## [Часто задаваемые вопросы](faq.md)
-## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=database-migration)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Сетевые топологии для переноса Управляемых экземпляров Базы данных SQL](resource-network-topologies.md)

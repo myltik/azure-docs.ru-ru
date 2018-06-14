@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31400849"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Установка опубликованного приложения Cask Data Application Platform (CDAP)
 

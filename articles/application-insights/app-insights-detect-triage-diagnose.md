@@ -1,9 +1,9 @@
 ---
-title: "Общие сведения об Azure Application Insights для DevOps | Документация Майкрософт"
-description: "Узнайте, как использовать Application Insights в среде DevOps."
+title: Общие сведения об Azure Application Insights для DevOps | Документация Майкрософт
+description: Узнайте, как использовать Application Insights в среде DevOps.
 author: mrbullwinkle
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23660599"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Общие сведения о Application Insights для DevOps
 
