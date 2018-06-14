@@ -1,8 +1,8 @@
 ---
-title: "Процедура масштабирования приложения в среде службы приложений"
-description: "Масштабирование приложения в среде службы приложений"
+title: Процедура масштабирования приложения в среде службы приложений
+description: Масштабирование приложения в среде службы приложений
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986319"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Масштабирование приложений в среде службы приложений
 Обычное в службе приложений Azure можно масштабировать три параметра:

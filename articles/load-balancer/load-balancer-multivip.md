@@ -1,6 +1,6 @@
 ---
-title: "Несколько виртуальных IP-адресов для облачной службы"
-description: "Обзор данных об использовании нескольких виртуальных IP-адресов и установке нескольких виртуальных IP-адресов для облачной службы"
+title: Несколько виртуальных IP-адресов для облачной службы
+description: Обзор данных об использовании нескольких виртуальных IP-адресов и установке нескольких виртуальных IP-адресов для облачной службы
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020849"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Настройка нескольких виртуальных IP-адресов для облачной службы
 

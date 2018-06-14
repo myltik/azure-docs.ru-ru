@@ -1,11 +1,11 @@
 ---
-title: "Политики архивации StorSimple Snapshot Manager | Документация Майкрософт"
-description: "Узнайте, как использовать оснастку консоли MMC \"Диспетчер моментальных снимков StorSimple\" для создания политик архивации, которые контролируют архивацию по расписанию, и управления этими политиками."
+title: Политики архивации StorSimple Snapshot Manager | Документация Майкрософт
+description: Узнайте, как использовать оснастку консоли MMC "Диспетчер моментальных снимков StorSimple" для создания политик архивации, которые контролируют архивацию по расписанию, и управления этими политиками.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109282"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple
 ## <a name="overview"></a>Обзор

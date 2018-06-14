@@ -1,12 +1,12 @@
 ---
-title: "Использование сводки по устройствам StorSimple серии 8000 | Документация Майкрософт"
-description: "В статье описывается колонка сводки по службе StorSimple и способы ее использования для наблюдения за работоспособностью решения StorSimple."
+title: Использование сводки по устройствам StorSimple серии 8000 | Документация Майкрософт
+description: В статье описывается колонка сводки по службе StorSimple и способы ее использования для наблюдения за работоспособностью решения StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108212"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Использование колонки сводки по службе для устройства StorSimple серии 8000
 

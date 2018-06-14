@@ -1,8 +1,8 @@
 ---
-title: "Сравнение продуктов Майкрософт для мониторинга | Документация Майкрософт"
-description: "Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье определяются различные службы в составе OMS и приводятся ссылки на подробные сведения об этих службах."
+title: Сравнение продуктов Майкрософт для мониторинга | Документация Майкрософт
+description: Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье определяются различные службы в составе OMS и приводятся ссылки на подробные сведения об этих службах.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040299"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Сравнение продуктов Майкрософт для мониторинга
 Эта статья содержит сравнение System Center Operations Manager (SCOM) и службы Log Analytics в Operations Management Suite (OMS) с точки зрения архитектуры, логики отслеживания ресурсов и анализа собираемых данных.  Здесь приводятся основные сведения об их различиях и относительных сильных сторонах.  

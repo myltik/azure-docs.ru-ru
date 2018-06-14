@@ -1,11 +1,11 @@
 ---
-title: "Справочник по командлетам PowerShell планировщика"
-description: "Справочник по командлетам PowerShell планировщика"
+title: Справочник по командлетам PowerShell планировщика
+description: Справочник по командлетам PowerShell планировщика
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039839"
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Справочник по командлетам PowerShell планировщика
 В следующей таблице приведено описание и ссылки на справочную страницу для каждого из основных командлетов в планировщике Azure.

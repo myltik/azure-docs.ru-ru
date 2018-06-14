@@ -1,11 +1,11 @@
 ---
-title: "Шифрование диска в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе объясняется, как выполнить рекомендацию Центра безопасности Azure **Применение шифрования дисков**."
+title: Шифрование диска в центре безопасности Azure | Документация Майкрософт
+description: В этом документе объясняется, как выполнить рекомендацию Центра безопасности Azure **Применение шифрования дисков**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040219"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Шифрование диска в центре безопасности Azure
 Центр безопасности Azure рекомендует шифровать диски виртуальных машин Windows или Linux, которые не зашифрованы с помощью шифрования дисков Azure. Шифрование дисков позволяет шифровать диски виртуальных машин IaaS Windows и Linux.  Шифровать рекомендуется как том операционной системы, так и том данных на виртуальной машине.

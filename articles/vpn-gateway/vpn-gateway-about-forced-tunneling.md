@@ -1,11 +1,11 @@
 ---
-title: "Настройка принудительного туннелирования для подключений типа \"сеть — сеть\" Azure (классическая модель) | Документация Майкрософт"
-description: "Как перенаправлять или принудительно туннелировать весь интернет-трафик обратно в локальное расположение."
+title: Настройка принудительного туннелирования для подключений типа "сеть — сеть" Azure (классическая модель) | Документация Майкрософт
+description: Как перенаправлять или принудительно туннелировать весь интернет-трафик обратно в локальное расположение.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23123842"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Настройка принудительного туннелирования с помощью классической модели развертывания
 

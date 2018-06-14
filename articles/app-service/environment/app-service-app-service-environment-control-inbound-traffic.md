@@ -1,11 +1,11 @@
 ---
-title: "Как управлять входящим трафиком в среде службы приложений"
-description: "Дополнительные сведения о настройке правил сетевой безопасности для управления входящим трафиком в среде службы приложений."
+title: Как управлять входящим трафиком в среде службы приложений
+description: Дополнительные сведения о настройке правил сетевой безопасности для управления входящим трафиком в среде службы приложений.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987009"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Как управлять входящим трафиком в среде службы приложений
 ## <a name="overview"></a>Обзор

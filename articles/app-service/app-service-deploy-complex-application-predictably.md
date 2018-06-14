@@ -1,8 +1,8 @@
 ---
-title: "Предсказуемые подготовка и развертывание микрослужб в Azure"
-description: "Узнайте, как с помощью шаблонов групп ресурсов JSON и скриптов PowerShell предсказуемо подготовить и развернуть приложение, состоящее из микрослужб, в службу приложений Azure как единое целое."
+title: Предсказуемые подготовка и развертывание микрослужб в Azure
+description: Узнайте, как с помощью шаблонов групп ресурсов JSON и скриптов PowerShell предсказуемо подготовить и развернуть приложение, состоящее из микрослужб, в службу приложений Azure как единое целое.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987459"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Предсказуемые подготовка и развертывание микрослужб в Azure
 В этом руководстве описано, как предсказуемо с помощью шаблонов групп ресурсов JSON и скриптов PowerShell подготовить и развернуть приложение, состоящее из [микрослужб](https://en.wikipedia.org/wiki/Microservices), в [службу приложений Azure](/services/app-service/) как единое целое. 
