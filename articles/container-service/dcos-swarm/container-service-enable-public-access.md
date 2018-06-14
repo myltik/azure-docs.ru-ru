@@ -1,6 +1,6 @@
 ---
-title: "Включение доступа к приложению-контейнеру DC/OS Azure"
-description: "Как предоставить общий доступ к контейнерам DC/OS в Службе контейнеров Azure."
+title: Включение доступа к приложению-контейнеру DC/OS Azure
+description: Как предоставить общий доступ к контейнерам DC/OS в Службе контейнеров Azure.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332285"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Предоставление общего доступа к приложению Службы контейнеров Azure
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937556"
 ---
 # <a name="azure-stack-validation-report"></a>Отчет о проверке Azure Stack
 Средство проверки готовности Microsoft Azure Stack определяет, выполнены ли условия, необходимые для поддержки развертывания и обслуживания окружения Azure Stack. Результаты проверки сохраняются в JSON-файле отчета. В этом отчете отображаются подробные и сводные данные о состоянии необходимых компонентов для развертывания Azure Stack и о ротации секретов для существующих развертываний Azure Stack.  

@@ -1,11 +1,11 @@
 ---
-title: "Изменение префиксов IP-адресов шлюза локальной сети и IP-адреса VPN- шлюза | Azure | Интерфейс командной строки | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как изменять префиксы IP-адресов для шлюза локальной сети с помощью Azure CLI."
+title: Изменение префиксов IP-адресов шлюза локальной сети и IP-адреса VPN- шлюза | Azure | Интерфейс командной строки | Документация Майкрософт
+description: Из этой статьи вы узнаете, как изменять префиксы IP-адресов для шлюза локальной сети с помощью Azure CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "25990628"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Изменение параметров шлюза локальной сети с помощью Azure CLI
 

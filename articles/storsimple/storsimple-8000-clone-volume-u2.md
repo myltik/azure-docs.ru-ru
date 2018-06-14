@@ -1,12 +1,12 @@
 ---
-title: "Клонирование тома устройства StorSimple серии 8000 | Документация Майкрософт"
-description: "Здесь описываются различные типы клонирования и потребления, а также объясняется, как использовать резервный набор данных для клонирования отдельного тома на устройстве StorSimple серии 8000."
+title: Клонирование тома устройства StorSimple серии 8000 | Документация Майкрософт
+description: Здесь описываются различные типы клонирования и потребления, а также объясняется, как использовать резервный набор данных для клонирования отдельного тома на устройстве StorSimple серии 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26333208"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Использование службы диспетчера устройств StorSimple на портале Azure для клонирования тома
 

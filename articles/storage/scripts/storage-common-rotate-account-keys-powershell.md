@@ -1,12 +1,12 @@
 ---
-title: "Пример скрипта Azure PowerShell. Смена ключа доступа учетной записи хранения | Документация Майкрософт"
-description: "Сведения о создании учетной записи хранения Azure и последующей операции извлечения и смены одного из ее ключей доступа."
+title: Пример скрипта Azure PowerShell. Смена ключа доступа учетной записи хранения | Документация Майкрософт
+description: Сведения о создании учетной записи хранения Azure и последующей операции извлечения и смены одного из ее ключей доступа.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25984170"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Создание учетной записи хранения и смена ее ключей доступа
 

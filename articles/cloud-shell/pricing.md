@@ -1,12 +1,12 @@
 ---
-title: "Цены на Azure Cloud Shell | Документация Майкрософт"
-description: "Обзор цен на Azure Cloud Shell"
-services: 
-documentationcenter: 
+title: Цены на Azure Cloud Shell | Документация Майкрософт
+description: Обзор цен на Azure Cloud Shell
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24809872"
 ---
 # <a name="pricing"></a>Цены
 Ниже приводятся сведения о Bash в Cloud Shell и PowerShell в Cloud Shell (предварительная версия).
