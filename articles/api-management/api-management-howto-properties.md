@@ -1,11 +1,11 @@
 ---
-title: "Использование свойств в политиках управления API Azure"
-description: "Узнайте, как использовать свойства в политиках управления API Azure."
+title: Использование свойств в политиках управления API Azure
+description: Узнайте, как использовать свойства в политиках управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197118"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Использование свойств в политиках управления API Azure
 Политики управления API представляют собой одну из эффективных функций системы, позволяющих порталу Azure изменять поведение интерфейса API путем его настройки. Политика — это коллекция правил, которые выполняются последовательно над запросом или ответом API. Для создания правил политики можно использовать литеральные текстовые значения, выражения политики и свойства. 

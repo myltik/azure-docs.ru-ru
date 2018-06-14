@@ -20,6 +20,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010777"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Создание пользовательской панели мониторинга для Log Analytics
 
