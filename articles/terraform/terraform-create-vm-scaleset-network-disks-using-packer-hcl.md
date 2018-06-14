@@ -1,7 +1,7 @@
 ---
-title: "Создание масштабируемого набора виртуальных машин Azure из пользовательского образа Packer с помощью Terraform"
-description: "Terraform используется для настройки и управления версиями масштабируемого набора виртуальных машин Azure из пользовательского образа, созданного в Packer (с виртуальной сетью и управляемыми подключенными дисками)."
-keywords: "terraform, devops, масштабируемый набор, виртуальная машина, сеть, хранилище, модули, пользовательские образы, packer"
+title: Создание масштабируемого набора виртуальных машин Azure из пользовательского образа Packer с помощью Terraform
+description: Terraform используется для настройки и управления версиями масштабируемого набора виртуальных машин Azure из пользовательского образа, созданного в Packer (с виртуальной сетью и управляемыми подключенными дисками).
+keywords: terraform, devops, масштабируемый набор, виртуальная машина, сеть, хранилище, модули, пользовательские образы, packer
 author: VaijanathB
 ms.author: tarcher
 ms.date: 10/29/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23655396"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Создание масштабируемого набора виртуальных машин Azure из пользовательского образа Packer с помощью Terraform
 

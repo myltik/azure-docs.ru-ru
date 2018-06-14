@@ -1,11 +1,11 @@
 ---
-title: "Пользовательское кэширование в службе управления API Azure"
-description: "Информация о кэшировании элементов с помощью ключа в службе управления API Azure"
+title: Пользовательское кэширование в службе управления API Azure
+description: Информация о кэшировании элементов с помощью ключа в службе управления API Azure
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29376037"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Пользовательское кэширование в службе управления API Azure
 В службе управления API Azure есть встроенная поддержка [кэширования ответов HTTP](api-management-howto-cache.md) с помощью URL-адреса ресурса в качестве ключа. Ключ можно изменить с помощью заголовков запроса, используя свойства `vary-by` . Этот способ подходит для кэширования всех ответов HTTP (или представлений), но иногда его можно использовать только для кэширования части представления. Новые политики [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) и [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) позволяют сохранять и извлекать произвольные фрагменты данных из определений политики. Эта возможность также полезна для ранее представленной политики [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) , так как теперь можно кэшировать ответы от внешних служб.

@@ -1,8 +1,8 @@
 ---
-title: "Пример действия webhook для оповещения в OMS Log Analytics | Документация Майкрософт"
-description: "Одно из действий, которое можно выполнить в ответ на оповещение Log Analytics, — это webhook. Оно позволяет вызвать внешний процесс посредством одного HTTP-запроса. В этой статье рассматривается пример создания действия webhook в оповещении Log Analytics с использованием Slack."
+title: Пример действия webhook для оповещения в OMS Log Analytics | Документация Майкрософт
+description: Одно из действий, которое можно выполнить в ответ на оповещение Log Analytics, — это webhook. Оно позволяет вызвать внешний процесс посредством одного HTTP-запроса. В этой статье рассматривается пример создания действия webhook в оповещении Log Analytics с использованием Slack.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020809"
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Создание действия webhook для оповещения в OMS Log Analytics для отправки сообщения в Slack
 Одно из действий, которое можно выполнить в ответ на оповещение [Log Analytics](log-analytics-alerts.md), — это *webhook*. Оно позволяет вызвать внешний процесс посредством одного HTTP-запроса.  Подробные сведения об оповещениях и действиях webhook см. в статье [Оповещения в Log Analytics](log-analytics-alerts.md).

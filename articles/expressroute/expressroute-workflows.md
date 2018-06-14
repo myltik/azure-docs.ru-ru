@@ -1,11 +1,11 @@
 ---
-title: "Процедуры настройки канала ExpressRoute | Документация Майкрософт"
-description: "На этой странице описана процедура настройки канала ExpressRoute и пирингов"
+title: Процедуры настройки канала ExpressRoute | Документация Майкрософт
+description: На этой странице описана процедура настройки канала ExpressRoute и пирингов
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013129"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Процедуры ExpressRoute для подготовки каналов и состояний каналов
 На этой странице описаны процедуры подготовки служб и настройки маршрутизации на высоком уровне.
