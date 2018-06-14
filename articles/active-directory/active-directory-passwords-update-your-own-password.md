@@ -1,9 +1,9 @@
 ---
-title: "Сброс паролей Azure AD | Документация Майкрософт"
-description: "Функция самостоятельного сброса пароля для восстановления доступа к рабочей или учебной учетной записи пользователя"
+title: Сброс паролей Azure AD | Документация Майкрософт
+description: Функция самостоятельного сброса пароля для восстановления доступа к рабочей или учебной учетной записи пользователя
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463784"
 ---
 # <a name="reset-your-work-or-school-password"></a>Сброс пароля к рабочей или учебной учетной записи
 

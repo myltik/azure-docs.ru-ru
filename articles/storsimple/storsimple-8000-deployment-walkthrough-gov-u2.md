@@ -1,12 +1,12 @@
 ---
-title: "Развертывание устройства StorSimple серии 8000 на портале для государственных организаций | Документация Майкрософт"
-description: "В этой статье описываются действия и рекомендации по развертыванию устройства StorSimple серии 8000 (с обновлением 3 и более поздних версий) и службы на портале Azure для государственных организаций."
+title: Развертывание устройства StorSimple серии 8000 на портале для государственных организаций | Документация Майкрософт
+description: В этой статье описываются действия и рекомендации по развертыванию устройства StorSimple серии 8000 (с обновлением 3 и более поздних версий) и службы на портале Azure для государственных организаций.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108752"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Развертывание локального устройства StorSimple на портале для государственных организаций
 

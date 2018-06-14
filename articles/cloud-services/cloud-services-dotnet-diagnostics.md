@@ -1,11 +1,11 @@
 ---
-title: "Как использовать систему диагностики Azure (.NET) с облачными службами | Документация Майкрософт"
-description: "Сбор данных облачных служб Azure с помощью системы диагностики Azure для отладки, оценки производительности, мониторинга, анализа трафика и многого другого."
+title: Как использовать систему диагностики Azure (.NET) с облачными службами | Документация Майкрософт
+description: Сбор данных облачных служб Azure с помощью системы диагностики Azure для отладки, оценки производительности, мониторинга, анализа трафика и многого другого.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460905"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Включение системы диагностики Azure в облачных службах Azure
 Основные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](../azure-diagnostics.md).

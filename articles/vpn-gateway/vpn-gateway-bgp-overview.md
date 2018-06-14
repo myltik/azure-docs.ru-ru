@@ -1,12 +1,12 @@
 ---
-title: "Особенности использования BGP с VPN-шлюзами Azure | Документация Майкрософт"
-description: "В статье описывается использование BGP с VPN-шлюзами Azure."
+title: Особенности использования BGP с VPN-шлюзами Azure | Документация Майкрософт
+description: В статье описывается использование BGP с VPN-шлюзами Azure.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23123802"
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Обзор использования BGP с VPN-шлюзами Azure 
 В этой статье описываются особенности использования протокола BGP для VPN-шлюзов Azure.

@@ -1,11 +1,11 @@
 ---
-title: "Обработка событий жизненного цикла облачной службы | Документация Майкрософт"
-description: "Узнайте об использовании методов жизненного цикла роли облачной службы в .NET"
+title: Обработка событий жизненного цикла облачной службы | Документация Майкрософт
+description: Узнайте об использовании методов жизненного цикла роли облачной службы в .NET
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998789"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Адаптируйте жизненный цикл веб-роли или рабочей роли в .NET
 Создавая рабочую роль, вы расширяете класс [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) , который предоставляет вам методы переопределения, которые позволяют реагировать на события жизненного цикла. Этот класс необязателен для веб-ролей, поэтому его следует использовать для реагирования на события жизненного цикла.

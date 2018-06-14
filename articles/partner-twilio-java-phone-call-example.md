@@ -1,7 +1,7 @@
 ---
-title: "Телефонные звонки из Twilio (Java) | Документация Майкрософт"
-description: "Узнайте, как выполнить телефонный звонок с веб-страницы с использованием Twilio в приложении Java в Azure."
-services: 
+title: Телефонные звонки из Twilio (Java) | Документация Майкрософт
+description: Узнайте, как выполнить телефонный звонок с веб-страницы с использованием Twilio в приложении Java в Azure.
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039629"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Осуществление телефонных звонков с использованием Twilio в Java-приложении Azure
 В следующем примере показано, как выполнить звонок с веб-страницы, размещенной в Azure, с помощью службы Twilio. В полученном приложении вам будет предложено ввести нужные данные для телефонного звонка, как показано на следующем снимке экрана.

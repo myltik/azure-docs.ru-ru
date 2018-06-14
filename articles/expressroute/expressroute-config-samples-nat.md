@@ -1,11 +1,11 @@
 ---
-title: "Примеры конфигурации маршрутизатора клиента ExpressRoute | Документация Майкрософт"
-description: "Эта страница содержит примеры конфигурации для маршрутизаторов серий Cisco ASA и Juniper MX."
+title: Примеры конфигурации маршрутизатора клиента ExpressRoute | Документация Майкрософт
+description: Эта страница содержит примеры конфигурации для маршрутизаторов серий Cisco ASA и Juniper MX.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23012979"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Примеры конфигурации маршрутизатора для настройки и управления NAT
 Эта страница содержит примеры конфигурации NAT для маршрутизаторов серий Cisco ASA и Juniper SRX. Эти примеры имеют только справочный характер и не должны использоваться как есть. Подходящие конфигурации для своей сети можно выработать совместно с поставщиком. 

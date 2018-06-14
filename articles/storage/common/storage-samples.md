@@ -1,6 +1,6 @@
 ---
-title: "Примеры кода для службы хранилища Azure | Документация Майкрософт"
-description: "Просмотрите, загрузите и запустите образцы кода и приложений для хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
+title: Примеры кода для службы хранилища Azure | Документация Майкрософт
+description: Просмотрите, загрузите и запустите образцы кода и приложений для хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++.
 services: storage
 documentationcenter: na
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059689"
 ---
 # <a name="azure-storage-samples"></a>Примеры для службы хранилища Azure
 

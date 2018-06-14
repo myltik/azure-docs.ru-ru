@@ -1,6 +1,6 @@
 ---
-title: "Получение таблиц ARP. Устранение неполадок ExpressRoute (классическая модель) | Документация Майкрософт"
-description: "На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute."
+title: Получение таблиц ARP. Устранение неполадок ExpressRoute (классическая модель) | Документация Майкрософт
+description: На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013169"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Получение таблиц ARP в классической модели развертывания
 > [!div class="op_single_selector"]

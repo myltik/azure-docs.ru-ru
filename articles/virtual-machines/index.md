@@ -1,11 +1,11 @@
 ---
-title: "Документация по виртуальным машинам Azure. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как создавать, развертывать и администрировать виртуальные машины Windows и Linux. Руководства, справочники по API и другие документы."
+title: Документация по виртуальным машинам Azure. Руководства и справочник по API | Документация Майкрософт
+description: Узнайте, как создавать, развертывать и администрировать виртуальные машины Windows и Linux. Руководства, справочники по API и другие документы.
 services: virtual-machines
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072866"
 ---
 # <a name="virtual-machines-documentation"></a>Документация по виртуальным машинам
 

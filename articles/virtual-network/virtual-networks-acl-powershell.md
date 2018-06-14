@@ -1,6 +1,6 @@
 ---
-title: "Управление списками управления доступом конечной точки Azure | PowerShell | Классическая модель | Документация Майкрософт"
-description: "Узнайте, как управлять списками ACL с помощью PowerShell."
+title: Управление списками управления доступом конечной точки Azure | PowerShell | Классическая модель | Документация Майкрософт
+description: Узнайте, как управлять списками ACL с помощью PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124892"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Управление списками управления доступом конечной точки с помощью PowerShell в классической модели развертывания
 Вы можете создавать сетевые списки управления доступом (ACL) для конечных точек, а также управлять ими с помощью модуля Azure PowerShell или портала управления. В этом разделе мы расскажем о том, как выполнять наиболее распространенные действия со списками ACL с помощью PowerShell. Список командлетов Azure PowerShell см. в [этой статье](http://go.microsoft.com/fwlink/?LinkId=317721). Дополнительные сведения о списках ACL см. в статье [Список управления доступом (ACL) конечной точки](virtual-networks-acl.md). Сведения об управлении списками ACL с помощью портала управления см. в статье [Настройка конечных точек в классической виртуальной машине Windows в Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
