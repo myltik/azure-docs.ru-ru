@@ -1,11 +1,11 @@
 ---
-title: "Диагностика и восстановление после ошибок для заданий импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как включить подробное ведение журнала для заданий службы импорта и экспорта Microsoft Azure."
+title: Диагностика и восстановление после ошибок для заданий импорта и экспорта Azure | Документация Майкрософт
+description: Узнайте, как включить подробное ведение журнала для заданий службы импорта и экспорта Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059289"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Диагностика и восстановление после ошибок для заданий импорта и экспорта Azure
 Для каждого обрабатываемого диска служба импорта и экспорта Azure создает журнал ошибок в соответствующей учетной записи хранения. Можно также включить ведение подробного журнала, задав для свойства `LogLevel` значение `Verbose` при вызове операции [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) или [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).

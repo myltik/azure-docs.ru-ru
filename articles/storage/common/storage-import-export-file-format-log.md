@@ -1,11 +1,11 @@
 ---
-title: "Формат файла журнала импорта и экспорта Azure | Документация Майкрософт"
-description: "Изучите формат файлов журналов, созданных при выполнении задания службы импорта и экспорта."
+title: Формат файла журнала импорта и экспорта Azure | Документация Майкрософт
+description: Изучите формат файлов журналов, созданных при выполнении задания службы импорта и экспорта.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060009"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Формат файла журнала службы импорта и экспорта Azure
 Когда служба импорта и экспорта Microsoft Azure выполняет действия на диске в ходе задания импорта или экспорта, в блочные BLOB-объекты в учетной записи хранения, связанной с этим заданием, записываются журналы.  

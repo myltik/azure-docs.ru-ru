@@ -1,11 +1,11 @@
 ---
-title: "Анализ безопасности сети с помощью представления группы безопасности Наблюдателя за сетями (REST API) | Документация Майкрософт"
-description: "В этой статье вы узнаете, как проанализировать безопасность виртуальных машин, используя представление группы безопасности, с помощью PowerShell."
+title: Анализ безопасности сети с помощью представления группы безопасности Наблюдателя за сетями (REST API) | Документация Майкрософт
+description: В этой статье вы узнаете, как проанализировать безопасность виртуальных машин, используя представление группы безопасности, с помощью PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23036879"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Анализ безопасности виртуальной машины с использованием представления группы безопасности в REST API
 
