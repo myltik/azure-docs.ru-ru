@@ -1,12 +1,12 @@
 ---
-title: "Установка среды выполнения Функций Azure | Документация Майкрософт"
-description: "Как установить предварительную версию 2 среды выполнения службы \"Функции Azure\""
+title: Установка среды выполнения Функций Azure | Документация Майкрософт
+description: Как установить предварительную версию 2 среды выполнения службы "Функции Azure"
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290663"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Узнайте, как установить предварительную версию 2 среды выполнения службы "Функции Azure"
 

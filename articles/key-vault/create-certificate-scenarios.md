@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011987"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Мониторинг и администрирование процесса создания сертификатов
 Область применения: Azure  

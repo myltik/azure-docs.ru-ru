@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33882874"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Приступая к работе с Многофакторной идентификацией Azure в облаке
 В этой статье вы узнаете, как приступить к работе со службой Многофакторной идентификации Microsoft Azure в облаке.

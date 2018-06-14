@@ -1,11 +1,11 @@
 ---
-title: "Шаблоны страниц в службе управления API Azure | Документация Майкрософт"
-description: "Сведения о настройке содержимого страниц портала разработчика с использованием набора шаблонов в службе управления API Azure."
+title: Шаблоны страниц в службе управления API Azure | Документация Майкрософт
+description: Сведения о настройке содержимого страниц портала разработчика с использованием набора шаблонов в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745039"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Шаблоны страниц в службе управления API Azure
 Служба управления API Azure позволяет настраивать содержимое страниц портала разработчика с помощью набора шаблонов. С помощью этих шаблонов вы можете гибко настраивать содержимое страниц, используя синтаксис [DotLiquid](http://dotliquidmarkup.org/), любой удобный текстовый редактор, например [DotLiquid для разработчиков](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), и предоставленный набор локализованных [строковых ресурсов](api-management-template-resources.md#strings), [ресурсов глифов](api-management-template-resources.md#glyphs), а также [элементов управления страницы](api-management-page-controls.md).  
@@ -184,7 +185,7 @@ ms.lasthandoff: 01/10/2018
 ##  <a name="PageNotFound"></a> Страница не найдена  
  Шаблон страницы с ошибкой **Страница не найдена** позволяет настроить страницу с ошибкой "Страница не найдена" на портале разработчика.  
   
- ![Страница не найдена](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "шаблон страницы с ошибкой "Страница не найдена" на портале разработчика APIM")  
+ ![Страница не найдена](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "шаблон страницы с ошибкой \"Страница не найдена\" на портале разработчика APIM")  
   
 ### <a name="default-template"></a>Шаблон по умолчанию  
   

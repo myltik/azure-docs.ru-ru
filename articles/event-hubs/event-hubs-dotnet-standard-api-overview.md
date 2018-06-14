@@ -1,11 +1,11 @@
 ---
-title: "Обзор интерфейсов API концентраторов событий Azure для платформы .NET Standard | Документация Майкрософт"
-description: "Обзор API для платформы .NET Standard"
+title: Обзор интерфейсов API концентраторов событий Azure для платформы .NET Standard | Документация Майкрософт
+description: Обзор API для платформы .NET Standard
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783005"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Обзор API концентраторов событий для платформы .NET Standard
 

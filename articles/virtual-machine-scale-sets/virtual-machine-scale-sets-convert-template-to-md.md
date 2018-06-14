@@ -1,9 +1,9 @@
 ---
-title: "Преобразование шаблона масштабируемого набора Azure Resource Manager для использования управляемого диска | Документация Майкрософт"
-description: "Преобразование шаблона масштабируемого набора в соответствующий шаблон с управляемым диском."
-keywords: "наборы масштабирования виртуальных машин"
+title: Преобразование шаблона масштабируемого набора Azure Resource Manager для использования управляемого диска | Документация Майкрософт
+description: Преобразование шаблона масштабируемого набора в соответствующий шаблон с управляемым диском.
+keywords: наборы масштабирования виртуальных машин
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781077"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Преобразование шаблона масштабируемого набора в соответствующий шаблон с управляемым диском.
 

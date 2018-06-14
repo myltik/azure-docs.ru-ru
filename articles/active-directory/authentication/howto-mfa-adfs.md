@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866069"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Защита облачных ресурсов с помощью Многофакторной идентификации Azure и AD FS
 Если в организации настроена федерация с Azure Active Directory, используйте Многофакторную идентификацию Azure или службы федерации Active Directory (AD FS), чтобы обеспечить безопасность ресурсов, доступных для Azure AD. Чтобы защитить ресурсы Azure Active Directory с помощью Многофакторной идентификации Azure или служб федерации Active Directory, следуйте инструкциям, приведенным ниже.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885274"
 ---
 # <a name="management-solutions-in-azure"></a>Решения по управлению в Azure
 Решения по управлению используют службы Azure, чтобы получить дополнительные сведения о работе конкретного приложения или службы. Эта статья содержит краткий обзор решений по управлению в Azure и подробные сведения об их использовании и установке.

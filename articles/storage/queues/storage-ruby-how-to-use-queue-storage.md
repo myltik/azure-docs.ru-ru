@@ -1,6 +1,6 @@
 ---
-title: "Как использовать хранилище очередей из Ruby | Документация Майкрософт"
-description: "Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Ruby."
+title: Как использовать хранилище очередей из Ruby | Документация Майкрософт
+description: Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Ruby.
 services: storage
 documentationcenter: ruby
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993642"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Использование хранилища очередей из Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

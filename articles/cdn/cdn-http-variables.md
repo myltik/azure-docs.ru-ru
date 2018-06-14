@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011464"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Переменные HTTP для обработчика правил Azure CDN
 Переменные HTTP предоставляют средство, с помощью которого можно получить метаданные запросов и ответов HTTP. Эти метаданные можно использовать, чтобы динамически изменить запрос или ответ. Использование переменных HTTP ограничивается следующими функциями обработчика правил:

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33867289"
 abstract:
   description: Azure SignalR — это управляемая служба Azure, которая помогает разработчикам без труда создавать веб-приложения с функциями в режиме реального времени. Эта служба основана на ASP.NET Core — библиотеке с открытым кодом, которая упрощает добавление в приложения веб-функций в режиме реального времени.
 sections:

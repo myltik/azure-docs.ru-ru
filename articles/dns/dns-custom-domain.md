@@ -1,6 +1,6 @@
 ---
-title: "Интеграция Azure DNS с ресурсами Azure | Документация Майкрософт"
-description: "Сведения об использовании Azure DNS, а также указание DNS для ресурсов Azure."
+title: Интеграция Azure DNS с ресурсами Azure | Документация Майкрософт
+description: Сведения об использовании Azure DNS, а также указание DNS для ресурсов Azure.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27994388"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Использование Azure DNS для указания параметров личного домена для службы Azure
 

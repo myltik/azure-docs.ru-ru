@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34013942"
 ---
 >[!NOTE]
 > Комментарии и отзывы можно оставить в конце этой статьи или на странице [отзывов и предложений по Azure](https://feedback.azure.com/forums/216843-virtual-machines) с тегом #azerrormessage.
