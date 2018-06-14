@@ -1,6 +1,6 @@
 ---
-title: "Настройка времени ожидания простоя TCP для балансировщика нагрузки | Документация Майкрософт"
-description: "Описывается настройка времени ожидания простоя TCP для балансировщика нагрузки."
+title: Настройка времени ожидания простоя TCP для балансировщика нагрузки | Документация Майкрософт
+description: Описывается настройка времени ожидания простоя TCP для балансировщика нагрузки.
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020909"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Настройка параметров времени ожидания простоя TCP для Azure Load Balancer
 

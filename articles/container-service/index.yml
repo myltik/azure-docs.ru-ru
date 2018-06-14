@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по службе контейнеров"
+title: Документация по службе контейнеров
 metadata:
   document_id: 
-  title: "Документация по Службе контейнеров Azure. Руководства и справочник по API | Документация Майкрософт"
+  title: Документация по Службе контейнеров Azure. Руководства и справочник по API | Документация Майкрософт
   meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: czeumault
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068378"
 abstract:
-  description: "Служба контейнера Azure позволяет быстро развертывать готовые к работе кластеры Kubernetes, DC/OS или Docker Swarm. Узнайте, как использовать службы контейнеров Azure с помощью наших шаблонов быстрого запуска, руководств и примеров."
+  description: Служба контейнера Azure позволяет быстро развертывать готовые к работе кластеры Kubernetes, DC/OS или Docker Swarm. Узнайте, как использовать службы контейнеров Azure с помощью наших шаблонов быстрого запуска, руководств и примеров.
 sections:
 - title: 
   items:
@@ -28,12 +29,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: "Начало работы с кластерами Kubernetes"
+    - title: Начало работы с кластерами Kubernetes
       href: /azure/container-service/kubernetes
       image:
         src: media/index/get-started.svg
         href: /azure/container-service/kubernetes
-    - title: "Начало работы с кластерами DC/OS и Docker Swarm"
+    - title: Начало работы с кластерами DC/OS и Docker Swarm
       href: /azure/container-service/dcos-swarm
       image:
         src: media/index/get-started.svg

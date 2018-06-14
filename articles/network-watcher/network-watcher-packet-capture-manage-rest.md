@@ -1,11 +1,11 @@
 ---
-title: "Управление записью пакетов с помощью Наблюдателя за сетями Azure (REST API) | Документация Майкрософт"
-description: "На этой странице объясняется, как управлять функцией записи пакетов Наблюдателя за сетями с помощью REST API."
+title: Управление записью пакетов с помощью Наблюдателя за сетями Azure (REST API) | Документация Майкрософт
+description: На этой странице объясняется, как управлять функцией записи пакетов Наблюдателя за сетями с помощью REST API.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23035369"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Управление записью пакетов с помощью Наблюдателя за сетями Azure и Azure REST API
 

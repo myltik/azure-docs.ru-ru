@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с центром безопасности Azure. Подключение компьютеров Linux к центру безопасности | Документация Майкрософт"
-description: "В этом кратком руководстве показано, как подключить компьютеры Linux к центру безопасности."
+title: Начало работы с центром безопасности Azure. Подключение компьютеров Linux к центру безопасности | Документация Майкрософт
+description: В этом кратком руководстве показано, как подключить компьютеры Linux к центру безопасности.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29530172"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Краткое руководство: подключение компьютеров Linux к центру безопасности Azure
 После подключения подписок Azure можно включить центр безопасности для ресурсов под управлением Linux, работающих вне среды Azure, например в локальной среде или в других облаках, подготовив агент Linux.

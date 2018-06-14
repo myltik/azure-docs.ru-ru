@@ -1,11 +1,11 @@
 ---
-title: "Добавление нескольких подключений типа \"сеть-сеть\" через VPN-шлюз к виртуальной сети. Портал Azure: Resource Manager | Документы Майкрософт"
-description: "Добавление многосайтовых подключений типа \"сеть — сеть\" к VPN-шлюзу с имеющимся подключением"
+title: 'Добавление нескольких подключений типа "сеть-сеть" через VPN-шлюз к виртуальной сети. Портал Azure: Resource Manager | Документы Майкрософт'
+description: Добавление многосайтовых подключений типа "сеть — сеть" к VPN-шлюзу с имеющимся подключением
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398616"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Добавление подключения типа "сеть — сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза
 
