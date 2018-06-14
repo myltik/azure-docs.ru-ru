@@ -1,12 +1,12 @@
 ---
-title: "Экспорт данных безопасности Azure в SIEM. Конфигурация конвейера [предварительная версия] | Документация Майкрософт"
-description: "В этой статье описывается процедура передачи журналов центра безопасности Azure в SIEM."
+title: Экспорт данных безопасности Azure в SIEM. Конфигурация конвейера [предварительная версия] | Документация Майкрософт
+description: В этой статье описывается процедура передачи журналов центра безопасности Azure в SIEM.
 services: security-center
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124839"
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Экспорт данных безопасности Azure в SIEM. Конфигурация конвейера [предварительная версия]
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782703"
 ---
 # <a name="azure-media-services-community"></a>Сообщество служб мультимедиа Azure
 На этой странице сообщества служб мультимедиа Azure (AMS) описаны разные способы получения новых сведений об AMS. Вы можете просматривать видео и прослушивать подкасты, а также задавать вопросы и отправлять отзывы.   

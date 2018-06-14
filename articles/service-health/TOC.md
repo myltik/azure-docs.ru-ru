@@ -11,6 +11,7 @@
 ### [Настройка с помощью ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Настройка с помощью PagerDuty](service-health-alert-webhook-pagerduty.md)
 ### [Настройка с помощью OpsGenie](service-health-alert-webhook-opsgenie.md)
+### [Получение событий работоспособности с помощью REST](service-health-rest.md)
 # Ресурсы
 ## [Часто задаваемые вопросы](resource-health-faq.md)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783423"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Использование хранилища очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET
 При выполнении заданий кодирования часто требуется способ отслеживания их хода выполнения. Можно настроить службы мультимедиа для доставки уведомлений в [хранилище очередей Azure](../../storage/storage-dotnet-how-to-use-queues.md). Вы можете отслеживать ход выполнения задания, получая уведомления из хранилища очередей. 

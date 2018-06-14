@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771030"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Что такое Azure HDInsight и стек технологий Hadoop
 В этой статье содержатся общие сведения об использовании Apache Hadoop в Azure HDInsight. Azure HDInsight — это полностью управляемая комплексная служба аналитики с открытым исходным кодом, предназначенная для предприятий. Вы можете использовать такие платформы с открытым кодом, как Hadoop, Spark, Hive, LLAP, Kafka, Storm, R и др. 

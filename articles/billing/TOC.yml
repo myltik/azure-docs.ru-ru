@@ -41,6 +41,12 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Управление зарезервированными экземплярами виртуальных машин
           href: billing-manage-reserved-vm-instance.md
+    - name: Примеры REST
+      items:
+        - name: Просмотр корпоративных затрат
+          href: billing-review-enterprise-billing.md
+        - name: Просмотр данных об использовании подписки
+          href: billing-review-subscription-billing.md
 - name: Управление учетной записью
   items:
     - name: Бесплатная учетная запись

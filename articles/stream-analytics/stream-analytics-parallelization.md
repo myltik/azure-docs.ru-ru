@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777633"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Использование параллелизации запросов в Azure Stream Analytics
 В этой статье показано, как воспользоваться преимуществами параллелизма в Azure Stream Analytics. Узнайте, как масштабировать задания Stream Analytics с помощью настройки входных разделов, настройки аналитики определения запроса.

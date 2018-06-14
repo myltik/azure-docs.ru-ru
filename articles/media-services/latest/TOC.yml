@@ -61,16 +61,14 @@
       href: access-api-cli-how-to.md
     - name: "События состояния задания\_— CLI"
       href: job-state-events-cli-how-to.md
-    - name: "Передача содержимого\_— .NET"
+    - name: Передача содержимого
       items:
-        - name: Из HTTP(s)
+        - name: HTTP(s) — .NET
           href: job-input-from-http-how-to.md
-        - name: Из локального файла
+        - name: Локальный файл — .NET
           href: job-input-from-local-file-how-to.md
-    - name: Настройка предустановок преобразования
-      items:
-        - name: Использование .NET Core
-          href: customize-encoder-presets-how-to.md
+    - name: Настройка предустановок преобразования — .NET Core
+      href: customize-encoder-presets-how-to.md
 - name: Справочные материалы
   items:
     - name: Спецификация OpenAPI (Swagger)

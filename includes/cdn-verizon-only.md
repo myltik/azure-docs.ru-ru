@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814481"
 ---
 > [!IMPORTANT]
 > Эта функция доступна только для продуктов **Azure CDN уровня "Стандартный" от Verizon** и **Azure CDN уровня "Премиум" от Verizon**. Недоступно в **Azure CDN из Akamai**. Сравнение возможностей CDN см. в статье [Характеристики продукта Azure CDN](../articles/cdn/cdn-features.md).

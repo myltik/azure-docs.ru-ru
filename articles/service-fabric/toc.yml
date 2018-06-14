@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: Манифесты приложений и служб
           href: service-fabric-application-and-service-manifests.md
+        - name: Примеры манифестов приложений и служб
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Примеры манифестов приложений Reliable Services и служб
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: Примеры манифестов многоконтейнерных приложений и служб
+              href: service-fabric-manifest-example-container-app.md
         - name: Модель размещения
           href: service-fabric-hosting-model.md
         - name: Безопасность приложения
@@ -399,6 +406,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Создание службы ASP.NET Core
           href: service-fabric-add-a-web-frontend.md
+        - name: Создание контейнера сервера Apache Tomcat в Linux
+          href: service-fabric-get-started-tomcat.md
         - name: Настройка безопасности
           items:
             - name: Управление секретами приложений
