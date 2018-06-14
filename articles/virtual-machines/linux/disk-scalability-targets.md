@@ -1,6 +1,6 @@
 ---
-title: "Целевые показатели масштабируемости и производительности для дисков ВМ под управлением Linux (Microsoft Azure) | Документация Майкрософт"
-description: "Сведения о целевых показателях производительности и масштабируемости для дисков, подключенных к виртуальным машинам под управлением Linux."
+title: Целевые показатели масштабируемости и производительности для дисков ВМ под управлением Linux (Microsoft Azure) | Документация Майкрософт
+description: Сведения о целевых показателях производительности и масштабируемости для дисков, подключенных к виртуальным машинам под управлением Linux.
 services: virtual-machines
 author: tamram
 manager: jeconnoc
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24871508"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Целевые показатели масштабируемости и производительности для дисков ВМ под управлением Linux
 

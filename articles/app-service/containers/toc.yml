@@ -157,6 +157,8 @@
       href: /rest/api/appservice/
 - name: Ресурсы
   items:
+    - name: 'Служба приложений под управлением Linux: вопросы и ответы'
+      href: app-service-linux-faq.md
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Цены
