@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958713"
 ---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Перемещение виртуальной машины в другую подписку с помощью портала
 Вы можете переместить виртуальную машину и связанные с ней ресурсы в другую подписку с помощью портала.
