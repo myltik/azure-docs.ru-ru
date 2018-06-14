@@ -1,8 +1,8 @@
 ---
-title: "Создание приложения-функции и развертывание кода функции из GitHub | Документация Майкрософт"
-description: "Пример сценария Azure CLI для создания приложения-функции и развертывание кода функции из GitHub."
+title: Создание приложения-функции и развертывание кода функции из GitHub | Документация Майкрософт
+description: Пример сценария Azure CLI для создания приложения-функции и развертывание кода функции из GitHub.
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842666"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Создание приложения-функции и развертывание кода функции из GitHub
 

@@ -1,11 +1,11 @@
 ---
-title: "Добавление мобильных служб с помощью подключенных служб в Visual Studio | Документация Майкрософт"
-description: "Добавление мобильных служб с помощью диалогового окна \"Добавление подключенных служб\" в Visual Studio"
+title: Добавление мобильных служб с помощью подключенных служб в Visual Studio | Документация Майкрософт
+description: Добавление мобильных служб с помощью диалогового окна "Добавление подключенных служб" в Visual Studio
 services: visual-studio-online
 documentationcenter: na
 author: mlhoop
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 75c3cb93-88e1-476d-a416-f34caa3608e3
 ms.service: visual-studio-online
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125112"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Добавление мобильных служб с помощью подключенных служб Visual Studio
 Visual Studio 2015 позволяет устанавливать подключение к мобильным службам Azure с помощью диалогового окна **Добавление подключенной службы** . Подключиться можно из любого приложения C#, любого приложения JavaScript или кроссплатформенного приложения Cordova. После подключения вы сможете создавать и использовать данные, создавать настраиваемые API и запланированные задания или добавлять поддержку push-уведомлений.  Операция подключенной службы добавляет все соответствующие ссылки и код подключения. Кроме того, можно использовать встроенную поддержку проверки подлинности через такие популярные системы, как Azure AD, Facebook, Twitter и учетные записи Майкрософт.

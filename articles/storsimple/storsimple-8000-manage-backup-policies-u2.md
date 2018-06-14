@@ -1,12 +1,12 @@
 ---
-title: "Управление политиками резервного копирования для устройств StorSimple серии 8000 | Документация Майкрософт"
-description: "В этой статье объясняется, как с помощью службы диспетчера StorSimple вручную создавать резервные копии и управлять ими, настраивать расписания резервного копирования и сроки хранения резервных копий на устройствах StorSimple серии 8000."
+title: Управление политиками резервного копирования для устройств StorSimple серии 8000 | Документация Майкрософт
+description: В этой статье объясняется, как с помощью службы диспетчера StorSimple вручную создавать резервные копии и управлять ими, настраивать расписания резервного копирования и сроки хранения резервных копий на устройствах StorSimple серии 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108282"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Использование службы диспетчера устройств StorSimple на портале Azure для управления политиками резервного копирования
 

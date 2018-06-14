@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197184"
 ---
 В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью в зависимости от SKU шлюза. Эта таблица относится к классической модели развертывания и модели Resource Manager. 
 

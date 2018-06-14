@@ -1,6 +1,6 @@
 ---
-title: "Отработка отказа и восстановление размещения физических серверов, реплицированных в Azure, с помощью Site Recovery | Документация Майкрософт"
-description: "Узнайте, как выполнить отработку отказа физических серверов в Azure и восстановить размещение на локальном сайте с помощью Azure Site Recovery"
+title: Отработка отказа и восстановление размещения физических серверов, реплицированных в Azure, с помощью Site Recovery | Документация Майкрософт
+description: Узнайте, как выполнить отработку отказа физических серверов в Azure и восстановить размещение на локальном сайте с помощью Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876019"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Отработка отказа и восстановление размещения физических серверов, реплицированных в Azure
 

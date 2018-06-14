@@ -1,11 +1,11 @@
 ---
-title: "Создание узлов Docker в Azure с помощью виртуальной машины Docker | Документация Майкрософт"
-description: "Описывается использование машины Docker для создания узлов Docker в Azure."
+title: Создание узлов Docker в Azure с помощью виртуальной машины Docker | Документация Майкрософт
+description: Описывается использование машины Docker для создания узлов Docker в Azure.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a3ff6e1-fa93-4a62-b524-ab182d2fea08
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124502"
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Создание узлов Docker в Azure с помощью машины Docker
 Для запуска контейнеров [Docker](https://www.docker.com/) требуется виртуальная машина узла с запущенной управляющей программой Docker.

@@ -1,6 +1,6 @@
 ---
-title: "Перенос VPN-шлюза из классической модели развертывания в модель Resource Manager | Документация Майкрософт"
-description: "На этой странице приведены общие сведения о переносе VPN-шлюза из классической модели развертывания в модель Resource Manager."
+title: Перенос VPN-шлюза из классической модели развертывания в модель Resource Manager | Документация Майкрософт
+description: На этой странице приведены общие сведения о переносе VPN-шлюза из классической модели развертывания в модель Resource Manager.
 documentationcenter: na
 services: vpn-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23127102"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Перенос VPN-шлюза из классической модели развертывания в модель Resource Manager
 VPN-шлюзы теперь можно переносить из классической модели развертывания в модель развертывания Resource Manager. Вы можете узнать больше о [возможностях и преимуществах Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). В этой статье подробно описан переход от классической модели развертывания к новой модели на основе Resource Manager. 

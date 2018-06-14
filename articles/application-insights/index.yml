@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по Application Insights"
+title: Документация по Application Insights
 metadata:
-  title: "Документация по Application Insights. Руководства и справочник по API | Документация Майкрософт"
-  description: "Application Insights — это расширяемая служба управления производительностью приложений (APM), предназначенная для веб-разработчиков, создающих приложения и управляющих ими на нескольких платформах. Узнайте, как для выявлять и диагностировать проблемы, а также интерпретировать данные об использовании веб-приложений и служб, изучив наши краткие руководства, руководства и справочную документацию."
+  title: Документация по Application Insights. Руководства и справочник по API | Документация Майкрософт
+  description: Application Insights — это расширяемая служба управления производительностью приложений (APM), предназначенная для веб-разработчиков, создающих приложения и управляющих ими на нескольких платформах. Узнайте, как для выявлять и диагностировать проблемы, а также интерпретировать данные об использовании веб-приложений и служб, изучив наши краткие руководства, руководства и справочную документацию.
   services: application-insights
   author: czeumault
   manager: carolz
@@ -18,13 +18,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 10/25/2017
+  ms.locfileid: "23500700"
 abstract:
-  description: "Application Insights — это расширяемая служба управления производительностью приложений (APM), предназначенная для веб-разработчиков, создающих приложения и управляющих ими на нескольких платформах. Узнайте, как для выявлять и диагностировать проблемы, а также интерпретировать данные об использовании веб-приложений и служб, изучив наши краткие руководства, руководства и справочную документацию."
+  description: Application Insights — это расширяемая служба управления производительностью приложений (APM), предназначенная для веб-разработчиков, создающих приложения и управляющих ими на нескольких платформах. Узнайте, как для выявлять и диагностировать проблемы, а также интерпретировать данные об использовании веб-приложений и служб, изучив наши краткие руководства, руководства и справочную документацию.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как начать мониторинг приложения с помощью Azure Application Insights."
+    text: Узнайте, как начать мониторинг приложения с помощью Azure Application Insights.
   - type: list
     style: icon48
     items:
@@ -46,47 +47,47 @@ sections:
       href: app-insights-java-quick-start
     - image:
         src: /azure/application-insights/media/index/mobile-center.png
-      text: "Мобильные приложения"
+      text: Мобильные приложения
       href: app-insights-mobile-center-quickstart
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как непрерывно повышать производительность и улучшать работу своих веб-приложений."
+    text: Узнайте, как непрерывно повышать производительность и улучшать работу своих веб-приложений.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"app-insights-tutorial-runtime-exceptions\">Поиск и диагностика исключений во время выполнения</a>"
-    - html: "<a href=\"app-insights-tutorial-performance\">Поиск и диагностика проблем производительности</a>"
-    - html: "<a href=\"app-insights-tutorial-alert\">Мониторинг работоспособности приложения и оповещение о ней</a>"
-    - html: "<a href=\"app-insights-tutorial-users\">Анализ данных об использовании и информации о клиенте</a>"
-    - html: "<a href=\"app-insights-tutorial-dashboards\">Создание настраиваемых панелей мониторинга ключевых показателей эффективности</a>"
-- title: "Бесплатные видеоуроки PluralSight"
+    - html: <a href="app-insights-tutorial-runtime-exceptions">Поиск и диагностика исключений во время выполнения</a>
+    - html: <a href="app-insights-tutorial-performance">Поиск и диагностика проблем производительности</a>
+    - html: <a href="app-insights-tutorial-alert">Мониторинг работоспособности приложения и оповещение о ней</a>
+    - html: <a href="app-insights-tutorial-users">Анализ данных об использовании и информации о клиенте</a>
+    - html: <a href="app-insights-tutorial-dashboards">Создание настраиваемых панелей мониторинга ключевых показателей эффективности</a>
+- title: Бесплатные видеоуроки PluralSight
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Разработка с помощью .NET в Azure"
+    - title: Разработка с помощью .NET в Azure
       href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
-    - title: "Разработка с помощью Node.js в Azure"
+    - title: Разработка с помощью Node.js в Azure
       href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
-- title: "Справочные материалы"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Языки"
-      html: "<p><a href=\"https://docs.loganalytics.io/\">Аналитика в Application Insights</a></p><p><a href=\"/dotnet/api/microsoft.applicationinsights\">.NET</a></p><p><a href=\"/java/api/com.microsoft.applicationinsights\">Java</a></p><p><a href=\"https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md\">JavaScript</a></p><p><a href=\"https://dev.applicationinsights.io/\">API доступа к данным</a></p>"
-    - title: "Модель данных"
-      html: "<p><a href=\"application-insights-data-model-request-telemetry\">Запрос</a></p><p><a href=\"application-insights-data-model-dependency-telemetry\">Dependency</a></p><p><a href=\"application-insights-data-model-exception-telemetry\">Исключение</a></p><p><a href=\"application-insights-data-model-trace-telemetry\">Трассировка</a></p><p><a href=\"application-insights-data-model-event-telemetry\">Event</a></p><p><a href=\"application-insights-data-model-metric-telemetry\">Метрика</a></p><p><a href=\"application-insights-data-model-context\">Контекст</a></p>"
-    - title: "Корреляция данных телеметрии"
-      html: "<p><a href=\"application-insights-correlation\">Корреляция данных телеметрии</a></p>"
-    - title: "Примеры кода"
-      html: "<p><a href=\"https://azure.microsoft.com/en-us/resources/samples/?service=application-insights\">Примеры кода</a></p>"
+    - title: Языки
+      html: <p><a href="https://docs.loganalytics.io/">Аналитика в Application Insights</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">API доступа к данным</a></p>
+    - title: Модель данных
+      html: <p><a href="application-insights-data-model-request-telemetry">Запрос</a></p><p><a href="application-insights-data-model-dependency-telemetry">Dependency</a></p><p><a href="application-insights-data-model-exception-telemetry">Исключение</a></p><p><a href="application-insights-data-model-trace-telemetry">Трассировка</a></p><p><a href="application-insights-data-model-event-telemetry">Event</a></p><p><a href="application-insights-data-model-metric-telemetry">Метрика</a></p><p><a href="application-insights-data-model-context">Контекст</a></p>
+    - title: Корреляция данных телеметрии
+      html: <p><a href="application-insights-correlation">Корреляция данных телеметрии</a></p>
+    - title: Примеры кода
+      html: <p><a href="https://azure.microsoft.com/en-us/resources/samples/?service=application-insights">Примеры кода</a></p>

@@ -1,10 +1,10 @@
 ---
-title: "Развертывание веб-приложений в Azure с помощью Jenkins | Документация Майкрософт"
-description: "Сведения о настройке непрерывной интеграции из GitHub в службу приложений Azure для веб-приложений Java с помощью Jenkins и Docker."
+title: Развертывание веб-приложений в Azure с помощью Jenkins | Документация Майкрософт
+description: Сведения о настройке непрерывной интеграции из GitHub в службу приложений Azure для веб-приложений Java с помощью Jenkins и Docker.
 author: rloutlaw
 manager: douge
 ms.service: jenkins
-ms.search.scope: 
+ms.search.scope: ''
 ms.devlang: java
 ms.topic: article
 ms.workload: web
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29853005"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Настройка непрерывной интеграции и развертывания в службе приложений Azure с помощью Jenkins и GitHub
 

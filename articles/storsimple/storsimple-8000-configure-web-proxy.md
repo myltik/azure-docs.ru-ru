@@ -1,12 +1,12 @@
 ---
-title: "Настройка веб-прокси для устройства StorSimple серии 8000 | Документация Майкрософт"
-description: "Узнайте, как использовать Windows PowerShell для StorSimple для настройки параметров веб-прокси для устройства StorSimple."
+title: Настройка веб-прокси для устройства StorSimple серии 8000 | Документация Майкрософт
+description: Узнайте, как использовать Windows PowerShell для StorSimple для настройки параметров веб-прокси для устройства StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108512"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Настройка веб-прокси для устройства StorSimple
 

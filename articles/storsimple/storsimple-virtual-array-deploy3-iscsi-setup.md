@@ -1,11 +1,11 @@
 ---
-title: "Настройка сервера iSCSI для виртуального массива Microsoft Azure StorSimple | Документация Майкрософт"
-description: "В этой статье приведены инструкции по начальной настройке, регистрации сервера StorSimple iSCSI и завершению настройки устройства."
+title: Настройка сервера iSCSI для виртуального массива Microsoft Azure StorSimple | Документация Майкрософт
+description: В этой статье приведены инструкции по начальной настройке, регистрации сервера StorSimple iSCSI и завершению настройки устройства.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 4db116d1-978b-48e8-b572-a719a8425dbc
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23112282"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Развертывание виртуального массива StorSimple. Установка в качестве сервера iSCSI на портале Azure
 

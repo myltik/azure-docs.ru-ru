@@ -1,11 +1,11 @@
 ---
-title: "Оборудование для интерфейсов 10 GbE устройства StorSimple | Документация Майкрософт"
-description: "Описаны поддерживаемые подключаемые приемопередатчики небольшого размера (SFP), кабели и коммутаторы для сетевых интерфейсов 10 GbE на устройстве StorSimple."
+title: Оборудование для интерфейсов 10 GbE устройства StorSimple | Документация Майкрософт
+description: Описаны поддерживаемые подключаемые приемопередатчики небольшого размера (SFP), кабели и коммутаторы для сетевых интерфейсов 10 GbE на устройстве StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: df8d40c7-f5ad-4f84-93eb-779fbd5f7243
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110572"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple
 ## <a name="overview"></a>Обзор

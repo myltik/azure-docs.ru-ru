@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29940047"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Общие предварительные требования для создания предложения в Azure Marketplace
 Эта статья содержит общие предварительные относящиеся к бизнес-процессу требования, которые необходимы для создания предложения.

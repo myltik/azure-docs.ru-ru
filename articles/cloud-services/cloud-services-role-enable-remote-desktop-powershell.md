@@ -1,11 +1,11 @@
 ---
-title: "Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell"
-description: "Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell"
+title: Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
+description: Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf2f70a4-20dc-4302-a91a-38cd7a2baa62
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874146"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
 

@@ -1,12 +1,12 @@
 ---
-title: "Отключение и удаление устройства StorSimple серии 8000 | Документация Майкрософт"
-description: "Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления."
+title: Отключение и удаление устройства StorSimple серии 8000 | Документация Майкрософт
+description: Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108462"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Отключение и удаление устройства StorSimple
 

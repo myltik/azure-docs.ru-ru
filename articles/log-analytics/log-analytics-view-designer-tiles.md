@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947322"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Справочное руководство по плиткам конструктора представлений в Log Analytics
 С помощью конструктора представлений в Azure Log Analytics можно создавать пользовательские представления на портале Azure, содержащие различные визуализации данных в рабочей области Log Analytics. В этой статье содержится справочное руководство по параметрам плиток, доступных в пользовательских представлениях.

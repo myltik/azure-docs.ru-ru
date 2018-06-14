@@ -1,11 +1,11 @@
 ---
-title: "Настройка метода маршрутизации трафика по производительности с помощью диспетчера трафика Azure | Документация Майкрософт"
-description: "В этой статье объясняется, как настроить диспетчер трафика для маршрутизации трафика к конечной точке с минимальной задержкой"
+title: Настройка метода маршрутизации трафика по производительности с помощью диспетчера трафика Azure | Документация Майкрософт
+description: В этой статье объясняется, как настроить диспетчер трафика для маршрутизации трафика к конечной точке с минимальной задержкой
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110662"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Настройка метода маршрутизации трафика по производительности
 

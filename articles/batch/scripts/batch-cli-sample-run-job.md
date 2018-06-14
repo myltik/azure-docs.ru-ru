@@ -1,12 +1,12 @@
 ---
-title: "Пример сценария Azure CLI. Выполнение пакетного задания | Документация Майкрософт"
-description: "Пример сценария Azure CLI. Выполнение задания при помощи пакетной службы"
+title: Пример сценария Azure CLI. Выполнение пакетного задания | Документация Майкрософт
+description: Пример сценария Azure CLI. Выполнение задания при помощи пакетной службы
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843618"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Пример CLI. Выполнение задания и задач с использованием пакетной службы Azure
 

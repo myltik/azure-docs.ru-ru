@@ -1,11 +1,11 @@
 ---
-title: "Управление томами в виртуальном массиве StorSimple | Документация Майкрософт"
-description: "В статье описывается диспетчер устройств StorSimple и способы его использования для управления томами в виртуальном массиве StorSimple."
+title: Управление томами в виртуальном массиве StorSimple | Документация Майкрософт
+description: В статье описывается диспетчер устройств StorSimple и способы его использования для управления томами в виртуальном массиве StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: caa6a26b-b7ba-4a05-b092-1a79450225cf
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110212"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Управление томами в виртуальном массиве StorSimple с помощью службы диспетчера устройств StorSimple
 

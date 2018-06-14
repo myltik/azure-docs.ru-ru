@@ -1,6 +1,6 @@
 ---
-title: "Хранилище Azure уровня \"Премиум\": проектирование для обеспечения высокой производительности виртуальных машин Windows | Документация Майкрософт"
-description: "Разработка высокопроизводительных приложений с использованием хранилища Azure класса «Премиум». Хранилище Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для интенсивных рабочих нагрузок ввода-вывода на виртуальных машинах Azure."
+title: 'Хранилище Azure уровня "Премиум": проектирование для обеспечения высокой производительности виртуальных машин Windows | Документация Майкрософт'
+description: Разработка высокопроизводительных приложений с использованием хранилища Azure класса «Премиум». Хранилище Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для интенсивных рабочих нагрузок ввода-вывода на виртуальных машинах Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23666986"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

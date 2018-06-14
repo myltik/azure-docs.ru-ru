@@ -1,11 +1,11 @@
 ---
-title: "Действия меню MMC в StorSimple Snapshot Manager | Документация Майкрософт"
-description: "Узнайте, как использовать стандартные действия меню консоли управления (MMC) в диспетчере моментальных снимков StorSimple."
+title: Действия меню MMC в StorSimple Snapshot Manager | Документация Майкрософт
+description: Узнайте, как использовать стандартные действия меню консоли управления (MMC) в диспетчере моментальных снимков StorSimple.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109972"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Использование действий меню MMC в диспетчере моментальных снимков StorSimple
 

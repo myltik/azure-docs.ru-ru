@@ -1,11 +1,11 @@
 ---
-title: "Задания архивации StorSimple Snapshot Manager | Документация Майкрософт"
-description: "Узнайте, как использовать оснастку консоли MMC \"Диспетчер моментальных снимков StorSimple\" для просмотра запланированных, выполняющихся и завершенных заданий архивации, а также управления ими."
+title: Задания архивации StorSimple Snapshot Manager | Документация Майкрософт
+description: Узнайте, как использовать оснастку консоли MMC "Диспетчер моментальных снимков StorSimple" для просмотра запланированных, выполняющихся и завершенных заданий архивации, а также управления ими.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109862"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Просмотр заданий архивации и управление ими с помощью диспетчера моментальных снимков StorSimple
 

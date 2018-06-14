@@ -1,13 +1,13 @@
 ---
-title: "Настройка BGP на VPN-шлюзе Azure с помощью Resource Manager и интерфейса командной строки | Документация Майкрософт"
-description: "В этой статье описана поэтапная настройка протокола BGP для VPN-шлюза Azure с помощью Azure Resource Manager и интерфейса командной строки."
+title: Настройка BGP на VPN-шлюзе Azure с помощью Resource Manager и интерфейса командной строки | Документация Майкрософт
+description: В этой статье описана поэтапная настройка протокола BGP для VPN-шлюза Azure с помощью Azure Resource Manager и интерфейса командной строки.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124792"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Настройка BGP на VPN-шлюзе Azure с помощью интерфейса командной строки
 

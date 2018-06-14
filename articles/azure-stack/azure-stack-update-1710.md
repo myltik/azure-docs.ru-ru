@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311929"
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Обновление 1710 Azure Stack (сборка 20171020.1)
 

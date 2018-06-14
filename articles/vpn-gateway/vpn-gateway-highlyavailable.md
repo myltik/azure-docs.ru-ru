@@ -1,12 +1,12 @@
 ---
-title: "Общие сведения о конфигурациях для обеспечения высокодоступных подключений с использованием VPN-шлюзов Azure | Документация Майкрософт"
-description: "В этой статье рассматриваются параметры, обеспечивающие высокую доступность подключений, устанавливаемых с помощью VPN-шлюзов Azure."
+title: Общие сведения о конфигурациях для обеспечения высокодоступных подключений с использованием VPN-шлюзов Azure | Документация Майкрософт
+description: В этой статье рассматриваются параметры, обеспечивающие высокую доступность подключений, устанавливаемых с помощью VPN-шлюзов Azure.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23126312"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Настройка высокодоступных подключений: распределенных и между виртуальными сетями
 В этой статье рассматриваются параметры высокодоступных подключений (распределенных и между виртуальными сетями), устанавливаемых с помощью VPN-шлюзов Azure.

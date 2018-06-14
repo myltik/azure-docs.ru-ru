@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943247"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Развертывание предложения в Azure Marketplace
 Если вы довольны своим предложением (т. е. протестировали клиентские сценарии, маркетинговое содержимое и т. д.) и готовы к запуску, запросите **отправление в рабочую среду** на вкладке **Публикация**.  

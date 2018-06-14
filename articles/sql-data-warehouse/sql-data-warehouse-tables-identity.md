@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526990"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Использование свойства IDENTITY для создания суррогатных ключей в хранилище данных SQL Azure
 Рекомендации и примеры использования свойства IDENTITY для создания суррогатных ключей для таблиц в хранилище данных SQL Azure.

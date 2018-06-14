@@ -1,11 +1,11 @@
 ---
-title: "Управление учетными записями хранения виртуального массива StorSimple | Документация Майкрософт"
-description: "В статье объясняется, как можно использовать страницу настройки в диспетчере устройств StorSimple для добавления, изменения и удаления или чередования ключей безопасности для учетной записи хранения, связанной с виртуальным массивом StorSimple."
+title: Управление учетными записями хранения виртуального массива StorSimple | Документация Майкрософт
+description: В статье объясняется, как можно использовать страницу настройки в диспетчере устройств StorSimple для добавления, изменения и удаления или чередования ключей безопасности для учетной записи хранения, связанной с виртуальным массивом StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111712"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Управление учетными данными учетной записи хранения для виртуального массива StorSimple с помощью диспетчера устройств StorSimple
 

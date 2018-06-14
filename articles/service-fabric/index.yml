@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по Azure Service Fabric"
+title: Документация по Azure Service Fabric
 metadata:
-  title: "Документация по Azure Service Fabric. Руководства и справочник по API | Документация Майкрософт"
+  title: Документация по Azure Service Fabric. Руководства и справочник по API | Документация Майкрософт
   meta.description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
   services: service-fabric
   author: 
@@ -20,13 +20,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 03/16/2018
+  ms.locfileid: "29941938"
 abstract:
-  description: "Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые надежные микрослужбы и контейнеры, но и управлять ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой. Узнайте, как использовать Azure Service Fabric, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
+  description: Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые надежные микрослужбы и контейнеры, но и управлять ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой. Узнайте, как использовать Azure Service Fabric, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Сведения о развертывании первого приложения Service Fabric в облаке:"
+    text: 'Сведения о развертывании первого приложения Service Fabric в облаке:'
   - type: list
     style: icon48
     items:
@@ -44,74 +45,74 @@ sections:
       href: service-fabric-quickstart-java-spring-boot
     - image:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: "Контейнеры Linux"
+      text: Контейнеры Linux
       href: service-fabric-quickstart-containers-linux
     - image:
         src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: "Контейнеры Windows"
+      text: Контейнеры Windows
       href: service-fabric-quickstart-containers
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Сведения о развертывании, администрировании и мониторинге защищенных веб-приложений на платформе Azure"
+    text: Сведения о развертывании, администрировании и мониторинге защищенных веб-приложений на платформе Azure
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"service-fabric-tutorial-create-dotnet-app\">Развертывание приложения .NET</a>"
-    - html: "<a href=\"service-fabric-tutorial-create-java-app\">Развертывание приложения Java</a>"
-    - html: "<a href=\"service-fabric-host-app-in-a-container\">Контейнеризация существующего приложения .NET</a>"
-    - html: "<a href=\"service-fabric-tutorial-create-container-images\">Создание приложения-контейнера Linux</a>"
-    - html: "Создание кластера <a href=\"service-fabric-tutorial-create-vnet-and-windows-cluster\">Windows</a> или <a href=\"service-fabric-tutorial-create-vnet-and-linux-cluster\">Linux</a> и управление им"
-- title: "Бесплатные видеоуроки PluralSight"
+    - html: <a href="service-fabric-tutorial-create-dotnet-app">Развертывание приложения .NET</a>
+    - html: <a href="service-fabric-tutorial-create-java-app">Развертывание приложения Java</a>
+    - html: <a href="service-fabric-host-app-in-a-container">Контейнеризация существующего приложения .NET</a>
+    - html: <a href="service-fabric-tutorial-create-container-images">Создание приложения-контейнера Linux</a>
+    - html: Создание кластера <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> или <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a> и управление им
+- title: Бесплатные видеоуроки PluralSight
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Разработка с использованием .NET"
+    - title: Разработка с использованием .NET
       href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
-    - title: "Облачные модели и архитектура"
+    - title: Облачные модели и архитектура
       href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
-- title: "Основные понятия"
+- title: Основные понятия
   items:
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"service-fabric-overview-microservices\">Основные сведения о микрослужбах</a>"
-    - html: "<a href=\"service-fabric-content-roadmap\">Общее представление</a>"
-    - html: "<a href=\"service-fabric-application-scenarios\">Сценарии приложений</a>"
-    - html: "<a href=\"service-fabric-patterns-and-scenarios\">Примеры и сценарии</a>"
-    - html: "<a href=\"service-fabric-architecture\">Архитектура</a>"
-    - html: "<a href=\"service-fabric-technical-overview\">Терминология</a>"
-- title: "Примеры"
+    - html: <a href="service-fabric-overview-microservices">Основные сведения о микрослужбах</a>
+    - html: <a href="service-fabric-content-roadmap">Общее представление</a>
+    - html: <a href="service-fabric-application-scenarios">Сценарии приложений</a>
+    - html: <a href="service-fabric-patterns-and-scenarios">Примеры и сценарии</a>
+    - html: <a href="service-fabric-architecture">Архитектура</a>
+    - html: <a href="service-fabric-technical-overview">Терминология</a>
+- title: Примеры
   items:
   - type: paragraph
-    text: "Скрипты для выполнения стандартных задач управления:"
+    text: 'Скрипты для выполнения стандартных задач управления:'
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Примеры скриптов"
-      html: "<p><a href=\"service-fabric-powershell-samples\">Azure PowerShell</a></p><p><a href=\"samples-cli\">Интерфейс командной строки Service Fabric</a></p>"
+    - title: Примеры скриптов
+      html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Интерфейс командной строки Service Fabric</a></p>
     - title: .NET
-      html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/\">Приступая к работе</a></p><p><a href=\"https://github.com/Azure-Samples/service-fabric-dotnet-quickstart\">Голосование</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/\">Ссылка на веб-службу</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/\">Интернет вещей</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/\">Служба наблюдения</a></p>"
+      html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Приступая к работе</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Голосование</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Ссылка на веб-службу</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">Интернет вещей</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Служба наблюдения</a></p>
     - title: Java
-      html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/\">Приступая к работе</a></p>"
-- title: "Справочные материалы"
+      html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Приступая к работе</a></p>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/sf\">интерфейс командной строки Azure</a></p><p><a href=\"https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl\">Интерфейс командной строки Service Fabric</a></p><p><a href=\"/powershell/module/azurerm.servicefabric\">Azure PowerShell</a></p><p><a href=\"/powershell/module/servicefabric/?view=azureservicefabricps\">PowerShell</a></p>"
-    - title: "Языки"
-      html: "<p><a href=\"/java/api/overview/azure/servicefabric\">API Java</a></p><p><a href=\"/dotnet/api/overview/azure/service-fabric?view=azure-dotnet\">.NET</a></p><p><a href=\"/azure/service-fabric/service-fabric-service-model-schema\">Схема XML для модели службы</a></p>"
+    - title: Командная строка
+      html: <p><a href="/cli/azure/sf">интерфейс командной строки Azure</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">Интерфейс командной строки Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+    - title: Языки
+      html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Схема XML для модели службы</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/servicefabric\">справочник по API REST</a></p>"
+      html: <p><a href="/rest/api/servicefabric">справочник по API REST</a></p>

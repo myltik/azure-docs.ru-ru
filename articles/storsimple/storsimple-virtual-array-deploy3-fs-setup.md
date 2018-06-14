@@ -1,11 +1,11 @@
 ---
-title: "Установка виртуального массива StorSimple в качестве файлового сервера | Документация Майкрософт"
-description: "Это третье руководство по развертыванию виртуального массива StorSimple содержит инструкции по настройке виртуального устройства в качестве файлового сервера."
+title: Установка виртуального массива StorSimple в качестве файлового сервера | Документация Майкрософт
+description: Это третье руководство по развертыванию виртуального массива StorSimple содержит инструкции по настройке виртуального устройства в качестве файлового сервера.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111852"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Развертывание виртуального массива StorSimple. Установка в качестве файлового сервера на портале Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)

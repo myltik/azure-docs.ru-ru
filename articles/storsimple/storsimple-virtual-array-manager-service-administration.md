@@ -1,11 +1,11 @@
 ---
-title: "Администрирование виртуального массива с помощью Microsoft Azure StorSimple Manager | Документация Майкрософт"
-description: "Сведения об управлении локальным виртуальным массивом StorSimple с помощью службы диспетчера устройств StorSimple на портале Azure."
+title: Администрирование виртуального массива с помощью Microsoft Azure StorSimple Manager | Документация Майкрософт
+description: Сведения об управлении локальным виртуальным массивом StorSimple с помощью службы диспетчера устройств StorSimple на портале Azure.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 958244a5-f9f5-455e-b7ef-71a65558872e
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109902"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Администрирование виртуального массива StorSimple с помощью службы диспетчера устройств StorSimple
 ![последовательность операций процесса настройки](./media/storsimple-virtual-array-manager-service-administration/manage4.png)

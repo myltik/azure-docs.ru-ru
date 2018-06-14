@@ -1,11 +1,11 @@
 ---
-title: "Подготовка жестких дисков к заданию импорта инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт"
-description: "Узнайте, как подготовить жесткие диски с помощью инструмента WAImportExport версии 1 перед созданием задания импорта в службе импорта и экспорта Azure."
+title: Подготовка жестких дисков к заданию импорта инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт
+description: Узнайте, как подготовить жесткие диски с помощью инструмента WAImportExport версии 1 перед созданием задания импорта в службе импорта и экспорта Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3d818245-8b1b-4435-a41f-8e5ec1f194b2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23107852"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Подготовка жестких дисков для задания импорта
 Чтобы подготовить один или несколько жестких дисков к заданию импорта, сделайте следующее:

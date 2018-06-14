@@ -1,11 +1,11 @@
 ---
-title: "Администрирование пользовательского веб-интерфейса виртуального массива StorSimple | Документация Майкрософт"
-description: "Здесь описывается, как выполнять базовые задачи администрирования устройств с помощью пользовательского веб-интерфейса виртуального массива StorSimple."
+title: Администрирование пользовательского веб-интерфейса виртуального массива StorSimple | Документация Майкрософт
+description: Здесь описывается, как выполнять базовые задачи администрирования устройств с помощью пользовательского веб-интерфейса виртуального массива StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109962"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple
 ![последовательность операций процесса настройки](./media/storsimple-ova-web-ui-admin/manage4.png)
