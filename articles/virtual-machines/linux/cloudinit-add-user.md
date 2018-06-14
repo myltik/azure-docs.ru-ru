@@ -1,11 +1,11 @@
 ---
-title: "Добавление пользователя на виртуальную машину Linux в Azure с помощью cloud-init | Документация Майкрософт"
-description: "Как с помощью cloud-init и Azure CLI 2.0 добавить пользователя на создаваемую виртуальную машину Linux"
+title: Добавление пользователя на виртуальную машину Linux в Azure с помощью cloud-init | Документация Майкрософт
+description: Как с помощью cloud-init и Azure CLI 2.0 добавить пользователя на создаваемую виртуальную машину Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123469"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Добавление пользователя на виртуальную машину Linux в Azure с помощью cloud-init
 В этой статье показано, как с помощью [cloud-init](https://cloudinit.readthedocs.io) добавить пользователя на виртуальную машину или в масштабируемый набор виртуальных машин при подготовке в Azure. Этот скрипт cloud-init выполняется при первой загрузке, если в Azure подготовлены все нужные ресурсы. Дополнительные сведения о встроенной поддержке cloud-init в Azure и поддерживаемых дистрибутивах Linux см. в [обзоре cloud-init](using-cloud-init.md).

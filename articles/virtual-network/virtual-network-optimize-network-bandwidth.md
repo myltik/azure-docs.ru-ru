@@ -1,12 +1,12 @@
 ---
-title: "Оптимизации пропускной способности сети для виртуальной машины | Документация Майкрософт"
-description: "Узнайте, как оптимизировать пропускную способность сети для виртуальной машины Azure."
+title: Оптимизации пропускной способности сети для виртуальной машины | Документация Майкрософт
+description: Узнайте, как оптимизировать пропускную способность сети для виртуальной машины Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29132897"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Оптимизации пропускной способности сети для виртуальной машины Azure
 

@@ -1,12 +1,12 @@
 ---
-title: "Сохранение файлов для Bash в Azure Cloud Shell | Документация Майкрософт"
-description: "Пошаговое руководство по сохранению файлов Bash в Azure Cloud Shell."
+title: Сохранение файлов для Bash в Azure Cloud Shell | Документация Майкрософт
+description: Пошаговое руководство по сохранению файлов Bash в Azure Cloud Shell.
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919548"
 ---
 [!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 

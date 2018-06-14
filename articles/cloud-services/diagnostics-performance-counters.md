@@ -1,12 +1,12 @@
 ---
-title: "Сбор данных счетчиков производительности для облачной службы Azure | Документация Майкрософт"
-description: "Узнайте, как находить, использовать и создавать счетчики производительности в облачных службах с помощью системы диагностики Azure и Application Insights."
+title: Сбор данных счетчиков производительности для облачной службы Azure | Документация Майкрософт
+description: Узнайте, как находить, использовать и создавать счетчики производительности в облачных службах с помощью системы диагностики Azure и Application Insights.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29134051"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Сбор данных счетчиков производительности для облачной службы Azure
 

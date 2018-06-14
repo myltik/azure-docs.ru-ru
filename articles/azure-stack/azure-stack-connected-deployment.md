@@ -1,12 +1,12 @@
 ---
-title: "Планирование развертываний с подключением к Azure для интегрированных систем Azure Stack | Документация Майкрософт"
-description: "Планирование развертываний для многоузловой инфраструктуры Azure Stack с подключением к Azure."
+title: Планирование развертываний с подключением к Azure для интегрированных систем Azure Stack | Документация Майкрософт
+description: Планирование развертываний для многоузловой инфраструктуры Azure Stack с подключением к Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120392"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Планирование развертываний с подключением к Azure для интегрированных систем Azure Stack
 Когда вы решите, [как интегрировать Azure Stack с гибридной облачной средой](azure-stack-connection-models.md), вы сможете спланировать развертывание Azure Stack.

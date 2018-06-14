@@ -1,8 +1,8 @@
 ---
-title: "Настройка службы управления API в Azure с помощью Git | Документация Майкрософт"
-description: "Узнайте, как сохранить и настроить конфигурацию службы управления API с помощью Git."
+title: Настройка службы управления API в Azure с помощью Git | Документация Майкрософт
+description: Узнайте, как сохранить и настроить конфигурацию службы управления API с помощью Git.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
 editor: mattfarm
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117543"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Сохранение и настройка конфигурации службы управления API с помощью Git
 

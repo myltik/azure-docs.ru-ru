@@ -1,12 +1,12 @@
 ---
-title: "Управление планом службы приложений в Azure | Документация Майкрософт"
-description: "Узнайте, как выполнять разные задачи по управлению планом службы приложений."
+title: Управление планом службы приложений в Azure | Документация Майкрософт
+description: Узнайте, как выполнять разные задачи по управлению планом службы приложений.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117686"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Управлением планом службы приложений в Azure
 

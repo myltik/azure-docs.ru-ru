@@ -1,11 +1,11 @@
 ---
-title: "Обзор использования протокола AMQP 1.0 в служебной шине Azure | Документация Майкрософт"
-description: "Узнайте об использовании протокола AMQP 1.0 в Azure."
+title: Обзор использования протокола AMQP 1.0 в служебной шине Azure | Документация Майкрософт
+description: Узнайте об использовании протокола AMQP 1.0 в Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926603"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Поддержка AMQP 1.0 в служебной шине
 Как облачная служба служебной шины Azure, так и локальная [служебная шина для Windows Server (служебная шина версии 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) поддерживают протокол AMQP версии 1.0 (улучшенный протокол очередей сообщений). AMQP позволяет создавать кроссплатформенные гибридные приложения, использующие протокол открытого стандарта. Можно создавать приложения, использующие компоненты, разработанные на разных языках и различных платформах и выполняемые в других операционных системах. Все эти компоненты могут подключаться к шине Service Bus и легко, эффективно и достоверно обмениваться структурированными бизнес-сообщениями.

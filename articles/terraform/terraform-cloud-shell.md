@@ -1,7 +1,7 @@
 ---
-title: "Использование Terraform с Azure Cloud Shell"
-description: "Используйте Terraform с Azure Cloud Shell, чтобы упростить аутентификацию и конфигурацию шаблона."
-keywords: "terraform, devops, масштабируемый набор, виртуальная машина, сеть, хранилище, модули"
+title: Использование Terraform с Azure Cloud Shell
+description: Используйте Terraform с Azure Cloud Shell, чтобы упростить аутентификацию и конфигурацию шаблона.
+keywords: terraform, devops, масштабируемый набор, виртуальная машина, сеть, хранилище, модули
 ms.service: virtual-machines-linux
 author: dcaro
 ms.author: dcaro
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121531"
 ---
 # <a name="terraform-cloud-shell-development"></a>Разработка Cloud Shell Terraform 
 
