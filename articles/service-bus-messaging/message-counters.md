@@ -1,11 +1,11 @@
 ---
-title: "Количество сообщений служебной шины Azure | Документация Майкрософт"
-description: "Получение числа сообщений служебной шины Azure."
+title: Количество сообщений служебной шины Azure | Документация Майкрософт
+description: Получение числа сообщений служебной шины Azure.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197737"
 ---
 # <a name="message-counters"></a>Счетчики сообщений
 

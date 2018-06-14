@@ -1,11 +1,11 @@
 ---
-title: "Обзор API-интерфейсов Node для ретранслятора Azure | Документация Майкрософт"
-description: "Общие сведения об API Node для ретранслятора"
+title: Обзор API-интерфейсов Node для ретранслятора Azure | Документация Майкрософт
+description: Общие сведения об API Node для ретранслятора
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019468"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Общие сведения об API Node для гибридных подключений ретранслятора
 
