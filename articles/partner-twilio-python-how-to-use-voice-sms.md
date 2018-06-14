@@ -1,11 +1,11 @@
 ---
-title: "Использование Twilio для поддержки голосовых возможностей и SMS (Python) | Microsoft Docs"
-description: "Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры кода написаны на Python."
-services: 
+title: Использование Twilio для поддержки голосовых возможностей и SMS (Python) | Microsoft Docs
+description: Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры кода написаны на Python.
+services: ''
 documentationcenter: python
 author: devinrader
 manager: twilio
-editor: 
+editor: ''
 ms.assetid: 561bc75b-4ac4-40ba-bcba-48e901f27cc3
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040009"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Использование Twilio для поддержки голосовых возможностей и SMS на Python
 В этом руководстве показано, как выполнять типовые задачи программирования с помощью службы Twilio API в Azure. Здесь описываются такие сценарии, как телефонный звонок и отправка SMS-сообщения. Дополнительные сведения о Twilio и использовании голосовых функций и SMS в приложениях см. в разделе [Дальнейшие действия](#NextSteps).
