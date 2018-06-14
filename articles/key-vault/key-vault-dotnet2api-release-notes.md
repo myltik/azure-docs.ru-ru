@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27909760"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Хранилище ключей Azure .NET 2.0. Руководство по миграции и заметки о выпуске
 Приведенные ниже сведения помогут перейти к использованию версии 2.0 библиотеки Azure Key Vault для C# и .NET.  Приложения, написанные для предыдущих версий, необходимо обновить для поддержки последней версии.  Эти изменения необходимы для полной поддержки новых и усовершенствованных возможностей, таких как **сертификаты Key Vault**.
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/05/2018
 
 * *Secret* — изменено на *SecretBundle*.
 * *Dictionary* — изменено на *IDictionary*.
-* *List<T>, string []* — изменено на *IList<T>*.
+* *List<T>, string []*  — изменено на *IList<T>*.
 * *NextList* — изменено на *NextPageLink*.
 
 ## <a name="return-types"></a>Возвращаемые типы

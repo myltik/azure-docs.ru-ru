@@ -1,11 +1,11 @@
 ---
-title: "Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson | Документация Майкрософт"
-description: "В статье описывается, как использовать подчиненный подключаемый модуль Azure на сервере непрерывной интеграции Hudson."
+title: Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson | Документация Майкрософт
+description: В статье описывается, как использовать подчиненный подключаемый модуль Azure на сервере непрерывной интеграции Hudson.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27704425"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson
 Подчиненный подключаемый модуль Azure для Hudson позволяет подготовить подчиненные узлы в Azure при выполнении распределенных сборок.

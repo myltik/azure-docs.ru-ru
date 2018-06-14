@@ -1,11 +1,11 @@
 ---
-title: "Перенос приложений логики в версию схемы 2015-08-01-preview | Документация Майкрософт"
-description: "Вы можете легко перенести приложения логики в последнюю версию схемы. Просто следуйте приведенным здесь инструкциям."
+title: Перенос приложений логики в версию схемы 2015-08-01-preview | Документация Майкрософт
+description: Вы можете легко перенести приложения логики в последнюю версию схемы. Просто следуйте приведенным здесь инструкциям.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707130"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Перенос приложений логики в версию схемы 2015-08-01-preview
 Чтобы переместить существующие приложения логики в новую схему, выполните следующие действия:  

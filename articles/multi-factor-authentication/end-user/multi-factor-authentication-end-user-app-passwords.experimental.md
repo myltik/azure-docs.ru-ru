@@ -1,8 +1,8 @@
 ---
-title: "Использование паролей приложений в Azure MFA | Документация Майкрософт"
-description: "Эта страница содержит сведения для пользователей о паролях приложений и их назначении в Azure MFA."
+title: Использование паролей приложений в Azure MFA | Документация Майкрософт
+description: Эта страница содержит сведения для пользователей о паролях приложений и их назначении в Azure MFA.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27700451"
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Что такое пароли приложений в службе Многофакторной идентификации Azure
 Сейчас некоторые не использующие браузер приложения, например собственный почтовый клиент Apple, использующий Exchange Active Sync, не поддерживают многофакторную проверку подлинности. Многофакторная проверка подлинности активируется для каждого пользователя.  Это означает, что пользователь не может использовать многофакторную проверку подлинности в таких случаях:

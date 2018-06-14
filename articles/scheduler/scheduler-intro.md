@@ -1,11 +1,11 @@
 ---
-title: "Что такое планировщик Azure? | Документация Майкрософт"
-description: "Планировщик Azure позволяет описывать действия, которые выполняются в облаке. Затем он планирует и выполняет эти действия автоматически."
+title: Что такое планировщик Azure? | Документация Майкрософт
+description: Планировщик Azure позволяет описывать действия, которые выполняются в облаке. Затем он планирует и выполняет эти действия автоматически.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22715120"
 ---
 # <a name="what-is-azure-scheduler"></a>Что такое планировщик Azure?
 Планировщик Azure позволяет описывать действия, которые выполняются в облаке. Затем он планирует и выполняет эти действия автоматически.  Планировщик делает это с помощью [портала Azure](scheduler-get-started-portal.md), кода, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) или Azure PowerShell.

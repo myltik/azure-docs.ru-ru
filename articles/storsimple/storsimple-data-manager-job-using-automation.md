@@ -1,12 +1,12 @@
 ---
-title: "Запуск задания в диспетчере данных StorSimple при помощи службы автоматизации Azure | Документация Майкрософт"
-description: "Узнайте, как активировать задания диспетчера данных StorSimple с помощью службы автоматизации Azure"
+title: Запуск задания в диспетчере данных StorSimple при помощи службы автоматизации Azure | Документация Майкрософт
+description: Узнайте, как активировать задания диспетчера данных StorSimple с помощью службы автоматизации Azure
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862202"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Активация задания с помощью службы автоматизации Azure
 
@@ -87,7 +88,7 @@ ms.lasthandoff: 01/17/2018
 
 Чтобы активировать определение задания, выполните следующие действия для модуля runbook: импорт, публикация и запуск.
 
-1. На портале Azure выберите свою учетную запись службы автоматизации. Последовательно выберите пункты **Автоматизация процессов > Модули Runbook** и щелкните**+ Add a runbook** (+ Добавить модуль Runbook).
+1. На портале Azure выберите свою учетную запись службы автоматизации. Последовательно выберите пункты **Автоматизация процессов > Модули Runbook** и щелкните **+ Add a runbook** (+ Добавить модуль Runbook).
 
     ![Добавление модуля runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 

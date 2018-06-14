@@ -1,12 +1,12 @@
 ---
-title: "Пользовательский интерфейс диспетчера данных Microsoft Azure StorSimple | Документация Майкрософт"
-description: "Описывает применение пользовательского интерфейса для службы диспетчера данных StorSimple"
+title: Пользовательский интерфейс диспетчера данных Microsoft Azure StorSimple | Документация Майкрософт
+description: Описывает применение пользовательского интерфейса для службы диспетчера данных StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862263"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Управление службой диспетчера данных StorSimple на портале Azure
 

@@ -1,6 +1,6 @@
 ---
-title: "Включение сквозного режима связи SSL в шлюзе приложений Azure| Документация Майкрософт"
-description: "На этой странице представлен обзор поддержки сквозного режима связи SSL в шлюзе приложений."
+title: Включение сквозного режима связи SSL в шлюзе приложений Azure| Документация Майкрософт
+description: На этой странице представлен обзор поддержки сквозного режима связи SSL в шлюзе приложений.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704716"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Обзор сквозного режима связи SSL в шлюзе приложений
 

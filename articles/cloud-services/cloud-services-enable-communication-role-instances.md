@@ -1,11 +1,11 @@
 ---
-title: "Обмен данными между ролями в облачных службах | Документация Майкрософт"
-description: "Для экземпляров ролей в облачных службах могут быть определены конечные точки (http, https, tcp, udp), взаимодействующие с внешней средой или с другими экземплярами ролей."
+title: Обмен данными между ролями в облачных службах | Документация Майкрософт
+description: Для экземпляров ролей в облачных службах могут быть определены конечные точки (http, https, tcp, udp), взаимодействующие с внешней средой или с другими экземплярами ролей.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27701896"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Включение обмена данными между экземплярами роли в Azure
 Ролей облачной службы взаимодействуют через внутренние и внешние подключения. Внешние подключения называются **входными конечными точками**, а внутренние подключения — **внутренними конечными точками**. В этом разделе описывается изменение [определения службы](cloud-services-model-and-package.md#csdef) для создания конечных точек.

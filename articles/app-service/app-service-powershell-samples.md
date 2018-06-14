@@ -1,6 +1,6 @@
 ---
-title: "Примеры Azure PowerShell. Служба приложений | Документация Майкрософт"
-description: "Примеры Azure PowerShell для службы приложений."
+title: Примеры Azure PowerShell. Служба приложений | Документация Майкрософт
+description: Примеры Azure PowerShell для службы приложений.
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713422"
 ---
 # <a name="azure-powershell-samples"></a>Примеры сценариев Azure PowerShell.
 

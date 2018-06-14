@@ -1,11 +1,11 @@
 ---
-title: "Добавление действия запроса в приложения логики | Документация Майкрософт"
-description: "Обзор действия запроса для выполнения таких операций, как фильтрация массива."
-services: 
-documentationcenter: 
+title: Добавление действия запроса в приложения логики | Документация Майкрософт
+description: Обзор действия запроса для выполнения таких операций, как фильтрация массива.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962651"
 ---
 # <a name="get-started-with-the-query-action"></a>Приступая к работе с действием запроса
 Действие запроса позволяет работать с пакетами и массивами. Оно выполняется рабочими процессами и дает возможность:

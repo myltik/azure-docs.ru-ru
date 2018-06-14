@@ -1,12 +1,12 @@
 ---
-title: "Примеры Azure PowerShell для хранилища BLOB-объектов Azure | Документы Майкрософт"
-description: "Примеры Azure PowerShell для работы с хранилищем BLOB-объектов Azure"
+title: Примеры Azure PowerShell для хранилища BLOB-объектов Azure | Документы Майкрософт
+description: Примеры Azure PowerShell для работы с хранилищем BLOB-объектов Azure
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27535235"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Примеры Azure PowerShell для хранилища BLOB-объектов Azure
 

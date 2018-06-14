@@ -1,12 +1,12 @@
 ---
-title: "Запуск заданий диспетчера данных Microsoft Azure StorSimple с помощью пакета SDK для .NET | Документация Майкрософт"
-description: "Узнайте, как запускать задания диспетчера данных StorSimple с помощью пакета SDK для .NET"
+title: Запуск заданий диспетчера данных Microsoft Azure StorSimple с помощью пакета SDK для .NET | Документация Майкрософт
+description: Узнайте, как запускать задания диспетчера данных StorSimple с помощью пакета SDK для .NET
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27928242"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Запуск преобразования данных с помощью пакета SDK для .NET
 

@@ -1,12 +1,12 @@
 ---
-title: "Обзор планов службы приложений Azure | Документация Майкрософт"
-description: "Узнайте, как работают планы службы приложений Azure и чем они удобны для вашей среды управления."
-keywords: "служба приложений, служба приложений azure, масштабировать, масштабируемый, масштабируемость, план службы приложений, стоимость службы приложений"
+title: Обзор планов службы приложений Azure | Документация Майкрософт
+description: Узнайте, как работают планы службы приложений Azure и чем они удобны для вашей среды управления.
+keywords: служба приложений, служба приложений azure, масштабировать, масштабируемый, масштабируемость, план службы приложений, стоимость службы приложений
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862365"
 ---
 # <a name="azure-app-service-plan-overview"></a>Обзор планов службы приложений Azure
 
