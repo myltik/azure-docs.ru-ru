@@ -1,11 +1,11 @@
 ---
-title: "Настройка портала разработчика для управления API с помощью шаблонов в Azure | Документация Майкрософт"
-description: "Получите дополнительные сведения о настройке портала разработчика в службе управления API Azure с помощью шаблонов"
+title: Настройка портала разработчика для управления API с помощью шаблонов в Azure | Документация Майкрософт
+description: Получите дополнительные сведения о настройке портала разработчика в службе управления API Azure с помощью шаблонов
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118230"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Настройка портала разработчика в службе управления API Azure с помощью шаблонов
 

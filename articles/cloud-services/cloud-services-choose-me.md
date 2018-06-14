@@ -1,8 +1,8 @@
 ---
-title: "Варианты вычислений в Azure: облачные службы Azure | Документация Майкрософт"
-description: "Узнайте о размещении параметров вычислений Azure и их работе: службе приложений, облачных службах Azure и виртуальных машинах"
+title: 'Варианты вычислений в Azure: облачные службы Azure | Документация Майкрософт'
+description: 'Узнайте о размещении параметров вычислений Azure и их работе: службе приложений, облачных службах Azure и виртуальных машинах'
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120290"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Стоит выбрать облачные службы Azure или что-то другое?
 Являются ли облачные службы Azure удачным выбором для вас? Azure предоставляет разные модели размещения для запуска приложений. Каждый из них предоставляет свой набор служб. Выбор одного из них зависит от того, что вы пытаетесь сделать.

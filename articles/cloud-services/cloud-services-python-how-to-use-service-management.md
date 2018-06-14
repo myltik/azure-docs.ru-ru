@@ -1,11 +1,11 @@
 ---
-title: "Использование API управления службами (Python) — руководство по функциям"
-description: "Узнайте, как программными средствами Python реализовать общие задачи управления службами."
+title: Использование API управления службами (Python) — руководство по функциям
+description: Узнайте, как программными средствами Python реализовать общие задачи управления службами.
 services: cloud-services
 documentationcenter: python
 author: lmazuel
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124805"
 ---
 # <a name="use-service-management-from-python"></a>Использование управления службами в Python
 В этом руководстве показано, как программными средствами Python выполнять общие задачи управления службами. Класс **ServiceManagementService** в [пакете SDK Azure для Python](https://github.com/Azure/azure-sdk-for-python) поддерживает программный доступ к большинству функций, связанных с управлением службами, которые доступны на [портале Azure][management-portal]. Эти функции можно использовать для создания, обновления и удаления облачных служб, развернутых служб, служб управления данными и виртуальных машин. Эта возможность может быть полезна при создании приложений, которым требуется программный доступ к управлению службами.

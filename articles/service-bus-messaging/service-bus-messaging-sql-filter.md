@@ -1,12 +1,12 @@
 ---
-title: "Справочник по синтаксису SQLFilter для служебной шины Azure | Документация Майкрософт"
-description: "Сведения о грамматике SQLFilter."
+title: Справочник по синтаксису SQLFilter для служебной шины Azure | Документация Майкрософт
+description: Сведения о грамматике SQLFilter.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29132173"
 ---
 # <a name="sqlfilter-syntax"></a>Синтаксис SQLFilter
 

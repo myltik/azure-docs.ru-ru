@@ -1,6 +1,6 @@
 ---
-title: "включение файла"
-description: "включение файла"
+title: включение файла
+description: включение файла
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -13,6 +13,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28986088"
 ---
 В Cloud Shell создайте план службы приложений с помощью команды [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
