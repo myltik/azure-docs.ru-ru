@@ -1,11 +1,11 @@
 ---
-title: "Масштабирование облачной службы Azure в Windows PowerShell | Документация Майкрософт"
-description: "(Классическая модель.) Узнайте, как использовать PowerShell для масштабирования веб-роли или рабочей роли в Azure."
+title: Масштабирование облачной службы Azure в Windows PowerShell | Документация Майкрософт
+description: (Классическая модель.) Узнайте, как использовать PowerShell для масштабирования веб-роли или рабочей роли в Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998009"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Как масштабировать облачную службу в PowerShell
 

@@ -1,6 +1,6 @@
 ---
-title: "Примеры Azure CLI для управляемых приложений Azure | Документация Майкрософт"
-description: "Примеры Azure CLI для управляемых приложений Azure"
+title: Примеры Azure CLI для управляемых приложений Azure | Документация Майкрософт
+description: Примеры Azure CLI для управляемых приложений Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23632555"
 ---
 # <a name="azure-cli-samples"></a>Примеры Azure CLI
 

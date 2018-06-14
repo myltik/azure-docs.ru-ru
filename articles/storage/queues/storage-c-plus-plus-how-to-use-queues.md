@@ -1,6 +1,6 @@
 ---
-title: "Использование хранилища очередей (C++) | Документация Майкрософт"
-description: "Узнайте, как использовать службу хранилища очередей в Azure. Примеры написаны на C++."
+title: Использование хранилища очередей (C++) | Документация Майкрософт
+description: Узнайте, как использовать службу хранилища очередей в Azure. Примеры написаны на C++.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059949"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Использование хранилища очередей из C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

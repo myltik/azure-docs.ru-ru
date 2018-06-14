@@ -1,6 +1,6 @@
 ---
-title: "Пример скрипта Azure PowerShell. Развертывание управляемого приложения | Документация Майкрософт"
-description: "Пример скрипта Azure PowerShell. Развертывание управляемого приложения"
+title: Пример скрипта Azure PowerShell. Развертывание управляемого приложения | Документация Майкрософт
+description: Пример скрипта Azure PowerShell. Развертывание управляемого приложения
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23637044"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Развертывание управляемого приложения для каталога служб с помощью Azure PowerShell
 

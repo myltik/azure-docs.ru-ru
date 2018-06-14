@@ -1,11 +1,11 @@
 ---
-title: "Наблюдатель за сетями Azure: общие сведения о записи пакетов | Документация Майкрософт"
-description: "Эта страница содержит обзорные сведения о функции записи пакетов в службе наблюдения за сетями"
+title: 'Наблюдатель за сетями Azure: общие сведения о записи пакетов | Документация Майкрософт'
+description: Эта страница содержит обзорные сведения о функции записи пакетов в службе наблюдения за сетями
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036839"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Общие сведения о возможностях записи пакетов в Наблюдателе за сетями Azure
 
