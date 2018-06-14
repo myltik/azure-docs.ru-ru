@@ -1,11 +1,11 @@
 ---
-title: "Оценка приложений Service Fabric в Log Analytics на портале Azure | Документация Майкрософт"
-description: "Решение Service Fabric в Log Analytics можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric на портале Azure."
+title: Оценка приложений Service Fabric в Log Analytics на портале Azure | Документация Майкрософт
+description: Решение Service Fabric в Log Analytics можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric на портале Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932687"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Оценка приложений и микрослужб Azure Service Fabric на портале Azure
 

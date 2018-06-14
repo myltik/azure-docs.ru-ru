@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155785"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Общие сведения о неявном потоке предоставления OAuth2 в Azure Active Directory (AD)
 В спецификации OAuth2 неявное предоставление OAuth2 известно по наибольшему количеству проблем, связанных с безопасностью. Но именно этот подход, реализуемый с использованием библиотеки аутентификации Active Directory для JavaScript, рекомендуется использовать при написании одностраничных приложений. Что это дает? Все зависит от преимуществ: неявное предоставление лучше всего подходит для приложений, которые используют веб-API через JavaScript в браузере.

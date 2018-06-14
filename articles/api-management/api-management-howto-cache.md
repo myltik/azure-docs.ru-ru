@@ -1,11 +1,11 @@
 ---
-title: "Добавление кэширования для повышения производительности в службе управления API Azure | Документация Майкрософт"
-description: "Сведения об уменьшении задержки, использования пропускной способности и загрузки веб-службы для вызовов службы управления API."
+title: Добавление кэширования для повышения производительности в службе управления API Azure | Документация Майкрософт
+description: Сведения об уменьшении задержки, использования пропускной способности и загрузки веб-службы для вызовов службы управления API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26127783"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Добавление кэширования для повышения производительности в службе управления API Azure
 Операции в управлении API можно настроить для кэширования ответов. Кэширование ответов может значительно уменьшить время задержки API, потребляемую пропускную способность, и нагрузку на веб-службу применительно к данным, которые изменяются редко.

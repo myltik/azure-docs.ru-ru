@@ -1,11 +1,11 @@
 ---
-title: "Квоты и ограничения концентраторов событий Microsoft Azure | Документация Майкрософт"
-description: "Ограничения и квоты для концентраторов событий Azure"
+title: Квоты и ограничения концентраторов событий Microsoft Azure | Документация Майкрософт
+description: Ограничения и квоты для концентраторов событий Azure
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b9855dd5-f007-4dd2-89d1-aa6f9b241dc0
 ms.service: event-hubs
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019863"
 ---
 # <a name="event-hubs-quotas"></a>Квоты концентраторов событий
 

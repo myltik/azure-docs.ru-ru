@@ -1,12 +1,12 @@
 ---
-title: "Параметры портов API ретранслятора Azure | Документация Майкрософт"
-description: "Сведения о значениях портов ретранслятора Azure."
+title: Параметры портов API ретранслятора Azure | Документация Майкрософт
+description: Сведения о значениях портов ретранслятора Azure.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28017381"
 ---
 # <a name="azure-relay-port-settings"></a>Параметры порта ретрансляции Azure
 

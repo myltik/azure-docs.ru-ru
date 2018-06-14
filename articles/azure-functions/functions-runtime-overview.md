@@ -1,12 +1,12 @@
 ---
-title: "Обзор среды выполнения Функций Azure | Документация Майкрософт"
-description: "Обзор предварительной версии среды выполнения Функций Azure."
+title: Обзор среды выполнения Функций Azure | Документация Майкрософт
+description: Обзор предварительной версии среды выполнения Функций Azure.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290232"
 ---
 # <a name="azure-functions-runtime-overview"></a>Обзор среды выполнения Функций Azure
 

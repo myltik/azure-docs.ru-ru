@@ -1,13 +1,13 @@
 ---
-title: "Журналы диагностики концентраторов событий Azure | Документация Майкрософт"
-description: "Узнайте, как настроить журналы диагностики для концентраторов событий в Azure."
-keywords: 
-documentationcenter: 
+title: Журналы диагностики концентраторов событий Azure | Документация Майкрософт
+description: Узнайте, как настроить журналы диагностики для концентраторов событий в Azure.
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932721"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Журналы диагностики концентраторов событий
 

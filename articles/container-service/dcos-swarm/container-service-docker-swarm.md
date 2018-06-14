@@ -1,6 +1,6 @@
 ---
-title: "Управление кластером Swarm в Azure с помощью API Docker"
-description: "Развертывание контейнеров в кластер Docker Swarm в Службе контейнеров Azure"
+title: Управление кластером Swarm в Azure с помощью API Docker
+description: Развертывание контейнеров в кластер Docker Swarm в Службе контейнеров Azure
 services: container-service
 author: rgardler
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331551"
 ---
 # <a name="container-management-with-docker-swarm"></a>Управление контейнерами с помощью Docker Swarm
 

@@ -1,11 +1,11 @@
 ---
-title: "Исключения обмена сообщениями служебной шины Azure | Документация Майкрософт"
-description: "Список исключений обмена сообщениями служебной шины и предлагаемые действия."
+title: Исключения обмена сообщениями служебной шины Azure | Документация Майкрософт
+description: Список исключений обмена сообщениями служебной шины и предлагаемые действия.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930156"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Исключения обмена сообщениями служебной шины
 В этой статье перечислены некоторые исключения, создаваемые API обмена сообщениями служебной шины Microsoft Azure. Этот справочник может измениться, поэтому следите за обновлениями.

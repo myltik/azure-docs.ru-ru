@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068428"
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Как назначить пользователей и группы для приложения
 

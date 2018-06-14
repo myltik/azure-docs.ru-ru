@@ -14,6 +14,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054765"
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Управление обновлениями Windows в службе автоматизации Azure
 

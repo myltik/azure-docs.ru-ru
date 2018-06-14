@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156897"
 ---
 # <a name="permissions-in-azure-ad"></a>Разрешения в Azure Active Directory
 Azure Active Directory (Azure AD) широко использует разрешения для потоков OAuth и OpenID Connect (OIDC). После получения маркера доступа от Azure AD ваше приложение будет включать утверждения, описывающие разрешения (также известные как области), которые оно имеет в отношении конкретного ресурса. Это упрощает авторизацию для ресурса, так как достаточно просто проверить, содержит ли маркер соответствующее разрешение для любого вызываемого API. 

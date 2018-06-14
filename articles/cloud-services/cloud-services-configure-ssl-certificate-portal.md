@@ -1,11 +1,11 @@
 ---
-title: "Настройка SSL для облачной службы | Документация Майкрософт"
-description: "Узнайте, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения. В этих примерах используется портал Azure."
+title: Настройка SSL для облачной службы | Документация Майкрософт
+description: Узнайте, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения. В этих примерах используется портал Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24859782"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Настройка SSL для приложения в Azure
 

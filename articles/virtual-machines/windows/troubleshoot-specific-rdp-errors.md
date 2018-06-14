@@ -21,6 +21,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072156"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Устранение некоторых ошибок подключения по протоколу RDP к виртуальной машине Windows в Azure
 При попытке подключиться к удаленному рабочему столу виртуальной машины Windows в Azure могут возникать определенные ошибки. В этой статье описаны некоторые наиболее распространенные сообщения об ошибках, а также действия по их устранению. Если вам не удается подключиться к виртуальной машине по протоколу RDP, но сообщение об ошибке не появляется, см. [руководство по устранению неполадок с подключением к удаленному рабочему столу](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,7 +1,7 @@
 ---
-title: "Изучение клиентов в Azure Application Insights | Документация Майкрософт"
-description: "Руководство по использованию Azure Application Insights для анализа информации о том, как пользователи используют приложение."
-keywords: 
+title: Изучение клиентов в Azure Application Insights | Документация Майкрософт
+description: Руководство по использованию Azure Application Insights для анализа информации о том, как пользователи используют приложение.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24099027"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Использование Azure Application Insights для анализа информации о том, как пользователи используют приложение
 
