@@ -1,13 +1,13 @@
 ---
-title: "Установка интерфейса командной строки контроллера домена или ОС | Документация Майкрософт"
-description: "Установка интерфейса командной строки контроллера домена или ОС."
+title: Установка интерфейса командной строки контроллера домена или ОС | Документация Майкрософт
+description: Установка интерфейса командной строки контроллера домена или ОС.
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: rgardler
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
-keywords: "Контейнеры, микрослужбы, DC/OS, Azure"
+keywords: Контейнеры, микрослужбы, DC/OS, Azure
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22877259"
 ---
 > [!NOTE]
 > Это необходимо для работы с кластерами ACS на основе контроллеров домена или ОС. Это не требуется для кластеров ACS под управлением Swarm.
