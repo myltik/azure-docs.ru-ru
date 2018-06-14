@@ -1,11 +1,11 @@
 ---
-title: "Управление устройствами с помощью StorSimple Snapshot Manager | Документация Майкрософт"
-description: "Узнайте, как использовать оснастку консоли MMC \"Диспетчер моментальных снимков StorSimple\" для подключения устройств StorSimple и управления ими."
+title: Управление устройствами с помощью StorSimple Snapshot Manager | Документация Майкрософт
+description: Узнайте, как использовать оснастку консоли MMC "Диспетчер моментальных снимков StorSimple" для подключения устройств StorSimple и управления ими.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111442"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Использование диспетчера моментальных снимков StorSimple для подключения устройств StorSimple и управления ими
 ## <a name="overview"></a>Обзор

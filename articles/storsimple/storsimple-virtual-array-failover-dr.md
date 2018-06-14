@@ -1,11 +1,11 @@
 ---
-title: "Аварийное восстановление и отработка отказа устройств для виртуального массива StorSimple | Документация Майкрософт"
-description: "Дополнительные сведения об отработке отказа виртуального массива StorSimple."
+title: Аварийное восстановление и отработка отказа устройств для виртуального массива StorSimple | Документация Майкрософт
+description: Дополнительные сведения об отработке отказа виртуального массива StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110752"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Аварийное восстановление и отработка отказа устройства для виртуального массива StorSimple на портале Azure
 

@@ -1,11 +1,11 @@
 ---
-title: "Администрирование с помощью StorSimple Snapshot Manager | Документация Майкрософт"
-description: "Общие сведения и ссылки на дополнительную информацию о задачах администрирования и рабочих процессах, которые можно выполнять с помощью диспетчера моментальных снимков StorSimple."
+title: Администрирование с помощью StorSimple Snapshot Manager | Документация Майкрософт
+description: Общие сведения и ссылки на дополнительную информацию о задачах администрирования и рабочих процессах, которые можно выполнять с помощью диспетчера моментальных снимков StorSimple.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109222"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Использование диспетчера моментальных снимков StorSimple для администрирования решения StorSimple
 

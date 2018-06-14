@@ -1,11 +1,11 @@
 ---
-title: "Заметки о выпуске обновлений для виртуального массива StorSimple | Документация Майкрософт"
-description: "В этой статье описаны критические открытые проблемы виртуального массива StorSimple с обновлением 0.3 и способы их устранения."
+title: Заметки о выпуске обновлений для виртуального массива StorSimple | Документация Майкрософт
+description: В этой статье описаны критические открытые проблемы виртуального массива StorSimple с обновлением 0.3 и способы их устранения.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b197651a-3c40-4185-b23d-4c8f22cfa8f4
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109342"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Заметки о выпуске обновления 0.3 для виртуального массива StorSimple
 ## <a name="overview"></a>Обзор

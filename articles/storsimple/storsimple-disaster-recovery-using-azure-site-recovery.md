@@ -1,11 +1,11 @@
 ---
-title: "Автоматизация аварийного восстановления файловых ресурсов StorSimple с помощью Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье описываются инструкции и рекомендации по созданию решения аварийного восстановления для файловых ресурсов, размещенных в хранилище Microsoft Azure StorSimple."
+title: Автоматизация аварийного восстановления файловых ресурсов StorSimple с помощью Azure Site Recovery | Документация Майкрософт
+description: В этой статье описываются инструкции и рекомендации по созданию решения аварийного восстановления для файловых ресурсов, размещенных в хранилище Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23452413"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Решение по автоматизированному аварийному восстановлению с использованием Azure Site Recovery для файловых ресурсов, размещенных в StorSimple
 ## <a name="overview"></a>Обзор

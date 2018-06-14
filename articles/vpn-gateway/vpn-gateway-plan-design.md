@@ -1,11 +1,11 @@
 ---
-title: "Планирование и проектирование распределенных подключений: VPN-шлюз Azure | Документация Майкрософт"
-description: "Сведения о планировании и проектировании VPN-шлюза для подключений между организациями и между виртуальными сетями, а также гибридных подключений"
+title: 'Планирование и проектирование распределенных подключений: VPN-шлюз Azure | Документация Майкрософт'
+description: Сведения о планировании и проектировании VPN-шлюза для подключений между организациями и между виртуальными сетями, а также гибридных подключений
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125482"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Планирование и проектирование VPN-шлюза
 

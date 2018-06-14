@@ -1,12 +1,12 @@
 ---
-title: "Компоненты оборудования StorSimple серии 8000 и их состояние | Документация Майкрософт"
-description: "Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера устройств StorSimple."
+title: Компоненты оборудования StorSimple серии 8000 и их состояние | Документация Майкрософт
+description: Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера устройств StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110062"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Использование службы диспетчера устройств StorSimple для мониторинга компонентов оборудования и их состояния
 ## <a name="overview"></a>Обзор

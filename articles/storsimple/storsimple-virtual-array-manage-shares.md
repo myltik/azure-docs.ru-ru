@@ -1,11 +1,11 @@
 ---
-title: "Управление общими ресурсами виртуального массива StorSimple | Документация Майкрософт"
-description: "В этой статье описывается диспетчер устройств StorSimple и способы его использования для управления общими папками в виртуальном массиве StorSimple."
+title: Управление общими ресурсами виртуального массива StorSimple | Документация Майкрософт
+description: В этой статье описывается диспетчер устройств StorSimple и способы его использования для управления общими папками в виртуальном массиве StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 0a799c83-fde5-4f3f-af0e-67535d1882b6
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110592"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Управление общими папками в виртуальном массиве StorSimple с помощью диспетчера устройств StorSimple
 
