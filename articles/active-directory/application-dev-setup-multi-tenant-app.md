@@ -1,11 +1,11 @@
 ---
-title: "Настройка нового мультитенантного приложения | Документация Майкрософт"
-description: "Узнайте, как настроить приложение в качестве мультитенантного и как работают такие приложения"
+title: Настройка нового мультитенантного приложения | Документация Майкрософт
+description: Узнайте, как настроить приложение в качестве мультитенантного и как работают такие приложения
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26734010"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Настройка нового мультитенантного приложения
 

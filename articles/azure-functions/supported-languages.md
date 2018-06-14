@@ -1,12 +1,12 @@
 ---
-title: "Поддерживаемые языки в решении \"Функции Azure\""
-description: "Узнайте, какие языки поддерживаются (являются общедоступными), а какие используются в режиме экспериментальной или предварительной версии."
+title: Поддерживаемые языки в решении "Функции Azure"
+description: Узнайте, какие языки поддерживаются (являются общедоступными), а какие используются в режиме экспериментальной или предварительной версии.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24879408"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Поддерживаемые языки в решении "Функции Azure"
 

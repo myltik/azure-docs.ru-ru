@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация Azure Logic Apps"
+title: Документация Azure Logic Apps
 metadata:
-  title: "Документация по Azure Logic Apps. Руководства и справочник по API | Документация Майкрософт"
-  description: "Служба Azure Logic Apps упрощает создание автоматических масштабируемых рабочих процессов для интеграции приложений и данных в различные облачные службы и локальные системы. Узнайте, как создавать, разрабатывать и развертывать приложения логики для автоматизации бизнес-процессов, при помощи наших кратких руководств, инструкций, шаблонов и API-интерфейсов."
+  title: Документация по Azure Logic Apps. Руководства и справочник по API | Документация Майкрософт
+  description: Служба Azure Logic Apps упрощает создание автоматических масштабируемых рабочих процессов для интеграции приложений и данных в различные облачные службы и локальные системы. Узнайте, как создавать, разрабатывать и развертывать приложения логики для автоматизации бизнес-процессов, при помощи наших кратких руководств, инструкций, шаблонов и API-интерфейсов.
   services: logic-apps
   author: czeumault
   manager: estfan
@@ -18,48 +18,49 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 01/19/2018
+  ms.locfileid: "27967846"
 abstract:
-  description: "Служба Azure Logic Apps упрощает создание автоматических масштабируемых рабочих процессов для интеграции приложений и данных в различные облачные службы и локальные системы. Узнайте, как создавать, разрабатывать и развертывать приложения логики для автоматизации бизнес-процессов, при помощи наших кратких руководств, инструкций, шаблонов и API-интерфейсов."
+  description: Служба Azure Logic Apps упрощает создание автоматических масштабируемых рабочих процессов для интеграции приложений и данных в различные облачные службы и локальные системы. Узнайте, как создавать, разрабатывать и развертывать приложения логики для автоматизации бизнес-процессов, при помощи наших кратких руководств, инструкций, шаблонов и API-интерфейсов.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как создать приложение логики в Azure."
+    text: Узнайте, как создать приложение логики в Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как создавать приложения логики, которые выполняются по расписанию, и интегрировать данные в различные службы Azure, службы Майкрософт и другие приложения SaaS (программное обеспечение как услуга)."
+    text: Узнайте, как создавать приложения логики, которые выполняются по расписанию, и интегрировать данные в различные службы Azure, службы Майкрософт и другие приложения SaaS (программное обеспечение как услуга).
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow\">Проверка трафика при помощи приложения логики, которое выполняется по расписанию</a>"
-    - html: "<a href=\"/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow\">Управление запросами для списка рассылки с помощью приложения логики</a>"
-    - html: "<a href=\"/azure/logic-apps/tutorial-process-email-attachments-workflow\">Обработка сообщений электронной почты и вложений с помощью приложения логики</a>"
-- title: "Видеоуроки PluralSight"
+    - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">Проверка трафика при помощи приложения логики, которое выполняется по расписанию</a>
+    - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">Управление запросами для списка рассылки с помощью приложения логики</a>
+    - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">Обработка сообщений электронной почты и вложений с помощью приложения логики</a>
+- title: Видеоуроки PluralSight
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Azure Logic Apps. Начало работы"
+    - title: Azure Logic Apps. Начало работы
       href: https://www.pluralsight.com/courses/azure-logic-apps-getting-started
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/azure-logic-apps-getting-started
-- title: "Справочные материалы"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
+    - title: Командная строка
       html: <p><a href="/powershell/module/azurerm.logicapp/?view=azurermps-5.1.1">Azure PowerShell</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/logic/\">справочник по API REST</a></p>"
+      html: <p><a href="/rest/api/logic/">справочник по API REST</a></p>

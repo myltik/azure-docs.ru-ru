@@ -1,6 +1,6 @@
 ---
-title: "Как использовать хранилище очередей из Python | Документация Майкрософт"
-description: "Узнайте о том, как использовать службу очередей Azure из Python для создания и удаления очередей, а также для вставки, получения и удаления сообщений."
+title: Как использовать хранилище очередей из Python | Документация Майкрософт
+description: Узнайте о том, как использовать службу очередей Azure из Python для создания и удаления очередей, а также для вставки, получения и удаления сообщений.
 services: storage
 documentationcenter: python
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25986755"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Использование хранилища очередей из Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

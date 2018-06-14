@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок, возникающих при развертывании виртуальных машин Windows с помощью классической модели | Документация Майкрософт"
-description: "Устранение неполадок, возникающих при создании виртуальной машины Windows в Azure с помощью классической модели развертывания"
+title: Устранение неполадок, возникающих при развертывании виртуальных машин Windows с помощью классической модели | Документация Майкрософт
+description: Устранение неполадок, возникающих при создании виртуальной машины Windows в Azure с помощью классической модели развертывания
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 9f01d237-ba39-4c32-b72d-18f5f505d43a
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24056667"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]

@@ -1,8 +1,8 @@
 ---
-title: "Использование кластера пакета HPC с Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как интегрировать кластер пакета Microsoft HPC 2016 в Azure с Azure Active Directory"
+title: Использование кластера пакета HPC с Azure Active Directory | Документация Майкрософт
+description: Узнайте, как интегрировать кластер пакета Microsoft HPC 2016 в Azure с Azure Active Directory
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/20/2017
+ms.locfileid: "25452578"
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Управление кластером пакета HPC в Azure с помощью Azure Active Directory
 [Пакет Microsoft HPC 2016](https://technet.microsoft.com/library/cc514029) поддерживает интеграцию с [Azure Active Directory](../../active-directory/index.md) (Azure AD) для администраторов, развертывающих кластер пакета HPC в Azure.

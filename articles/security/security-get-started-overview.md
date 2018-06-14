@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о безопасности в Azure | Документация Майкрософт"
-description: "Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure."
+title: Общие сведения о безопасности в Azure | Документация Майкрософт
+description: Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25542152"
 ---
 # <a name="azure-security-overview"></a>Общие сведения о безопасности в Azure
 Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure. Если вас интересует, как Azure обеспечивает соответствие требованиям и защищает собственную инфраструктуру, посетите [центр управления безопасностью Майкрософт](https://www.microsoft.com/TrustCenter/default.aspx).

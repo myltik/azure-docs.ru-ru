@@ -1,11 +1,11 @@
 ---
-title: "Изменения в службе Azure Log Analytics | Документация Майкрософт"
-description: "Эта статья содержит часто задаваемые вопросы о переходе Log Analytics на новый язык запросов."
+title: Изменения в службе Azure Log Analytics | Документация Майкрософт
+description: Эта статья содержит часто задаваемые вопросы о переходе Log Analytics на новый язык запросов.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26039865"
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Изменения в службе Azure Log Analytics
 Помимо нового языка запросов, есть несколько улучшений и изменений, которые нужно учесть при [обновлении языка запросов для рабочей области Log Analytics](log-analytics-log-search-new.md).  В этой статье кратко описаны различия между прежней и обновленной версиями рабочей области и по каждому из них предоставлены ссылки на подробное описание. 

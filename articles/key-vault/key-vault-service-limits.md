@@ -1,11 +1,11 @@
 ---
-title: "Ограничения службы для хранилища ключей Azure | Документация Майкрософт"
-description: "Узнайте об ограничениях службы для хранилища ключей Azure."
+title: Ограничения службы для хранилища ключей Azure | Документация Майкрософт
+description: Узнайте об ограничениях службы для хранилища ключей Azure.
 documentationcenter: dev-center-name
 services: key-vault
 author: barclayn
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 1a5f1222-57f0-4a2a-98ee-92bb899f9d75
 ms.service: key-vault
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984190"
 ---
 # <a name="azure-key-vault-service-limits"></a>Ограничения службы Azure Key Vault
 Ниже представлены ограничения службы для хранилища ключей Azure.

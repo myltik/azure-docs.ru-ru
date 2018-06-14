@@ -1,11 +1,11 @@
 ---
-title: "Политики аутентификации в службе управления API Azure | Документация Майкрософт"
-description: "Сведения о политиках аутентификации, доступных для использования в службе управления API Azure."
+title: Политики аутентификации в службе управления API Azure | Документация Майкрософт
+description: Сведения о политиках аутентификации, доступных для использования в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26127765"
 ---
 # <a name="api-management-authentication-policies"></a>Политики аутентификации в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  

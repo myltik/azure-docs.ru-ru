@@ -1,6 +1,6 @@
 ---
-title: "Создание бессерверного API с помощью Функций Azure | Документация Майкрософт"
-description: "Руководство по созданию бессерверного API с помощью Функций Azure."
+title: Создание бессерверного API с помощью Функций Azure | Документация Майкрософт
+description: Руководство по созданию бессерверного API с помощью Функций Azure.
 services: functions
 author: mattchenderson
 manager: cfowler
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24811606"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Создание бессерверного API с помощью Функций Azure
 

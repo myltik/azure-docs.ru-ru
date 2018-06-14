@@ -1,13 +1,13 @@
 ---
-title: "Пример сценария Azure PowerShell — удаление приложения из кластера | Документы Майкрософт"
-description: "Пример сценария Azure PowerShell — удаление приложения из кластера Service Fabric."
+title: Пример сценария Azure PowerShell — удаление приложения из кластера | Документы Майкрософт
+description: Пример сценария Azure PowerShell — удаление приложения из кластера Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927868"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>Удаление приложения из кластера Service Fabric
 

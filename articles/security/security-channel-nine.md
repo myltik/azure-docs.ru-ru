@@ -1,6 +1,6 @@
 ---
-title: "Видеоматериалы по безопасности в Azure на Channel 9 | Документация Майкрософт"
-description: "Эта статья содержит проверенный список презентаций по безопасности Azure в Channel 9. Channel 9 — это сообщество, помогающее разработчикам взаимодействовать с пользователями их продуктов."
+title: Видеоматериалы по безопасности в Azure на Channel 9 | Документация Майкрософт
+description: Эта статья содержит проверенный список презентаций по безопасности Azure в Channel 9. Channel 9 — это сообщество, помогающее разработчикам взаимодействовать с пользователями их продуктов.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540141"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Видеоматериалы по безопасности в Azure на Channel 9
 [Channel 9](https://channel9.msdn.com/) — это сообщество, которое позволяет создателям наших продуктов знакомиться и общаться с клиентами.

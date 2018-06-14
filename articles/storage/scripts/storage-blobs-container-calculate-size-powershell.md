@@ -1,12 +1,12 @@
 ---
-title: "Пример скрипта Azure PowerShell Вычисление размера контейнера большого двоичного объекта | Документация Майкрософт"
-description: "Сведения о вычислении размера контейнера в хранилище BLOB-объектов Azure за счет сложения размеров больших двоичных объектов, хранящихся в нем."
+title: Пример скрипта Azure PowerShell Вычисление размера контейнера большого двоичного объекта | Документация Майкрософт
+description: Сведения о вычислении размера контейнера в хранилище BLOB-объектов Azure за счет сложения размеров больших двоичных объектов, хранящихся в нем.
 services: storage
 documentationcenter: na
 author: tamram
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24814581"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Вычисление размера контейнера в хранилище BLOB-объектов
 

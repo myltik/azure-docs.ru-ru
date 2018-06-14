@@ -1,16 +1,16 @@
 ---
-title: "Удаление шлюза виртуальной сети с помощью PowerShell (классическая модель Azure) | Документация Майкрософт"
-description: "Удаление шлюза виртуальной сети с помощью PowerShell в классической модели развертывания."
+title: Удаление шлюза виртуальной сети с помощью PowerShell (классическая модель Azure) | Документация Майкрософт
+description: Удаление шлюза виртуальной сети с помощью PowerShell в классической модели развертывания.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24994500"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Удаление шлюза виртуальной сети с помощью PowerShell (классическая модель)
 > [!div class="op_single_selector"]

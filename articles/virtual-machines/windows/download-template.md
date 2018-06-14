@@ -1,11 +1,11 @@
 ---
-title: "Скачивание шаблона для виртуальной машины Azure | Документация Майкрософт"
-description: "Автоматизация развертываний в модели развертывания с помощью Resource Manager с использованием скачанного шаблона для виртуальной машины."
+title: Скачивание шаблона для виртуальной машины Azure | Документация Майкрософт
+description: Автоматизация развертываний в модели развертывания с помощью Resource Manager с использованием скачанного шаблона для виртуальной машины.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/02/2017
+ms.locfileid: "26055795"
 ---
 # <a name="download-the-template-for-a-vm"></a>Скачивание шаблона для виртуальной машины
 При создании виртуальной машины в Azure с помощью портала или PowerShell автоматически создается шаблон Resource Manager. Этот шаблон можно использовать для быстрого дублирования развертывания. Шаблон содержит сведения обо всех ресурсах в группе ресурсов. Для виртуальной машины это означает, что шаблон содержит все, что создается для поддержки виртуальных машин в этой группе ресурсов, включая сетевые ресурсы.
