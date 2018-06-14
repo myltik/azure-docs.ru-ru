@@ -1,11 +1,11 @@
 ---
-title: "Общие сведения о хранилище ключей Azure Stack | Документация Майкрософт"
-description: "Узнайте об управлении ключами и секретами в хранилище ключей Azure Stack"
+title: Общие сведения о хранилище ключей Azure Stack | Документация Майкрософт
+description: Узнайте об управлении ключами и секретами в хранилище ключей Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26636732"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Общие сведения о хранилище ключей Azure Stack
 

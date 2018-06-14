@@ -1,11 +1,11 @@
 ---
-title: "Вопросы и ответы по новым возможностям поиска по журналам Log Analytics | Документация Майкрософт"
-description: "Эта статья содержит часто задаваемые вопросы о переходе Log Analytics на новый язык запросов."
+title: Вопросы и ответы по новым возможностям поиска по журналам Log Analytics | Документация Майкрософт
+description: Эта статья содержит часто задаваемые вопросы о переходе Log Analytics на новый язык запросов.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993875"
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Вопросы и ответы по новым возможностям поиска по журналам Log Analytics и известные проблемы
 

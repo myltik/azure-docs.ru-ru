@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156812"
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>В чем отличия конечной точки версии 2.0?
 Если вы знакомы с Azure Active Directory или интегрировали приложения с Azure AD в прошлом, то можете столкнуться с некоторыми неожиданными отличиями в конечной точке версии 2.0. Они описаны в этом документе.

@@ -1,11 +1,11 @@
 ---
-title: "Предварительная выборка сообщений служебной шины Azure | Документация Майкрософт"
-description: "Повышение производительности с помощью предварительной выборки сообщений служебной шины Azure."
+title: Предварительная выборка сообщений служебной шины Azure | Документация Майкрософт
+description: Повышение производительности с помощью предварительной выборки сообщений служебной шины Azure.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28928167"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Предварительная выборка сообщений служебной шины Azure
 

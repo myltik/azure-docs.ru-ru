@@ -9,11 +9,12 @@ ms.topic: overview
 ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 10055b75000e5affdcdef5841a8d45db8b41ef05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 883da7d1487922f5cd986a67d7a7bded78ea3759
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058086"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Общие сведения о частных реестрах контейнеров Docker в Azure
 
@@ -54,13 +55,10 @@ ms.lasthandoff: 05/08/2018
 
 [Сборка реестра контейнеров Azure](container-registry-build-overview.md) (сборка ACR) — это набор компонентов в Реестре контейнеров Azure, предоставляющий упрощенные и эффективные сборки образа контейнера Docker в Azure. Используйте сборку ACR для расширения внутреннего цикла разработки в облако за счет разгрузки операций `docker build` в Azure. Настройте задачи сборки, чтобы автоматизировать конвейер установки исправлений ОС и платформы контейнера и автоматически создавать образы, когда ваша команда фиксирует код в системе управления версиями.
 
-> [!NOTE]
-> Сейчас сборка ACR доступна в режиме предварительной версии и поддерживается только реестрами контейнера Azure в регионах **восточной части США** (eastus) и **Западной Европы** (westeurope). Предварительные версии предоставляются при условии, что вы принимаете [дополнительные условия использования][terms-of-use]. Некоторые аспекты этой функции могут быть изменены до выхода общедоступной версии.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание реестра контейнеров на портале Azure](container-registry-get-started-portal.md)
 * [Создание реестра контейнеров с помощью Azure CLI](container-registry-get-started-azure-cli.md)
 * [Automate OS and framework patching with ACR Build](container-registry-build-overview.md) (Автоматизация установки исправлений ОС и платформы с помощью сборки ACR) (предварительная версия)
-
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

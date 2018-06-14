@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019523"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Механизм безопасности. Авторизация | Устранение рисков 
 | Продукт или служба | Статья |

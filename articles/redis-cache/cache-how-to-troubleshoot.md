@@ -1,11 +1,11 @@
 ---
-title: "Как устранять неполадки кэша Redis для Azure | Документация Майкрософт"
-description: "Узнайте, как устранить самые распространенные проблемы с кэшем Redis для Azure"
+title: Как устранять неполадки кэша Redis для Azure | Документация Майкрософт
+description: Узнайте, как устранить самые распространенные проблемы с кэшем Redis для Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984577"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Способы устранения проблем с кэшем Redis для Azure
 Эта статья содержит сведения об устранении следующих категорий проблем с кэшем Redis для Azure.

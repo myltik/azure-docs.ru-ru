@@ -1,12 +1,12 @@
 ---
-title: "Автоматическое масштабирование единиц пропускной способности концентратора событий Azure | Документы Майкрософт"
-description: "Включение автоматического расширения пространства имен для автоматического масштабирования единиц пропускной способности"
+title: Автоматическое масштабирование единиц пропускной способности концентратора событий Azure | Документы Майкрософт
+description: Включение автоматического расширения пространства имен для автоматического масштабирования единиц пропускной способности
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018615"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Автоматическое масштабирование единиц пропускной способности концентратора событий Azure
 

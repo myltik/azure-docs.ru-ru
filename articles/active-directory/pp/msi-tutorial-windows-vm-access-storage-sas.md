@@ -1,8 +1,8 @@
 ---
-title: "Использование управляемого удостоверения службы виртуальной машины Windows для доступа к службе хранилища Azure с учетными данными SAS"
-description: "Руководство по использованию управляемого удостоверения службы (MSI) виртуальной машины Windows для доступа к службе хранилища Azure с учетными данными SAS вместо ключа доступа к учетной записи хранения."
+title: Использование управляемого удостоверения службы виртуальной машины Windows для доступа к службе хранилища Azure с учетными данными SAS
+description: Руководство по использованию управляемого удостоверения службы (MSI) виртуальной машины Windows для доступа к службе хранилища Azure с учетными данными SAS вместо ключа доступа к учетной записи хранения.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979992"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Использование управляемого удостоверения службы виртуальной машины Windows для доступа к службе хранилища Azure с учетными данными SAS
 

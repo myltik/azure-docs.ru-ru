@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927939"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Устранение неполадок при разработке приложения Azure Active Directory и управлении им
 Эта статья поможет вам найти полезные документы, описывающие устранение некоторых наиболее распространенных проблем, связанных с управлением **корпоративными приложениями** и разработкой новых приложений с помощью **реестра приложений**.

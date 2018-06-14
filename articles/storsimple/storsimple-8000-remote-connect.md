@@ -1,12 +1,12 @@
 ---
-title: "Удаленное подключение к устройству StorSimple | Документация Майкрософт"
-description: "Объясняется, как настроить устройство для удаленного управления, а затем подключиться к Windows PowerShell для StorSimple по протоколу HTTP или HTTPS."
+title: Удаленное подключение к устройству StorSimple | Документация Майкрософт
+description: Объясняется, как настроить устройство для удаленного управления, а затем подключиться к Windows PowerShell для StorSimple по протоколу HTTP или HTTPS.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103961"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Удаленное подключение к устройству StorSimple серии 8000
 

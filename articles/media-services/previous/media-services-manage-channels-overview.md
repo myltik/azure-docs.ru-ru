@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943235"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Общие сведения о потоковой трансляции с использованием служб мультимедиа Azure
 

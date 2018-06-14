@@ -1,11 +1,11 @@
 ---
-title: "Асинхронный обмен сообщениями в служебной шине | Документация Майкрософт"
-description: "Описание асинхронного обмена сообщениями в служебной шине Azure."
+title: Асинхронный обмен сообщениями в служебной шине | Документация Майкрософт
+description: Описание асинхронного обмена сообщениями в служебной шине Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28929992"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Шаблоны асинхронного обмена сообщениями и высокий уровень доступности
 

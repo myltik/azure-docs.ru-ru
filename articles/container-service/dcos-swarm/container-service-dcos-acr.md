@@ -1,6 +1,6 @@
 ---
-title: "Использование ACR для кластера DC/OS Azure"
-description: "Использование реестра контейнеров Azure с кластером DC/OS в Службе контейнеров Azure"
+title: Использование ACR для кластера DC/OS Azure
+description: Использование реестра контейнеров Azure с кластером DC/OS в Службе контейнеров Azure
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28922898"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Использование ACR в кластере DC/OS для развертывания приложения
 

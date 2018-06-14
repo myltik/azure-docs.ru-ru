@@ -1,11 +1,11 @@
 ---
-title: "Как назначить доступ на основе MSI к ресурсу Azure с помощью портала Azure"
-description: "Пошаговые инструкции по назначению MSI для одного ресурса и предоставлению доступа другому ресурсу с помощью портала Azure."
+title: Как назначить доступ на основе MSI к ресурсу Azure с помощью портала Azure
+description: Пошаговые инструкции по назначению MSI для одного ресурса и предоставлению доступа другому ресурсу с помощью портала Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28978843"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Назначение доступа на основе управляемого удостоверения службы для ресурса с помощью портала Azure
 

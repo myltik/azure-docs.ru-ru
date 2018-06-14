@@ -1,6 +1,6 @@
 ---
-title: "Конфиденциальные данные. Средство моделирования угроз Microsoft Azure | Документация Майкрософт"
-description: "Устранение угроз, обнаруженных с помощью средства моделирования угроз"
+title: Конфиденциальные данные. Средство моделирования угроз Microsoft Azure | Документация Майкрософт
+description: Устранение угроз, обнаруженных с помощью средства моделирования угроз
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019421"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Механизм безопасности. Конфиденциальные данные | Устранение угроз 
 | Продукт или служба | Статья |

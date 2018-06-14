@@ -1,12 +1,12 @@
 ---
-title: "Развертывание высокодоступных служб AD FS в нескольких регионах Azure с помощью диспетчера трафика Azure | Документация Майкрософт"
-description: "Из этого документа вы узнаете, как развертывать AD FS в Azure, чтобы обеспечить высокую доступность."
-keywords: "AD FS с диспетчером трафика Azure, adfs с диспетчером трафика, географический, несколько центров обработки данных, географические центры обработки данных, нескольких географических центров обработки данных, развертывание AD FS в Azure, развертывание azure adfs, azure adfs, azure ad fs, развертывание adfs, развертывание ad fs, adfs в azure, развертывание adfs в azure, развертывание AD FS в azure, adfs azure, введение в службы федерации Active Directory, Azure, AD FS в Azure, iaas, ADFS, переместить adfs в azure"
+title: Развертывание высокодоступных служб AD FS в нескольких регионах Azure с помощью диспетчера трафика Azure | Документация Майкрософт
+description: Из этого документа вы узнаете, как развертывать AD FS в Azure, чтобы обеспечить высокую доступность.
+keywords: AD FS с диспетчером трафика Azure, adfs с диспетчером трафика, географический, несколько центров обработки данных, географические центры обработки данных, нескольких географических центров обработки данных, развертывание AD FS в Azure, развертывание azure adfs, azure adfs, azure ad fs, развертывание adfs, развертывание ad fs, adfs в azure, развертывание adfs в azure, развертывание AD FS в azure, adfs azure, введение в службы федерации Active Directory, Azure, AD FS в Azure, iaas, ADFS, переместить adfs в azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604785"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Развертывание AD FS высокого уровня доступности в нескольких регионах Azure с помощью диспетчера трафика Azure
 [развертыванию AD FS в Azure](active-directory-aadconnect-azure-adfs.md) , содержит пошаговые инструкции, с помощью которых вы можете развернуть в Azure простую инфраструктуру AD FS для вашей организации. В этой статье описаны дальнейшие действия по развертыванию AD FS в нескольких регионах Azure с помощью [диспетчера трафика Azure](../traffic-manager/traffic-manager-overview.md). С помощью диспетчера трафика Azure вы можете создать для своей организации географически распространенную и высокопроизводительную инфраструктуру AD FS с высоким уровнем доступности, применяя различные методы маршрутизации в соответствии с требованиями инфраструктуры.

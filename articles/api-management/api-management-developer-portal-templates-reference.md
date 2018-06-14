@@ -1,11 +1,11 @@
 ---
-title: "Шаблоны портала разработчика в службе управления API Azure | Документация Майкрософт"
-description: "Сведения о настройке содержимого страниц портала разработчика с использованием набора шаблонов в службе управления API Azure."
+title: Шаблоны портала разработчика в службе управления API Azure | Документация Майкрософт
+description: Сведения о настройке содержимого страниц портала разработчика с использованием набора шаблонов в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128755"
 ---
 # <a name="developer-portal-templates"></a>Шаблоны портала разработчика
 

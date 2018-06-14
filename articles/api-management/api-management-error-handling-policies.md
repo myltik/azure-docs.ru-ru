@@ -1,11 +1,11 @@
 ---
-title: "Обработка ошибок в политиках управления API Azure | Документация Майкрософт"
-description: "Информация о том, как следует реагировать на ошибки, возникающие во время обработки запросов в службе управления API Azure."
+title: Обработка ошибок в политиках управления API Azure | Документация Майкрософт
+description: Информация о том, как следует реагировать на ошибки, возникающие во время обработки запросов в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128232"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Обработка ошибок в политиках управления API
 Управление API Azure позволяет издателям реагировать на ошибки, которые могут возникать во время обработки запросов к прокси-серверу, предоставляя объект `ProxyError`. Доступ к объекту `ProxyError` осуществляется через свойство [context.LastError](api-management-policy-expressions.md#ContextVariables), и его могут использовать политики в разделе `on-error`. Эта статья содержит справочную информацию о возможностях обработки ошибок, которые предоставляет служба управления API Azure.  

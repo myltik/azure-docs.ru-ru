@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по службе \"Сетка событий Azure\""
+title: Документация по службе "Сетка событий Azure"
 metadata:
-  title: "Документация по службе \"Сетка событий Azure\". Руководства и справочник по API"
-  description: "Служба \"Сетка событий Azure\" реагирует на соответствующие события в службах Azure и сторонних службах практически в реальном времени."
+  title: Документация по службе "Сетка событий Azure". Руководства и справочник по API
+  description: Служба "Сетка событий Azure" реагирует на соответствующие события в службах Azure и сторонних службах практически в реальном времени.
   services: event-grid
   author: czeumault
   manager: carolz
@@ -18,19 +18,20 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 02/01/2018
+  ms.locfileid: "28921775"
 abstract:
   description: "\"Сетка событий Azure\" — это полностью управляемая интеллектуальная служба маршрутизации событий, которая обеспечивает равномерное потребление событий с помощью модели \"публикация — подписка\". Служба \"Сетка событий Azure\" реагирует на соответствующие события в службах Azure и сторонних службах практически в реальном времени. Узнайте, как использовать службу \"Сетка событий Azure\", ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как создавать пользовательские события и подписываться на них."
+    text: Узнайте, как создавать пользовательские события и подписываться на них.
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/event-grid/media/index/cli.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: /azure/event-grid/custom-event-quickstart
     - image:
         src: /azure/event-grid/media/index/logo_powershell.svg
@@ -38,40 +39,40 @@ sections:
       href: /azure/event-grid/custom-event-quickstart-powershell
     - image:
         src: /azure/event-grid/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: /azure/event-grid/custom-event-quickstart-portal
   - type: paragraph
-    text: "Узнайте, как маршрутизировать события хранилища BLOB-объектов."
+    text: Узнайте, как маршрутизировать события хранилища BLOB-объектов.
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/event-grid/media/index/cli.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
     - image:
         src: /azure/event-grid/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как разрабатывать приложения, которые реагируют на события."
+    text: Узнайте, как разрабатывать приложения, которые реагируют на события.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\">Отслеживание изменений в виртуальных машинах с помощью приложений логики</a>"
-    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Изменение размера переданных изображений</a>"
-    - html: "<a href=\"/azure/event-grid/ensure-tags-exists-on-new-virtual-machines\">Интеграция службы автоматизации Azure со службой \"Сетка событий Azure\"</a>."
-- title: "Справочные материалы"
+    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Отслеживание изменений в виртуальных машинах с помощью приложений логики</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Изменение размера переданных изображений</a>
+    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Интеграция службы автоматизации Azure со службой "Сетка событий Azure"</a>.
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/eventgrid\">интерфейс командной строки Azure</a></p><p><a href=\"/powershell/module/azurerm.eventgrid\">PowerShell</a></p>"
-    - title: "Интерфейсы API REST"
+    - title: Командная строка
+      html: <p><a href="/cli/azure/eventgrid">интерфейс командной строки Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+    - title: Интерфейсы API REST
       html: <p><a href="/rest/api/eventgrid">REST</a></p>
-    - title: "Схемы"
-      html: "<p><a href=\"/azure/event-grid/subscription-creation-schema \">Схема подписки</a></p><p><a href=\"/azure/event-grid/event-schema\">Схема событий</a></p>"
+    - title: Схемы
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Схема подписки</a></p><p><a href="/azure/event-grid/event-schema">Схема событий</a></p>
