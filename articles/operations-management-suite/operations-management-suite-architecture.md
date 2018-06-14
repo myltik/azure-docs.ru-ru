@@ -1,8 +1,8 @@
 ---
-title: "Архитектура Operations Management Suite (OMS) | Документация Майкрософт"
-description: "Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье определяются различные службы в составе OMS и приводятся ссылки на подробные сведения об этих службах."
+title: Архитектура Operations Management Suite (OMS) | Документация Майкрософт
+description: Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье определяются различные службы в составе OMS и приводятся ссылки на подробные сведения об этих службах.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26683271"
 ---
 # <a name="oms-architecture"></a>Архитектура OMS
 [Operations Management Suite](https://azure.microsoft.com/documentation/services/operations-management-suite/) — это набор облачных служб для управления локальными и облачными средами.  В этой статье описаны различные локальные и облачные компоненты OMS, а также приведен обзор архитектуры облачных вычислений.  Более подробные сведения см. в документации для каждой службы.

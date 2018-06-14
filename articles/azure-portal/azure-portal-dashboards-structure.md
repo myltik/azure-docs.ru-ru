@@ -18,6 +18,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165185"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Структура панелей мониторинга Azure
 В этом документе описывается структура панели мониторинга Azure. В качестве примера используется следующая панель мониторинга Azure:

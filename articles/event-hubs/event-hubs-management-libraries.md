@@ -1,12 +1,12 @@
 ---
-title: "Библиотеки управления концентраторов событий Azure | Документация Майкрософт"
-description: "Управление пространствами имен и сущностями концентраторов событий из .NET"
+title: Библиотеки управления концентраторов событий Azure | Документация Майкрософт
+description: Управление пространствами имен и сущностями концентраторов событий из .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26780979"
 ---
 # <a name="event-hubs-management-libraries"></a>Библиотеки управления концентраторов событий
 

@@ -1,10 +1,10 @@
 ---
-title: "Включение автономной синхронизации мобильного приложения Azure в Xamarin.Forms | Документация Майкрософт"
-description: "Узнайте, как использовать мобильное приложение службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin.Forms"
+title: Включение автономной синхронизации мобильного приложения Azure в Xamarin.Forms | Документация Майкрософт
+description: Узнайте, как использовать мобильное приложение службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin.Forms
 documentationcenter: xamarin
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594723"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Включение автономной синхронизации мобильного приложения Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

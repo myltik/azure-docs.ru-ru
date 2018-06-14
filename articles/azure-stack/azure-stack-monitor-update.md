@@ -1,11 +1,11 @@
 ---
-title: "Мониторинг обновлений в Azure Stack с помощью привилегированной конечной точки | Документация Майкрософт"
-description: "Узнайте, как использовать привилегированную конечную точку для мониторинга состояния обновления интегрированных систем Azure Stack."
+title: Мониторинг обновлений в Azure Stack с помощью привилегированной конечной точки | Документация Майкрософт
+description: Узнайте, как использовать привилегированную конечную точку для мониторинга состояния обновления интегрированных систем Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621867"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Мониторинг обновлений в Azure Stack с помощью привилегированной конечной точки
 

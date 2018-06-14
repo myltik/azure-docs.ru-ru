@@ -1,11 +1,11 @@
 ---
-title: "Документация по Многофакторной идентификации Azure. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как развернуть многофакторную идентификацию с использованием различных методов проверки подлинности, обеспечивающих простой вход в систему. Руководства, пакет SDK и другие документы."
+title: Документация по Многофакторной идентификации Azure. Руководства и справочник по API | Документация Майкрософт
+description: Узнайте, как развернуть многофакторную идентификацию с использованием различных методов проверки подлинности, обеспечивающих простой вход в систему. Руководства, пакет SDK и другие документы.
 services: multi-factor-authentication
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26630824"
 ---
 # <a name="multi-factor-authentication-documentation"></a>Документация по многофакторной идентификации
 

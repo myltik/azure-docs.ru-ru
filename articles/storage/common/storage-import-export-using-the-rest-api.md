@@ -1,11 +1,11 @@
 ---
-title: "Использование REST API службы импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, где найти документацию по использованию REST API службы импорта и экспорта Azure, включая практические руководства и справочные материалы."
+title: Использование REST API службы импорта и экспорта Azure | Документация Майкрософт
+description: Узнайте, где найти документацию по использованию REST API службы импорта и экспорта Azure, включая практические руководства и справочные материалы.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 233f80e9-2e7f-48e0-9639-5c7785e7d743
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26741066"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Использование REST API службы импорта и экспорта Azure
 

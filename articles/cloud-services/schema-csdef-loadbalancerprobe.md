@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360059"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Схема LoadBalancerProbe определения облачных служб Azure
 Проверка подсистемы балансировки нагрузки — пользовательский процесс проверки работоспособности конечных точек UDP и конечных точек в экземплярах ролей. `LoadBalancerProbe` — не изолированный элемент. Он объединяется с веб- или рабочей ролью в файле определения службы. Объект `LoadBalancerProbe` могут использовать несколько ролей.

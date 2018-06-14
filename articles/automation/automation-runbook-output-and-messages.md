@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194256"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Выходные данные и сообщения Runbook в службе автоматизации Azure
 В большинстве модулей runbook в службе автоматизации Azure используются выходные данные определенного типа, например сообщение об ошибке для пользователя или сложный объект, предназначенный для использования другим рабочим процессом. Windows PowerShell предоставляет [несколько потоков](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) для отправки выходных данных из сценария или рабочего процесса. Служба автоматизации Azure по-разному работает с каждым из этих потоков, и необходимо следовать рекомендациям по их использованию при создании Runbook.

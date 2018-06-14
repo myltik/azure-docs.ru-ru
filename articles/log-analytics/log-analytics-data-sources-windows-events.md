@@ -1,8 +1,8 @@
 ---
-title: "Сбор и анализ журналов событий Windows в Azure Log Analytics | Документация Майкрософт"
-description: "Журналы событий Windows — один из самых распространенных источников данных, используемых службой Log Analytics.  Из этой статьи вы узнаете, как настроить коллекцию журналов событий Windows и сведения о записях, создаваемых журналами в рабочей области Log Analytics."
+title: Сбор и анализ журналов событий Windows в Azure Log Analytics | Документация Майкрософт
+description: Журналы событий Windows — один из самых распространенных источников данных, используемых службой Log Analytics.  Из этой статьи вы узнаете, как настроить коллекцию журналов событий Windows и сведения о записях, создаваемых журналами в рабочей области Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782036"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Источники данных для журнала событий Windows в Log Analytics
 Журналы событий Windows — это один из самых распространенных [источников данных](log-analytics-data-sources.md), используемый для сбора данных агентами Windows, так как он применяется большинством приложений для записи сведений.  События можно собирать из стандартных журналов, таких как журналы системы и приложений, а также указывать пользовательские журналы приложений, которые необходимо отслеживать.

@@ -1,11 +1,11 @@
 ---
-title: "Руководство. Обработка счетов-фактур EDIFACT с помощью служб BizTalk Azure | Документация Майкрософт"
-description: "Как создать и настроить соединитель Box или приложение API и использовать его в приложении логики в службе приложений Azure"
+title: Руководство. Обработка счетов-фактур EDIFACT с помощью служб BizTalk Azure | Документация Майкрософт
+description: Как создать и настроить соединитель Box или приложение API и использовать его в приложении логики в службе приложений Azure
 services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
 ms.service: biztalk-services
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26737547"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Руководство по обработке счетов EDIFACT с помощью служб BizTalk Azure
 

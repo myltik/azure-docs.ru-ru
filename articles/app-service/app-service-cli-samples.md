@@ -1,6 +1,6 @@
 ---
-title: "Примеры Azure CLI. Служба приложений | Документация Майкрософт"
-description: "Примеры Azure CLI. Служба приложений"
+title: Примеры Azure CLI. Служба приложений | Документация Майкрософт
+description: Примеры Azure CLI. Служба приложений
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -21,6 +21,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26738972"
 ---
 # <a name="azure-cli-samples"></a>Примеры Azure CLI
 

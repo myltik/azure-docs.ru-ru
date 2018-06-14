@@ -1,11 +1,11 @@
 ---
-title: "Указание существующей виртуальной сети в шаблоне масштабируемого набора Azure | Документация Майкрософт"
-description: "Узнайте, как добавить виртуальную сеть в существующий шаблон масштабируемого набора виртуальных машин Azure."
+title: Указание существующей виртуальной сети в шаблоне масштабируемого набора Azure | Документация Майкрософт
+description: Узнайте, как добавить виртуальную сеть в существующий шаблон масштабируемого набора виртуальных машин Azure.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782377"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Добавление ссылки на существующую виртуальную сеть в шаблон масштабируемого набора Azure
 

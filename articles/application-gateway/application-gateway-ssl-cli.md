@@ -15,6 +15,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356143"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Создание шлюза приложений с завершением SSL-запросов с помощью Azure CLI
 

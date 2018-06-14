@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193882"
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Отмена привязки учетной записи службы автоматизации Azure к рабочей области Log Analytics
 

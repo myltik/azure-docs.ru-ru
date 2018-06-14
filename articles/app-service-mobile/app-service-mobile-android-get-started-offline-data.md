@@ -1,6 +1,6 @@
 ---
-title: "Включение автономной синхронизации для мобильного приложения Azure (Android)"
-description: "Узнайте, как использовать мобильные приложения службы приложений для кэширования и синхронизации автономных данных в приложении Android."
+title: Включение автономной синхронизации для мобильного приложения Azure (Android)
+description: Узнайте, как использовать мобильные приложения службы приложений для кэширования и синхронизации автономных данных в приложении Android.
 documentationcenter: android
 author: conceptdev
 manager: crdun
@@ -18,6 +18,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594197"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Включение автономной синхронизации для мобильного приложения Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

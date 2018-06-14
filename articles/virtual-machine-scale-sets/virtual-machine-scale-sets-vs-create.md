@@ -1,11 +1,11 @@
 ---
-title: "Развертывание масштабируемого набора виртуальных машин с помощью Visual Studio | Документация Майкрософт"
-description: "Развертывание набора масштабирования виртуальных машин с помощью Visual Studio и шаблона Resource Manager"
+title: Развертывание масштабируемого набора виртуальных машин с помощью Visual Studio | Документация Майкрософт
+description: Развертывание набора масштабирования виртуальных машин с помощью Visual Studio и шаблона Resource Manager
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782152"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Как создать масштабируемый набор виртуальных машин с помощью Visual Studio
 В этой статье описывается развертывание шаблонов масштабируемых наборов виртуальных машин с использованием развертывания группы ресурсов Visual Studio.

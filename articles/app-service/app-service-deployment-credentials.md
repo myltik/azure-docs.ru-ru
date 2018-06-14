@@ -1,8 +1,8 @@
 ---
-title: "Учетные данные развертывания службы приложений Azure | Документация Майкрософт"
-description: "Сведения об использовании учетных данных развертывания службы приложений Azure."
+title: Учетные данные развертывания службы приложений Azure | Документация Майкрософт
+description: Сведения об использовании учетных данных развертывания службы приложений Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778553"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Настройка учетных данных развертывания службы приложений Azure
 [Служба приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) поддерживает два типа учетных данных для [развертывания локальной системы Git](app-service-deploy-local-git.md) и [развертывания FTP(S)](app-service-deploy-ftp.md). Это не то же, что учетные данные Azure Active Directory.

@@ -1,9 +1,9 @@
 ---
-title: "Вход с помощью Azure MFA и двухфакторной проверки подлинности | Документация Майкрософт"
-description: "На этой странице предоставлены рекомендации по использованию разных методов входа с помощью Azure MFA."
-keywords: "проверка подлинности пользователя, вход в систему, вход с помощью мобильного телефона, вход с помощью рабочего телефона"
+title: Вход с помощью Azure MFA и двухфакторной проверки подлинности | Документация Майкрософт
+description: На этой странице предоставлены рекомендации по использованию разных методов входа с помощью Azure MFA.
+keywords: проверка подлинности пользователя, вход в систему, вход с помощью мобильного телефона, вход с помощью рабочего телефона
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26736917"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Варианты входа с помощью Многофакторной идентификации Azure
 > [!NOTE]

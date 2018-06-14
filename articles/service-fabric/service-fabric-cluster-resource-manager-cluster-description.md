@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208817"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Описание кластера Service Fabric
 Диспетчер Resource Manager кластера Service Fabric предоставляет несколько механизмов для описания кластера. Во время выполнения диспетчер кластерных ресурсов использует эти сведения, чтобы обеспечить высокую доступность служб, функционирующих в кластере. При применении этих важных правил он также пытается оптимизировать потребление ресурсов в кластере.

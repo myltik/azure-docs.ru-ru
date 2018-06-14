@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212404"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Запуск службы с использованием локальной пользовательской или системной учетной записи
 Платформа Azure Service Fabric помогает защищать приложения, работающие в кластере под разными учетными записями. По умолчанию приложения Service Fabric выполняются под учетной записью, используемой процессом Fabric.exe. Также Service Fabric позволяет запускать приложения от имени локального пользователя или с использованием учетной записи системы. Поддерживаются следующие типы учетных записей локальной системы: **LocalUser**, **NetworkService**, **LocalService** и **LocalSystem**.  При запуске Service Fabric в изолированном кластере Windows службу можно запустить с помощью [учетных записей домена Active Directory](service-fabric-run-service-as-ad-user-or-group.md) или [групповых управляемых учетных записей службы](service-fabric-run-service-as-gmsa.md).

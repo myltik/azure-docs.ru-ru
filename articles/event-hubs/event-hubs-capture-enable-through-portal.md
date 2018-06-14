@@ -1,12 +1,12 @@
 ---
-title: "Включение записи концентраторов событий с помощью портала | Документация Microsoft"
-description: "Включите функцию записи концентраторов событий с помощью портала Azure."
+title: Включение записи концентраторов событий с помощью портала | Документация Microsoft
+description: Включите функцию записи концентраторов событий с помощью портала Azure.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855017"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Включение записи концентраторов событий с помощью портала Azure
 

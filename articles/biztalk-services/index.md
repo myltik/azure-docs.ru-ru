@@ -1,11 +1,11 @@
 ---
-title: "Документация по службам BizTalk. Руководства | Документация Майкрософт"
-description: "Узнайте, как использовать службы BizTalk для интеграции облачных приложений, размещенных локально, а также бизнес-приложений с SAP, Oracle EBS, SQL Server и PeopleSoft."
+title: Документация по службам BizTalk. Руководства | Документация Майкрософт
+description: Узнайте, как использовать службы BizTalk для интеграции облачных приложений, размещенных локально, а также бизнес-приложений с SAP, Oracle EBS, SQL Server и PeopleSoft.
 services: biztalk-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: biztalk-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26625102"
 ---
 # <a name="biztalk-services-documentation"></a>Документация по службам BizTalk
 

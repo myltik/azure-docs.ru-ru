@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204640"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Моделирование приложения в структуре службы
 В этой статье приведен обзор модели приложений Azure Service Fabric и описывается, как определить приложение и службу с помощью файлов манифеста.

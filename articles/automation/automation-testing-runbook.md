@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192104"
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Тестирование модуля Runbook в службе автоматизации Azure
 При тестировании модуля Runbook запускается его [черновая версия](automation-creating-importing-runbook.md#publishing-a-runbook) и завершаются все действия, которые он выполняет. Журнал заданий не создается, однако в области вывода теста отображаются потоки [выходных данных](automation-runbook-output-and-messages.md#output-stream) и [предупреждений и ошибок](automation-runbook-output-and-messages.md#message-streams). Сообщения, предназначенные для [подробного потока](automation-runbook-output-and-messages.md#message-streams), отображаются в области выходных данных, только если [переменная $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) имеет значение Continue.

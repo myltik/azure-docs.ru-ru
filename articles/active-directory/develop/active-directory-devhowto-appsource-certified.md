@@ -22,6 +22,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257537"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Как получить сертификат AppSource для Azure Active Directory
 С помощью [Microsoft AppSource](https://appsource.microsoft.com/) бизнес-пользователи могут обнаруживать бизнес-приложения SaaS (автономные приложения SaaS и дополнения к имеющимся продуктам SaaS Microsoft), использовать их и управлять ими.

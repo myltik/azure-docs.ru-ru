@@ -1,10 +1,10 @@
 ---
-title: "Добавление push-уведомлений в приложение Android с помощью мобильных приложений | Документация Майкрософт"
-description: "Узнайте, как использовать мобильные приложения для отправки push-уведомлений в приложение Android."
+title: Добавление push-уведомлений в приложение Android с помощью мобильных приложений | Документация Майкрософт
+description: Узнайте, как использовать мобильные приложения для отправки push-уведомлений в приложение Android.
 services: app-service\mobile
 documentationcenter: android
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593034"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Добавление push-уведомлений в приложение Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]

@@ -1,11 +1,11 @@
 ---
-title: "Использование службы электронной почты SendGrid (.NET) | Документация Майкрософт"
-description: "Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры написаны на языке C# и используют API .NET."
-services: 
+title: Использование службы электронной почты SendGrid (.NET) | Документация Майкрософт
+description: Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры написаны на языке C# и используют API .NET.
+services: ''
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27534861"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Как отправлять электронную почту с помощью SendGrid и Azure
 ## <a name="overview"></a>Обзор

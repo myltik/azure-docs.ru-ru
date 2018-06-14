@@ -1,11 +1,11 @@
 ---
-title: "Создание служб Azure BizTalk на портале Azure | Документы Майкрософт"
-description: "Узнайте, как подготовить или создать службы Azure BizTalk на портале Azure; MABS, WABS"
+title: Создание служб Azure BizTalk на портале Azure | Документы Майкрософт
+description: Узнайте, как подготовить или создать службы Azure BizTalk на портале Azure; MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 3ad18876-a649-40d6-9aa0-1509c1d62c43
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26632727"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Создание служб BizTalk с помощью портала Azure
 

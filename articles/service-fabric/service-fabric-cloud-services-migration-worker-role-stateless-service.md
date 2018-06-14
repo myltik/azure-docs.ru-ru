@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206688"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Руководство по преобразованию рабочих ролей и веб-ролей в службы без отслеживания состояния Service Fabric
 В этой статье описано, как переносить рабочие роли и веб-роли облачных служб в службы без отслеживания состояния Service Fabric. Это самый простой способ переноса из облачных служб в службы Service Fabric при работе с приложениями, общая архитектура которых почти не изменяется.

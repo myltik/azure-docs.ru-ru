@@ -1,7 +1,7 @@
 ---
-title: "Краткое руководство. Отправка рабочего процесса с помощью входных FASTQ-файлов | Документация Майкрософт"
+title: Краткое руководство. Отправка рабочего процесса с помощью входных FASTQ-файлов | Документация Майкрософт
 titleSuffix: Azure
-description: "В этом руководстве предполагается, что вы установили клиент msgen и успешно запустили примеры данных через службу."
+description: В этом руководстве предполагается, что вы установили клиент msgen и успешно запустили примеры данных через службу.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684489"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs"></a>Отправка рабочего процесса с помощью входных FASTQ-файлов
 

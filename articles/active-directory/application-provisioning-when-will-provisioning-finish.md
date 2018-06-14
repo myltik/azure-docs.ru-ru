@@ -1,11 +1,11 @@
 ---
-title: "Подготовка пользователей для приложения в коллекции Azure AD выполняется час и более | Документация Майкрософт"
-description: "Как узнать, почему подготовка для приложения может выполняться дольше, чем ожидалось"
+title: Подготовка пользователей для приложения в коллекции Azure AD выполняется час и более | Документация Майкрософт
+description: Как узнать, почему подготовка для приложения может выполняться дольше, чем ожидалось
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26734049"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Подготовка пользователей для приложения в коллекции Azure AD выполняется час и более
 

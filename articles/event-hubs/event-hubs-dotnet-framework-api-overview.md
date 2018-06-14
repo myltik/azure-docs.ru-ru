@@ -1,11 +1,11 @@
 ---
-title: "Обзор интерфейсов API концентраторов событий Azure для платформы .NET Framework | Документация Майкрософт"
-description: "Сводные сведения о некоторых ключевых клиентских API концентраторов событий для .NET Framework."
+title: Обзор интерфейсов API концентраторов событий Azure для платформы .NET Framework | Документация Майкрософт
+description: Сводные сведения о некоторых ключевых клиентских API концентраторов событий для .NET Framework.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781900"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Обзор API концентраторов событий для платформы .NET Framework
 

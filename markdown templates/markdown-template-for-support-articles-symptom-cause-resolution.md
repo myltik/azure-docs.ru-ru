@@ -1,11 +1,11 @@
 ---
-title: "Заголовок страницы, отображающийся на вкладке браузера и в результатах поиска"
-description: "Описание статьи, которое будет отображаться на целевых страницах и в большинстве результатов поиска"
+title: Заголовок страницы, отображающийся на вкладке браузера и в результатах поиска
+description: Описание статьи, которое будет отображаться на целевых страницах и в большинстве результатов поиска
 services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: comma-separates-additional-tags-if-required
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "26730554"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Заголовок (максимум 120 символов, укажите ключевое слово)
 *Используйте 2–3 дополнительных ключевых слова в описании.*

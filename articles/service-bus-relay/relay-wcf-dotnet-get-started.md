@@ -1,11 +1,11 @@
 ---
-title: "Приступая к работе с ретрансляторами WCF на основе ретранслятора Azure в .NET | Документация Майкрософт"
-description: "Узнайте, как использовать ретрансляторы WCF на основе ретранслятора Azure для подключения двух приложений, размещенных в разных расположениях."
+title: Приступая к работе с ретрансляторами WCF на основе ретранслятора Azure в .NET | Документация Майкрософт
+description: Узнайте, как использовать ретрансляторы WCF на основе ретранслятора Azure для подключения двух приложений, размещенных в разных расположениях.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
 ms.service: service-bus-relay
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26856088"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Как использовать ретрансляторы WCF на основе ретранслятора Azure с помощью .NET
 В этой статье описываются методы использования службы ретрансляции Azure. Примеры написаны на языке C# и используют API службы Windows Communication Foundation (WCF) с расширениями, содержащимися в сборке служебной шины. Дополнительные сведения о ретрансляторе Azure см. в статье [Что такое ретранслятор Azure?](relay-what-is-it.md).

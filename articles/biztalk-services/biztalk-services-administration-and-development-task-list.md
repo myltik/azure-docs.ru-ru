@@ -1,11 +1,11 @@
 ---
-title: "Список задач администрирования и разработки в службах BizTalk | Документация Майкрософт"
-description: "Планирование и инструкции по развертыванию служб BizTalk Azure"
+title: Список задач администрирования и разработки в службах BizTalk | Документация Майкрософт
+description: Планирование и инструкции по развертыванию служб BizTalk Azure
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0ab70b5b-1a88-4ba5-b329-ec51b785010e
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26736671"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Список задач администрирования и разработки в службах BizTalk
 

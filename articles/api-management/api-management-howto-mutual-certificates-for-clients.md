@@ -1,11 +1,11 @@
 ---
-title: "Защита API-интерфейсов с помощью аутентификации на основе сертификата клиента в службе управления API Azure | Документация Майкрософт"
-description: "Узнайте, как обеспечить безопасный доступ к API-интерфейсам с помощью сертификатов клиентов"
+title: Защита API-интерфейсов с помощью аутентификации на основе сертификата клиента в службе управления API Azure | Документация Майкрософт
+description: Узнайте, как обеспечить безопасный доступ к API-интерфейсам с помощью сертификатов клиентов
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26406749"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Защита API-интерфейсов с помощью аутентификации на основе сертификата клиента в службе управления API Azure
 

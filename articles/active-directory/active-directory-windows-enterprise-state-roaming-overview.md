@@ -1,9 +1,9 @@
 ---
-title: "Обзор службы Enterprise State Roaming | Документация Майкрософт"
-description: "Здесь содержится информация о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства."
+title: Обзор службы Enterprise State Roaming | Документация Майкрософт
+description: Здесь содержится информация о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства.
 services: active-directory
-keywords: "что такое Enterprise State Roaming, корпоративная синхронизация, облако Windows"
-documentationcenter: 
+keywords: что такое Enterprise State Roaming, корпоративная синхронизация, облако Windows
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26734082"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Обзор службы Enterprise State Roaming
 Используя Windows 10, пользователи [Azure Active Directory (Azure AD)](active-directory-whatis.md) получают возможность безопасно синхронизировать свои параметры пользователя и данные параметров приложения в облаке. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства. Enterprise State Roaming работает так же, как и стандартная [синхронизация параметров потребителя](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) , которая впервые представлена в Windows 8. Кроме того, Enterprise State Roaming обеспечивает следующее:

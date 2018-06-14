@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация пользователя по службе автоматизации Azure"
+title: Документация пользователя по службе автоматизации Azure
 metadata:
   document_id: 
-  title: "Документация по службе автоматизации Azure. Руководства и справочник по API"
-  description: "Сведения об использовании службы автоматизации Azure"
+  title: Документация по службе автоматизации Azure. Руководства и справочник по API
+  description: Сведения об использовании службы автоматизации Azure
   services: automation
   author: georgewallace
   manager: carmonm
@@ -19,49 +19,50 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 01/11/2018
+  ms.locfileid: "27773831"
 abstract:
-  description: "Сведения об использовании службы автоматизации для настройки и автоматизации задач управления в гибридной среде. Руководства, справочники по API и другая документация, в которой показано, как автоматизировать процессы, управлять обновлениями, настраивать требуемое состояние, отслеживать изменения и собирать данные инвентаризации."
+  description: Сведения об использовании службы автоматизации для настройки и автоматизации задач управления в гибридной среде. Руководства, справочники по API и другая документация, в которой показано, как автоматизировать процессы, управлять обновлениями, настраивать требуемое состояние, отслеживать изменения и собирать данные инвентаризации.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как автоматизировать и настроить среды Azure и гибридную среду с помощью службы автоматизации:"
+    text: 'Узнайте, как автоматизировать и настроить среды Azure и гибридную среду с помощью службы автоматизации:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/automation/media/index/automation.svg
-      text: "Создание учетной записи службы автоматизации"
+      text: Создание учетной записи службы автоматизации
       href: /azure/automation/automation-quickstart-create-account
     - image:
         src: /azure/automation/media/index/runbook.svg
-      text: "Создание модуля runbook"
+      text: Создание модуля runbook
       href: /azure/automation/automation-quickstart-create-runbook
     - image:
         src: /azure/automation/media/index/dscconfig.svg
-      text: "Создание конфигурации DSC"
+      text: Создание конфигурации DSC
       href: /azure/automation/automation-quickstart-dsc-configuration
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как интегрировать и развернуть среду Azure и гибридную среду и управлять ими."
+    text: Узнайте, как интегрировать и развернуть среду Azure и гибридную среду и управлять ими.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/automation/automation-watchers-tutorial\">Настройка задач наблюдателя</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-update-management\">Управление обновлениями на виртуальной машине</a>"
-    - html: "<a href=\"/azure/automation/automation-onboard-solutions\">Масштабное подключение</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-installed-software\">Идентификация программного обеспечения, установленного на виртуальной машине</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-troubleshoot-changes\">Устранение неполадок с изменениями на виртуальной машине</a>"
-- title: "Ссылка"
+    - html: <a href="/azure/automation/automation-watchers-tutorial">Настройка задач наблюдателя</a>
+    - html: <a href="/azure/automation/automation-tutorial-update-management">Управление обновлениями на виртуальной машине</a>
+    - html: <a href="/azure/automation/automation-onboard-solutions">Масштабное подключение</a>
+    - html: <a href="/azure/automation/automation-tutorial-installed-software">Идентификация программного обеспечения, установленного на виртуальной машине</a>
+    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Устранение неполадок с изменениями на виртуальной машине</a>
+- title: Ссылка
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
+    - title: Командная строка
       html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
-    - title: "Языки"
+    - title: Языки
       html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/automation\">REST API службы автоматизации</a></p>"
+      html: <p><a href="/rest/api/automation">REST API службы автоматизации</a></p>

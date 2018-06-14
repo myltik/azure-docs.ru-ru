@@ -1,10 +1,10 @@
 ---
-title: "Включение автономной синхронизации для мобильного приложения Azure (Xamarin Android)"
-description: "Узнайте, как использовать мобильное приложение службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin Android"
+title: Включение автономной синхронизации для мобильного приложения Azure (Xamarin Android)
+description: Узнайте, как использовать мобильное приложение службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin Android
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593102"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Включение автономной синхронизации для мобильного приложения Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

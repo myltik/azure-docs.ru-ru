@@ -1,11 +1,11 @@
 ---
-title: "Установка MongoDB на виртуальной машине Windows в Azure | Документация Майкрософт"
-description: "Узнайте, как установить MongoDB на виртуальную машину Azure под управлением Windows Server 2012 R2, созданную посредством модели развертывания с помощью Resource Manager."
+title: Установка MongoDB на виртуальной машине Windows в Azure | Документация Майкрософт
+description: Узнайте, как установить MongoDB на виртуальную машину Azure под управлением Windows Server 2012 R2, созданную посредством модели развертывания с помощью Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745985"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Установка и настройка базы данных MongoDB на виртуальной машине Windows в Azure
 [MongoDB](http://www.mongodb.org) — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье приведены инструкции по установке и настройке MongoDB на виртуальной машине Windows Server 2016 в Azure. [MongoDB можно также установить на виртуальной машине Linux в Azure](../linux/install-mongodb.md).

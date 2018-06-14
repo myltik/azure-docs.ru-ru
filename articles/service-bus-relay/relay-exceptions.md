@@ -1,11 +1,11 @@
 ---
-title: "Исключения ретранслятора Azure и способы их разрешения | Документация Майкрософт"
-description: "Список исключений ретранслятора Azure и предлагаемые действия по их разрешению."
+title: Исключения ретранслятора Azure и способы их разрешения | Документация Майкрософт
+description: Список исключений ретранслятора Azure и предлагаемые действия по их разрешению.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855867"
 ---
 # <a name="azure-relay-exceptions"></a>Исключения ретранслятора Azure
 
