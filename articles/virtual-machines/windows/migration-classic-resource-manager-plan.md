@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30917349"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Планирование переноса ресурсов IaaS из классической модели развертывания в модель Azure Resource Manager.
 Хотя Azure Resource Manager и предлагает множество разнообразных возможностей, чрезвычайно важно спланировать процесс переноса ресурсов, чтобы не столкнуться с какими-либо проблемами. Грамотное планирование позволит предотвратить возникновение ошибок при выполнении действий по переносу ресурсов.

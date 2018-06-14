@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937405"
 ---
 # <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>Настройка Azure PowerShell для создания предложения для Azure Marketplace
 Подробные сведения о том, как настроить PowerShell в Azure, см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview). Простой подход заключается в использовании сертификата. Для этого скачивается и импортируется сертификат, необходимый для проверки подлинности. Чтобы получить необходимый сертификат, используйте командлет **Get-AzurePublishSettingsFile**. Когда появится запрос, сохраните файл. Чтобы импортировать сертификат в сеанс PowerShell, используйте командлет **Import-AzurePublishSettingsFile**.

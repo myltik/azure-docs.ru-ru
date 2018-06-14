@@ -1,12 +1,12 @@
 ---
-title: "Облачное устройство StorSimple (обновление 3) | Документация Майкрософт"
-description: "Описание способов создания, развертывания и администрирования облачного устройства StorSimple в виртуальной сети Microsoft Azure. (Применимо к StorSimple с обновлением 3 и более поздних версий.)"
+title: Облачное устройство StorSimple (обновление 3) | Документация Майкрософт
+description: Описание способов создания, развертывания и администрирования облачного устройства StorSimple в виртуальной сети Microsoft Azure. (Применимо к StorSimple с обновлением 3 и более поздних версий.)
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852342"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Развертывание и администрирование облачного устройства StorSimple в Azure (обновление 3 и более поздние версии)
 

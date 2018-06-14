@@ -16,6 +16,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905380"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Перенос данных из локального экземпляра SQL Server в базу данных SQL Azure с помощью Azure PowerShell
 В этой статье выполняется перенос базы данных **Adventureworks2012**, восстановленной на локальном экземпляре SQL Server 2016 (или более поздней версии), в базу данных SQL Azure с помощью Microsoft Azure PowerShell. Вы можете выполнить перенос баз данных из локального экземпляра SQL Server в базу данных SQL Azure с помощью модуля `AzureRM.DataMigration` в Microsoft Azure PowerShell.

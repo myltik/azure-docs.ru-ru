@@ -1,8 +1,8 @@
 ---
-title: "Учетные записи хранения в Azure Stack | Документация Майкрософт"
-description: "Узнайте, как создать учетную запись хранения Azure Stack."
+title: Учетные записи хранения в Azure Stack | Документация Майкрософт
+description: Узнайте, как создать учетную запись хранения Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
 ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733729"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Учетные записи хранения в Azure Stack
 Учетные записи хранения включают в себя службы BLOB-объектов и таблиц, а также уникальное пространство имен для объектов данных хранилища. По умолчанию данные в учетной записи доступны только владельцу учетной записи хранения.

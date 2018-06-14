@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952223"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Создание кластера виртуальных машин с помощью Terraform с использованием реестра модулей
 

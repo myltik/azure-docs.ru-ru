@@ -1,6 +1,6 @@
 ---
-title: "Группы доступности SQL Server, виртуальные машины Azure и аварийное восстановление | Документация Майкрософт"
-description: "В этой статье описывается, как настроить группу доступности SQL Server на виртуальных машинах Azure с репликой, расположенной в другом регионе."
+title: Группы доступности SQL Server, виртуальные машины Azure и аварийное восстановление | Документация Майкрософт
+description: В этой статье описывается, как настроить группу доступности SQL Server на виртуальных машинах Azure с репликой, расположенной в другом регионе.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852835"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Настройка группы доступности AlwaysOn на виртуальных машинах Azure в разных регионах
 

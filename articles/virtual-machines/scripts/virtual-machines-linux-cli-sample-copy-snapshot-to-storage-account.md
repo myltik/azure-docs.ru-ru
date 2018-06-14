@@ -1,13 +1,13 @@
 ---
-title: "Пример сценария Azure CLI. Экспорт или копирование моментального снимка в виде VHD в учетную запись хранения в другом регионе | Документы Майкрософт"
-description: "Пример сценария Azure CLI. Экспорт или копирование моментального снимка в виде VHD в учетную запись хранения в той же или другой подписке"
+title: Пример сценария Azure CLI. Экспорт или копирование моментального снимка в виде VHD в учетную запись хранения в другом регионе | Документы Майкрософт
+description: Пример сценария Azure CLI. Экспорт или копирование моментального снимка в виде VHD в учетную запись хранения в той же или другой подписке
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852629"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>Экспорт или копирование управляемых моментальных снимков в виде VHD-файлов в учетную запись хранения в другом регионе с помощью интерфейса командной строки
 

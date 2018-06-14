@@ -1,6 +1,6 @@
 ---
-title: "Пример сценария Azure CLI для создания определения управляемого приложения | Документация Майкрософт"
-description: "Пример сценария Azure CLI для создания определения управляемого приложения"
+title: Пример сценария Azure CLI для создания определения управляемого приложения | Документация Майкрософт
+description: Пример сценария Azure CLI для создания определения управляемого приложения
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848089"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Создание определения управляемого приложения с помощью Azure CLI
 

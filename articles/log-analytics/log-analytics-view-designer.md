@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939875"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Создание пользовательских представлений с помощью конструктора представлений в Log Analytics
 С помощью конструктора представлений в [Azure Log Analytics](log-analytics-overview.md) на портале Azure можно создавать различные пользовательские представления, содержащие визуальные представления данных из рабочей области Log Analytics. Эта статья содержит обзор конструктора представлений и процедур по созданию и изменению пользовательских представлений.

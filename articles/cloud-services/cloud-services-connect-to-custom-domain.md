@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29845661"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Подключение ролей облачных служб Azure к контроллеру личного домена AD, размещенному в Azure
 Сначала настройте виртуальную сеть в Azure. Затем добавьте к ней контроллер домена Active Directory (размещенный на виртуальной машине Azure). После этого добавьте имеющиеся роли облачных служб в заранее созданную виртуальную сеть и подключите их к контроллеру домена.

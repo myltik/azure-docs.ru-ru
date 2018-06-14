@@ -1,12 +1,12 @@
 ---
-title: "Пример скрипта Azure CLI. Удаление контейнеров на основе префикса | Документация Майкрософт"
-description: "Сведения об удалении контейнеров больших двоичных объектов службы хранилища Azure на основе префикса имени."
+title: Пример скрипта Azure CLI. Удаление контейнеров на основе префикса | Документация Майкрософт
+description: Сведения об удалении контейнеров больших двоичных объектов службы хранилища Azure на основе префикса имени.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848293"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Удаление контейнеров на основе префикса имени
 

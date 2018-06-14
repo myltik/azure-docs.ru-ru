@@ -1,6 +1,6 @@
 ---
-title: "Архитектура репликации с физического сервера в Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье представлен обзор компонентов и архитектуры, используемых при репликации физических серверов из локальной среды в Azure с помощью службы Azure Site Recovery."
+title: Архитектура репликации с физического сервера в Azure Site Recovery | Документация Майкрософт
+description: В этой статье представлен обзор компонентов и архитектуры, используемых при репликации физических серверов из локальной среды в Azure с помощью службы Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
@@ -11,6 +11,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874898"
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Архитектура для репликации физического сервера в Azure
 

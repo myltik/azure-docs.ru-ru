@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874327"
 ---
 # <a name="how-to-configure-cloud-services"></a>Настройка облачных служб
 

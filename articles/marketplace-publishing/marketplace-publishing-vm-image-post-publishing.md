@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29949027"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Руководство по эксплуатации предложений виртуальных машин в Azure Marketplace
 В этой статье объясняется, как обновить действующее предложение виртуальной машины в Azure Marketplace. Она вам поможет добавить один или нескольких новых SKU в существующее предложение. Она также поможет вам удалить действующее предложение виртуальной машины или номер SKU.

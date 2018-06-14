@@ -1,6 +1,6 @@
 ---
-title: "Видеоролики о Базе данных Azure для PostgreSQL"
-description: "На этой странице представлен список видеосодержимого по обучению работе с базой данных Azure для PostgreSQL."
+title: Видеоролики о Базе данных Azure для PostgreSQL
+description: На этой странице представлен список видеосодержимого по обучению работе с базой данных Azure для PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687906"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Видеоролики, посвященные базе данных Azure для PostgreSQL
 

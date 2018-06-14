@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854286"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Подключение шлюза приложений Microsoft Azure к центру безопасности Azure
 В этом документе объясняется, как настроить интеграцию брандмауэра веб-приложения (WAF) шлюза приложений с центром безопасности.

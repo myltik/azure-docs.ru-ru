@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949809"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Руководство по отладке приложения Java, развернутом в локальном кластере Service Fabric 
 Это руководство представляет собой вторую часть цикла. Вы узнаете, как подключить удаленный отладчик с помощью Eclipse для приложения Service Fabric. Кроме того, вы узнаете, как перенаправлять журналы из запущенных приложений в расположение, удобное для разработчика.

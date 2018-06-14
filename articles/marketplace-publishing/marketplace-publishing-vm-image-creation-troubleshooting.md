@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941608"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Как устранить распространенные неполадки, возникающие в процессе создания виртуального жесткого диска
 Сведения, приведенные в этой статье, помогут издателям и соадминистраторам решить проблемы, возникающие в процессе публикации решений lkz виртуальных машин или управления ими.

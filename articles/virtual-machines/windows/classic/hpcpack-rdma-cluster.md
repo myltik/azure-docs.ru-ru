@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852547"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI
 Настройте кластер Linux RDMA в Azure с [пакетом Microsoft HPC](https://technet.microsoft.com/library/cc514029) и [размерами виртуальных машин для высокопроизводительных вычислений с поддержкой RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) для параллельного выполнения приложений с интерфейсом MPI. Если настроить узлы с поддержкой RDMA под управлением Windows Server в кластере пакета HPC, приложения MPI будут эффективно взаимодействовать по сети с низкой задержкой и высокой пропускной способностью в Azure, основанной на технологии удаленного доступа к памяти (RDMA).

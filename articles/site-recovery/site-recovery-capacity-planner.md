@@ -1,11 +1,11 @@
 ---
-title: "Оценка нагрузки репликации в Azure | Документация Майкрософт"
-description: "Используйте данную статью, чтобы оценить производительность во время репликации с помощью Azure Site Recovery."
+title: Оценка нагрузки репликации в Azure | Документация Майкрософт
+description: Используйте данную статью, чтобы оценить производительность во время репликации с помощью Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875911"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Планирование загрузки для защиты виртуальных машин Hyper-V с помощью Site Recovery
 

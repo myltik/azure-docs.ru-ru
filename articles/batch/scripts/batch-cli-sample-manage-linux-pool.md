@@ -1,12 +1,12 @@
 ---
-title: "Пример скрипта Azure CLI для создания пула Linux в пакетной службе | Документация Майкрософт"
-description: "Пример скрипта Azure CLI: создание пула Linux и управление им в пакетной службе Azure"
+title: Пример скрипта Azure CLI для создания пула Linux в пакетной службе | Документация Майкрософт
+description: 'Пример скрипта Azure CLI: создание пула Linux и управление им в пакетной службе Azure'
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843380"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Пример использования CLI: создание пула Linux и управление им в пакетной службе Azure
 

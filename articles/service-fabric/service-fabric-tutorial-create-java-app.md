@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949894"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Руководство по созданию и развертыванию приложения с интерфейсной службой веб-API Java и серверной службой с отслеживанием состояния
 Это руководство представляет первую часть цикла. После завершения этого руководства вы получите приложение для голосования с клиентской частью в виде веб-приложения Java, которое сохраняет результаты голосования во внутренней службе с отслеживанием состояния в кластере. В этой серии руководств требуется, чтобы у вас был работающий компьютер для разработчиков Mac OSX или Linux. Если вы не хотите вручную создавать приложение для голосования, вы можете [скачать исходный код](https://github.com/Azure-Samples/service-fabric-java-quickstart) для завершенного приложения и сразу перейти к [описанию примера приложения для голосования](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).

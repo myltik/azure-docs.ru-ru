@@ -1,11 +1,11 @@
 ---
-title: "Поддержка cloud-init для виртуальных машин Linux в Azure | Документы Microsoft"
-description: "Общие сведения о возможностях cloud-init в Microsoft Azure"
+title: Поддержка cloud-init для виртуальных машин Linux в Azure | Документы Microsoft
+description: Общие сведения о возможностях cloud-init в Microsoft Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29763151"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Поддержка cloud-init для виртуальных машин в Azure
 Из этой статьи можно узнать об имеющейся поддержке [cloud-init](https://cloudinit.readthedocs.io) для настройки виртуальной машины или масштабируемых наборов виртуальных машин во время подготовки в Azure. Эти скрипты cloud-init выполняются при первой загрузке, если в Azure подготовлены все нужные ресурсы.  
