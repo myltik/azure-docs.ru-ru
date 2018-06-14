@@ -1,13 +1,13 @@
 ---
-title: "Устранение ошибок \"502 — недопустимый шлюз\" и \"503 — служба недоступна\" | Документация Майкрософт"
-description: "Устранение ошибок \"502 — недопустимый шлюз\" и \"503 — служба недоступна\", возникающих при работе веб-приложения, размещенного в службе приложений Azure."
+title: Устранение ошибок "502 — недопустимый шлюз" и "503 — служба недоступна" | Документация Майкрософт
+description: Устранение ошибок "502 — недопустимый шлюз" и "503 — служба недоступна", возникающих при работе веб-приложения, размещенного в службе приложений Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "502 — недопустимый шлюз, 503 — служба недоступна, ошибка 503, ошибка 502"
+keywords: 502 — недопустимый шлюз, 503 — служба недоступна, ошибка 503, ошибка 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986259"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Устранение ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна" в работе ваших веб-приложений Azure
 "502 — недопустимый шлюз" и "503 — служба недоступна" — распространенные ошибки, возникающие при работе веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Эта статья поможет вам устранить эти ошибки.

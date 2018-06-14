@@ -1,11 +1,11 @@
 ---
-title: "Мониторинг и обработка событий безопасности в центре безопасности Azure | Документация Майкрософт"
-description: "Узнайте, как просматривать события безопасности виртуальных машин Azure и компьютеров, которые не относятся к Azure, с помощью панели мониторинга событий центра безопасности."
+title: Мониторинг и обработка событий безопасности в центре безопасности Azure | Документация Майкрософт
+description: Узнайте, как просматривать события безопасности виртуальных машин Azure и компьютеров, которые не относятся к Azure, с помощью панели мониторинга событий центра безопасности.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040659"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Мониторинг и обработка событий безопасности в центре безопасности Azure
 Панель мониторинга событий предоставляет обзор количества событий безопасности, собранных за определенный период времени, и список важных событий, требующих вашего внимания.  

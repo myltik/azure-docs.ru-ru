@@ -1,6 +1,6 @@
 ---
-title: "Аудит и ведение журналов. Средство моделирования угроз Microsoft Azure | Документация Майкрософт"
-description: "Устранение угроз, обнаруженных с помощью средства моделирования угроз"
+title: Аудит и ведение журналов. Средство моделирования угроз Microsoft Azure | Документация Майкрософт
+description: Устранение угроз, обнаруженных с помощью средства моделирования угроз
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044409"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Механизм безопасности. Аудит и ведение журналов | Устранение проблем 
 | Продукт или служба | Статья |
