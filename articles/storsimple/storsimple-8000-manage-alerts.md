@@ -1,12 +1,12 @@
 ---
-title: "Просмотр и администрирование оповещений для устройства StorSimple серии 8000 | Документы Майкрософт"
-description: "Описание условий срабатывания оповещений StorSimple и уровней их серьезности, описание порядка настройки отправки уведомлений об оповещениях, а также того, как использовать службу диспетчера устройств StorSimple для управления оповещениями."
+title: Просмотр и администрирование оповещений для устройства StorSimple серии 8000 | Документы Майкрософт
+description: Описание условий срабатывания оповещений StorSimple и уровней их серьезности, описание порядка настройки отправки уведомлений об оповещениях, а также того, как использовать службу диспетчера устройств StorSimple для управления оповещениями.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745784"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Использование службы диспетчера устройств StorSimple для просмотра оповещений StorSimple и управления ими
 

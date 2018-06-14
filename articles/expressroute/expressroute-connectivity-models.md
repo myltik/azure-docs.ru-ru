@@ -1,12 +1,12 @@
 ---
-title: "Модели подключения ExpressRoute: подключение к Microsoft Azure с помощью поставщиков сетевых услуг, поставщиков Exchange и Ethernet | Документация Майкрософт"
-description: "В этой статье описаны различные режимы подключения между сетью клиента и службами Microsoft Azure, Office 365 и Dynamics 365. Клиенты могут использовать поставщиков MPLS, поставщиков облачных служб Exchange и поставщиков Ethernet."
+title: 'Модели подключения ExpressRoute: подключение к Microsoft Azure с помощью поставщиков сетевых услуг, поставщиков Exchange и Ethernet | Документация Майкрософт'
+description: В этой статье описаны различные режимы подключения между сетью клиента и службами Microsoft Azure, Office 365 и Dynamics 365. Клиенты могут использовать поставщиков MPLS, поставщиков облачных служб Exchange и поставщиков Ethernet.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709901"
 ---
 # <a name="expressroute-connectivity-models"></a>Модели подключения ExpressRoute
 Вы можете создать между локальной сетью и облаком Майкрософт подключение трех разных типов: [совместное размещение в Cloud Exchange](#CloudExchange), [Ethernet-подключение типа "точка — точка"](#Ethernet) и [подключение типа "любой к любому" (IPVPN)](#IPVPN). Поставщики услуг подключения могут предлагать одну или несколько моделей подключения. Обратитесь к поставщику услуг подключения и подберите наиболее подходящую вам модель.
