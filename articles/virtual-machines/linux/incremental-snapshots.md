@@ -1,6 +1,6 @@
 ---
-title: "Использование добавочных моментальных снимков для архивации и восстановления неуправляемых дисков виртуальной машины Azure Linux | Документация Майкрософт"
-description: "Создание пользовательского решения для архивации и восстановления дисков виртуальной машины Azure Linux с помощью добавочных моментальных снимков."
+title: Использование добавочных моментальных снимков для архивации и восстановления неуправляемых дисков виртуальной машины Azure Linux | Документация Майкрософт
+description: Создание пользовательского решения для архивации и восстановления дисков виртуальной машины Azure Linux с помощью добавочных моментальных снимков.
 services: virtual-machines-linux
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23115072"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

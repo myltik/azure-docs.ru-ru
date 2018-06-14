@@ -1,12 +1,12 @@
 ---
-title: "Восстановление тома из резервной копии на устройстве StorSimple серии 8000 | Документация Майкрософт"
-description: "Описание способов использования каталога резервного копирования службы диспетчера устройств StorSimple для восстановления тома StorSimple из резервного набора данных."
+title: Восстановление тома из резервной копии на устройстве StorSimple серии 8000 | Документация Майкрософт
+description: Описание способов использования каталога резервного копирования службы диспетчера устройств StorSimple для восстановления тома StorSimple из резервного набора данных.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109262"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Восстановление тома StorSimple из резервного набора данных
 
