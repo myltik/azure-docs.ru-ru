@@ -1,12 +1,12 @@
 ---
-title: "Создание запроса или обращения в службу поддержки для устройства StorSimple серии 8000 | Документация Майкрософт"
-description: "Узнайте, как записать в журнал запрос на обслуживание и запустить сеанс поддержки на устройстве StorSimple серии 8000."
+title: Создание запроса или обращения в службу поддержки для устройства StorSimple серии 8000 | Документация Майкрософт
+description: Узнайте, как записать в журнал запрос на обслуживание и запустить сеанс поддержки на устройстве StorSimple серии 8000.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743060"
 ---
 # <a name="contact-microsoft-support"></a>Обращение в службу поддержки Майкрософт
 

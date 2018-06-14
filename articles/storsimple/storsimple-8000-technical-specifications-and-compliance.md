@@ -1,12 +1,12 @@
 ---
-title: "Технические спецификации StorSimple | Документация Майкрософт"
-description: "Описание технических характеристик и информация о соответствии нормативным стандартам для аппаратных компонентов устройства StorSimple."
+title: Технические спецификации StorSimple | Документация Майкрософт
+description: Описание технических характеристик и информация о соответствии нормативным стандартам для аппаратных компонентов устройства StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27785532"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Технические характеристики и информация о соответствии нормативным требованиям для устройства StorSimple
 

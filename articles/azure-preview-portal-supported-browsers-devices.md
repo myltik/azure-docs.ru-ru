@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165117"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Браузеры и устройства, поддерживаемые порталом Azure
 [Портал Azure](https://portal.azure.com) можно запустить на всех современных настольных и планшетных устройствах, а также во всех браузерах.

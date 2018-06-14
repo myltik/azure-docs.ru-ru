@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по центру безопасности Azure"
+title: Документация по центру безопасности Azure
 metadata:
-  title: "Документация по центру безопасности Azure. Руководства и справочник по API | Документация Майкрософт"
+  title: Документация по центру безопасности Azure. Руководства и справочник по API | Документация Майкрософт
   meta.description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..
   services: security-center
   author: cmcclister
@@ -18,58 +18,59 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 01/10/2018
+  ms.locfileid: "27741105"
 abstract:
-  description: "Центр безопасности Azure обеспечивает унифицированное управление безопасностью и расширенную защиту от угроз для гибридных облачных рабочих нагрузок. Узнайте, как начать работу с центром безопасности, применить политики безопасности для рабочих нагрузок, ограничить уязвимость перед угрозами, а также выявлять атаки и реагировать на них, из наших кратких руководств и другой документации."
+  description: Центр безопасности Azure обеспечивает унифицированное управление безопасностью и расширенную защиту от угроз для гибридных облачных рабочих нагрузок. Узнайте, как начать работу с центром безопасности, применить политики безопасности для рабочих нагрузок, ограничить уязвимость перед угрозами, а также выявлять атаки и реагировать на них, из наших кратких руководств и другой документации.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как подготовить виртуальные машины и компьютеры к использованию центра безопасности, а также подключить решения по обеспечению безопасности."
+    text: Узнайте, как подготовить виртуальные машины и компьютеры к использованию центра безопасности, а также подключить решения по обеспечению безопасности.
   - type: list
     style: icon48
     items:
     - image:
         src: /media/common/i_subscription.svg
-      text: "Подключение подписок Azure"
+      text: Подключение подписок Azure
       href: /azure/security-center/security-center-get-started
     - image:
         src: /media/logos/logo_Windows.svg
-      text: "Подключение компьютеров Windows"
+      text: Подключение компьютеров Windows
       href: /azure/security-center/quick-onboard-windows-computer
     - image:
         src: /media/logos/logo_linux.svg
-      text: "Подключение компьютеров Linux"
+      text: Подключение компьютеров Linux
       href: /azure/security-center/quick-onboard-linux-computer
     - image:
         src: /media/common/i_multi-connect.svg
-      text: "Подключение решений по обеспечению безопасности"
+      text: Подключение решений по обеспечению безопасности
       href: /azure/security-center/quick-security-solutions
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как определить политики безопасности, защитить ресурсы от вредоносных действий и реагировать на предупреждения и инциденты безопасности."
+    text: Узнайте, как определить политики безопасности, защитить ресурсы от вредоносных действий и реагировать на предупреждения и инциденты безопасности.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/security-center/tutorial-security-policy\">Определение и оценка политик безопасности</a>"
-    - html: "<a href=\"/azure/security-center/tutorial-protect-resources\">Защита ресурсов</a>"
-    - html: "<a href=\"/azure/security-center/tutorial-security-incident\">Реагирование на инциденты безопасности</a>"
-- title: "Бесплатные учебные видеоматериалы"
+    - html: <a href="/azure/security-center/tutorial-security-policy">Определение и оценка политик безопасности</a>
+    - html: <a href="/azure/security-center/tutorial-protect-resources">Защита ресурсов</a>
+    - html: <a href="/azure/security-center/tutorial-security-incident">Реагирование на инциденты безопасности</a>
+- title: Бесплатные учебные видеоматериалы
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Основы работы с центром безопасности Azure"
+    - title: Основы работы с центром безопасности Azure
       href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
       image:
         src: https://docs.microsoft.com/media/logos/logo_azure.svg
         href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
-- title: "Справочные материалы"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: REST
-      html: "<p><a href=\"https://msdn.microsoft.com/library/mt704034(Azure.100).aspx\">справочник по API REST</a></p>"
+      html: <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">справочник по API REST</a></p>

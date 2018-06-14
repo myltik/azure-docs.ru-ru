@@ -1,12 +1,12 @@
 ---
-title: "Средство диагностики для устранения неполадок устройства StorSimple 8000 | Документация Майкрософт"
-description: "В статье описываются режимы устройства StorSimple и объясняется, как изменить режим устройства StorSimple с помощью Windows PowerShell."
+title: Средство диагностики для устранения неполадок устройства StorSimple 8000 | Документация Майкрософт
+description: В статье описываются режимы устройства StorSimple и объясняется, как изменить режим устройства StorSimple с помощью Windows PowerShell.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27744118"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Устранение неполадок устройства серии 8000 с помощью средства диагностики StorSimple
 

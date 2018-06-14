@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212659"
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Как контейнеризовать Azure Service Fabric Reliable Services и Reliable Actors (предварительная версия)
 

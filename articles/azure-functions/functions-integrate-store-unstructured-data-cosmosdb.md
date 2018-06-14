@@ -1,14 +1,14 @@
 ---
-title: "Хранение неструктурированных данных с помощью Azure Cosmos DB и службы \"Функции\" | Документация Майкрософт"
-description: "Хранение неструктурированных данных с помощью служб Функции Azure и Cosmos DB"
+title: Хранение неструктурированных данных с помощью Azure Cosmos DB и службы "Функции" | Документация Майкрософт
+description: Хранение неструктурированных данных с помощью служб Функции Azure и Cosmos DB
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, Cosmos DB, динамические вычисления, бессерверная архитектура"
-ms.assetid: 
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, Cosmos DB, динамические вычисления, бессерверная архитектура
+ms.assetid: ''
 ms.service: functions
 ms.devlang: csharp
 ms.topic: quickstart
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27767559"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Хранение неструктурированных данных с помощью Azure Cosmos DB и службы "Функции Azure"
 

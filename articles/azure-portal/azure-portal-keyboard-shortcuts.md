@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165423"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Сочетания клавиш на портале Azure
 В этой статье описываются сочетания клавиш, которые можно использовать на портале Azure. У определенных служб могут быть свои сочетания клавиш.

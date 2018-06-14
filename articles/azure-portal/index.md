@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163852"
 ---
 # <a name="azure-portal-documentation"></a>Документация по порталу Azure
 Узнайте о функциях, с помощью которых можно развертывать ресурсы на портале Azure. В руководствах, справочниках по API и других документах объясняется, как развертывать и отслеживать ресурсы Azure, а также управлять ими.

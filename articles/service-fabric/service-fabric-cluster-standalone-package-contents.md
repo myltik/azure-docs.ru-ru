@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209361"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Содержимое изолированного пакета Service Fabric для Windows Server
 В [скачанном](http://go.microsoft.com/fwlink/?LinkId=730690) изолированном пакете Service Fabric для Windows Server вы найдете приведенные ниже файлы.

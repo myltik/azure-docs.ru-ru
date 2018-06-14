@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358371"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Раздел выходных данных в шаблонах Azure Resource Manager
 В разделе выходных данных следует указать значения, которые возвращаются после развертывания. Например, можно возвращать URI для доступа к развернутому ресурсу.

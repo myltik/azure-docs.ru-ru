@@ -15,6 +15,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165406"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Включение режима высокой контрастности или изменение темы на портале Azure
 Если вы хотите увеличить контрастность или изменить цветовую схему на портале Azure, внесите необходимые изменения в настройки портала. 

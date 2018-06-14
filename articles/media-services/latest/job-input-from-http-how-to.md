@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34159933"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Создание входных данных задания из URL-адреса HTTP (HTTPS)
 

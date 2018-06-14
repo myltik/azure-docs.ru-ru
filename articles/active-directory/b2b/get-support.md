@@ -15,6 +15,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259714"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Получение поддержки для службы совместной работы B2B
 

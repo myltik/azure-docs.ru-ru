@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206998"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Запуск службы как группы или пользователя Active Directory
 В автономном кластере Windows Server вы можете запустить службу в качестве пользователя или группы Active Directory с помощью политики запуска от имени.  По умолчанию приложения Service Fabric выполняются под учетной записью, используемой процессом Fabric.exe. Запуск приложений в разных учетных записях позволяет изолировать друг от друга выполняемые приложения, даже если они запущены в общей среде. Обратите внимание, что в вашем домене используется локальная служба Active Directory, а не Azure Active Directory (Azure AD).  Кроме того, можно запустить службу в [групповой управляемой учетной записи службы (gMSA)](service-fabric-run-service-as-gmsa.md).

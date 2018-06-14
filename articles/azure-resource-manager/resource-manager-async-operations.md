@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358716"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Отслеживание асинхронных операций Azure
 Некоторые операции REST выполняются в Azure асинхронно, поскольку не могут быть быстро завершены. Из этой статьи вы узнаете, как отслеживать состояние асинхронных операций, используя возвращаемые в ответе значения.  

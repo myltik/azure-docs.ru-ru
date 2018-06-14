@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304510"
 ---
 # <a name="createuidefinition-functions"></a>Функции CreateUiDefinition
 Этот раздел содержит подписи для всех поддерживаемых функций CreateUiDefinition.

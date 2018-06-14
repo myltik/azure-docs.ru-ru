@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207916"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Безопасность приложений и служб Service Fabric
 Архитектура микрослужб может обеспечить [множество преимуществ](service-fabric-overview-microservices.md). Тем не менее управление безопасностью микрослужб является непростой задачей и отличается от управления безопасностью традиционных неделимых приложений. 

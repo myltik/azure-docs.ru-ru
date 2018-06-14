@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212897"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Реализация функций уровня службы в службе субъектов
 Как указано в описании[слоев службы](service-fabric-reliable-actors-platform.md#service-layering), сама служба субъекта является надежной службой.  Вы можете написать собственную службу, производную от класса `ActorService`, и реализовать в ней функции уровня службы таким же образом, как при наследовании StatefulService, например:

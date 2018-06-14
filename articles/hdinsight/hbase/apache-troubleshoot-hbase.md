@@ -16,6 +16,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165287"
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Устранение неполадок в HBase с помощью Azure HDInsight
 

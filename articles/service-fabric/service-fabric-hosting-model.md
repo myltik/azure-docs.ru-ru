@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206326"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Модель размещения Azure Service Fabric
 В этой статье представлен обзор моделей размещения приложений, предоставленных Azure Service Fabric, и приведены различия между моделями **с общим** и **монопольным процессом**. Здесь также описывается, как развернутое приложение выглядит на узле Service Fabric, и рассматриваются связи между репликами (или экземплярами) службы и процессом размещения служб.

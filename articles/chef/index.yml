@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 05/17/2018
+  ms.locfileid: "34259193"
 abstract:
   description: Chef Software — это платформа автоматизации DevOps для Linux и Windows, которая позволяет управлять конфигурациями как физического, так и виртуального серверов. Узнайте, как использовать продукты Chef Software для автоматизации инфраструктуры как кода (IaC), а также как администрировать и развертывать виртуальные машины в Azure, из кратких руководств и других материалов.
   aside:

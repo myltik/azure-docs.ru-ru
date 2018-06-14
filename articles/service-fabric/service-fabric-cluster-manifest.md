@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205371"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Параметры конфигурации для изолированного кластера Windows
 В этой статье описана настройка изолированного кластера Azure Service Fabric с помощью файла ClusterConfig.json. Этот файл используется для указания сведений об узлах кластера, конфигурациях безопасности, а также топологии сети в плане доменов сбоя и обновления.

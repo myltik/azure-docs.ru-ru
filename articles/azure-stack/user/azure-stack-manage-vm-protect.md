@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165270"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Защита виртуальных машин, развернутых в Azure Stack
 

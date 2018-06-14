@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201712"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Публикация приложения HDInsight в Azure Marketplace
 Вы можете установить приложения Azure HDInsight в кластере HDInsight под управлением Linux. В этой статье описано, как опубликовать приложение HDInsight в Azure Marketplace. Общие сведения о публикации в Azure Marketplace см. в статье [Публикация предложения и управление им в Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).

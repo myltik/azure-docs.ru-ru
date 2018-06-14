@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205979"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Общие сведения о модели программирования Service Fabric
 Service Fabric предлагает несколько способов записи и управления службами. Службы могут использовать API-интерфейсы платформы Service Fabric, чтобы в полной мере использовать компоненты платформы и платформы приложений. Службы также могут представлять любую скомпилированную исполняемую программу, написанную на любом языке или с помощью любого кода, выполняемого в контейнере, размещенную в кластере Service Fabric.

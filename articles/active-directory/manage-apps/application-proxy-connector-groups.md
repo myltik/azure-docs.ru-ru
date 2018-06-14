@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161597"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
 

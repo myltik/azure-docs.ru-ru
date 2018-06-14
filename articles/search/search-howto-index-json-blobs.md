@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363008"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure
 В этой статье показано, как настроить индексатор больших двоичных объектов в службе поиска Azure для извлечения структурированного содержимого из больших двоичных объектов JSON в хранилище BLOB-объектов Azure.

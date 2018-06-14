@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192716"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Обработка ошибок в графических модулях Runbook в службе автоматизации Azure
 

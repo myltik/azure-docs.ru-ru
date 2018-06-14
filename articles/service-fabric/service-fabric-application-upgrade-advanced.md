@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212329"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Обновление приложений Service Fabric: дополнительные разделы
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Добавление или удаление типов служб во время обновления приложения

@@ -1,11 +1,11 @@
 ---
-title: "Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания Resource Manager | Документация Майкрософт"
-description: "На этой странице содержатся необходимые сведения о связывании классический модели с моделью развертывания с помощью Resource Manager."
+title: Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания Resource Manager | Документация Майкрософт
+description: На этой странице содержатся необходимые сведения о связывании классический модели с моделью развертывания с помощью Resource Manager.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710071"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания с помощью Resource Manager
 В этой статье описывается перемещение канала Azure ExpressRoute из классической модели развертывания в модель развертывания с помощью Azure Resource Manager.

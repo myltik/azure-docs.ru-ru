@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206539"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Секционирование служб Reliable Services в Service Fabric
 В этой статье рассматриваются основные понятия, связанные с секционированием служб Reliable Services в инфраструктуре Azure Service Fabric. Исходный код, который используется в этой статье, можно найти на [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).

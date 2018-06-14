@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211146"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Инструкции и рекомендации для надежных коллекций в Azure Service Fabric
 В этом разделе приведены инструкции по использованию надежных коллекций и диспетчера надежных состояний. Цель этого руководства — помочь пользователям избежать распространенных ошибок.

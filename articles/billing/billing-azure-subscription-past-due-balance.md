@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34159226"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Решение проблемы просроченных платежей по подписке Azure после получения электронного сообщения от Azure
 

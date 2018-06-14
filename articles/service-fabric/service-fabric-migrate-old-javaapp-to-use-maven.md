@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206661"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Обновление старого приложения Java в Service Fabric для получения библиотек Java из Maven
 Мы недавно разместили двоичные файлы Java Service Fabric из пакета SDK для Java Service Fabric в Maven. Теперь вы можете использовать **mavencentral** для получения последних зависимостей Service Fabric Java. С помощью этого краткого руководства вы обновите существующие приложения Java, созданные ранее для использования с пакетом SDK для Java Service Fabric. Чтобы обеспечить совместимость со сборкой Maven, будет использован шаблон Yeoman или Eclipse.

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по базе данных Azure для PostgreSQL"
+title: Документация по базе данных Azure для PostgreSQL
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: "Документация по Azure PostgreSQL. Руководства и справочник по API"
-  description: "База данных Azure для PostgreSQL — это служба реляционной базы данных в облаке Microsoft, созданная для разработчиков на основе СУБД PostgreSQL с открытым исходным кодом."
+  title: Документация по Azure PostgreSQL. Руководства и справочник по API
+  description: База данных Azure для PostgreSQL — это служба реляционной базы данных в облаке Microsoft, созданная для разработчиков на основе СУБД PostgreSQL с открытым исходным кодом.
   services: postgresql
   author: czeumault
   manager: carolz
@@ -19,49 +19,50 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27784832"
 abstract:
-  description: "База данных Azure для PostgreSQL — это служба реляционной базы данных на основе СУБД PostgreSQL с открытым исходным кодом.  Эта полностью управляемая база данных как услуга может обслуживать критически важные рабочие нагрузки с прогнозируемой производительностью и безопасностью, а также высоким уровнем доступности и динамическим масштабированием.  Разрабатывайте приложения на основе базы данных Azure для PostgreSQL, используя привычные средства с открытым исходным кодом и платформу.  Узнайте, как использовать базу данных Azure для PostgreSQL, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
+  description: База данных Azure для PostgreSQL — это служба реляционной базы данных на основе СУБД PostgreSQL с открытым исходным кодом.  Эта полностью управляемая база данных как услуга может обслуживать критически важные рабочие нагрузки с прогнозируемой производительностью и безопасностью, а также высоким уровнем доступности и динамическим масштабированием.  Разрабатывайте приложения на основе базы данных Azure для PostgreSQL, используя привычные средства с открытым исходным кодом и платформу.  Узнайте, как использовать базу данных Azure для PostgreSQL, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как создать базу данных PostgreSQL с помощью следующих средств:"
+    text: 'Узнайте, как создать базу данных PostgreSQL с помощью следующих средств:'
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: /azure/postgresql/quickstart-create-server-database-portal
     - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: /azure/postgresql/quickstart-create-server-database-azure-cli
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Ниже перечислено, что вы можете узнать."
+    text: Ниже перечислено, что вы можете узнать.
   - type: list
     style: ordered
     items:
-    - html: "Проектирование базы данных: <a href=\"/azure/postgresql/tutorial-design-database-using-azure-portal\">портал Azure</a> | <a href=\"/azure/postgresql/tutorial-design-database-using-azure-cli\">Azure CLI</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json\">Создание веб-приложения с помощью Python и CLI</a>"
-- title: "Примеры"
+    - html: 'Проектирование базы данных: <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">портал Azure</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Создание веб-приложения с помощью Python и CLI</a>
+- title: Примеры
   items:
   - type: paragraph
-    text: "Поиск скриптов для выполнения типовых задач."
+    text: Поиск скриптов для выполнения типовых задач.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: "<a href=\"/azure/postgresql/sample-scripts-azure-cli\">интерфейс командной строки Azure</a>"
-- title: "Ссылка"
+    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">интерфейс командной строки Azure</a>
+- title: Ссылка
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure\">интерфейс командной строки Azure</a></p>"
+    - title: Командная строка
+      html: <p><a href="/cli/azure">интерфейс командной строки Azure</a></p>
     - title: REST
       html: <p><a href="/rest/api/postgresql">REST API</a></p>

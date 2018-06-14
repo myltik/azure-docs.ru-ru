@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206146"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Шаблоны и сценарии использования Service Fabric
 Если вам требуется создать крупномасштабные микрослужбы с помощью Azure Service Fabric, воспользуйтесь опытом специалистов, которые разработали и создали эту платформу как услугу (PaaS). Начните с правильной архитектуры, а затем узнайте, как оптимизировать ресурсы для приложения. Курс [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) (Шаблоны Service Fabric и практические рекомендации) содержит ответы на самые распространенные вопросы, задаваемые реальными пользователями о сценариях использования и областях применения Service Fabric.

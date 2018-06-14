@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207016"
 ---
 # <a name="reliable-services-notifications"></a>Уведомления Reliable Services
 Уведомления позволяют клиентам отслеживать изменения, которые вносятся в интересующий их объект. Существует два типа объектов, поддерживающих уведомления: *диспетчер надежных состояний* и *надежный словарь*.

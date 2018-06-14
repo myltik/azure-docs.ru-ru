@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200162"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Указатель статей об устранении неполадок Hadoop в HDInsight
 Статьи упорядочены по типу ошибок.

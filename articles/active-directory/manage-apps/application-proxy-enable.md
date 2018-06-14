@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158427"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Начало работы с прокси приложения и установка соединителя
 В этой статье описывается процедура включения прокси приложения Microsoft Azure AD для облачного каталога в Azure AD.

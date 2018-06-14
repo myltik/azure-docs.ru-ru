@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204861"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Настройка и использование сходства служб в Service Fabric
 Сходство — это элемент управления, который применяется в основном для облегчения перевода больших, монолитных приложений в мир микро- и облачных служб. С его помощью можно также повысить производительность служб, хотя и не без возможных побочных эффектов.

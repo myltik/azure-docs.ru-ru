@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192668"
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics
 

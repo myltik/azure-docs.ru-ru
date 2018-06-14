@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358869"
 ---
 # <a name="throttling-resource-manager-requests"></a>Регулирование запросов Resource Manager
 Для каждой подписки и клиента Resource Manager ограничивает число запросов на чтение до 15 000 и запросов на запись — до 1200 в час. Эти ограничения применяются к каждому экземпляру Azure Resource Manager. В каждом регионе Azure существует несколько экземпляров, а Azure Resource Manager развертывается во всех регионах Azure.  На практике ограничений гораздо больше, чем указано выше, так как запросы пользователя обычно обслуживаются разными экземплярами.

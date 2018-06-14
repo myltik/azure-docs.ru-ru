@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210840"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Устранение неполадок с помощью отчетов о работоспособности системы
 Компоненты Azure Service Fabric предоставляют готовые системные отчеты о работоспособности для всех сущностей в кластере. В [хранилище данных о работоспособности](service-fabric-health-introduction.md#health-store) сущности создаются и удаляются на основании отчетов системы. Кроме того, эти сущности упорядочиваются в иерархию с учетом взаимодействия между ними.

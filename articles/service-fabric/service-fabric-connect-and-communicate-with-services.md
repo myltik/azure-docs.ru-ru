@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205592"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Подключение к службам в Service Fabric и взаимодействие с ними
 Служба Service Fabric, запущенная в кластере Service Fabric, обычно распределена между несколькими виртуальными машинами. Владелец службы или платформа Service Fabric могут перемещать ее из одного расположения в другое. Службы не привязаны статически к определенному компьютеру или адресу.

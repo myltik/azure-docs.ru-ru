@@ -1,12 +1,12 @@
 ---
-title: "Управление доступом к концентраторам событий Azure на основе ролей (RBAC) (предварительная версия) | Документация Майкрософт"
-description: "Управление доступом к концентраторам событий Azure на основе ролей"
+title: Управление доступом к концентраторам событий Azure на основе ролей (RBAC) (предварительная версия) | Документация Майкрософт
+description: Управление доступом к концентраторам событий Azure на основе ролей
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783536"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Управление доступом к Active Directory на основе ролей (предварительная версия)
 

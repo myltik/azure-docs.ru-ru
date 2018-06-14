@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164981"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Использование API выставления счетов Azure для программного получения ценных сведений об использовании Azure
 Используйте API выставления счетов Azure для извлечения данных об использовании и ресурсах в предпочитаемые средства анализа данных. API использования ресурсов и RateCard в Azure позволяют точно прогнозировать расходы и управлять ими. Интерфейсы API реализованы в виде поставщика ресурсов и относятся к семейству API, предоставляемых Azure Resource Manager.  

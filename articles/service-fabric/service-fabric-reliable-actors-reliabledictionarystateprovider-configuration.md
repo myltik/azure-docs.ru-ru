@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213118"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Настройка надежных субъектов: ReliableDictionaryActorStateProvider
 Конфигурацию ReliableDictionaryActorStateProvider по умолчанию можно изменить. Для этого нужно обновить файл settings.xml, созданный в папке Config корневого каталога пакета Visual Studio для данного субъекта.

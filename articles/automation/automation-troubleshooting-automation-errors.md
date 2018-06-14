@@ -16,6 +16,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195171"
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Устранение распространенных проблем службы автоматизации Azure 
 Эта статья содержит сведения о распространенных ошибках, которые могут возникнуть в службе автоматизации Azure, и возможных решениях по их устранению.
