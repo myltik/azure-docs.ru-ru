@@ -1,12 +1,12 @@
 ---
-title: "Подготовка жестких дисков к заданию импорта службы импорта и экспорта Azure | Документация Майкрософт"
-description: "Сведения о подготовке жестких дисков с помощью средства WAImportExport перед созданием задания импорта в службе импорта и экспорта Azure."
+title: Подготовка жестких дисков к заданию импорта службы импорта и экспорта Azure | Документация Майкрософт
+description: Сведения о подготовке жестких дисков с помощью средства WAImportExport перед созданием задания импорта в службе импорта и экспорта Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23469243"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Подготовка жестких дисков к заданию импорта
 

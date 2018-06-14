@@ -1,7 +1,7 @@
 ---
-title: "Отправка оповещений из Azure Application Insights | Документация Майкрософт"
-description: "Руководство по отправке оповещений в ответ на ошибки в приложении, которое использует Azure Application Insights."
-keywords: 
+title: Отправка оповещений из Azure Application Insights | Документация Майкрософт
+description: Руководство по отправке оповещений в ответ на ошибки в приложении, которое использует Azure Application Insights.
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23659347"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Мониторинг и оповещение о работоспособности приложения с помощью Azure Application Insights
 

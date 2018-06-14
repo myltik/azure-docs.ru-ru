@@ -1,6 +1,6 @@
 ---
-title: "Примеры Azure PowerShell для управляемых приложений Azure | Документация Майкрософт"
-description: "Примеры Azure PowerShell для управляемых приложений Azure"
+title: Примеры Azure PowerShell для управляемых приложений Azure | Документация Майкрософт
+description: Примеры Azure PowerShell для управляемых приложений Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636984"
 ---
 # <a name="azure-powershell-samples"></a>Примеры сценариев Azure PowerShell
 
