@@ -1,11 +1,11 @@
 ---
-title: "Добавление пользователей для работы с ADFS в Azure Stack | Документация Майкрософт"
-description: "Сведения о добавлении пользователей для работы с развертываниями Azure Stack с помощью служб федерации Active Directory"
+title: Добавление пользователей для работы с ADFS в Azure Stack | Документация Майкрософт
+description: Сведения о добавлении пользователей для работы с развертываниями Azure Stack с помощью служб федерации Active Directory
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29554592"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Добавление пользователей в Пакет средств разработки Azure Stack
 

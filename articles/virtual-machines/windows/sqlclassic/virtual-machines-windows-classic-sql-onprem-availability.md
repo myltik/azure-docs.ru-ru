@@ -1,11 +1,11 @@
 ---
-title: "Расширение локальных групп доступности Always On в Azure | Документация Майкрософт"
-description: "В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания. Также здесь показано, как с помощью мастера добавления реплики в SQL Server Management Studio (SSMS) добавить реплику группы доступности Always On в Azure."
+title: Расширение локальных групп доступности Always On в Azure | Документация Майкрософт
+description: В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания. Также здесь показано, как с помощью мастера добавления реплики в SQL Server Management Studio (SSMS) добавить реплику группы доступности Always On в Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400483"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Расширение локальных групп доступности Always On в Azure
 Группы доступности Always On обеспечивают высокий уровень доступности для групп базы данных путем добавления вторичных реплик. Эти реплики позволяют отрабатывать отказы баз данных. Кроме того, их можно использовать для разгрузки рабочих нагрузок чтения или задач резервного копирования.

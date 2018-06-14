@@ -1,6 +1,6 @@
 ---
-title: "Обзор обеспечения непрерывности бизнес-процессов с помощью службы \"База данных Azure для PostgreSQL\""
-description: "Обзор обеспечения непрерывности бизнес-процессов с помощью службы \"База данных Azure для PostgreSQL\""
+title: Обзор обеспечения непрерывности бизнес-процессов с помощью службы "База данных Azure для PostgreSQL"
+description: Обзор обеспечения непрерывности бизнес-процессов с помощью службы "База данных Azure для PostgreSQL"
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693122"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Обзор обеспечения непрерывности бизнес-процессов с помощью службы "База данных Azure для PostgreSQL"
 

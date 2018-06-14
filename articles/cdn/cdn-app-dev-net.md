@@ -1,11 +1,11 @@
 ---
-title: "Приступая к работе с библиотекой Azure CDN для .NET | Документация Майкрософт"
-description: "Узнайте, как с помощью Visual Studio создавать приложения .NET для управления Azure CDN."
+title: Приступая к работе с библиотекой Azure CDN для .NET | Документация Майкрософт
+description: Узнайте, как с помощью Visual Studio создавать приложения .NET для управления Azure CDN.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "22998179"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Приступая к разработке для Azure CDN
 > [!div class="op_single_selector"]

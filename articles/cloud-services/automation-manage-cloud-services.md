@@ -1,11 +1,11 @@
 ---
-title: "Управление облачными службами Azure с помощью службы автоматизации Azure | Документация Майкрософт"
-description: "Способы использования службы автоматизации Azure для управления облачными службами Azure при масштабировании."
+title: Управление облачными службами Azure с помощью службы автоматизации Azure | Документация Майкрософт
+description: Способы использования службы автоматизации Azure для управления облачными службами Azure при масштабировании.
 services: cloud-services, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997989"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Управление облачными службами Azure с помощью службы автоматизации Azure
 В этом руководстве будет представлена служба автоматизации Azure и способы ее использования для упрощения управления облачными службами Azure.

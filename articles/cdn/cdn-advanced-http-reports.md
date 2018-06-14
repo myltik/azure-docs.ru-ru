@@ -1,11 +1,11 @@
 ---
-title: "Анализ статистики использования с помощью расширенных отчетов HTTP Azure CDN | Документация Майкрософт"
-description: "Узнайте, как создавать расширенные отчеты HTTP в Microsoft Azure CDN. Эти отчеты предоставляют подробные сведения об активности в сети CDN."
+title: Анализ статистики использования с помощью расширенных отчетов HTTP Azure CDN | Документация Майкрософт
+description: Узнайте, как создавать расширенные отчеты HTTP в Microsoft Azure CDN. Эти отчеты предоставляют подробные сведения об активности в сети CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999039"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Анализ статистики использования с помощью расширенных отчетов HTTP Azure CDN
 ## <a name="overview"></a>Обзор

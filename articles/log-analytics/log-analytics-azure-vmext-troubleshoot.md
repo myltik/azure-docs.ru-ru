@@ -1,12 +1,12 @@
 ---
-title: "Устранение неполадок расширения \"Виртуальная машина Azure Log Analytics\" | Документация Майкрософт"
-description: "Описание симптомов, причин и решений для наиболее распространенных проблем с расширением \"Виртуальная машина Log Analytics\" для виртуальных машин Windows и Linux в Azure."
+title: Устранение неполадок расширения "Виртуальная машина Azure Log Analytics" | Документация Майкрософт
+description: Описание симптомов, причин и решений для наиболее распространенных проблем с расширением "Виртуальная машина Log Analytics" для виртуальных машин Windows и Linux в Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394992"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Устранение неполадок с расширением Log Analytics для виртуальной машины
 В этой статье содержатся сведения об устранении ошибок, которые могут возникнуть с расширением "Виртуальная машина Log Analytics" для виртуальных машин Windows и Linux, работающих на платформе Microsoft Azure, и предлагаются возможные решения для их устранения.

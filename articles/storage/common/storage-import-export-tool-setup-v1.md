@@ -1,11 +1,11 @@
 ---
-title: "Настройка инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт"
-description: "Узнайте, как настроить инструмент подготовки и исправления дисков для службы импорта и экспорта Azure. Приведенная информация относится к инструменту импорта и экспорта версии 1."
+title: Настройка инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт
+description: Узнайте, как настроить инструмент подготовки и исправления дисков для службы импорта и экспорта Azure. Приведенная информация относится к инструменту импорта и экспорта версии 1.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c312b1ab-5b9e-4d24-becd-790a88b3ba8d
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059789"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Настройка инструмента импорта и экспорта Azure
 Инструмент импорта и экспорта Microsoft Azure используется в службе импорта и экспорта Microsoft Azure для подготовки и исправления дисков. Это средство может выполнять перечисленные ниже функции.  
