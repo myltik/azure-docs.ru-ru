@@ -1,12 +1,12 @@
 ---
-title: "Администрирование с помощью службы диспетчера устройств StorSimple | Документация Майкрософт"
-description: "Узнайте, как управлять устройством StorSimple, используя службу диспетчера устройств StorSimple на портале Azure."
+title: Администрирование с помощью службы диспетчера устройств StorSimple | Документация Майкрософт
+description: Узнайте, как управлять устройством StorSimple, используя службу диспетчера устройств StorSimple на портале Azure.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108572"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Использование службы диспетчера устройств StorSimple для администрирования устройства StorSimple
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32170039"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Планирование ресурсов виртуальной машины Hyper-V с помощью решения "Емкость и производительность" (предварительная версия)
 
