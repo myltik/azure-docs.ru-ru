@@ -1,11 +1,11 @@
 ---
-title: "Документация по облачным службам Azure. Руководства и справочник по API | Документация Майкрософт"
-description: "В руководствах, справочниках по API и другой документации показано, как использовать облачные службы для размещения и выполнения облачных приложений и API-интерфейсов с высоким уровнем доступности и масштабируемости."
+title: Документация по облачным службам Azure. Руководства и справочник по API | Документация Майкрософт
+description: В руководствах, справочниках по API и другой документации показано, как использовать облачные службы для размещения и выполнения облачных приложений и API-интерфейсов с высоким уровнем доступности и масштабируемости.
 services: cloud-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24101888"
 ---
 # <a name="cloud-services-documentation"></a>Документация по облачным службам
 

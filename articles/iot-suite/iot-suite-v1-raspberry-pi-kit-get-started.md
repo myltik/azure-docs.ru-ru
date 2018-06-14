@@ -1,12 +1,12 @@
 ---
-title: "Подключение устройства Raspberry Pi к Azure IoT Suite | Документация Майкрософт"
-description: "Руководства по использованию начального набора Microsoft Azure IoT с устройствами Raspberry Pi 3 и решения для удаленного мониторинга Azure IoT Suite с помощью Node.js или C. Вы можете выбрать руководство, в котором моделируются данные телеметрии, используются датчики или включается возможность удаленного обновления встроенного ПО."
-services: 
+title: Подключение устройства Raspberry Pi к Azure IoT Suite | Документация Майкрософт
+description: Руководства по использованию начального набора Microsoft Azure IoT с устройствами Raspberry Pi 3 и решения для удаленного мониторинга Azure IoT Suite с помощью Node.js или C. Вы можете выбрать руководство, в котором моделируются данные телеметрии, используются датчики или включается возможность удаленного обновления встроенного ПО.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010427"
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>Подключение начального набора Microsoft Azure IoT для устройств Raspberry Pi 3 к решению для удаленного мониторинга
 
