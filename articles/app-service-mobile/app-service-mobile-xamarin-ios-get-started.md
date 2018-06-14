@@ -1,11 +1,11 @@
 ---
-title: "Приступая к работе с мобильными приложениями службы приложений Azure для приложений Xamarin.iOS | Документация Майкрософт"
-description: "Этот учебник поможет приступить к использованию мобильных приложений в разработке для Xamarin.iOS."
+title: Приступая к работе с мобильными приложениями службы приложений Azure для приложений Xamarin.iOS | Документация Майкрософт
+description: Этот учебник поможет приступить к использованию мобильных приложений в разработке для Xamarin.iOS.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592717"
 ---
 # <a name="create-a-xamarinios-app"></a>Создание приложения Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

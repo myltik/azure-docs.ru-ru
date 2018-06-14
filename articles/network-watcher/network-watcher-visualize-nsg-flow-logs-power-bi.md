@@ -1,11 +1,11 @@
 ---
-title: "Визуализация журналов потоков для групп безопасности сети с помощью Power BI | Документация Майкрософт"
-description: "В этой статье описывается визуализация журналов потоков для групп безопасности сети с помощью Power BI."
+title: Визуализация журналов потоков для групп безопасности сети с помощью Power BI | Документация Майкрософт
+description: В этой статье описывается визуализация журналов потоков для групп безопасности сети с помощью Power BI.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24878587"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Визуализация журналов потоков для групп безопасности сети с помощью Power BI
 

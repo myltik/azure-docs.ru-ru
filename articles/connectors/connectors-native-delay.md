@@ -1,11 +1,11 @@
 ---
-title: "Добавление задержки в приложения логики | Документация Майкрософт"
-description: "В этой статье приведены общие сведения о действиях \"Задержка\" и \"Задержка до\", а также об их использовании с приложением логики Azure."
-services: 
-documentationcenter: 
+title: Добавление задержки в приложения логики | Документация Майкрософт
+description: В этой статье приведены общие сведения о действиях "Задержка" и "Задержка до", а также об их использовании с приложением логики Azure.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27963678"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Начало работы с действиями "Задержка" и "Задержка до"
 С помощью действий "Задержка" и "Задержка до" можно выполнять сценарии рабочих процессов.

@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Jenkins в Azure"
+title: Jenkins в Azure
 metadata:
-  description: "Развертывание и интеграция Jenkins в Azure"
+  description: Развертывание и интеграция Jenkins в Azure
   services: multiple
   author: rloutlaw
   manager: justhe
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 11/08/2017
+  ms.locfileid: "24052163"
 abstract:
-  description: "Используйте сервер Jenkins открытым исходным кодом для сборки приложений в облаке и их развертывания в Azure. Изучив наши руководства и примеры, вы узнаете, как установить, настроить и масштабировать Jenkins в Azure, а также как настроить непрерывную интеграцию (CI) для приложений."
+  description: Используйте сервер Jenkins открытым исходным кодом для сборки приложений в облаке и их развертывания в Azure. Изучив наши руководства и примеры, вы узнаете, как установить, настроить и масштабировать Jenkins в Azure, а также как настроить непрерывную интеграцию (CI) для приложений.
   aside:
     image:
       alt: Jenkins logo
@@ -29,43 +30,43 @@ abstract:
       src: media/Jenkins.png
     title: 
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Создание системы Jenkins в Azure и выполнение сборки приложения."
+    text: Создание системы Jenkins в Azure и выполнение сборки приложения.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Настройка непрерывной интеграции для приложений, запуск агентов в облаке и использование служб Azure в заданиях."
+    text: Настройка непрерывной интеграции для приложений, запуск агентов в облаке и использование служб Azure в заданиях.
   - type: list
     style: ordered
     items:
-    - html: "Настройка непрерывной интеграции в <a href=\"/azure/jenkins/java-deploy-webapp-tutorial\">службу приложений Azure</a>, <a href=\"/azure/container-service/kubernetes/container-service-kubernetes-jenkins\">Kubernetes</a> или <a href=\"/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd\">виртуальную машину Linux</a>."
-    - html: "<a href=\"/azure/jenkins/execute-cli-jenkins-pipeline\">Подготовка ресурсов в задании конвейера</a>."
-    - html: "<a href=\"/azure/jenkins/jenkins-azure-vm-agents\">Масштабирование с помощью агентов виртуальных машин Azure</a>."
-- title: "Примеры"
+    - html: Настройка непрерывной интеграции в <a href="/azure/jenkins/java-deploy-webapp-tutorial">службу приложений Azure</a>, <a href="/azure/container-service/kubernetes/container-service-kubernetes-jenkins">Kubernetes</a> или <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">виртуальную машину Linux</a>.
+    - html: <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Подготовка ресурсов в задании конвейера</a>.
+    - html: <a href="/azure/jenkins/jenkins-azure-vm-agents">Масштабирование с помощью агентов виртуальных машин Azure</a>.
+- title: Примеры
   items:
   - type: paragraph
-    text: "Примеры скриптов и этапы для конвейеров."
+    text: Примеры скриптов и этапы для конвейеров.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: "<a href=\"https://github.com/Azure/azure-devops-utils/tree/master/jenkins\">Этапы Jenkinsfile и фрагменты кода</a>"
-- title: "Справочные материалы"
+    - html: <a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Этапы Jenkinsfile и фрагменты кода</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Подключаемые модули"
-      html: "<p><a href=\"https://plugins.jenkins.io/azure-vm-agents\">Агенты виртуальных машин Azure</a><p><a href=\"https://plugins.jenkins.io/azure-app-service\">службе приложений Azure</a></p><p><a href=\"https://plugins.jenkins.io/windows-azure-storage\">Хранилище Azure</a></p><p><a href=\"https://plugins.jenkins.io/azure-container-agents\">Агенты контейнеров Azure</a><p><a href=\"https://plugins.jenkins.io/azure-function\">Подключаемый модуль функций Azure</a><p><a href=\"https://plugins.jenkins.io/azure-acs\">Подключаемый модуль Службы контейнеров Azure</a>"
+    - title: Подключаемые модули
+      html: <p><a href="https://plugins.jenkins.io/azure-vm-agents">Агенты виртуальных машин Azure</a><p><a href="https://plugins.jenkins.io/azure-app-service">службе приложений Azure</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Хранилище Azure</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Агенты контейнеров Azure</a><p><a href="https://plugins.jenkins.io/azure-function">Подключаемый модуль функций Azure</a><p><a href="https://plugins.jenkins.io/azure-acs">Подключаемый модуль Службы контейнеров Azure</a>
 - type: paragraph
-  text: "<h4>Jenkins® — это зарегистрированная торговая марка корпорации Software in the Public Interest. [Логотип Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) используется по лицензии [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) для [проекта Jenkins](https://jenkins.io).</h4>"
+  text: <h4>Jenkins® — это зарегистрированная торговая марка корпорации Software in the Public Interest. [Логотип Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) используется по лицензии [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) для [проекта Jenkins](https://jenkins.io).</h4>

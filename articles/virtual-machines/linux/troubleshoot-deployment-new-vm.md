@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок развертывания виртуальных машин Linux (Resource Manager) | Документация Майкрософт"
-description: "Устранение неполадок развертывания Resource Manager при создании виртуальной машины Linux в Azure"
+title: Устранение неполадок развертывания виртуальных машин Linux (Resource Manager) | Документация Майкрософт
+description: Устранение неполадок развертывания Resource Manager при создании виртуальной машины Linux в Azure
 services: virtual-machines-linux, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27579269"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Linux в Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]

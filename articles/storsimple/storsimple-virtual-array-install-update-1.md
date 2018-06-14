@@ -1,12 +1,12 @@
 ---
-title: "Установка обновления 1.0 для виртуального массива StorSimple | Документация Майкрософт"
-description: "В этой статье объясняется, как установить обновления на виртуальный массив StorSimple с помощью локального пользовательского веб-интерфейса и портала Azure."
+title: Установка обновления 1.0 для виртуального массива StorSimple | Документация Майкрософт
+description: В этой статье объясняется, как установить обновления на виртуальный массив StorSimple с помощью локального пользовательского веб-интерфейса и портала Azure.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010827"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Установка обновления 1.0 для виртуального массива StorSimple
 

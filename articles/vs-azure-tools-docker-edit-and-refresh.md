@@ -1,11 +1,11 @@
 ---
-title: "Отладка приложений в локальном контейнере Docker | Документация Майкрософт"
-description: "Узнайте, как вносить изменения в приложение, выполняемое в локальном контейнере Docker, обновлять контейнер с помощью функций правки и обновления, а также устанавливать точки останова."
+title: Отладка приложений в локальном контейнере Docker | Документация Майкрософт
+description: Узнайте, как вносить изменения в приложение, выполняемое в локальном контейнере Docker, обновлять контейнер с помощью функций правки и обновления, а также устанавливать точки останова.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781400"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Отладка приложений в локальном контейнере Docker
 ## <a name="overview"></a>Обзор

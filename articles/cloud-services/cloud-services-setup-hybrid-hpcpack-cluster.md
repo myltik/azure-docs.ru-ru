@@ -1,13 +1,13 @@
 ---
-title: "Настройка гибридного кластера пакета HPC в Azure | Документация Майкрософт"
-description: "Узнайте, как использовать пакет Microsoft HPC и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислений (HPC)"
+title: Настройка гибридного кластера пакета HPC в Azure | Документация Майкрософт
+description: Узнайте, как использовать пакет Microsoft HPC и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислений (HPC)
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: hpc-pack
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23985312"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Настройка гибридного кластера высокопроизводительных вычислительных систем (HPC) с помощью пакета Microsoft HPC и вычислительных узлов Azure по требованию
 Используйте пакет Microsoft HPC Pack 2012 R2 и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислительных систем (HPC). Приведенный в этой статье кластер состоит из локального головного узла пакета HPC и нескольких вычислительных узлов, развертываемых по требованию в облачной службе Azure. Затем вы сможете выполнять вычислительные задания в гибридном кластере.

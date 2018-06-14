@@ -1,11 +1,11 @@
 ---
-title: "Изменение канала ExpressRoute с помощью PowerShell: классическая модель Azure | Документация Майкрософт"
-description: "В этой статье описывается, как выполнить проверку состояния, обновление, удаление или отмену подготовки канала классической модели развертывания ExpressRoute."
+title: 'Изменение канала ExpressRoute с помощью PowerShell: классическая модель Azure | Документация Майкрософт'
+description: В этой статье описывается, как выполнить проверку состояния, обновление, удаление или отмену подготовки канала классической модели развертывания ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24102840"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Изменение канала ExpressRoute с помощью PowerShell (классическая модель)
 

@@ -1,12 +1,12 @@
 ---
-title: "Заметки о выпуске, посвященные обновлению 5 для устройств серии StorSimple 8000 | Документация Майкрософт"
-description: "В статье описываются новые возможности, проблемы и способы их решения для обновления 5, предназначенного для устройств серии StorSimple 8000."
+title: Заметки о выпуске, посвященные обновлению 5 для устройств серии StorSimple 8000 | Документация Майкрософт
+description: В статье описываются новые возможности, проблемы и способы их решения для обновления 5, предназначенного для устройств серии StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518925"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Заметки о выпуске, посвященные обновлению 5 для устройств серии StorSimple 8000
 

@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Как использовать обратимое удаление в Azure Key Vault с помощью интерфейса командной строки"
-description: "Примеры использования обратимого удаления с фрагментами кода для интерфейса командной строки."
+ms.assetid: ''
+title: Как использовать обратимое удаление в Azure Key Vault с помощью интерфейса командной строки
+description: Примеры использования обратимого удаления с фрагментами кода для интерфейса командной строки.
 author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927980"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Как использовать обратимое удаление в Key Vault с помощью интерфейса командной строки
 

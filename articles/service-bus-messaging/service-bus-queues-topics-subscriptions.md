@@ -1,11 +1,11 @@
 ---
-title: "Обзор очередей сообщений, разделов и подписок служебной шины Azure | Документация Майкрософт"
-description: "Общие сведения о сущностях обмена сообщениями в служебной шине."
+title: Обзор очередей сообщений, разделов и подписок служебной шины Azure | Документация Майкрософт
+description: Общие сведения о сущностях обмена сообщениями в служебной шине.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/07/2017
+ms.locfileid: "24029513"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Очереди, разделы и подписки служебной шины
 

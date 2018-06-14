@@ -1,13 +1,13 @@
 ---
-title: "Пример сценария Azure PowerShell для добавления правила группы безопасности сети | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для добавления группы безопасности сети, разрешающей входящий трафик через определенный порт."
+title: Пример сценария Azure PowerShell для добавления правила группы безопасности сети | Документация Майкрософт
+description: Пример сценария Azure PowerShell для добавления группы безопасности сети, разрешающей входящий трафик через определенный порт.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25987195"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>Добавление правило входящего трафика для группы безопасности сети
 

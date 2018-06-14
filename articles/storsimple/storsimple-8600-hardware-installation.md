@@ -1,11 +1,11 @@
 ---
-title: "Установка устройства Microsoft Azure StorSimple 8600 | Документация Майкрософт"
-description: "Описывается процедура распаковки, установки в стойку и подключения устройства StorSimple 8600 перед развертыванием и настройкой программного обеспечения."
+title: Установка устройства Microsoft Azure StorSimple 8600 | Документация Майкрософт
+description: Описывается процедура распаковки, установки в стойку и подключения устройства StorSimple 8600 перед развертыванием и настройкой программного обеспечения.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743728"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Распаковка, установка в стойку и подключение устройства StorSimple 8600
 ## <a name="overview"></a>Обзор

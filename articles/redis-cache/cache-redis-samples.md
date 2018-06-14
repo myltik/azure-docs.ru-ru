@@ -1,11 +1,11 @@
 ---
-title: "Примеры кэша Redis для Azure | Документация Майкрософт"
-description: "Сведения об использовании кэша Redis для Azure."
+title: Примеры кэша Redis для Azure | Документация Майкрософт
+description: Сведения об использовании кэша Redis для Azure.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909702"
 ---
 # <a name="azure-redis-cache-samples"></a>Примеры кэша Redis для Azure
 Здесь представлен список примеров кэша Redis для Azure, охватывающих такие сценарии, как подключение к кэшу, чтение и запись данных в кэше и использование поставщиков кэша Redis ASP.NET. Некоторые примеры представляют собой скачиваемые проекты, а некоторые содержат пошаговые инструкции и фрагменты кода, но не ссылаются на скачиваемый проект.

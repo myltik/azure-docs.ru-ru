@@ -1,11 +1,11 @@
 ---
-title: "Серия SKU недоступна | Документация Майкрософт"
-description: "Некоторые серии SKU могут быть недоступны для выбранной подписки в определенном регионе."
+title: Серия SKU недоступна | Документация Майкрософт
+description: Некоторые серии SKU могут быть недоступны для выбранной подписки в определенном регионе.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870584"
 ---
 # <a name="region-or-sku-unavailable"></a>Регион или номер SKU недоступен
 В этой статье описывается, как устранить проблему с подпиской Azure, если для нее недоступен какой-либо регион или номер SKU виртуальной машины.

@@ -1,11 +1,11 @@
 ---
-title: "Системные требования виртуального массива Microsoft Azure StorSimple | Документация Майкрософт"
-description: "Дополнительные сведения о требованиях к программному обеспечению и сети для виртуального массива StorSimple"
+title: Системные требования виртуального массива Microsoft Azure StorSimple | Документация Майкрософт
+description: Дополнительные сведения о требованиях к программному обеспечению и сети для виртуального массива StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24815234"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Системные требования для виртуального массива StorSimple
 ## <a name="overview"></a>Обзор

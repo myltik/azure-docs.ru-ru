@@ -1,12 +1,12 @@
 ---
-title: "Подключение устройства Raspberry Pi с имитированными данными телеметрии к Azure IoT Suite с помощью Node.js | Документация Майкрософт"
-description: "Используйте начальный набор Microsoft Azure IoT для Raspberry Pi 3, а также Azure IoT Suite. С помощью Node.js вы можете подключать устройства Raspberry Pi к решению для удаленного мониторинга, отправлять имитированные данные телеметрии в облако, а также реагировать на методы, вызываемые на панели мониторинга этого решения."
-services: 
+title: Подключение устройства Raspberry Pi с имитированными данными телеметрии к Azure IoT Suite с помощью Node.js | Документация Майкрософт
+description: Используйте начальный набор Microsoft Azure IoT для Raspberry Pi 3, а также Azure IoT Suite. С помощью Node.js вы можете подключать устройства Raspberry Pi к решению для удаленного мониторинга, отправлять имитированные данные телеметрии в облако, а также реагировать на методы, вызываемые на панели мониторинга этого решения.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: node.js
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010657"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>Подключение устройства Raspberry Pi 3 к решению для удаленного мониторинга и отправка имитированных данных телеметрии с помощью Node.js
 

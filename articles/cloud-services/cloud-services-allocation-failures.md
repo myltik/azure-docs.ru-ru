@@ -1,11 +1,11 @@
 ---
-title: "Устранение ошибок выделения ресурсов для облачной службы | Документация Майкрософт"
-description: "Устранение ошибки выделения при развертывании облачных служб в Azure"
+title: Устранение ошибок выделения ресурсов для облачной службы | Документация Майкрософт
+description: Устранение ошибки выделения при развертывании облачных служб в Azure
 services: azure-service-management, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984122"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Устранение ошибки выделения при развертывании облачных служб в Azure
 ## <a name="summary"></a>Сводка

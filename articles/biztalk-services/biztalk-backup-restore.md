@@ -1,11 +1,11 @@
 ---
-title: "Создание и восстановление резервной копии в службах BizTalk | Документация Майкрософт"
-description: "Службы BizTalk включают в себя архивацию и восстановление. Сведения о создании и восстановлении резервной копии и о том, как определить, что будет заархивировано. MABS, WABS"
+title: Создание и восстановление резервной копии в службах BizTalk | Документация Майкрософт
+description: Службы BizTalk включают в себя архивацию и восстановление. Сведения о создании и восстановлении резервной копии и о том, как определить, что будет заархивировано. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102347"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Службы BizTalk: резервное копирование и восстановление
 

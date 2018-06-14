@@ -1,12 +1,12 @@
 ---
-title: "Управление устройством StorSimple с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как использовать Windows PowerShell для StorSimple для управления своим устройством StorSimple."
+title: Управление устройством StorSimple с помощью PowerShell | Документация Майкрософт
+description: Узнайте, как использовать Windows PowerShell для StorSimple для управления своим устройством StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743730"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Администрирование устройства с помощью Windows PowerShell для StorSimple
 

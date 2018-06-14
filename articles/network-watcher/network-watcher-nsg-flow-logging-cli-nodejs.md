@@ -1,11 +1,11 @@
 ---
-title: "Управление журналами потоков для групп безопасности сети с помощью Наблюдателя за сетями (Azure CLI 1.0) | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как управлять журналами потоков для групп безопасности сети с помощью Наблюдателя за сетями в Azure CLI 1.0."
+title: Управление журналами потоков для групп безопасности сети с помощью Наблюдателя за сетями (Azure CLI 1.0) | Документация Майкрософт
+description: Из этой статьи вы узнаете, как управлять журналами потоков для групп безопасности сети с помощью Наблюдателя за сетями в Azure CLI 1.0.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774494"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli-10"></a>Настройка журналов потоков для групп безопасности сети с помощью Azure CLI 1.0
 

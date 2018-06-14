@@ -1,7 +1,7 @@
 ---
-title: "Создание кластера виртуальных машин с помощью Terraform и HCL"
-description: "Применение Terraform и настраиваемого языка шаблонов HCL для создания в Azure кластера виртуальных машин Linux с подсистемой балансировки нагрузки"
-keywords: "terraform, devops, виртуальная машина, сеть, модули"
+title: Создание кластера виртуальных машин с помощью Terraform и HCL
+description: Применение Terraform и настраиваемого языка шаблонов HCL для создания в Azure кластера виртуальных машин Linux с подсистемой балансировки нагрузки
+keywords: terraform, devops, виртуальная машина, сеть, модули
 author: tomarcher
 manager: routlaw
 ms.service: virtual-machines-linux
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518806"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Создание кластера виртуальных машин с помощью Terraform и HCL
 
