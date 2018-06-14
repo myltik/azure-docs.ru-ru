@@ -1,11 +1,11 @@
 ---
-title: "Сопряженные пространства имен служебной шины Azure | Документация Майкрософт"
-description: "Сведения о реализации и затратах для сопряженных пространств имен"
+title: Сопряженные пространства имен служебной шины Azure | Документация Майкрософт
+description: Сведения о реализации и затратах для сопряженных пространств имен
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159547"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Сведения о реализации и финансовых затратах для сопряженных пространств имен
 

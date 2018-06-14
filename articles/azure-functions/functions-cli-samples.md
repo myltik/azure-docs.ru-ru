@@ -1,6 +1,6 @@
 ---
-title: "Примеры Azure CLI. Функции Azure | Документация Майкрософт"
-description: "Примеры Azure CLI для Функций Azure."
+title: Примеры Azure CLI. Функции Azure | Документация Майкрософт
+description: Примеры Azure CLI для Функций Azure.
 services: functions
 documentationcenter: functions
 author: syntaxc4
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27740107"
 ---
 # <a name="azure-cli-samples"></a>Примеры Azure CLI
 

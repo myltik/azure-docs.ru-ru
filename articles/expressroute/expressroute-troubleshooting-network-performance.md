@@ -1,12 +1,12 @@
 ---
-title: "Устранение проблем с производительностью виртуальной сети Azure | Документация Майкрософт"
-description: "Эта страница содержит сведения о стандартном методе тестирования производительности сетевого соединения Azure."
+title: Устранение проблем с производительностью виртуальной сети Azure | Документация Майкрософт
+description: Эта страница содержит сведения о стандартном методе тестирования производительности сетевого соединения Azure.
 services: expressroute
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27319484"
 ---
 # <a name="troubleshooting-network-performance"></a>Устранение проблем с производительностью сети
 ## <a name="overview"></a>Обзор

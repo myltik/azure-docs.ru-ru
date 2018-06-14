@@ -1,11 +1,11 @@
 ---
-title: "Приступая к работе с хранилищем BLOB-объектов Azure и подключенными службами Visual Studio (ASP.NET Core) | Документация Майкрософт"
-description: "Как приступить к работе, используя хранилище BLOB-объектов Azure в проекте ASP.NET Core в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio."
+title: Приступая к работе с хранилищем BLOB-объектов Azure и подключенными службами Visual Studio (ASP.NET Core) | Документация Майкрософт
+description: Как приступить к работе, используя хранилище BLOB-объектов Azure в проекте ASP.NET Core в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621229"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Приступая к работе с хранилищем BLOB-объектов Azure и подключенными службами Visual Studio (ASP.NET Core)
 

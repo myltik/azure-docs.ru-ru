@@ -1,12 +1,12 @@
 ---
-title: "Управление ресурсами концентраторов событий Azure с помощью PowerShell | Документация Майкрософт"
-description: "Создание концентраторов событий и управление ими с помощью модуля PowerShell"
+title: Управление ресурсами концентраторов событий Azure с помощью PowerShell | Документация Майкрософт
+description: Создание концентраторов событий и управление ими с помощью модуля PowerShell
 services: event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782223"
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Управление ресурсами концентраторов событий с помощью PowerShell
 

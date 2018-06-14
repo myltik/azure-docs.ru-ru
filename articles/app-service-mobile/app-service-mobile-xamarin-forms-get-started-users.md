@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с проверкой подлинности для мобильных приложений в приложении Xamarin Forms | Документация Майкрософт"
-description: "Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения Xamarin Forms с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
+title: Начало работы с проверкой подлинности для мобильных приложений в приложении Xamarin Forms | Документация Майкрософт
+description: Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения Xamarin Forms с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт.
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593404"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Добавление проверки подлинности в приложение Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

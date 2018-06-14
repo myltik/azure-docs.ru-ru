@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341012"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики
 В этом руководстве описывается удаленная установка расширения панели доступа для Internet Explorer на компьютерах пользователей с помощью групповой политики. Это расширение является обязательным для пользователей Internet Explorer, выполняющих вход в приложения, для которых настроен [единый вход по паролю](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).

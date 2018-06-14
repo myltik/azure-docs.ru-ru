@@ -1,11 +1,11 @@
 ---
-title: "Комплексная трассировка и диагностика в служебной шине Azure | Документация Майкрософт"
-description: "Общие сведения о диагностике клиента служебной шины и комплексной трассировке."
+title: Комплексная трассировка и диагностика в служебной шине Azure | Документация Майкрософт
+description: Общие сведения о диагностике клиента служебной шины и комплексной трассировке.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27741221"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Распределенная трассировка и корреляция путем обмена сообщениями через служебную шину
 

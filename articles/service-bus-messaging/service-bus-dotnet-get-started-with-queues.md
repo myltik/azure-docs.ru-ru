@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с очередями служебной шины Azure | Документация Майкрософт"
-description: "Написание консольного приложения C#, которое использует очереди обмена сообщениями служебной шины."
+title: Начало работы с очередями служебной шины Azure | Документация Майкрософт
+description: Написание консольного приложения C#, которое использует очереди обмена сообщениями служебной шины.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26642466"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Начало работы с очередями служебной шины
 

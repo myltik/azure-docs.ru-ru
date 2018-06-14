@@ -1,11 +1,11 @@
 ---
-title: "Создание мобильного приложения для iOS в службе мобильных приложений Azure | Документация Майкрософт"
-description: "Изучите этот учебник, чтобы начать работу с серверным частями мобильных приложений Azure для разработки приложений iOS на Objective-C или Swift"
+title: Создание мобильного приложения для iOS в службе мобильных приложений Azure | Документация Майкрософт
+description: Изучите этот учебник, чтобы начать работу с серверным частями мобильных приложений Azure для разработки приложений iOS на Objective-C или Swift
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595320"
 ---
 # <a name="create-an-ios-app"></a>Создание приложения iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

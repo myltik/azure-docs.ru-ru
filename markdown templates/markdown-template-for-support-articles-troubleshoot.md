@@ -1,11 +1,11 @@
 ---
-title: "42 дополняемых символа | Документация Майкрософт"
-description: "Отображается в поисковых системах под заголовком. Здесь больше места, используйте дополнительные ключевые слова и более подробное объяснение, чем в заголовке"
+title: 42 дополняемых символа | Документация Майкрософт
+description: Отображается в поисковых системах под заголовком. Здесь больше места, используйте дополнительные ключевые слова и более подробное объяснение, чем в заголовке
 services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: top-support-issue
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "26730551"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Заголовок (максимум 120 символов, укажите ключевое слово)
 *Используйте 2–3 дополнительных ключевых слова в описании.*

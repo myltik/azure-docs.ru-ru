@@ -1,11 +1,11 @@
 ---
-title: "Добавление проверки подлинности в Apache Cordova с помощью мобильных приложений | Документация Майкрософт"
-description: "Узнайте, как использовать мобильные приложения в службе приложений Azure для аутентификации пользователей приложения Apache Cordova с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
+title: Добавление проверки подлинности в Apache Cordova с помощью мобильных приложений | Документация Майкрософт
+description: Узнайте, как использовать мобильные приложения в службе приложений Azure для аутентификации пользователей приложения Apache Cordova с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт.
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27591952"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Добавление проверки подлинности в приложение Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

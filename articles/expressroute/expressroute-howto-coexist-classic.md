@@ -1,11 +1,11 @@
 ---
-title: "Настройка сосуществующих подключений VPN типа ExpressRoute и \"сеть — сеть\" с помощью классической модели Azure | Документация Майкрософт"
-description: "В этой статье описывается настройка параллельных подключений ExpressRoute и VPN типа \"сеть-сеть\" для классической модели развертывания."
+title: Настройка сосуществующих подключений VPN типа ExpressRoute и "сеть — сеть" с помощью классической модели Azure | Документация Майкрософт
+description: В этой статье описывается настройка параллельных подключений ExpressRoute и VPN типа "сеть-сеть" для классической модели развертывания.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "22710139"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Настройка параллельных подключений ExpressRoute и "сайт — сайт" (классическая версия)
 > [!div class="op_single_selector"]

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074938"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259861"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Включение резервного копирования для Azure Stack с помощью PowerShell
 
@@ -65,7 +65,7 @@ ms.locfileid: "34074938"
 
 | Переменная        | ОПИСАНИЕ   |
 |---              |---                                        |
-| $username       | Введите **имя пользователя**, используя домен и имя пользователя для общего расположения диска. Например, `Contoso\administrator`. |
+| $username       | Введите **имя пользователя**, указав домен и имя пользователя для расположения общего диска. У этого пользователя должны быть достаточные права на чтение и запись файлов. Например, `Contoso\backupshareuser`. |
 | $password       | Введите **пароль** пользователя. |
 | $sharepath      | Введите путь к **расположению хранилища резервных копий**. В качестве пути к общей папке на отдельном устройстве нужно использовать UNC-строку. UNC-строка указывает расположение ресурсов, например общих файлов или устройств. Чтобы обеспечить доступность резервных копий, устройство должно находиться в отдельном расположении. |
 

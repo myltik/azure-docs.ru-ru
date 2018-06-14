@@ -15,6 +15,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267196"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Сравнение службы совместной работы B2B и B2C в Azure Active Directory
 
