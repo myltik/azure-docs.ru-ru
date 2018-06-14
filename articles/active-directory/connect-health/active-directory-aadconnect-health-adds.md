@@ -1,8 +1,8 @@
 ---
-title: "Использование Azure AD Connect Health с AD DS | Документация Майкрософт"
-description: "На этой странице Azure AD Connect Health описывается мониторинг AD DS."
+title: Использование Azure AD Connect Health с AD DS | Документация Майкрософт
+description: На этой странице Azure AD Connect Health описывается мониторинг AD DS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: arluca
 manager: mtillman
 editor: curtand
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614419"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Использование Azure AD Connect Health с AD DS
 Приведенная ниже документация относится к мониторингу доменных служб Active Directory с помощью Azure AD Connect Health. Поддерживаемые версии AD DS: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 и Windows Server 2016.

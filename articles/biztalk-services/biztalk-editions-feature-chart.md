@@ -1,11 +1,11 @@
 ---
-title: "Дополнительные сведения о возможностях выпусков служб BizTalk | Документация Майкрософт"
-description: "Сравните возможности выпусков служб BizTalk: Free, Developer, Basic, Standard и Premium. MABS, WABS."
+title: Дополнительные сведения о возможностях выпусков служб BizTalk | Документация Майкрософт
+description: 'Сравните возможности выпусков служб BizTalk: Free, Developer, Basic, Standard и Premium. MABS, WABS.'
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: c589629f-06b1-44bb-b8ca-1db71826ea59
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22706654"
 ---
 # <a name="biztalk-services-editions-chart"></a>Службы BizTalk: диаграмма выпусков
 

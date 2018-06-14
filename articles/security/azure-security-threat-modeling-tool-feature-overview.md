@@ -1,6 +1,6 @@
 ---
-title: "Средство моделирования угроз Microsoft Azure | Документация Майкрософт"
-description: "Узнайте обо всех функциях, доступных в средстве моделирования угроз."
+title: Средство моделирования угроз Microsoft Azure | Документация Майкрософт
+description: Узнайте обо всех функциях, доступных в средстве моделирования угроз.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754751"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Общие сведения о функциях средства моделирования угроз
 

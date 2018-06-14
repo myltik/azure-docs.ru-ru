@@ -1,11 +1,11 @@
 ---
-title: "Направление интернет-домена компании на доменное имя диспетчера трафика | Документация Майкрософт"
-description: "В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика."
+title: Направление интернет-домена компании на доменное имя диспетчера трафика | Документация Майкрософт
+description: В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22719931"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Указание домена диспетчера трафика для интернет-домена компании.
 

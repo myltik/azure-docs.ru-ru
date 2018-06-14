@@ -1,6 +1,6 @@
 ---
-title: "Использование Terraform с Azure"
-description: "Общие сведения об использовании Terraform для управления версиями и развертывания инфраструктуры Azure."
+title: Использование Terraform с Azure
+description: Общие сведения об использовании Terraform для управления версиями и развертывания инфраструктуры Azure.
 ms.service: virtual-machines-linux
 keywords: terraform, devops, overview, plan, apply, automate
 author: binderjoe
@@ -12,6 +12,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26364476"
 ---
 # <a name="terraform-with-azure"></a>Terraform с Azure
 

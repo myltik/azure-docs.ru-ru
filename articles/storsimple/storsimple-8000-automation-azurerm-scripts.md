@@ -1,12 +1,12 @@
 ---
-title: "Использование сценариев Azure Resource Manager для управления устройствами StorSimple | Документация Майкрософт"
-description: "Узнайте, как использовать сценарии Azure Resource Manager для автоматизации заданий StorSimple"
+title: Использование сценариев Azure Resource Manager для управления устройствами StorSimple | Документация Майкрософт
+description: Узнайте, как использовать сценарии Azure Resource Manager для автоматизации заданий StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26373947"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Использование сценариев Azure Resource Manager для управления устройствами StorSimple на основе пакета SDK
 

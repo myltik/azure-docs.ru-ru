@@ -1,11 +1,11 @@
 ---
-title: "Предоставление разрешений для специально разработанного приложения | Документы Майкрософт"
-description: "Предоставление разрешений для специально разработанного приложения с помощью портала Azure AD или параметра URL-адреса"
+title: Предоставление разрешений для специально разработанного приложения | Документы Майкрософт
+description: Предоставление разрешений для специально разработанного приложения с помощью портала Azure AD или параметра URL-адреса
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26733770"
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Как предоставить разрешения для специально разработанного приложения
 

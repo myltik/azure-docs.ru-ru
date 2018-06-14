@@ -1,12 +1,12 @@
 ---
-title: "Пример сценария Azure PowerShell для вычисления общего указываемого в счете размера контейнера больших двоичных объектов | Документация Майкрософт"
-description: "Вычислите общий размер контейнера в хранилище BLOB-объектов Azure для выставления счетов."
+title: Пример сценария Azure PowerShell для вычисления общего указываемого в счете размера контейнера больших двоичных объектов | Документация Майкрософт
+description: Вычислите общий размер контейнера в хранилище BLOB-объектов Azure для выставления счетов.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26368550"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Вычисление общего указываемого в счете размера контейнера больших двоичных объектов
 

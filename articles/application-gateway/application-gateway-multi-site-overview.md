@@ -1,11 +1,11 @@
 ---
-title: "Размещение нескольких сайтов в шлюзе приложений Azure | Документация Майкрософт"
-description: "На этой странице предоставлен обзор поддержки нескольких сайтов в шлюзе приложений."
+title: Размещение нескольких сайтов в шлюзе приложений Azure | Документация Майкрософт
+description: На этой странице предоставлен обзор поддержки нескольких сайтов в шлюзе приложений.
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704767"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Размещение нескольких сайтов с помощью шлюза приложений
 

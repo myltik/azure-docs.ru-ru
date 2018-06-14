@@ -1,12 +1,12 @@
 ---
-title: "Управление томами StorSimple (с обновлением 3) | Документация Майкрософт"
-description: "Здесь объясняется, как добавлять, изменять и удалять тома StorSimple, осуществлять их мониторинг, а также отключать их при необходимости."
+title: Управление томами StorSimple (с обновлением 3) | Документация Майкрософт
+description: Здесь объясняется, как добавлять, изменять и удалять тома StorSimple, осуществлять их мониторинг, а также отключать их при необходимости.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26578879"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Использование службы диспетчера устройств StorSimple с обновлением 3 или более поздним для управления томами
 

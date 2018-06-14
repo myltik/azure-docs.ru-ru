@@ -1,11 +1,11 @@
 ---
-title: "Управление журналами потоков для групп безопасности сети с помощью Наблюдателя за сетями Azure (REST API) | Документация Майкрософт"
-description: "На этой странице объясняется, как управлять журналами потоков для групп безопасности сети в Наблюдателе за сетями с помощью REST API."
+title: Управление журналами потоков для групп безопасности сети с помощью Наблюдателя за сетями Azure (REST API) | Документация Майкрософт
+description: На этой странице объясняется, как управлять журналами потоков для групп безопасности сети в Наблюдателе за сетями с помощью REST API.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774377"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Настройка журналов потоков для групп безопасности сети с помощью REST API
 

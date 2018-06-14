@@ -1,15 +1,15 @@
 ---
-title: "Основные сведения об использовании виртуальных машин Azure | Документация Майкрософт"
-description: "Основные сведения об использовании виртуальных машин"
+title: Основные сведения об использовании виртуальных машин Azure | Документация Майкрософт
+description: Основные сведения об использовании виртуальных машин
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345404"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Основные сведения об использовании виртуальных машин Azure
 Анализируя сведения об использовании Azure, можно получить важные аналитические данные, которые помогут оптимизировать управление затратами и их распределение в организации. В этом документе предоставлены подробные сведения об использовании вычислительных ресурсов Azure. Дополнительные сведения об использовании Azure см. в статье об [анализе счета](/billing/billing-understand-your-bill.md).
