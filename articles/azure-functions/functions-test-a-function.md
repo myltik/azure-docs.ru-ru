@@ -1,13 +1,13 @@
 ---
-title: "Тестирование Функций Azure | Документация Майкрософт"
-description: "Тестирование функций Azure с помощью Postman, cURL и Node.js."
+title: Тестирование Функций Azure | Документация Майкрософт
+description: Тестирование функций Azure с помощью Postman, cURL и Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, webhook, динамические вычисления, независимая архитектура, тестирование"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, webhook, динамические вычисления, независимая архитектура, тестирование
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
 ms.service: functions
 ms.devlang: multiple
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22992199"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Методика тестирования кода с помощью Функций Azure
 
