@@ -74,6 +74,8 @@
       href: load-balancer-standard-public-zone-redundant-cli.md
     - name: Балансировка нагрузки виртуальных машин в пределах зоны (CLI)
       href: load-balancer-standard-public-zonal-cli.md
+    - name: Создание Azure Load Balancer с помощью REST API
+      href: create-load-balancer-rest-api.md
     - name: Создание Load Balancer уровня "Базовый" (шаблон)
       href: load-balancer-get-started-internet-arm-template.md
     - name: Создание общедоступной службы Azure Load Balancer с поддержкой IPv6
@@ -106,6 +108,8 @@
           href: load-balancer-multiple-ip-powershell.md
     - name: Служба анализа журналов для балансировщика нагрузки Azure
       href: load-balancer-monitor-log.md
+    - name: Получение метрик Load Balancer с помощью REST
+      href: load-balancer-query-metrics-rest-api.md
     - name: Настройка высокодоступных портов для внутренней службы Azure Load Balancer
       href: load-balancer-configure-ha-ports.md
     - name: Устранение неполадок

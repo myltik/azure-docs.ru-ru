@@ -1,12 +1,12 @@
 ---
-title: "Требования к системе StorSimple серии 8000 | Документы Майкрософт"
-description: "Описание требований и рекомендаций по программному обеспечению, высокой доступности и сетям для решения Microsoft Azure StorSimple."
+title: Требования к системе StorSimple серии 8000 | Документы Майкрософт
+description: Описание требований и рекомендаций по программному обеспечению, высокой доступности и сетям для решения Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28011067"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Программное обеспечение StorSimple серии 8000, высокий уровень доступности и требования к сети
 

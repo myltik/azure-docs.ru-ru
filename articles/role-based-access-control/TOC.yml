@@ -5,6 +5,16 @@
 - name: Управление доступом на основе ролей (RBAC)
   href: overview.md
   items:
+    - name: Быстрое начало работы
+      items:
+        - name: Предоставление доступа пользователям с помощью портала
+          href: quickstart-assign-role-user-portal.md
+    - name: Учебники
+      items:
+        - name: Предоставление доступа пользователям с помощью PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: Предоставление доступа группе с помощью PowerShell
+          href: tutorial-role-assignments-group-powershell.md
     - name: Управление назначением ролей
       items:
         - name: Пользователь
@@ -17,11 +27,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Определения ролей
+      href: role-definitions.md
     - name: Встроенные роли
       href: built-in-roles.md
     - name: Пользовательские роли
       href: custom-roles.md
-    - name: Назначение настраиваемых ролей для внутренних и внешних пользователей
+    - name: Управление назначением ролей для внешних пользователей
       href: role-assignments-external-users.md
     - name: Журналы действий
       href: change-history-report.md

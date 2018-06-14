@@ -1,12 +1,12 @@
 ---
-title: "Выполнение Azure CLI с помощью Jenkins | Документация Майкрософт"
-description: "Сведения об использовании Azure CLI для развертывания веб-приложения Java в Azure в конвейере Jenkins"
+title: Выполнение Azure CLI с помощью Jenkins | Документация Майкрософт
+description: Сведения об использовании Azure CLI для развертывания веб-приложения Java в Azure в конвейере Jenkins
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: jenkins
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926936"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Развертывание в службу приложений Azure с помощью Jenkins и Azure CLI
 Для развертывания веб-приложения Java в Azure можно использовать Azure CLI в [конвейере Jenkins](https://jenkins.io/doc/book/pipeline/). В этом учебнике мы создадим конвейер CI/CD на виртуальной машине Azure, включая следующие задачи:

@@ -1,11 +1,11 @@
 ---
-title: "Обзор версий среды выполнения для решения \"Функции Azure\""
-description: "Решение \"Функции Azure\" поддерживает разные версии среды выполнения. В этой статье приводятся различия между ними и рекомендации по выбору подходящей для вас версии."
+title: Обзор версий среды выполнения для решения "Функции Azure"
+description: Решение "Функции Azure" поддерживает разные версии среды выполнения. В этой статье приводятся различия между ними и рекомендации по выбору подходящей для вас версии.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919361"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Обзор версий среды выполнения для решения "Функции Azure"
 

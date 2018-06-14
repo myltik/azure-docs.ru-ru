@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927787"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management"></a>Устранение неполадок при управлении приложением Azure Active Directory
 По следующим ссылкам вы можете перейти к картам содержимого, которые помогут решить некоторые из наиболее распространенных проблем при управлении **корпоративными приложениями** в Azure Active Directory.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070657"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Изменение сведений в профиле учетной записи Azure, например контактного адреса электронной почты, адреса и номера телефона
 

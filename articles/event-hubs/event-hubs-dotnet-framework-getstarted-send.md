@@ -1,11 +1,11 @@
 ---
-title: "Отправка событий в концентраторы событий Azure с помощью платформы .NET Framework | Документация Майкрософт"
-description: "Начало работы с отправкой событий в концентраторы событий с помощью платформы .NET Framework"
+title: Отправка событий в концентраторы событий Azure с помощью платформы .NET Framework | Документация Майкрософт
+description: Начало работы с отправкой событий в концентраторы событий с помощью платформы .NET Framework
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984992"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Отправка событий в концентраторы событий Azure с помощью платформы .NET Framework
 
