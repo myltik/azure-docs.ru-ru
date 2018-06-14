@@ -1,8 +1,8 @@
 ---
-title: "Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure | Документация Майкрософт"
-description: "Данная статья поможет вам подготовить и создать ваши собственные ключи, защищенные аппаратным модулем безопасности, а затем передать их в хранилище ключей Azure. Также известные как собственные ключи или BYOK."
+title: Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure | Документация Майкрософт
+description: Данная статья поможет вам подготовить и создать ваши собственные ключи, защищенные аппаратным модулем безопасности, а затем передать их в хранилище ключей Azure. Также известные как собственные ключи или BYOK.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345117"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure
 ## <a name="introduction"></a>Введение

@@ -1,12 +1,12 @@
 ---
-title: "Использование управляемого удостоверения службы с концентраторами событий Azure (предварительная версия) | Документация Майкрософт"
-description: "Использование управляемых удостоверений службы с концентраторами событий Azure"
+title: Использование управляемого удостоверения службы с концентраторами событий Azure (предварительная версия) | Документация Майкрософт
+description: Использование управляемых удостоверений службы с концентраторами событий Azure
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783535"
 ---
 # <a name="managed-service-identity-preview"></a>Функция "Управляемые удостоверения службы" (предварительная версия)
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337764"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Устранение неполадок, связанных с расширением панели доступа для Internet Explorer
 Эта статья поможет устранить следующие проблемы.

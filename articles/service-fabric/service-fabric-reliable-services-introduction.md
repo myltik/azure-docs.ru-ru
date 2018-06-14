@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213186"
 ---
 # <a name="reliable-services-overview"></a>Обзор надежных служб
 Платформа Azure Service Fabric упрощает написание надежных служб с отслеживанием и без отслеживания состояния и управление такими службами. В этой статье рассматриваются следующие вопросы.

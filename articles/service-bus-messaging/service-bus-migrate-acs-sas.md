@@ -1,11 +1,11 @@
 ---
-title: "Переход от авторизации с использованием службы контроля доступа Azure Active Directory к авторизации с помощью подписанного URL-адреса | Документация Майкрософт"
-description: "Перенос приложений из службы контроля доступа в SAS"
+title: Переход от авторизации с использованием службы контроля доступа Azure Active Directory к авторизации с помощью подписанного URL-адреса | Документация Майкрософт
+description: Перенос приложений из службы контроля доступа в SAS
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27160271"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Переход от службы контроля доступа Azure Active Directory к авторизации подписанного URL-адреса
 

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по управляемым приложениям Azure"
+title: Документация по управляемым приложениям Azure
 metadata:
-  title: "Документация по управляемым приложениям Azure. Руководства и справочник по API"
-  description: "Используйте управляемые приложения Azure для публикации облачных решений. Пользователям удобнее обслуживать именно такие решения."
+  title: Документация по управляемым приложениям Azure. Руководства и справочник по API
+  description: Используйте управляемые приложения Azure для публикации облачных решений. Пользователям удобнее обслуживать именно такие решения.
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -18,38 +18,39 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27779573"
 abstract:
-  description: "Управляемые приложения Azure позволяют предлагать облачные решения внутренним и внешним клиентам. Вы самостоятельно определяете инфраструктуру решения, а также условия управления решением. Счета за использование решения обрабатываются в службе Azure по выставлению счетов."
+  description: Управляемые приложения Azure позволяют предлагать облачные решения внутренним и внешним клиентам. Вы самостоятельно определяете инфраструктуру решения, а также условия управления решением. Счета за использование решения обрабатываются в службе Azure по выставлению счетов.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как опубликовать и развернуть управляемое приложение."
+    text: Узнайте, как опубликовать и развернуть управляемое приложение.
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/managed-applications/media/index/cli.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как разрабатывать управляемые приложения и предлагать их в Azure Marketplace."
+    text: Узнайте, как разрабатывать управляемые приложения и предлагать их в Azure Marketplace.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">Публикация управляемого приложения для внутренних пользователей.</a>"
-    - html: "<a href=\"/azure/managed-applications/publish-marketplace-app\">Публикация управляемого приложения для внешних пользователей.</a>"
-- title: "Ссылка"
+    - html: <a href="/azure/managed-applications/publish-service-catalog-app">Публикация управляемого приложения для внутренних пользователей.</a>
+    - html: <a href="/azure/managed-applications/publish-marketplace-app">Публикация управляемого приложения для внешних пользователей.</a>
+- title: Ссылка
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/managedapp\">интерфейс командной строки Azure</a></p><p><a href=\"/powershell/module/azurerm.resources\">PowerShell</a></p>"
-    - title: "Интерфейсы API REST"
+    - title: Командная строка
+      html: <p><a href="/cli/azure/managedapp">интерфейс командной строки Azure</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+    - title: Интерфейсы API REST
       html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: "Пользовательский интерфейс"
-      html: "<p><a href=\"/azure/managed-applications/create-uidefinition-elements\">Элементы пользовательского интерфейса</a></p><p><a href=\"/azure/managed-applications/create-uidefinition-functions\">Функции пользовательского интерфейса</a></p>"
+    - title: Пользовательский интерфейс
+      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Элементы пользовательского интерфейса</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Функции пользовательского интерфейса</a></p>

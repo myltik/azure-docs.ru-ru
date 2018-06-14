@@ -1,11 +1,11 @@
 ---
-title: "Перенос данных с устройства StorSimple серий 5000–7000 на устройство серии 8000 | Документация Майкрософт"
-description: "Предоставляет обзор и предварительные условия для функции миграции."
+title: Перенос данных с устройства StorSimple серий 5000–7000 на устройство серии 8000 | Документация Майкрософт
+description: Предоставляет обзор и предварительные условия для функции миграции.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26738381"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Перенос данных с устройства StorSimple серий 5000–7000 на устройство серии 8000
 

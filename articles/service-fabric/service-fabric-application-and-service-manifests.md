@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208477"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Манифесты службы и приложения Service Fabric
 В этой статье описывается, как с помощью файлов ApplicationManifest.xml и ServiceManifest.xml определяются приложения и службы Service Fabric и выполняется управление их версиями.  Сведения о схеме XML для этих файлов манифеста см. в статье [Документация по схеме ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).

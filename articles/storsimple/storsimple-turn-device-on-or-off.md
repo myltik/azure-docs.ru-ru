@@ -1,11 +1,11 @@
 ---
-title: "Включение и выключение устройства StorSimple серии 8000 | Документация Майкрософт"
-description: "В этой статье объясняется, как включить новое устройство StorSimple, как включить устройство после завершения работы или отключения питания, а также как выключить работающее устройство."
+title: Включение и выключение устройства StorSimple серии 8000 | Документация Майкрософт
+description: В этой статье объясняется, как включить новое устройство StorSimple, как включить устройство после завершения работы или отключения питания, а также как выключить работающее устройство.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779454"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Включение и отключение устройства StorSimple серии 8000
 

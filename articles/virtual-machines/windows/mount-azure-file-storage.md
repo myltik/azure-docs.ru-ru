@@ -1,15 +1,15 @@
 ---
-title: "Подключение хранилища файлов Azure из виртуальной машины Windows в Azure | Документация Майкрософт"
-description: "Сведения о хранении файлов в облаке с помощью хранилища файлов Azure и подключение общих облачных файловых ресурсов из виртуальной машины Azure."
-documentationcenter: 
+title: Подключение хранилища файлов Azure из виртуальной машины Windows в Azure | Документация Майкрософт
+description: Сведения о хранении файлов в облаке с помощью хранилища файлов Azure и подключение общих облачных файловых ресурсов из виртуальной машины Azure.
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577557"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Использование общих файловых ресурсов Azure с виртуальными машинами Windows 
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213152"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Балансировка кластера Service Fabric
 Диспетчер кластерных ресурсов Service Fabric поддерживает динамическое изменение нагрузки, реагируя на добавление и удаление узлов или служб. Он также автоматически исправляет нарушения ограничений и упреждающе перераспределяет нагрузку в кластере. Но как часто выполняются эти действия и что их инициирует?

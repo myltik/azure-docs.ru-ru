@@ -1,11 +1,11 @@
 ---
-title: "Превращение диска D виртуальной машины в диск данных | Документация Майкрософт"
-description: "Описывает, как изменить буквы дисков для виртуальной машины Windows, чтобы диск D можно было использовать в качестве диска данных."
+title: Превращение диска D виртуальной машины в диск данных | Документация Майкрософт
+description: Описывает, как изменить буквы дисков для виртуальной машины Windows, чтобы диск D можно было использовать в качестве диска данных.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577451"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Использование диска D в качестве диска данных на виртуальной машине Windows
 Если вашему приложению нужно использовать диск D для хранения данных, следуйте приведенным указаниям, чтобы использовать другой диск в качестве временного. Никогда не используйте временный диск для хранения данных, которые нужно сохранить.

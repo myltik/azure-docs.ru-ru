@@ -1,12 +1,12 @@
 ---
-title: "Настройка VPN типа \"сеть — сеть\" через пиринг Майкрософт для Azure ExpressRoute | Документация Майкрософт"
-description: "Настройка подключения IPsec/IKE к Azure через пиринговый канал Майкрософт ExpressRoute с использованием VPN-шлюза типа \"сеть — сеть\"."
+title: Настройка VPN типа "сеть — сеть" через пиринг Майкрософт для Azure ExpressRoute | Документация Майкрософт
+description: Настройка подключения IPsec/IKE к Azure через пиринговый канал Майкрософт ExpressRoute с использованием VPN-шлюза типа "сеть — сеть".
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26357668"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Настройка VPN типа "сеть — сеть" через пиринговый канал Майкрософт ExpressRoute
 

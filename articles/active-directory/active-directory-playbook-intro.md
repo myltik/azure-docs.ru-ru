@@ -1,12 +1,12 @@
 ---
-title: "Сборник тренировочных заданий по PoC для Azure Active Directory: введение | Документация Майкрософт"
-description: "Ознакомление со сценариями управления удостоверениями и доступом и их реализация"
+title: 'Сборник тренировочных заданий по PoC для Azure Active Directory: введение | Документация Майкрософт'
+description: Ознакомление со сценариями управления удостоверениями и доступом и их реализация
 services: active-directory
-keywords: "azure active directory, сборник тренировочных заданий, подтверждение концепции, PoC"
-documentationcenter: 
+keywords: azure active directory, сборник тренировочных заданий, подтверждение концепции, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26731430"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-introduction"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: введение
 

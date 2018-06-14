@@ -1,13 +1,13 @@
 ---
-title: "Названия продуктов и идентификаторы планов служб для лицензирования в Azure Active Directory | Документация Майкрософт"
-description: "Сопоставление идентификаторов для управления лицензированием в Azure AD с помощью порталов Azure и Office 365, PowerShell или Microsoft Graph"
+title: Названия продуктов и идентификаторы планов служб для лицензирования в Azure Active Directory | Документация Майкрософт
+description: Сопоставление идентификаторов для управления лицензированием в Azure AD с помощью порталов Azure и Office 365, PowerShell или Microsoft Graph
 services: active-directory
-keywords: "Планы службы лицензирования Azure Active Directory"
-documentationcenter: 
+keywords: Планы службы лицензирования Azure Active Directory
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26732858"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Названия продуктов и идентификаторы планов служб для лицензирования
 

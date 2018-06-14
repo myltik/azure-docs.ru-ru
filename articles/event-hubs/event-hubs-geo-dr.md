@@ -1,11 +1,11 @@
 ---
-title: "Географическое аварийное восстановление в концентраторах событий Azure | Документация Майкрософт"
-description: "Способы использования географических регионов для отработки отказа и аварийного восстановления в концентраторах событий Azure"
+title: Географическое аварийное восстановление в концентраторах событий Azure | Документация Майкрософт
+description: Способы использования географических регионов для отработки отказа и аварийного восстановления в концентраторах событий Azure
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745900"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Географическое аварийное восстановление в концентраторах событий Azure
 

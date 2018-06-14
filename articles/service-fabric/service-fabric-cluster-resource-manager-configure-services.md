@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210585"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Настройка параметров Cluster Resource Manager для служб Service Fabric
 Диспетчер кластерных ресурсов Service Fabric позволяет точно управлять правилами, регулирующими работу отдельных именованных служб. Для каждой именованной службы можно указать правила ее выделения в кластере. Для каждой именованной службы можно также определить набор метрик, о которых она должна сообщать, включая их важность для данной службы. Настройка служб делится на три задачи:

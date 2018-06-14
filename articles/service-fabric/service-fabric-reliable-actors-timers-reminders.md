@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206797"
 ---
 # <a name="actor-timers-and-reminders"></a>Таймеры и напоминания субъекта
 Субъекты могут планировать для себя периодические операции, регистрируя таймеры или напоминания. В этой статье показано, как использовать таймеры и напоминания, а также объясняются различия между ними.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211863"
 ---
 # <a name="view-service-fabric-health-reports"></a>Просмотр отчетов о работоспособности Service Fabric
 В платформе Azure Service Fabric используется [модель работоспособности](service-fabric-health-introduction.md) с сущностями работоспособности, на основе которых компоненты системы и модули наблюдения создают отчеты о состоянии отслеживаемых локальных условий. [Хранилище данных о работоспособности](service-fabric-health-introduction.md#health-store) содержит все данные о работоспособности, с помощью которых можно определить состояние работоспособности сущностей.

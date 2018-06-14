@@ -1,12 +1,12 @@
 ---
-title: "Передача данных с использованием библиотеки перемещения данных службы хранилища Microsoft Azure | Документация Майкрософт"
-description: "Использование библиотеки перемещения данных для перемещения или копирования данных в большие двоичные объекты и файлы и из них. Копируйте данные в хранилище Azure из локальных файлов, а также внутри учетной записи хранения и из одной такой учетной записи в другую. Легко переносите данные в хранилище Azure."
+title: Передача данных с использованием библиотеки перемещения данных службы хранилища Microsoft Azure | Документация Майкрософт
+description: Использование библиотеки перемещения данных для перемещения или копирования данных в большие двоичные объекты и файлы и из них. Копируйте данные в хранилище Azure из локальных файлов, а также внутри учетной записи хранения и из одной такой учетной записи в другую. Легко переносите данные в хранилище Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
+ms.locfileid: "27564745"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Передача данных с использованием библиотеки перемещения данных службы хранилища Microsoft Azure
 

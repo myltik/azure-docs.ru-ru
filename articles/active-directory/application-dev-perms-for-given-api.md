@@ -1,11 +1,11 @@
 ---
-title: "Выбор разрешений для заданного API | Документы Майкрософт"
-description: "Сведения о работе запросов разрешений для клиентских приложений и приложений-ресурсов для разрабатываемых приложений"
+title: Выбор разрешений для заданного API | Документы Майкрософт
+description: Сведения о работе запросов разрешений для клиентских приложений и приложений-ресурсов для разрабатываемых приложений
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26733980"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Выбор разрешений для заданного API 
 

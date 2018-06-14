@@ -1,12 +1,12 @@
 ---
-title: "Пользовательские отчеты из Verizon | Документация Майкрософт"
-description: "Вы можете просмотреть статистику по использованию CDN в следующих отчетах: \"Пропускная способность\", \"Переданные данные\", \"Попадания\", \"Состояния кэша\", \"Коэффициент попадания в кэш\", \"Данные, переданные по протоколам IPV4/IPV6\"."
+title: Пользовательские отчеты из Verizon | Документация Майкрософт
+description: 'Вы можете просмотреть статистику по использованию CDN в следующих отчетах: "Пропускная способность", "Переданные данные", "Попадания", "Состояния кэша", "Коэффициент попадания в кэш", "Данные, переданные по протоколам IPV4/IPV6".'
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26343894"
 ---
 # <a name="custom-reports-from-verizon"></a>Пользовательские отчеты из Verizon
 

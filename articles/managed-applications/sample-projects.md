@@ -1,6 +1,6 @@
 ---
-title: "Примеры проектов управляемых приложений Azure | Документация Майкрософт"
-description: "Доступные примеры проектов управляемых приложений Azure"
+title: Примеры проектов управляемых приложений Azure | Документация Майкрософт
+description: Доступные примеры проектов управляемых приложений Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26753066"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>Примеры проектов для управляемых приложений Azure
 

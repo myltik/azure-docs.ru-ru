@@ -1,12 +1,12 @@
 ---
-title: "Замена аккумулятора на устройстве Microsoft Azure StorSimple серии 8000 | Документация Майкрософт"
-description: "Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple."
+title: Замена аккумулятора на устройстве Microsoft Azure StorSimple серии 8000 | Документация Майкрософт
+description: Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27742819"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Замена резервного аккумулятора на устройстве StorSimple
 

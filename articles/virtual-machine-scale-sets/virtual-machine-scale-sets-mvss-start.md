@@ -1,11 +1,11 @@
 ---
-title: "Сведения о шаблонах масштабируемых наборов виртуальных машин | Документация Майкрософт"
-description: "Узнайте, как создать шаблон минимально приемлемого масштабируемого набора виртуальных машин."
+title: Сведения о шаблонах масштабируемых наборов виртуальных машин | Документация Майкрософт
+description: Узнайте, как создать шаблон минимально приемлемого масштабируемого набора виртуальных машин.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781261"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Подробнее о шаблонах масштабируемых наборов виртуальных машин
 [Шаблоны Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) прекрасно подходят для развертывания группы связанных ресурсов. В этой серии руководств показано, как создать шаблон минимального приемлемого масштабируемого набора и изменить его в соответствии с различными сценариями. Все примеры взяты из этого [репозитория GitHub](https://github.com/gatneil/mvss). 
