@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по пакетной службе"
+title: Документация по пакетной службе
 metadata:
-  title: "Документация по пакетной службе. Руководства и справочник по API | Документация Майкрософт"
-  description: "Используйте пакетную службу Azure, чтобы эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений (HPC) в облаке. Определите вычислительные ресурсы Azure для выполнения приложений в параллельном режиме или с масштабированием без необходимости настраивать инфраструктуру и управлять ею вручную. Планируйте задачи с ресурсоемкими вычислениями и динамически добавляйте или удаляйте вычислительные ресурсы в соответствии с требованиями. Узнайте, как использовать пакетную службу Azure, с помощью наших шаблонов быстрого запуска, примеров и руководств."
+  title: Документация по пакетной службе. Руководства и справочник по API | Документация Майкрософт
+  description: Используйте пакетную службу Azure, чтобы эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений (HPC) в облаке. Определите вычислительные ресурсы Azure для выполнения приложений в параллельном режиме или с масштабированием без необходимости настраивать инфраструктуру и управлять ею вручную. Планируйте задачи с ресурсоемкими вычислениями и динамически добавляйте или удаляйте вычислительные ресурсы в соответствии с требованиями. Узнайте, как использовать пакетную службу Azure, с помощью наших шаблонов быстрого запуска, примеров и руководств.
   services: batch
   author: czeumault
   manager: carolz
@@ -18,23 +18,24 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 02/28/2018
+  ms.locfileid: "29686577"
 abstract:
-  description: "Используйте пакетную службу Azure, чтобы эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений (HPC) в облаке. Определите вычислительные ресурсы Azure для выполнения приложений в параллельном режиме или с масштабированием без необходимости настраивать инфраструктуру и управлять ею вручную. Планируйте задачи с ресурсоемкими вычислениями и динамически добавляйте или удаляйте вычислительные ресурсы в соответствии с требованиями. Узнайте, как использовать пакетную службу Azure, с помощью наших шаблонов быстрого запуска, примеров и руководств."
+  description: Используйте пакетную службу Azure, чтобы эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений (HPC) в облаке. Определите вычислительные ресурсы Azure для выполнения приложений в параллельном режиме или с масштабированием без необходимости настраивать инфраструктуру и управлять ею вручную. Планируйте задачи с ресурсоемкими вычислениями и динамически добавляйте или удаляйте вычислительные ресурсы в соответствии с требованиями. Узнайте, как использовать пакетную службу Azure, с помощью наших шаблонов быстрого запуска, примеров и руководств.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как выполнить первое пакетное задание в Azure."
+    text: Узнайте, как выполнить первое пакетное задание в Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/en-us/media/common/i_cligeneric.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: quick-create-cli
     - image:
         src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: quick-create-portal
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_NET.svg
@@ -44,33 +45,33 @@ sections:
         src: https://docs.microsoft.com/en-us/media/logos/logo_python.svg
       text: Python
       href: quick-run-python
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как выполнять рабочие нагрузки с ресурсоемкими вычислениями в пакетной службе."
+    text: Узнайте, как выполнять рабочие нагрузки с ресурсоемкими вычислениями в пакетной службе.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-parallel-dotnet\">Параллельная обработка файлов при помощи пакета SDK для .NET</a>"
-    - html: "<a href=\"tutorial-parallel-python\">Параллельная обработка файлов при помощи пакета SDK для Python</a>"
-    - html: "<a href=\"tutorial-rendering-cli\">Отрисовка сцен с использованием Arnold</a>"
-    - html: "<a href=\"tutorial-r-doazureparallel\">Параллельное моделирование на R</a>"
-- title: "Примеры"
+    - html: <a href="tutorial-parallel-dotnet">Параллельная обработка файлов при помощи пакета SDK для .NET</a>
+    - html: <a href="tutorial-parallel-python">Параллельная обработка файлов при помощи пакета SDK для Python</a>
+    - html: <a href="tutorial-rendering-cli">Отрисовка сцен с использованием Arnold</a>
+    - html: <a href="tutorial-r-doazureparallel">Параллельное моделирование на R</a>
+- title: Примеры
   items:
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: "<a href=\"cli-samples\">интерфейс командной строки Azure</a>"
-- title: "Справочные материалы"
+    - html: <a href="cli-samples">интерфейс командной строки Azure</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/batch\">интерфейс командной строки Azure</a></p><p><a href=\"/powershell/module/azurerm.batch\">Azure PowerShell</a></p>"
-    - title: "Языки"
+    - title: Командная строка
+      html: <p><a href="/cli/azure/batch">интерфейс командной строки Azure</a></p><p><a href="/powershell/module/azurerm.batch">Azure PowerShell</a></p>
+    - title: Языки
       html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/batchservice\">REST API пакетной службы</a></p><p><a href=\"/rest/api/batchmanagement/\">REST API для управления пакетной службой</a></p>"
+      html: <p><a href="/rest/api/batchservice">REST API пакетной службы</a></p><p><a href="/rest/api/batchmanagement/">REST API для управления пакетной службой</a></p>

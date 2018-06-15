@@ -1,12 +1,12 @@
 ---
-title: "Примеры концентраторов событий Azure | Документация Майкрософт"
-description: "Примеры концентраторов событий Azure"
+title: Примеры концентраторов событий Azure | Документация Майкрософт
+description: Примеры концентраторов событий Azure
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802793"
 ---
 # <a name="event-hubs-samples"></a>Примеры концентраторов событий 
 

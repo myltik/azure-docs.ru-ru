@@ -1,6 +1,6 @@
 ---
-title: "Создание пользователей на сервере службы \"База данных Azure для PostgreSQL\""
-description: "В этой статье описывается создание учетных записей пользователей для взаимодействия с сервером службы \"База данных Azure для PostgreSQL\"."
+title: Создание пользователей на сервере службы "База данных Azure для PostgreSQL"
+description: В этой статье описывается создание учетных записей пользователей для взаимодействия с сервером службы "База данных Azure для PostgreSQL".
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574187"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Создание пользователей на сервере службы "База данных Azure для PostgreSQL" 
 В этой статье описывается создание пользователей на сервере службы "База данных Azure для PostgreSQL".
