@@ -15,11 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f00c22a5a7bde69136c674c1362e3a9d65dd7934
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 37b5e5d05559088d7f5aac796f452f2ed83447fc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294637"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Аутентификация на основе заголовка для единого входа с использованием прокси приложения и PingAccess
 
@@ -182,4 +183,4 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 
 - [Настройка PingAccess для Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Как прокси приложения Azure AD предоставляет единый вход?](application-proxy-single-sign-on.md)
-- [Устранение неполадок прокси-сервера приложений](../active-directory-application-proxy-troubleshoot.md)
+- [Устранение неполадок прокси-сервера приложений](application-proxy-troubleshoot.md)

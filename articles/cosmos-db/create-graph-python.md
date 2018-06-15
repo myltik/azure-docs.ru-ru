@@ -2,23 +2,21 @@
 title: Краткое руководство. Использование API Graph с Python в Azure Cosmos DB | Документация Майкрософт
 description: В этом руководстве показано, как использовать API Graph Azure Cosmos DB для создания консольного приложения с помощью портала Azure и Python
 services: cosmos-db
-documentationcenter: python
 author: luisbosquez
 manager: kfile
-ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a29a27ec633f5f67bb8cac4b9a4823c5f0966f8e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795794"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: создание базы данных графа с помощью Python и портала Azure
 
@@ -36,7 +34,7 @@ Azure Cosmos DB — это глобально распределенная мн
 Кроме того, сделайте следующее:
 * [Python](https://www.python.org/downloads/) версии 3.5 или более поздней
 * [Диспетчер пакетов pip](https://pip.pypa.io/en/stable/installing/)
-* [Git.](http://git-scm.com/)
+* [Git](http://git-scm.com/)
 * [Драйвер Python для Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
@@ -79,7 +77,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
     ```python
     ...
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
@@ -104,7 +102,7 @@ Azure Cosmos DB — это глобально распределенная мн
 2. Откройте файл connect.py и в строке 104 вставьте значение URI вместо `<YOUR_ENDPOINT>`:
 
     ```python
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -112,14 +110,12 @@ Azure Cosmos DB — это глобально распределенная мн
     Часть URI в клиентском объекте теперь должна выглядеть следующим образом:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
 
-3. Измените `graphs.azure.com` в имени клиента на `gremlin.cosmosdb.azure.com`. (Если учетная запись базы данных графа создана до 20 декабря 2017 г., оставьте все без изменений и перейдите к следующему шагу.)
-
-4. Измените второй параметр объекта `client`, чтобы заменить строки `<YOUR_DATABASE>` и `<YOUR_COLLECTION_OR_GRAPH>`. Если вы использовали предложенные значения, параметр должен выглядеть следующим образом:
+3. Измените второй параметр объекта `client`, чтобы заменить строки `<YOUR_DATABASE>` и `<YOUR_COLLECTION_OR_GRAPH>`. Если вы использовали предложенные значения, параметр должен выглядеть следующим образом:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
@@ -131,7 +127,7 @@ Azure Cosmos DB — это глобально распределенная мн
         password="<YOUR_PASSWORD>")
     ```
 
-5. На портале Azure с помощью кнопки "Копировать" скопируйте первичный ключ и вставьте его вместо `<YOUR_PASSWORD>` в параметр `password=<YOUR_PASSWORD>`.
+4. На портале Azure с помощью кнопки "Копировать" скопируйте первичный ключ и вставьте его вместо `<YOUR_PASSWORD>` в параметр `password=<YOUR_PASSWORD>`.
 
     Теперь все определение объекта `client` должно выглядеть следующим образом:
     ```python

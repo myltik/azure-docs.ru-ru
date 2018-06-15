@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294165"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Устранение неполадок аналитики в Application Insights
 Возникли проблемы с [аналитикой Application Insights](app-insights-analytics.md)? Начните отсюда. Аналитика — мощный инструмент поиска Azure Application Insights.
@@ -68,7 +69,7 @@ ms.lasthandoff: 11/01/2017
      https://login.microsoftonline.com<br/>
      https://login.windows.net
 
-## <a name="e-d"></a>404... Ресурс не найден
+## <a name="e-d"></a>404 ... Ресурс не найден
 ![404... Ресурс не найден](./media/app-insights-analytics-troubleshooting/040.png)
 
 Ресурс приложения был удален из Application Insights и больше не доступен. Это может произойти, если сохранить URL-адрес на странице аналитики.

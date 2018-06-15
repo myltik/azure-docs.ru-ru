@@ -1,19 +1,20 @@
 ---
-title: "Как использовать sys_schema для настройки производительности и обслуживания базы данных в службе \"База данных Azure для MySQL\""
-description: "В этой статье описано, как использовать средство sys_schema для поиска проблем с производительностью и обслуживания базы данных в службе \"База данных Azure для MySQL\"."
+title: Как использовать sys_schema для настройки производительности и обслуживания базы данных в службе "База данных Azure для MySQL"
+description: В этой статье описано, как использовать средство sys_schema для поиска проблем с производительностью и обслуживания базы данных в службе "База данных Azure для MySQL".
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 2e5b6b859df06d686a97fc1b134da8d66df6783e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 74bb59a8db70d4a01fcd3bd07054f1cbac50bf40
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266158"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Как использовать sys_schema для настройки производительности и обслуживания базы данных в службе "База данных Azure для MySQL"
 
@@ -82,4 +83,4 @@ ms.lasthandoff: 02/28/2018
 Таким образом, sys_schema является мощным инструментом, который подходит и для настройки производительности, и для обслуживания базы данных. Обязательно воспользуйтесь этой функцией в Базе данных Azure для MySQL. 
 
 ## <a name="next-steps"></a>Дополнительная информация
-- Чтобы найти ответы на наиболее важные вопросы либо опубликовать новый вопрос или ответ, посетите [форум MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) или [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Чтобы найти ответы на наиболее важные вопросы либо опубликовать новый вопрос или ответ, посетите [Форум MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) или [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 84fa3c5bd57e1f9f5b3eddf872307829f6c9c509
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292972"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Руководство по настройке Asana для автоматической подготовки пользователей
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 05/20/2018
 
 Перед настройкой и включением службы подготовки необходимо решить, каким пользователям в Azure AD требуется доступ к приложению Asana. После этого можно назначить таких пользователей приложению Asana, сделав следующее:
 
-[Назначение пользователя корпоративному приложению](active-directory-coreapps-assign-user-azure-portal.md)
+[Назначение пользователя корпоративному приложению](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-asana"></a>Важные рекомендации по назначению пользователей в Asana
 
@@ -99,6 +100,6 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Managing user account provisioning for enterprise apps in the Azure portal](active-directory-enterprise-apps-manage-provisioning.md) (Управление подготовкой учетных записей пользователей для корпоративных приложений на портале Azure)
+* [Managing user account provisioning for enterprise apps in the Azure portal](manage-apps/configure-automatic-user-provisioning-portal.md) (Управление подготовкой учетных записей пользователей для корпоративных приложений на портале Azure)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Настройка единого входа](active-directory-saas-asana-tutorial.md)

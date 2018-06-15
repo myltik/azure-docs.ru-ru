@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 66102836b954bf4fafc4379cf573658d89e0d409
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 10517f5684774c47ccc96c773287476c2614613f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292513"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Разработка бизнес-приложений для Azure Active Directory
 Это руководство содержит сведения о разработке бизнес-приложений для Azure Active Directory (AD). Оно предназначено специально для глобальных администраторов Active Directory и Office 365.
@@ -79,5 +80,5 @@ ms.lasthandoff: 05/11/2018
 ## <a name="related-articles"></a>Связанные статьи
 * [Как обеспечить безопасный удаленный доступ к локальным приложениям](manage-apps/application-proxy.md)
 * [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azure-portal-get-started.md)
-* [Управление доступом к приложениям с помощью Azure AD](active-directory-managing-access-to-apps.md)
+* [Управление доступом к приложениям с помощью Azure AD](manage-apps/what-is-access-management.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800029"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Расширенное регулирование запросов с помощью API Management
 Возможность регулирования входящих запросов — ключевая роль службы управления Azure API. Контролируя частоту запросов или общий объем запросов либо передаваемых данных, служба управления API позволяет поставщикам API предотвращать злоупотребление API и предлагать различные уровни API.

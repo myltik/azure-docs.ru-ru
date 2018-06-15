@@ -1,26 +1,28 @@
 ---
-title: "Вызов функции из PowerApps | Документация Майкрософт"
-description: "Создание пользовательского соединителя и вызов функции с его помощью."
+title: Вызов функции из PowerApps | Документация Майкрософт
+description: Создание пользовательского соединителя и вызов функции с его помощью.
 services: functions
-keywords: "облачные приложения, облачные службы, PowerApps, бизнес-процессы, бизнес-приложение"
-documentationcenter: 
-author: mgblythe
+keywords: облачные приложения, облачные службы, PowerApps, бизнес-процессы, бизнес-приложение
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234960"
 ---
 # <a name="call-a-function-from-powerapps"></a>Вызов функции из PowerApps
 Платформа [PowerApps](https://powerapps.microsoft.com) позволяет бизнес-экспертами создавать приложения без традиционного кода. Профессиональные разработчики могут расширить возможности PowerApps с помощью функций Azure, избавляя при этом разработчиков приложений PowerApps от технических деталей.
@@ -187,7 +189,7 @@ ms.lasthandoff: 12/18/2017
     ```
     If (BrowseGallery1.Selected.ServiceRequired="Yes", ClearCollect(DetermineRepair, TurbineRepair.CalculateCosts({hours: BrowseGallery1.Selected.EstimatedEffort, capacity: BrowseGallery1.Selected.MaxOutput})))
     ```
-    Эта формула выполняется при нажатии кнопки, а если элемент выбранной коллекции имеет значение  **параметра** Требуется_обслуживание`Yes`, она выполняет следующее:
+    Эта формула выполняется при нажатии кнопки, а если элемент выбранной коллекции имеет значение **параметра**Требуется_обслуживание`Yes`, она выполняет следующее:
 
     + Удаляет значение `DetermineRepair` *коллекции*, чтобы удалить данные предыдущих вызовов. (Коллекция — это табличная переменная).
 

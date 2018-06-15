@@ -1,24 +1,19 @@
 ---
-title: "Решения Azure для Интернета вещей (IoT Edge) | Документация Майкрософт"
-description: "Общие сведения об архитектуре примера решения Интернета вещей и о том, как оно связано с устройствами, службой Центра Интернета вещей Azure, пакетами SDK для устройств Azure IoT, пакетами SDK для служб Azure IoT и другими службами Azure."
-services: iot-hub
-documentationcenter: 
+title: Решения Azure для Интернета вещей (IoT Edge) | Документация Майкрософт
+description: Общие сведения об архитектуре примера решения Интернета вещей и о том, как оно связано с устройствами, службой Центра Интернета вещей Azure, пакетами SDK для устройств Azure IoT, пакетами SDK для служб Azure IoT и другими службами Azure.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a859e379-dca7-42fa-bdf6-1125c86ad140
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: 587b733106d511ec63d71f67a06e520324a3e594
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd59e740803f8f0e6f5f542805d615772efba913
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630346"
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 

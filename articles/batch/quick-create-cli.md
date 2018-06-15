@@ -10,11 +10,12 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b885a08cb9d5c4f601c9d180d1d3997018b66fb2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607894"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Краткое руководство по выполнению первого пакетного задания с помощью Azure CLI
 
@@ -38,7 +39,7 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
+## <a name="create-a-storage-account"></a>Создание учетной записи хранения
 
 Учетную запись службы хранилища Azure можно связать с учетной записью пакетной службы. Хоть наличие учетной записи хранения и не является обязательным условием для работы с этим кратким руководством, она применяется при развертывании приложений и для хранения входных и выходных данных в большинстве реальных рабочих нагрузок. В группе ресурсов создайте учетную запись хранения с помощью команды [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
@@ -81,7 +82,7 @@ az batch account login \
 az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
-    --image canonical:ubuntuserver:16.04.0-LTS \
+    --image canonical:ubuntuserver:16.04-LTS \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 

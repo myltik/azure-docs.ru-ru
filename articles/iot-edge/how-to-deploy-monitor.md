@@ -1,20 +1,20 @@
 ---
 title: Развертывание и мониторинг модулей для Azure IoT Edge | Документация Майкрософт
 description: Управление модулями, выполняемыми на пограничных устройствах.
-services: iot-edge
 keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: iot-edge
+ms.openlocfilehash: 941568f697ca507ce190bab1b06eb0d426672fa1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770612"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630720"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Развертывание и мониторинг модулей IoT Edge в нужном масштабе (предварительная версия)
 

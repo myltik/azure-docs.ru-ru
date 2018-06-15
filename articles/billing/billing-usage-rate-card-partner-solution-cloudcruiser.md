@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771503"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure
 В этой статье описаны способы использования сведений, собранных из новых API выставления счетов Microsoft Azure , в Cloud Cruiser для моделирования и анализа стоимости рабочих процессов.

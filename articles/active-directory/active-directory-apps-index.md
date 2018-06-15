@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293098"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/20/2018
 |:---:| --- |
 | Введение в проблемы управления приложениями, решаемые с помощью Azure AD |[Управление приложениями с помощью Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
 | Обзор различных функций в Azure AD, связанных с включением единого входа, определением пользователей, у которых есть доступ к приложениям, и способов запуска приложений |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md) |
-| Обзор различных этапов интеграции приложений в Azure AD |[Интеграция Azure Active Directory с приложениями](manage-apps/plan-an-application-integration.md)<br /><br />[Включение единого входа для приложений SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Управление доступом к приложениям](active-directory-managing-access-to-apps.md) |
+| Обзор различных этапов интеграции приложений в Azure AD |[Интеграция Azure Active Directory с приложениями](manage-apps/plan-an-application-integration.md)<br /><br />[Включение единого входа для приложений SaaS](manage-apps/configure-single-sign-on-portal.md)<br /><br />[Управление доступом к приложениям](manage-apps/what-is-access-management.md) |
 | Технические сведения о представлении приложений в Azure AD |[Как и почему приложения добавляются в Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Статьи по устранению неполадок
@@ -42,7 +43,7 @@ ms.lasthandoff: 05/20/2018
 |:---:| --- |
 | Федеративный единый вход |[Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |
 | Единый вход на основе пароля |[Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
-| Прокси приложения |[Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md) |
+| Прокси приложения |[Устранение неполадок прокси-сервера приложений](manage-apps/application-proxy-troubleshoot.md) |
 | Единый вход между локальным AD и Azure AD |[Устранение неполадок при синхронизации хэшированных паролей](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Устранение неполадок обратной записи паролей](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Динамическое членство в группах |[Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 05/20/2018
 | Более 150 руководств по настройке единого входа для таких приложений, как [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) и многих других |[Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Настройка конфигурации единого входа вручную |[Настройка федеративного единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений](active-directory-saml-claims-customization.md) |
 | Руководство по устранению неполадок для федеративных приложений, использующих протокол SAML |[Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |
-| Настройка срока действия сертификата приложения и способы обновления сертификатов |[Управление сертификатами для федеративного единого входа в Azure Active Directory](active-directory-sso-certs.md) |
+| Настройка срока действия сертификата приложения и способы обновления сертификатов |[Управление сертификатами для федеративного единого входа в Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Функция федеративного единого входа доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к федеративным приложениям](#managing-access-to-applications).
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 05/20/2018
 | Руководства по настройке прокси приложения и публикации первого приложения |[Настройка прокси приложения Azure AD](manage-apps/application-proxy-enable.md)<br /><br />[Автоматическая установка соединителя прокси приложения](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Публикация приложений с помощью прокси приложения](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Работа с пользовательскими доменами в прокси приложения Azure AD](manage-apps/application-proxy-configure-custom-domain.md) |
 | Включение единого входа и условного доступа для приложений, опубликованных с помощью прокси приложения |[Единый вход с помощью прокси приложения](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Работа с условным доступом](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Рекомендации по использованию прокси приложения в определенных сценариях |[Включение собственных клиентских приложений для взаимодействия с приложениями прокси](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Работа с приложениями, поддерживающими утверждения, в прокси приложения](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей](manage-apps/application-proxy-connector-groups.md) |
-| Руководство по устранению неполадок прокси приложения |[Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md) |
+| Руководство по устранению неполадок прокси приложения |[Устранение неполадок прокси-сервера приложений](manage-apps/application-proxy-troubleshoot.md) |
 
 Прокси приложения доступно для всех выпусков Azure AD, и его можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications).
 
@@ -136,7 +137,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 |:---:| --- |
 | Дополнительные сведения о принципах работы и ответы на часто задаваемые вопросы |[Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md) |
 | Настройка способов сопоставления сведений между Azure AD и приложением SaaS |[Настройка сопоставлений атрибутов](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
-| Включение автоматической подготовки в любом приложении, которое поддерживает протокол SCIM |[Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md) |
+| Включение автоматической подготовки в любом приложении, которое поддерживает протокол SCIM |[Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) |
 | Составление отчетов о подготовке пользователей и устранение неполадок |[Отчеты об автоматической подготовке пользователей](active-directory-saas-provisioning-reporting.md)<br><br>[Устранение неполадок при подготовке пользователей](active-directory-application-provisioning-content-map.md) |
 | Ограничение количества пользователей, которые будут подготовлены для работы с приложением, на основе значений их атрибутов |[Подготовка приложений на основе атрибутов с использованием фильтров области](active-directory-saas-scoping-filters.md) |
 
@@ -159,7 +160,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Обзор функций управления доступом Azure AD |[Введение в управление доступом к приложениям](active-directory-managing-access-to-apps.md)<br /><br />[Как работает управление доступом в Azure AD](active-directory-manage-groups.md)<br /><br />[Использование группы для управления доступом к приложениям SaaS](active-directory-accessmanagement-group-saasapps.md) |
+| Обзор функций управления доступом Azure AD |[Введение в управление доступом к приложениям](manage-apps/what-is-access-management.md)<br /><br />[Как работает управление доступом в Azure AD](active-directory-manage-groups.md)<br /><br />[Использование группы для управления доступом к приложениям SaaS](active-directory-accessmanagement-group-saasapps.md) |
 | Включение самостоятельного управления приложениями и группами |[Самостоятельное управление приложениями](active-directory-self-service-application-access.md)<br /><br />[Настройка Azure Active Directory для управления самостоятельным доступом к приложениям](active-directory-accessmanagement-self-service-group-management.md) |
 | Указания по настройке групп в Azure AD |[Создание групп безопасности](active-directory-groups-create-azure-portal.md)<br /><br />[Назначение владельцев для группы](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Выделенные группы в Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md) |
 | Использование динамических групп для автоматического заполнения участников группы с помощью правил членства на основе атрибутов |[Динамическое членство в группах: расширенные правила](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |

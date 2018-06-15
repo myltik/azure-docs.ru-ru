@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366755"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757576"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Руководство по вызову API-интерфейсов когнитивного поиска (предварительная версия)
 
@@ -23,11 +23,11 @@ ms.locfileid: "34366755"
 В этом руководстве вы сделаете вызовы REST API, чтобы выполнить следующие задачи:
 
 > [!div class="checklist"]
-> * создать конвейер индексирования, который дополняет исходные данные в маршруте к индексу;
+> * Создать конвейер индексирования, который дополняет исходные данные в маршруте к индексу.
 > * использовать встроенные функции в примере набора данных, такие как распознавание объектов, распознавание языка, обработка текста и извлечение ключевых слов;
-> * объединять методики, сопоставляя входные данные с результатами в наборе навыков;
-> * выполнить запросы и просмотреть результаты;
-> * сбросить индекс и индексаторы для дальнейшей разработки.
+> * Объединять методики, сопоставляя входные данные с результатами в наборе навыков.
+> * Выполнить запросы и просмотреть результаты.
+> * Сбросить индекс и индексаторы для дальнейшей разработки.
 
 Выходные данные — это полнотекстовый индекс с поддержкой поиска в службе "Поиск Azure". Вы можете улучшить индекс с помощью других стандартных возможностей, таких как [синонимы](search-synonyms.md), [профили оценки](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [анализаторы](search-analyzers.md) и [фильтры](search-filters.md).
 
@@ -85,7 +85,7 @@ ms.locfileid: "34366755"
   Строка подключения должна быть URL-адресом, аналогичным следующему примеру:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 Существуют и другие способы указать строку подключения, например предоставить подписанный URL-адрес. Дополнительные сведения об учетных данных источника данных см. в статье [Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure](search-howto-indexing-azure-blob-storage.md#Credentials).

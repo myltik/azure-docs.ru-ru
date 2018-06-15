@@ -1,11 +1,11 @@
 ---
-title: "Поддерживаемые платформы в центре безопасности Azure | Документы Майкрософт"
-description: "В этом документе содержится список операционных систем Windows и Linux, поддерживаемых в центре безопасности Azure."
+title: Поддерживаемые платформы в центре безопасности Azure | Документы Майкрософт
+description: В этом документе содержится список операционных систем Windows и Linux, поддерживаемых в центре безопасности Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756907"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Поддерживаемые платформы в центре безопасности Azure
 Мониторинг состояния работоспособности системы безопасности и рекомендации доступны для компьютеров и виртуальных машин, созданных посредством классической модели развертывания и модели развертывания Resource Manager.
@@ -59,6 +60,6 @@ ms.lasthandoff: 03/13/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 - [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md) — узнайте, как планировать работу с центром безопасности Azure, и получите рекомендации по переходу к его использованию.
-- [Типы оповещений системы безопасности в центре безопасности Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) — дополнительные сведения об анализе поведения виртуальных машин и анализе памяти аварийного дампа в центре безопасности.
+- [Типы оповещений системы безопасности в центре безопасности Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis) — дополнительные сведения об анализе поведения виртуальных машин и анализе памяти аварийного дампа в центре безопасности.
 - [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — в этом блоге можно найти публикации, посвященные безопасности и соответствию требованиям в Azure.

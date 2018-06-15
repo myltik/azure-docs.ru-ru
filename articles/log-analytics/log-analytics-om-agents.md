@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763601"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Подключение Operations Manager к Log Analytics
 Чтобы не увеличивать затраты на System Center Operations Manager и использовать расширенные возможности в Log Analytics, Operations Manager можно интегрировать с рабочей областью Log Analytics.  Таким образом вы сможете использовать функции Log Analytics, располагая следующими возможностями благодаря интеграции с Operations Manager:
@@ -77,7 +78,9 @@ ms.lasthandoff: 05/10/2018
 Если выполняется первая регистрация группы управления Operations Manager в рабочей области Log Analytics, а серверы управления взаимодействуют со службой через прокси-сервер или сервер шлюза OMS, параметр для указания конфигурации прокси-сервера для группы управления будет недоступен в консоли управления.  Этот параметр станет доступным после успешной регистрации группы управления в службе.  Вам необходимо обновить конфигурацию прокси-сервера системы с помощью Netsh в системе, в которой выполняется консоль управления, чтобы настроить интеграцию, и обновить все серверы управления в группе управления.  
 
 1. Откройте командную строку с повышенными привилегиями.
-1. Введите следующую команду и нажмите клавишу **ВВОД**:
+   a. Перейдите в **Пуск** и введите **cmd**.
+   Б. Щелкните правой кнопкой мыши **командную строку**, а затем выберите "Запустить от имени администратора".
+2. Введите следующую команду и нажмите клавишу **ВВОД**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +200,9 @@ ms.lasthandoff: 05/10/2018
    
    * Microsoft System Center Advisor;
    * Microsoft System Center Advisor Internal.
-1. Откройте меню **дополнительных параметров** рабочей области Log Analytics на портале Azure.
-1. Выберите **Подключенные источники**, а затем — **System Center**.
-1. Вы увидите имя группы управления, которую необходимо удалить из рабочей области.  В столбце **Последние данные** нажмите кнопку **Удалить**.  
+7. На портале OMS щелкните элемент **Параметры**.
+8. Выберите **Подключенные источники**.
+9. В таблице в разделе System Center Operations Manager должно быть указано имя группы управления, которую нужно удалить из рабочей области.  В столбце **Последние данные** нажмите кнопку **Удалить**.  
    
     > [!NOTE]
     > Ссылка **Удалить** не будет доступна в течение 14 дней, если не будет обнаружено никакой активности из подключенной группы управления.  
@@ -210,7 +213,7 @@ ms.lasthandoff: 05/10/2018
 Чтобы удалить два соединителя — Microsoft.SystemCenter.Advisor.DataConnector и Advisor Connector, сохраните приведенный ниже скрипт PowerShell на свой компьютер и выполните его, как показано в следующих примерах.
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 

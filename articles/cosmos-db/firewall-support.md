@@ -6,21 +6,17 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-documentationcenter: ''
-ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f0cbbe147386aa5d50e207fdd9c86fd9571ec144
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196803"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611744"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Поддержка брандмауэра для Azure Cosmos DB
 Для защиты данных, хранящихся в учетных записях базы данных Azure Cosmos DB, в Cosmos DB реализована поддержка [модели авторизации](https://msdn.microsoft.com/library/azure/dn783368.aspx) на основе секретов. Проверка целостности данных в этой модели осуществляется с помощью надежного кода проверки подлинности сообщений, использующего хэш-функции (HMAC). Теперь, помимо модели авторизации на основе секрета, для поддержки входящего трафика брандмауэра база данных Azure Cosmos DB использует политики контроля доступа на основе IP-адресов. Эта модель похожа на использование правил брандмауэра в традиционной системе базы данных. Она предоставляет дополнительный уровень защиты для учетных записей базы данных Azure Cosmos DB. Кроме того, эта модель позволяет настроить доступ к учетной записи базы данных Azure Cosmos DB только из утвержденных компьютеров и (или) облачных служб. Для доступа к ресурсам Azure Cosmos DB из этих утвержденных компьютеров и служб пользователь (вызывающая сторона) по-прежнему должен предоставить допустимый маркер проверки подлинности.

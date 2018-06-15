@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ff8c038ac5fa42668227a0531fa77bd853dd2b2
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757525"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Руководство разработчика хранилища ключей Azure
 
@@ -56,7 +57,7 @@ Azure Key Vault позволяет обеспечить безопасное х�
 
 Дополнительные сведения об MSI см. в статье [Управляемое удостоверение службы (MSI) для ресурсов Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
-Дополнительные сведения о работе с AAD см. в статье [Интеграция приложений с Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+Дополнительные сведения о работе с AAD см. в статье [Интеграция приложений с Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Прежде чем приступить к работе с ключами, секретами и сертификатами в хранилище ключей, нужно создать его. Вы можете создать хранилище ключей и управлять им с помощью интерфейса командной строки (CLI), PowerShell, шаблонов Resource Manager или REST, как описано в следующих статьях:
 
