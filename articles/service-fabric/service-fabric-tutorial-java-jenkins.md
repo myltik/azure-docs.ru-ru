@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949843"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Руководство: настройка среды Jenkins с помощью Service Fabric
 Это руководство представляет собой пятую часть цикла. В нем показано, как развернуть обновления в приложении с помощью Jenkins. В этом руководстве подключаемый модуль Jenkins для Service Fabric используется в сочетании с репозиторием Github, в котором размещено приложение для голосования, для развертывания в кластере. 

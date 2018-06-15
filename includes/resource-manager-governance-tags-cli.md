@@ -1,6 +1,6 @@
 ---
-title: "включение файла"
-description: "включение файла"
+title: включение файла
+description: включение файла
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29956217"
 ---
 Чтобы добавить два тега в группу ресурсов, используйте команду [az group create](/cli/azure/group#az_group_update):
 

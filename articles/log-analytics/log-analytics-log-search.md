@@ -18,6 +18,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952948"
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Основные сведения о поисках по журналам в Log Analytics
 

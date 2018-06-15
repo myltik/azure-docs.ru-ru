@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29969208"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Общие сведения о сертификатах для облачных служб Azure
 Сертификаты используются в Azure для облачных служб ([сертификаты службы](#what-are-service-certificates)), а также для аутентификации с помощью службы управления API ([сертификаты управления](#what-are-management-certificates)). В этой статье приводится общий обзор этих двух типов сертификатов, а также описывается процесс их [создания](#create) и [развертывания](#deploy) в Azure.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29974140"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Архитектура Пакета средств разработки Azure Stack
 Пакет средств разработки Azure Stack (ASDK) — это развертывание Azure Stack с использованием одного узла. Все компоненты устанавливаются на виртуальных машинах, запущенных на одном хост-компьютере. 

@@ -1,11 +1,11 @@
 ---
-title: "Чтение журналов последовательностей NSG | Документация Майкрософт"
-description: "В этой статье показано, как анализировать журналы последовательностей NSG."
+title: Чтение журналов последовательностей NSG | Документация Майкрософт
+description: В этой статье показано, как анализировать журналы последовательностей NSG.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149640"
 ---
 # <a name="read-nsg-flow-logs"></a>Чтение журналов последовательностей NSG
 
