@@ -1,24 +1,26 @@
 ---
-title: "Доменные службы Azure Active Directory: сценарии развертывания | Документация Майкрософт"
-description: "Сценарии развертывания для доменных служб Azure AD"
+title: 'Доменные службы Azure Active Directory: сценарии развертывания | Документация Майкрософт'
+description: Сценарии развертывания для доменных служб Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: 11844fb8fabada9d863fe4adf0839ae6fa2ed101
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ae8485f94a8a86862f09c1776222cb6603967614
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587564"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Сценарии развертывания и варианты использования
 В этом разделе мы рассмотрим некоторые сценарии и варианты использования, демонстрирующие преимущества работы с доменными службами Azure Active Directory (AD).

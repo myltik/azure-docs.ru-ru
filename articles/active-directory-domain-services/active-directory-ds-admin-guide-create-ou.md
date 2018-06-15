@@ -1,24 +1,26 @@
 ---
-title: "Доменные службы Azure Active Directory: руководство по администрированию | Документация Майкрософт"
-description: "Создание подразделения в управляемых доменах доменных служб Azure AD"
+title: 'Доменные службы Azure Active Directory: руководство по администрированию | Документация Майкрософт'
+description: Создание подразделения в управляемых доменах доменных служб Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 197696d737e56cbdc9fe925b6fa5b9e4134e1539
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 49123a47d90970d1a99276521b5aa1d516f509ab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587595"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Создание подразделения в управляемом домене доменных служб Azure AD
 Управляемые домены доменных служб Azure AD включают два встроенных контейнера: "Компьютеры AADDC" и "Пользователи AADDC". Контейнер "Компьютеры AADDC" включает объекты-компьютеры для всех компьютеров, присоединенных к управляемому домену. Контейнер "Пользователи AADDC" включает пользователей и группы в клиенте Azure AD. В некоторых случаях в управляемом домене может потребоваться создать учетные записи служб для развертывания рабочих нагрузок. Для этой цели можно создать в управляемом домене пользовательское подразделение, а затем создать учетные записи служб в рамках этого подразделения. В этой статье демонстрируется создание подразделения в управляемом домене.
