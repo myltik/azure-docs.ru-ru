@@ -4,8 +4,8 @@ description: Сведения об использовании Обозреват
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: 1953ee18fe878c33a1a0965937f64056278875cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738179"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Управление файловыми ресурсами Azure с помощью Обозревателя службы хранилища Azure 
 [Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от корпорации Майкрософт. В статье рассматриваются основы работы с файловыми ресурсами Azure с помощью [Обозревателя службы хранилища Azure](https://azure.microsoft.com/features/storage-explorer/). Обозреватель службы хранилища является популярным клиентским инструментом, доступным для Windows, macOS и Linux. Его можно использовать для управления файловыми ресурсами Azure и другими ресурсами хранения.
@@ -28,16 +29,16 @@ ms.lasthandoff: 04/16/2018
 В этой статье раскрываются следующие темы:
 
 > [!div class="checklist"]
-> * Создание группы ресурсов и учетной записи хранения.
-> * Создание файлового ресурса Azure 
-> * Создайте каталог
-> * Отправить файл.
-> * Скачивание файла
-> * Создание моментального снимка общего ресурса и его использование.
+> * создать группы ресурсов и учетную запись хранения;
+> * создать файловый ресурс Azure; 
+> * создать каталог;
+> * отправить файл;
+> * скачать файл;
+> * создать моментальный снимок общего ресурса и использовать его.
 
 Если у вас еще нет подписки Azure, вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
+## <a name="create-a-storage-account"></a>Создание учетной записи хранения
 С помощью Обозревателя службы хранилища невозможно создать новые ресурсы. Для этого демонстрационного проекта мы создадим учетную запись хранения на [портале Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/16/2018
 
 ![Снимок экрана с окном подключения Обозревателя службы хранилища Microsoft Azure](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
-### <a name="create-a-file-share"></a>Создайте общую папку
+### <a name="create-a-file-share"></a>Создание общей папки
 Для создания первого файлового ресурса Azure в учетной записи *storageacct<random number>*:
 
 1. Разверните созданную учетную запись хранения.
@@ -70,7 +71,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="work-with-the-contents-of-an-azure-file-share"></a>Использование содержимого, расположенного в файловом ресурсе Azure
 Теперь, когда файловый ресурс Azure создан, его можно подключить с помощью SMB к [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) или [macOS](storage-how-to-use-files-mac.md). Кроме того, с файловым ресурсом Azure можно работать с помощью Azure CLI. Преимущество использования Azure CLI вместо подключения файлового ресурса по протоколу SMB заключается в том, что все запросы, созданные с помощью Azure CLI, выполняются через файловый REST API. Файловый REST API можно использовать для создания, изменения и удаления файлов и каталогов на клиентах, у которых нет доступа по SMB.
 
-### <a name="create-a-directory"></a>Создайте каталог
+### <a name="create-a-directory"></a>создать каталог;
 Добавление каталога обеспечивает иерархическую структуру для управления файловым ресурсом. В вашем каталоге можно создать несколько уровней. Однако прежде, чем создавать подкаталог, необходимо убедиться в наличии всех родительских каталогов. Например, для пути myDirectory/mySubDirectory необходимо сначала создать каталог *myDirectory*. Затем создается *mySubDirectory*. 
 
 1. На вкладке для файлового ресурса в верхнем меню нажмите кнопку **New Folder** (Создать папку). Откроется панель **Создать новый каталог**.
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/16/2018
 
 Каталог *MyDirectory* будет указан на вкладке файлового ресурса *myshare*.
 
-### <a name="upload-a-file"></a>Отправить файл. 
+### <a name="upload-a-file"></a>Отправка файла 
 Вы можете отправить файл с локального компьютера в новый каталог в вашем файловом ресурсе. Можно отправить или всю папку, или только один файл.
 
 1. В верхнем меню выберите **Отправить**. Эта операция позволяет передать папку или файл.
@@ -89,16 +90,16 @@ ms.lasthandoff: 04/16/2018
 
 По окончании процесса передачи файл появится в соответствующем списке на панели *myDirectory*.
 
-### <a name="download-a-file"></a>Скачивание файла
+### <a name="download-a-file"></a>скачать файл;
 Чтобы загрузить копию файла из файлового ресурса, щелкните файл правой кнопкой мыши и выберите пункт **Загрузить**. Выберите целевое расположение файла на своем локальном компьютере, а затем нажмите кнопку **Сохранить**.
 
 Ход выполнения загрузки отображается в нижней части окна на панели **Действия**.
 
 ## <a name="create-and-modify-share-snapshots"></a>Создание и изменение моментальных снимков общего ресурса
 Моментальный снимок сохраняет состояние общего файлового ресурса Azure на момент определенной точки во времени. Моментальные снимки файловых ресурсов аналогичны создаваемым с помощью технологий, с которыми вы уже можете быть знакомы.
-- [Служба теневого копирования томов (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) для файловых систем Windows, таких как NTFS и ReFS.
+- [служба теневого копирования томов (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) для файловых систем Windows, таких как NTFS и ReFS.
 - [диспетчер логических томов (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) для систем Linux;
-- [Файловая система Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) для macOS.
+- [файловая система Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) для macOS;
 
 Чтобы создать моментальный снимок общего ресурса, сделайте следующее:
 

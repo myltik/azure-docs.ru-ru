@@ -1,24 +1,19 @@
 ---
-title: Хранение и просмотр диагностических данных в службе хранилища Azure | Документация Майкрософт
+title: Хранение и просмотр диагностических данных в службе хранилища Azure
 description: Получение и просмотр диагностических данных Azure в хранилище Azure
-services: cloud-services
-documentationcenter: .net
+services: azure-monitor
 author: thraka
-manager: timlt
-editor: tysonn
-ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
-ms.service: cloud-services
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: adegeo
-ms.openlocfilehash: 248e1c87ec244649a296233bf2aaa323d3475a79
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267668"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Хранение и просмотр диагностических данных в хранилище Azure
 Диагностические данные не хранятся долго. Для длительного хранения их необходимо переместить в эмулятор хранения Microsoft Azure или в хранилище Azure. Поместив данные в хранилище, вы можете просматривать их с помощью одного из нескольких доступных средств.

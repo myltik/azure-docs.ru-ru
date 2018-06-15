@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d0e390cb76888960dbc52c1c5015d1cb9a6c169c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 77f3660eef182afe43ec626d71d606ee10037cad
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34345781"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292343"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Руководство по настройке LinkedIn Elevate для автоматической подготовки пользователей
 
@@ -43,7 +43,7 @@ ms.locfileid: "34345781"
 
 Перед настройкой и включением службы подготовки необходимо решить, какие пользователи или группы в Azure AD представляют пользователей, которым необходим доступ к LinkedIn Elevate. Сделав это, можно назначить этих пользователей для LinkedIn Elevate. Для этого выполните следующие действия:
 
-[Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
+[Назначение корпоративному приложению пользователя или группы](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Важные рекомендации по назначению пользователей для LinkedIn Elevate
 
@@ -124,5 +124,5 @@ ms.locfileid: "34345781"
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
+* [Управление подготовкой учетных записей пользователей для корпоративных приложений](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

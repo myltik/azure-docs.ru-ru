@@ -1,13 +1,13 @@
 ---
-title: "Пакетная обработка сообщений как группы или коллекции в Azure Logic Apps | Документация Майкрософт"
-description: "Отправка и получение сообщений для пакетной обработки в приложениях логики"
-keywords: "пакет, пакетная обработка"
+title: Пакетная обработка сообщений как группы или коллекции в Azure Logic Apps | Документация Майкрософт
+description: Отправка и получение сообщений для пакетной обработки в приложениях логики
+keywords: пакет, пакетная обработка
 author: jonfancey
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298021"
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Отправка, получение и пакетная обработка сообщений в приложениях логики
 

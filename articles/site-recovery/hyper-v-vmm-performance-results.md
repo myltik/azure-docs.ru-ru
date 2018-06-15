@@ -1,6 +1,6 @@
 ---
-title: "Результаты теста репликации виртуальных машин Hyper-V в облаках VMM на дополнительный сайт с помощью службы Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье содержатся сведения о тестировании производительности для репликации виртуальных машин Hyper-V на дополнительный сайт с помощью Azure Site Recovery."
+title: Результаты теста репликации виртуальных машин Hyper-V в облаках VMM на дополнительный сайт с помощью службы Azure Site Recovery | Документация Майкрософт
+description: В этой статье содержатся сведения о тестировании производительности для репликации виртуальных машин Hyper-V на дополнительный сайт с помощью Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378689"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Результаты теста репликации виртуальных машин Hyper-V в облаках VMM на дополнительный сайт
 

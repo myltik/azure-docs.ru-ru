@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 13e5836aea0e307cdce5bcdcd5cf3c50969dfbf8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603419"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Управление ресурсами с помощью Azure PowerShell
 
@@ -222,4 +223,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * Дополнительные сведения о мониторинге виртуальных машин см. в статье [Мониторинг и обновление виртуальных машин Windows с помощью Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Дополнительные сведения об использовании центра безопасности Azure для применения рекомендаций по безопасности см. в статье [Контроль безопасности виртуальных машин с помощью центра безопасности Azure](../virtual-machines/windows/tutorial-azure-security.md).
 * Существующие ресурсы можно переместить в новую группу ресурсов. Примеры см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](resource-group-move-resources.md).
-* Инструкции по использованию Resource Manager для эффективного управления подписками в организациях см. в статье [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md).
+* Инструкции по использованию Resource Manager для эффективного управления подписками в организациях см. в статье [Корпоративный каркас Azure: рекомендуемая система управления подписками](/azure/architecture/cloud-adoption-guide/subscription-governance).

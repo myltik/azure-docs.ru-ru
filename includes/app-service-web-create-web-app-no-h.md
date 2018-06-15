@@ -1,6 +1,6 @@
 ---
-title: "включение файла"
-description: "включение файла"
+title: включение файла
+description: включение файла
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29348903"
 ---
 В Cloud Shell создайте [веб-приложение](../articles/app-service/app-service-web-overview.md) в рамках плана службы приложений `myAppServicePlan`. Для этого воспользуйтесь командой [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). В следующем примере замените *\<app_name>* глобальным уникальным именем приложения (допустимые символы: `a-z`, `0-9` и `-`). 
 

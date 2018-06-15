@@ -1,8 +1,8 @@
 ---
-title: "Панели мониторинга и навигация в Azure Application Insights | Документация Майкрософт"
-description: "Создание представлений ключевых диаграмм и запросов APM."
+title: Панели мониторинга и навигация в Azure Application Insights | Документация Майкрософт
+description: Создание представлений ключевых диаграмм и запросов APM.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296406"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Навигация и панели мониторинга на портале Application Insights
 После [настройки Application Insights для проекта](app-insights-overview.md) данные телеметрии о производительности и использовании вашего приложения будут отображаться в ресурсе Application Insights на [портале Azure](https://portal.azure.com).

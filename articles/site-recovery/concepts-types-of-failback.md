@@ -1,6 +1,6 @@
 ---
-title: "Восстановление размещения в Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье представлен обзор различных типов восстановления размещения и предупреждений, которые необходимо учитывать при восстановлении размещения на локальный сайт с помощью службы Azure Site Recovery."
+title: Восстановление размещения в Azure Site Recovery | Документация Майкрософт
+description: В этой статье представлен обзор различных типов восстановления размещения и предупреждений, которые необходимо учитывать при восстановлении размещения на локальный сайт с помощью службы Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29803558"
 ---
 # <a name="overview-of-failback"></a>Общие сведения о восстановлении размещения
 

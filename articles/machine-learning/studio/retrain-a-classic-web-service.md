@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: d0c40d952008f58f9b99c1c44d06e971a1e60c3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836880"
 ---
 # <a name="retrain-a-classic-web-service"></a>Переобучение классической веб-службы
 Развернутая прогнозная веб-служба является конечной точкой оценки по умолчанию. Конечные точки по умолчанию синхронизируются с исходными экспериментами по обучению и оценке, поэтому обученную модель конечной точки по умолчанию нельзя заменить. Чтобы переобучить веб-службу, необходимо добавить в нее новую конечную точку. 

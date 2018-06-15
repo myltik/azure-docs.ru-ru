@@ -14,14 +14,15 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1185fef53797a88ae929e35be56d2bc79067b49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fa299603a14ef94ab4cf3eac2b1123def1a0b6de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594889"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Смена неуправляемого каталога от имени администратора в Azure Active Directory
-В этой статье описывается два способа смены доменного имени DNS в неуправляемом каталоге в Azure Active Directory (Azure AD). Когда пользователь самостоятельно регистрируется в облачной службе, использующей Azure AD, он добавляется в неуправляемый каталог Azure AD на основе домена электронной почты. Дополнительные сведения о самостоятельной (или "вирусной") регистрации в службе см. в разделе [What is self-service signup for Azure Active Directory?]() (Что такое самостоятельная регистрация для Azure Active Directory?).
+В этой статье описывается два способа смены доменного имени DNS в неуправляемом каталоге в Azure Active Directory (Azure AD). Когда пользователь самостоятельно регистрируется в облачной службе, использующей Azure AD, он добавляется в неуправляемый каталог Azure AD на основе домена электронной почты. Дополнительные сведения о самостоятельной (или "вирусной") регистрации в службе см. в разделе [What is self-service signup for Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup) (Что такое самостоятельная регистрация для Azure Active Directory?).
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Выбор способа смены неуправляемого каталога
 В процессе смены администратором можно подтвердить права владельца, как описано в статье [Краткое руководство. Добавление личного домена в Azure Active Directory](add-custom-domain.md). В следующем разделе возможности администрирования описываются более подробно, но если вкратце, то:

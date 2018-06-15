@@ -1,6 +1,6 @@
 ---
-title: "Настройка журналов сервера для PostgreSQL и получение к ним доступа на портале Azure"
-description: "В этой статье описывается, как настроить журналы сервера для базы данных Azure для PostgreSQL и получить к ним доступ с помощью портала Azure."
+title: Настройка журналов сервера для PostgreSQL и получение к ним доступа на портале Azure
+description: В этой статье описывается, как настроить журналы сервера для базы данных Azure для PostgreSQL и получить к ним доступ с помощью портала Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692170"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Настройка журналов сервера и получение к ним доступа с помощью портала Azure
 

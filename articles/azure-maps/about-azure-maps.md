@@ -1,23 +1,20 @@
 ---
 title: Обзор службы "Карты Azure" | Документация Майкрософт
 description: Общие сведения о службе "Карты Azure".
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193957"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600067"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Общие сведения о службе "Карты Azure".
 Служба "Карты Azure" — это набор геопространственных служб, который включает в себя интерфейсы API службы для карт, поиска, маршрутов, трафика и часовых поясов. Набор служб позволяет использовать привычные инструменты, чтобы быстро разрабатывать и масштабировать решения, которые интегрируют сведения о расположении в решения Azure. Служба "Карты Azure" предоставляет разработчикам из всех отраслей мощные геопространственные функции, дополненные актуальными картографическими данными, необходимыми для предоставления географического контекста для веб-приложений и мобильных устройств. Служба "Карты Azure" представляет собой набор интерфейсов REST API, дополненный веб-элементами управления на основе JavaScript. Это решение обеспечивает простоту и гибкость разработки, а также возможность переноса на разные носители. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 342c535464ad4145137c89fe38281e85c9dd0463
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18c2cb975e1e7c93f2aba18f99e23998ce47501b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161377"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293346"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Руководство по настройке Zendesk для автоматической подготовки пользователей
 
@@ -72,7 +72,7 @@ ms.locfileid: "32161377"
 
 Перед настройкой и включением автоматической подготовки пользователей нужно решить, какие пользователи или группы в Azure AD должны иметь доступ к Zendesk. Когда этот вопрос будет решен, этих пользователей и (или) группы можно будет назначить приложению Zendesk, следуя инструкциям:
 
-*   [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Назначение корпоративному приложению пользователя или группы](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Важные советы по назначению пользователей в Zendesk
 
@@ -166,8 +166,8 @@ ms.locfileid: "32161377"
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Управление подготовкой учетных записей пользователей для корпоративных приложений](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

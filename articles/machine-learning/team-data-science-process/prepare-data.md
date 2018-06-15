@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f3d05030e293c53c958aa1ba501fe9a2ba7a11b5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 127c51b9a2617c6b8520d972a3cd4b6c3bbcddd1
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837700"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Задачи по подготовке данных для расширенного машинного обучения
 Предварительная обработка и очистка данных — это важные этапы, обеспечивающие эффективное использование набора данных для машинного обучения. Необработанные данные зачастую искажены и ненадежны, и в них могут быть пропущены значения. Использование таких данных при моделировании может приводить к неверным результатам. Эти задачи являются частью процесса обработки и анализа данных группы и обычно подразумевают первоначальное изучение набора данных, используемого для определения и планирования необходимой предварительной обработки. Более подробные инструкции по процессу TDSP см. в процедуре, описанной в статье [Процесс обработки и анализа данных группы](overview.md).
