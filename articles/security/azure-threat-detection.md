@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895337"
 ---
 # <a name="azure-advanced-threat-detection"></a>Расширенное обнаружение угроз Azure
 ## <a name="introduction"></a>Введение

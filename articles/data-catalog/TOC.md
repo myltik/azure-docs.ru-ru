@@ -37,7 +37,7 @@
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Цены](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
-## [Заметки о выпуске](data-catalog-whats-new.md)
+## [Заметки о выпуске](../active-directory/fundamentals/whats-new.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [Терминология](data-catalog-terminology.md)
