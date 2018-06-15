@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по службе приложений на платформе Linux"
+title: Документация по службе приложений на платформе Linux
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: "Документация по веб-приложениям Azure для контейнеров. Руководства и справочники по API"
+  title: Документация по веб-приложениям Azure для контейнеров. Руководства и справочники по API
   meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 11/03/2017
+  ms.locfileid: "23956452"
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: list
     style: icon48
@@ -50,7 +51,7 @@ sections:
       text: Docker
       href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
   - type: paragraph
-    text: "Сведения о непрерывном развертывании:"
+    text: 'Сведения о непрерывном развертывании:'
   - type: list
     style: icon48
     items:
@@ -58,36 +59,36 @@ sections:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Сведения о развертывании, администрировании и мониторинге защищенных веб-приложений в службе приложений на платформе Linux"
+    text: Сведения о развертывании, администрировании и мониторинге защищенных веб-приложений в службе приложений на платформе Linux
   - type: list
     style: ordered
     items:
-    - html: "Создание приложения с помощью <a href=\"azure/app-service/containers/tutorial-dotnetcore-sqldb-app\">.NET Core с базой данных SQL Azure</a> или <a href=\"azure/app-service/containers/tutorial-nodejs-mongodb-app\">Node.js с MongoDB</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-custom-domain\">Сопоставление имени личного домена DNS с веб-приложением Azure</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-custom-SSL\">Bind an existing custom SSL certificate to Azure Web Apps</a> (Привязка существующего SSL-сертификата к приложению)"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-content-delivery-network\">Добавление CDN в приложение</a>"
-- title: "Примеры"
+    - html: Создание приложения с помощью <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core с базой данных SQL Azure</a> или <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js с MongoDB</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Сопоставление имени личного домена DNS с веб-приложением Azure</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing custom SSL certificate to Azure Web Apps</a> (Привязка существующего SSL-сертификата к приложению)
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Добавление CDN в приложение</a>
+- title: Примеры
   items:
   - type: paragraph
-    text: "Поиск скриптов для выполнения типовых задач."
+    text: Поиск скриптов для выполнения типовых задач.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: "<a href=\"/cli/azure/appservice\">интерфейс командной строки Azure</a>"
-- title: "Справочные материалы"
+    - html: <a href="/cli/azure/appservice">интерфейс командной строки Azure</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/powershell/azureps-cmdlets-docs\">Azure PowerShell</a></p><p><a href=\"/cli/azure/appservice\">Azure CLI 2.0</a></p>"
-    - title: "Языки"
+    - title: Командная строка
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+    - title: Языки
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/appservice\">справочник по API REST</a></p>"
+      html: <p><a href="/rest/api/appservice">справочник по API REST</a></p>

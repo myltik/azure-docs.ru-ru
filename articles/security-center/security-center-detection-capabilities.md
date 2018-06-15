@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894263"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Возможности обнаружения центра безопасности Azure
 Этот документ содержит информацию о расширенных возможностях обнаружения в центре безопасности Azure. С их помощью вы сможете выявлять активные угрозы для ресурсов Microsoft Azure и оперативно на них реагировать.

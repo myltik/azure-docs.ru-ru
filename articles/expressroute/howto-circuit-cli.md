@@ -1,13 +1,13 @@
 ---
-title: "Создание и изменение канала ExpressRoute Azure с помощью CLI | Документация Майкрософт"
-description: "В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute с помощью CLI."
+title: Создание и изменение канала ExpressRoute Azure с помощью CLI | Документация Майкрософт
+description: В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute с помощью CLI.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23479613"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Создание и изменение канала ExpressRoute с помощью CLI
 
