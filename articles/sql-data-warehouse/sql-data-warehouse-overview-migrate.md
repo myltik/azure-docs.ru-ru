@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523481"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Перенос решения в хранилище данных SQL Azure
 Узнайте, что происходит при переносе существующего решения для базы данных в хранилище данных SQL Azure. 

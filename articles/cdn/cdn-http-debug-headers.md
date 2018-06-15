@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31516278"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Заголовки HTTP X-EC-Debug для обработчика правил Azure CDN
 Заголовок запроса отладочной информации о кэше `X-EC-Debug` предоставляет дополнительные сведения о политике кэша, которая применяется к запрошенному ресурсу. Эти заголовки относятся к продуктам **Azure CDN уровня "Премиум" от Verizon**.

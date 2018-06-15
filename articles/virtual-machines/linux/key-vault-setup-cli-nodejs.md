@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911508"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Настройка Key Vault для виртуальных машин в Azure Resource Manager с помощью Azure CLI 1.0
 В стеке Azure Resource Manager секретные данные или сертификаты моделируются как ресурсы, которые предоставляются поставщиком ресурсов Key Vault. Чтобы больше узнать о хранилище ключей Azure, ознакомьтесь с разделом [Что такое хранилище ключей Azure?](../../key-vault/key-vault-whatis.md) Чтобы хранилище ключей можно было использовать для виртуальных машин Azure Resource Manager, свойству *EnabledForDeployment* хранилища ключей должно быть присвоено значение true. Это можно сделать на различных клиентах. В этой статье показано, как настроить Key Vault для использования с виртуальными машинами Azure.

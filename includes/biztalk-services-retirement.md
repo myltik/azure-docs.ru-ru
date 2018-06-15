@@ -1,6 +1,6 @@
 ---
-title: "включение файла"
-description: "включение файла"
+title: включение файла
+description: включение файла
 services: biztalk-services
 author: MandiOhlinger
 ms.service: biztalk-services
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765940"
 ---
 > [!IMPORTANT]
 > Мы прекращаем использование служб BizTalk Microsoft Azure (MABS). Они будут заменены службой Azure Logic Apps.

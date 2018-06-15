@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409556"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Средства машинного обучения и обработки и анализа данных
 Виртуальные машины для обработки и анализа данных (DSVM) содержат большой набор средств и библиотек для машинного обучения, доступных в распространенных языках, таких как Python, R, Julia. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31403940"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Доступ к журналам приложений YARN в HDInsight под управлением Windows
 Из этой статьи вы узнаете, как получить доступ к журналам приложений YARN, завершивших работу в кластере Hadoop под управлением Windows в Azure HDInsight.

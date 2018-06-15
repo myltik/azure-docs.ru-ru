@@ -16,6 +16,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802933"
 ---
 # <a name="version-release-history"></a>Журнал выпуска версий
 Команда Microsoft Genomics регулярно выпускает обновления для клиента Python Microsoft Genomics, связанные с исправлениями и новыми функциями. 
