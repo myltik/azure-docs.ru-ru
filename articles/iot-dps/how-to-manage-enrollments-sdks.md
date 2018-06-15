@@ -1,22 +1,19 @@
 ---
 title: Управление регистрациями устройств с помощью пакетов SDK службы подготовки устройств Azure | Документация Майкрософт
 description: Узнайте, как управлять регистрацией устройств в службе подготовки устройств к добавлению в Центр Интернета вещей с помощью пакетов SDK для служб.
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/04/18
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 1ec86d319f529fe63b0924f4cfa0c2be178cd4d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: 9a68d928c70e1e233f6de7df13441a1f688f456a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629853"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Как управлять регистрациями устройств с помощью пакетов SDK службы подготовки устройств Azure
 При *регистрации устройства* создается запись одного устройства или группы устройств, которые можно в будущем зарегистрировать с помощью службы подготовки устройств. Запись регистрации содержит необходимую начальную конфигурацию устройств как часть регистрации, включая нужный Центр Интернета вещей. В этой статье показано, как управлять регистрацией устройств для подготовки службы программным способом с помощью пакетов SDK службы подготовки Интернета вещей Azure.  Пакеты SDK доступны в GitHub в том же хранилище, что и пакет SDK Интернета вещей Azure.

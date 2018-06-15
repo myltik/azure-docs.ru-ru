@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 5882f79b6479f71cfd1df503f55703e6177c072b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ab806f8191bc8edc4d5be6003cd177d8c24d71e7
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834681"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Импорт данных в Студию машинного обучения Azure из разных сетевых источников данных с помощью модуля "Импорт данных"
 В этой статье описывается поддержка импорта сетевых данных из разных источников и приводятся сведения, необходимые для переноса данных из этих источников в эксперимент машинного обучения Azure.

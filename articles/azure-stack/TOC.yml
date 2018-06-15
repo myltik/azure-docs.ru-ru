@@ -191,6 +191,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: Смена секретов
           href: azure-stack-rotate-secrets.md
+        - name: Обновление антивирусных программ
+          href: azure-stack-security-av.md
     - name: Предложение служб
       items:
         - name: Обзор предложений служб

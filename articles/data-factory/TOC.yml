@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Учебники
   items:
-    - name: 1. Создание среды выполнения для интеграции Azure SSIS
+    - name: 1. Подготовка среды выполнения интеграции Azure SSIS
       items:
         - name: Пользовательский интерфейс
           href: tutorial-deploy-ssis-packages-azure.md

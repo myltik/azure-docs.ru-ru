@@ -1,24 +1,26 @@
 ---
-title: "Экспорт размещенного в Azure API в PowerApps и Microsoft Flow | Документация Майкрософт"
-description: "Общие сведения о предоставлении API, размещенного в службе приложений, для PowerApps и Microsoft Flow"
+title: Экспорт размещенного в Azure API в PowerApps и Microsoft Flow | Документация Майкрософт
+description: Общие сведения о предоставлении API, размещенного в службе приложений, для PowerApps и Microsoft Flow
 services: app-service
-documentationcenter: 
-author: mattchenderson
-manager: erikre
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ggailey777
+manager: cfowler
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: mahender; mblythe
-ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: glenga
+ms.reviewer: sunayv
+ms.openlocfilehash: ef3fe5002a28c66478a10909a7e9556449cd9712
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234773"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Экспорт размещенного в Azure API в PowerApps и Microsoft Flow
 

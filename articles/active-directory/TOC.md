@@ -2,13 +2,13 @@
 
 # Обзор
 ## [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
-## [Об управлении удостоверениями Azure](identity-fundamentals.md)
-## [Основные сведения о решениях для идентификации в Azure](understand-azure-identity-solutions.md)
+## [Об управлении удостоверениями Azure](fundamentals/identity-fundamentals.md)
+## [Основные сведения о решениях для идентификации в Azure](fundamentals/understand-azure-identity-solutions.md)
 ## [Выбор решения для гибридной идентификации](choose-hybrid-identity-solution.md)
 ## [Сопоставление подписок Azure](active-directory-how-subscriptions-associated-directory.md)
-## [Рекомендации по хранению данных и работе с данными](active-directory-data-storage-eu.md)
-## [Часто задаваемые вопросы](active-directory-faq.md)
-## [Новые возможности](whats-new.md)
+## [Рекомендации по хранению данных и работе с данными](fundamentals/active-directory-data-storage-eu.md)
+## [Часто задаваемые вопросы](fundamentals/active-directory-faq.md)
+## [Новые возможности](fundamentals/whats-new.md)
 
 
 # Начало работы
@@ -17,14 +17,14 @@
 ## [Добавление имени личного домена](add-custom-domain.md)
 ## [Настройка фирменной символики компании](customize-branding.md)
 ## [Добавление пользователей в Azure AD](add-users-azure-active-directory.md)
-## [Назначение лицензий пользователям](license-users-groups.md)
+## [Назначение лицензий пользователям](fundamentals/license-users-groups.md)
 ## [Настройка самостоятельного сброса пароля](authentication/quickstart-sspr.md)
 ## [Добавление конфиденциальных данных организации в Azure Active Directory](active-directory-properties-area.md)
 
 
 # Практическое руководство
 ## Планирование и проектирование
-### [Основы архитектуры Azure AD](active-directory-architecture.md)
+### [Основы архитектуры Azure AD](fundamentals/active-directory-architecture.md)
 ### [Сопоставление утверждений в Azure Active Directory](active-directory-claims-mapping.md)
 ### [Развертывание решения для гибридной идентификации](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Определение требований
@@ -87,7 +87,7 @@
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Управление членами группы](active-directory-groups-members-azure-portal.md)
 ### [Управление владельцами групп](active-directory-accessmanagement-managing-group-owners.md)
-### [Управление членством в группах](active-directory-groups-membership-azure-portal.md)
+### [Управление членством в группах](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Назначение лицензий с помощью групп](active-directory-licensing-whatis-azure-portal.md)
 #### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -100,7 +100,7 @@
 ### [Принудительное применение политики именования для групп](groups-naming-policy.md)
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
-### [Восстановление удаленной группы Office 365](active-directory-groups-restore-azure-portal.md)
+### [Восстановление удаленной группы Office 365](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Управление параметрами группы](active-directory-groups-settings-azure-portal.md) 
 ### Создание дополнительных правил
 #### [портал Azure](active-directory-groups-dynamic-membership-azure-portal.md)
@@ -134,8 +134,6 @@
 #### [Отсутствующие данные в файлах для скачивания](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Ошибки пакета содержимого журналов действий Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
 ### [Программный доступ](active-directory-reporting-api-getting-started-azure-portal.md)
-#### [Справочные материалы по аудиту](active-directory-reporting-api-audit-reference.md)
-#### [Справочник по входу](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Предварительные требования](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Примеры аудита](active-directory-reporting-api-audit-samples.md)
 #### [Примеры входа](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -281,7 +279,8 @@
 ### Имена пользовательских доменов
 #### [Краткое руководство](add-custom-domain.md)
 #### [Добавление имен личных доменов](active-directory-domains-manage-azure-portal.md)
-### [Администрирование каталога](active-directory-administer.md)
+### [Администрирование каталога](fundamentals/active-directory-administer.md)
+### [Удаление каталога](directory-delete-howto.md)
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
 ### [Самостоятельная регистрация](active-directory-self-service-signup.md)
 ### [Взятие под контроль неуправляемого каталога](domains-admin-takeover.md)
@@ -300,12 +299,12 @@
 ## Делегирование доступа к ресурсам
 ### [Роли администратора](active-directory-assign-admin-roles-azure-portal.md)
 #### [Назначение роли администратора пользователю](active-directory-users-assign-role-azure-portal.md) 
-#### [Сравнение пользовательских разрешений члена и гостя](users-default-permissions.md) 
+#### [Сравнение пользовательских разрешений члена и гостя](fundamentals/users-default-permissions.md) 
 ### [Защита привилегированного доступа](admin-roles-best-practices.md)  
 ### [Создание учетных записей администратора для аварийного доступа](active-directory-admin-manage-emergency-access-accounts.md) 
 
 
-#### [Разрешения пользователя по умолчанию](users-default-permissions.md)
+#### [Разрешения пользователя по умолчанию](fundamentals/users-default-permissions.md)
 ### [Административные единицы](active-directory-administrative-units-management.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
 ### [Защита привилегированных ролей](admin-roles-best-practices.md)
@@ -323,27 +322,29 @@
 
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
-#### [Условия](active-directory-conditional-access-conditions.md)
-#### [Условия расположения](active-directory-conditional-access-locations.md)
-#### [Элементы управления](active-directory-conditional-access-controls.md)
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
-#### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
-#### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
-#### [Миграция классических политик](active-directory-conditional-access-migration.md)
-#### [Средство"Что если"](active-directory-conditional-access-whatif.md)
-#### Быстрый запуск
+#### Быстрое начало работы
 ##### [Настройка отдельных облачных приложений MFA](active-directory-conditional-access-app-based-mfa.md)
-#### Задачи
+#### Учебники
 ##### [Перенос классической политики MFA](active-directory-conditional-access-migration-mfa.md)
+#### Основные понятия
+##### [Условия](active-directory-conditional-access-conditions.md)
+##### [Условия расположения](active-directory-conditional-access-locations.md)
+##### [Элементы управления](active-directory-conditional-access-controls.md)
+##### [Средство"Что если"](active-directory-conditional-access-whatif.md)
+##### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
+#### Практические руководства
+##### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
+##### [Настройка политик условного доступа для попыток доступа из ненадежных сетей](active-directory-conditional-access-untrusted-networks.md)
 ##### [Настройка условного доступа на основе устройств](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Настройка условного доступа на основе приложений](active-directory-conditional-access-mam.md)
 ##### [Условия использования для пользователей и приложений](active-directory-tou.md)
+##### [Миграция классических политик](active-directory-conditional-access-migration.md)
 ##### [Настройка VPN-подключения](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Настройка SharePoint и Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Исправление](active-directory-conditional-access-device-remediation.md)
 #### [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
 #### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
-
 
 ### Аутентификация на основе сертификата
 #### [Android](active-directory-certificate-based-authentication-android.md)

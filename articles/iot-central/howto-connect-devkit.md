@@ -1,19 +1,19 @@
 ---
 title: Подключение устройства DevKit к приложению Azure IoT Central | Документация Майкрософт
 description: Вы узнаете, как разработчик устройства может подключить устройство MXChip IoT DevKit к приложению Azure IoT Central.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200747"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261582"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Подключение устройства MXChip IoT DevKit к приложению Azure IoT Central
 
@@ -28,7 +28,9 @@ ms.locfileid: "34200747"
 
 Приложение, созданное из шаблона приложения **Sample Devkits** (Образец Devkits), включает в себя шаблон приложения **MXChip** со следующими характеристиками:
 
-### <a name="telemetry-measurements"></a>Измерения телеметрии
+### <a name="measurements"></a>Измерения
+
+#### <a name="telemetry"></a>Телеметрия 
 
 | Имя поля     | Units  | Минимальная | Максимальная | Число десятичных знаков |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -44,6 +46,20 @@ ms.locfileid: "34200747"
 | gyroscopeX     | милиградусов/с   | –2000   | 2000    | 0              |
 | gyroscopeY     | милиградусов/с   | –2000   | 2000    | 0              |
 | gyroscopeZ     | милиградусов/с   | –2000   | 2000    | 0              |
+
+#### <a name="states"></a>States 
+
+| ИМЯ          | Отображаемое имя   | ОБЫЧНЫЙ РЕЖИМ | ВНИМАНИЕ! | ОПАСНОСТЬ! | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Состояние устройства   | Зеленый  | Оранжевый  | Красный    | 
+
+#### <a name="events"></a>События 
+
+| ИМЯ             | Отображаемое имя      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Нажата кнопка B  | 
+
+
 
 ### <a name="settings"></a>Параметры
 
@@ -68,17 +84,6 @@ ms.locfileid: "34200747"
 | Свойство устройства | Серийный номер   | dieNumber  | number    |
 | текст            | Расположение     | location   | Недоступно       |
 
-### <a name="states"></a>States 
-
-| ИМЯ          | Отображаемое имя   | ОБЫЧНЫЙ РЕЖИМ | ВНИМАНИЕ! | ОПАСНОСТЬ! | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Состояние устройства   | Зеленый  | Оранжевый  | Красный    | 
-
-### <a name="events"></a>События 
-
-| ИМЯ             | Отображаемое имя      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Нажата кнопка B  | 
 
 ### <a name="add-a-real-device"></a>Добавление реального устройства
 

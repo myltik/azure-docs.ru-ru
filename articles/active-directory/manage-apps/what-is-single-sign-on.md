@@ -14,12 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354532"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292897"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?
 Благодаря единому входу пользователи получают доступ ко всем приложениям и ресурсам, необходимым для работы, выполнив только один вход с использованием одной учетной записи. После входа пользователю доступны все необходимые приложения без повторной проверки подлинности (например, ввода пароля).
@@ -59,7 +59,7 @@ Azure AD поддерживает три разных способа входа 
 
 Azure AD поддерживает федеративный единый вход в приложения с поддержкой протоколов SAML 2.0, WS-Federation или OpenID Connect.
 
-См. также статью [Управление сертификатами для федеративного единого входа в Azure Active Directory](../active-directory-sso-certs.md).
+См. также статью [Управление сертификатами для федеративного единого входа в Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="password-based-single-sign-on"></a>Единый вход на основе пароля
 Настройка единого входа на основе пароля позволяет пользователям вашей организации автоматически входить в сторонние приложения SaaS при помощи Azure AD, используя данные учетной записи пользователя из стороннего приложения SaaS. При включении данной функции служба Azure AD собирает и безопасно хранит данные учетной записи пользователя и связанный с ней пароль.
@@ -194,7 +194,7 @@ Azure AD также поддерживает ссылки для прямого 
 * [Указатель статьей по управлению приложениями в Azure Active Directory](../active-directory-apps-index.md)
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](../active-directory-saas-tutorial-list.md)
 * [Поиск несанкционированных облачных приложений с Cloud App Discovery](cloud-app-discovery.md)
-* [Введение в управление доступом к приложениям](../active-directory-managing-access-to-apps.md)
+* [Введение в управление доступом к приложениям](what-is-access-management.md)
 * [Сравнение возможностей управления внешними удостоверениями в Azure AD](../active-directory-b2b-compare-b2c.md)
 
 

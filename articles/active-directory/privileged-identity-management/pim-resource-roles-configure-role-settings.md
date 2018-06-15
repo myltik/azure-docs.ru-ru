@@ -3,22 +3,23 @@ title: Настройка параметров роли с помощью рес
 description: Из этой статьи вы узнаете, как настроить параметры роли для PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3789a679111e700066a12029036ff579969653ad
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148817"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233154"
 ---
 # <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Настройка параметров роли с помощью ресурсов Azure, используя управление привилегированными пользователями 
 

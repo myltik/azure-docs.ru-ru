@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 203bc0934b8db15478e78cbc64e463eafdf83fa9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8ad2baef4534c3457fc30bb9589c6fdd99fde8d9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34338641"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292826"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Руководство по настройке Cornerstone OnDemand для автоматической подготовки пользователей
 
@@ -75,7 +75,7 @@ ms.locfileid: "34338641"
 
 Перед настройкой и включением автоматической подготовки пользователей нужно решить, какие пользователи или группы в Azure AD должны иметь доступ к Cornerstone OnDemand. Когда этот вопрос будет решен, эти пользователи и группы можно будет назначить приложению Cornerstone OnDemand, следуя приведенным ниже указаниям:
 
-*   [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Назначение корпоративному приложению пользователя или группы](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Важные рекомендации по назначению пользователей в Cornerstone OnDemand
 
@@ -156,7 +156,7 @@ ms.locfileid: "34338641"
     
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
+* [Управление подготовкой учетных записей пользователей для корпоративных приложений](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Интеграция Enterprise для B2B — Azure Logic Apps | Документация Майкрософт"
-description: "Создание рабочих процессов для B2B и поддержка сценариев интеграции Enterprise для приложений логики с помощью пакета интеграции Enterprise"
+title: Интеграция Enterprise для B2B — Azure Logic Apps | Документация Майкрософт
+description: Создание рабочих процессов для B2B и поддержка сценариев интеграции Enterprise для приложений логики с помощью пакета интеграции Enterprise
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9462707db03ecfcc3d5186ce7ded8655ad3bdcc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298643"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Обзор: сценарии B2B и обмен данными с использованием пакета интеграции Enterprise
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="learn-more"></a>Подробнее
 * [Соглашения](../logic-apps/logic-apps-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise")
-* [Сценарии "бизнес — бизнес"](../logic-apps/logic-apps-enterprise-integration-b2b.md "Узнайте, как создавать приложения логики с возможностями "бизнес — бизнес"")  
+* [Сценарии "бизнес — бизнес"](../logic-apps/logic-apps-enterprise-integration-b2b.md "Узнайте, как создавать приложения логики с возможностями \"бизнес — бизнес\"")  
 * [Сертификаты](logic-apps-enterprise-integration-certificates.md "Узнайте о сертификатах интеграции Enterprise")
 * [Кодирование и декодирование неструктурированных файлов](logic-apps-enterprise-integration-flatfile.md "Узнайте, как кодировать и декодировать содержимое неструктурированных файлов")  
 * [Учетные записи интеграции](../logic-apps/logic-apps-enterprise-integration-accounts.md "Узнайте больше об учетных записях интеграции")
@@ -72,6 +73,6 @@ ms.lasthandoff: 10/11/2017
 * [Преобразование XML-файла](logic-apps-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise")
 * [Корпоративные соединители интеграции](../connectors/apis-list.md "Узнайте о соединителях пакета интеграции Enterprise.")
 * [Метаданные учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-metadata.md "Узнайте о метаданных учетной записи интеграции")
-* [Мониторинг сообщений "бизнес — бизнес"](logic-apps-monitor-b2b-message.md "Узнайте больше о мониторинге сообщений "бизнес — бизнес"")
-* [Отслеживание сообщений "бизнес — бизнес" на портале OMS](logic-apps-track-b2b-messages-omsportal.md "Узнайте больше об отслеживании сообщений "бизнес — бизнес" на портале OMS")
+* [Мониторинг сообщений "бизнес — бизнес"](logic-apps-monitor-b2b-message.md "Узнайте больше о мониторинге сообщений \"бизнес — бизнес\"")
+* [Отслеживание сообщений "бизнес — бизнес" на портале OMS](logic-apps-track-b2b-messages-omsportal.md "Узнайте больше об отслеживании сообщений \"бизнес — бизнес\" на портале OMS")
 

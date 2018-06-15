@@ -4,7 +4,7 @@ description: Отправка и получение сообщений в при
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aa6ab10dded541b352bdb7c8c3a47dbbbfe6a15c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295474"
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Отправка и получение сообщений с помощью соединителя служебной шины Azure
 
@@ -88,7 +89,7 @@ ms.lasthandoff: 04/16/2018
    > [!NOTE]
    > Все триггеры служебной шины имеют **длинный интервал опроса**. Это значит, что после срабатывания триггер обрабатывает все сообщения, после чего в течение 30 секунд ожидает на появление новых событий в очереди или подписке раздела.
    > Если на протяжении 30 секунд новые сообщения не поступают, триггер больше не срабатывает. В противном случае триггер продолжит считывать сообщения, пока очередь или подписка раздела не опустеет.
-   > Время следующего опроса триггера определяется интервалом повторения, который указан в свойствах триггера.
+   > Следующий опрос триггера основывается на интервале повторения, установленном в свойствах триггера.
 
 5. Сохраните приложение логики. На панели инструментов конструктора нажмите кнопку **Сохранить**.
 

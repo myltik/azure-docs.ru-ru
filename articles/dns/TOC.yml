@@ -6,7 +6,7 @@
       href: dns-overview.md
 - name: Быстрое начало работы
   items:
-    - name: Создание частной зоны и записи DNS с помощью портала
+    - name: Разрешение имен с помощью портала
       href: dns-getstarted-portal.md
     - name: Создание частной зоны и записи DNS с помощью PowerShell
       href: dns-getstarted-powershell.md
@@ -14,12 +14,12 @@
       href: dns-getstarted-cli.md
 - name: Учебники
   items:
-    - name: Создание частной зоны и записи DNS
-      href: private-dns-getstarted-powershell.md
-    - name: Делегирование своего домена в Azure DNS
+    - name: Размещение домена в Azure DNS
       href: dns-delegate-domain-azure-dns.md
     - name: Создание пользовательских записей DNS для веб-приложения
       href: dns-web-sites-custom-domain.md
+    - name: Создание частной зоны и записи DNS
+      href: private-dns-getstarted-powershell.md
 - name: Примеры
   items:
     - name: Инфраструктура CLI Azure

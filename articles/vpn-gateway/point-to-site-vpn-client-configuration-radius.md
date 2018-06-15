@@ -1,31 +1,36 @@
 ---
-title: "Создание и установка файлов конфигурации VPN-клиента для подключений типа \"точка — сеть\" с использованием Azure PowerShell и аутентификации RADIUS | Документация Майкрософт"
-description: "Создание файлов конфигурации VPN-клиента Windows, Mac OS X и Linux для подключений, использующих аутентификацию RADIUS."
+title: Создание и установка файлов конфигурации VPN-клиента для подключений типа "точка — сеть" с использованием Azure PowerShell и аутентификации RADIUS | Документация Майкрософт
+description: Создание файлов конфигурации VPN-клиента Windows, Mac OS X и Linux для подключений, использующих аутентификацию RADIUS.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 19b1090a37ae1f97537fcabe128e7958fc26a96a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235895"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Создание и установка файлов конфигурации VPN-клиента для аутентификации при подключениях типа "точка — сеть" с использованием RADIUS
 
 Для установления подключения "точка— сеть" к виртуальной сети необходимо настроить клиентское устройство, из которого будет выполняться подключение. VPN-подключения "точка— сеть" можно создавать из клиентских устройств Windows, Mac OS X и Linux. 
 
 При использовании проверки подлинности RADIUS доступно несколько способов проверки подлинности: по имени пользователя и паролю, на основе сертификата, а также другие типы проверки подлинности. Настройка VPN-клиента отличается для каждого типа аутентификации. Для настройки VPN-клиента используются файлы конфигурации клиента, содержащие необходимые параметры. Эта статья поможет создать и установить конфигурацию VPN-клиента для используемого типа аутентификации RADIUS.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 Ниже приведен рабочий процесс настройки аутентификации RADIUS для подключений типа "точка — сеть".
 
@@ -152,6 +157,10 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ## <a name="certeap"></a>Аутентификация на основе сертификата
  
 Вы можете создать файлы конфигурации VPN-клиента для аутентификации RADIUS на основе сертификата с использованием протокола EAP-TLS. Как правило, для проверки подлинности пользователя при VPN-подключениях используется сертификат, который выпущен предприятием. Убедитесь, что на устройствах всех пользователей, для которых инициируется подключение, установлен сертификат, и что сервер RADIUS может его проверить.
+
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 В командах для параметра `-AuthenticationMethod` укажите значение `EapTls`. При аутентификации на основе сертификата клиент проверяет сервер RADIUS, оценивая его сертификат. Параметр `-RadiusRootCert` определяет CER-файл с корневым сертификатом, который используется для проверки сервера RADIUS.
 

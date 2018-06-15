@@ -79,6 +79,8 @@
               href: devtest-lab-resize-vm.md
             - name: Повторное развертывание виртуальной машины
               href: devtest-lab-redeploy-vm.md
+            - name: Импорт виртуальной машины
+              href: devtest-lab-import-vm.md
         - name: Использование сред в лаборатории
           items:
             - name: Создание среды

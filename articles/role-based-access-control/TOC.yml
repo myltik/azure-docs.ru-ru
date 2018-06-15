@@ -15,11 +15,13 @@
           href: tutorial-role-assignments-user-powershell.md
         - name: Предоставление доступа группе с помощью PowerShell
           href: tutorial-role-assignments-group-powershell.md
+        - name: Создание настраиваемой роли с помощью PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: Создание настраиваемой роли с помощью CLI
+          href: tutorial-custom-role-cli.md
     - name: Управление назначением ролей
       items:
-        - name: Пользователь
-          href: role-assignments-users.md
-        - name: Ресурс
+        - name: Microsoft Azure
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Инфраструктура CLI Azure
           href: role-assignments-cli.md

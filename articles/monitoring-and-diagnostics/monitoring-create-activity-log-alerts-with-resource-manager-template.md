@@ -1,24 +1,19 @@
 ---
-title: "Создание оповещения журнала действий с помощью шаблона Resource Manager | Документация Майкрософт"
-description: "Получение уведомлений при создании ресурсов в Azure."
+title: Создание оповещения журнала действий с помощью шаблона Resource Manager
+description: Получение уведомлений при создании ресурсов в Azure.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.component: alerts
+ms.openlocfilehash: a1e28f08231ae1fbef3e0d0306e986c1dc9d1d1c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262996"
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Создание оповещения журнала действий с помощью шаблона Resource Manager
 В этой статье показано, как можно использовать [шаблон Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) для настройки оповещений журнала действий. С помощью шаблонов можно легко настроить большое количество предупреждений, которые активируются по определенным условиям события журнала действий в рамках автоматического развертывания.

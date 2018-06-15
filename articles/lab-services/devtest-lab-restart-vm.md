@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781573"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Перезагрузка виртуальной машины в лаборатории в Azure DevTest Labs
 Перезапустить виртуальную машину в DevTest Labs можно быстро и легко с помощью действий, описанных в этой статье. Перед перезапуском виртуальной машины рассмотрите следующее:

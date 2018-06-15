@@ -1,11 +1,11 @@
 ---
-title: "Аварийное восстановление учетной записи интеграции B2B в Azure Logic Apps | Документация Майкрософт"
-description: "Аварийное восстановление B2B в Logic Apps"
+title: Аварийное восстановление учетной записи интеграции B2B в Azure Logic Apps | Документация Майкрософт
+description: Аварийное восстановление B2B в Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 65c7262916219a74dcd6bdab487306b5bd5f709f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299102"
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Межрегиональное аварийное восстановление Logic Apps B2B
 

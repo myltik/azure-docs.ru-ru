@@ -1,19 +1,20 @@
 ---
-title: "Миграция в службу \"База данных Azure для MySQL\" с минимальным простоем"
-description: "Из этой статьи вы узнаете, как перенести базу данных MySQL в службу \"База данных Azure для MySQL\" с минимальным простоем и настроить начальную загрузку данных из базы данных-источника в целевую базу данных, а также их непрерывную синхронизацию с помощью Attunity Replicate for Microsoft Migrations."
+title: Миграция в службу "База данных Azure для MySQL" с минимальным простоем
+description: Из этой статьи вы узнаете, как перенести базу данных MySQL в службу "База данных Azure для MySQL" с минимальным простоем и настроить начальную загрузку данных из базы данных-источника в целевую базу данных, а также их непрерывную синхронизацию с помощью Attunity Replicate for Microsoft Migrations.
 services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e1be72d97570643cc8a7c6eb05d3d363e96357b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 99add55188615debdc96b6cfc8b21e34552fd9d4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267260"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Миграция в службу "База данных Azure для MySQL" с минимальным простоем
 Вы можете перенести существующую базу данных MySQL в службу "База данных Azure для MySQL" с помощью Attunity Replicate for Microsoft Migrations. Attunity Replicate — это совместное предложение от компании Attunity и корпорации Майкрософт. Клиентам Майкрософт это предложение предоставляется вместе со службой Azure Database Migration Service без дополнительной платы. 

@@ -8,17 +8,19 @@ manager: jhubbard
 editor: ''
 ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: deguhath
-ms.openlocfilehash: 31612f56e996ba0b609a34dd556ede3a0ac498f9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 39bdbce4ada225c0fa7df8559f68b591ccfc68b7
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838662"
 ---
 # <a name="heading"></a>Обработка данных в виртуальной машине SQL Server на платформе Azure
 В этом документе описывается изучение данных и создание характеристик для данных, хранящихся в виртуальной машине SQL Server в Azure. Это можно сделать путем структурирования данных с помощью SQL или с использованием языка программирования, например Python.

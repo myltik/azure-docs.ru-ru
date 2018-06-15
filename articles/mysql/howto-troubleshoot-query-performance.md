@@ -1,19 +1,20 @@
 ---
-title: "Устранение неполадок с производительностью запросов в службе \"База данных Azure для MySQL\""
-description: "В этой статье описано, как использовать инструкцию EXPLAIN для устранения неполадок с производительностью запросов в службе \"База данных Azure для MySQL\"."
+title: Устранение неполадок с производительностью запросов в службе "База данных Azure для MySQL"
+description: В этой статье описано, как использовать инструкцию EXPLAIN для устранения неполадок с производительностью запросов в службе "База данных Azure для MySQL".
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 3af6ad347cec171132ddfbec21137775c0f71245
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72b047c37ac88e4b33c8723f8df14c6794e84399
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266182"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Использование инструкции EXPLAIN для профилирования производительности запросов в службе "База данных Azure для MySQL"
 Инструкция **EXPLAIN** представляет собой удобное средство для оптимизации запросов. С помощью инструкций EXPLAIN можно получать информацию о том, как выполняются инструкции SQL. Ниже показан пример выполнения инструкции EXPLAIN.

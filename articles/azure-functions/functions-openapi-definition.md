@@ -4,7 +4,7 @@ description: Создание определения OpenAPI, которое п�
 services: functions
 keywords: OpenAPI, Swagger, облачные приложения, облачные службы
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
-ms.author: mblythe; glenga
+ms.author: glenga
+ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8caea30196a7ecdd4226b18963cd8b2040dc7e35
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3205fc8597d4d501b19ace7d50c4807a47d31d03
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234195"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Создание определения OpenAPI функции
 Интерфейсы REST API часто описываются с помощью определения OpenAPI (ранее известное как файл [Swagger](http://swagger.io/)). Это определение содержит сведения о доступных операция в API и о том, как необходимо структурировать данные запросов и ответов для API.

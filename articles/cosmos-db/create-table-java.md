@@ -2,23 +2,21 @@
 title: Краткое руководство. Использование API таблицы с Java в Azure Cosmos DB | Документация Майкрософт
 description: В этом руководстве показано, как использовать API таблицы Azure Cosmos DB для создания приложения с помощью портала Azure и Java
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 70b07115a676bb5c8cc4dbbf39843d8144fb0b66
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 532b69f23b0e6d27e255f0b3d0a0eaee60eb8c10
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797511"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Краткое руководство. Создание приложения API таблицы с помощью Java и Azure Cosmos DB
 
@@ -38,7 +36,7 @@ Azure Cosmos DB — это глобально распределенная мн
     * Обязательно настройте переменную среды JAVA_HOME так, чтобы она указывала на папку, в которой установлен пакет JDK.
 * [Скачайте](http://maven.apache.org/download.cgi) и [установите](http://maven.apache.org/install.html) двоичный архив [Maven](http://maven.apache.org/).
     * В Ubuntu выполните команду `apt-get install maven`, чтобы установить Maven.
-* [Git.](https://www.git-scm.com/)
+* [Git](https://www.git-scm.com/)
     * В Ubuntu выполните команду `sudo apt-get install git`, чтобы установить Git.
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных

@@ -1,29 +1,24 @@
 ---
 title: Технологии и решения Интернета вещей Azure
 description: В этой статье представлена коллекция технологий и решений PaaS и SaaS, доступных для создания решения Интернета вещей Azure.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-ms.custom: ''
-ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 05/18/2018
+ms.author: bryanla
+ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631417"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Технологии и решения Интернета вещей Azure: PaaS и SaaS
 
 Корпорация Майкрософт создала портфель, который удовлетворяет потребности всех клиентов, предоставляя возможность использовать преимущества цифрового преобразования. Портфель продуктов Интернета вещей Azure представляет собой обзор доступных технологий и решений PaaS и SaaS. Он предоставляет два пути для создания собственного решения:
-- Платформа как услуга (PaaS). Создавайте приложения с помощью [акселераторов решений для Интернета вещей Azure](https://www.azureiotsuite.com/) — коллекции предварительно настроенных решений корпоративного уровня, которые позволяют ускорить разработку пользовательских решений Интернета вещей.
+- Платформа как услуга (PaaS). Создавайте приложения с помощью [акселераторов решений для Интернета вещей Azure](https://www.azureiotsolutions.com/) — коллекции предварительно настроенных решений корпоративного уровня, которые позволяют ускорить разработку пользовательских решений Интернета вещей.
 - Программное обеспечение как услуга (SaaS). Приступите к работе с помощью [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), нового решения SaaS для разработки приложений Интернета вещей без сложных решений Интернета вещей. Если в вашей организации не хватает ресурсов для создания собственного решения Интернета вещей, используйте Azure IoT Central. Это решение Интернета вещей без программирования, с помощью которого за считаные минуты можно создавать модели устройств, панели мониторинга и правила.
 
 ![Технологии и решения Интернета вещей Azure][img-paas-saas-technologies-solutions]

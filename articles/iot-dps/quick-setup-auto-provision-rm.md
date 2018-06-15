@@ -1,22 +1,20 @@
 ---
 title: Настройка подготовки устройств с помощью шаблона Azure Resource Manager | Документация Майкрософт
 description: Краткое руководство Azure. Настройка службы "Подготовка устройств к добавлению в Центр Интернета вещей" с помощью шаблона
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 02/26/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8bb27cca9e976ff8433793ef378cc6a43449d4bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4ce906e903b4825e698d02cbf8cb2d18581df468
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630295"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Настройка службы "Подготовка устройств к добавлению в Центр Интернета вещей" c помощью шаблона Azure Resource Manager
 

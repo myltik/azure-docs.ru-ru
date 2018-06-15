@@ -3,21 +3,22 @@ title: Управление параметрами активации ролей
 description: Узнайте, как изменять параметры по умолчанию для привилегированных пользователей с помощью расширения для управления привилегированными пользователями Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 972fd1e322e578516073307d01548132473bc52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4557457e28a9a9b8bcd7f5c3bda40fbba8cdd24b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233311"
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Управление параметрами активации ролей в компоненте управления привилегированными пользователями Azure AD
 Администратор привилегированных ролей может настроить компонент управления привилегированными пользователями (PIM) Azure AD в своей организации, включая изменение среды работы для пользователей, активирующих назначения временных ролей.

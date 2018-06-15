@@ -1,11 +1,11 @@
 ---
-title: "Защита сообщений B2B с помощью сертификатов в приложениях Azure Logic Apps | Документация Майкрософт"
-description: "Добавление сертификатов для защиты сообщений B2B с помощью пакета интеграции Enterprise"
+title: Защита сообщений B2B с помощью сертификатов в приложениях Azure Logic Apps | Документация Майкрософт
+description: Добавление сертификатов для защиты сообщений B2B с помощью пакета интеграции Enterprise
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 708bdcddede71186c48ae7d4034cc9df0bd61391
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7ba76a15792fe40b2a628b030f06930641d197a3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299340"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Защита сообщений B2B с помощью сертификатов
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 02/27/2018
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 
-2. В главном меню Azure выберите **Все службы**. Введите в поле поиска "интеграция" и выберите **Учетные записи интеграции**.
+2. В главном меню Azure выберите **Все службы**. Введите в поле поиска "интеграция" и выберите в результатах поиска **Учетные записи интеграции**.
 
    ![Поиск учетной записи интеграции](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 
@@ -87,7 +88,7 @@ ms.lasthandoff: 02/27/2018
  
 3. Войдите на [портале Azure](https://portal.azure.com).
 
-4. В главном меню Azure выберите **Все службы**. Введите в поле поиска "интеграция" и выберите **Учетные записи интеграции**.
+4. В главном меню Azure выберите **Все службы**. Введите в поле поиска "интеграция" и выберите в результатах поиска **Учетные записи интеграции**.
 
    ![Поиск учетной записи интеграции](media/logic-apps-enterprise-integration-certificates/overview-1.png) 
 

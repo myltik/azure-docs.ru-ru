@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5440f9e747957a017eac109cddc4881244e506eb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34337118"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292693"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Руководство по настройке Cerner Central для автоматической подготовки пользователей
 
@@ -42,7 +42,7 @@ ms.locfileid: "34337118"
 
 Перед настройкой и включением службы подготовки необходимо решить, какие пользователи и (или) группы в Azure AD представляют пользователей, которым нужен доступ к Cerner Central. Когда этот вопрос будет решен, этих пользователей можно будет назначить приложению Cerner Central, следуя приведенным ниже указаниям.
 
-[Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
+[Назначение корпоративному приложению пользователя или группы](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Важные рекомендации по назначению пользователей приложению Cerner Central
 
@@ -130,7 +130,7 @@ ms.locfileid: "34337118"
 
 * [Cerner Central: публикация данных удостоверений с помощью Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Руководство. Интеграция Azure Active Directory с Cerner Central](active-directory-saas-cernercentral-tutorial.md)
-* [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
+* [Управление подготовкой учетных записей пользователей для корпоративных приложений](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация

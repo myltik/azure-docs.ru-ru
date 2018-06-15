@@ -222,6 +222,8 @@
           href: scheduled-events.md
         - name: Монитор метаданных
           href: instance-metadata-service.md
+        - name: Получить метрики потребления с помощью REST
+          href: metrics-vm-usage-rest.md
     - name: Использование образов
       items:
         - name: Поиск и использование образов

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8fa98ff4cee206894c35f84cca3f3b4c43e2e5ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4d483f045a8e778953ddb578dd7bb81fdb05fdf2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292414"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Руководство по настройке Pingboard для автоматической подготовки учетных записей пользователей
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 05/20/2018
 
 Перед настройкой и включением службы подготовки необходимо решить, каким пользователям в Azure AD требуется доступ к приложению Pingboard. Затем можно будет назначить пользователей приложению Pingboard, сделав следующее:
 
-[Назначение пользователя корпоративному приложению](active-directory-coreapps-assign-user-azure-portal.md)
+[Назначение пользователя корпоративному приложению](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Важные советы по назначению пользователей в Pingboard
 
@@ -99,6 +100,6 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Managing user account provisioning for enterprise apps in the Azure portal](active-directory-enterprise-apps-manage-provisioning.md) (Управление подготовкой учетных записей пользователей для корпоративных приложений на портале Azure)
+* [Managing user account provisioning for enterprise apps in the Azure portal](manage-apps/configure-automatic-user-provisioning-portal.md) (Управление подготовкой учетных записей пользователей для корпоративных приложений на портале Azure)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Настройка единого входа](active-directory-saas-pingboard-tutorial.md)

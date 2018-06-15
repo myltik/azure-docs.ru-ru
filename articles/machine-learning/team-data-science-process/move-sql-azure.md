@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: edee9216835917e8bd9ee13065f24507e0403cb9
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839730"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Перемещение данных в базу данных SQL Azure для машинного обучения Azure
 В этой статье описаны варианты перемещения данных из неструктурированных файлов (в формате CSV или TSV) или с локального сервера SQL Server в базу данных SQL Azure. Эти задачи перемещения данных в облако являются этапом процесса обработки и анализа данных группы.

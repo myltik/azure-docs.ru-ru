@@ -1,19 +1,19 @@
 ---
 title: Подключение устройства Windows IoT Core к приложению Azure IoT Central | Документация Майкрософт
 description: Вы узнаете, как разработчик устройства может подключить устройство MXChip IoT DevKit к приложению Azure IoT Central.
-services: iot-central
-author: miriamb
+author: miriambrus
 ms.author: mriamb
 ms.date: 04/09/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: peterpr
-ms.openlocfilehash: c38231f97eeb1c4511702bf3e788f72918cab045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200410"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261905"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Подключение устройства Windows IoT Core к приложению Azure IoT Central
 

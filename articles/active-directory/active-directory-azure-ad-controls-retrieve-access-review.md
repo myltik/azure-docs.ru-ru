@@ -11,18 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: cdd07fd837863d9a5abced0db8cacaded6288a41
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192230"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233120"
 ---
 # <a name="retrieve-access-review-results"></a>Получение результатов проверок доступа
 
 Администраторы могут использовать Azure Active Directory (Azure AD), чтобы [создать проверку доступа](active-directory-azure-ad-controls-create-access-review.md) для участников группы или пользователей, назначенных для приложения.  Пользователь с ролью **глобального администратора**, **администратора безопасности** или **читателя безопасности** также может читать результаты проверки доступа.  Для назначения пользователям одной из этих ролей администратор привилегированной роли может использовать управление привилегированными пользователями Azure AD, чтобы предоставить пользователю доступ для активации роли. Глобальный администратор также может навсегда [назначить пользователю роль](active-directory-users-assign-role-azure-portal.md).
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Поиск проверки доступа
 
@@ -42,8 +45,6 @@ ms.locfileid: "34192230"
 
 
 ## <a name="removing-users-from-an-access-review"></a>Удаление пользователей из проверки доступа
-
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 По умолчанию удаленный пользователь будет оставаться удаленным в Azure AD в течение 30 дней, на протяжении которых его при необходимости может восстановить администратор.  По истечении 30 дней пользователь будет окончательно удален.  Кроме того, с помощью портала Azure Active Directory глобальный администратор может явно [навсегда удалить недавно удаленного пользователя](active-directory-users-restore.md) до истечения этого периода времени.  Если пользователь удален навсегда, впоследствии данные об этом пользователе будут удалены из активных проверок доступа.  Сведения аудита об удаленных пользователях остаются в журнале аудита.
 

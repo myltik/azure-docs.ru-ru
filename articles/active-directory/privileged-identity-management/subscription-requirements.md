@@ -3,9 +3,9 @@ title: Подписки управления привилегированным�
 description: Требования к подписке и лицензиям для управления Azure AD Privileged Identity Management и варианты использования этой службы в вашем клиенте
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 69a27a2a75eb2a08a93b8b70648733673eac36db
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260052"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Требования к подписке для Azure Active Directory Privileged Identity Management
 

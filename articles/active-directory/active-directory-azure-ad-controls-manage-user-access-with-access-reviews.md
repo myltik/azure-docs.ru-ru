@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 22cb517435777074390321de64daf98c8d12d0fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192495"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35232971"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Управление пользовательским доступом с помощью проверок доступа Azure AD
 
@@ -32,11 +33,7 @@ ms.locfileid: "34192495"
 ## <a name="prerequisites"></a>предварительным требованиям 
 
 
-Проверка доступа поддерживается в выпуске Azure AD Premium P2, включенном в Microsoft Enterprise Mobility + Security E5. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md). Для каждого пользователя, применяющего эту возможность, помимо прочего, для создания и выполнения проверки доступа или подтверждения доступа, требуется лицензия. 
-
-Проверка доступа поддерживается в выпуске Azure AD Premium P2, включенном в Microsoft Enterprise Mobility + Security E5. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-whatis.md). Для каждого пользователя, применяющего эту возможность для создания и выполнения проверки доступа или запроса на проверку, требуется лицензия.
-
-
+Проверка доступа поддерживается в выпуске Azure AD Premium P2, включенном в Microsoft Enterprise Mobility + Security E5. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md). Для каждого пользователя, применяющего эту возможность, в том числе для создания и выполнения проверки доступа или подтверждения доступа, требуется лицензия. 
 
 ## <a name="create-and-perform-an-access-review"></a>Создание и выполнение проверки доступа
 

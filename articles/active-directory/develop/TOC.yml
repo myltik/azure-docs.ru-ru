@@ -259,6 +259,8 @@
               href: active-directory-v2-protocols-oauth-on-behalf-of.md
             - name: Учетные данные сертификата
               href: active-directory-certificate-credentials.md
+            - name: Пример кода OAuth 2.0
+              href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Маркеры
           href: active-directory-v2-tokens.md
         - name: Области действия и согласие

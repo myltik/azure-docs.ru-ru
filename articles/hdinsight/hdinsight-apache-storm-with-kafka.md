@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2018
+ms.date: 05/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626296"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Руководство. Использование Apache Storm с Kafka в HDInsight
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 05/07/2018
     * Каталог, в который установлено ПО Maven.
 
 > [!IMPORTANT]
-> С помощью описанных здесь шагов будет создана группа ресурсов Azure, которая содержит кластеры Storm в HDInsight и Kafka в HDInsight. Оба этих кластера находятся в виртуальной сети Azure, что позволяет кластеру Spark напрямую обмениваться данными с кластером Kafka.
+> С помощью описанных здесь шагов будет создана группа ресурсов Azure, которая содержит кластеры Storm в HDInsight и Kafka в HDInsight. Оба этих кластера находятся в виртуальной сети Azure, что позволяет кластеру Storm напрямую обмениваться данными с кластером Kafka.
 > 
 > Для удобства в этом документе есть ссылка на шаблон, с помощью которого можно создать все необходимые ресурсы Azure. 
 >

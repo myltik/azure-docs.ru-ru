@@ -1,24 +1,19 @@
 ---
-title: Потоковая передача журналов диагностики Azure в концентратор событий | Документация Майкрософт
+title: Потоковая передача журналов диагностики Azure в концентратор событий
 description: Узнайте, как настроить потоковую передачу журналов диагностики Azure в концентратор событий.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 1f5a97f5af47a3c5731d5c5d4d5e8cf17097ae60
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 18b385edc7efed20d940be96670b8c40ce66ddfd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264329"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Потоковая передача журналов диагностики Azure в концентратор событий
 **[Журналы диагностики Azure](monitoring-overview-of-diagnostic-logs.md)** можно передавать в режиме, близком к реальному времени, в любое приложение. Для этого достаточно использовать стандартный параметр Export to Event Hubs (Экспорт в службу "Концентраторы событий") на портале или включить идентификатор правила авторизации концентратора событий в параметрах диагностики с помощью командлетов Azure PowerShell или Azure CLI 2.0.

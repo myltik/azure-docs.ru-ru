@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: v-ant-msft
-ms.openlocfilehash: e0b945a99766ee52cb357f54d7135fbbdf1fada2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 52fe23f5353a68e3afbac6a91955a61c7b8fb44c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34353795"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292676"
 ---
 # <a name="tutorial-configure-xmatters-ondemand-for-automatic-user-provisioning"></a>Руководство по настройке xMatters OnDemand для автоматической подготовки пользователей
 
@@ -73,7 +73,7 @@ ms.locfileid: "34353795"
 
 Перед настройкой и включением автоматической подготовки пользователей нужно решить, какие пользователи или группы в Azure AD должны иметь доступ к xMatters OnDemand. Когда этот вопрос будет решен, этих пользователи и группы можно будет назначить приложению xMatters OnDemand, следуя приведенным ниже указаниям.
 
-*   [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Назначение корпоративному приложению пользователя или группы](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-xmatters-ondemand"></a>Важные рекомендации по назначению пользователей в xMatters OnDemand
 
@@ -159,7 +159,7 @@ ms.locfileid: "34353795"
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
+* [Управление подготовкой учетных записей пользователей для корпоративных приложений](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация

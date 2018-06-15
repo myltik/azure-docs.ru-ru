@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869059"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294128"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Использование данных Application Insights в Power BI
 [Power BI](http://www.powerbi.com/) — это набор бизнес-инструментов для анализа данных и обмена сведениями. На каждом устройстве доступны панели мониторинга с широкими возможностями. Вы можете объединять данные из различных источников, в том числе аналитические запросы из [ Application Insights](app-insights-overview.md).

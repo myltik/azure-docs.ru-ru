@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: a96e856b55f118b74c7cb43ead925e10e4b74f1c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: dbb139081e1eb84ea64a187b7fec0d9cb159653c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192444"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235011"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Управление гостевым доступом с помощью проверок доступа Azure AD
 
@@ -36,9 +37,6 @@ ms.locfileid: "34192444"
 
 
 Проверка доступа поддерживается в выпуске Azure AD Premium P2, включенном в Microsoft Enterprise Mobility + Security E5. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md). Для каждого пользователя, применяющего эту возможность, в том числе для создания и выполнения проверки доступа или подтверждения доступа, требуется лицензия. 
-
-Проверка доступа поддерживается в выпуске Azure AD Premium P2, включенном в Microsoft Enterprise Mobility + Security E5. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-whatis.md). Для каждого пользователя, применяющего эту возможность для создания и выполнения проверки доступа или запроса на проверку, требуется лицензия.
-
 
 Если вы планируете предлагать гостевым пользователям самим проверять свой доступ, прочитайте о лицензировании гостевых пользователей. Дополнительные сведения см. в статье [Руководство по лицензированию службы совместной работы Azure Active Directory B2B](active-directory-b2b-licensing.md).
 
