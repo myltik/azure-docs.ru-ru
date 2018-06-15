@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204128"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Управление доступом к сведениям о счетах Azure с помощью управления доступом на основе ролей
 

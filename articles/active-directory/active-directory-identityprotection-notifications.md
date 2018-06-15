@@ -1,14 +1,15 @@
 ---
-title: "Уведомления защиты идентификации Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как уведомления помогают в изучении проблем."
+title: Уведомления защиты идентификации Azure Active Directory | Документация Майкрософт
+description: Узнайте, как уведомления помогают в изучении проблем.
 services: active-directory
-keywords: "защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
-documentationcenter: 
+keywords: защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e72cfab8886f28982e5451362704d6a7a9fe59e4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713819"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Уведомления защиты идентификации Azure Active Directory
 
@@ -36,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 
 При обнаружении учетной записи в группе риска служба "Защита идентификации Azure Active Directory" создает уведомление по электронной почте с темой **Users at risk detected** (Обнаружены пользователи в группе риска). В таком электронном сообщении содержится ссылка на отчет **[Пользователи, находящиеся в группе риска](active-directory-reporting-security-user-at-risk.md)**. Мы советуем немедленно проверить пользователей в группе риска.
 
-![Сообщение электронной почты об обнаружении пользователей в группе риска](./media/active-directory-identityprotection-notifications/01.png)
+![сообщение электронной почты об обнаружении пользователей в группе риска;](./media/active-directory-identityprotection-notifications/01.png)
 
 
 ### <a name="configuration"></a>Параметр Configuration
@@ -75,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы открыть связанное диалоговое окно, на странице **Защита идентификации** в разделе **Параметры** щелкните **Еженедельный дайджест**.
 
-![Сообщение электронной почты об обнаружении пользователей в группе риска](./media/active-directory-identityprotection-notifications/04.png)
+![сообщение электронной почты об обнаружении пользователей в группе риска;](./media/active-directory-identityprotection-notifications/04.png)
 
 
 ## <a name="see-also"></a>См. также

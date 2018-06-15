@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715828"
 ---
 # <a name="traffic-analytics"></a>Аналитика трафика
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Выбор группы безопасности сети 
 
-Прежде чем включить ведение журнала потоков NSG, нужно проверить наличие группы безопасности сети для регистрации потоков. Если у вас нет группы безопасности сети, ознакомьтесь со статьей [Создание групп безопасности сети с помощью портала Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md), чтобы создать ее.
+Прежде чем включить ведение журнала потоков NSG, нужно проверить наличие группы безопасности сети для регистрации потоков. Если у вас нет группы безопасности сети, ознакомьтесь со статьей [Создание групп безопасности сети с помощью портала Azure](../virtual-network/manage-network-security-group.md#create-a-network-security-group), чтобы создать ее.
 
 В левой части портала Azure выберите **Монитор**, **Наблюдатель за сетями**, а затем — **Журналы последовательностей NSG**. Выберите группу безопасности сети, для которой нужно включить журнал потоков NSG, как показано на следующем рисунке:
 

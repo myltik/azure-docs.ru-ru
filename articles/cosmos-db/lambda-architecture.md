@@ -3,21 +3,20 @@ title: Лямбда-архитектура с использованием Azure
 description: В этой статье описывается, как реализовать лямбда-архитектуру, используя Azure Cosmos DB, HDInsight и Spark.
 keywords: Лямбда-архитектура
 services: cosmos-db
-documentationcenter: ''
 author: dennyglee
 manager: kfile
 editor: ''
-ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: denlee
-ms.openlocfilehash: 9c1a8c212fbacde9fbf69fdf9bf72ed2393786db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a8cdee6e8e7c338be278449a31426824f6e805d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611863"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: реализация лямбда-архитектуры на платформе Azure 
 
