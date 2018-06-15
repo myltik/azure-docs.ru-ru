@@ -1,11 +1,11 @@
 ---
-title: "Настройка высокого уровня доступности виртуальных машин Azure Resource Manager | Документация Майкрософт"
-description: "В этом руководстве показано, как создать группу доступности AlwaysOn на виртуальных машинах Azure в режиме Azure Resource Manager."
+title: Настройка высокого уровня доступности виртуальных машин Azure Resource Manager | Документация Майкрософт
+description: В этом руководстве показано, как создать группу доступности AlwaysOn на виртуальных машинах Azure в режиме Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401027"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Автоматическая настройка групп доступности AlwaysOn на виртуальных машинах Azure с использованием Resource Manager
 

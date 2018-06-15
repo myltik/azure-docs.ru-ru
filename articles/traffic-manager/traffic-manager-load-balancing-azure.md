@@ -1,11 +1,11 @@
 ---
-title: "Использование служб балансировки нагрузки в Azure | Документация Майкрософт"
-description: "В этом руководстве показано, как создать сценарий с использованием таких решений Azure для балансировки нагрузки, как диспетчер трафика, шлюз приложений и балансировщик нагрузки."
+title: Использование служб балансировки нагрузки в Azure | Документация Майкрософт
+description: В этом руководстве показано, как создать сценарий с использованием таких решений Azure для балансировки нагрузки, как диспетчер трафика, шлюз приложений и балансировщик нагрузки.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: liumichelle
 manager: vitinnan
-editor: 
+editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401112"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Использование служб балансировки нагрузки в Azure
 

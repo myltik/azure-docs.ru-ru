@@ -1,11 +1,11 @@
 ---
-title: "Как настроить подготовку пользователей для приложения из коллекции Azure AD | Документы Майкрософт"
-description: "В этой статье описано, как быстро настроить подготовку и отмену подготовки учетных записей для приложений из коллекции приложений Azure AD."
+title: Как настроить подготовку пользователей для приложения из коллекции Azure AD | Документы Майкрософт
+description: В этой статье описано, как быстро настроить подготовку и отмену подготовки учетных записей для приложений из коллекции приложений Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464431"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Как настроить подготовку пользователей для приложения из коллекции Azure AD
 

@@ -1,11 +1,11 @@
 ---
-title: "Подготовка неправильного набора пользователей для приложения в коллекции Azure AD | Документация Майкрософт"
-description: "Узнайте, как выяснить, почему в приложении подготавливается не та группа пользователей, которую вы настроили"
+title: Подготовка неправильного набора пользователей для приложения в коллекции Azure AD | Документация Майкрософт
+description: Узнайте, как выяснить, почему в приложении подготавливается не та группа пользователей, которую вы настроили
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383143"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Подготовка неправильного набора пользователей для приложения в коллекции Azure AD
 

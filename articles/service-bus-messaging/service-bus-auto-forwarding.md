@@ -1,11 +1,11 @@
 ---
-title: "Автоматическая пересылка сущностей обмена сообщениями служебной шины Azure | Документация Майкрософт"
-description: "Описывается, как привязать очередь или подписку служебной шины к другой очереди или разделу."
+title: Автоматическая пересылка сущностей обмена сообщениями служебной шины Azure | Документация Майкрософт
+description: Описывается, как привязать очередь или подписку служебной шины к другой очереди или разделу.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558098"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Объединение в цепочки сущностей служебной шины с помощью автоматической переадресации
 

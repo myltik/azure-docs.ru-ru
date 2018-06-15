@@ -14,6 +14,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768038"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Обработка правил на основе настраиваемых порогов в Azure Stream Analytics
 В этой статье описывается использование эталонных данных для получения решения для оповещения, использующего правила на основе настраиваемых порогов в Azure Stream Analytics.

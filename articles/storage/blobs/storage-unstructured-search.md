@@ -1,6 +1,6 @@
 ---
-title: "Поиск неструктурированных данных в облачном хранилище Azure"
-description: "Поиск неструктурированных данных с помощью службы поиска Azure."
+title: Поиск неструктурированных данных в облачном хранилище Azure
+description: Поиск неструктурированных данных с помощью службы поиска Azure.
 author: roygara
 manager: timlt
 services: storage
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23451641"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Поиск неструктурированных данных в облачном хранилище
 

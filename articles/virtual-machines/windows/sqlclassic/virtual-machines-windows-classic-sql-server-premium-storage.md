@@ -1,8 +1,8 @@
 ---
-title: "Использование хранилища Azure уровня \"Премиум\" с SQL Server | Документация Майкрософт"
-description: "В этой статье используется ресурсы, созданные с помощью классической модели развертывания, и предоставляются рекомендации по использованию хранилища Azure Premium с SQL Server, выполняющимся на виртуальных машинах Azure."
+title: Использование хранилища Azure уровня "Премиум" с SQL Server | Документация Майкрософт
+description: В этой статье используется ресурсы, созданные с помощью классической модели развертывания, и предоставляются рекомендации по использованию хранилища Azure Premium с SQL Server, выполняющимся на виртуальных машинах Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: craigg
 editor: monicar
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400619"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах
 ## <a name="overview"></a>Обзор

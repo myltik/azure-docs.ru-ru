@@ -1,11 +1,11 @@
 ---
-title: "Управление профилями диспетчера трафика Microsoft Azure | Документация Майкрософт"
-description: "Эта статья содержит информацию о том, как создавать, отключать, включать и удалять профиль диспетчера трафика Azure."
+title: Управление профилями диспетчера трафика Microsoft Azure | Документация Майкрософт
+description: Эта статья содержит информацию о том, как создавать, отключать, включать и удалять профиль диспетчера трафика Azure.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f06e0365-0a20-4d08-b7e1-e56025e64f66
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398062"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Управление профилем диспетчера трафика Azure
 

@@ -1,6 +1,6 @@
 ---
-title: "Восстановление размещения на локальном сайте для виртуальных машин Hyper-V | Документация Майкрософт"
-description: "Azure Site Recovery координирует репликацию, отработку отказа и восстановление виртуальных машин и физических серверов. Сведения о восстановлении размещения из Azure в локальный центр данных."
+title: Восстановление размещения на локальном сайте для виртуальных машин Hyper-V | Документация Майкрософт
+description: Azure Site Recovery координирует репликацию, отработку отказа и восстановление виртуальных машин и физических серверов. Сведения о восстановлении размещения из Azure в локальный центр данных.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466750"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Восстановление размещения для виртуальных машин Hyper-V
 

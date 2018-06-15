@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594055"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Подготовка виртуальной машины Windows для обработки и анализа данных в Azure
 Виртуальная машина Майкрософт для обработки и анализа данных — это образ виртуальной машины (VM) Windows Azure, в котором предварительно установлен и настроен ряд распространенных средств, обычно необходимых для анализа данных и машинного обучения. К этим средствам относятся:

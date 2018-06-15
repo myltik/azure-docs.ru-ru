@@ -1,12 +1,12 @@
 ---
-title: "Создание профиля диспетчера трафика в Azure | Документация Майкрософт"
-description: "В этой статье описывается, как создать профиль диспетчера трафика."
+title: Создание профиля диспетчера трафика в Azure | Документация Майкрософт
+description: В этой статье описывается, как создать профиль диспетчера трафика.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397576"
 ---
 # <a name="create-a-traffic-manager-profile"></a>Создание профиля диспетчера трафика
 

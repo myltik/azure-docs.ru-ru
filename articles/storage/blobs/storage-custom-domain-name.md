@@ -1,6 +1,6 @@
 ---
-title: "Настройка имени личного домена для конечной точки хранилища BLOB-объектов Azure | Документация Майкрософт"
-description: "С помощью портала Azure сопоставьте собственное каноническое имя (CNAME) с конечной точкой хранилища BLOB-объектов в учетной записи хранения Azure."
+title: Настройка имени личного домена для конечной точки хранилища BLOB-объектов Azure | Документация Майкрософт
+description: С помощью портала Azure сопоставьте собственное каноническое имя (CNAME) с конечной точкой хранилища BLOB-объектов в учетной записи хранения Azure.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559933"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Настройка пользовательского доменного имени для конечной точки хранилища BLOB-объектов
 

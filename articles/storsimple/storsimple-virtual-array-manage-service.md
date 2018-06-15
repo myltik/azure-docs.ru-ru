@@ -1,11 +1,11 @@
 ---
-title: "Развертывание службы диспетчера устройств StorSimple | Документация Майкрософт"
-description: "Сведения о создании и удалении службы диспетчера устройств StorSimple на портале Azure, а также об управлении ключом регистрации службы."
+title: Развертывание службы диспетчера устройств StorSimple | Документация Майкрософт
+description: Сведения о создании и удалении службы диспетчера устройств StorSimple на портале Azure, а также об управлении ключом регистрации службы.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 28499494-8c4d-4a7f-9d44-94b2b8a93c93
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110302"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Развертывание службы диспетчера устройств StorSimple для виртуального массива StorSimple
 ## <a name="overview"></a>Обзор

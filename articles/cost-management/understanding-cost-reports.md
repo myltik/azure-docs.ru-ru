@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32167904"
 ---
 # <a name="understanding-cost-management-reports"></a>Сведения об отчетах по управлению затратами
 

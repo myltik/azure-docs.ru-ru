@@ -1,11 +1,11 @@
 ---
-title: "Ошибка на странице приложения после входа | Документы Майкрософт"
-description: "Устранение проблем со входом в Azure AD, когда само приложение выдает ошибку"
+title: Ошибка на странице приложения после входа | Документы Майкрософт
+description: Устранение проблем со входом в Azure AD, когда само приложение выдает ошибку
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384911"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Ошибка на странице приложения после входа
 

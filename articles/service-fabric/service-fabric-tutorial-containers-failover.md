@@ -1,14 +1,14 @@
 ---
-title: "Отработка отказа и масштабирование приложения-контейнера Azure Service Fabric | Документация Майкрософт"
-description: "В этом руководстве вы узнаете, как выполняется отработка отказа в приложении-контейнере Azure Service Fabric.  Также узнайте, как масштабировать контейнеры и службы, работающие в кластере."
+title: Отработка отказа и масштабирование приложения-контейнера Azure Service Fabric | Документация Майкрософт
+description: В этом руководстве вы узнаете, как выполняется отработка отказа в приложении-контейнере Azure Service Fabric.  Также узнайте, как масштабировать контейнеры и службы, работающие в кластере.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, контейнеры, микрослужбы, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, контейнеры, микрослужбы, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555490"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Руководство по демонстрации отработки отказа и масштабирования служб контейнеров в Service Fabric
 
