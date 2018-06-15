@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781633"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Настройка виртуальной сети в Azure DevTest Labs
 Как описано в статье [Добавление виртуальной машины с артефактами в лабораторию](devtest-lab-add-vm.md), при создании виртуальной машины в лаборатории можно указать настроенную виртуальную сеть. Например, может потребоваться доступ к ресурсам корпоративной сети с виртуальных машин через виртуальную сеть, которая была настроена с помощью ExpressRoute или через VPN-подключение типа "сеть — сеть".

@@ -22,6 +22,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603765"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Ограничение сетевого доступа к ресурсам PaaS посредством конечных точек службы виртуальной сети с помощью PowerShell
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594160"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Руководство по созданию конвейера фабрики данных для копирования данных с использованием шаблона Azure Resource Manager 
 > [!div class="op_single_selector"]

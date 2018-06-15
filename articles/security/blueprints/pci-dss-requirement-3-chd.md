@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895458"
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Требования к данным владельцев карт для сред, соответствующих стандарту PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Требование 3 (стандарт PCI DSS)

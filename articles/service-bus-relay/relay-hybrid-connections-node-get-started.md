@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893399"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>Начало работы с функциями WebSocket гибридных подключений к Azure Relay в Node
 

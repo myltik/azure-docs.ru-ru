@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782793"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Создание клипов на портале с помощью Azure Media Clipper
 С помощью средства Azure Media Clipper вы можете создавать на портале клипы из ресурсов, сохраненных в учетных записях служб мультимедиа. Чтобы начать работу, найдите на портале учетную запись служб мультимедиа. Выберите для нее вкладку **Субклип**.

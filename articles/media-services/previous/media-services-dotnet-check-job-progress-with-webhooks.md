@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33784493"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Использование веб-перехватчиков Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET
 При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Уведомления о заданиях служб мультимедиа можно отслеживать с помощью объектов webhook Azure или [хранилища очередей Azure](media-services-dotnet-check-job-progress-with-queues.md). В этой статье приведены сведения о работе с веб-перехватчиками.

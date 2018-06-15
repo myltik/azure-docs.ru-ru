@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894933"
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>Требования к идентификации для сред, соответствующих стандарту PCI DSS 
 ## <a name="pci-dss-requirement-8"></a>Стандарт PCI DSS: требование 8

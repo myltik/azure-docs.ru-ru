@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527031"
 ---
 # <a name="security-center-platform-migration-faq"></a>Вопросы и ответы по миграции платформы центра безопасности Azure
 С начала июня 2017 г. в центре безопасности Azure используется Microsoft Monitoring Agent для сбора и хранения данных. Дополнительные сведения см. в статье [Миграция платформы центра безопасности Azure](security-center-platform-migration.md). Эта статья содержит ответы на часто задаваемые вопросы о миграции платформы.

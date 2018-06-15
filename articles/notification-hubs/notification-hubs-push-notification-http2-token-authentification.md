@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777898"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Проверка подлинности на основе токенов (HTTP/2) для APNS
 ## <a name="overview"></a>Обзор

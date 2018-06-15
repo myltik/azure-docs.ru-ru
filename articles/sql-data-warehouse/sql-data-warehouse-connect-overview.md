@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31596176"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Подключение к хранилищу данных SQL Azure
 Подключитесь к хранилищу данных SQL Azure.

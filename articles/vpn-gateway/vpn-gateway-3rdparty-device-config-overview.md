@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599617"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Обзор конфигураций партнерских VPN-устройств
 В этой статье содержится обзор процесса настройки локальных VPN-устройств для подключения к VPN-шлюзам Azure. Для демонстрации подключения к различным конфигурациям локальных VPN-устройств с помощью одинаковых параметров используются примеры виртуальной сети Azure и настройки VPN-шлюза.

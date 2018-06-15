@@ -31,6 +31,8 @@
   items:
     - name: Квоты и региональные ограничения
       href: container-service-quotas.md
+    - name: Миграция из ACS в AKS
+      href: acs-aks-migration.md
 - name: Практические руководства
   items:
     - name: Операции с кластером
@@ -43,6 +45,13 @@
           href: upgrade-cluster.md
         - name: Удаление кластера AKS
           href: delete-cluster.md
+        - name: Включение AKS в Azure AD
+          href: aad-integration.md
+        - name: Использование Virtual Kubelet
+          href: virtual-kubelet.md
+        - name: Развертывание AKS с помощью Terraform
+          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          maintainContext: true
     - name: Конфигурирование томов данных
       items:
         - name: "Диск Azure\_— динамический"
@@ -77,18 +86,26 @@
       items:
         - name: Запуск приложений с помощью Helm
           href: kubernetes-helm.md
+        - name: Разработка с помощью Dev Spaces
+          href: ../dev-spaces/azure-dev-spaces.md
+          maintainContext: true
         - name: Разработка приложений с помощью Draft
           href: kubernetes-draft.md
         - name: Открытый компонент Service Broker для Azure
           href: integrate-azure.md
-        - name: Непрерывное развертывание с помощью Jenkins
-          href: jenkins-continuous-deployment.md
         - name: Использование OpenFaaS с AKS
           href: openfaas.md
         - name: Запуск заданий Spark в AKS
           href: spark-job.md
         - name: Использование GPU в AKS
           href: gpu-cluster.md
+    - name: DevOps в AKS
+      items:
+        - name: Непрерывное развертывание с помощью Jenkins
+          href: jenkins-continuous-deployment.md
+        - name: Проект Azure DevOps для AKS
+          href: 'https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks'
+          maintainContext: true
     - name: Базовые сведения о Kubernetes
       items:
         - name: Использование панели мониторинга Kubernetes
@@ -105,6 +122,14 @@
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
+    - name: Python
+      href: /python/api/overview/azure/containerservice
+    - name: Java
+      href: /java/api/overview/azure/containerservice
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-service
+    - name: Шаблон Resource Manager
+      href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Ресурсы
   items:
     - name: Регионы доступности

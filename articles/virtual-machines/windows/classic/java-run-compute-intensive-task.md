@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528466"
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Выполнение ресурсоемкой задачи в Java-коде на виртуальной машине
 > [!IMPORTANT] 

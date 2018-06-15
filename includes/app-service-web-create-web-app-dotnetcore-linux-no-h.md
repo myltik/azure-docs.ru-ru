@@ -13,6 +13,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31532640"
 ---
 Создайте [веб-приложение](../articles/app-service/containers/app-service-linux-intro.md) в плане службы приложений `myAppServicePlan`. 
 

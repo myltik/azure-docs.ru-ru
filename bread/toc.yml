@@ -469,6 +469,9 @@
     - name: Устойчивость
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: Контроль доступа на основе ролей
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: Работоспособность службы
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/

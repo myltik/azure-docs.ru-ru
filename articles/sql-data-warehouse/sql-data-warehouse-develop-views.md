@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526001"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Представления в хранилище данных SQL Azure
 Советы по использованию представлений T-SQL в хранилище данных SQL Azure для разработки решений. 
