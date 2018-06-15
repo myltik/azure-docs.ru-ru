@@ -2,25 +2,23 @@
 title: Azure Cosmos DB. Разработка на Java с помощью API Cassandra | Документация Майкрософт
 description: Сведения о разработке на Java с помощью API-интерфейса Cassandra для Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
 tags: ''
-ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
-ms.devlang: dotnet
+ms.component: cosmosdb-cassandra
+ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 11/15/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 8a4b26227b162268afd965f89ab2806b530e75be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 379f1a369bd94f22736abfb766ba239c3f93acee
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798099"
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure Cosmos DB. Разработка на Java с помощью API Cassandra
 
@@ -50,7 +48,7 @@ Azure Cosmos DB — это глобально распределенная мн
     * Обязательно настройте переменную среды JAVA_HOME так, чтобы она указывала на папку, в которой установлен пакет JDK.
 * [Скачайте](http://maven.apache.org/download.cgi) и [установите](http://maven.apache.org/install.html) двоичный архив [Maven](http://maven.apache.org/).
     * В Ubuntu выполните команду `apt-get install maven`, чтобы установить Maven.
-* [Git.](https://www.git-scm.com/)
+* [Git](https://www.git-scm.com/)
     * В Ubuntu выполните команду `sudo apt-get install git`, чтобы установить Git.
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных

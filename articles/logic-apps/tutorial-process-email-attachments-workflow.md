@@ -1,12 +1,12 @@
 ---
-title: "Создание рабочих процессов для обработки электронных писем и вложений в Azure Logic Apps | Документация Майкрософт"
-description: "В этом руководстве показано, как создавать автоматизированные рабочие процессы для обработки электронных писем и вложений в Azure Logic Apps, службе хранилища Azure и \"Функции Azure\""
+title: Создание рабочих процессов для обработки электронных писем и вложений в Azure Logic Apps | Документация Майкрософт
+description: В этом руководстве показано, как создавать автоматизированные рабочие процессы для обработки электронных писем и вложений в Azure Logic Apps, службе хранилища Azure и "Функции Azure"
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3d6d66dca06c1f34a31155a27c32bbe3e48c8aa3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300639"
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Обработка сообщений электронной почты и вложений с помощью приложения логики
 

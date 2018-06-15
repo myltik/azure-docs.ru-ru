@@ -2,28 +2,26 @@
 title: Выполнение операций в API таблицы Azure Cosmos DB с помощью PowerShell | Документация Майкрософт
 description: Как выполнять операции в API таблицы Azure Cosmos DB с помощью PowerShell
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798650"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Выполнение операций в API таблицы Azure Cosmos DB с помощью Azure PowerShell 
 
 >[!NOTE]
->API таблицы Azure Cosmos DB предоставляет расширенные функции для хранения таблиц, такие как комплексные возможности глобального распределения, низкие задержки операций чтения и записи, автоматическое вторичное индексирование и выделенная пропускная способность. В большинстве случаев команды PowerShell в этой статье работают как для API таблицы Azure Cosmos DB, так и для хранилища таблиц Azure, однако в этой статье рассматривается API таблицы Azure Cosmos DB. Если вы используете хранилище таблиц Azure, см. статью [Perform Azure Table storage operations with Azure PowerShell](table-storage-how-to-use-powershell.md) (Выполнение операций в хранилище таблиц Azure с помощью Azure PowerShell).
+>API таблицы Azure Cosmos DB предоставляет расширенные функции для хранения таблиц, такие как комплексные возможности глобального распределения, низкие задержки операций чтения и записи, автоматическое вторичное индексирование и выделенная пропускная способность. В большинстве случаев команды PowerShell в этой статье работают как для API таблицы Azure Cosmos DB, так и для хранилища таблиц Azure, однако в этой статье рассматривается API таблицы Azure Cosmos DB. Если вы используете хранилище таблиц Azure, см. статью [Perform Azure Table storage operations with Azure PowerShell](../storage/tables/table-storage-how-to-use-powershell.md) (Выполнение операций в хранилище таблиц Azure с помощью Azure PowerShell).
 >
 
 API таблицы Azure Cosmos DB позволяет хранить и запрашивать огромные наборы структурированных нереляционных данных. Основными компонентами службы являются таблицы, сущности и свойства. Таблица представляет собой коллекцию сущностей. Сущность — это набор свойств. Каждая сущность может иметь до 252 свойств. Все они являются парами "имя — значение". В этой статье предполагается, что вы уже знакомы с основными понятиями API таблицы Azure Cosmos DB. Дополнительные сведения см. в статье [Знакомство со службой Azure Cosmos DB. API таблицы](table-introduction.md) и [Azure Cosmos DB. Создание приложения .NET с помощью API таблицы](create-table-dotnet.md).

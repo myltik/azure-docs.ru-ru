@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834361"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Создание пользовательских R-модулей в Машинном обучении Azure
 В этой статье описывается процедура создания и развертывания пользовательского R-модуля в Машинном обучении Azure. Здесь поясняется, что такое пользовательский R-модуль, и какие файлы используются для его создания. В этом разделе также описан способ создания файлов, определяющих модуль, и регистрации модуля для его развертывания в рабочей области Машинного обучения. Затем более подробно описываются элементы и атрибуты, используемые в определении пользовательского модуля. Кроме этого, здесь рассматриваются способы использования дополнительных функций, файлов и нескольких наборов выходных данных. 

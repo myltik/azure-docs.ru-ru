@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: f07e7cc9c97dcd5ef6ebc2d4c16d31b831869352
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54a3aca4c3519948a9e18d035565f746964b38bc
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836166"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Памятка по работе с автоматическим конвейером данных для создания прогнозов машинного обучения Azure
 **Памятка по работе с автоматическим конвейером данных машинного обучения Microsoft Azure** поможет вам разобраться в технологии, которую вы можете использовать для передачи данных в веб-службу машинного обучения и их последующей оценки с помощью модели прогнозной аналитики.

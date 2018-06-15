@@ -1,11 +1,11 @@
 ---
-title: "Применение пользовательского кода в Azure Logic Apps с помощью Функций Azure | Документация Майкрософт"
-description: "Узнайте, как создавать и выполнять пользовательский код для Azure Logic Apps с помощью Функций Azure."
+title: Применение пользовательского кода в Azure Logic Apps с помощью Функций Azure | Документация Майкрософт
+description: Узнайте, как создавать и выполнять пользовательский код для Azure Logic Apps с помощью Функций Azure.
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 18442c87b049200fac5ed41cc7034ba7a848b8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297875"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Добавление и выполнение пользовательского кода для приложений логики с помощью Функций Azure
 

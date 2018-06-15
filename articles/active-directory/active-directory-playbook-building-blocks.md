@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157706"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293115"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки
 
@@ -141,7 +141,7 @@ ms.locfileid: "34157706"
 | --- | --- |
 | Доступна тестовая среда для приложения SaaS. В этом руководстве в качестве примера мы используем ServiceNow.<br/>Настоятельно рекомендуется использовать тестовый экземпляр, чтобы минимизировать взаимодействие с существующими данными и их сопоставлениями. | Перейдите по адресу https://developer.servicenow.com/app.do#!/home, чтобы начать процесс получения тестового экземпляра |
 | Административный доступ к консоли управления ServiceNow. | [Руководство: интеграция Azure Active Directory с ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Целевой набор пользователей для назначения приложения. Рекомендуется использовать группу безопасности, содержащую пользователей подтверждения концепции. <br/>Если создать такую группу невозможно, назначьте пользователей непосредственно приложению для подтверждения концепции. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Целевой набор пользователей для назначения приложения. Рекомендуется использовать группу безопасности, содержащую пользователей подтверждения концепции. <br/>Если создать такую группу невозможно, назначьте пользователей непосредственно приложению для подтверждения концепции. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Действия
 
@@ -149,13 +149,13 @@ ms.locfileid: "34157706"
 | --- | --- |
 | Предоставьте общий доступ к учебнику всем субъектам из документации Майкрософт.  | [Руководство: интеграция Azure Active Directory с ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Проведите рабочее собрание и выполните инструкции из учебника вместе с каждым субъектом. | [Руководство: интеграция Azure Active Directory с ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Назначьте приложение группе, указанной в предварительных требованиях. Если в область подтверждения концепции входит условный доступ, вы можете вернуться позже, чтобы добавить Многофакторную идентификацию и аналогичные компоненты. <br/>Обратите внимание, что это запустит процесс подготовки (если он настроен). |  [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Создание группы и добавление в нее пользователей в Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Назначьте приложение группе, указанной в предварительных требованиях. Если в область подтверждения концепции входит условный доступ, вы можете вернуться позже, чтобы добавить Многофакторную идентификацию и аналогичные компоненты. <br/>Обратите внимание, что это запустит процесс подготовки (если он настроен). |  [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Создание группы и добавление в нее пользователей в Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Используйте портал управления Azure AD, чтобы добавить приложение ServiceNow из коллекции.| [Портал управления Azure AD: корпоративные приложения](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Новые возможности управления корпоративными приложениями в Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | В колонке "Единый вход" приложения ServiceNow включите параметр "SAML-based Sign-on" (Вход на основе SAML). |  |
 | Укажите в полях "URL-адрес для входа" и "Идентификатор" URL-адрес ServiceNow.<br/>Установите флажок "Сделать сертификат активным"<br/>и сохраните параметры. |  |
 | Откройте колонку "Configure ServiceNow" (Настройка ServiceNow) в нижней части панели, чтобы просмотреть индивидуальные инструкции для настройки ServiceNow. |  |
 | Следуйте инструкциям для настройки ServiceNow. |  |
-| В колонке "Подготовка" приложения ServiceNow включите автоматическую подготовку. | [Управление подготовкой учетных записей пользователей для корпоративных приложений на новом портале Azure](active-directory-enterprise-apps-manage-provisioning.md) |
+| В колонке "Подготовка" приложения ServiceNow включите автоматическую подготовку. | [Управление подготовкой учетных записей пользователей для корпоративных приложений на новом портале Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Подождите несколько минут, пока подготовка закончится.  В это время можно просмотреть отчеты о подготовке. |  |
 | Выполните вход по адресу https://myapps.microsoft.com/ как тестовый пользователь, обладающий доступом | [Что такое панель доступа?](active-directory-saas-access-panel-introduction.md) |
 | Щелкните элемент для только что созданного приложения. Подтвердите доступ. |  |
@@ -176,7 +176,7 @@ ms.locfileid: "34157706"
 | --- | --- |
 | Тестовая среда для приложений SaaS. Примером единого входа с паролем является HipChat и Twitter. Для любого другого приложения нужен точный URL-адрес страницы с HTML-формой входа. | [Twitter в Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat в Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Тестовые учетные записи для приложений. | [Регистрация в Twitter](https://twitter.com/signup?lang=en)<br/>[Бесплатная регистрация: HipChat](https://www.hipchat.com/sign_up) |
-| Целевой набор пользователей для назначения приложения. Рекомендуется использовать группу безопасности, содержащую этих пользователей. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Целевой набор пользователей для назначения приложения. Рекомендуется использовать группу безопасности, содержащую этих пользователей. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Доступ локального администратора к компьютеру, чтобы развернуть расширение панели доступа для Internet Explorer, Chrome или Firefox. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Действия
@@ -185,8 +185,8 @@ ms.locfileid: "34157706"
 | --- | --- |
 | Установите расширение браузера. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Настройте приложение из коллекции. | [Новые возможности управления корпоративными приложениями в Azure Active Directory: обновленная и усовершенствованная коллекция приложений](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Настройте единый вход с паролем. | [Управление параметрами единого входа для корпоративных приложений на новом портале Azure: вход на основе пароля](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Назначьте приложение группе, указанной в предварительных требованиях. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Настройте единый вход с паролем. | [Управление параметрами единого входа для корпоративных приложений на новом портале Azure: вход на основе пароля](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Назначьте приложение группе, указанной в предварительных требованиях. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Выполните вход по адресу https://myapps.microsoft.com/ как тестовый пользователь, обладающий доступом |  |
 | Щелкните элемент для только что созданного приложения. | [Что такое панель доступа? Единый вход по паролю без предоставления идентификатора](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Укажите учетные данные приложения. | [Что такое панель доступа? Единый вход по паролю без предоставления идентификатора](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -211,7 +211,7 @@ ms.locfileid: "34157706"
 | --- | --- |
 | Список целевых приложений и точные URL-адреса входа заранее. Например, можно использовать Twitter. | [Twitter в Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Регистрация в Twitter](https://twitter.com/signup?lang=en) |
 | Общие учетные данные для этого приложения SaaS. | [Совместное использование учетных записей с помощью Azure AD](active-directory-sharing-accounts.md)<br/>[Автоматическая смена паролей Azure AD для Facebook, Twitter и LinkedIn перешла на этап предварительной версии! - Блог о корпоративной мобильности и безопасности] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Учетные данные по меньшей мере двух членов группы, которые будут обращаться к одной учетной записи. Они должны входить в группу безопасности. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Учетные данные по меньшей мере двух членов группы, которые будут обращаться к одной учетной записи. Они должны входить в группу безопасности. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Доступ локального администратора к компьютеру, чтобы развернуть расширение панели доступа для Internet Explorer, Chrome или Firefox. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Действия
@@ -220,8 +220,8 @@ ms.locfileid: "34157706"
 | --- | --- |
 | Установите расширение браузера. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Настройте приложение из коллекции. | [Новые возможности управления корпоративными приложениями в Azure Active Directory: обновленная и усовершенствованная коллекция приложений](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Настройте единый вход с паролем. | [Управление параметрами единого входа для корпоративных приложений на новом портале Azure: вход на основе пароля](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Назначьте приложение группе, указанной в предварительных требованиях, пока задаете для нее учетные данные. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Настройте единый вход с паролем. | [Управление параметрами единого входа для корпоративных приложений на новом портале Azure: вход на основе пароля](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Назначьте приложение группе, указанной в предварительных требованиях, пока задаете для нее учетные данные. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Входите в качестве разных пользователей, обращающихся к приложению как **к общей учетной записи.**  |  |
 | При необходимости вы также можете просмотреть отчеты об использовании приложения. Обратите внимание, что имеется некоторая задержка, поэтому для отражения трафика в отчетах нужно немного подождать. | [Отчеты о действиях входа на портале Azure Active Directory: использование управляемых приложений](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Политики хранения отчетов Azure Active Directory](active-directory-reporting-retention.md) |
 

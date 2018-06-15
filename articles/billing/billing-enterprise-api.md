@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 4c9e7ec65db80e0af91645d70cea39bb1a396791
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831791"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Обзор API- интерфейсов отчетов для корпоративных клиентов
 Интерфейсы API отчетов позволяют корпоративным клиентам Azure извлекать данные о потреблении и выставлении счетов программным способом и передавать их в предпочитаемые средства анализа данных. 
@@ -30,7 +31,7 @@ ms.lasthandoff: 05/04/2018
 
 |Ключ заголовка запроса | Значение|
 |-|-|
-|Авторизация| Укажите значение в следующем формате: **bearer {API_KEY}** <br/> Пример: bearer eyr....09|
+|Авторизация| Укажите значение в следующем формате: **bearer {API_KEY}** <br/> Пример: bearer eyr....09| 
 
 ## <a name="consumption-apis"></a>Интерфейсы API потребления
 [Здесь](https://consumption.azure.com/swagger/ui/index) вы можете найти конечную точку Swagger для интерфейсов API, описанных ниже. С ее помощью можно упростить самоанализ API и создать клиентские пакеты SDK, используя [AutoRest](https://github.com/Azure/AutoRest) или [Swagger CodeGen](http://swagger.io/swagger-codegen/). С 1 мая 2014 г. данные доступны через этот API. 
@@ -50,7 +51,7 @@ ms.lasthandoff: 05/04/2018
  **Список расчетных периодов**. [API расчетных периодов](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) возвращает список расчетных периодов, которые содержат данные о потреблении для определенной регистрации, приведенные в обратном хронологическом порядке. Каждый период содержит свойство, указывающее на маршрут API к четырем наборам данных: BalanceSummary, UsageDetails, Marketplace Charges и Price Sheet.
 
 
-## <a name="api-response-codes"></a>Коды ответов API  
+## <a name="api-response-codes"></a>Коды ответов API   
 |Код состояния отклика|Сообщение|ОПИСАНИЕ|
 |-|-|-|
 |200| ОК|Без ошибок|

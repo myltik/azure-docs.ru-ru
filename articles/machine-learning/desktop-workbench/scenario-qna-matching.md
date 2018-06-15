@@ -8,6 +8,7 @@ editor: mezmicrosoft
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
-ms.openlocfilehash: 081ca444aee5cd3d426ee569a98bf54c7923af79
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835106"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Сопоставление вопросов и ответов с помощью Azure Machine Learning Workbench
 На открытые вопросы часто трудно найти ответ, и для этого требуются ручные действия профильных специалистов. Чтобы сократить нагрузку на внутренних специалистов, компании часто создают списки часто задаваемых вопросов (FAQ) для помощи пользователям. В этом примере показаны различные действующие методы машинного обучения, которые сопоставляют открытые запросы и уже существующие пары часто задаваемых вопросов и ответов на них. В этом примере показан несложный процесс разработки, позволяющий создать такое решение с использованием Azure Machine Learning Workbench. 

@@ -4,7 +4,7 @@ description: Создание и развертывание рабочих пр�
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 69be968f34d756cc725f5353dcf074c01fad65ce
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0772ed0e6cca98c4e59b563a23549909636d55d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772557"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298228"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Создание и развертывание приложений логики с помощью шаблонов Azure Resource Manager
 

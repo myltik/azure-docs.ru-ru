@@ -4,7 +4,7 @@ description: Развертывание и вызов веб-интерфейс�
 keywords: веб-интерфейсы API, интерфейсы REST API, соединители, рабочие процессы, интеграция системы, проверка подлинности
 services: logic-apps
 author: stepsic-microsoft-com
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e808a463beb312df6ee2f8fc4378f72755dcdf33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299015"
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Развертывание и вызов пользовательских API из рабочих процессов приложения логики
 

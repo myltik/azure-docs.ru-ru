@@ -3,23 +3,21 @@ title: Руководство по веб-приложению Python Flask дл
 description: Изучите руководство по использованию Azure Cosmos DB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений.
 keywords: Разработка приложений, Python Flask, веб-приложение Python, разработка веб-приложения Python
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
-ms.workload: data-management
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3746a8f3d565d06dd81077efe84c8a9173a68dd7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a1a6ef61934c765eced259ddc535c018acf52fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824223"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Создание веб-приложения Python Flask с использованием Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -368,7 +366,7 @@ def vote():
 6. Остановите отладку проекта, нажав клавиши SHIFT+F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>Шаг 5. Развертывание веб-приложения в Azure
-Теперь, когда у вас есть готовое приложение и оно корректно работает в Azure Cosmos DB локально, необходимо создать файл web.config, обновить файлы на сервере в соответствии с локальной средой и просмотреть завершенное приложение в Azure. Эта процедура относится только к Visual Studio 2017. Если вы используете другую версию Visual Studio, ознакомьтесь со статьей [Публикация в службу приложений Azure](/visualstudio/python/publishing-to-azure.md).
+Теперь, когда у вас есть готовое приложение и оно корректно работает в Azure Cosmos DB локально, необходимо создать файл web.config, обновить файлы на сервере в соответствии с локальной средой и просмотреть завершенное приложение в Azure. Эта процедура относится только к Visual Studio 2017. Если вы используете другую версию Visual Studio, ознакомьтесь со статьей [Публикация в службу приложений Azure](/visualstudio/python/publishing-to-azure).
 
 1. В **обозревателе решений** Visual Studio щелкните проект правой кнопкой мыши и выберите **Добавить > Новый элемент...** В появившемся диалоговом окне выберите шаблон **Azure web.config (FastCGI)**, а затем нажмите кнопку **ОК**. В корневом каталоге проекта будет создан файл `web.config`. 
 
@@ -406,7 +404,7 @@ def vote():
 
 10. На странице **Выберите расширение** прокрутите вниз к последней установке Python 2.7 и выберите параметр x86 или x64 бит, а затем нажмите кнопку **ОК**, чтобы принять условия использования.  
    
-11. С помощью консоли Kudu, к которой можно перейти по адресу `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, установите пакеты, указанные в файле `requirements.txt` приложения. Для этого в консоли диагностики Kudu перейдите к папке Python `D:\home\Python27`, а затем выполните следующую команду, как описано в разделе о [консоли Kudu](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console):
+11. С помощью консоли Kudu, к которой можно перейти по адресу `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, установите пакеты, указанные в файле `requirements.txt` приложения. Для этого в консоли диагностики Kudu перейдите к папке Python `D:\home\Python27`, а затем выполните следующую команду, как описано в разделе о [консоли Kudu](/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console):
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
@@ -439,9 +437,3 @@ def vote():
 Дополнительные сведения об Azure, Visual Studio и Python см. в [центре по разработке для Python](https://azure.microsoft.com/develop/python/). 
 
 Дополнительные руководства по Python Flask: [Мегаруководство по Flask, часть I. Привет, мир!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) 
-
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[2]: https://www.python.org/downloads/windows/
-[3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure portal]: http://portal.azure.com

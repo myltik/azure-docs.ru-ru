@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: b6f536ba1711076eab0eb9dcbea7d357e9cebf3d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ff0bcffae506e593f8ddc95886142df30164e65
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34345601"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293285"
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Руководство по настройке Replicon для автоматической подготовки пользователей
 
@@ -73,7 +73,7 @@ ms.locfileid: "34345601"
 
 Перед настройкой и включением автоматической подготовки пользователей нужно решить, какие пользователи или группы в Azure AD должны иметь доступ к Replicon. Когда этот вопрос будет решен, этих пользователей и (или) группы можно будет назначить приложению Replicon, следуя приведенным ниже указаниям.
 
-*   [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Назначение корпоративному приложению пользователя или группы](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-replicon"></a>Важные рекомендации по назначению пользователей в Replicon
 
@@ -158,7 +158,7 @@ ms.locfileid: "34345601"
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
+* [Управление подготовкой учетных записей пользователей для корпоративных приложений](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация

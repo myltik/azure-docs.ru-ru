@@ -2,29 +2,26 @@
 title: Создание триггера HTTP с помощью входной привязки Azure Cosmos DB | Документация Майкрософт
 description: Сведения об использовании Функций Azure с триггерами HTTP для запроса Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818905"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Создание триггера HTTP в Функциях Azure с помощью входной привязки Azure Cosmos DB
 
 Azure Cosmos DB — это глобально распределенная бессхемная и бессерверная многомодельная база данных. Функции Azure — это бессерверная служба вычислений, которая позволяет выполнять код по требованию. Свяжите эти две службы Azure, и вы получите базу для бессерверной архитектуры, которая позволяет сосредоточиться на создании эффективных приложений, не беспокоясь о подготовке и обслуживании серверов для требований вычислений и баз данных.
 
-В этом руководстве используется код, созданный в кратком руководстве [Azure Cosmos DB. Создание приложения .NET с помощью API Graph](create-graph-dotnet.md). Здесь мы добавим функцию Azure, которая содержит [триггер HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). Триггер HTTP использует [входную привязку](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) Azure Cosmos DB для извлечения данных из базы данных графа, созданной при работе с кратким руководством. Этот определенный триггер HTTP запрашивает данные в Azure Cosmos DB, но входные привязки из Azure Cosmos DB можно использовать для получения входных значений данных для любой задачи функции.
+В этом руководстве используется код, созданный в кратком руководстве [Azure Cosmos DB. Создание приложения .NET с помощью API Graph](create-graph-dotnet.md). Здесь мы добавим функцию Azure, которая содержит [триггер HTTP](../azure-functions/functions-bindings-http-webhook.md). Триггер HTTP использует [входную привязку](../azure-functions/functions-triggers-bindings.md) Azure Cosmos DB для извлечения данных из базы данных графа, созданной при работе с кратким руководством. Этот определенный триггер HTTP запрашивает данные в Azure Cosmos DB, но входные привязки из Azure Cosmos DB можно использовать для получения входных значений данных для любой задачи функции.
 
 В рамках этого руководства рассматриваются следующие задачи:
 

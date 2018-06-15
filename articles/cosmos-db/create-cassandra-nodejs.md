@@ -2,23 +2,21 @@
 title: Краткое руководство. Использование API Cassandra с Node.js в Azure Cosmos DB | Документация Майкрософт
 description: В этом руководстве показано, как использовать API Cassandra Azure Cosmos DB для создания приложения профиля с помощью Node.js
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cc8fd5ef77407274187411da593be7b68ae114d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 08ac75ca008f3054a85d9c90834720e26cefcfea
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796457"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Краткое руководство. Создание приложения Cassandra с помощью Node.js и Azure Cosmos DB
 
@@ -34,7 +32,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
 Кроме того, сделайте следующее:
 * [Node.js](https://nodejs.org/en/) версии 0.10.29 или более поздней.
-* [Git.](http://git-scm.com/)
+* [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
 

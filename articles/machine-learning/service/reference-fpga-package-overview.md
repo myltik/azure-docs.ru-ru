@@ -2,17 +2,18 @@
 title: Пакет FPGA для аппаратного ускорения службы "Машинное обучение Azure"
 description: Сведения о пакетах Python, доступных для пользователей службы "Машинное обучение Azure".
 ms.service: machine-learning
-ms.component: core
+ms.component: studio
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: routlaw
 author: rloutlaw
 ms.date: 05/07/2018
-ms.openlocfilehash: 905f6943470acfd3051a33db6f6f3269470406d7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832984"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Пакет аппаратного ускорения для службы "Машинное обучение Azure"
 

@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807437"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Подготовка хранилища для дисков виртуальных машин в Azure Stack
 
@@ -61,7 +62,7 @@ Azure Stack поддерживает использование на вирту�
 Каждый неуправляемый диск следует размещать в отдельном контейнере.
 
 >[!NOTE]
->Диски, созданные и управляемые в Azure, называются [управляемыми дисками](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+>Диски, созданные и управляемые в Azure, называются [управляемыми дисками](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Создание и подключение нового диска данных с помощью портала
 

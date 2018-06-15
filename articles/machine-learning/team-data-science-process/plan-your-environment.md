@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: d2b982669f126695e3e5baefce24853269947536
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 16cc7c5841708b8b27cff4fcc7c93cdbb2fe0fa4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838339"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Как определить сценарии и план для расширенной аналитической обработки данных
 Какие ресурсы следует учесть при настройке среды для проведения расширенной аналитической обработки набора данных? В этой статье приведен ряд вопросов, ответы на которые помогут определить задачи и ресурсы, соответствующие вашему сценарию. Пошаговые инструкции для проведения прогнозной аналитики описаны в статье [Что такое процесс обработки и анализа данных группы (TDSP)?](overview.md) На каждом из этих шагов требуются определенные ресурсы для выполнения задач, соответствующих конкретному сценарию. Основные вопросы, позволяющие определить сценарий, касаются логистики данных, их характеристик, качества наборов данных, а также средств и языков, используемых для проведения анализа.

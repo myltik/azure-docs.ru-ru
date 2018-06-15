@@ -3,22 +3,20 @@ title: 'Знакомство с Azure Cosmos DB: API MongoDB | Документ�
 description: Узнайте, как можно использовать Azure Cosmos DB для хранения больших объемов документов JSON и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS.
 keywords: что такое MongoDB
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 02/12/2018
-ms.author: anhoh
-ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: sngun
+ms.openlocfilehash: c10f1fdc7e373633298b083d1317f17cff3aa2b8
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796637"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Знакомство с Azure Cosmos DB: API MongoDB
 

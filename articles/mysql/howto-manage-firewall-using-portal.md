@@ -1,19 +1,20 @@
 ---
-title: "Создание правил брандмауэра MySQL в службе \"База данных Azure для MySQL\" и управление ими"
-description: "Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure"
+title: Создание правил брандмауэра MySQL в службе "База данных Azure для MySQL" и управление ими
+description: Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 6475c5c3ecb43352a8ef8db8fe1c023a16cd8a3d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f7d2d97049d73387f44f55bbd2fb90a6174a9df2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265866"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure
 Правила брандмауэра уровня сервера позволяют администраторам обращаться к серверу базы данных Azure для MySQL с указанного IP-адреса или диапазона IP-адресов. 

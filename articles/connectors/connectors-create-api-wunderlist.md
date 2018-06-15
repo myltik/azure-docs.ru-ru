@@ -4,7 +4,7 @@ description: Из этой статьи вы узнаете, как создат
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ed9b19700157abca6e5ac4265f1e8c99a3d846d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296379"
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Начало работы с соединителем Wunderlist
 Wunderlist — это диспетчер задач и списка дел, которые помогает пользователям выполнять их задачи.  Wunderlist позволяет легко составлять и вести списки дел, а также предоставлять к ним доступ. Это может быть список покупок, работа над проектом или планирование отпуска. Wunderlist мгновенно синхронизируется между телефоном, планшетом и компьютером, обеспечивая доступ к задачам из любой точки мира.

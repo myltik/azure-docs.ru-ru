@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 86e018a3f8eedecbb60614b0f1226b088ebb18fc
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837938"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Развертывание веб-службы машинного обучения Azure
 Машинное обучение Azure позволяет создавать, тестировать и развертывать решения для прогнозной аналитики.
@@ -27,7 +29,7 @@ ms.lasthandoff: 04/20/2018
 
 * **[Создание обучающего эксперимента]**. Студия машинного обучения Azure Studio представляет собой среду совместной визуальной разработки, используемую для обучения и проверки модели прогнозирования с помощью обучающих данных, предоставляемых вами.
 * **[Преобразование обучающего эксперимента в прогнозный]** Когда модель обучена с помощью существующих данных и готова для оценки новых данных, вы подготавливаете и оптимизируете свой эксперимент для прогнозов.
-* **[Развертывание в качестве веб-службы.]** Прогнозный эксперимент можно развернуть как [новую] или [классическую] веб-службу Azure. Пользователи могут отправлять данные в вашу модель и получать ее прогнозы.
+* **[Развертывание эксперимента в виде веб-службы]** Прогнозный эксперимент можно развернуть как [новую] или [классическую] веб-службу Azure. Пользователи могут отправлять данные в вашу модель и получать ее прогнозы.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -184,7 +186,7 @@ For more information on how to manage Azure Machine Learning web service endpoin
 <!-- internal links -->
 [Создание обучающего эксперимента]: #create-a-training-experiment
 [Преобразование обучающего эксперимента в прогнозный]: #convert-the-training-experiment-to-a-predictive-experiment
-[Развертывание в качестве веб-службы.]: #deploy-it-as-a-web-service
+[Развертывание эксперимента в виде веб-службы]: #deploy-it-as-a-web-service
 [новую]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [классическую]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service

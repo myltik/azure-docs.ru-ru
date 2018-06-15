@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant-msft
-ms.openlocfilehash: 779fa09781b5ea6e13450d609703bec0c08e38e4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ee0d5248e3e53db8b7475dca1d51658ade25f81
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293268"
 ---
 # <a name="tutorial-configure-clarizen-for-automatic-user-provisioning"></a>Руководство по настройке Clarizen для автоматической подготовки пользователей
 
@@ -71,7 +72,7 @@ ms.lasthandoff: 05/20/2018
 
 Перед настройкой и включением автоматической подготовки пользователей нужно решить, какие пользователи или группы в Azure AD должны иметь доступ к Clarizen. Когда этот вопрос будет решен, этих пользователей и (или) группы можно будет назначить приложению Clarizen, следуя приведенным ниже указаниям:
 
-*   [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Назначение корпоративному приложению пользователя или группы](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-clarizen"></a>Важные рекомендации по назначению пользователей в Clarizen
 
@@ -161,7 +162,7 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
+* [Управление подготовкой учетных записей пользователей для корпоративных приложений](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация

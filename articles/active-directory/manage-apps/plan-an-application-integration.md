@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ac3438f0c706988323318146965a87461dcce1e8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292843"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Руководство по интеграции Azure Active Directory с приложениями
 ## <a name="overview"></a>Обзор
@@ -64,7 +65,7 @@ ms.lasthandoff: 05/20/2018
 Как было сказано выше, могут обнаружиться приложения, которые до сих пор были вне поля зрения вашей организации.  В процессе инвентаризации можно найти несанкционированные облачные приложения. См. статью [Поиск неуправляемых облачных приложений с помощью Cloud App Discovery](cloud-app-discovery.md).
 
 ### <a name="authentication-types"></a>Типы проверки подлинности
-Каждое приложение может иметь разные требования к проверке подлинности. С помощью Azure AD сертификаты подписи можно использовать с приложениями, использующими SAML 2.0, WS-Federation или протоколы подключения OpenID, а также единый вход с паролем. Дополнительные сведения о типах аутентификации в приложениях для использования с Azure AD см. в статье [Управление сертификатами для федеративного единого входа в Azure Active Directory](../active-directory-sso-certs.md) и разделе [Единый вход на основе пароля](what-is-single-sign-on.md).
+Каждое приложение может иметь разные требования к проверке подлинности. С помощью Azure AD сертификаты подписи можно использовать с приложениями, использующими SAML 2.0, WS-Federation или протоколы подключения OpenID, а также единый вход с паролем. Дополнительные сведения о типах аутентификации в приложениях для использования с Azure AD см. в статье [Управление сертификатами для федеративного единого входа в Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) и разделе [Единый вход на основе пароля](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Включение единого входа с помощью прокси приложений Azure AD
 С помощью прокси приложений Microsoft Azure AD вы можете предоставлять безопасный доступ к приложениям, расположенным в частной сети, из любого места и с любого устройства. После установки в своей среде соединителя прокси-сервера приложения его можно легко настроить с Azure AD.
@@ -79,7 +80,7 @@ ms.lasthandoff: 05/20/2018
 ## <a name="managing-access-to-applications"></a>Управление доступом к приложениям
 В следующих статьях описываются способы управления доступом к приложениям после интеграции с Azure AD с помощью соединителей Azure AD и Azure AD.
 
-* [Управление доступом к приложениям с помощью Azure AD.](../active-directory-managing-access-to-apps.md)
+* [Управление доступом к приложениям с помощью Azure AD.](what-is-access-management.md)
 * [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory.](../active-directory-saas-app-provisioning.md)
 * [Назначение пользователей для приложения](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Назначение групп для приложения](../active-directory-applications-guiding-developers-assigning-groups.md)

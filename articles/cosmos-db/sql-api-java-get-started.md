@@ -3,22 +3,20 @@ title: Руководство по NoSQL. Пакет SDK для создания
 description: Руководство по NoSQL, в котором создается оперативная база данных и консольное приложение Java с помощью API-интерфейса SQL для Azure Cosmos DB. Azure SQL — это база данных NoSQL для JSON.
 keywords: руководство nosql, оперативная база данных, консольное приложение java
 services: cosmos-db
-documentationcenter: Java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 8405894451c60f0661922584d9927960e3d0f611
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 36d65d7755b45f0da02776a90b09df3c6a3bcf02
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796984"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Руководство по NoSQL. Создание консольного приложения Java с помощью API-интерфейса SQL
 > [!div class="op_single_selector"]
