@@ -1,8 +1,8 @@
 ---
-title: "Оптимизация среды System Center Operations Manager с помощью Azure Log Analytics | Документация Майкрософт"
-description: "Использование проверки работоспособности System Center Operations Manager для оценки риска и состояния сред на регулярной основе."
+title: Оптимизация среды System Center Operations Manager с помощью Azure Log Analytics | Документация Майкрософт
+description: Использование проверки работоспособности System Center Operations Manager для оценки риска и состояния сред на регулярной основе.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180042"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Оптимизация среды с помощью решения для проверки работоспособности System Center Operations Manager (предварительная версия)
 

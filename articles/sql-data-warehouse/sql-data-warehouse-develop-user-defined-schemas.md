@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31522713"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Использование определяемых пользователем схем в хранилище данных SQL
 Советы по использованию определяемых пользователем схем T-SQL в хранилище данных SQL Azure для разработки решений.
