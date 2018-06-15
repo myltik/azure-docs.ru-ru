@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406659"
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Устранение неполадок с HDFS при помощи Azure HDInsight
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906333"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Руководство. Разработка веб-приложения на основе Node.js и MongoDB в Azure
 
@@ -189,7 +190,7 @@ az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 
 В локальном репозитории MEAN.js создайте файл с именем _local-production.js_ в папке _config/env/_. По умолчанию, чтобы этот файл хранился вне репозитория, настраивается _.gitignore_. 
 
-Скопируйте в него следующий код: Замените два заполнителя *\<cosmosdb_name>* именем базы данных Cosmos DB, а заполнитель *\<primary_master_key>* — ключом, скопированным на предыдущем шаге.
+Скопируйте в него следующий код: Замените два заполнителя *\<cosmosdb_name>* именем базы данных Cosmos DB, а заполнитель *\<primary_master_key>*  — ключом, скопированным на предыдущем шаге.
 
 ```javascript
 module.exports = {

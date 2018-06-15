@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574993"
 ---
 Если вы не собираетесь использовать это приложение дальше, удалите все ресурсы, созданные в ходе работы с этим кратким руководством, чтобы не оплачивать их.
 

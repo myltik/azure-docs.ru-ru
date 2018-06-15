@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30907122"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Выходные данные Azure Stream Analytics в Azure Cosmos DB  
 Stream Analytics позволяет направлять данные из [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) в формат JSON, позволяя архивировать данные и уменьшать задержки запросов в отношении неструктурированных данных JSON. В этом документе представлены некоторые рекомендации по реализации данной конфигурации.

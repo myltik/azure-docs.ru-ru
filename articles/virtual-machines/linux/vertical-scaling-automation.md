@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913490"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Вертикальное масштабирование виртуальной машины Linux в Azure c помощью службы автоматизации Azure
 Вертикальное масштабирование — это процесс увеличения или уменьшения объема ресурсов виртуальной машины в зависимости от рабочей нагрузки. В Azure это можно сделать, изменив размер виртуальной машины. Вертикальное масштабирование можно использовать в следующих сценариях:

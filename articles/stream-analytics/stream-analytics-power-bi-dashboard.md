@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418460"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Руководство. Stream Analytics и Power BI. Панель мониторинга для анализа потоковой передачи данных
 Azure Stream Analytics позволяет воспользоваться одним из лучших инструментов для бизнес-аналитики, [Microsoft Power BI](https://powerbi.com/). В этой статье вы узнаете, как создавать средства бизнес-аналитики, отображая в Power BI выходные данные заданий Azure Stream Analytics. Вы также узнаете, как создавать информационные панели и использовать их в режиме реального времени.

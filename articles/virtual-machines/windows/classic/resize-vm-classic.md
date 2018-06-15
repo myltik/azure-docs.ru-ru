@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913631"
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Изменение размера виртуальной машины Windows, созданной в классической модели развертывания
 В этой статье описано изменение размера виртуальной машины Windows, созданной в классической модели развертывания, с использованием Azure Powershell.

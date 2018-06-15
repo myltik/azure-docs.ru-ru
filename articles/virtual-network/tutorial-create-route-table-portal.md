@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842328"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Руководстве. Маршрутизация сетевого трафика с помощью таблицы маршрутов и портала Azure
 

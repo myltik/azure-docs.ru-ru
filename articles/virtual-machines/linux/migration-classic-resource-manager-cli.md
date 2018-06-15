@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909757"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Перенос ресурсов IaaS из классического развертывания в развертывание с помощью Azure Resource Manager с использованием Azure CLI
 Ниже последовательно описано, как использовать команды интерфейса командной строки Azure (CLI) для переноса ресурсов IaaS из классической модели развертывания в модель развертывания с помощью Azure Resource Manager. Для выполнения инструкций в этой статье требуется [Azure CLI 1.0](../../cli-install-nodejs.md). Так как интерфейс Azure CLI 2.0 применим только для ресурсов Azure Resource Manager, его нельзя использовать для этой миграции.

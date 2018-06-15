@@ -16,6 +16,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30901921"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Мониторинг и масштабирование отдельного сервера PostgreSQL с помощью Azure CLI
 Этот пример скрипта CLI масштабирует отдельный сервер базы данных Azure для PostgreSQL до нужного уровня производительности после выполнения запроса к метрикам. 

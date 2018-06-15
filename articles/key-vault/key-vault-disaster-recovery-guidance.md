@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409347"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Доступность и избыточность хранилища ключей Azure
 Хранилище ключей Azure имеет несколько уровней избыточности, благодаря которым ключи и секреты остаются доступными для приложения даже при сбое отдельных компонентов службы.

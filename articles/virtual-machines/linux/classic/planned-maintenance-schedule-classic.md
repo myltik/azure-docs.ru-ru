@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840166"
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Как запланировать плановое обслуживание на виртуальных машинах Azure
 > [!IMPORTANT]

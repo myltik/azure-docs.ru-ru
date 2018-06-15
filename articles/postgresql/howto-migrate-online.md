@@ -1,6 +1,6 @@
 ---
-title: "Миграция в базу данных Azure для PostgreSQL с минимальным временем простоя"
-description: "В этой статье объясняется, как выполнить миграцию с минимальным временем простоя, используя извлечение данных PostgreSQL в файл дампа, восстановление базы данных PostgreSQL из файла архива, созданного с помощью команды pg_dump, в базе данных Azure для PostgreSQL, а также настройку начальной загрузки и непрерывную синхронизацию данных из базы данных-источника в целевую базу данных с помощью Attunity Replicate for Microsoft Migrations."
+title: Миграция в базу данных Azure для PostgreSQL с минимальным временем простоя
+description: В этой статье объясняется, как выполнить миграцию с минимальным временем простоя, используя извлечение данных PostgreSQL в файл дампа, восстановление базы данных PostgreSQL из файла архива, созданного с помощью команды pg_dump, в базе данных Azure для PostgreSQL, а также настройку начальной загрузки и непрерывную синхронизацию данных из базы данных-источника в целевую базу данных с помощью Attunity Replicate for Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692095"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Миграция в базу данных Azure для PostgreSQL с минимальным временем простоя
 Вы можете перенести существующую базу данных PostgreSQL в Базу данных Azure для PostgreSQL с помощью Attunity Replicate for Microsoft Migrations. Attunity Replicate — это совместное предложение от компании Attunity и корпорации Майкрософт. Клиентам Майкрософт это предложение предоставляется вместе со службой Azure Database Migration Service без дополнительной платы. 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30832947"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Установка приложений в масштабируемый набор виртуальных машин с помощью Azure CLI 2.0
 Этот скрипт создает виртуальную машину Azure под управлением Ubuntu и использует расширение пользовательских скриптов для установки базовых веб-приложений. После выполнения скрипта можно получить доступ к веб-приложению с помощью веб-браузера.

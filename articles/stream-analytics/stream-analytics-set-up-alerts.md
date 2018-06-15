@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31412116"
 ---
 # <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Руководство. Настройка оповещений для заданий Azure Stream Analytics
 Оповещения можно настроить на отображение в случае, если метрика достигнет указанного состояния. Например, оповещение для условия можно настроить следующим образом:

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909281"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Масштабирование заданий Stream Analytics с помощью функций машинного обучения Azure
 В большинстве случаев настроить задание Stream Analytics и запустить демонстрационные данные можно без особых усилий. А что делать, если необходимо выполнить то же задание с большим объемом данных? Мы должны разобраться, как настроить задание Stream Analytics таким образом, чтобы его можно было масштабировать. В этом документе основное внимание уделено специфическим аспектам масштабирования заданий Stream Analytics с помощью функций машинного обучения. Общие сведения о масштабировании заданий Stream Analytics см. в статье [Масштабирование заданий](stream-analytics-scale-jobs.md).

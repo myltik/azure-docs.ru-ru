@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841509"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Оптимизация производительности MySQL на виртуальных машинах Linux в Azure
 Существует множество факторов, влияющих на производительность MySQL в Azure, которые зависят и от выбора виртуального оборудования, и от конфигурации программного обеспечения. Эта статья посвящена оптимизации производительности с помощью конфигураций хранилища, системы и базы данных.

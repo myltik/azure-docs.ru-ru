@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416254"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью Обозревателя службы хранилища Azure
 

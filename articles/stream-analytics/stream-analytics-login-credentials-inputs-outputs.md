@@ -14,6 +14,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30907285"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Смена учетных данных для источников входных данных и мест назначения выходных данных задания Stream Analytics
 

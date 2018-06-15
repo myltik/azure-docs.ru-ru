@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406880"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Управление хранилищем ключей Azure с помощью службы автоматизации Azure
 В этом руководстве будет представлена служба автоматизации Azure и показано, как ее использовать для упрощения управления ключами и секретами в хранилище ключей Azure.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31421804"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Подготовка виртуальной машины Linux (CentOS) для обработки и анализа данных в Azure
 

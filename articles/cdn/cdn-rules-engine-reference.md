@@ -1,11 +1,11 @@
 ---
-title: "Справочник по обработчику правил Azure CDN | Документация Майкрософт"
-description: "Справочная документация по условиям соответствия и функциям обработчика правил Azure CDN."
+title: Справочник по обработчику правил Azure CDN | Документация Майкрософт
+description: Справочная документация по условиям соответствия и функциям обработчика правил Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733685"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Справочник по обработчику правил Azure CDN
 В этой статье подробно описаны доступные условия соответствия и компоненты для [обработчика правил](cdn-rules-engine.md) сети доставки содержимого (CDN) Azure.

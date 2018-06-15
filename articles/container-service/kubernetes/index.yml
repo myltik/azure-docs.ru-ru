@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 04/16/2018
+  ms.locfileid: "31394583"
 abstract:
   description: Служба контейнера Azure позволяет быстро развертывать готовые к работе кластеры Kubernetes. Узнайте, как работать со Службой контейнеров Azure с Kubernetes, используя наши краткие инструкции, руководства и примеры.
 sections:

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841621"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Настройка Tomcat7 на виртуальной машине Linux с использованием Azure
 Apache Tomcat (или просто Tomcat, ранее также именуемый Jakarta Tomcat) — это веб-сервер с открытым исходным кодом и контейнер сервлетов, разработанный Apache Software Foundation (ASF). Tomcat реализует спецификации технологий Java Servlet и JavaServer Pages (JSP) от Sun Microsystems, а также обеспечивает чистую среду HTTP-веб-серверов Java для выполнения Java-кода. При самой простой конфигурации Tomcat запускается с помощью одного процесса в операционной системе. Этот процесс запускает виртуальную машину Java. Каждый HTTP-запрос браузера к серверу Tomcat обрабатывается как отдельный поток в рамках процесса Tomcat.  

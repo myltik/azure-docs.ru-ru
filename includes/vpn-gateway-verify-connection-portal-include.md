@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921570"
 ---
 Чтобы на портале Azure просмотреть состояние подключения для VPN-шлюза в модели Resource Manager, перейдите к нужному подключению. Ниже показано, как перейти к подключению и проверить его.
 

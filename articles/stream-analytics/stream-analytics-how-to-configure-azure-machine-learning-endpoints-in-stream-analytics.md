@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911207"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Интеграция машинного обучения в Stream Analytics
 Stream Analytics поддерживает пользовательские функции, которые обращаются к конечным точкам службы машинного обучения Azure. Поддержка этой возможности в REST API описана в статье [Библиотека REST API Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). В этой статье приведены дополнительные сведения, необходимые для успешной реализации этой возможности в Stream Analytics. Также было размещено руководство, которое доступно [здесь](stream-analytics-machine-learning-integration-tutorial.md).

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31391139"
 ---
 # <a name="start-and-stop-azure-stack"></a>Запуск и остановка Azure Stack
 Следуйте инструкциям по корректному завершению работы и перезапуску служб Azure Stack, приведенным в этой статье. 
