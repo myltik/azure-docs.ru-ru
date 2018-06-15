@@ -1,6 +1,6 @@
 ---
-title: "Настройка назначения IP-адресов для подключения к дополнительному локальному веб-сайту после отработки отказа с помощью Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье объясняется, как настроить назначения IP-адресов для подключения к виртуальным машинам в дополнительном локальном веб-сайте после отработки отказа с помощью Azure Site Recovery."
+title: Настройка назначения IP-адресов для подключения к дополнительному локальному веб-сайту после отработки отказа с помощью Azure Site Recovery | Документация Майкрософт
+description: В этой статье объясняется, как настроить назначения IP-адресов для подключения к виртуальным машинам в дополнительном локальном веб-сайте после отработки отказа с помощью Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378679"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Настройка назначения IP-адресов для подключения к локальному веб-сайту после отработки отказа
 

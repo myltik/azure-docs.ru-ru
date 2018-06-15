@@ -1,11 +1,11 @@
 ---
-title: "Проблемы при входе в приложение Майкрософт | Документы Майкрософт"
-description: "Устранение распространенных проблем, возникающих при входе в приложения Майкрософт с помощью Azure AD (например, Office 365)"
+title: Проблемы при входе в приложение Майкрософт | Документы Майкрософт
+description: Устранение распространенных проблем, возникающих при входе в приложения Майкрософт с помощью Azure AD (например, Office 365)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384232"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Проблемы при входе в приложение Майкрософт
 

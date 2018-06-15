@@ -1,11 +1,11 @@
 ---
-title: "Если я использую мобильные службы, чем мне может быть полезна служба приложений?"
-description: "Узнайте, чем может быть полезна служба приложений при работе с проектами мобильных служб."
+title: Если я использую мобильные службы, чем мне может быть полезна служба приложений?
+description: Узнайте, чем может быть полезна служба приложений при работе с проектами мобильных служб.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460418"
 ---
 # <a name="getting-started"> </a>Если я использую мобильные службы, чем мне может быть полезна служба приложений?
 ## <a name="overview"></a>Обзор

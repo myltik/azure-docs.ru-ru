@@ -1,8 +1,8 @@
 ---
-title: "Развертывание с помощью Terraform и Bash в Azure Cloud Shell | Документация Майкрософт"
-description: "Развертывание с помощью Terraform и Bash в Azure Cloud Shell"
+title: Развертывание с помощью Terraform и Bash в Azure Cloud Shell | Документация Майкрософт
+description: Развертывание с помощью Terraform и Bash в Azure Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: tomarcher
 manager: routlaw
 tags: azure-cloud-shell
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386526"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Развертывание с помощью Terraform и Bash в Azure Cloud Shell
 В этой статье описывается создание группы ресурсов с помощью [поставщика Terraform AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html). 

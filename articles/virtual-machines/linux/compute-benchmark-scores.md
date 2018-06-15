@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425601"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Вычисление результатов теста производительности для виртуальных машин Linux
 Ниже приведены результаты теста производительности CoreMark линейки высокопроизводительных виртуальных машин Azure под управлением Ubuntu. Вы можете также ознакомиться с результатами теста производительности для [виртуальных машин Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

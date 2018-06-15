@@ -1,11 +1,11 @@
 ---
-title: "Настройка группы доступности Always On на виртуальной машине Azure с помощью PowerShell | Документация Майкрософт"
-description: "В этом руководстве используются ресурсы, которые были созданы с помощью классической модели развертывания. Здесь вы будете создавать группы доступности Always On в Azure с помощью PowerShell."
+title: Настройка группы доступности Always On на виртуальной машине Azure с помощью PowerShell | Документация Майкрософт
+description: В этом руководстве используются ресурсы, которые были созданы с помощью классической модели развертывания. Здесь вы будете создавать группы доступности Always On в Azure с помощью PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401299"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Настройка группы доступности Always On на виртуальной машине Azure с помощью PowerShell
 > [!div class="op_single_selector"]

@@ -1,13 +1,13 @@
 ---
-title: "Настройка фильтров маршрутов для пиринга Azure ExpressRoute Майкрософт | Документация Майкрософт"
-description: "В этой статье описывается, как настраивать фильтры маршрутов для пиринга Майкрософт с помощью портала Azure"
+title: Настройка фильтров маршрутов для пиринга Azure ExpressRoute Майкрософт | Документация Майкрософт
+description: В этой статье описывается, как настраивать фильтры маршрутов для пиринга Майкрософт с помощью портала Azure
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387733"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Настройка фильтров маршрутов для пиринга Майкрософт с помощью портала Azure
 > [!div class="op_single_selector"]

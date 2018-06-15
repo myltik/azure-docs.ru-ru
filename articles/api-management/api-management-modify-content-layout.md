@@ -1,11 +1,11 @@
 ---
-title: "Изменение содержимого страниц на портале разработчика в службе управления API Azure | Документация Майкрософт"
-description: "Узнайте, как изменить содержимое страниц на портале разработчика в службе управления API Azure."
+title: Изменение содержимого страниц на портале разработчика в службе управления API Azure | Документация Майкрософт
+description: Узнайте, как изменить содержимое страниц на портале разработчика в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29377805"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Изменение содержимого и макета страниц на портале разработчика в службе управления API Azure
 Существуют три основных способа настройки портала разработчика в службе управления Azure API.

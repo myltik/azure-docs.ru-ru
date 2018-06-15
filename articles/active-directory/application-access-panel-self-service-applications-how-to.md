@@ -1,11 +1,11 @@
 ---
-title: "Использование самостоятельного доступа к приложениям | Документация Майкрософт"
-description: "Включите самостоятельный доступ к приложениям, позволяющий пользователям найти свои приложения"
+title: Использование самостоятельного доступа к приложениям | Документация Майкрософт
+description: Включите самостоятельный доступ к приложениям, позволяющий пользователям найти свои приложения
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383196"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Использование самостоятельного доступа к приложениям
 

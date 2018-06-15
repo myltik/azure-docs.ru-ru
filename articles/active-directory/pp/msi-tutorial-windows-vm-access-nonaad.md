@@ -1,8 +1,8 @@
 ---
-title: "Доступ к Azure Key Vault с помощью MSI виртуальной машины Windows"
-description: "В рамках этого руководства вы узнаете, как получить доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
+title: Доступ к Azure Key Vault с помощью MSI виртуальной машины Windows
+description: В рамках этого руководства вы узнаете, как получить доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383789"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows 
 

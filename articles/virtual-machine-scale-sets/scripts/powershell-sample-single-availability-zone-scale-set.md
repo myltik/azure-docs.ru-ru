@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416046"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Создает однозонный масштабируемый набор виртуальных машин с помощью PowerShell
 Этот скрипт создает масштабируемый набор виртуальных машин под управлением Windows Server 2016 в одной зоне доступности. После выполнения сценария можно получить доступ к виртуальной машине по протоколу RDP.

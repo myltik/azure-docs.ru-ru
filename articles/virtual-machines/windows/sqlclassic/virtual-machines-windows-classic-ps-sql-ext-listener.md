@@ -1,11 +1,11 @@
 ---
-title: "Настройка внешнего прослушивателя для групп доступности AlwaysOn | Документация Майкрософт"
-description: "В этом руководстве описывается процесс создания прослушивателя группы доступности AlwaysOn в Azure, доступного через публичный виртуальный IP-адрес связанной облачной службы."
+title: Настройка внешнего прослушивателя для групп доступности AlwaysOn | Документация Майкрософт
+description: В этом руководстве описывается процесс создания прослушивателя группы доступности AlwaysOn в Azure, доступного через публичный виртуальный IP-адрес связанной облачной службы.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398868"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Настройка внешнего прослушивателя для групп доступности AlwaysOn в Azure
 > [!div class="op_single_selector"]

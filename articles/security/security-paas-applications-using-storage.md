@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418226"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Защита мобильных приложений и веб-приложений PaaS с помощью службы хранилища Azure
 В этой статье рассматривается набор рекомендаций по безопасности службы хранилища Azure, предназначенных для защиты веб-приложений и мобильных приложений PaaS. Эти рекомендации основаны на нашем опыте, полученном в процессе использования Azure AD, и на отзывах других пользователей.

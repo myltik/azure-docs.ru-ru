@@ -1,11 +1,11 @@
 ---
-title: "Подключение виртуальной сети к нескольким сайтам с помощью VPN-шлюза и PowerShell: классическая модель | Документы Майкрософт"
-description: "Подключение нескольких локальных сайтов к классической виртуальной сети с использованием VPN-шлюза"
+title: 'Подключение виртуальной сети к нескольким сайтам с помощью VPN-шлюза и PowerShell: классическая модель | Документы Майкрософт'
+description: Подключение нескольких локальных сайтов к классической виртуальной сети с использованием VPN-шлюза
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399378"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Добавление подключения типа "сеть-сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза (классическая модель)
 

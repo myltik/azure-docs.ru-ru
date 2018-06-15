@@ -1,11 +1,11 @@
 ---
-title: "Проблемы с использованием самостоятельного доступа к приложениям | Документация Майкрософт"
-description: "Проблемы с устранением неполадок, связанные с самостоятельным доступом к приложению"
+title: Проблемы с использованием самостоятельного доступа к приложениям | Документация Майкрософт
+description: Проблемы с устранением неполадок, связанные с самостоятельным доступом к приложению
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382361"
 ---
 # <a name="problem-using-self-service-application-access"></a>Проблемы при использовании самостоятельного доступа к приложениям
 

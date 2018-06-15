@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406513"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Отладка заданий Tez в HDInsight на платформе Windows с помощью пользовательского интерфейса Tez
 Пользовательский интерфейс Tez можно использовать для отладки заданий Hive, которые используют Tez в качестве подсистемы выполнения. Пользовательский интерфейс Tez визуализирует задание в виде схемы связанных элементов, может выполнять детализацию каждого элемента и получать статистические данные и данные журнала.

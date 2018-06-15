@@ -1,12 +1,12 @@
 ---
-title: "Начало работы с разделами и подписками служебной шины Azure | Документация Майкрософт"
-description: "Написание консольного приложения C# .NET Core, которое использует обмен сообщениями служебной шины для разделов и подписок."
+title: Начало работы с разделами и подписками служебной шины Azure | Документация Майкрософт
+description: Написание консольного приложения C# .NET Core, которое использует обмен сообщениями служебной шины для разделов и подписок.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396947"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Начало работы с разделами служебной шины
 

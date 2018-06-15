@@ -1,12 +1,12 @@
 ---
-title: "Обзор службы приложений в Azure Stack | Документация Майкрософт"
-description: "Обзор службы приложений в Azure Stack"
+title: Обзор службы приложений в Azure Stack | Документация Майкрософт
+description: Обзор службы приложений в Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386084"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Обзор службы приложений в Azure Stack
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*

@@ -1,12 +1,12 @@
 ---
-title: "Использование набора средств Marketplace для создания и публикации элементов Marketplace | Документация Майкрософт"
-description: "Узнайте, как быстро создать элементы Marketplace с помощью набора средств для публикации"
+title: Использование набора средств Marketplace для создания и публикации элементов Marketplace | Документация Майкрософт
+description: Узнайте, как быстро создать элементы Marketplace с помощью набора средств для публикации
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386883"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Добавление элементов Marketplace с помощью средства публикации
 Добавляя содержимое в [Azure Stack Marketplace](azure-stack-marketplace.md), вы предоставляете себе и своим клиентам возможность развертывать ваши решения.  Набор средств Marketplace создает файлы пакетов Azure Marketplace (AZPKG), основанные на шаблонах IaaS Azure Resource Manager или расширениях виртуальных машин.  Также набор средств Marketplace позволяет публиковать AZPKG-файлы, созданные с помощью этого средства или [вручную](azure-stack-create-and-publish-marketplace-item.md).  Из этой статьи вы узнаете, как скачать это средство, как создать элемент Marketplace на основе шаблона виртуальной машины и как опубликовать этот элемент в Azure Stack Marketplace.     

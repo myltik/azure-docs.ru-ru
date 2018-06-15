@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405146"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Метрики концентраторов событий Azure в Azure Monitor (предварительная версия)
 

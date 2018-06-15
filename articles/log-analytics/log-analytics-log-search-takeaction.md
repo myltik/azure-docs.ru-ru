@@ -1,12 +1,12 @@
 ---
-title: "Действие Runbook службы автоматизации Azure в Log Analytics, инициированное пользователем | Документы Майкрософт"
-description: "В этой статье описывается запуск модуля runbook службы автоматизации на основе результатов поиска Log Analytics по требованию."
+title: Действие Runbook службы автоматизации Azure в Log Analytics, инициированное пользователем | Документы Майкрософт
+description: В этой статье описывается запуск модуля runbook службы автоматизации на основе результатов поиска Log Analytics по требованию.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394621"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Выполнение действия с Runbook службы автоматизации на основе результатов поиска Log Analytics
 

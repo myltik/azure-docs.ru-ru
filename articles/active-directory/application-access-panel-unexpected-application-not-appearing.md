@@ -1,11 +1,11 @@
 ---
-title: "Назначенное приложение не отображается на панели доступа | Документы Майкрософт"
-description: "Устранение неполадки с отображением приложения на панели доступа"
+title: Назначенное приложение не отображается на панели доступа | Документы Майкрософт
+description: Устранение неполадки с отображением приложения на панели доступа
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384122"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Назначенное приложение не отображается на панели доступа
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29378162"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Справочник по модели данных шаблона в службе управления API Azure
 В этой статье описываются представления сущностей и типов для распространенных элементов, используемых в моделях данных для шаблонов портала разработчика в службе управления API Azure.  

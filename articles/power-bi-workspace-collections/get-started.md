@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413033"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Начало работы с коллекциями рабочих областей Microsoft Power BI
 

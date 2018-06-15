@@ -1,13 +1,13 @@
 ---
-title: "Низкая производительность веб-приложения в службе приложений | Документация Майкрософт"
-description: "Эта статья поможет устранить причины снижения производительности веб-приложения, размещенного в службе приложений Azure."
+title: Низкая производительность веб-приложения в службе приложений | Документация Майкрософт
+description: Эта статья поможет устранить причины снижения производительности веб-приложения, размещенного в службе приложений Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "Производительность веб-приложения, медленное приложение, приложение работает медленно"
+keywords: Производительность веб-приложения, медленное приложение, приложение работает медленно
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461848"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Устранение причин низкой производительности веб-приложения в службе приложений Azure
 Эта статья поможет устранить причины снижения производительности веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).

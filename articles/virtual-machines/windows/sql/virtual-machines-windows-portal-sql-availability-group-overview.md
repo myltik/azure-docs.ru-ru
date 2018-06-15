@@ -1,6 +1,6 @@
 ---
-title: "Обзор групп доступности SQL Server и виртуальных машин Azure | Документация Майкрософт"
-description: "В этой статье рассматриваются группы доступности SQL Server на виртуальных машинах Azure."
+title: Обзор групп доступности SQL Server и виртуальных машин Azure | Документация Майкрософт
+description: В этой статье рассматриваются группы доступности SQL Server на виртуальных машинах Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396437"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Введение в группы доступности AlwaysOn SQL Server на виртуальных машинах Azure #
 

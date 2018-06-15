@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426682"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Устранение неполадок с отработкой отказа и репликацией из Hyper-V в Azure
 

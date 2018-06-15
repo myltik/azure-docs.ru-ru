@@ -1,8 +1,8 @@
 ---
-title: "Как использовать службу хранилища Azure для архивации и восстановления SQL Server | Документация Майкрософт"
-description: "Узнайте, как выполнить архивацию SQL Server в службу хранилища Azure. Описаны преимущества архивации баз данных SQL в службу хранилища Azure."
+title: Как использовать службу хранилища Azure для архивации и восстановления SQL Server | Документация Майкрософт
+description: Узнайте, как выполнить архивацию SQL Server в службу хранилища Azure. Описаны преимущества архивации баз данных SQL в службу хранилища Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399055"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Использование службы хранилища Azure для архивации и восстановления SQL Server
 ## <a name="overview"></a>Обзор

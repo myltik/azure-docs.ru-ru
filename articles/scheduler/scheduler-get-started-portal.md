@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413436"
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Начало работы с планировщиком Azure на портале Azure
 Запланированные задания можно легко создавать в планировщике Azure. Из этого руководства вы узнаете, как создать такое задание. Также вы изучите возможности мониторинга и управления в планировщике.
