@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264240"
 ---
 # <a name="azure-resource-health-faq"></a>Часто задаваемые вопросы о службе "Работоспособность ресурсов Azure"
 Найдите ответы на часто задаваемые вопросы о службе "Работоспособность ресурсов Azure".

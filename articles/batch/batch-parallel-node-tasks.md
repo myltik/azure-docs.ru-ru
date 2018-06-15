@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316918"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Параллельное выполнение задач для эффективного использования вычислительных узлов пакетной службы 
 

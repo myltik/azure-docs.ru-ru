@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528500"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Управление вычислительными ресурсами в хранилище данных SQL Azure
 Узнайте об управлении вычислительными ресурсами в хранилище данных SQL Azure. Сократите затраты, приостанавливая работу хранилища данных, или масштабируйте хранилище данных в соответствии потребностями в производительности. 

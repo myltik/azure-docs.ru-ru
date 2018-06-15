@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323617"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Создание общедоступного Load Balancer уровня "Стандартный" с зональным внешним интерфейсом с общедоступным IP-адресом с использованием портала Azure
 

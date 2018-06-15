@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30282204"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Часто задаваемые вопросы об Azure AD Connect Health
 Эта статья содержит ответы на часто задаваемые вопросы о расширении Azure Active Directory (Azure AD) Connect Health. Здесь представлены сведения об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.

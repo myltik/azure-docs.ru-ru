@@ -1,6 +1,6 @@
 ---
-title: "Пример скрипта Azure PowerShell. Получение ресурсов из управляемой группы ресурсов и изменение размера виртуальных машин | Документация Майкрософт"
-description: "Пример скрипта Azure PowerShell. Получение ресурсов из управляемой группы ресурсов и изменение размера виртуальных машин"
+title: Пример скрипта Azure PowerShell. Получение ресурсов из управляемой группы ресурсов и изменение размера виртуальных машин | Документация Майкрософт
+description: Пример скрипта Azure PowerShell. Получение ресурсов из управляемой группы ресурсов и изменение размера виртуальных машин
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636974"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Получение ресурсов из управляемой группы ресурсов и изменение размера виртуальных машин с помощью Azure PowerShell
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30263128"
 ---
 # <a name="azure-resource-health-overview"></a>Обзор службы "Работоспособность ресурсов Azure"
  

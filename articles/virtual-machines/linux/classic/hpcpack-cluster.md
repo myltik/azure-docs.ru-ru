@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841699"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure
 В этой статье описывается, как настроить в Azure [кластер пакета Microsoft HPC](https://technet.microsoft.com/library/cc514029.aspx), содержащий головной узел под управлением Windows Server и несколько вычислительных узлов под управлением поддерживаемого дистрибутива Linux. Кроме того, вы ознакомитесь с несколькими вариантами перемещения данных между узлами Linux и головным узлом Windows кластера, а также узнаете, как отправлять задания Linux HPC в кластер.

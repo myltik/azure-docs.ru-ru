@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30281543"
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container"></a>Создание веб-приложения ASP.NET Core в контейнере Docker
 
