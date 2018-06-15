@@ -1,24 +1,19 @@
 ---
 title: Сравнение Центра Интернета вещей Azure и концентраторов событий Azure | Документация Майкрософт
 description: Сравнение служб Центра Интернета вещей и концентраторов событий Azure, в котором выделены функциональные различия и случаи использования. Сравниваются поддерживаемые протоколы, функции мониторинга, управления устройствами и передачи файлов.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: b86132b42aef981e6218b27e271e6db645d14071
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9ad95071de07777e38533ecec9e8558841d8b1ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633967"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Подключение устройств Интернета вещей в Azure. Центр Интернета вещей и концентраторы событий
 

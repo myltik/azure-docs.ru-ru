@@ -14,23 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e64cc232aa01a5619a55290f9b07421165a6d5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698736"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Руководство по настройке ServiceNow для автоматической подготовки пользователей с помощью Azure Active Directory
 
 Цель этого руководства — показать, как в ServiceNow и Azure AD настроить автоматическую подготовку и отзыв учетных записей пользователей из Azure AD в ServiceNow.
 
+> [!NOTE]
+> В этом руководстве рассматривается соединитель, созданный на базе службы подготовки пользователей Azure AD. Подробные сведения о том, что делает эта служба, как она работает, и часто задаваемые вопросы см. в статье [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](./active-directory-saas-app-provisioning.md).
+
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Чтобы настроить интеграцию Azure AD с приложением ServiceNow, вам потребуется:
 
-*   клиент Azure Active Directory;
-*   У вас должен быть действительный клиент для работы с ServiceNow for Work или ServiceNow for Education. Для любой из этих служб можно воспользоваться бесплатной пробной учетной записью.
-*   Учетная запись пользователя в ServiceNow с разрешениями администратора группы.
+- подписка Azure AD;
+- Экземпляр или клиент ServiceNow версии Calgary или выше (для ServiceNow).
+- Экземпляр ServiceNow Express версии Helsinki или выше (для ServiceNow Express).
+
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
+
 
 ## <a name="assigning-users-to-servicenow"></a>Назначение пользователей в ServiceNow
 

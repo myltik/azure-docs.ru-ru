@@ -1,24 +1,19 @@
 ---
 title: Фильтрация подключений по протоколу IP в Центре Интернета вещей Azure | Документация Майкрософт
 description: Сведения об использовании фильтрации IP-адресов для блокирования подключений к Центру Интернета вещей Azure с определенных IP-адресов. Вы можете блокировать подключения с отдельных IP-адресов или их диапазонов.
-services: iot-hub
-documentationcenter: ''
 author: BeatriceOltean
-manager: timlt
-editor: ''
-ms.assetid: f833eac3-5b5f-46a7-a47b-f4f6fc927f3f
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: boltean
-ms.openlocfilehash: 0229b8b16de1fa04d953c90895b29e4fbad60ec3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fa44fd21eadb910ce90523b46332505c7303751e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635973"
 ---
 # <a name="use-ip-filters"></a>Использование фильтрации IP-адресов
 

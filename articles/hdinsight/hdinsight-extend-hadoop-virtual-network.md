@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700712"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Расширение возможностей HDInsight с помощью виртуальной сети Azure
 
@@ -90,7 +91,7 @@ ms.lasthandoff: 05/20/2018
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Дополнительные сведения см. в документе, посвященном [устранению неполадок с группами безопасности сети](../virtual-network/virtual-network-nsg-troubleshoot-portal.md).
+        Дополнительные сведения см. в документе, посвященном [устранению неполадок с группами безопасности сети](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
         > [!IMPORTANT]
         > Правила группы безопасности сети применяются в порядке, основанном на приоритете правила. Применяется первое правило, которое соответствует шаблону трафика; другие правила не применяются к этому трафику. Правила применяются в следующем порядке: от правила с максимальными разрешениями к правилу с минимальными разрешениями. Дополнительные сведения см. в документе [Фильтрация сетевого трафика с помощью групп безопасности сети](../virtual-network/security-overview.md).
@@ -107,7 +108,7 @@ ms.lasthandoff: 05/20/2018
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Дополнительные сведения см. в документе, посвященном [устранению неполадок с маршрутами](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+        Дополнительные сведения см. в документе, посвященном [устранению неполадок с маршрутами](../virtual-network/diagnose-network-routing-problem.md).
 
 4. Создайте кластер HDInsight и выберите виртуальную сеть Azure во время настройки. Следуйте инструкциям в следующих документах, чтобы понять процесс создания кластера:
 

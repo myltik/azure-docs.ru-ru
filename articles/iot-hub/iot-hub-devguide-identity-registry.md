@@ -1,25 +1,19 @@
 ---
 title: Общие сведения о реестре удостоверений Центра Интернета вещей Azure | Документация Майкрософт
 description: Руководство разработчика. Описание реестра удостоверений Центра Интернета вещей, а также сведения о том, как с его помощью управлять своими устройствами. Содержит сведения об импорте и экспорте удостоверений устройств в пакетном режиме.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9a3d3d1c93ce0c8bc782a2634eb7be9b95fcf4b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633576"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Общие сведения о реестре удостоверений в Центре Интернета вещей
 
@@ -45,7 +39,7 @@ ms.lasthandoff: 05/03/2018
 * обновление удостоверения устройства или модуля;
 * получение удостоверения устройства или модуля по его идентификатору;
 * удаление удостоверения устройства или модуля;
-* отображение списка, содержащего до 1000 удостоверений.
+* отображение списка, содержащего до 1000 удостоверений;
 > Удостоверения модулей и двойники модулей предоставляются в общедоступной предварительной версии. Ниже перечислены функции, которые будут поддерживаться для удостоверений модуля после выхода общедоступной версии:
 * экспорт удостоверений устройств в хранилище BLOB-объектов Azure;
 * импорт удостоверений устройств из хранилища BLOB-объектов Azure.
@@ -205,7 +199,7 @@ iothub-message-schema | moduleLifecycleNotification |
 
 ## <a name="module-identity-properties"></a>Свойства удостоверений модулей
 
-Удостоверения устройств отображаются как JSON-документы с нижеуказанными свойствами.
+Удостоверения модулей отображаются как JSON-документы с указанными ниже свойствами:
 
 | Свойство | Параметры | ОПИСАНИЕ |
 | --- | --- | --- |

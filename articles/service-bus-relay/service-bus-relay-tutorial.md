@@ -1,11 +1,11 @@
 ---
-title: "Руководство по использованию ретранслятора WCF служебной шины Azure | Документация Майкрософт"
-description: "Создание клиентского приложения и приложения службы с помощью ретранслятора WCF."
+title: Руководство по использованию ретранслятора WCF служебной шины Azure | Документация Майкрософт
+description: Создание клиентского приложения и приложения службы с помощью ретранслятора WCF.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642314"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Руководство по ретранслятору WCF Azure
 
-В этом руководстве описывается создание простого клиентского приложения ретранслятора WCF и службы ретрансляции WCF с помощью ретранслятора Azure. Аналогичное руководство по [обмену сообщениями в служебной шине](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging) представлено в статье [Начало работы с очередями служебной шины](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+В этом руководстве описывается создание простого клиентского приложения ретранслятора WCF и службы ретрансляции WCF с помощью ретранслятора Azure. Аналогичное руководство по [обмену сообщениями в служебной шине](../service-bus-messaging/service-bus-messaging-overview.md) представлено в статье [Начало работы с очередями служебной шины](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Выполнив задания в этом руководстве, вы получите представление о том, как создать клиентское приложение ретранслятора WCF и службу ретрансляции WCF. Как и в WCF, под службой понимается конструкция, которая предоставляет одну или несколько конечных точек, каждая из которых предоставляет одну или несколько операций службы. Конечная точка службы задает адрес, по которому можно найти службу, привязку, содержащую сведения, которые клиент должен передавать службе, а также контракт, определяющий функциональность, предоставляемую службой клиентам. Основное отличие между WCF и ретранслятором WCF состоит в том, что в последнем конечная точка размещается в облаке, а не на локальном компьютере.
 
@@ -714,7 +715,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом учебнике мы рассмотрели создание клиентского приложения ретранслятора Azure и службы ретрансляции Azure с использованием возможностей ретранслятора WCF служебной шины. Аналогичное руководство по [обмену сообщениями в служебной шине](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging) представлено в статье [Начало работы с очередями служебной шины](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+В этом учебнике мы рассмотрели создание клиентского приложения ретранслятора Azure и службы ретрансляции Azure с использованием возможностей ретранслятора WCF служебной шины. Аналогичное руководство по [обмену сообщениями в служебной шине](../service-bus-messaging/service-bus-messaging-overview.md) представлено в статье [Начало работы с очередями служебной шины](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Дополнительные сведения о ретрансляторе Azure см. в следующих разделах:
 

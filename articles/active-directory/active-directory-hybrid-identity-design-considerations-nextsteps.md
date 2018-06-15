@@ -1,11 +1,11 @@
 ---
-title: "Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги | Документация Майкрософт"
-description: "Краткий обзор и дальнейшие шаги после прочтения руководства по разработке архитектуры гибридной идентификации"
-documentationcenter: 
+title: Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги | Документация Майкрософт
+description: Краткий обзор и дальнейшие шаги после прочтения руководства по разработке архитектуры гибридной идентификации
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801496"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги
 После завершения определения требований и проверки всех вариантов решения управления мобильными устройствами вы готовы к дальнейшим действиям по развертыванию инфраструктуры поддержки, которая идеально подходит вам и вашей организации.

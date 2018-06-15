@@ -5,18 +5,17 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: ponatara
-ms.openlocfilehash: f64d61134f61476bcdd803f92019830b7cecf867
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c42a997560ee40eb0a587b81a6f191f372e0dd26
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716012"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Настройка аварийного восстановления виртуальных машин Azure после миграции в Azure 
 
->[!NOTE]
-> Аварийное восстановление для виртуальных машин Azure с помощью Azure Site Recovery сейчас доступно в предварительной версии.
 
 Используйте приведенные здесь инструкции после [переноса локальных виртуальных машин на виртуальные машины Azure](tutorial-migrate-on-premises-to-azure.md) с помощью службы [Site Recovery](site-recovery-overview.md). Эта статья поможет вам подготовить виртуальные машины Azure к настройке аварийного восстановления во вторичный регион Azure с помощью Site Recovery.
 

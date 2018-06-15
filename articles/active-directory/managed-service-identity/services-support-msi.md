@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d31c169600c594fc4764262cb8d080e9aee96b21
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d896b11ae94355eb2bdcfa8bc3a647f96fd8caf
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34353617"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723768"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Службы, поддерживающие управляемое удостоверение службы 
 
@@ -30,7 +30,7 @@ ms.locfileid: "34353617"
 | Служба приложений Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Шаблон Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Функции Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Шаблон Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Фабрика данных Azure версии 2 | Предварительный просмотр | Ноябрь 2017 г. | [портал Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Пакет SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Cлужба управления Azure API  | Предварительный просмотр | Октябрь 2017 г. | [Шаблон Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity) |
+
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Службы Azure, поддерживающие аутентификацию Azure AD
 
@@ -44,3 +44,4 @@ ms.locfileid: "34353617"
 | Azure SQL | https://database.windows.net/ | Доступна | Октябрь 2017 г. | |
 | Концентраторы событий Azure | https://eventhubs.azure.net | Доступна | Декабрь 2017 г. | |
 | Azure Service Bus | https://servicebus.azure.net | Доступна | Декабрь 2017 г. | |
+| Хранилище Azure | https://storage.azure.com/ | Предварительный просмотр | Май 2018 г. | |

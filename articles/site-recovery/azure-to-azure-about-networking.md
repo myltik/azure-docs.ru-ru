@@ -6,19 +6,18 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: sujayt
-ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e717d06aaaef6031a0a3b26c5caf76f0c8c11df
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211027"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715944"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Сети для репликации "Azure — Azure"
 
->[!NOTE]
-> Репликация Azure Site Recovery для виртуальных машин Azure сейчас доступна в предварительной версии.
+
 
 В этой статье предоставлены указания по организации сети при репликации и восстановлении виртуальных машин Azure из одного региона в другой с помощью [Azure Site Recovery](site-recovery-overview.md).
 

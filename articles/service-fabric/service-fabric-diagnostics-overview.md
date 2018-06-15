@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643181"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Мониторинг и диагностика для Azure Service Fabric
 
@@ -46,9 +47,6 @@ Service Fabric предоставляет широкий набор готовы
 Мы рекомендуем использовать EventStore для быстрого анализа, а также чтобы получить представление о том, как работает кластер, и выполняются ли операции нужным образом. Для сбора журналов и событий, создаваемых кластером, обычно рекомендуют использовать [расширение системы диагностики Azure](service-fabric-diagnostics-event-aggregation-wad.md). Оно хорошо интегрируется с решением для OMS Log Analytics Service Fabric, "Аналитика Service Fabric", в котором есть настраиваемая панель мониторинга для мониторинга кластеров Service Fabric. Кроме того, это решение позволяет опрашивать систему о событиях, происходящих в кластере, и настраивать оповещения. Дополнительные сведения см. в статье об [анализе событий в OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
  Дополнительные сведения о мониторинге кластеров см. в статье [Создание событий и журналов на уровне платформы](service-fabric-diagnostics-event-generation-infra.md).
-
-
- ![Решение OMS Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>Мониторинг производительности
 Мониторинг базовой инфраструктуры является ключевым в понимании состояния кластера и использовании ресурсов. Измерение производительности системы зависит от нескольких факторов, каждый из которых обычно определяется с помощью ключевых показателей эффективности. Соответствующие ключевые показатели эффективности Service Fabric можно сопоставить с метриками, которые могут собираться из узлов кластера в качестве счетчиков производительности.

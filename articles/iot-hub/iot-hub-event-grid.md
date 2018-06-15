@@ -1,22 +1,19 @@
 ---
-title: "Центр Интернета вещей Azure и служба \"Сетка событий\" | Документация Майкрософт"
-description: "Используйте службу \"Сетка событий Azure\" для активации процессов на основе действий, выполняемых в Центре Интернета вещей."
-services: iot-hub
-documentationcenter: 
+title: Центр Интернета вещей Azure и служба "Сетка событий" | Документация Майкрософт
+description: Используйте службу "Сетка событий Azure" для активации процессов на основе действий, выполняемых в Центре Интернета вещей.
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f187aa81ca519f2597657f01c2d7a630740b5348
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634317"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Реагирование на события в Центре Интернета вещей, используя службу "Сетка событий" для запуска действий (предварительная версия)
 

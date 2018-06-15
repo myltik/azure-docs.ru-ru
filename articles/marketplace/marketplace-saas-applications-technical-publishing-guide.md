@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076719"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809477"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Техническое руководство по публикации SaaS-приложений
 
@@ -51,7 +51,7 @@ ms.locfileid: "34076719"
 | **PowerBI, Dynamics** | Yes | Да (интеграция с Azure AD) |  
 | **Приложения SaaS**| Yes | Да (интеграция с Azure AD) |     
 
-Дополнительные сведения об онлайн-магазинах Marketplace и описание каждого из вариантов публикации см. в [руководстве издателя Marketplace](https://aka.ms/sellerguide) и разделе [Варианты публикации](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Дополнительные сведения об онлайн-магазинах Marketplace и описание каждого из вариантов публикации см. в [руководстве издателя Marketplace](https://aka.ms/sellerguide) и разделе [Варианты публикации](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>Бизнес-требования
 Соответствие бизнес-требованиям к предложению SaaS можно обеспечить параллельно с выполнением технических требований. Большинство бизнес-требований и сведений собираются при создании предложения SaaS на Портале Cloud Partner. Ниже перечислены бизнес-требования: 
@@ -62,7 +62,7 @@ ms.locfileid: "34076719"
 * установка политики конфиденциальности и условий использования;
 * определение контактов для поддержке.  
 
-Дополнительные сведения можно найти в разделе [Необходимые условия для публикации в Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing).
+Дополнительные сведения можно найти в разделе [Необходимые условия для публикации в Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing).
 
 ## <a name="technical-requirements"></a>Технические требования
 
@@ -72,11 +72,11 @@ ms.locfileid: "34076719"
 
 Полезную документацию по Azure Active Directory, примеры и руководства см. последующим ссылкам: 
 
-* [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Интеграция с Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Интеграция с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Интеграция приложений с Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Интеграция приложений с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Безопасность и идентификация на странице стратегии развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -125,7 +125,7 @@ ms.locfileid: "34076719"
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Активация пробных версий с помощью Azure Active Directory  
 
-Корпорация Майкрософт выполняет аутентификацию всех пользователей Marketplace с помощью Azure AD. Когда пользователь, прошедший аутентификацию, щелкает ваш список пробных версий в Marketplace и перенаправляется в вашу пробную среду, вы можете выполнить подготовку для пользователя непосредственно в пробной среде без необходимости дополнительного входа. Токен, получаемый вашим приложением от Azure AD во время аутентификации, содержит ценные сведения о пользователе, которые помогут вам создать его учетную запись в своем приложении, чтобы автоматизировать процесс подготовки и повысить вероятность перехода. Дополнительные сведения о токене см. в статье [Справочник по токенам в Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims).
+Корпорация Майкрософт выполняет аутентификацию всех пользователей Marketplace с помощью Azure AD. Когда пользователь, прошедший аутентификацию, щелкает ваш список пробных версий в Marketplace и перенаправляется в вашу пробную среду, вы можете выполнить подготовку для пользователя непосредственно в пробной среде без необходимости дополнительного входа. Токен, получаемый вашим приложением от Azure AD во время аутентификации, содержит ценные сведения о пользователе, которые помогут вам создать его учетную запись в своем приложении, чтобы автоматизировать процесс подготовки и повысить вероятность перехода. Дополнительные сведения о токене см. в статье [Справочник по токенам в Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 С помощью Azure AD для приложения или пробной версии можно включить аутентификацию одним щелчком. Она предоставляет следующие преимущества:  
 * упрощается взаимодействие клиентов с пробной версией в Marketplace;  
@@ -133,7 +133,7 @@ ms.locfileid: "34076719"
 * сокращается вероятность отказа от перенаправления, так как отсутствует дополнительный шаг выполнения входа.  
 * Уменьшаются ограничения развертывания для большого числа пользователей Azure AD.  
 
-## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Сертификация интеграции Azure AD для Marketplace  
+## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>сертификация интеграции Azure AD для Marketplace.  
 
 Интеграцию Azure AD можно сертифицировать несколькими способами. Это зависит от типа приложения (однотенантное или мультитенантное), а также от того, впервые ли вы используете федеративный единый вход (SSO) в Azure AD.  
 
@@ -141,15 +141,15 @@ ms.locfileid: "34076719"
 
 Если вы уже используете Azure AD, сделайте следующее:
 1.  Зарегистрируйте приложение на портале Azure.
-2.  Включите функцию поддержки мультитенантности в Azure AD, чтобы получить пробную версию одним щелчком. Дополнительные сведения можно найти [здесь](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  Включите функцию поддержки мультитенантности в Azure AD, чтобы получить пробную версию одним щелчком. Дополнительные сведения можно найти [здесь](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Если вы впервые используете федеративный единый вход в Azure AD, сделайте следующее: 
 1.  Зарегистрируйте приложение на портале Azure.
-2.  Настройте единый вход в Azure AD с помощью [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) или [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Включите функцию поддержки мультитенантности в AAD, чтобы получить пробную версию одним щелчком. Дополнительные сведения можно найти [здесь](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Настройте единый вход в Azure AD с помощью [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) или [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Включите функцию поддержки мультитенантности в AAD, чтобы получить пробную версию одним щелчком. Дополнительные сведения можно найти [здесь](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **Для однотенантного приложения используйте любой из следующих вариантов:**  
-* Добавьте пользователей в свой каталог в качестве гостевых пользователей, используя [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Добавьте пользователей в свой каталог в качестве гостевых пользователей, используя [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * Вручную подготовьте пробную версию для клиентов с использованием функции "Связаться со мной".
 * Разработайте тестовый выпуск для одного клиента.
 * Создайте демонстрационное мультитенантное приложение с SSO.

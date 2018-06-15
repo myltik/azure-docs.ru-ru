@@ -2,24 +2,22 @@
 title: Интерфейсы API, пакет SDK и ресурсы для SQL Node.js (Azure Cosmos DB) | Документация Майкрософт
 description: Сведения об API и пакете SDK для SQL Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для Node.js для Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: nodejs
 author: rnagpal
 manager: kfile
 editor: cgronlun
-ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 271b090468dee306dc0bf2567aeff08eb0526642
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797851"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK для Node.js для API-интерфейса SQL
 > [!div class="op_single_selector"]

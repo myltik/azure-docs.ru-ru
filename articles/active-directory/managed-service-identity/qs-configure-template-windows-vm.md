@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 8c955e6ad9d47c6963a1c136600761fddee03835
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05859187a5734d982b750e287c3ecd375ed1da2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930303"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723751"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Настройка управляемого удостоверения службы виртуальной машины с помощью шаблона
 
@@ -31,7 +31,7 @@ ms.locfileid: "33930303"
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-- Если вы не работали с компонентом "Управляемое удостоверение службы", изучите [общие сведения](overview.md). **Обратите внимание на [различие между системным и пользовательским удостоверением](overview.md#how-does-it-work)**.
+- Если вы не работали с компонентом "Управляемое удостоверение службы", изучите [общие сведения](overview.md). **Обратите внимание на [различие между назначенным системой и пользовательским удостоверениями](overview.md#how-does-it-work)**.
 - Если у вас нет учетной записи Azure, [зарегистрируйтесь для получения бесплатной пробной учетной записи](https://azure.microsoft.com/free/), прежде чем продолжать.
 
 ## <a name="azure-resource-manager-templates"></a>Шаблоны Azure Resource Manager
@@ -69,7 +69,7 @@ ms.locfileid: "33930303"
    },
    ```
 
-4. (Необязательно.) Затем добавьте расширение MSI для виртуальной машины в качестве элемента `resources`. Этот шаг необязателен, так как для получения маркеров можно также использовать конечную точку Службы метаданных экземпляров Azure (IMDS).  Используйте следующий синтаксис:
+4. (Необязательно.) Затем добавьте расширение MSI для виртуальной машины в качестве элемента `resources`. Этот шаг необязателен, так как для получения токенов можно также использовать конечную точку службы метаданных экземпляров Azure (IMDS).  Используйте следующий синтаксис:
 
    >[!NOTE] 
    > В следующем примере предполагается, что расширение виртуальной машины Windows (`ManagedIdentityExtensionForWindows`) развертывается. Можно также выполнить настройку для Linux, используя расширение `ManagedIdentityExtensionForLinux` для элементов `"name"` и `"type"`.
@@ -131,12 +131,12 @@ ms.locfileid: "33930303"
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
             ]
         },
     ```
     
-2. (Необязательно.) Далее, добавьте в элемент `resources` приведенную ниже запись, чтобы назначить расширение управляемых удостоверений виртуальной машине. Этот шаг необязателен, так как для получения маркеров можно также использовать конечную точку Службы метаданных экземпляров Azure (IMDS). Используйте следующий синтаксис:
+2. (Необязательно.) Далее, добавьте в элемент `resources` приведенную ниже запись, чтобы назначить расширение управляемых удостоверений виртуальной машине. Этот шаг необязателен, так как для получения токенов можно также использовать конечную точку службы метаданных экземпляров Azure (IMDS). Используйте следующий синтаксис:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",

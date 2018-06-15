@@ -1,0 +1,496 @@
+metadata: {}
+items:
+  - name: Документация по базе данных Azure Cosmos
+    href: index.yml
+  - name: Обзор
+    items:
+      - name: О базе данных Azure Cosmos
+        href: introduction.md
+  - name: Быстрое начало работы
+    expanded: true
+    items:
+      - name: SQL
+        items:
+          - name: .NET
+            href: create-sql-api-dotnet.md
+          - name: Java
+            href: create-sql-api-java.md
+          - name: Node.js
+            href: create-sql-api-nodejs.md
+          - name: Python
+            href: create-sql-api-python.md
+          - name: Xamarin
+            href: create-sql-api-xamarin-dotnet.md
+      - name: MongoDB
+        items:
+          - name: Node.js
+            href: create-mongodb-nodejs.md
+          - name: .NET
+            href: create-mongodb-dotnet.md
+          - name: Java
+            href: create-mongodb-java.md
+          - name: Golang
+            href: create-mongodb-golang.md
+          - name: Python
+            href: create-mongodb-flask.md
+      - name: График
+        items:
+          - name: .NET
+            href: create-graph-dotnet.md
+          - name: Консоль Gremlin
+            href: create-graph-gremlin-console.md
+          - name: Java
+            href: create-graph-java.md
+          - name: Node.js
+            href: create-graph-nodejs.md
+          - name: Python
+            href: create-graph-python.md
+          - name: PHP
+            href: create-graph-php.md
+      - name: Таблица
+        items:
+          - name: .NET
+            href: create-table-dotnet.md
+          - name: Java
+            href: create-table-java.md
+          - name: Node.js
+            href: create-table-nodejs.md
+          - name: Python
+            href: create-table-python.md
+      - name: Cassandra
+        items:
+          - name: Node.js
+            href: create-cassandra-nodejs.md
+          - name: Java
+            href: create-cassandra-java.md
+          - name: .NET
+            href: create-cassandra-dotnet.md
+          - name: Python
+            href: create-cassandra-python.md
+  - name: Основные понятия
+    items:
+      - name: Глобальное распределение
+        href: distribute-data-globally.md
+      - name: Архитектура с несколькими источниками
+        href: multi-region-writers.md
+      - name: Секционирование
+        href: partition-data.md
+      - name: Throughput
+        href: request-units.md
+      - name: Целостность
+        href: consistency-levels.md
+      - name: Уникальные ключи
+        href: unique-keys.md
+      - name: Бессерверная база данных
+        href: serverless-computing-database.md
+      - name: Безопасность
+        href: database-security.md
+        items:
+          - name: Шифрование при хранении
+            href: database-encryption-at-rest.md
+          - name: Защита доступа к данным
+            href: secure-access-to-data.md
+      - name: Варианты использования
+        href: use-cases.md
+        items:
+          - name: Приложения социальных сетей
+            href: social-media-apps.md
+  - name: Использование нескольких моделей
+    expanded: true
+    items:
+      - name: "Документация по API\_SQL"
+        items:
+          - name: Обзор
+            items:
+              - name: "Сведения об API\_SQL"
+                href: sql-api-introduction.md
+          - name: Учебники
+            items:
+              - name: "1.\_Создание"
+                items:
+                  - name: Создание первого приложения
+                    items:
+                      - name: .NET
+                        href: sql-api-get-started.md
+                      - name: .NET Core
+                        href: sql-api-dotnetcore-get-started.md
+                      - name: Java
+                        href: sql-api-java-get-started.md
+                      - name: Node.js
+                        href: sql-api-nodejs-get-started.md
+                      - name: C++
+                        href: sql-api-cpp-get-started.md
+                  - name: Создание веб-приложения
+                    items:
+                      - name: .NET
+                        href: sql-api-dotnet-application.md
+                      - name: Xamarin
+                        href: mobile-apps-with-xamarin.md
+                      - name: Node.js
+                        href: sql-api-nodejs-application.md
+                      - name: Java
+                        href: sql-api-java-application.md
+                      - name: Python Flask
+                        href: sql-api-python-application.md
+              - name: "2.\_Импорт"
+                href: import-data.md
+              - name: "3.\_Запрос"
+                href: tutorial-query-sql-api.md
+              - name: "4.\_Глобальное распространение"
+                href: tutorial-global-distribution-sql-api.md
+              - name: "5.\_Разработка в локальной среде"
+                items:
+                  - name: Использование эмулятора
+                    href: local-emulator.md
+                  - name: Экспорт сертификатов
+                    href: local-emulator-export-ssl-certificates.md
+              - name: 6. Интеграция с функциями
+                items:
+                  - name: Триггер HTTP
+                    href: tutorial-functions-http-trigger.md
+          - name: Примеры
+            items:
+              - name: Инфраструктура CLI Azure
+                href: cli-samples.md
+              - name: PowerShell
+                href: powershell-samples.md
+              - name: Примеры для .NET
+                href: sql-api-dotnet-samples.md
+              - name: Примеры для Node.js
+                href: sql-api-nodejs-samples.md
+              - name: Примеры для Python
+                href: sql-api-python-samples.md
+              - name: Примеры для Java
+                href: sql-api-java-samples.md
+          - name: Основные понятия
+            items:
+              - name: Ресурсы
+                href: sql-api-resources.md
+              - name: Данные документов модели
+                href: modeling-data.md
+          - name: Практические руководства
+            items:
+              - name: "BulkExecutor\_— .NET"
+                href: bulk-executor-dot-net.md
+              - name: "BulkExecutor\_— Java"
+                href: bulk-executor-java.md
+              - name: Управление использованием Обозревателя службы хранилища
+                href: storage-explorer.md
+              - name: Запрос
+                items:
+                  - name: Выполнение запросов SQL
+                    href: sql-api-sql-query.md
+                  - name: Настройка производительности запросов
+                    href: sql-api-sql-query-metrics.md
+              - name: Индекс
+                href: indexing-policies.md
+              - name: Секционирование данных SQL
+                href: sql-api-partition-data.md
+              - name: 'Хранимые процедуры, триггеры и определяемые пользователем функции'
+                href: programming.md
+              - name: Веб-канал изменений
+                href: change-feed.md
+              - name: Типы данных
+                items:
+                  - name: DateTimes
+                    href: working-with-dates.md
+                  - name: Геопространственные данные
+                    href: geospatial.md
+              - name: Настройка производительности
+                items:
+                  - name: тест производительности;
+                    href: performance-testing.md
+                  - name: Советы по повышению производительности для Async Java
+                    href: performance-tips-async-java.md
+                  - name: Советы по повышению производительности для .NET
+                    href: performance-tips.md
+                  - name: Советы по повышению производительности для Java
+                    href: performance-tips-java.md
+              - name: Интеграция с другими службами Azure
+                items:
+                  - name: Реализация лямбда-архитектуры с помощью HDInsight
+                    href: lambda-architecture.md
+                  - name: Подключение к Spark
+                    href: spark-connector.md
+                  - name: Потоковая передача в HDInsight с помощью Kafka и Spark
+                    href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
+                  - name: Развертывание веб-сайта в службе приложений Azure
+                    href: create-website.md
+                  - name: Вход в приложения с помощью Logic Apps
+                    href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
+                  - name: Привязка к Функциям Azure
+                    href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
+                  - name: Интеграция с Поиском Azure
+                    href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
+                  - name: Перенос данных с помощью фабрики данных Azure
+                    href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
+                  - name: Анализ данных в реальном времени с помощью Azure Stream Analytics
+                    href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
+                  - name: Получение измененной записи HL7 FHIR с помощью Logic Apps
+                    href: change-feed-hl7-fhir-logic-apps.md
+                  - name: 'Обработка данных, поступающих от датчиков, в реальном времени'
+                    href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
+                  - name: Визуализация данных с помощью Power BI
+                    href: powerbi-visualize.md
+                  - name: Визуализация данных с помощью драйвера ODBC
+                    href: odbc-driver.md
+                  - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
+                    href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
+          - name: Справочные материалы
+            items:
+              - name: Async Java
+                href: sql-api-sdk-async-java.md
+              - name: Java
+                href: sql-api-sdk-java.md
+              - name: .NET
+                href: sql-api-sdk-dotnet.md
+              - name: Веб-канал изменений в .NET
+                href: sql-api-sdk-dotnet-changefeed.md
+              - name: .NET Core
+                href: sql-api-sdk-dotnet-core.md
+              - name: Node.js
+                href: sql-api-sdk-node.md
+              - name: Python
+                href: sql-api-sdk-python.md
+              - name: "BulkExecutor\_— .NET"
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: "BulkExecutor\_— Java"
+                href: sql-api-sdk-bulk-executor-java.md
+              - name: REST
+                href: /rest/api/cosmos-db/
+              - name: Поставщик ресурсов REST
+                href: /rest/api/cosmos-db-resource-provider/
+              - name: SQL
+                href: sql-api-sql-query-reference.md
+          - name: Ресурсы
+            items:
+              - name: Управление использованием Обозревателя службы хранилища
+                href: storage-explorer.md
+              - name: Расширение Visual Studio Code
+                href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
+              - name: SQL Playground
+                href: 'https://aka.ms/cosmos-db-playground'
+      - name: Документация по API MongoDB
+        items:
+          - name: Обзор
+            items:
+              - name: Сведения об API MongoDB
+                href: mongodb-introduction.md
+              - name: Поддержка MongoDB
+                href: mongodb-feature-support.md
+          - name: Учебники
+            items:
+              - name: "1.\_Создание"
+                items:
+                  - name: Node.js
+                    href: mongodb-samples.md
+                  - name: Node.js и Angular
+                    items:
+                      - name: "Часть\_1. Введение"
+                        href: tutorial-develop-mongodb-nodejs.md
+                      - name: "Часть\_2. Создание приложения Node"
+                        href: tutorial-develop-mongodb-nodejs-part2.md
+                      - name: "Часть\_3. Добавление пользовательского интерфейса Angular"
+                        href: tutorial-develop-mongodb-nodejs-part3.md
+                      - name: "Часть\_4. Создание базы данных Cosmos\_DB"
+                        href: tutorial-develop-mongodb-nodejs-part4.md
+                      - name: "Часть\_5. Подключение к базе данных Cosmos\_DB"
+                        href: tutorial-develop-mongodb-nodejs-part5.md
+                      - name: "Часть\_6. Запись данных в приложение"
+                        href: tutorial-develop-mongodb-nodejs-part6.md
+                  - name: Node.js и React
+                    href: tutorial-develop-mongodb-react.md
+              - name: "2.\_Импорт"
+                href: mongodb-migrate.md
+              - name: "3.\_Запрос"
+                href: tutorial-query-mongodb.md
+              - name: "4.\_Глобальное распространение"
+                href: tutorial-global-distribution-mongodb.md
+              - name: "5.\_Разработка в локальной среде"
+                items:
+                  - name: Использование эмулятора
+                    href: local-emulator.md
+                  - name: Экспорт сертификатов
+                    href: local-emulator-export-ssl-certificates.md
+          - name: Практические руководства
+            items:
+              - name: Подключение к учетной записи MongoDB
+                href: connect-mongodb-account.md
+              - name: "Использование Studio\_3T"
+                href: mongodb-mongochef.md
+              - name: Использование Robomongo
+                href: mongodb-robomongo.md
+              - name: Использование Mongoose
+                href: mongodb-mongoose.md
+              - name: Использование параметров чтения
+                href: mongodb-readpreference.md
+              - name: Индексация
+                href: mongodb-indexing.md
+              - name: Визуализация данных с помощью Power BI
+                href: powerbi-visualize.md
+              - name: Управление использованием Обозревателя службы хранилища
+                href: storage-explorer.md
+          - name: Ресурсы
+            items:
+              - name: Управление использованием Обозревателя службы хранилища
+                href: storage-explorer.md
+              - name: Расширение Visual Studio Code
+                href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
+      - name: Документация по API Graph
+        items:
+          - name: Обзор
+            items:
+              - name: Сведения об API Graph
+                href: graph-introduction.md
+              - name: Поддержка Gremlin
+                href: gremlin-support.md
+          - name: Учебники
+            items:
+              - name: "1.\_Создание"
+                href: tutorial-develop-graph-dotnet.md
+              - name: "2.\_Запрос"
+                href: tutorial-query-graph.md
+              - name: "3.\_Глобальное распространение"
+                href: tutorial-global-distribution-graph.md
+          - name: Практические руководства
+            items:
+              - name: Секционирование данных Graph
+                href: graph-partitioning.md
+              - name: Управление использованием Обозревателя службы хранилища
+                href: storage-explorer.md
+              - name: Интеграция
+                items:
+                  - name: Подключение к Spark GraphX
+                    href: spark-connector-graph.md
+          - name: Справочные материалы
+            items:
+              - name: .NET
+                href: graph-sdk-dotnet.md
+          - name: Ресурсы
+            items:
+              - name: Управление использованием Обозревателя службы хранилища
+                href: storage-explorer.md
+              - name: Расширение Visual Studio Code
+                href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
+      - name: Документация по API таблиц
+        items:
+          - name: Обзор
+            items:
+              - name: Сведения об API таблиц
+                href: table-introduction.md
+              - name: Разработка с помощью средств для работы с таблицами
+                href: table-support.md
+          - name: Учебники
+            items:
+              - name: "1.\_Создание"
+                href: tutorial-develop-table-dotnet.md
+              - name: "2.\_Импорт"
+                href: table-import.md
+              - name: "3.\_Запрос"
+                href: tutorial-query-table.md
+              - name: "4.\_Глобальное распространение"
+                href: tutorial-global-distribution-table.md
+              - name: "5.\_Бессерверное приложение\_— Node.js"
+                href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
+          - name: Примеры
+            items:
+              - name: .NET
+                href: table-storage-how-to-use-dotnet.md
+              - name: 'F#'
+                href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              - name: Java
+                href: table-storage-how-to-use-java.md
+              - name: Node.js
+                href: table-storage-how-to-use-nodejs.md
+              - name: C++
+                href: table-storage-how-to-use-c-plus.md
+              - name: PHP
+                href: table-storage-how-to-use-php.md
+              - name: Python
+                href: table-storage-how-to-use-python.md
+              - name: Ruby
+                href: table-storage-how-to-use-ruby.md
+          - name: Справочные материалы
+            items:
+              - name: .NET
+                href: table-sdk-dotnet.md
+              - name: Java
+                href: table-sdk-java.md
+              - name: Node.js
+                href: table-sdk-nodejs.md
+              - name: Python
+                href: table-sdk-python.md
+          - name: Ресурсы
+            items:
+              - name: Управление использованием Обозревателя службы хранилища
+                href: storage-explorer.md
+              - name: Обзор хранилища таблиц
+                href: table-storage-overview.md
+              - name: Руководство по проектированию хранилищ таблиц
+                href: table-storage-design-guide.md
+              - name: API REST хранилищ таблиц
+                href: /rest/api/storageservices/Table-Service-Concepts
+      - name: Документация по API Cassandra
+        items:
+          - name: Обзор
+            items:
+              - name: Сведения об API Cassandra
+                href: cassandra-introduction.md
+          - name: Учебники
+            items:
+              - name: "1.\_Создание"
+                href: tutorial-develop-cassandra-java.md
+              - name: "2.\_Импорт"
+                href: cassandra-import-data.md
+  - name: Практические руководства
+    items:
+      - name: Ключи и согласованность
+        href: manage-account.md
+      - name: Throughput
+        href: set-throughput.md
+      - name: Поддерживаемые брандмауэры
+        href: firewall-support.md
+      - name: Настройка конечной точки службы для виртуальной сети
+        href: vnet-service-endpoint.md
+      - name: Метрики
+        href: use-metrics.md
+      - name: Мониторинг соглашений об уровне обслуживания
+        href: monitor-accounts.md
+      - name: Архивация и восстановление
+        href: online-backup-and-restore.md
+      - name: Отработка отказа между регионами
+        href: regional-failover.md
+      - name: Ведения журнала диагностики
+        href: logging.md
+      - name: Общие сведения о BulkExecutor
+        href: bulk-executor-overview.md
+      - name: Экономичные операции чтения и записи
+        href: key-value-store-cost.md
+      - name: Автоматическое истечение срока хранения данных
+        href: time-to-live.md
+      - name: Управление с помощью PowerShell
+        href: manage-account-with-powershell.md
+      - name: Управление использованием Обозревателя службы хранилища
+        href: storage-explorer.md
+  - name: Ресурсы
+    items:
+      - name: Краткий справочник запросов
+        href: query-cheat-sheet.md
+      - name: Управление использованием Обозревателя службы хранилища
+        href: storage-explorer.md
+      - name: "Получение подсказок в течение 20\_дней"
+        href: 20-days-of-tips.md
+      - name: Видеоролики
+        href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
+      - name: Стратегия развития Azure
+        href: 'https://azure.microsoft.com/roadmap/'
+      - name: Бесплатная пробная версия Azure Cosmos DB
+        href: 'https://azure.microsoft.com/try/cosmosdb/'
+      - name: Цены
+        href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+      - name: Часто задаваемые вопросы
+        href: faq.md
+      - name: Объяснение согласованности данных на примере игры в бейсбол
+        href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Технические документы
+        href: whitepapers.md

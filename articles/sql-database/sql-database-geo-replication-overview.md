@@ -6,16 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 39c61fd3b2f03c99d74fded22927f319cc7f4cdd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0c27aec90dad6eb3aeb46871d20202870eba886d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160943"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647651"
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Обзор. Группы отработки отказа и активная георепликация
 Активная георепликация позволяет настроить до четырех доступных для чтения баз данных-получателей в одном или в разных расположениях (регионах) центров обработки данных. Базы данных-получатели доступны для выполнения запросов и отработки отказа при сбое центра обработки данных или невозможности подключения к базе данных-источнику. Отработка отказа должна инициироваться вручную приложением пользователя. После отработки отказа у новой базы данных-источника будет другая конечная точка подключения. 

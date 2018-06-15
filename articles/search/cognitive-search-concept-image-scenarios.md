@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367279"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640206"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Обработка и извлечение информации из изображений в сценариях когнитивного поиска
 
@@ -45,7 +45,7 @@ ms.locfileid: "34367279"
 По умолчанию навыками [OCR](cognitive-search-skill-ocr.md) и [анализа изображений](cognitive-search-skill-image-analysis.md) поддерживаются нормализованные изображения с максимальными шириной и высотой в 2000 пикселей. Если увеличить максимальное ограничение, обработка более крупных изображений может завершиться сбоем.
 
 
-Настройте параметр imageAction в [определении индексатора](ref-create-indexer.md) следующим образом:
+Настройте параметр imageAction в [определении индексатора](https://docs.microsoft.com/rest/api/searchservice/create-indexer) следующим образом:
 
 ```json
 {
@@ -218,7 +218,7 @@ ms.locfileid: "34367279"
 ```
 
 ## <a name="see-also"></a>См. также
-+ [Создание индексатора (REST)](ref-create-indexer.md)
++ [Создание индексатора (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Анализ навыков изображения](cognitive-search-skill-image-analysis.md)
 + [Навык OCR](cognitive-search-skill-ocr.md)
 + [Навык объединения текста](cognitive-search-skill-textmerger.md)

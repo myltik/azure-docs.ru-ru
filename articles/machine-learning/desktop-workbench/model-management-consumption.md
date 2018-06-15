@@ -7,14 +7,16 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 93df053bf62b5a69f74d816fc05520d040d73bd7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831995"
 ---
 # <a name="consuming-web-services"></a>Использование веб-служб
 После развертывания модели в качестве веб-службы в реальном времени вы можете отправлять ее данные и получать прогнозы из различных платформ и приложений. Веб-служба в реальном времени предоставляет REST API для получения прогнозов. Можно отправлять данные в веб-службу в однострочном или многострочном формате, чтобы получить один или несколько прогнозов за один раз.

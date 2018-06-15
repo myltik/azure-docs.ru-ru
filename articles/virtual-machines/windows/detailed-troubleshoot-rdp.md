@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab101d78320819b9fb48f2c431fb0f6afdb895ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657831"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Подробное руководство по устранению неполадок с подключением к удаленному рабочему столу на виртуальной машине Windows в Azure
 В этой статье приводятся подробные инструкции по диагностике и устранению сложных ошибок удаленного рабочего стола для виртуальных машин Azure на базе Windows.
@@ -112,7 +113,7 @@ ms.lasthandoff: 05/14/2018
 ## <a name="source-4-network-security-groups"></a>Источник 4: группы безопасности сети
 Группы безопасности сети позволяют точнее настраивать параметры разрешенного входящего и исходящего трафика. Можно создавать правила, которые распространяются на подсети и облачные службы в виртуальной сети Azure.
 
-Используйте [проверку потока для IP-адреса](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md), чтобы определить, блокирует ли правило в группе безопасности сети входящий или исходящий трафик виртуальной машины. Вы можете также просмотреть действующие правила группы безопасности и убедиться, что для порта RDP (3389 по умолчанию) существует и является приоритетным правило NSG, разрешающее входящий трафик. См. дополнительные сведения об [использовании действующих правил безопасности для устранения проблем с потоком трафика в виртуальной машине](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Используйте [проверку потока для IP-адреса](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md), чтобы определить, блокирует ли правило в группе безопасности сети входящий или исходящий трафик виртуальной машины. Вы можете также просмотреть действующие правила группы безопасности и убедиться, что для порта RDP (3389 по умолчанию) существует и является приоритетным правило NSG, разрешающее входящий трафик. См. дополнительные сведения об [использовании действующих правил безопасности для устранения проблем с потоком трафика в виртуальной машине](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Источник 5: виртуальная машина Azure под управлением Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

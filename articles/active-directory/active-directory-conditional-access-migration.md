@@ -1,14 +1,15 @@
 ---
-title: "Перенос классических политик на портале Azure | Документация Майкрософт"
-description: "Узнайте, что нужно для переноса классических политик на портал Azure."
+title: Перенос классических политик на портале Azure | Документация Майкрософт
+description: Узнайте, что нужно для переноса классических политик на портал Azure.
 services: active-directory
-keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
-documentationcenter: 
+keywords: условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа
+documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b6285381833526cdbdd7c1392894458a47c1cf34
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723734"
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Перенос классических политик на портале Azure 
 

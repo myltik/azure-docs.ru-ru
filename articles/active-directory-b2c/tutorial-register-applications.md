@@ -2,20 +2,20 @@
 title: Руководство по регистрации приложения для регистрации и входа с помощью Azure AD B2C | Документация Майкрософт
 description: С помощью портала Azure создайте клиент Azure AD B2C и зарегистрируйте в нем приложение.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: patricka
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: davidmu
-ms.openlocfilehash: 85e61f96ff829052e857d4823b3c944c6d981d2f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: ebfe4a2d8c6a5b1d5334034e406131fac81f0c19
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713904"
 ---
 # <a name="tutorial-register-an-application-to-enable-sign-up-and-sign-in-using-azure-active-directory-b2c"></a>Руководство по регистрации приложения для регистрации и входа с помощью Azure AD B2C
 
@@ -175,4 +175,4 @@ ms.lasthandoff: 04/18/2018
 > * Регистрация приложения
 
 > [!div class="nextstepaction"]
-> [Включение в веб-приложении аутентификации на основе учетных записей](active-directory-b2c-app-registration.md)
+> [Включение в веб-приложении аутентификации на основе учетных записей](active-directory-b2c-tutorials-web-app.md)

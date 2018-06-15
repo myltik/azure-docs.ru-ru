@@ -1,24 +1,26 @@
 ---
-title: "Использование Azure AD Connect при наличии существующего клиента Azure AD | Документация Майкрософт"
-description: "В этом разделе описывается использование Connect при наличии существующего клиента Azure AD."
+title: Использование Azure AD Connect при наличии существующего клиента Azure AD | Документация Майкрософт
+description: В этом разделе описывается использование Connect при наличии существующего клиента Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725213"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: если имеется существующий клиент
 В большинстве разделов об использовании Azure AD Connect предполагается, что вы начинаете с нового клиента Azure AD, в котором отсутствуют какие-либо пользователи или другие объекты. Но если вы начали с клиента Azure AD, заполнили его пользователями и другими объектами, а теперь хотите использовать Connect, то этот раздел предназначен именно для вас.
@@ -56,7 +58,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Создание локальной службы Active Directory на основе данных в Azure AD
 Некоторые клиенты начинают с облачного решения на основе Azure AD и не используют локальную среду AD. Позднее возникает необходимость использовать локальные ресурсы, и они создают локальную среду AD на основании данных Azure AD. В этом случае Azure AD Connect ничем не поможет. Это решение не позволяет создать пользователей в локальной среде и не дает возможности установить локальный пароль так же, как и в Azure AD.
 
-Если единственная причина, по которой планируется добавить локальную среду AD, это поддержка бизнес-приложений, то вам следует рассмотреть возможность использования [доменных служб Azure AD](../../active-directory-domain-services/index.md).
+Если единственная причина, по которой планируется добавить локальную среду AD, это поддержка бизнес-приложений, то вам следует рассмотреть возможность использования [доменных служб Azure AD](../../active-directory-domain-services/index.yml).
 
 ## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

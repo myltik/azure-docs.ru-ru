@@ -1,11 +1,11 @@
 ---
-title: "Проектирование гибридных удостоверений: требования к синхронизации каталогов в Azure | Документация Майкрософт"
-description: "Определите, какие требования необходимы для синхронизации всех локальных и облачных пользователей предприятия."
-documentationcenter: 
+title: 'Проектирование гибридных удостоверений: требования к синхронизации каталогов в Azure | Документация Майкрософт'
+description: Определите, какие требования необходимы для синхронизации всех локальных и облачных пользователей предприятия.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d6749960806e858909f42c6ecccd445ba8d5ec00
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801567"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Определение требований к синхронизации каталога
 Синхронизация предназначена для предоставления пользователям идентификации в облаке на основе их локальной идентификации. Независимо от того, используют ли они синхронизированную учетную запись для проверки подлинности или федеративной проверки подлинности, пользователям по-прежнему будет нужно идентифицироваться в облаке.  Эту идентификацию будет необходимо поддерживать и периодически обновлять.  Обновления могут принимать различные формы от изменения заголовка до изменения пароля.  

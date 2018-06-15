@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365830"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640376"
 ---
 # <a name="ocr-cognitive-skill"></a>Когнитивный навык распознавания текста
 
@@ -61,7 +61,7 @@ ms.locfileid: "34365830"
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -201,4 +201,4 @@ ms.locfileid: "34365830"
 + [Предопределенные навыки](cognitive-search-predefined-skills.md)
 + [Text Merge cognitive skill](cognitive-search-skill-textmerger.md) (Когнитивный навык слияния текста)
 + [Определение набора навыков](cognitive-search-defining-skillset.md)
-+ [Создание индексатора (REST)](ref-create-indexer.md)
++ [Создание индексатора (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

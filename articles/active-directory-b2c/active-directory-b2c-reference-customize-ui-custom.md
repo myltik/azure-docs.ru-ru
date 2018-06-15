@@ -1,20 +1,21 @@
 ---
 title: Настройка интерфейса пути взаимодействия пользователя с помощью настраиваемых политик | Документация Майкрософт
-description: Сведения о пользовательских политиках Azure Active Directory B2C
+description: Сведения о пользовательских политиках Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 0980c79ccd9ebd170e747514bba712c498e1387c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711915"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Настройка пользовательского интерфейса с помощью настраиваемых политик
 
@@ -75,7 +76,7 @@ Azure AD B2C позволяет настраивать внешний вид и 
 
 Благодаря подходу на основе CORS конечные пользователи получают постоянный опыт, работая и в приложении, и на страницах, обслуживаемых Azure AD B2C.
 
-## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
+## <a name="create-a-storage-account"></a>Создание учетной записи хранения
 
 Перед началом необходимо создать учетную запись хранения. Для создания учетной записи хранения больших двоичных объектов Azure требуется подписка Azure. Вы можете оформить подписку на бесплатную пробную версию на [веб-сайте Azure](https://azure.microsoft.com/pricing/free-trial/).
 

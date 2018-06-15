@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: faf526082a9a38d5d98443ff2b74eac4eef1ca08
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a0e05543734ae0604149d18564ae1bc1eff1892b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157461"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714635"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Настройка управляемого удостоверения службы (MSI) в масштабируемом наборе виртуальных машин Azure с помощью Azure CLI
 
@@ -34,7 +34,7 @@ ms.locfileid: "34157461"
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-- Если вы не работали с Управляемым удостоверением службы, см. [общие сведения](overview.md). **Обратите внимание на [различие между назначенным системой и пользовательским удостоверениями](overview.md#how-does-it-work)**.
+- Если вы не работали с компонентом "Управляемое удостоверение службы", изучите [общие сведения](overview.md). **Обратите внимание на [различие между назначенным системой и пользовательским удостоверениями](overview.md#how-does-it-work)**.
 - Если у вас нет учетной записи Azure, [зарегистрируйтесь для получения бесплатной пробной учетной записи](https://azure.microsoft.com/free/), прежде чем продолжать.
 
 Выполнить примеры сценариев для интерфейса командной строки можно тремя способами:
@@ -45,7 +45,7 @@ ms.locfileid: "34157461"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="system-assigned-identity"></a>Удостоверение, назначенное системой
+## <a name="system-assigned-identity"></a>Системное удостоверение
 
 В этом разделе вы узнаете, как включить и отключить назначенное системой удостоверение в масштабируемом наборе виртуальных машин Azure с помощью Azure CLI.
 
@@ -120,8 +120,7 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned'
 
 2. Создайте назначенное пользователем удостоверение с помощью команды [az identity create](/cli/azure/identity#az-identity-create).  Параметр `-g` указывает группу ресурсов, в которой создается назначенное пользователем удостоверение, а параметр `-n` — его имя. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<USER ASSIGNED IDENTITY NAME>` собственными:
 
-    > [!IMPORTANT]
-    > В назначенных пользователем удостоверениях можно использовать только буквы, цифры и символ дефиса (0–9, a–z, A–Z и -). Кроме того, чтобы назначение виртуальной машине или VMSS производилось правильно, длина имени не должна превышать 24 символа. Загляните сюда позже, чтобы проверить наличие новой информации. Дополнительные сведения см. в разделе [Часто задаваемые вопросы и известные проблемы](known-issues.md).
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
@@ -177,10 +176,10 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned'
    }
    ```
 
-2. Присвойте назначенное пользователем удостоверение масштабируемому набору виртуальных машин с помощью команды [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<VM NAME>` собственными. `<USER ASSIGNED IDENTITY ID>` будет свойством ресурса `id` назначенного пользователем удостоверения, созданным в предыдущем шаге:
+2. Присвойте назначенное пользователем удостоверение масштабируемому набору виртуальных машин с помощью команды [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<VMSS NAME>` собственными. `<USER ASSIGNED IDENTITY ID>` будет свойством ресурса `id` назначенного пользователем удостоверения, созданным в предыдущем шаге:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Удаление назначенного пользователем удостоверения из масштабируемого набора виртуальных машин Azure
@@ -188,15 +187,15 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned'
 > [!NOTE]
 >  В настоящее время удалить все назначенные пользователем удостоверения из масштабируемого набора виртуальных машин можно только при наличии назначенного системой удостоверения. 
 
-Если у масштабируемого набора виртуальных машин несколько назначенных пользователем удостоверений, с помощью команды [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove) можно удалить все удостоверения, кроме последнего. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<VM NAME>` собственными. `<MSI NAME>` — это имя назначенного пользователем удостоверения, которое можно найти в разделе удостоверений виртуальной машины с помощью команды `az vm show`:
+Если у масштабируемого набора виртуальных машин несколько назначенных пользователем удостоверений, с помощью команды [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove) можно удалить все удостоверения, кроме последнего. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<VMSS NAME>` собственными. `<MSI NAME>` — это имя назначенного пользователем удостоверения, которое можно найти в разделе удостоверений виртуальной машины с помощью команды `az vm show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 Если у масштабируемого набора виртуальных машин есть как назначенное системой, так и пользовательское удостоверения, вы можете удалить все пользовательские удостоверения, переключившись на использование только назначенного системой. Используйте следующую команду: 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация

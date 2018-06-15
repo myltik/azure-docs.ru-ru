@@ -1,11 +1,11 @@
 ---
-title: "Как использовать очереди служебной шины в Node.js | Документация Майкрософт"
-description: "Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js."
+title: Как использовать очереди служебной шины в Node.js | Документация Майкрософт
+description: Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5b309534f7aef602610cfdb6aa784d180551e1ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc291c3a453b4dec5e6c47ab4a7f2e2ac2b9967
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641447"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Как использовать очереди служебной шины с Node.js
 
@@ -64,8 +65,6 @@ var azure = require('azure');
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Настройка подключения к служебной шине Azure
 Модуль Azure считывает переменную среды `AZURE_SERVICEBUS_CONNECTION_STRING`, чтобы получить сведения, необходимые для подключения к служебной шине. Если эта переменная среды не задана, при вызове `createServiceBusService` необходимо указать сведения об учетной записи.
-
-Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Веб-приложение Node.js, использующее хранилище][Node.js Cloud Service with Storage].
 
 Пример настройки переменных среды на [портале Azure][Azure portal] для веб-сайта Azure см. в статье [Использование табличного хранилища Azure из Node.js][Node.js Web Application with Storage].
 
@@ -190,6 +189,5 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

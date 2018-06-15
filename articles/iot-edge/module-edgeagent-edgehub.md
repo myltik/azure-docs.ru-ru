@@ -1,19 +1,19 @@
 ---
 title: Справочные материалы по модулям EdgeAgent и EdgeHub в Azure IoT Edge | Документация Майкрософт
 description: Обзор определенных свойств и их значений для двойников модулей EdgeAgent и EdgeHub
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+services: iot-edge
+ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632913"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Свойства двойников модулей EdgeAgent и EdgeHub
 
