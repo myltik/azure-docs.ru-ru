@@ -1,6 +1,6 @@
 ---
-title: "Подключение к базе данных Azure для PostgreSQL с помощью Python"
-description: "В этом кратком руководстве представлен пример кода Python, который можно использовать для подключения к базе данных Azure для PostgreSQL и запроса данных из нее."
+title: Подключение к базе данных Azure для PostgreSQL с помощью Python
+description: В этом кратком руководстве представлен пример кода Python, который можно использовать для подключения к базе данных Azure для PostgreSQL и запроса данных из нее.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687325"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Python
 Это краткое руководство демонстрирует, как использовать [Python](https://python.org) для подключения к базе данных Azure для PostgreSQL. Здесь также используются инструкции по использованию инструкций SQL для вставки, обновления и удаления данных в базе данных с платформ Windows, Mac OS и Ubuntu Linux. В этой статье предполагается, что у вас уже есть опыт разработки на Python и вы только начали работу с базой данных Azure для PostgreSQL.

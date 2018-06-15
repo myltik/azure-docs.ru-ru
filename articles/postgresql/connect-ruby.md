@@ -1,6 +1,6 @@
 ---
-title: "Подключение к базе данных Azure для PostgreSQL с помощью Ruby"
-description: "В этом кратком руководстве представлен пример кода Ruby, который можно использовать для подключения к базе данных Azure для PostgreSQL и запроса данных из нее."
+title: Подключение к базе данных Azure для PostgreSQL с помощью Ruby
+description: В этом кратком руководстве представлен пример кода Ruby, который можно использовать для подключения к базе данных Azure для PostgreSQL и запроса данных из нее.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692425"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Ruby
 В этом кратком руководстве описывается, как подключиться к базе данных Azure для PostgreSQL с помощью приложения [Ruby](https://www.ruby-lang.org). Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на Ruby и вы только начали работу с базой данных Azure для PostgreSQL.

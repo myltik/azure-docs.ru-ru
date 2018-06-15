@@ -1,11 +1,11 @@
 ---
-title: "Отслеживание приложений в службе приложений Azure | Документация Майкрософт"
-description: "Узнайте, как выполнять мониторинг приложений в службе приложений Azure с помощью портала Azure."
+title: Отслеживание приложений в службе приложений Azure | Документация Майкрософт
+description: Узнайте, как выполнять мониторинг приложений в службе приложений Azure с помощью портала Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29573809"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Мониторинг приложений в службе приложений Azure
 [Служба приложений](http://go.microsoft.com/fwlink/?LinkId=529714) предоставляет встроенные средства мониторинга на [портале Azure](https://portal.azure.com).

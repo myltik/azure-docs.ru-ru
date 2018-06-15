@@ -1,11 +1,11 @@
 ---
-title: "Как использовать AMQP 1.0 с API служебной шины Java | Документация Майкрософт"
-description: "Как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP 1.0."
+title: Как использовать AMQP 1.0 с API служебной шины Java | Документация Майкрософт
+description: Как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044179"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
 AMQP 1.0 — это эффективный и надежный протокол обмена сообщениями на уровне соединения, который можно использовать для создания надежных кроссплатформенных приложений для обмена сообщениями.

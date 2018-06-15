@@ -1,6 +1,6 @@
 ---
-title: "Резервное копирование и восстановление в службе \"База данных Azure для PostgreSQL\""
-description: "Сведения об автоматическом резервном копировании и восстановлении данных сервера в службе \"База данных Azure для PostgreSQL\"."
+title: Резервное копирование и восстановление в службе "База данных Azure для PostgreSQL"
+description: Сведения об автоматическом резервном копировании и восстановлении данных сервера в службе "База данных Azure для PostgreSQL".
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693052"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Резервное копирование и восстановление в службе "База данных Azure для PostgreSQL"
 

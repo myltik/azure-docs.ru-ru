@@ -1,21 +1,21 @@
 ---
 title: Развертывание модулей на устройства IoT Edge с помощью расширения Интернета вещей для Azure CLI 2.0 | Документация Майкрософт
 description: Развертывание модулей на устройства IoT Edge с помощью расширения IoT для Azure CLI 2.0
-services: iot-edge
-keywords: ''
 author: chrissie926
-manager: timlt
+manager: ''
 ms.author: menchi
 ms.date: 03/02/2018
-ms.topic: article
-ms.service: iot-edge
-ms.custom: ''
+ms.topic: tutorial
 ms.reviewer: kgremban
-ms.openlocfilehash: 7bc0d0706385f2f3e101d06be3a2837341c331b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: iot-edge
+services: iot-edge
+md.custom: mvc
+ms.openlocfilehash: deee54fe5d11d6d1cf5485357f853b1cb078f96d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631587"
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Развертывание модулей на устройства IoT Edge с помощью расширения IoT для Azure CLI 2.0
 
@@ -68,7 +68,7 @@ Azure CLI 2.0 позволяет управлять ресурсами Цент�
 Создайте устройство IoT Edge:
 
    ```cli
-   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 --hub-name CLIDemoHub --edge-enabled
    ```
 
    ![Создание устройства IoT Edge][4]

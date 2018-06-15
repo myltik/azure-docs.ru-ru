@@ -1,11 +1,11 @@
 ---
-title: "Географически распределенное масштабирование с использованием сред службы приложений"
-description: "Узнайте, как горизонтально масштабировать приложения на основе географического распределения с помощью диспетчера трафика и сред службы приложения."
+title: Географически распределенное масштабирование с использованием сред службы приложений
+description: Узнайте, как горизонтально масштабировать приложения на основе географического распределения с помощью диспетчера трафика и сред службы приложения.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986789"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Географически распределенное масштабирование с использованием сред службы приложений
 ## <a name="overview"></a>Обзор
@@ -52,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 * **webfrontend1.fe1ase.p.azurewebsites.net** — экземпляр примера приложения, развернутый в первой среде службы приложений;
 * **webfrontend2.fe2ase.p.azurewebsites.net** — экземпляр примера приложения, развернутый во второй среде службы приложений;
-* **webfrontend3.fe3ase.p.azurewebsites.net:** — экземпляр примера приложения, развернутый в третьей среде службы приложений.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  — экземпляр примера приложения, развернутый в третьей среде службы приложений.
 
 Самый простой способ зарегистрировать несколько конечных точек службы приложений Azure, работающих в **одном и том же** регионе Azure, — использовать PowerShell для [поддержки диспетчера трафика в Azure Resource Manager][ARMTrafficManager].  
 

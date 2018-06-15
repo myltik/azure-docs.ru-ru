@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг в базе данных Azure для PostgreSQL"
-description: "В этой статье описываются метрики для мониторинга и создания предупреждений в службе \"База данных Azure для PostgreSQL\", включая ЦП, хранилище и статистику подключений."
+title: Мониторинг в базе данных Azure для PostgreSQL
+description: В этой статье описываются метрики для мониторинга и создания предупреждений в службе "База данных Azure для PostgreSQL", включая ЦП, хранилище и статистику подключений.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687614"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Мониторинг в базе данных Azure для PostgreSQL
 Мониторинг данных о серверах помогает устранять неполадки и оптимизировать рабочую нагрузку. База данных Azure для PostgreSQL предоставляет различные метрики, позволяющие понять действия ресурсов, поддерживающих сервер PostgreSQL. 

@@ -1,20 +1,19 @@
 ---
 title: Создание устройства прозрачного шлюза с помощью Azure IoT Edge | Документация Майкрософт
 description: Использование Azure IoT Edge для создания устройства прозрачного шлюза, которое может обрабатывать сведения для нескольких устройств
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/04/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0378cb2964a496a2bfe5a0bc08296cbab462a409
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-edge
+ms.openlocfilehash: fa4a2f6757a2a9dd114ea332b409759b0d4f4896
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170716"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630652"
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Создание устройства IoT Edge, которое работает как прозрачный шлюз — предварительная версия
 

@@ -1,8 +1,8 @@
 ---
-title: "Настройка взаимной проверки подлинности TLS для веб-приложения"
-description: "Узнайте, как настроить веб-приложение для использования проверки подлинности сертификата клиента на TLS."
+title: Настройка взаимной проверки подлинности TLS для веб-приложения
+description: Узнайте, как настроить веб-приложение для использования проверки подлинности сертификата клиента на TLS.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985769"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Настройка взаимной проверки подлинности TLS для веб-приложения
 ## <a name="overview"></a>Обзор

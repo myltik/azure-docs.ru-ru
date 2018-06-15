@@ -1,6 +1,6 @@
 ---
-title: "Библиотеки подключений для базы данных Azure для PostgreSQL"
-description: "В этой статье описывается несколько библиотек и драйверов, которые разработчики могут использовать при написании кода приложений для подключения и запроса базы данных Azure для PostgreSQL."
+title: Библиотеки подключений для базы данных Azure для PostgreSQL
+description: В этой статье описывается несколько библиотек и драйверов, которые разработчики могут использовать при написании кода приложений для подключения и запроса базы данных Azure для PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687012"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Библиотеки подключений для базы данных Azure для PostgreSQL
 В этой статье перечисляются библиотеки и драйверы, которые разработчики могут использовать при разработке приложений для подключения к базе данных Azure для PostgreSQL и выполнения запросов к ней.

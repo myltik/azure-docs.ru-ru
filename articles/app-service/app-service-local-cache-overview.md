@@ -1,13 +1,13 @@
 ---
-title: "Общие сведения о локальном кэше службы приложений Azure | Документация Майкрософт"
-description: "В этой статье описывается, как включить функцию локального кэша службы приложений Azure, а также как изменить его размер и запросить его состояние."
+title: Общие сведения о локальном кэше службы приложений Azure | Документация Майкрософт
+description: В этой статье описывается, как включить функцию локального кэша службы приложений Azure, а также как изменить его размер и запросить его состояние.
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985949"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Общие сведения о локальном кэше службы приложений Azure
 Содержимое веб-приложения Azure хранится в службе хранилища Azure; оно доступно в долгосрочном режиме в общей папке содержимого. Эта схема рассчитана на работу с различными приложениями и имеет следующие атрибуты:  

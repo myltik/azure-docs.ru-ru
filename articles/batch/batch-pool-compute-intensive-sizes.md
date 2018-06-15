@@ -1,12 +1,12 @@
 ---
-title: "Использование ресурсоемких виртуальных машин Azure в пакетной службе | Документация Майкрософт"
-description: "Узнайте, как воспользоваться преимуществами размеров виртуальных машин с поддержкой RDMA или графического процессора (GPU) в пулах пакетной службы Azure."
+title: Использование ресурсоемких виртуальных машин Azure в пакетной службе | Документация Майкрософт
+description: Узнайте, как воспользоваться преимуществами размеров виртуальных машин с поддержкой RDMA или графического процессора (GPU) в пулах пакетной службы Azure.
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762447"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Использование экземпляров с поддержкой RDMA или графического процессора (GPU) в пулах пакетной службы
 

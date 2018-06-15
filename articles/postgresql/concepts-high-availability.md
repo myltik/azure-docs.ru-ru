@@ -1,6 +1,6 @@
 ---
-title: "Основные понятия высокого уровня доступности в базе данных Azure для PostgreSQL"
-description: "Эта статья содержит сведения о высоком уровне доступности при использовании службы \"База данных Azure для PostgreSQL\""
+title: Основные понятия высокого уровня доступности в базе данных Azure для PostgreSQL
+description: Эта статья содержит сведения о высоком уровне доступности при использовании службы "База данных Azure для PostgreSQL"
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687088"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Основные понятия высокого уровня доступности в базе данных Azure для PostgreSQL
 Служба "База данных Azure для службы PostgreSQL" обеспечивает гарантированный высокий уровень доступности. Платные соглашения об уровне обслуживания обеспечивают доступность 99,99% в общедоступной версии. При использовании этой службы время простоя приложений практически отсутствует.

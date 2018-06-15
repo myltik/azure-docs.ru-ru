@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по Службе контейнеров Azure с DC/OS и Swarm"
+title: Документация по Службе контейнеров Azure с DC/OS и Swarm
 metadata:
   document_id: 
-  title: "Документация по Службе контейнеров Azure с DC/OS и Swarm. Руководства и справочник по API | Документация Майкрософт"
+  title: Документация по Службе контейнеров Azure с DC/OS и Swarm. Руководства и справочник по API | Документация Майкрософт
   meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -19,49 +19,50 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068412"
 abstract:
-  description: "Служба контейнеров Azure позволяет быстро развертывать готовые к работе кластеры DC/OS или Docker Swarm. Узнайте, как использовать службы контейнеров Azure с помощью наших шаблонов быстрого запуска, руководств и примеров."
+  description: Служба контейнеров Azure позволяет быстро развертывать готовые к работе кластеры DC/OS или Docker Swarm. Узнайте, как использовать службы контейнеров Azure с помощью наших шаблонов быстрого запуска, руководств и примеров.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Дополнительные сведения о развертывании кластеров DC/OS с помощью службы контейнеров Azure:"
+    text: 'Дополнительные сведения о развертывании кластеров DC/OS с помощью службы контейнеров Azure:'
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: "Создание кластера DC/OS"
+      text: Создание кластера DC/OS
       href: /azure/container-service/container-service-dcos-quickstart
     - image:
         src: https://docs.microsoft.com/media/logos/logo_docker.svg
-      text: "Создание кластера Docker Swarm"
+      text: Создание кластера Docker Swarm
       href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как развертывать и обновлять приложения, а также управлять ими в кластере Kubernetes Службы контейнеров Azure."
+    text: Узнайте, как развертывать и обновлять приложения, а также управлять ими в кластере Kubernetes Службы контейнеров Azure.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/container-service/container-service-dcos-manage-tutorial\">Создание кластера DC/OS Службы контейнеров Azure и управление им</a>"
-    - html: "<a href=\"/azure/container-service/container-service-load-balancing\">Распределение нагрузки контейнеров в кластере DC/OS в Службе контейнеров Azure</a>"
-    - html: "<a href=\"/azure/container-service/container-service-dcos-fileshare\">Создание и подключение файлового ресурса к кластеру DC/OS</a>"
-    - html: "<a href=\"/azure/container-service/container-service-dcos-acr\">Использование реестра контейнеров Azure с кластером DC/OS для развертывания приложения</a>"
-- title: "Примеры"
+    - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Создание кластера DC/OS Службы контейнеров Azure и управление им</a>
+    - html: <a href="/azure/container-service/container-service-load-balancing">Распределение нагрузки контейнеров в кластере DC/OS в Службе контейнеров Azure</a>
+    - html: <a href="/azure/container-service/container-service-dcos-fileshare">Создание и подключение файлового ресурса к кластеру DC/OS</a>
+    - html: <a href="/azure/container-service/container-service-dcos-acr">Использование реестра контейнеров Azure с кластером DC/OS для развертывания приложения</a>
+- title: Примеры
   items:
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: "<a href=\"/azure/container-service/cli-samples\">интерфейс командной строки Azure</a>"
-- title: "Справочные материалы"
+    - html: <a href="/azure/container-service/cli-samples">интерфейс командной строки Azure</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/acs\">интерфейс командной строки Azure</a></p>"
+    - title: Командная строка
+      html: <p><a href="/cli/azure/acs">интерфейс командной строки Azure</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-service">REST API</a></p>

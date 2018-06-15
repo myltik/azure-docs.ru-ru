@@ -1,8 +1,8 @@
 ---
-title: "Задание и получение свойств и метаданных объектов в службе хранилища Azure | Документация Майкрософт"
-description: "Хранение пользовательских метаданных для объектов в службе хранилища Azure, а также задание и получение свойств системы."
+title: Задание и получение свойств и метаданных объектов в службе хранилища Azure | Документация Майкрософт
+description: Хранение пользовательских метаданных для объектов в службе хранилища Azure, а также задание и получение свойств системы.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056059"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Задание и получение свойств и метаданных
 

@@ -1,6 +1,6 @@
 ---
-title: "Настройка параметров службы \"База данных Azure для PostgreSQL\""
-description: "В этой статье описывается настройка параметров службы в базе данных Azure для PostgreSQL с помощью командной строки CLI Azure."
+title: Настройка параметров службы "База данных Azure для PostgreSQL"
+description: В этой статье описывается настройка параметров службы в базе данных Azure для PostgreSQL с помощью командной строки CLI Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -15,6 +15,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691399"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Настройка параметров конфигурации сервера с помощью Azure CLI
 С помощью интерфейса командной строки (Azure CLI) можно вывести список параметров конфигурации для сервера Azure PostgreSQL, а также отобразить и обновить их. Только подмножество конфигураций ядра предоставляется на уровне сервера и может быть изменено. 

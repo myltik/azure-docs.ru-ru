@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
-description: "Сведения о создании виртуальной машины Linux с использованием классической модели развертывания."
-title: "Документация по виртуальным машинам Azure для Linux (классическая модель развертывания) | Документация Майкрософт"
+description: Сведения о создании виртуальной машины Linux с использованием классической модели развертывания.
+title: Документация по виртуальным машинам Azure для Linux (классическая модель развертывания) | Документация Майкрософт
 services: virtual-machines-linux
 author: czeumault
 manager: carolz
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,4 +17,5 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072849"
 ---

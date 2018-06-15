@@ -1,11 +1,11 @@
 ---
-title: "Создание сложных расписаний и расширенного повторения с помощью планировщика Azure"
-description: "Узнайте, как создавать сложные расписания и расширенное повторение с помощью планировщика Azure."
+title: Создание сложных расписаний и расширенного повторения с помощью планировщика Azure
+description: Узнайте, как создавать сложные расписания и расширенное повторение с помощью планировщика Azure.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692340"
 ---
 # <a name="build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Создание сложных расписаний и расширенного повторения с помощью планировщика Azure
 

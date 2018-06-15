@@ -1,6 +1,6 @@
 ---
-title: "Правила брандмауэра сервера базы данных Azure для PostgreSQL"
-description: "В этой статье описываются правила брандмауэра для сервера службы \"База данных Azure для PostgreSQL\"."
+title: Правила брандмауэра сервера базы данных Azure для PostgreSQL
+description: В этой статье описываются правила брандмауэра для сервера службы "База данных Azure для PostgreSQL".
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29689893"
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Правила брандмауэра сервера базы данных Azure для PostgreSQL
 База данных Azure для брандмауэра сервера PostgreSQL запрещает любой доступ к серверу базы данных, пока вы не укажете компьютеры, у которых есть разрешение на доступ. Брандмауэр предоставляет доступ к серверу на основе исходного IP-адреса каждого запроса.

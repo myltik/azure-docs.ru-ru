@@ -1,11 +1,11 @@
 ---
-title: "Восстановление задания экспорта инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт"
-description: "Узнайте, как восстановить задание экспорта, созданное и выполняемое с помощью службы импорта и экспорта Azure."
+title: Восстановление задания экспорта инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт
+description: Узнайте, как восстановить задание экспорта, созданное и выполняемое с помощью службы импорта и экспорта Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059679"
 ---
 # <a name="repairing-an-export-job"></a>Исправление задания экспорта
 После завершения задания экспорта вы можете локально выполнить следующие задачи с помощью инструмента импорта и экспорта Microsoft Azure:  
