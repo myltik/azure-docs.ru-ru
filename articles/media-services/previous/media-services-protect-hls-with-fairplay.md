@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786313"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Защита содержимого HLS с помощью Apple FairPlay или Microsoft PlayReady
 Службы мультимедиа Azure позволяют использовать динамическое шифрование содержимого HTTP Live Streaming (HLS) в следующих форматах:  

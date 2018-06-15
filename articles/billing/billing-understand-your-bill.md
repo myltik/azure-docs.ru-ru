@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204897"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Расшифровка счета за использование Microsoft Azure
 Чтобы расшифровать счет Azure, сравните счет и файл с подробными данными о ежедневном использовании, а также отчеты об управлении затратами на портале Azure.

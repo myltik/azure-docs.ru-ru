@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781893"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Подключение диска данных к виртуальной машине в Azure DevTest Labs и его отключение
 Служба [Управляемые диски Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) управляет учетными записями хранения, которые связаны с дисками данных виртуальной машины. Пользователь подключает новый диск данных к виртуальной машине, указывает необходимый тип и размер диска, а Azure автоматически создает диск и управляет им. Созданный диск данных можно отключить от виртуальной машины для последующего переподключения к той же виртуальной машине или подключения к другой, принадлежащей тому же пользователю.

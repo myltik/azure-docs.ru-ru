@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204213"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Настройка правил брандмауэра веб-приложения с помощью Azure CLI 2.0
 

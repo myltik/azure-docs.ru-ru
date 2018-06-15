@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796858"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Сопоставление полей в индексаторах Поиска Azure
 При использовании индексаторов поиска Azure может возникнуть ситуация, когда входные данные не вписываются в схему целевого индекса. В таком случае можно преобразовать данные в желаемый формат, используя **сопоставления полей** .

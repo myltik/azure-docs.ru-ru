@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794530"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Задание параметров DNS в файле конфигурации виртуальной сети
 Файл конфигурации сети содержит два элемента, позволяющих задавать параметры службы доменных имен (DNS): **DnsServers** и **DnsServerRef**. Список DNS-серверов можно добавить, задав их IP-адреса и ссылочные имена в элементе **DnsServers** . После этого в элементе **DnsServerRef** можно указать записи DNS-серверов из элемента DnsServers, которые будут применяться для различных сетевых сайтов в виртуальной сети.

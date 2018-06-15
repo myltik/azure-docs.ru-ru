@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790371"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Обновление пакета SDK управления .NET для службы поиска Azure до версии 2
 Если вы используете версию 1.0.2 [пакета SDK управления .NET для службы поиска Azure](https://aka.ms/search-mgmt-sdk) или более раннюю версию, то эта статья поможет вам обновить приложение для использования версии 2.

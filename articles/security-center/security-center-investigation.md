@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776488"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Изучение инцидентов и оповещений в центре безопасности Azure (предварительная версия)
 Этот документ поможет вам использовать функцию изучения в центре безопасности Azure для изучения инцидентов и оповещений системы безопасности.

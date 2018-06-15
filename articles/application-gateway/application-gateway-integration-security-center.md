@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205049"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Общие сведения об интеграции шлюза приложений с центром безопасности Azure
 
