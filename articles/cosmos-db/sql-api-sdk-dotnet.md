@@ -2,24 +2,22 @@
 title: API-интерфейс, пакет SDK и ресурсы для SQL .NET (Azure Cosmos DB) | Документация Майкрософт
 description: Сведения об API и пакетах SDK для SQL .NET, в том числе даты выхода, даты снятия с учета и изменения, внесенные в каждую версию пакета SDK для .NET для Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
 manager: kfile
 editor: cgronlun
-ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e96c57151899a7365431d0f6f82382d56d81a40
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cd460d92430f8ab011e90b969495972b744162df
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798718"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске для API SQL
 > [!div class="op_single_selector"]
@@ -55,8 +53,8 @@ ms.lasthandoff: 05/07/2018
 ### <a name="a-name12201220"></a><a name="1.22.0"/>1.22.0
 
 * Добавлено свойство ConsistencyLevel в FeedOptions.
-* Добавлено свойство JsonSerializerSettings в RequestOptions и FeedOptions.
-* Добавлено свойство EnableReadRequestsFallback в ConnectionPolicy.
+* Добавлен класс JsonSerializerSettings в RequestOptions и FeedOptions.
+* Добавлено свойство EnableReadRequestsFallback для ConnectionPolicy.
 
 ### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
 
