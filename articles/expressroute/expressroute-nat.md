@@ -1,11 +1,11 @@
 ---
-title: "Требования NAT к каналам ExpressRoute | Документация Майкрософт"
-description: "На этой странице подробно описаны требования по настройке NAT для каналов ExpressRoute и управлению им."
+title: Требования NAT к каналам ExpressRoute | Документация Майкрософт
+description: На этой странице подробно описаны требования по настройке NAT для каналов ExpressRoute и управлению им.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23409271"
 ---
 # <a name="expressroute-nat-requirements"></a>Требования ExpressRoute к NAT
 Для подключения к облачным службам Майкрософт с помощью ExpressRoute необходима настройка и управление NAT. Некоторые поставщики услуг подключения предлагают настройку NAT как управляемой службы и управление этой службой. Узнайте у поставщика услуг подключения, предоставляет ли он такую услугу. В противном случае необходимо выполнить требования, описанные ниже. 

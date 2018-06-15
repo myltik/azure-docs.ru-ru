@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426292"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Запуск и остановка пакета средств разработки Azure Stack (ASDK)
 Не рекомендуется обычный перезапуск главного компьютера ASDK. Следуйте инструкциям по корректному завершению работы и перезапуску служб ASDK, приведенным в этой статье. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30240230"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Масштабирование кэша Redis для Azure
 Кэш Redis для Azure предлагает разные варианты кэша, которые обеспечивают гибкость в выборе размера и функций кэша. После создания кэша можно масштабировать его размер и ценовые категории при изменении требований приложения. В этой статье показано, как масштабировать кэш на портале Azure и с помощью инструментов, таких как Azure PowerShell и Azure CLI.

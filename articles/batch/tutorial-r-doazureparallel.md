@@ -16,6 +16,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30315456"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Руководство. Параллельное моделирование на R с помощью пакетной службы Azure 
 

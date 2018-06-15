@@ -14,6 +14,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312979"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Начало работы с Azure Stream Analytics для обработки данных с устройств IoT
 В этом руководстве вы узнаете, как создать логическую схему обработки потоков для сбора данных с устройств Интернета вещей. Мы рассмотрим сценарии использования Интернета вещей из реальной жизни, чтобы продемонстрировать, как быстро создать решение без лишних затрат.

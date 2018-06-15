@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/24/2018
+ms.locfileid: "30323627"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Хранилище, избыточное в пределах зоны (ZRS). Высокодоступные приложения для службы хранилища Azure
 

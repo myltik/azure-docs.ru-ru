@@ -1,11 +1,11 @@
 ---
-title: "Регистрация запроса в службу поддержки с помощью диспетчера устройств StorSimple | Документация Майкрософт"
-description: "В статье описываются возможности диагностики диспетчера устройств StorSimple и способы его использования для устранения неполадок в виртуальном массиве StorSimple."
+title: Регистрация запроса в службу поддержки с помощью диспетчера устройств StorSimple | Документация Майкрософт
+description: В статье описываются возможности диагностики диспетчера устройств StorSimple и способы его использования для устранения неполадок в виртуальном массиве StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110002"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Использование службы диспетчера устройств StorSimple для регистрации запроса в службу поддержки для виртуального массива StorSimple
 
