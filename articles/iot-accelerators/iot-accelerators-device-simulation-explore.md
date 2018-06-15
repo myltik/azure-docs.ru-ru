@@ -1,22 +1,19 @@
 ---
 title: Начало работы с решением симулятора устройства в Azure | Документация Майкрософт
 description: Решение для моделирования акселераторов решений для Интернета вещей — это инструмент, который помогает в разработке и тестировании решения Интернета вещей. Служба моделирования — это отдельное предложение, которое можно использовать в сочетании с другими акселераторами решений или в собственных настраиваемых решениях.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627131"
 ---
 # <a name="device-simulation-walkthrough"></a>Руководство по симуляторам устройств
 
@@ -39,7 +36,7 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="configuring-device-simulation"></a>Настройка симулятора устройства
 
-Симулятор устройств можно полностью настроить и запустить с панели мониторинга. Откройте панель мониторинга на странице [Подготовленные решения](https://www.azureiotsuite.com/) акселераторов решений для Интернета вещей. Щелкните **Запустить** в новом развертывании симулятора устройств.
+Симулятор устройств можно полностью настроить и запустить с панели мониторинга. Откройте панель мониторинга на странице [Подготовленные решения](https://www.azureiotsolutions.com/) акселераторов решений для Интернета вещей. Щелкните **Запустить** в новом развертывании симулятора устройств.
 
 ### <a name="target-iot-hub"></a>Целевой Центр Интернета вещей
 

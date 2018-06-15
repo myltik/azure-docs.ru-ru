@@ -4,7 +4,7 @@ description: Перемещение или миграция служб BizTalk A
 services: logic-apps
 documentationcenter: ''
 author: jonfancey
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 846386172c0221c217430e62c8560484f799fa7f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299551"
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Перемещение из служб BizTalk в Azure Logic Apps
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/05/2018
 
 В следующей таблице представлено сопоставление возможностей служб BizTalk и Logic Apps.
 
-| Службы BizTalk   | приложения логики;            | Назначение                      |
+| Службы BizTalk   | Logic Apps            | Назначение                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Соединитель          | Соединитель             | Отправка и получение данных   |
 | Мост             | приложение логики;             | Обработчик конвейера           |

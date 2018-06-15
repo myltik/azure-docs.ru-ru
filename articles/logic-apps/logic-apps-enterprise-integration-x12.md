@@ -1,11 +1,11 @@
 ---
-title: "Использование сообщений X12 для интеграции с предприятием B2B в Azure Logic Apps | Документация Майкрософт"
-description: "Обмен сообщениями X12 в формате EDI для интеграции с предприятием B2B с помощью Azure Logic Apps"
+title: Использование сообщений X12 для интеграции с предприятием B2B в Azure Logic Apps | Документация Майкрософт
+description: Обмен сообщениями X12 в формате EDI для интеграции с предприятием B2B с помощью Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299085"
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Обмен сообщениями X12 для интеграции с предприятием с помощью приложений логики
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 02/27/2018
 
    ![Выбор плитки "Соглашения"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. В разделе **Соглашения** нажмите кнопку **Добавить**.
+5. В разделе **Соглашения** щелкните **Добавить**.
 
    ![Кнопка "Добавить"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 

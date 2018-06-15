@@ -300,7 +300,7 @@ Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 
 Рекомендации по реализации межсерверных сценариев см. в следующих источниках:
 
-- [Azure Active Directory для разработчиков](https://aka.ms/aaddev)
+- [Azure Active Directory для](https://aka.ms/aaddev) разработчиков
 - [Calling web APIs in a daemon or long-running process](https://github.com/Azure-Samples/active-directory-dotnet-daemon) (Вызов веб-API в длительном процессе или процессе с использованием управляющей программы)
 - [Authenticating to Azure AD in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) (Проверка подлинности приложений управляющей программы в Azure AD с помощью сертификатов)
 

@@ -1,25 +1,21 @@
 ---
 title: Управление обменом сообщениями между устройством и облаком Центра Интернета вещей Azure с помощью обозревателя Центра Интернета вещей | Документация Майкрософт
 description: Узнайте, как с помощью интерфейса командной строки обозревателя Центра Интернета вещей отслеживать сообщения, отправляемые с устройства в облако (D2C), и отправлять сообщения из облака на устройство (C2D) в Центре Интернета вещей Azure.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: обозреватель Центра Интернета вещей, обмен сообщениями между облаком и устройством, отправка сообщений из облака на устройство с помощью Центра Интернета вещей
-ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: ed15f7749676d8a7f0c2ef8b23e238f7bc90e341
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd8456efb4d8e0b84695f97d379a1ea83e19aba2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634239"
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Использование обозревателя Центра Интернета вещей для обмена сообщениями между устройством и Центром Интернета вещей
 

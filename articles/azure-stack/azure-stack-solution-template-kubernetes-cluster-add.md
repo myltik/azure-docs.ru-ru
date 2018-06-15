@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f74d378359ec66b76fd53b95ab898f1cec9b07f7
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 0ba0e1f3d9e0f1cbb6ba4109a21fc29dc41df5fc
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34009577"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603459"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Добавление кластера Kubernetes в Azure Stack Marketplace
 
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 > [!note]  
-> Kubernetes служб контейнеров Azure (ACS) в Azure Stack доступен в виде закрытой предварительной версии. Чтобы запросить доступ к элементу Kubernetes в Marketplace, необходимому для выполнения инструкций в этой статье, [отправьте запрос на получение доступа](https://aka.ms/azsk8).
+> Kubernetes для Службы контейнеров Azure (ACS) в Azure Stack доступен в закрытой предварительной версии. Чтобы запросить доступ к элементу Kubernetes в Marketplace, необходимому для выполнения инструкций в этой статье, [отправьте запрос на получение доступа](https://aka.ms/azsk8).
 
 Кластер Kubernetes можно предлагать пользователям в качестве элемента Marketplace. Развертывание Kubernetes выполняется за одну согласованную операцию.
 

@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849514"
 ---
 # <a name="asdk-administration-basics"></a>Основы администрирования ASDK 
 Если вы еще не знакомы с администрированием Пакета средств разработки Azure Stack (ASDK), вам необходимо знать несколько моментов. В этом руководстве описаны обязанности оператора Azure Stack в среде оценки и методы, позволяющие быстро обеспечить высокую производительность тестовых пользователей.
@@ -64,5 +65,5 @@ Azure Stack использует Azure Resource Manager в качестве ос
 > Так как ASDK предлагается как среда для оценки, служба поддержки корпорации Майкрософт не предоставляет для него официальную поддержку.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Развертывание пакета ASDK](asdk-deploy.md)
+[Развертывание пакета ASDK](asdk-install.md)
 

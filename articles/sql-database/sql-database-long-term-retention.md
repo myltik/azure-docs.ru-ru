@@ -6,16 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b2f3c454ba84c7b892096cc42dcbe2706ab6159f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366068"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648298"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Хранение резервных копий базы данных SQL Azure до 10 лет
 
@@ -59,7 +59,7 @@ W = 12 недель (84 дня), M = 12 месяцев (365 дней), Y = 10 л
 
 > [!NOTE]
 1. Копии LTR создаются службой хранилища Azure, и поэтому процесс копирования не влияет на производительность имеющейся базы данных.
-2. Политика применяется к будущим резервным копиям. (Например, если параметр WeekOfYear указан при настройке политики, то первая резервная копия LTR создается в следующему году.) 
+2. Политика применяется к будущим резервным копиям. (например, если параметр WeekOfYear указан при настройке политики, то первая резервная копия LTR создается в следующему году.) 
 3. Восстановление базы данных из хранилища долгосрочного хранения (LTR) можно выполнить, выбрав необходимую резервную копию по метке времени.   Базу данных можно восстановить на любой доступный сервер с той же подпиской, что и у исходной базы данных. 
 > 
 

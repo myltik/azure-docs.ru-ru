@@ -1,19 +1,19 @@
 ---
 title: Создание правил события и управление ими в приложении Azure IoT Central | Документация Майкрософт
 description: Правила события Azure IoT Central позволяют отслеживать устройства практически в реальном времени и автоматически вызывать действия (например, отправлять сообщение электронной почты) при срабатывании правила.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201597"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628374"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Создание правила события и настройка уведомлений в приложении Azure IoT Central
 

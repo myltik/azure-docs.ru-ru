@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: b406a0cd3e5176649b33d6ad8f41facb7043952d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6d8eedbbf4a682443e73ecb9cf9496f3cdd1cd9d
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837207"
 ---
 # <a name="business-understanding"></a>Коммерческий аспект.
 
@@ -80,7 +82,7 @@ ms.lasthandoff: 05/03/2018
 Ниже представлены некоторые примеры конечных результатов для этого этапа.
 
    * [Учредительный документ.](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md) Стандартный шаблон предоставляется в определении структуры проекта TDSP. Учредительный документ динамичен. По мере появления новых данных и изменения бизнес-требований шаблон обновляется в ходе выполнения проекта. Важно постоянно пересматривать этот документ, добавляя подробности по мере обнаружения данных. Работайте над обновлением вместе с клиентом и другими заинтересованными сторонами, четко объясняя им причины вносимых изменений.  
-   * [Источники данных.](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources) Раздел **источников необработанных данных** в отчете **определения данных**, который находится в папке **Data Report** в проекте TDSP, содержит источники данных. В этом разделе указаны исходное и целевое расположения для необработанных данных. На более поздних этапах вы добавите новые сведения, например сценарии для переноса данных в аналитическую среду.  
+   * [Источники данных.](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources) Раздел **источников необработанных данных** в отчете **определения данных**, который находится в папке **Data Report** в проекте TDSP, содержит источники данных. В этом разделе указаны исходное и целевое расположения для необработанных данных. На более поздних этапах вы добавите новые сведения, например сценарии для переноса данных в аналитическую среду.  
    * [Словари данных.](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries) В этом документе содержатся описания данных, предоставленных клиентом. Эти описания содержат сведения о схеме (типы данных, сведения о правилах проверки, если таковые имеются) и диаграммы отношений сущностей, если таковые имеются.
 
 ## <a name="next-steps"></a>Дополнительная информация

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361977"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627029"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
 
@@ -62,7 +62,7 @@ HDInsight работает со множеством компонентов Hado
     1. Войдите на [портале Azure](https://portal.azure.com).
     2. Щелкните **Подписка** в меню слева (вы увидите значок ключа желтого цвета). Отобразится список подписок.
     3. Щелкните подписку, которую вы используете для создания кластеров. 
-    4. Щелкните **Мои разрешения**.  Вы увидите свою [роль](../role-based-access-control/overview.md#built-in-roles) в подписке. Создавать кластер HDInsight могут пользователи с ролью не ниже участника.
+    4. Щелкните **Мои разрешения**.  Вы увидите свою [роль](../role-based-access-control/built-in-roles.md) в подписке. Создавать кластер HDInsight могут пользователи с ролью не ниже участника.
 
 - Использование существующей группы ресурсов:
 

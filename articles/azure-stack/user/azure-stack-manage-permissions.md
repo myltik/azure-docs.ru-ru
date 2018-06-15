@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075227"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808151"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Управление доступом к ресурсам с помощью управления доступом на основе ролей Azure Stack
 
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-Azure Stack поддерживает управление доступом на основе ролей (RBAC), ту же [модель безопасности для управления доступом](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview), которую использует Microsoft Azure. RBAC можно использовать для управления доступом пользователя, группы или приложения к подпискам, ресурсам и службам.
+Azure Stack поддерживает управление доступом на основе ролей (RBAC), ту же [модель безопасности для управления доступом](https://docs.microsoft.com/azure/role-based-access-control/overview), которую использует Microsoft Azure. RBAC можно использовать для управления доступом пользователя, группы или приложения к подпискам, ресурсам и службам.
 
 ## <a name="basics-of-access-management"></a>Основы управления доступом
 
-Управление доступом на основе ролей предоставляет средства детального управления доступом, которые можно использовать для защиты вашей среды. Вы предоставляете пользователям именно те разрешения, которые им необходимы, назначая им роль RBAC в определенной области. Областью назначения роли может быть подписка, группа ресурсов или отдельный ресурс. Дополнительные сведения об управлении доступом см. в разделе [Управление доступом на основе ролей на портале Azure](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+Управление доступом на основе ролей предоставляет средства детального управления доступом, которые можно использовать для защиты вашей среды. Вы предоставляете пользователям именно те разрешения, которые им необходимы, назначая им роль RBAC в определенной области. Областью назначения роли может быть подписка, группа ресурсов или отдельный ресурс. Дополнительные сведения об управлении доступом см. в разделе [Управление доступом на основе ролей на портале Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ### <a name="built-in-roles"></a>Встроенные роли
 
@@ -60,7 +60,7 @@ Azure Stack поддерживает управление доступом на 
 * Вы назначили пользователю TestUser-A роль "Читатель" для подписки Subscription-1.
 * Вы назначили пользователю TestUser-A роль "Владелец" для виртуальной машины TestVM-1.
 
-В статье [Назначение ролей](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) Azure приведены подробные сведения о просмотре, назначении и удалении ролей.
+В статье [Назначение ролей](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure приведены подробные сведения о просмотре, назначении и удалении ролей.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Иерархия ресурсов и наследование прав доступа
 
@@ -82,7 +82,7 @@ Azure Stack поддерживает управление доступом на 
 * Вы назначили пользователю TestUser-A роль "Читатель" для подписки Subscription-1.
 * Вы назначили пользователю TestUser-A роль "Владелец" для виртуальной машины TestVM-1.
 
-В статье [Назначение ролей](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) Azure приведены подробные сведения о просмотре, назначении и удалении ролей.
+В статье [Назначение ролей](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure приведены подробные сведения о просмотре, назначении и удалении ролей.
 
 ## <a name="set-access-permissions-for-a-user"></a>Настройка прав доступа для пользователя
 

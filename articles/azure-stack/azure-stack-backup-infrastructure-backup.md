@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 8c8037fe3936485082299250e603b2f3ea3859b9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34822961"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Резервное копирование и восстановление данных для Azure Stack с помощью службы резервного копирования инфраструктуры
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 05/12/2018
 - **Учетные данные**  
   Требуются учетная запись и учетные данные пользователя домена. Например, вы можете использовать учетные данные администратора Azure Stack.
 - **Ключ шифрования**  
-  С помощью этого ключа шифруются резервные копии. Обязательно храните его в безопасном расположении. После первой установки этого ключа или его смены в будущем он не будет отображаться в этом интерфейсе. Инструкции по созданию общего ключа см. в скриптах в руководстве по [включению резервного копирования для Azure Stack с помощью PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  С помощью этого ключа шифруются резервные копии. Обязательно храните его в безопасном расположении. После первой установки этого ключа или его смены в будущем он не будет отображаться в этом интерфейсе. Инструкции по созданию общего ключа см. в скриптах в руководстве по [включению резервного копирования для Azure Stack с помощью PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

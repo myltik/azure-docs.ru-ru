@@ -1,3 +1,20 @@
+---
+title: включение файла
+description: включение файла
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670172"
+---
 ## <a name="provision-the-solution"></a>Подготовка решения
 
 Если вы еще не подготовили предварительно настроенное решение для удаленного мониторинга в своей учетной записи, то выполните следующие действия:
@@ -21,7 +38,7 @@
 
 Есть ли сведения, которые вы ожидали увидеть и которые не указаны для вашего решения? Сообщите нам о своих предложениях на сайте [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-v1-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-v1-faq.md

@@ -2,22 +2,21 @@
 title: API-интерфейс, пакет SDK и ресурсы .NET для библиотеки BulkExecutor (Azure Cosmos DB) | Документация Майкрософт
 description: Сведения об API и пакетах SDK .NET для библиотеки BulkExecutor, в том числе даты выхода, даты снятия с учета и изменения, внесенные в каждую версию пакета SDK .NET для BulkExecutor в Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: tknandu
 manager: kfile
 editor: cgronlun
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 52dcd8497a6dad2885a27197f873de4603378501
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 203e12ddc220651653625fc596eafa2e8365e4c1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797749"
 ---
 # <a name="net-bulkexecutor-library-download-information"></a>Библиотека .NET BulkExecutor — информация о скачивании 
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 05/07/2018
 
 <table>
 
-<tr><td>**Описание**</td><td>Библиотека BulkExecutor позволяет клиентским приложениям выполнять массовые операции в учетных записях Azure Cosmos DB. Библиотека BulkExecutor предоставляет пространства имен BulkImport и BulkUpdate. Модуль BulkImport обеспечивает оптимизированный массовый прием документов, чтобы пропускная способность, подготовленная для коллекции, использовалась в максимальном объеме. Модуль BulkUpdate позволяет выполнять массовое обновление существующих данных в контейнерах Azure Cosmos DB в качестве исправлений.</td></tr>
+<tr><td>**Описание**</td><td>Библиотека BulkExecutor позволяет клиентским приложениям выполнять массовые операции в учетных записях Azure Cosmos DB. Библиотека BulkExecutor предоставляет пространства имен BulkImport и BulkUpdate. Модуль BulkImport может оптимизировать массовый прием документов, обеспечивая использование максимального объема пропускной способности, подготовленной для коллекции. Модуль BulkUpdate позволяет выполнять массовое обновление существующих данных в контейнерах Azure Cosmos DB в качестве исправлений.</td></tr>
 
 <tr><td>**Скачивание пакета SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
 
