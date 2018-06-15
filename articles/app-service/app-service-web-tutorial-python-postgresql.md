@@ -17,6 +17,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203516"
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Руководство. Создание веб-приложения Python с подключением к базе данных PostgreSQL в Azure
 

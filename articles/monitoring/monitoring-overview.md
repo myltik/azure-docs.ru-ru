@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30266930"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Мониторинг приложений и ресурсов в Azure
 

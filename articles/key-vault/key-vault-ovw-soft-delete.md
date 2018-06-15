@@ -11,6 +11,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262693"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Общие сведения об обратимом удалении в Azure Key Vault
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894646"
 ---
 # <a name="failover-in-site-recovery"></a>Отработка отказа в Site Recovery
 В этой статье описывается отработка отказа для виртуальных машин и физических серверов, защищаемых службой Site Recovery.

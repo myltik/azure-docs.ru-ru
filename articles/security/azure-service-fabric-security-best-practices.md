@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894135"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Рекомендации по безопасности Azure Service Fabric
 Развертывание приложения в Azure — быстрое, удобное и экономичное. Прежде чем развертывать облачное приложение в рабочей среде, ознакомьтесь с нашим списком важных рекомендаций по реализации защищенных кластеров в приложении.

@@ -1,24 +1,19 @@
 ---
 title: Общие сведения о языке запросов Центра Интернета вещей Azure | Документация Майкрософт
 description: Руководство разработчика. Описание похожего на SQL языка запросов Центра Интернета вещей, который используется для получения сведений о двойниках устройств и модулей, а также заданиях из Центра Интернета вещей.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 663277bfe347f42fa7ee241f5acddf4a3dca9268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633518"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Язык запросов Центра Интернета вещей для двойников устройств и двойников модулей, заданий и маршрутизации сообщений
 
@@ -29,7 +24,7 @@ ms.lasthandoff: 05/03/2018
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-and-module-twin-queries"></a>Запросы двойников устройств и двойников модулей
+## <a name="device-and-module-twin-queries"></a>Запросы двойников устройств и модулей
 [Двойники устройств][lnk-twins] и двойники модулей могут содержать произвольные объекты JSON в качестве тегов и свойств. Центр Интернета вещей позволяет выполнять запросы к двойникам устройств и двойникам модулей как к одному документу JSON, содержащему все сведения о двойниках.
 Предположим, что двойники устройств в Центре Интернета вещей имеют следующую структуру (структура двойников модулей будет выглядеть так же и содержать элемент moduleId):
 

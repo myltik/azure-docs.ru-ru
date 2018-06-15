@@ -2,15 +2,17 @@
 title: Функции запроса данных клиента
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
-ms.openlocfilehash: 28cadac33c4e73e6158f878b3c79ff09b4765fff
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+services: iot-dps
+ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361675"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629326"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Сводка о возможностях запроса данных клиента
 

@@ -1,19 +1,19 @@
 ---
-title: "Общие сведения о среде выполнения Azure IoT Edge | Документация Майкрософт"
-description: "Узнайте о среде выполнения Azure IoT Edge и возможностях, которые она предоставляет для пограничных устройств."
-services: iot-edge
-keywords: 
+title: Общие сведения о среде выполнения Azure IoT Edge | Документация Майкрософт
+description: Узнайте о среде выполнения Azure IoT Edge и возможностях, которые она предоставляет для пограничных устройств.
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+services: iot-edge
+ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632080"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Общие сведения о среде выполнения Azure IoT Edge и ее архитектуре (предварительная версия)
 
