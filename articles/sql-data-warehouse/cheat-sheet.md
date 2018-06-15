@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190416"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Памятка для хранилища данных SQL Azure
 В этой памятке предоставляются полезные советы и рекомендации по созданию решений хранилища данных SQL Azure. Прежде чем приступить к работе, подробно ознакомьтесь с каждым из шагов в записи блога [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Шаблоны и антишаблоны рабочих нагрузок хранилища данных SQL Azure), где объясняется, что такое хранилище данных SQL и чем оно не является.

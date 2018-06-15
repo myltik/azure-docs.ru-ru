@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181826"
 ---
 # <a name="azure-status"></a>Состояние Azure
 [Состояние Azure](https://azure.microsoft.com/status/) — это глобальное представление работоспособности служб Azure. Просматривая состояние Azure, можно получать актуальную информацию о доступности служб. Просматривать состояние Azure, а также всех служб, сообщающих о своей работоспособности, могут все пользователи. 

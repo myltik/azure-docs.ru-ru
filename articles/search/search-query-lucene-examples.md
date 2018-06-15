@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190096"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Примеры синтаксиса запросов Lucene для создания запросов в службе поиска Azure
 При создании запросов для поиска Azure можно использовать [простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) по умолчанию или альтернативное [средство синтаксического анализа запросов Lucene в службе поиска Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Средство синтаксического анализа запросов Lucene поддерживает более сложные конструкции запросов, а именно: запросы, относящиеся к полям, поиск нечетких соответствий, поиск с учетом расположения, повышение приоритета слов и поиск по регулярным выражениям.

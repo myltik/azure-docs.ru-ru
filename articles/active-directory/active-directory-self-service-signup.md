@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760295"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Что такое самостоятельная регистрация для Azure Active Directory?
 В этой статье объясняется, что такое самостоятельная регистрация и как ее использовать в Azure Active Directory (Azure AD). Если требуется сменить доменное имя из неуправляемого клиента Azure AD, то см. статью [Смена неуправляемого каталога от имени администратора в Azure Active Directory](domains-admin-takeover.md).

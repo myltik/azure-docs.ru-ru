@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168288"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Сбор данных производительности приложений Linux в Log Analytics 
 В этой статье предоставлены подробные сведения о настройке сбора счетчиков производительности для конкретных приложений для [агента OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).  В статье используются следующие приложения:  
