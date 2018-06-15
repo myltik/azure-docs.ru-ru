@@ -1,24 +1,20 @@
 ---
-title: "Начало работы с подключением физических устройств к Центру Интернета вещей Azure | Документация Майкрософт"
-description: "Узнайте, как подключать физические устройства и платы к Центру Интернета вещей Azure. Устройства могут отправлять данные телеметрии в Центр Интернета вещей, который, в свою очередь, может отслеживать эти устройства и управлять ими."
-services: iot-hub
-documentationcenter: 
+title: Начало работы с подключением физических устройств к Центру Интернета вещей Azure | Документация Майкрософт
+description: Узнайте, как подключать физические устройства и платы к Центру Интернета вещей Azure. Устройства могут отправлять данные телеметрии в Центр Интернета вещей, который, в свою очередь, может отслеживать эти устройства и управлять ими.
 author: dominicbetts
 manager: timlt
-editor: 
-keywords: "Руководство по работе с Центром Интернета вещей Azure"
+keywords: Руководство по работе с Центром Интернета вещей Azure
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 26a2d63aef21bd470d65d79e1abf8cefd2828419
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7911c190ded59f758eff868add6440f5add6579
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634001"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Руководства по началу работы с Центром Интернета вещей и физическими устройствами
 

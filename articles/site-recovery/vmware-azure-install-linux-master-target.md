@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072442"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802516"
 ---
 # <a name="install-a-linux-master-target-server"></a>Установка главного целевого сервера Linux
 После отработки отказа виртуальных машин в Azure для них можно восстановить размещение на локальном сайте. Для восстановления размещения из Azure на локальном сайте необходимо повторно включить защиту виртуальной машины. Для этого понадобится локальный главный целевой сервер, который будет получать трафик. 
@@ -243,7 +243,7 @@ ms.locfileid: "34072442"
 
 2. Выполните команду **multipath -ll**, чтобы узнать идентификатор Multipath диска хранения: **multipath -ll**
 
-    ![Идентификатор Multipath](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![Идентификатор Multipath](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Отформатируйте диск и затем создайте файловую систему на новом диске: **mkfs.ext4 /dev/mapper/<ИД Multipath диска хранения>**.
     

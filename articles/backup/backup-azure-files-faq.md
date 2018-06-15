@@ -7,13 +7,13 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605174"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Вопросы о резервном копировании файлов Azure
 В этой статье содержатся ответы на часто задаваемые вопросы о резервном копировании файлов Azure. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/28/2018
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Можно ли создать резервные копии двух разных файловых ресурсов из одной учетной записи хранения в разных хранилищах?
 Нет. Все файловые ресурсы в учетной записи хранения могут быть защищены только одним хранилищем.
 
-## <a name="backup"></a>Архивация
+## <a name="backup"></a>Azure Backup
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Сколько раз можно выполнить резервное копирование по запросу для каждого файлового ресурса? <br/>
 В любое время вы можете хранить до 200 моментальных снимков для файлового ресурса. При этом учитываются моментальные снимки, сделанные службой Azure Backup в соответствии с политикой. Если операции резервного копирования завершаются сбоем после достижения этого ограничения, удалите точки восстановления по запросу для успешной архивации.

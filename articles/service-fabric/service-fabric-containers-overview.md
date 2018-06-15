@@ -12,22 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 5/21/2018
 ms.author: msfussell
-ms.openlocfilehash: c70db92d6071a295dfc329768ab8a0fd561f8ce5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641918"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric и контейнеры
-> [!NOTE]
-> Развертывание контейнеров в кластере Service Fabric в Windows 10 или с помощью Docker CE не поддерживается. 
->   
-
-> [!NOTE]
-> В Service Fabric версии 6.1 реализована поддержка предварительной версии для Windows Server 1709. Открытый сетевой режим и служба DNS Service Fabric не работают с Windows Server 1709. 
-> 
 
 ## <a name="introduction"></a>Введение
 Azure Service Fabric — [оркестратор](service-fabric-cluster-resource-manager-introduction.md) служб в кластере компьютеров, который многие годы используется в средах с крупномасштабными службами и оптимизируется корпорацией Майкрософт. Службы можно разрабатывать разными способами, начиная от использования [моделей программирования Service Fabric](service-fabric-choose-framework.md) и заканчивая развертыванием [гостевых исполняемых файлов](service-fabric-guest-executables-introduction.md). По умолчанию Service Fabric развертывает и активирует эти службы как процессы. Процессы обеспечивают самую быструю активацию и максимальную плотность использования ресурсов в кластере. Service Fabric также позволяет развертывать службы в образах контейнеров. Главное, что вы можете объединять эти два подхода, используя в одном приложении службы с процессами и контейнерами.   
@@ -44,10 +38,6 @@ Azure Service Fabric — [оркестратор](service-fabric-cluster-resourc
 
 ## <a name="container-types-and-supported-environments"></a>Типы контейнеров и поддерживаемые среды
 Service Fabric поддерживает контейнеры как в Windows, так и в Linux. В Windows он также поддерживает режим изоляции Hyper-V. 
-
-> [!NOTE]
-> Развертывание контейнеров в кластер Service Fabric в Windows 10 сейчас не поддерживается. 
-> 
 
 ### <a name="docker-containers-on-linux"></a>Контейнеры Docker в Linux
 Docker предоставляет API-интерфейсы высокого уровня для создания контейнеров и управления ими поверх контейнеров из ядер Linux. Docker Hub — это центральный репозиторий для хранения и извлечения образов контейнеров.

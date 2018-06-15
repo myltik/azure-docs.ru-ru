@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 15fc879958bfd886210a90239e0247c60fe231f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786833"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640971"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Советы по устранению неполадок с когнитивным поиском
 
@@ -99,7 +99,7 @@ https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-s
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Совет 7. Увеличение пропускной способности индексирования
 
-При [параллельном индексировании](search-howto-reindex.md#parallel-indexing) можно разместить данные в нескольких контейнерах или виртуальных папках в одном и том же контейнере. Затем можно создать несколько пар источника данных и индексатора. Все индексаторы могут использовать один и тот же набор навыков и выполнять запись в один и тот же целевой индекс поиска. Поэтому приложению поиска не нужно знать об этом секционировании.
+При [параллельном индексировании](search-howto-large-index.md) можно разместить данные в нескольких контейнерах или виртуальных папках в одном и том же контейнере. Затем можно создать несколько пар источника данных и индексатора. Все индексаторы могут использовать один и тот же набор навыков и выполнять запись в один и тот же целевой индекс поиска. Поэтому приложению поиска не нужно знать об этом секционировании.
 Дополнительные сведения см. в руководстве по [индексированию больших наборов данных](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>См. также

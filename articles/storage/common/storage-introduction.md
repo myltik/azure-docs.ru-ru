@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653660"
 ---
 # <a name="introduction-to-azure-storage"></a>Общие сведения о службе хранилища Azure
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/28/2018
 - [Хранилище BLOB-объектов Azure.](../blobs/storage-blobs-introduction.md) Высокомасштабируемое хранилище объектов для текстовых и двоичных данных.
 - [Служба файлов Azure.](../files/storage-files-introduction.md) Управляемые файловые ресурсы для облачных или локальных развертываний.
 - [Хранилище очередей Azure.](../queues/storage-queues-introduction.md) Хранилище сообщений для надежного обмена сообщениями между компонентами приложения. 
-- [Хранилище таблиц Azure.](../../cosmos-db/table-storage-overview.md) Хранилище NoSQL для хранения структурированных данных без использования схемы.
+- [Хранилище таблиц Azure.](../tables/table-storage-overview.md) Хранилище NoSQL для хранения структурированных данных без использования схемы.
 
 Доступ ко всем службам осуществляется с помощью учетной записи хранения. Чтобы приступить к работе, [создайте такую учетную запись](storage-quickstart-create-account.md).
 
@@ -78,13 +79,13 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="table-storage"></a>Хранилище таблиц
 
-Хранилище таблиц Azure уровня "Стандартный" теперь включено в Cosmos DB. См. дополнительные сведения о [хранилище таблиц Azure](../../cosmos-db/table-storage-overview.md). Наряду с существующей службой хранилища таблиц Azure теперь доступна новое решение API таблиц Azure Cosmos DB. Для него предусмотрены оптимизированные для пропускной способности таблицы, глобальное распределение и автоматическое вторичное индексирование. См. дополнительные сведения о решении [API таблиц Azure Cosmos DB](https://aka.ms/premiumtables) и его возможностях уровня "Премиум".
+Хранилище таблиц Azure уровня "Стандартный" теперь включено в Cosmos DB. См. дополнительные сведения о [хранилище таблиц Azure](../tables/table-storage-overview.md). Наряду с существующей службой хранилища таблиц Azure теперь доступна новое решение API таблиц Azure Cosmos DB. Для него предусмотрены оптимизированные для пропускной способности таблицы, глобальное распределение и автоматическое вторичное индексирование. См. дополнительные сведения о решении [API таблиц Azure Cosmos DB](https://aka.ms/premiumtables) и его возможностях уровня "Премиум".
 
-Дополнительные сведения о хранилище таблиц см. в статье [Обзор табличного хранилища](../../cosmos-db/table-storage-overview.md).
+Дополнительные сведения о хранилище таблиц см. в статье [Обзор табличного хранилища](../tables/table-storage-overview.md).
 
 ## <a name="disk-storage"></a>Дисковый накопитель
 
-Служба хранилища Azure также поддерживает возможности управляемых и неуправляемых дисков, используемых виртуальными машинами. Дополнительные сведения об этих функциях см. в [документации по службе вычислений](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Служба хранилища Azure также поддерживает возможности управляемых и неуправляемых дисков, используемых виртуальными машинами. Дополнительные сведения об этих функциях см. в [документации по службе вычислений](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Типы учетных записей хранения
 

@@ -1,6 +1,6 @@
 ---
-title: "Настройка оповещений о метриках в службе \"База данных Azure для PostgreSQL\" на портале Azure"
-description: "В этой статье описывается, как настроить уведомления на основе метрик для базы данных Azure для PostgreSQL и получить к ним доступ с помощью портала Azure."
+title: Настройка оповещений о метриках в службе "База данных Azure для PostgreSQL" на портале Azure
+description: В этой статье описывается, как настроить уведомления на основе метрик для базы данных Azure для PostgreSQL и получить к ним доступ с помощью портала Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690261"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Настройка оповещений на основе метрик для базы данных Azure для PostgreSQL на портале Azure 
 

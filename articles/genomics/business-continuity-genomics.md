@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426571"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Обзор обеспечения непрерывности бизнес-процессов с помощью Microsoft Genomics
 В этом обзоре описываются возможности Microsoft Genomics по обеспечению непрерывности бизнес-процессов и аварийного восстановления. Здесь вы узнаете о вариантах восстановления после аварийных событий, таких как сбой региона Azure, которые могут привести к потере данных. 

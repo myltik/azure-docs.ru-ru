@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782683"
 ---
 # <a name="configure-localization"></a>Настройка локализации
 Приложение Azure Media Clipper доступно на 18 языках. Чтобы задать язык мини-приложения, необходимо определить параметр `language` во время инициализации. Передайте строку кода нужного языка из следующего списка:
