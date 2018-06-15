@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525171"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Перенос схем в хранилище данных SQL
 Рекомендации по переносу схем SQL в хранилище данных SQL. 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406897"
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Общие сведения о виртуальной машине для глубокого обучения в Azure
 

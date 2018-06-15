@@ -1,11 +1,11 @@
 ---
-title: "Подключение компьютера к виртуальной сети с помощью подключения типа \"точка — сеть\" и проверки подлинности на основе сертификата, используя классический портал Azure | Документация Майкрософт"
-description: "Создание классического подключения VPN-шлюза \"точка — сеть\" с помощью портала Azure"
+title: Подключение компьютера к виртуальной сети с помощью подключения типа "точка — сеть" и проверки подлинности на основе сертификата, используя классический портал Azure | Документация Майкрософт
+description: Создание классического подключения VPN-шлюза "точка — сеть" с помощью портала Azure
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464333"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью проверки подлинности на основе сертификата (классическая модель), используя портал Azure
 
