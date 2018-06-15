@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311345"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Аутентификация решений по управлению пакетной службой с помощью Active Directory
 

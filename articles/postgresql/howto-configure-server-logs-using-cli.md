@@ -15,6 +15,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235539"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Настройка журналов сервера и получение к ним доступа с помощью Azure CLI
 Вы можете скачать журналы ошибок сервера PostgreSQL с помощью интерфейса командной строки (Azure CLI). Но доступ к журналам транзакций не поддерживается. 

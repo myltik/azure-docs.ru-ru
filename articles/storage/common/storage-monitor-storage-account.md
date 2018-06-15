@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30322919"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Мониторинг учетной записи хранения на портале Azure
 

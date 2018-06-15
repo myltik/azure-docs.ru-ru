@@ -1,6 +1,6 @@
 ---
-title: "включение файла"
-description: "включение файла"
+title: включение файла
+description: включение файла
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29817037"
 ---
 При развертывании ресурсов в Azure обеспечивается невероятная гибкость в выборе типов развертываемых ресурсов, а также их расположения и настройки. Однако эта гибкость может открыть больше возможностей, чем требуется в организации. Планируя развертывание ресурсов в Azure, вы можете задавать себе следующие вопросы:
 

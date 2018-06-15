@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30317778"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Загрузка сценариев конфигурации VPN-устройств для VPN-подключений типа "сеть — сеть"
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811091"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Настройка исходного окружения для репликации из VMware в Azure
 

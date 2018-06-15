@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect Health. Оповещение \"Данные службы работоспособности неактуальны\" | Документация Майкрософт"
-description: "В этом документе описана причина отправки оповещения \"Данные службы работоспособности неактуальны\" и действия по устранению этой неполадки."
+title: Azure AD Connect Health. Оповещение "Данные службы работоспособности неактуальны" | Документация Майкрософт
+description: В этом документе описана причина отправки оповещения "Данные службы работоспособности неактуальны" и действия по устранению этой неполадки.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhiweiw
 manager: maheshu
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29715017"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Оповещение "Данные службы работоспособности неактуальны"
 

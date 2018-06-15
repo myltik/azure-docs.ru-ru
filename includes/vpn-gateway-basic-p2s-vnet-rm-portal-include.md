@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197122"
 ---
 Чтобы создать виртуальную сеть на основе модели развертывания Resource Manager, используя портал Azure, следуйте инструкциям ниже. Снимки экрана приведены в качестве примеров. Обязательно подставьте собственные значения. Дополнительные сведения о работе с виртуальными сетями см. в статье [Обзор виртуальной сети](../articles/virtual-network/virtual-networks-overview.md).
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896118"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Отчет об анализе угроз, предоставляемый центром безопасности Azure
 Здесь содержатся сведения о том, как отчет центра безопасности Azure об анализе угроз позволяет получить подробные сведения касательно угрозы, из-за которой было создано оповещение системы безопасности.

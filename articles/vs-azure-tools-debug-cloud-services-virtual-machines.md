@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292804"
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Отладка облачной службы или виртуальной машины Azure в Visual Studio
 

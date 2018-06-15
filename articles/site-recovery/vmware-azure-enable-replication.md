@@ -13,6 +13,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30243341"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Включение репликации в Azure для виртуальных машин VMware
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312707"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Переменные среды вычислительного узла пакетной службы Azure
 [Пакетная служба Azure](https://azure.microsoft.com/services/batch/) задает на вычислительных узлах указанные ниже переменные среды. Вы можете ссылаться на них в командных строках задач, а также в программах и сценариях, запускаемых этими командными строками.

@@ -1,11 +1,11 @@
 ---
-title: "Ключевые понятия и обзор службы управления API Azure | Документация Майкрософт"
-description: "Сведения об API, продуктах, ролях, группах и других основных концепциях службы управления API."
+title: Ключевые понятия и обзор службы управления API Azure | Документация Майкрософт
+description: Сведения об API, продуктах, ролях, группах и других основных концепциях службы управления API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712378"
 ---
 # <a name="what-is-api-management"></a>Что такое управление API
 

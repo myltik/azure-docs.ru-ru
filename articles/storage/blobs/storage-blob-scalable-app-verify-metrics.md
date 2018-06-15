@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30237507"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Проверка метрик пропускной способности и задержки для учетной записи хранения
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246531"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Присоединение и использование дисков данных с масштабируемым набором виртуальных машин с помощью PowerShell
 Этот скрипт создает масштабируемый набор виртуальных машин, а также присоединяет и подготавливает диски данных.

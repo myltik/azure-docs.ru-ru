@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246361"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Автоматическое масштабирование масштабируемых наборов виртуальных машин с помощью PowerShell
 С помощью этого скрипта создается масштабируемый набор виртуальных машин под управлением Windows Server 2016. При этом используются метрики на основе узла для автоматического масштабирования в соответствии с изменением нагрузки на ЦП.

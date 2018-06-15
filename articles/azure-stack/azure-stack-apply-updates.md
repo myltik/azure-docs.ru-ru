@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802657"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Применение обновлений в Azure Stack
 

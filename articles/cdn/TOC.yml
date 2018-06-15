@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: управление
       items:
+        - name: Создание конечной точки
+          href: cdn-create-endpoint-how-to.md
         - name: Управление с помощью Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Ограничение доступа в зависимости от страны

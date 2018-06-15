@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30235331"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Сведения о шлюзах виртуальных сетей ExpressRoute
 Шлюз виртуальной сети используется для обмена сетевым трафиком между виртуальными и локальными сетями Azure. В процессе настройки подключения ExpressRoute необходимо создать и настроить шлюз виртуальной сети и подключение для него.

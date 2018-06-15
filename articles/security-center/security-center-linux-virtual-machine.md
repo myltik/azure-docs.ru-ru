@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895999"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Центр безопасности Azure и виртуальные машины Azure c ОС Linux
 [Центр безопасности Azure](https://azure.microsoft.com/services/security-center/) позволяет предотвращать, обнаруживать угрозы и реагировать на них. Она включает встроенные функции мониторинга безопасности и управления политиками для подписок Azure, помогает выявлять угрозы, которые в противном случае могли бы оказаться незамеченными, и взаимодействует с широким комплексом решений по обеспечению безопасности.

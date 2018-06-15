@@ -1,6 +1,6 @@
 ---
-title: "Интеграция центра обработки данных Azure Stack — DNS"
-description: "Узнайте, как интегрировать DNS Azure Stack из DNS центра обработки данных."
+title: Интеграция центра обработки данных Azure Stack — DNS
+description: Узнайте, как интегрировать DNS Azure Stack из DNS центра обработки данных.
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -9,12 +9,13 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
+keywords: ''
 ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
 ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733865"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Интеграция центра обработки данных Azure Stack — DNS
 Чтобы иметь возможность доступа к конечным точкам Azure Stack (`portal`, `adminportal`, `management`, `adminmanagement` и т. д.) из-за пределов Azure Stack, необходимо интегрировать службы DNS Azure Stack с DNS-серверами, на которых размещаются зоны DNS, которые нужно использовать в Azure Stack.

@@ -1,11 +1,11 @@
 ---
-title: "Использование службы управления API для создания HTTP-запросов"
-description: "Узнайте, как использовать политики запросов и ответов в службе управления API для вызова внешних служб из API."
+title: Использование службы управления API для создания HTTP-запросов
+description: Узнайте, как использовать политики запросов и ответов в службе управления API для вызова внешних служб из API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29714677"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Использование внешних служб из службы управления API Azure
 Политики, доступные в службе управления API Azure, позволяют выполнять множество полезных задач исключительно на основе входящих запросов, исходящих ответов и сведений о базовой конфигурации. Однако возможность взаимодействия с внешними службами управления из политик управления API предоставляет гораздо больше преимуществ.

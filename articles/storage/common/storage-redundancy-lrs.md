@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/24/2018
+ms.locfileid: "30323737"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Локально избыточное хранилище (LRS). Недорогая избыточность данных для службы хранилища Azure
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896237"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Защита SQL Server с помощью аварийного восстановления SQL Server и Azure Site Recovery
 

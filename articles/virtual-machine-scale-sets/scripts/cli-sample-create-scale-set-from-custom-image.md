@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246344"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>Создание масштабируемого набора виртуальных машин на основе пользовательского образа виртуальной машины с помощью Azure CLI 2.0
 С помощью этого скрипта создается масштабируемый набор виртуальных машин. При этом в качестве источника для экземпляров виртуальных машин используется пользовательский образ виртуальной машины.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235025"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Включение шифрования данных для учетной записи хранения Azure в центре безопасности Azure
 Центр безопасности Azure может рекомендовать включить шифрование службы хранилища Azure для неактивных данных.

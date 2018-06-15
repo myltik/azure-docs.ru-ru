@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235406"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Сетевые топологии для переноса Управляемого экземпляра Базы данных Azure SQL с помощью Azure Database Migration Service
 Из этой статьи вы узнаете о различных сетевых топологиях, поддерживаемых Azure Database Migration Service для бесперебойного переноса Управляемого экземпляра Базы данных SQL Azure из локальных систем SQL Server.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894376"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Планировщик развертывания Azure Site Recovery для сценариев развертывания виртуальных машин VMware в Azure
 В этой статье приведены рекомендации по использованию планировщика развертывания Azure Site Recovery в сценариях рабочих развертываний виртуальных машин VMware в Azure.

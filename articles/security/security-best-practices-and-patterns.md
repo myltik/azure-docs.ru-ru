@@ -1,6 +1,6 @@
 ---
-title: "Рекомендации и шаблоны для обеспечения безопасности в Azure | Документация Майкрософт"
-description: "В этой статье приводятся рекомендации и шаблоны решений по обеспечению безопасности Azure для разных ресурсов Azure."
+title: Рекомендации и шаблоны для обеспечения безопасности в Azure | Документация Майкрософт
+description: В этой статье приводятся рекомендации и шаблоны решений по обеспечению безопасности Azure для разных ресурсов Azure.
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author: 
+ms.author: ''
 ms.openlocfilehash: 6713580325450d7548e63c78af4d44c65653f884
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802596"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Рекомендации и шаблоны для обеспечения безопасности в Azure
 
