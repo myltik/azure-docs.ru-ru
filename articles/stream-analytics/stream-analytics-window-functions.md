@@ -8,19 +8,20 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.openlocfilehash: dfc59c8d976720ddb313c2e9d29e68c56a8d49f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/07/2018
+ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893656"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Общие сведения о функциях управления окнами Stream Analytics
 При использовании потоковой передачи в реальном времени необходимо выполнять операции с теми данными, которые содержатся во временных окнах. В Stream Analytics имеется встроенная поддержка функций управления окнами. Это позволяет разработчикам выполнять сложные задания по обработке потоков с минимальными усилиями.
 
-Существуют четыре типа временных окон: [**переворачивающиеся**](https://msdn.microsoft.com/library/dn835055.aspx), [**прыгающие**](https://msdn.microsoft.com/library/dn835041.aspx), [**скользящие**](https://msdn.microsoft.com/library/dn835051.aspx) и **сеансовые** окна.  Функции управления окнами используются в предложении [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) в синтаксических конструкциях запросов в заданиях Stream Analytics.
+Есть четыре типа временных окон: [**переворачивающиеся**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**прыгающие**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**скользящие**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)окна и окна [**сеансов**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Функции управления окнами используются в предложении [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) в синтаксических конструкциях запросов в заданиях Stream Analytics.
 
-Все операции [управления окнами](https://msdn.microsoft.com/library/dn835019.aspx) выводят результаты в **конце** окна. Результатом для окна будет единичное событие, полученное на основе выбранной статистической функции. Метка времени для выходного события соответствует времени завершения окна, и все функции управления окнами выполняются с фиксированной длительностью. 
+Все операции [управления окнами](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) выводят результаты в **конце** окна. Результатом для окна будет единичное событие, полученное на основе выбранной статистической функции. Метка времени для выходного события соответствует времени завершения окна, и все функции управления окнами выполняются с фиксированной длительностью. 
 
 ![Концепции функций управления окнами в Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 

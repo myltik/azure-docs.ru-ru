@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783273"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Управление активами служб мультимедиа в нескольких учетных записях хранения
 Начиная с версии 2.2 служб мультимедиа Microsoft Azure, можно подключать несколько учетных записей хранения к одной учетной записи служб мультимедиа. Возможность подключить несколько учетных записей хранения к учетной записи служб мультимедиа дает несколько преимуществ:

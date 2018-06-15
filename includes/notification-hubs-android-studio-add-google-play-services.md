@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33835786"
 ---
 1. Откройте диспетчер пакетов SDK для Android, щелкнув значок на панели инструментов Android Studio или выбрав **Сервис** > **Android** > **SDK Manager** (Диспетчер пакетов SDK) в меню. Найдите нужную версию пакета SDK для Android, которая используется в проекте. Откройте ее, щелкнув **Show Package Details** (Показать окно свойств пакета), и выберите **Google APIs** (API-интерфейсы Google), если они еще не установлены.
 2. Щелкните вкладку **Пакет инструментов SDK**. Если сервисы Google Play еще не установлены, щелкните **Google Play Services** (Сервисы Google Play), как показано ниже. Нажмите кнопку **Применить**, чтобы начать установку. 

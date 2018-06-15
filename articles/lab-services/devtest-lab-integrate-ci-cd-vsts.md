@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782003"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Интеграция Azure DevTest Labs в конвейер непрерывной интеграции и доставки VSTS
 Для легкой интеграции конвейера "сборки — выпуска" CI/CD с Azure DevTest Labs можно использовать расширение *Задачи Azure DevTest Labs*, установленное в Visual Studio Team Services (VSTS). Расширение устанавливает три задачи: 

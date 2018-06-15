@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792177"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Настройка проекта облачной службы в Visual Studio
 Проект облачной службы Azure можно настроить в соответствии с вашими требованиями к этому проекту. Для проекта можно настраивать свойства следующих категорий.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195504"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Отчет планировщика развертывания Azure Site Recovery
 Созданный отчет Microsoft Excel содержит описанные ниже листы.

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786542"
 abstract:
   description: Microsoft Azure Stack ― это гибридная облачная платформа, позволяющая предоставлять службы Azure из центра обработки данных. Сведения о том, как с помощью наших руководств управлять инфраструктурой интегрированных систем Azure Stack и предлагать службы.<br/><br/>Если вы используете службы и создаете приложения для Azure Stack, ознакомьтесь с нашей <a href="/azure/azure-stack/user">пользовательской документацией</a>.<br/><br/>Если вы — оператор Azure Stack и хотите использовать Пакет средств разработки Azure Stack (ASDK), развертывание Azure Stack с использованием одного узла, см. <a href="/azure/azure-stack/asdk">документацию по скачиванию и бесплатному использованию ASDK</a>.
 sections:

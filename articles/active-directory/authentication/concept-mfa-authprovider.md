@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866130"
 ---
 # <a name="getting-started-with-an-azure-multi-factor-authentication-provider"></a>Приступая к работе с поставщиком службы "Многофакторная идентификация Azure"
 Двухфакторная проверка подлинности доступна по умолчанию для глобальных администраторов, у которых есть служба Azure Active Directory, и для пользователей Office 365. Однако если вы хотите использовать преимущества [дополнительных функций](howto-mfa-mfasettings.md), необходимо приобрести полную версию службы Многофакторной идентификации Microsoft Azure (MFA).
