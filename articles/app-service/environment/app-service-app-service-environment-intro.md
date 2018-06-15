@@ -1,11 +1,11 @@
 ---
-title: "Введение в среду службы приложения версии 1"
-description: "Сведения о функции среды службы приложений версии 1, которая предоставляет безопасные выделенные единицы масштабирования, присоединенные к виртуальной сети, для выполнения всех ваших приложений."
+title: Введение в среду службы приложения версии 1
+description: Сведения о функции среды службы приложений версии 1, которая предоставляет безопасные выделенные единицы масштабирования, присоединенные к виртуальной сети, для выполнения всех ваших приложений.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986699"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Введение в среду службы приложения версии 1
 

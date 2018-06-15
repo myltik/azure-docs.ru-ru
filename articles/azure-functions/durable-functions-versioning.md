@@ -1,12 +1,12 @@
 ---
-title: "Управление версиями в устойчивых функциях — Azure"
-description: "Сведения о том, как выполнять управление в расширении устойчивых функций для Функций Azure."
+title: Управление версиями в устойчивых функциях — Azure
+description: Сведения о том, как выполнять управление в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22991289"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Управление версиями в устойчивых функциях (Функции Azure)
 

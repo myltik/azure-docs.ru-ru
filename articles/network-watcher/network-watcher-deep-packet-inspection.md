@@ -1,11 +1,11 @@
 ---
-title: "Наблюдатель за сетями Azure: проверка пакетов | Документация Майкрософт"
-description: "В этой статье описывается использование службы наблюдения за сетями для подробной проверки пакетов, собранных от виртуальной машины"
+title: 'Наблюдатель за сетями Azure: проверка пакетов | Документация Майкрософт'
+description: В этой статье описывается использование службы наблюдения за сетями для подробной проверки пакетов, собранных от виртуальной машины
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036339"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Проверка пакетов в службе наблюдения за сетями Azure
 

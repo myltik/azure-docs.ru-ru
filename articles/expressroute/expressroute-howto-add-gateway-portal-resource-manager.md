@@ -1,13 +1,13 @@
 ---
-title: "Добавление шлюза виртуальной сети в виртуальную сеть для канала ExpressRoute с помощью портала Azure | Документация Майкрософт"
-description: "В этой статье рассматривается добавление шлюза виртуальной сети в уже созданную виртуальную сеть Resource Manager для ExpressRoute."
+title: Добавление шлюза виртуальной сети в виртуальную сеть для канала ExpressRoute с помощью портала Azure | Документация Майкрософт
+description: В этой статье рассматривается добавление шлюза виртуальной сети в уже созданную виртуальную сеть Resource Manager для ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013269"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -72,7 +73,7 @@ ms.lasthandoff: 12/21/2017
 1. На портале слева щелкните **+** и выполните поиск по запросу "Шлюз виртуальной сети". Найдите **шлюз виртуальной сети** в списке результатов и щелкните соответствующую запись. В нижней части колонки **Шлюз виртуальной сети** щелкните **Создать**. Откроется колонка **Create virtual network gateway** (Создание шлюза виртуальной сети).
 2. В колонке **Создание шлюза виртуальной сети** укажите необходимые значения параметров.
 
-    ![Поля колонки "Создание шлюза виртуальной сети"](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Поля колонки "Создание шлюза виртуальной сети"")
+    ![Поля колонки "Создание шлюза виртуальной сети"](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Поля колонки \"Создание шлюза виртуальной сети\"")
 3. **Имя**. Назовите свой шлюз. Это имя должно отличаться от имени подсети шлюза. Это имя объекта шлюза, который создается.
 4. **Тип шлюза**. Выберите **ExpressRoute**.
 5. **SKU**. Выберите номер SKU шлюза из раскрывающегося списка.

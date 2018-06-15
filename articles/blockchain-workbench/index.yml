@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ru-RU
   ms.lasthandoff: 05/07/2018
+  ms.locfileid: "33765906"
 abstract:
   description: Узнайте, как создавать приложения блокчейна. Руководства, справочники по API и другая документация поможет развернуть Azure Blockchain Workbench, а также создавать и использовать приложения блокчейна в Azure.
 sections:

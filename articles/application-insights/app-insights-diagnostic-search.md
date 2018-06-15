@@ -1,8 +1,8 @@
 ---
-title: "Поиск в Azure Application Insights | Документация Майкрософт"
-description: "Поиск и фильтрация необработанных данных телеметрии, отправляемых веб-приложением."
+title: Поиск в Azure Application Insights | Документация Майкрософт
+description: Поиск и фильтрация необработанных данных телеметрии, отправляемых веб-приложением.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294390"
 ---
 # <a name="using-search-in-application-insights"></a>Поиск в Application Insights
 Поиск — это функция [Application Insights](app-insights-overview.md), которая позволяет искать и изучать отдельные элементы телеметрии, например просмотры страниц, исключения и веб-запросы. Также можно просматривать журнал трассировки и события, которые были закодированы.

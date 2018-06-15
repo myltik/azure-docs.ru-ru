@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267449"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Миграция локальных данных в службу хранилища Azure с помощью AzCopy
 
@@ -22,8 +23,8 @@ ms.lasthandoff: 03/28/2018
 
 Вы можете скачать две версии AzCopy.
 
-* [AzCopy для Linux](storage-use-azcopy.md) создана на основе платформы .NET Core Framework. Она предназначена для платформы Linux и поддерживает параметры командной строки в стиле POSIX. 
-* [AzCopy для Windows](../storage-use-azcopy.md) создана на основе платформы .NET Framework. Она предлагает параметры командной строки в стиле Windows. 
+* [AzCopy для Linux](storage-use-azcopy-linux.md) создана на основе платформы .NET Core Framework. Она предназначена для платформы Linux и поддерживает параметры командной строки в стиле POSIX. 
+* [AzCopy для Windows](storage-use-azcopy.md) создана на основе платформы .NET Framework. Она предлагает параметры командной строки в стиле Windows. 
  
 Из этого руководства вы узнаете, как выполнять такие задачи:
 

@@ -1,6 +1,6 @@
 ---
-title: "Поддержка WebSocket в шлюзе приложений Azure| Документация Майкрософт"
-description: "Здесь представлен обзор поддержки WebSocket в шлюзе приложений."
+title: Поддержка WebSocket в шлюзе приложений Azure| Документация Майкрософт
+description: Здесь представлен обзор поддержки WebSocket в шлюзе приложений.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986729"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Общие сведения о поддержке WebSocket в шлюзе приложений
 

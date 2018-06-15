@@ -1,24 +1,19 @@
 ---
 title: Импорт и экспорт удостоверений устройств Центра Интернета вещей Azure | Документация Майкрософт
 description: Сведения об использовании пакета SDK для служб Azure IoT для выполнения массовых операций с реестром удостоверений (импорт и экспорт удостоверений устройств). Операции импорта позволяют создавать, обновлять и удалять удостоверения устройств в пакетном режиме.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 63e7fd5807f0cf6d05d81af138d649b75024d9bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634028"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Управление удостоверениями устройств Центра Интернета вещей в пакетном режиме
 

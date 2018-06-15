@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762400"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Управление личными доменными именами в Azure Active Directory
 Доменное имя является важной частью идентификатора для различных ресурсов каталога: имени пользователя, адреса электронной почты пользователя и адреса группы. Оно также может входить в URI идентификатора приложения. Для использования в ресурсе Azure Active Directory (Azure AD) доменное имя должно принадлежать каталогу, содержащему ресурс. Задачи управления доменами в Azure AD может выполнять только глобальный администратор.

@@ -1,8 +1,8 @@
 ---
-title: "Мониторинг веб-приложения ASP.NET с помощью Azure Application Insights | Документация Майкрософт"
-description: "В этой статье предоставляются инструкции для быстрой настройки мониторинга веб-приложения ASP.NET с помощью ASP.NET."
+title: Мониторинг веб-приложения ASP.NET с помощью Azure Application Insights | Документация Майкрософт
+description: В этой статье предоставляются инструкции для быстрой настройки мониторинга веб-приложения ASP.NET с помощью ASP.NET.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/14/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23660552"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Запуск мониторинга веб-приложения ASP.NET
 

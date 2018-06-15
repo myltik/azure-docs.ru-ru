@@ -1,13 +1,13 @@
 ---
-title: "Настройка фильтров маршрутов для пиринга Майкрософт для Azure ExpressRoute с помощью интерфейса командной строки | Документация Майкрософт"
-description: "В этой статье описывается, как настраивать фильтры маршрутов для пиринга Майкрософт с помощью Azure CLI."
+title: Настройка фильтров маршрутов для пиринга Майкрософт для Azure ExpressRoute с помощью интерфейса командной строки | Документация Майкрософт
+description: В этой статье описывается, как настраивать фильтры маршрутов для пиринга Майкрософт с помощью Azure CLI.
 documentationcenter: na
 services: expressroute
 author: anzaman
 manager: ganesr
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013199"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Настройка фильтров маршрутов для пиринга Майкрософт с помощью Azure CLI
 

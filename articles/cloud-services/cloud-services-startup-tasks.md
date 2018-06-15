@@ -1,11 +1,11 @@
 ---
-title: "Выполнение задач запуска в облачных службах Azure | Документация Майкрософт"
-description: "Задачи запуска помогают подготовить среду облачной службы для приложения. Вы узнаете, как работают задачи запуска и как их можно создать."
+title: Выполнение задач запуска в облачных службах Azure | Документация Майкрософт
+description: Задачи запуска помогают подготовить среду облачной службы для приложения. Вы узнаете, как работают задачи запуска и как их можно создать.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999139"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Как настроить и выполнить задачи запуска для облачной службы
 С помощью задач запуска вы можете выполнять различные операции перед запуском роли. Это может быть установка компонента, регистрация компонентов COM, установка разделов реестра или запуск длительного процесса.

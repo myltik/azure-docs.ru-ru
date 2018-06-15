@@ -1,6 +1,6 @@
 ---
-title: "Использование службы хранилища Azure с решением непрерывной интеграции Jenkins | Документация Майкрософт"
-description: "В этом уроке вы научитесь использовать службы BLOB-объектов Azure в качестве репозитория для артефактов построения, созданных решением непрерывной интеграции Jenkins."
+title: Использование службы хранилища Azure с решением непрерывной интеграции Jenkins | Документация Майкрософт
+description: В этом уроке вы научитесь использовать службы BLOB-объектов Azure в качестве репозитория для артефактов построения, созданных решением непрерывной интеграции Jenkins.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060069"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Использование хранилища Azure с решением непрерывной интеграции Jenkins
 ## <a name="overview"></a>Обзор
