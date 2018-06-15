@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30833104"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Настройка назначения самостоятельного доступа к приложениям
 

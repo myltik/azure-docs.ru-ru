@@ -1,12 +1,12 @@
 ---
-title: "Мониторинг устройства StorSimple серии 8000 | Документация Майкрософт"
-description: "Описание применения службы диспетчера устройств StorSimple для мониторинга использования, производительности ввода-вывода и использования емкости."
+title: Мониторинг устройства StorSimple серии 8000 | Документация Майкрософт
+description: Описание применения службы диспетчера устройств StorSimple для мониторинга использования, производительности ввода-вывода и использования емкости.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23479270"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Использование службы диспетчера устройств StorSimple для мониторинга устройства StorSimple
 

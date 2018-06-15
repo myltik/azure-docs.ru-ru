@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30161852"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Управление управлением API с помощью службы автоматизации Azure
 В этом руководстве описана служба автоматизации Azure. Также вы узнаете, как при ее помощи упростить администрирование службы управления API Azure.

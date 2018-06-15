@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30165676"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Подготовка главного компьютера для ASDK
 Перед установкой ASDK на главном компьютере необходимо подготовить среду ASDK. После подготовки данные главного компьютера, на котором будет размещен пакет средств разработки, загружаются с виртуального жесткого диска CloudBuilder.vhdx, чтобы начать развертывание ASDK.

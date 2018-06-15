@@ -16,6 +16,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171909"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Копирование данных из локальной базы данных SQL Server в хранилище BLOB-объектов Azure с помощью средства копирования данных
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

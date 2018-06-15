@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246225"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Производительность хранилища Microsoft Azure и контрольный список масштабируемости
 ## <a name="overview"></a>Обзор

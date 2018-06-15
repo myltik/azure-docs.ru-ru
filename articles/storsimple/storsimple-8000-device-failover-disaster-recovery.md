@@ -1,12 +1,12 @@
 ---
-title: "Отработка отказа и аварийное восстановление для устройств StorSimple серии 8000 | Документация Майкрософт"
-description: "Информация о том, как выполнить отработку отказа устройства StorSimple на то же устройство либо другое физическое или облачное устройство."
+title: Отработка отказа и аварийное восстановление для устройств StorSimple серии 8000 | Документация Майкрософт
+description: Информация о том, как выполнить отработку отказа устройства StorSimple на то же устройство либо другое физическое или облачное устройство.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108482"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Отработка отказа и аварийное восстановление для устройств StorSimple серии 8000
 

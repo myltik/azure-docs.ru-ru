@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246412"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Установка приложений в масштабируемый набор виртуальных машин с помощью PowerShell
 Этот скрипт создает виртуальную машину Azure под управлением Windows Server 2016 и использует расширение пользовательских скриптов для установки базовых веб-приложений. После выполнения скрипта можно получить доступ к веб-приложению с помощью веб-браузера.

@@ -1,11 +1,11 @@
 ---
-title: "Колонка сводки устройства виртуального массива StorSimple | Документация Майкрософт"
-description: "Сведения о колонке сводных данных об устройстве в диспетчере устройств StorSimple и способах ее использования для мониторинга работоспособности виртуального массива StorSimple."
+title: Колонка сводки устройства виртуального массива StorSimple | Документация Майкрософт
+description: Сведения о колонке сводных данных об устройстве в диспетчере устройств StorSimple и способах ее использования для мониторинга работоспособности виртуального массива StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a13c1ea7-6428-4234-84a6-0ebf51670a85
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109642"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Использование колонки сводных данных об устройстве в диспетчере устройств StorSimple, подключенному к виртуальному массиву StorSimple
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246429"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Создание избыточного в пределах зоны масштабируемого набора виртуальных машин с помощью PowerShell
 При помощи этого скрипта создается масштабируемый набор виртуальных машин под управлением Ubuntu в нескольких зонах доступности. После выполнения сценария можно получить доступ к виртуальной машине по протоколу RDP.

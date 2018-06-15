@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30169745"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Сценарий PowerShell для пошаговой загрузки данных с помощью фабрики данных Azure
 Этот пример сценария PowerShell загружает в приемник только новые или обновленные записи из исходного хранилища данных после первоначального полного копирования данных из источника в приемник.  

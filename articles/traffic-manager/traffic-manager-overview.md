@@ -1,11 +1,11 @@
 ---
-title: "Что такое диспетчер трафика | Документация Майкрософт"
-description: "Эта статья поможет понять, что такое диспетчер трафика и насколько он подходит для маршрутизации трафика вашего приложения"
+title: Что такое диспетчер трафика | Документация Майкрософт
+description: Эта статья поможет понять, что такое диспетчер трафика и насколько он подходит для маршрутизации трафика вашего приложения
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111832"
 ---
 # <a name="overview-of-traffic-manager"></a>Обзор диспетчера трафика
 

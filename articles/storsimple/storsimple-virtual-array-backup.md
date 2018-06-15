@@ -1,11 +1,11 @@
 ---
-title: "Руководство по архивации виртуального массива Microsoft Azure StorSimple | Документация Майкрософт"
-description: "В этой статье описано резервное копирование общих папок и томов виртуального массива StorSimple."
+title: Руководство по архивации виртуального массива Microsoft Azure StorSimple | Документация Майкрософт
+description: В этой статье описано резервное копирование общих папок и томов виртуального массива StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109572"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Архивация общих ресурсов или томов на виртуальном массиве StorSimple
 

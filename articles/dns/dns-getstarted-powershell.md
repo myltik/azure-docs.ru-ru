@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30175330"
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Приступая к работе со службой DNS Azure с помощью PowerShell
 

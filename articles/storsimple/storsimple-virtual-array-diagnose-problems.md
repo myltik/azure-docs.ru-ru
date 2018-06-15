@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок виртуального массива StorSimple | Документация Майкрософт"
-description: "В статье описываются возможности диагностики диспетчера устройств StorSimple и способы его использования для устранения неполадок в виртуальном массиве StorSimple."
+title: Устранение неполадок виртуального массива StorSimple | Документация Майкрософт
+description: В статье описываются возможности диагностики диспетчера устройств StorSimple и способы его использования для устранения неполадок в виртуальном массиве StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 53f57d17-07af-457f-a0e8-741e52fbbc2a
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108902"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Устранение неполадок виртуального массива StorSimple с помощью диспетчера устройств StorSimple
 ## <a name="overview"></a>Обзор

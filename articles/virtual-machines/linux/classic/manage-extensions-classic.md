@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841458"
 ---
 # <a name="manage-virtual-machine-extensions"></a>Управление расширениями виртуальной машины
 Эта статья описывает методы поиска, добавления, изменения и удаления расширений ВМ на виртуальных машинах Azure Windows или Linux.

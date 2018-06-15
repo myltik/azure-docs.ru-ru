@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171569"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Копирование данных из локальной базы данных SQL Server в хранилище BLOB-объектов Azure
 В этом руководстве вы создадите конвейер фабрики данных, в котором данные из локальной базы данных SQL Server копируются в хранилище BLOB-объектов Azure, с помощью пользовательского интерфейса службы "Фабрика данных Azure". Вы создадите и будете использовать локальную среду выполнения интеграции, которая перемещает данные между локальным и облачным хранилищами данных.

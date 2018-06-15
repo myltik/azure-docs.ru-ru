@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager и тома | Документация Майкрософт"
-description: "В этой статье рассказывается, как использовать оснастку консоли MMC «Диспетчер моментальных снимков StorSimple» для просмотра томов и управления ими, а также для настройки резервного копирования."
+title: StorSimple Snapshot Manager и тома | Документация Майкрософт
+description: В этой статье рассказывается, как использовать оснастку консоли MMC «Диспетчер моментальных снимков StorSimple» для просмотра томов и управления ими, а также для настройки резервного копирования.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111722"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Просмотр томов и управление ими с помощью диспетчера моментальных снимков StorSimple
 ## <a name="overview"></a>Обзор

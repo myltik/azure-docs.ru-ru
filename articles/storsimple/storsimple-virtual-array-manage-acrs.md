@@ -1,11 +1,11 @@
 ---
-title: "Управление записями контроля доступа для виртуального массива StorSimple | Документация Майкрософт"
-description: "В этой статье объясняется, как с помощью записей контроля доступа (ACR) определять, какие узлы могут подключаться к тому в виртуальном массиве StorSimple."
+title: Управление записями контроля доступа для виртуального массива StorSimple | Документация Майкрософт
+description: В этой статье объясняется, как с помощью записей контроля доступа (ACR) определять, какие узлы могут подключаться к тому в виртуальном массиве StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
 ms.service: storsimple
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110042"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Управление записями контроля доступа для виртуального массива StorSimple с помощью диспетчера устройств StorSimple
 

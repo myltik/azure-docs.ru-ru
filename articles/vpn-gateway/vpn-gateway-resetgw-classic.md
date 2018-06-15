@@ -1,11 +1,11 @@
 ---
-title: "Сброс VPN-шлюза Azure для повторного установления туннелей IPsec | Документация Майкрософт"
-description: "В этой статье описывается, как выполнить сброс настроек VPN-шлюза Azure для повторного установления туннелей IPsec. Инструкции в этой статье применимы к VPN-шлюзам, созданным как на базе классической модели развертывания, так и на базе модели развертывания с помощью Resource Manager."
+title: Сброс VPN-шлюза Azure для повторного установления туннелей IPsec | Документация Майкрософт
+description: В этой статье описывается, как выполнить сброс настроек VPN-шлюза Azure для повторного установления туннелей IPsec. Инструкции в этой статье применимы к VPN-шлюзам, созданным как на базе классической модели развертывания, так и на базе модели развертывания с помощью Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125822"
 ---
 # <a name="reset-a-vpn-gateway"></a>Сброс VPN-шлюза
 

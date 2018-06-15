@@ -1,11 +1,11 @@
 ---
-title: "Что такое диспетчер моментальных снимков StorSimple? | Документация Майкрософт"
-description: "Описание диспетчера моментальных снимков StorSimple, его архитектуры и функций."
+title: Что такое диспетчер моментальных снимков StorSimple? | Документация Майкрософт
+description: Описание диспетчера моментальных снимков StorSimple, его архитектуры и функций.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111472"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Введение в StorSimple Snapshot Manager
 

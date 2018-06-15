@@ -1,12 +1,12 @@
 ---
-title: "Заметки о выпуске обновления 0.6 для виртуального массива StorSimple | Документы Майкрософт"
-description: "В этой статье описаны нерешенные критические проблемы и способы их устранения для виртуального массива StorSimple с обновлением 0.6."
+title: Заметки о выпуске обновления 0.6 для виртуального массива StorSimple | Документы Майкрософт
+description: В этой статье описаны нерешенные критические проблемы и способы их устранения для виртуального массива StorSimple с обновлением 0.6.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110862"
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>Заметки о выпуске обновления 0.6 для виртуального массива StorSimple
 
