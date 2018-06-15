@@ -111,7 +111,7 @@
         - name: Отрисовка
           href: batch-rendering-service.md
         - name: Обработка данных с помощью пакетной службы и фабрики данных
-          href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
+          href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
     - name: Мониторинг решений пакетной службы
       href: monitoring-overview.md
       items:

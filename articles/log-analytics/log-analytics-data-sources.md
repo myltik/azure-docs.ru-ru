@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792554"
 ---
 # <a name="data-sources-in-log-analytics"></a>Источники данных в Log Analytics
 Служба Log Analytics собирает данные из подключенных источников и сохраняет их в рабочей области Log Analytics.  Собираемые данные зависят от заданного вами источника данных.  Данные в Log Analytics хранятся как набор записей.  Каждый источник данных создает записи определенного типа, а каждый тип обладает собственным набором свойств.

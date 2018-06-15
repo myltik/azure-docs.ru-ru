@@ -439,7 +439,7 @@
     - name: REST для вычислений
       href: /rest/api/compute
     - name: REST для управляемых дисков
-      href: /rest/api/manageddisks
+      href: /rest/api/disks
 - name: Ресурсы
   items:
     - name: Создание шаблонов

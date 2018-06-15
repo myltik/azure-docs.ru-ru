@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774188"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Подключение службы "Защита идентификации Azure Active Directory" к центру безопасности Azure
 В этом документе объясняется, как настроить интеграцию между службой "Защита идентификации Azure Active Directory" (AD) и центром безопасности Azure.

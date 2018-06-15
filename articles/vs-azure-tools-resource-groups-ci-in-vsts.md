@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192950"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Непрерывная интеграция в Visual Studio Team Services с использованием проектов развертывания группы ресурсов Azure
 Чтобы развернуть шаблон Azure, необходимо выполнить задачи на различных этапах: сборка, тестирование, копирование в Azure (также называется "помещением на промежуточное хранение") и развертывание шаблона. В Visual Studio Team Services (VS Team Services) развертывать шаблоны можно двумя разными способами. Оба метода обеспечивают одинаковые результаты, поэтому выберите самый оптимальный для своего рабочего процесса.

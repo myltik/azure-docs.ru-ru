@@ -33,7 +33,6 @@
 ### [Управление виртуальными машинами с помощью Azure PowerShell](manage-psh-classic.md)
 ### [Сведения об агенте и расширениях виртуальной машины](agents-and-extensions-classic.md)
 ### [Управление расширениями виртуальной машины](manage-extensions-classic.md)
-### [Расширение пользовательских сценариев для виртуальных машин](extensions-customscript-classic.md)
 
 ## Управление рабочими нагрузками
 ### [Высокопроизводительные вычислительные системы (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
