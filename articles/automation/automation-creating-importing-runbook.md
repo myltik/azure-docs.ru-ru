@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac7b050bf96401d33254dedad5035e43850ecc52
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea03f34a2e709fe6f6d8d2f7e13798cf6dcd1e34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598248"
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Создание или импорт модуля Runbook в службе автоматизации Azure
 Чтобы добавить модуль Runbook в службу автоматизации Azure, можно [создать новый модуль](#creating-a-new-runbook) или импортировать уже существующий модуль из файла или из [коллекции Runbook](automation-runbook-gallery.md). В этой статье рассказывается, как создавать и импортировать модули Runbook из файла.  Информацию о получении доступа к модулям Runbook сообществ см. в статье [Коллекции модулей Runbook и других модулей для службы автоматизации Azure](automation-runbook-gallery.md).
@@ -33,8 +34,10 @@ ms.lasthandoff: 05/16/2018
 
 Команды в приведенном ниже примере демонстрируют создание пустого модуля Runbook.
 
-    New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
-    -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
+```azurepowershell-interactive
+New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
+-Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
+```
 
 ## <a name="importing-a-runbook-from-a-file-into-azure-automation"></a>Импорт модуля из файла в службу автоматизации Azure
 Для создания модуля Runbook в службе автоматизации Azure можно импортировать сценарий или рабочий процесс PowerShell (с расширением PS1) либо экспортировать графический модуль Runbook (с расширением GRAPHRUNBOOK) или скрипт Python 2 (с расширением PY).  При этом необходимо указать [тип модуля Runbook](automation-runbook-types.md), который создается во время импорта, с учетом следующих рекомендаций.
@@ -70,15 +73,16 @@ ms.lasthandoff: 05/16/2018
 
 Приведенные ниже примеры команд демонстрируют импорт файла сценария в модуль Runbook.
 
-    $automationAccountName =  "AutomationAccount"
-    $runbookName = "Sample_TestRunbook"
-    $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
-    $RGName = "ResourceGroup"
+```azurepowershell-interactive
+$automationAccountName =  "AutomationAccount"
+$runbookName = "Sample_TestRunbook"
+$scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
+$RGName = "ResourceGroup"
 
-    Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
-    -ResourceGroupName $RGName -AutomationAccountName $automationAccountName `
-    -Type PowerShellWorkflow 
-
+Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
+-ResourceGroupName $RGName -AutomationAccountName $automationAccountName `
+-Type PowerShellWorkflow
+```
 
 ## <a name="publishing-a-runbook"></a>Публикация модуля Runbook
 Перед запуском вновь созданного или импортированного модуля Runbook его необходимо опубликовать.  У каждого Runbook в службе автоматизации есть черновая и опубликованная версия. Запустить можно только опубликованную версию, а изменить — только черновую. Изменения, внесенные в черновик, не влияют на опубликованную версию. Если требуется черновая версия, ее можно опубликовать, заменив опубликованную версию черновой.
@@ -91,13 +95,14 @@ ms.lasthandoff: 05/16/2018
 ## <a name="to-publish-a-runbook-using-windows-powershell"></a>Публикация модуля Runbook с помощью Windows PowerShell
 Командлет [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) позволяет опубликовать модуль Runbook с помощью Windows PowerShell. Команды в приведенном ниже примере показывают, как опубликовать образец модуля Runbook.
 
-    $automationAccountName =  AutomationAccount"
-    $runbookName = "Sample_TestRunbook"
-    $RGName = "ResourceGroup"
+```azurepowershell-interactive
+$automationAccountName =  "AutomationAccount"
+$runbookName = "Sample_TestRunbook"
+$RGName = "ResourceGroup"
 
-    Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
-    -Name $runbookName -ResourceGroupName $RGName
-
+Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
+-Name $runbookName -ResourceGroupName $RGName
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о преимуществах использования коллекции модулей Runbook и PowerShell см. в статье [Коллекции модулей Runbook и других модулей для службы автоматизации Azure](automation-runbook-gallery.md).

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5eae173e02c92bd43faaa9533ce29489d40f1389
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157413"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592931"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Синхронизация Azure Active Directory Connect. Настройка предпочтительного расположения данных для ресурсов Office 365
 В этой статье предоставлены сведения о настройке атрибута для предпочтительного расположения данных в службах синхронизации Azure Active Directory (Azure AD) Connect. Когда кто-то использует поддержку нескольких регионов в Office 365, этот атрибут используется для обозначения географического расположения данных пользователя в Office 365. (Термины *регион* и *геообъект* являются взаимозаменяемыми.)

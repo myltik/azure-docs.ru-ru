@@ -1,24 +1,19 @@
 ---
-title: "Архивация рабочих нагрузок SQL Server в Azure с помощью DPM | Документация Майкрософт"
-description: "Общие сведения о резервном копировании баз данных SQL Server с помощью службы архивации Azure"
+title: Резервное копирование рабочих нагрузок SQL Server в Azure с помощью DPM
+description: Общие сведения о резервном копировании баз данных SQL Server с помощью службы архивации Azure
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli
-editor: 
-ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: cebbe532b5d1b13588604c61ac10bf3c56a85e07
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604970"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Архивация SQL Server в Azure с помощью рабочей нагрузки DPM
 В этой статье описывается процесс настройки архивации баз данных SQL Server с помощью службы архивации Azure.

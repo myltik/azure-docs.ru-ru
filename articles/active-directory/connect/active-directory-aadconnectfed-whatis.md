@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect и федерация | Документация Майкрософт"
-description: "На этой странице представлена вся документация об операциях служб федерации Active Directory с использованием Azure AD Connect."
+title: Azure AD Connect и федерация | Документация Майкрософт
+description: На этой странице представлена вся документация об операциях служб федерации Active Directory с использованием Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
+ms.component: hybrid
 ms.author: anandy
-ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c14b673bd9664aad54ea8002175999470661e34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593859"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect и федерация
 Azure Active Directory (Azure AD) Connect позволяет настроить федерацию с локальными службами федерации Active Directory (AD FS) и Azure AD. С помощью федеративного входа ваши пользователи могут входить в службы Azure AD со своими локальными паролями, а в корпоративной сети им не нужно будет вводить пароли повторно. Благодаря возможности федерации с AD FS можно развернуть новую установку AD FS или указать существующую установку в ферме Windows Server 2012 R2.

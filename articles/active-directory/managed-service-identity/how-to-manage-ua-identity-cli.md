@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 5262914e469bdc07921c3b82e990d544349b5fd4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 24172ebac8c7f124d0873b9d93d260fa2e1a8a44
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930672"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594617"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-the-azure-cli"></a>Создание, получение списка и удаление пользовательских удостоверений с помощью Azure CLI.
 
@@ -31,7 +31,7 @@ ms.locfileid: "33930672"
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-- Если вы не работали с управляемым удостоверением службы, см. [общие сведения](overview.md). **Обратите внимание на [различие между назначенным системой и пользовательским удостоверениями](overview.md#how-does-it-work)**.
+- Если вы не работали с компонентом "Управляемое удостоверение службы", изучите [общие сведения](overview.md). **Обратите внимание на [различие между назначенным системой и пользовательским удостоверениями](overview.md#how-does-it-work)**.
 - Если у вас нет учетной записи Azure, [зарегистрируйтесь для получения бесплатной пробной учетной записи](https://azure.microsoft.com/free/), прежде чем продолжать.
 
 - Выполнить примеры сценариев для интерфейса командной строки можно тремя способами:
@@ -44,10 +44,9 @@ ms.locfileid: "33930672"
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Создание управляемого пользовательского удостоверения 
 
-Для создания пользовательского удостоверения используйте команду [az identity create](/cli/azure/identity#az-identity-create). Параметр `-g` указывает группу ресурсов, в которой создано пользовательское удостоверение, а параметр `-n` — его имя. Замените значения параметров `<RESOURCE GROUP>` и `<USER ASSIGNED IDENTITY NAME>` собственными:
+Для создания пользовательского удостоверения используйте команду [az identity create](/cli/azure/identity#az-identity-create). Параметр `-g` указывает группу ресурсов, в которой создано пользовательское удостоверение, а параметр `-n` — его имя. Замените значения параметров `<RESOURCE GROUP>` и `<USER ASSIGNED IDENTITY NAME>` собственными значениями.
 
-> [!IMPORTANT]
-> В назначенных пользователем удостоверениях можно использовать только буквы, цифры и символ дефиса (0–9, a–z, A–Z и -). Кроме того, чтобы назначение виртуальной машине или VMSS производилось правильно, длина имени не должна превышать 24 символа. Загляните сюда позже, чтобы проверить наличие новой информации. Дополнительные сведения см. в разделе [Часто задаваемые вопросы и известные проблемы](known-issues.md).
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
  ```azurecli-interactive
 az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>

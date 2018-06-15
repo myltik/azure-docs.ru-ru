@@ -3,16 +3,17 @@ title: Управление администраторами серверов в
 description: Узнайте, как управлять администраторами серверов служб Analysis Services в Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59aaf07edf387d40f47d7d82dcb116802a003dc1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596174"
 ---
 # <a name="manage-server-administrators"></a>Управление администраторами серверов
 Администраторами сервера должны быть допустимые пользователи или группы в Azure Active Directory (Azure AD) для клиента, в котором размещен сервер. Для управления администраторами сервера можно использовать элемент **Администраторы служб Analysis Services** для сервера на портале Azure или свойств сервера в SSMS. 

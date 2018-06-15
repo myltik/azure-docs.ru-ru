@@ -3,17 +3,17 @@ title: Добавление субъекта-службы к роли админ
 description: Узнайте, как добавить субъект-службу для автоматизации к роли администратора сервера
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8840dd9a8a8e8ba1f78d461824ac0cdce32b2ac9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149269"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596776"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Добавление субъекта-службы к роли администратора сервера 
 

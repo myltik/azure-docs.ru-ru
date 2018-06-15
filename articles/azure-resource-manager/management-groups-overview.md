@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604749"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Упорядочивание ресурсов с помощью групп управления Azure 
 
@@ -69,7 +70,7 @@ ms.lasthandoff: 05/04/2018
 
 Группы управления Azure поддерживают [управление доступом на основе ролей в Azure (RBAC)](../role-based-access-control/overview.md) для любого доступа к ресурсам и определения ролей. Эти разрешения наследуются дочерними ресурсами, которые есть в иерархии.   
 
-Хотя группе управления можно назначить любую [встроенную роль RBAC](../role-based-access-control/overview.md#built-in-roles), есть также четыре стандартные роли. 
+Хотя группе управления можно назначить любую [встроенную роль RBAC](../role-based-access-control/built-in-roles.md), есть также четыре стандартные роли. 
 - **Владелец** имеет полный доступ ко всем ресурсам, включая право делегировать доступ другим. 
 - **Участник** может создавать все типы ресурсов Azure и управлять ими, но не может предоставлять доступ другим.
 - **Участник политики ресурсов** может создавать политики в каталоге и управлять ими.     

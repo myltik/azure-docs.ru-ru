@@ -3,16 +3,17 @@ title: 'Дополнительное занятие для учебника по
 description: Описывает, как создать выражение строк детализации в учебном проекте служб Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6e15788992e66fdb8e742b290e5bcf5bce8d20fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596106"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Дополнительное занятие. Строки детализации
 

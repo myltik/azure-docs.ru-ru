@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: e48c54216c5c4ae8e53d4802aafce8883ee97c11
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4b7e4302bba2efed12e19043da1f592bed12a2fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608888"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Краткое руководство по Bash в Azure Cloud Shell
 
@@ -94,7 +95,7 @@ exit
 
 2. Удалите группу ресурсов и все входящие в нее ресурсы.
 ```azurecli-interactive
-Run `az group delete -n MyRG`
+az group delete -n MyRG
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация

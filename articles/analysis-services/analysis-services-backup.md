@@ -3,16 +3,17 @@ title: Архивация и восстановление базы данных 
 description: Описывает, как выполнять архивацию и восстановление базы данных Analysis Services Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ec213d5c223180825ea0eabe95881002432b92e9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b2cebde40983955c5244ac2b7f0b759dcdbd14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597303"
 ---
 # <a name="backup-and-restore"></a>Архивация и восстановление
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 04/16/2018
 
     ![Сохранение параметров архивации](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Архивация
+## <a name="backup"></a>Azure Backup
 
 ### <a name="to-backup-by-using-ssms"></a>Архивация с помощью SSMS
 

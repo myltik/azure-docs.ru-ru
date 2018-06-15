@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595314"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию
 В этой статье описываются стандартные правила конфигурации и то, как они влияют на конфигурацию. Кроме того, здесь содержится информация о конфигурации по умолчанию службы синхронизации Azure AD Connect. Статья на реальном примере познакомит читателя с тем, как работает модель конфигурации, именуемая "декларативной подготовкой". Для работы с этой статьей нужно установить и настроить службу Azure AD Connect Sync с помощью мастера установки.

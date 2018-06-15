@@ -1,11 +1,11 @@
 ---
-title: "Обновление с DirSync и Azure AD Sync | Документация Майкрософт"
-description: "Узнайте, как обновить DirSync и Azure AD Sync до Azure AD Connect."
+title: Обновление с DirSync и Azure AD Sync | Документация Майкрософт
+description: Узнайте, как обновить DirSync и Azure AD Sync до Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e8faf365c0f47582b4abc3554e0bb6e1c3e7902
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 23d2be6e3fb7d14cd7ea42ffc2bf6d4174a894cc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591826"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Обновление Windows Azure Active Directory Sync и Azure Active Directory Sync
 Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы пользуетесь Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, поскольку эти продукты являются нерекомендуемыми и не поддерживаются с 13 апреля 2017 года.

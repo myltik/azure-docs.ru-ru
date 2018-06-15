@@ -1,9 +1,9 @@
 ---
-title: "Сквозная аутентификация в Azure AD Connect. Обновление агентов аутентификации| Документация Майкрософт"
-description: "В этой статье описывается процесс обновления сквозной аутентификации в Azure Active Directory (Azure AD)."
+title: Сквозная аутентификация в Azure AD Connect. Обновление агентов аутентификации| Документация Майкрософт
+description: В этой статье описывается процесс обновления сквозной аутентификации в Azure Active Directory (Azure AD).
 services: active-directory
-keywords: "сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход"
-documentationcenter: 
+keywords: сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: c699df83c7032dc6e3d176753d8203fec6977c1b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591996"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Сквозная проверка подлинности в Azure Active Directory. Обновление предварительной версии агентов проверки подлинности
 

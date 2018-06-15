@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7398e01a46b5d296f26905e2063acdb98383f567
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603391"
 ---
 # <a name="manage-azure-resources-through-portal"></a>Управление ресурсами Azure через портал
 
@@ -130,5 +131,5 @@ ms.lasthandoff: 05/20/2018
 * Дополнительные сведения о развертывании см. в статье [Просмотр операций развертывания с помощью Azure Resource Manager](resource-manager-deployment-operations.md).
 * Сведения о развертывании ресурсов через портал см. в статье [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
 * Сведения об управлении доступом к ресурсам см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md).
-* Инструкции по использованию Resource Manager для эффективного управления подписками в организациях см. в статье [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md).
+* Инструкции по использованию Resource Manager для эффективного управления подписками в организациях см. в статье [Корпоративный каркас Azure: рекомендуемая система управления подписками](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

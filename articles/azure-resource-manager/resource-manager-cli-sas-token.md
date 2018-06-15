@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b97fdea36eab914926ff91e1f27bdab0fb8a3930
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d09aa46eabe705082edafe12da8442a79d1080b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603202"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Развертывание частного шаблона Resource Manager с использованием токена SAS и Azure CLI
 
@@ -88,4 +89,3 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 * Вводные сведения о развертывании шаблонов см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy-cli.md).
 * Полный пример сценария, развертывающего шаблон, см. в статье [Сценарий для развертывания шаблона Resource Manager](resource-manager-samples-cli-deploy.md).
 * Сведения об определении параметров в шаблоне см. в разделе [Создание шаблонов](resource-group-authoring-templates.md#parameters).
-* Инструкции по использованию Resource Manager для эффективного управления подписками в организациях см. в статье [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md).

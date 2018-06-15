@@ -1,24 +1,26 @@
 ---
-title: "Доменные службы Azure AD: проверка работоспособности управляемого домена | Документация Майкрософт"
-description: "Проверьте работоспособность управляемого домена на странице работоспособности на портале Azure."
+title: 'Доменные службы Azure AD: проверка работоспособности управляемого домена | Документация Майкрософт'
+description: Проверьте работоспособность управляемого домена на странице работоспособности на портале Azure.
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9421ace7abf1f3d45b1f8cd810067d79faa92ec
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5be6a2c36dfec8c8543f6dcfe252ce01b4c28e50
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587244"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Проверка работоспособности управляемого домена доменных служб Azure AD
 
@@ -50,7 +52,7 @@ ms.lasthandoff: 02/13/2018
 Мониторы являются аспектами управляемого домена, отслеживаемыми доменными службами Azure AD на регулярной основе. Для сохранения мониторов в работоспособном состоянии рекомендуется разрешить все активные оповещения для управляемого домена.
 
 Доменные службы Azure AD в настоящее время отслеживают следующее.
- - Архивация
+ - Azure Backup
  - Синхронизация с Azure AD
 
 ### <a name="the-backup-monitor"></a>Монитор резервного копирования
