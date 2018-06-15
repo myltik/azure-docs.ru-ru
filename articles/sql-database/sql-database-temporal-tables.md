@@ -7,13 +7,14 @@ ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.topic: article
+ms.topic: conceptual
 ms.author: bonova
-ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 140d2c9f6c334cec7d2761d05d7b20eb7106b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649046"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Приступая к работе с временными таблицами в базе данных SQL Azure
 Временные таблицы — это новая программная возможность базы данных SQL Azure, которая позволяет отслеживать и анализировать полный журнал изменений в данных, не создавая какого-либо дополнительного пользовательского кода. Во временных таблицах хранятся данные, тесно связанные с контекстом времени, чтобы хранимые факты можно было интерпретировать как действительные только в течение определенного периода. Эта особенность временных таблиц дает возможность эффективно выполнять анализ с учетом времени и получать ценную информацию об эволюции данных.

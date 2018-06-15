@@ -3,23 +3,20 @@ title: Управление учетной записью Azure Cosmos DB на �
 description: Узнайте, как управлять учетной записью Azure Cosmos DB на портале Azure. Изучите руководство по использованию портала Azure для просмотра, копирования, удаления учетной записи и доступа к ней.
 keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: kirillg
 manager: kfile
 editor: cgronlun
-ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 9c8126c7f902beec348419c0362722a692cb393e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b28143dc92fa526b631baf6d47e4a9f2367ee0e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612162"
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Как управлять учетной записью Azure Cosmos DB
 Узнайте, как задать глобальную согласованность, как работать с ключами и как удалить учетную запись Azure Cosmos DB на портале Azure.

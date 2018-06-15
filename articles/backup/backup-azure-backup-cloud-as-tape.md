@@ -1,25 +1,20 @@
 ---
-title: "Использование службы архивации Azure для замены инфраструктуры ленточных накопителей | Документация Майкрософт"
-description: "Узнайте, как служба архивации Azure предоставляет ленточную семантику, которая дает возможность выполнять резервное копирование и восстановление данных в Azure"
+title: Использование службы архивации Azure для замены ленточной инфраструктуры
+description: Узнайте, как служба архивации Azure предоставляет ленточную семантику, которая дает возможность выполнять резервное копирование и восстановление данных в Azure
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: vijayts
-editor: 
-ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/10/2017
-ms.author: saurse;trinadhk;markgal
+ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606500"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Перенос долгосрочного хранения данных с магнитной ленты в облако Azure
 Пользователи службы архивации Azure и System Center Data Protection Manager могут:

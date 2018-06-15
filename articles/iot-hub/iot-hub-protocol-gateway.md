@@ -1,24 +1,19 @@
 ---
-title: "Шлюз протокола Интернета вещей Azure | Документация Майкрософт"
-description: "Как использовать шлюз протокола Центра Интернета вещей Azure для расширения возможностей Центра Интернета вещей и поддержки протоколов, чтобы устройства смогли подключаться к концентратору по протоколам, которые изначально не поддерживает Центр Интернета вещей."
-services: iot-hub
-documentationcenter: 
+title: Шлюз протокола Интернета вещей Azure | Документация Майкрософт
+description: Как использовать шлюз протокола Центра Интернета вещей Azure для расширения возможностей Центра Интернета вещей и поддержки протоколов, чтобы устройства смогли подключаться к концентратору по протоколам, которые изначально не поддерживает Центр Интернета вещей.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: 555e59ae-3136-4533-8ba8-f3a3b6acf648
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: elioda
-ms.openlocfilehash: 1ed8ec28b95bbc91b731fd7bb7b3f1f6654e7fcf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 2c90ee899d0002d41ca21ed4a4927470ee53b2e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635310"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Поддержка дополнительных протоколов для Центра Интернета вещей
 Центр Интернета вещей Azure изначально поддерживает взаимодействие по протоколам MQTT, AMQP и HTTPS. В некоторых случаях устройства или полевые шлюзы не могут использовать один из этих стандартных протоколов и требуют его адаптации. В таких случаях вы можете использовать настраиваемый шлюз. Адаптация протокола для конечных точек Центра Интернета вещей проводится с помощью пользовательского шлюза, через который пропускается трафик в Центр Интернета вещей и из него. [Шлюз протокола Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) можно использовать как настраиваемый шлюз для включения адаптации протокола для центра IoT.

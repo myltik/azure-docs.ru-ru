@@ -1,11 +1,11 @@
 ---
-title: "Общие сведения о политике SSL для шлюза приложений Azure | Документация Майкрософт"
-description: "Дополнительные сведения о том, как шлюз приложений Azure позволяет настроить политику SSL"
+title: Общие сведения о политике SSL для шлюза приложений Azure | Документация Майкрософт
+description: Дополнительные сведения о том, как шлюз приложений Azure позволяет настроить политику SSL
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987079"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Общие сведения о политике SSL шлюза приложений
 

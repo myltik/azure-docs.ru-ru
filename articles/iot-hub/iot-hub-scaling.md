@@ -1,25 +1,19 @@
 ---
 title: Масштабирование Центра Интернета вещей в Azure | Документация Майкрософт
 description: Масштабирование Центра Интернета вещей для поддержки ожидаемой пропускной способности сообщений и необходимых компонентов. Эта статья содержит сводку по поддерживаемой пропускной способности для каждого уровня и параметров сегментирования.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: e7bd4968-db46-46cf-865d-9c944f683832
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 23ace9f643596c4519014f370cf0142540724be6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635446"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Выбор правильного уровня Центра Интернета вещей для решения
 

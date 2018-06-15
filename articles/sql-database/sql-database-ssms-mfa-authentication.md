@@ -7,18 +7,19 @@ author: GithubMirek
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f3c94f41a4f5d7947b862054263ee07ff8ccd98c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650015"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Универсальная проверка подлинности для Базы данных SQL и хранилища данных SQL (поддержка SSMS для MFA)
 База данных SQL Azure и хранилище данных SQL Azure поддерживают подключения из SQL Server Management Studio (SSMS) с использованием *универсальной проверки подлинности Active Directory*. 
-**Скачивание последней версии SSMS.** Скачайте последнюю версию SSMS на клиентский компьютер, воспользовавшись страницей [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Для всех функций в этом разделе используйте по крайней мере версию 17.2 за июль 2017 года.  Диалоговое окно подключения в последней версии выглядит следующим образом: ![1mfa универсального подключения](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "Заполнение поля "Имя пользователя"")  
+**Скачивание последней версии SSMS.** Скачайте последнюю версию SSMS на клиентский компьютер, воспользовавшись страницей [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Для всех функций в этом разделе используйте по крайней мере версию 17.2 за июль 2017 года.  Диалоговое окно подключения в последней версии выглядит следующим образом: ![1mfa универсального подключения](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "Заполнение поля \"Имя пользователя\"")  
 
 ## <a name="the-five-authentication-options"></a>Пять параметров аутентификации  
 - Универсальная аутентификация Active Directory поддерживает два неинтерактивных метода аутентификации (проверку пароля (`Active Directory - Password`) и встроенную аутентификацию (`Active Directory - Integrated`)). Неинтерактивные методы аутентификации (`Active Directory - Password` и `Active Directory - Integrated`) можно использовать во множестве различных приложений (ADO.NET, JDBC, ODBC и т. д.). При использовании этих двух методов никогда не отображаются всплывающие диалоговые окна.

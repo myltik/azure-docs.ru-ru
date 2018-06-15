@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652507"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Использование Azure PowerShell со службой хранилища Azure
 
@@ -28,7 +29,7 @@ PowerShell используется для создания ресурсов Azu
 > [!div class="checklist"]
 > * Вывод списка учетных записей хранения.
 > * Получение ссылки на имеющуюся учетную запись хранения.
-> * Создайте учетную запись хранения. 
+> * Создание учетной записи хранения 
 > * Настройка свойств учетной записи хранения.
 > * Получение и повторное создание ключей доступа.
 > * Защита доступа к учетной записи хранения 
@@ -78,7 +79,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 Теперь у вас есть переменная $storageAccount, указывающая на имеющуюся учетную запись хранения.
 
-### <a name="create-a-storage-account"></a>Создайте учетную запись хранения. 
+### <a name="create-a-storage-account"></a>Создание учетной записи хранения 
 
 В следующем сценарии показано, как создать учетную запись хранения общего назначения с помощью команды [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). После создания учетной записи извлеките ее контекст, который можно использовать в последующих командах вместо указания аутентификации при каждом вызове.
 
@@ -214,7 +215,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 * [Выполнение операций в хранилище BLOB-объектов Azure с помощью Azure PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Как использовать PowerShell для управления службой файлов Azure](../files/storage-how-to-use-files-powershell.md)
 * [Выполнение операций хранилища очередей Azure с помощью Azure PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Выполнение операций в хранилище таблиц Azure с помощью PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Выполнение операций в хранилище таблиц Azure с помощью PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 API таблицы Azure Cosmos DB предоставляет расширенные функции для хранения таблиц, такие как комплексные возможности глобального распределения, низкие задержки операций чтения и записи, автоматическое вторичное индексирование и выделенная пропускная способность. 
 
@@ -245,7 +246,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > [!div class="checklist"]
 > * Вывод списка учетных записей хранения.
 > * Получение ссылки на имеющуюся учетную запись хранения.
-> * Создайте учетную запись хранения. 
+> * Создание учетной записи хранения 
 > * Настройка свойств учетной записи хранения.
 > * Получение и повторное создание ключей доступа.
 > * Защита доступа к учетной записи хранения 

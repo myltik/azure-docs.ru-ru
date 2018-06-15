@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608956"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Устранение неполадок и ограничения в Azure Cloud Shell
 
@@ -43,11 +44,6 @@ ms.lasthandoff: 04/19/2018
  - **Решение.** Убедитесь, что параметры сети настроены для разрешения отправки HTTP-запросов и запросов WebSocket к доменам по адресу *.console.azure.com.
 
 ## <a name="bash-troubleshooting"></a>Устранение неполадок в Bash
-
-### <a name="cannot-run-az-login"></a>Не удается выполнить команду az login
-
-- **Сведения**. Команда `az login` не будет выполняться, так как вы уже прошли аутентификацию с учетной записью, которая использовалась для входа в Cloud Shell или на портал Azure.
-- **Устранение**. Используйте свою учетную запись, с помощью которой вы осуществили вход или выход, и повторно пройдите аутентификацию с нужной учетной записью Azure.
 
 ### <a name="cannot-run-the-docker-daemon"></a>Не удается запустить управляющую программу Docker
 

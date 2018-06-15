@@ -3,17 +3,18 @@ title: Мониторинг синхронизации данных SQL Azure (�
 description: Узнайте, как выполнять мониторинг синхронизации данных SQL Azure (предварительная версия) с помощью Log Analytics
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650253"
 ---
 # <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Мониторинг синхронизации данных SQL (предварительная версия) с помощью Log Analytics 
 

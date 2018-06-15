@@ -3,21 +3,22 @@ title: Использование журнала аудита в Azure AD Privil
 description: Узнайте, как использовать журнал аудита в расширении для управления привилегированными пользователями Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 02/14/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20fd9c5ee90947cc2d3816a0590d4780408baa2f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 05a70874367d578beee1dc605510f9370b6abd42
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35232998"
 ---
 # <a name="using-the-audit-log-in-pim"></a>Использование журнала аудита для управления привилегированными пользователями
 Вы можете использовать журнал аудита управления привилегированными пользователями (PIM) для просмотра всех назначенных пользователям и активированных ролей за определенный период времени. Если требуется просмотреть весь журнал аудита действий в клиенте, включая действия администратора, пользователя и действия при синхронизации, можно использовать [отчеты о доступе и использовании Azure Active Directory.](active-directory-view-access-usage-reports.md)

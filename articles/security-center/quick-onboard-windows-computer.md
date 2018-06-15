@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922779"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Краткое руководство. Подключение компьютеров Windows к центру безопасности Azure
 После подключения подписок Azure можно включить центр безопасности для ресурсов, работающих вне среды Azure, например в локальной среде или в других облаках, подготовив агент Microsoft Monitoring Agent.

@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647424"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Перемещение данных между масштабируемыми облачными базами данных
 Если вы разрабатываете программное обеспечение как услугу и ваше предложение внезапно становится популярным, к этому росту нужно как-то адаптироваться. В результате добавляются новые базы данных (сегменты). Как перераспределить данные с учетом новых баз данных, не нарушив целостность данных? Для перемещения данных из ограниченных баз данных во вновь созданные используйте **средство разбиения и слияния** .  

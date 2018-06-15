@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 47a0f2e1cdb873dc907748ed2f3def29efccaa98
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 797421e40a5550e1897443f35089838a349ad85a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607401"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure
 
@@ -149,7 +150,7 @@ ms.lasthandoff: 05/03/2018
 | Поставщик облачных решений (CSP) | Обратитесь к поставщику |
 | Спонсорское предложение Azure | [Портал спонсорского предложения Azure](https://www.microsoftazuresponsorships.com/) |
 
-Если вы управляете ИТ-инфраструктурой в крупной организации, то рекомендуем ознакомиться со статьей [Корпоративный каркас Azure: рекомендуемая система управления подписками](../azure-resource-manager/resource-manager-subscription-governance.md), а также с [техническим документом по корпоративным ИТ-решениям](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (доступен в формате PDF и только на английском языке).
+Если вы управляете ИТ-инфраструктурой в крупной организации, то рекомендуем ознакомиться со статьей [Корпоративный каркас Azure: рекомендуемая система управления подписками](/azure/architecture/cloud-adoption-guide/subscription-governance), а также с [техническим документом по корпоративным ИТ-решениям](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (доступен в формате PDF и только на английском языке).
 
 #### <a name="EA"></a>Предварительные представления затрат на условиях соглашения Enterprise на портале Azure 
 

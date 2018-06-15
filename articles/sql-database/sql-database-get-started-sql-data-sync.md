@@ -6,15 +6,16 @@ author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7598484a20d2d719c84e1789664ac2b40c2d0639
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647856"
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Настройка синхронизации данных SQL (предварительная версия)
 В этом руководстве вы узнаете, как для настроить синхронизацию данных SQL Azure, создав гибридную группу синхронизации, содержащую экземпляры базы данных SQL Azure и SQL Server. Новая группа синхронизации полностью настраивается и синхронизируется по заданному расписанию.

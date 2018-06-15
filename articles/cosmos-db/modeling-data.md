@@ -5,20 +5,17 @@ keywords: моделирование данных
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2016
 ms.author: sngun
-ms.openlocfilehash: 8704c8b9278406b56475d30d149e33055278ef70
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef40bcb473e4d7dbe51f9d8d9ca20265c04d0df6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612689"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Моделирование данных документов для базы данных NoSQL
 Хотя базы данных без схем, такие как Azure Cosmos DB, существенно упрощают внесение изменений в модель данных, вам все равно следует уделить время анализу ситуации с данными. 

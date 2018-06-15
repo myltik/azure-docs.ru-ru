@@ -1,6 +1,6 @@
 ---
-title: "Пример скрипта Azure PowerShell. Создание определения управляемого приложения | Документация Майкрософт"
-description: "Пример скрипта Azure PowerShell. Создание определения управляемого приложения"
+title: Пример скрипта Azure PowerShell. Создание определения управляемого приложения | Документация Майкрософт
+description: Пример скрипта Azure PowerShell. Создание определения управляемого приложения
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636994"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Создание определения управляемого приложения с помощью Azure PowerShell
 

@@ -1,12 +1,12 @@
 ---
-title: "Настройка свойств и метаданных с помощью службы импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как указать свойства и метаданные, используемые для настройки целевых больших двоичных объектов, при запуске инструмента импорта и экспорта Azure для подготовки дисков."
+title: Настройка свойств и метаданных с помощью службы импорта и экспорта Azure | Документация Майкрософт
+description: Узнайте, как указать свойства и метаданные, используемые для настройки целевых больших двоичных объектов, при запуске инструмента импорта и экспорта Azure для подготовки дисков.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059409"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Настройка свойств и метаданных во время импорта
 

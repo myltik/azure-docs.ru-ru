@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940143"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617898"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Копирование данных из Netezza с помощью фабрики данных Azure (бета-версия)
 
@@ -57,7 +57,7 @@ ms.locfileid: "33940143"
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | Уровень безопасности (SSL/TLS), который драйвер использует для подключения к хранилищу данных. (например, `SecurityLevel=preferredSecured`. Поддерживаемые значения:<br/>— Только незащищенный (**onlyUnSecured**): драйвер не использует SSL.<br/>- **Предпочтительно незащищенный (preferredUnSecured) (по умолчанию)**: если сервер предоставляет возможность выбора, драйвер не использует SSL. <br/>- **Предпочтительно защищенный (preferredSecured)**: если сервер предоставляет возможность выбора, драйвер использует SSL. <br/>- **Только защищенный (onlySecured)**: драйвер не подключается, если SSL-подключение недоступно. | Нет  |
-| CaCertFile | Полный путь к SSL-сертификату, используемому сервером. (например, `UseSystemTrustStore=<cert path>;`| Да, если протокол SSL включен |
+| CaCertFile | Полный путь к SSL-сертификату, используемому сервером. (например, `CaCertFile=<cert path>;`| Да, если протокол SSL включен |
 
 **Пример.**
 

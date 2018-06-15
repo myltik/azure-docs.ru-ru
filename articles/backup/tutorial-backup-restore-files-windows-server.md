@@ -1,26 +1,21 @@
 ---
-title: "Восстановление файлов из Azure в Windows Server | Документация Майкрософт"
-description: "В этом руководстве представлены подробные сведения о восстановлении элементов из Azure в Windows Server."
+title: Восстановление файлов из Azure в Windows Server
+description: В этом руководстве представлены подробные сведения о восстановлении элементов из Azure в Windows Server.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-keywords: "архивация windows server; восстановление файлов windows server; архивация и аварийное восстановление"
-ms.assetid: 
+keywords: архивация windows server; восстановление файлов windows server; архивация и аварийное восстановление
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607027"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Восстановление файлов из Azure в Windows Server
 

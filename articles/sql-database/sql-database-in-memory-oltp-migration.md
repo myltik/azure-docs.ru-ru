@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: 19ddcdf9a7d27535172c1e9ccfa89b3836589c84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a2f0d901abfa0013a6f53bacd72a9f8db2e0fd99
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648053"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Повышение производительности приложений в базе данных SQL с помощью выполняющейся в памяти OLTP
 [Выполняющуюся в памяти OLTP](sql-database-in-memory.md) можно использовать для повышения производительности обработки транзакций, приема данных и сценариев, связанных с временными данными, в базах данных уровней ["Премиум" и "Критически важный для бизнеса"](sql-database-service-tiers-vcore.md), не повышая ценовую категорию. 
