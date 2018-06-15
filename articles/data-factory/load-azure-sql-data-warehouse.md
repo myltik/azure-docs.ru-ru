@@ -8,14 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 49ba61ba8cf68a39eef21b1939a3e8a6c92f8827
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c7549297f040e251f3c0109debf757c28750d0a0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619275"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Загрузка данных в службу "Хранилище данных SQL Azure" с помощью службы "Фабрика данных Azure"
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 03/23/2018
 * База данных SQL Azure. В этом руководстве демонстрационные данные Adventure Works LT копируются из базы данных SQL Azure. Вы можете создать базу данных SQL, следуя указаниям в статье [Создание базы данных SQL Azure на портале Azure](../sql-database/sql-database-get-started-portal.md). 
 * Учетная запись хранения Azure. Учетная запись хранения Azure используется в качестве _промежуточного_ хранилища больших двоичных объектов в операции массового копирования. Если у вас нет учетной записи хранения Azure, см. инструкции по [ее созданию](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 1. В меню слева выберите **Создать** > **Data + Analytics** (Данные и аналитика) > **Фабрика данных**: 
    
