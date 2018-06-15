@@ -16,6 +16,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33779163"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Краткое руководство по созданию кластера Spark в HDInsight с помощью PowerShell
 Узнайте, как создать кластер Apache Spark в Azure HDInsight и как выполнять SQL-запросы Spark к таблицам Hive. Apache Spark обеспечивает быстрый анализ данных и кластерные вычисления, используя обработку в памяти. Сведения о Spark в HDInsight см. в [этой статье](apache-spark-overview.md).

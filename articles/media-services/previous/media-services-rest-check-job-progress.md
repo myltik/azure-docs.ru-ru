@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785743"
 ---
 # <a name="how-to-check-job-progress"></a>Практическое руководство. Проверка хода выполнения задания
 > [!div class="op_single_selector"]

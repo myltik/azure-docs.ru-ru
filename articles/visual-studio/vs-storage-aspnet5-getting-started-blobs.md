@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793959"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Приступая к работе с хранилищем BLOB-объектов Azure и подключенными службами Visual Studio (ASP.NET Core)
 

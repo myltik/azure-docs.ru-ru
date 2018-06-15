@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783193"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Использование castLabs для доставки лицензий Widevine для служб мультимедиа Azure
 > [!div class="op_single_selector"]

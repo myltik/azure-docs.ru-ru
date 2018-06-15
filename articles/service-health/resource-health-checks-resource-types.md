@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795951"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Типы ресурсов и проверки работоспособности в службе работоспособности ресурсов Azure
 Ниже приведен полный список проверок, выполняемых в системе работоспособности ресурсов для разных типов ресурсов.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814702"
 ---
 1. Войдите в [консоль Firebase](https://firebase.google.com/console/). Создайте проект Firebase, если его еще нет.
 2. После создания проекта выберите **Add Firebase to your Android app** (Добавить Firebase в приложение Android). и следуйте инструкциям. Скачайте файл **google services.json**. 

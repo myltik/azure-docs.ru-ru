@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798212"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Типы IP-адресов и методы распределения (классическая модель) в Azure
 Вы можете назначать IP-адреса ресурсам Azure, чтобы они могли взаимодействовать с другими ресурсами Azure, а также подключаться к вашей локальной сети и Интернету. В Azure можно использовать два типа IP-адресов: общедоступные и частные.

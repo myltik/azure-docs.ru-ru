@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783753"
 ---
 # <a name="deliver-content-to-customers"></a>Доставка содержимого клиентам
 При доставке содержимого клиентам в виде потоковой трансляции или видео по запросу ваша задача — доставлять видео высокого качества для различных устройств в разных сетевых условиях.
@@ -125,7 +126,7 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>Прогрессивное скачивание
-Поэтапная загрузка позволяет начать воспроизведение мультимедиа до окончания скачивания всего файла. ISMV-, ISMA-, ISMT- и ISMC-файлы не могут быть загружены поэтапно.
+Поэтапная загрузка позволяет начать воспроизведение мультимедиа до окончания скачивания всего файла. ISM\* (ISMV-, ISMA-, ISMT- и ISMC)-файлы не могут быть загружены поэтапно.
 
 Для последовательной загрузки содержимого используйте тип указателя OnDemandOrigin. В следующем примере показан URL-адрес, основанный на типе указателя OnDemandOrigin.
 

@@ -3,7 +3,7 @@ title: Настройка частных IP-адресов для (класси�
 description: Узнайте, как настроить частные IP-адреса для (классических) виртуальных машин с помощью портала Azure.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 tags: azure-service-management
@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b81f0fc1d504a0cb3422e003aa4ad7986396652
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1aae74d8077a75e5ab556703b1c1531f540bbdb4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
+ms.locfileid: "31791905"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Настройка частных IP-адресов для (классической) виртуальной машины с помощью портала Azure
 

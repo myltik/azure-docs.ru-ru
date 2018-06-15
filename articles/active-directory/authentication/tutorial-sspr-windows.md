@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867499"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Сброс пароля Azure AD на экране входа
 

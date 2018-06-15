@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771877"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Сценарии применения частных зон DNS Azure
 Частные зоны Azure DNS обеспечивают разрешение имен внутри виртуальной сети и между виртуальными сетями. В этой статье мы рассмотрим несколько распространенных сценариев, которые можно реализовать с помощью этой функции. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895880"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Контрольный список для обеспечения безопасности Azure Service Fabric
 Эта статья содержит удобный контрольный список, который поможет обеспечить защиту среды Azure Service Fabric.
