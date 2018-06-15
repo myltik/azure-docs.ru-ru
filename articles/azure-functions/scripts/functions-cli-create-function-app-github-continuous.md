@@ -1,9 +1,9 @@
 ---
-title: "Создание в Azure приложения-функции, которое развертывается из GitHub | Документация Майкрософт"
-description: "Создайте приложение-функцию и разверните код функции из репозитория GitHub с помощью решения \"Функции Azure\"."
+title: Создание в Azure приложения-функции, которое развертывается из GitHub | Документация Майкрософт
+description: Создайте приложение-функцию и разверните код функции из репозитория GitHub с помощью решения "Функции Azure".
 services: functions
 ms.service: functions
-keywords: 
+keywords: ''
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842734"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Создание в Azure приложения-функции, которое развертывается из GitHub
 

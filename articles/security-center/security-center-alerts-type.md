@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778433"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Основные сведения об оповещениях системы безопасности в центре безопасности Azure
 Из этой статьи вы узнаете о различных типах оповещений системы безопасности и связанных аналитических данных, доступных в центре безопасности Azure. Дополнительные сведения об управлении оповещениями и инцидентами см. в статье [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md).
