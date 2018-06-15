@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797164"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Рекомендации по использованию эластических запросов в базе данных SQL Azure для получения доступа к данным в хранилище данных SQL Azure
 Ознакомьтесь с рекомендациями для получения доступа к данным в хранилище данных SQL Azure из базы данных SQL Azure с помощью эластичных запросов. 

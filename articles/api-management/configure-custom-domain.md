@@ -1,11 +1,11 @@
 ---
-title: "Настройка имени домена для экземпляра службы управления API Azure | Документация Майкрософт"
-description: "В этом разделе описано, как настроить пользовательское имя домена для вашего экземпляра службы управления API Azure."
+title: Настройка имени домена для экземпляра службы управления API Azure | Документация Майкрософт
+description: В этом разделе описано, как настроить пользовательское имя домена для вашего экземпляра службы управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29345376"
 ---
 # <a name="configure-a-custom-domain-name"></a>Настройка пользовательского имени домена 
 

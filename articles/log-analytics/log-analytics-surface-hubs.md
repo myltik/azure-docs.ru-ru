@@ -1,11 +1,11 @@
 ---
-title: "Мониторинг устройств Surface Hub с помощью Azure Log Analytics | Документация Майкрософт"
-description: "Решение Surface Hub позволяет отслеживать работоспособность устройств Surface Hub и понимать, как они используются."
+title: Мониторинг устройств Surface Hub с помощью Azure Log Analytics | Документация Майкрософт
+description: Решение Surface Hub позволяет отслеживать работоспособность устройств Surface Hub и понимать, как они используются.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29179231"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Мониторинг работоспособности устройств Surface Hub с помощью Log Analytics
 

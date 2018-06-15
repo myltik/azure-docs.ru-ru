@@ -1,22 +1,20 @@
 ---
 title: Настройка устройства для службы "Подготовка устройств к добавлению в Центр Интернета вещей"
 description: Настройка устройства для подготовки через службу подготовки устройств для Центра Интернета вещей во время производства устройства.
-services: iot-dps
-keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1e4e93c276fe62caae17c85bf9ac92282dfdfb88
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631274"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Настройка устройства для подготовки с помощью службы подготовки устройств для Центра Интернета вещей
 
@@ -25,7 +23,7 @@ ms.lasthandoff: 04/03/2018
 > [!div class="checklist"]
 > * создание клиентского пакета SDK служб подготовки устройств для определенной платформы;
 > * извлечение артефактов безопасности;
-> * создание программного пакета регистрации устройств.
+> * создать программный пакет регистрации устройств.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -193,7 +191,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 > [!div class="checklist"]
 > * создать клиентский пакет SDK службы подготовки устройств для определенной платформы;
-> * извлечь артефакты безопасности;
+> * извлечение артефактов безопасности;
 > * создать программный пакет регистрации устройств.
 
 Перейдите к следующему руководству, чтобы узнать, как подготовить свое устройство в Центре Интернета вещей, зарегистрировав его в службе подготовки устройств для Центра Интернета вещей Azure, позволяющей выполнить автоматическую подготовку.

@@ -1,11 +1,11 @@
 ---
-title: "Гибридные локальные и облачные приложения ретранслятора WCF Azure (.NET) | Документация Майкрософт"
-description: "Узнайте, как создать локальное или облачное гибридное приложение .NET с использованием ретранслятора WCF Azure."
+title: Гибридные локальные и облачные приложения ретранслятора WCF Azure (.NET) | Документация Майкрософт
+description: Узнайте, как создать локальное или облачное гибридное приложение .NET с использованием ретранслятора WCF Azure.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus-relay
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29346447"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Создание локального или облачного гибридного приложения .NET с использованием ретранслятора WCF Azure
 

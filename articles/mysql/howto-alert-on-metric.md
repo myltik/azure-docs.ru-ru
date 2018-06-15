@@ -1,19 +1,20 @@
 ---
-title: "Настройка оповещений о метриках службы \"База данных Azure для MySQL\" на портале Azure"
-description: "В этой статье описывается, как настроить уведомления на основе метрик для базы данных Azure для MySQL и получить к ним доступ с помощью портала Azure."
+title: Настройка оповещений о метриках службы "База данных Azure для MySQL" на портале Azure
+description: В этой статье описывается, как настроить уведомления на основе метрик для базы данных Azure для MySQL и получить к ним доступ с помощью портала Azure.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3accc31f433e6db40c7d1de2b56dfbd4180b4933
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265189"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Настройка оповещений на основе метрик для базы данных Azure для MySQL на портале Azure 
 

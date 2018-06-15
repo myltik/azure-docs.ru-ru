@@ -1,11 +1,11 @@
 ---
-title: "Мониторинг состояния репликации Active Directory с помощью Azure Log Analytics | Документация Майкрософт"
-description: "Пакет решения \"Состояние репликации Active Directory\" регулярно отслеживает среду Active Directory на наличие ошибок репликации."
+title: Мониторинг состояния репликации Active Directory с помощью Azure Log Analytics | Документация Майкрософт
+description: Пакет решения "Состояние репликации Active Directory" регулярно отслеживает среду Active Directory на наличие ошибок репликации.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29179340"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Мониторинг состояния репликации Active Directory с помощью Log Analytics
 
