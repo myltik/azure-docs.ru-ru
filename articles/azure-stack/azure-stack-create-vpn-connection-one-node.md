@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159857"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Создание VPN-подключения типа "сеть — сеть" между двумя виртуальными сетями в разных средах Пакета средств разработки Azure Stack
 ## <a name="overview"></a>Обзор

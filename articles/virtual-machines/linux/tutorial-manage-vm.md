@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192209"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Руководство по созданию виртуальных машин Linux и управлению ими с помощью Azure CLI 2.0
 

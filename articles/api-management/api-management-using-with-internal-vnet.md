@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151235"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Использование службы управления API Azure совместно с внутренней виртуальной сетью
 Служба управления API Azure в сочетании с виртуальными сетями Azure позволяет работать с интерфейсами API, которые недоступны из Интернета. Подключение можно создать с применением разных технологий VPN. Управление API можно развернуть в виртуальной сети в одном из двух основных режимов:

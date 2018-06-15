@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805307"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Создание классической виртуальной сети на портале Azure
 Чтобы создать классическую виртуальную сеть по предыдущему сценарию, выполните следующие действия.

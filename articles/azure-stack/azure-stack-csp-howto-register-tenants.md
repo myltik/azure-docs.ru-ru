@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157396"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Добавление клиентов для контроля потребления и выставления счетов в Azure Stack
 

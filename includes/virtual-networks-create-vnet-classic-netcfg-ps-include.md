@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805079"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Как создать виртуальную сеть с помощью файла конфигурации сети в PowerShell
 В Azure для определения всех виртуальных сетей, доступных для подписки, используется XML-файл. Вы можете скачать этот файл и внести в него изменения, чтобы изменить или удалить существующие виртуальные сети и создать новые. Из этого руководства вы узнаете, как скачать этот файл, который называется файлом конфигурации сети (или NETCGF), и внести в него изменения для создания виртуальной сети. Дополнительные сведения о файле конфигурации сети см. в статье [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Схема конфигурации виртуальной сети Azure).

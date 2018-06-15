@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190634"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Руководство по управлению дисками Azure с помощью Azure PowerShell
 

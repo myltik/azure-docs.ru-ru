@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188384"
 ---
 # <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Загрузка данных из Azure Data Lake Store в хранилище данных SQL
 Используйте внешние таблицы PolyBase для загрузки данных из Azure Data Lake Store в хранилище данных SQL Azure. Несмотря на то, что можно запускать специальные запросы данных, хранящихся в ADLS, мы рекомендуем импортировать данные в хранилище данных SQL для обеспечения максимальной производительности.

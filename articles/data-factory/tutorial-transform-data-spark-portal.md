@@ -17,6 +17,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176880"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Преобразование данных в облаке с помощью действия Spark в фабрике данных Azure
 В этом руководстве вы создадите конвейер фабрики данных Azure с помощью портала Azure. Конвейер преобразует данные с помощью действия Spark и связанной службы Azure HDInsight по запросу. 

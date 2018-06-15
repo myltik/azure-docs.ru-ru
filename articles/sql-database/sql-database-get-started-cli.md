@@ -11,11 +11,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: f1d54d71979c3a39b2b40a41b1ba1ab03aa75395
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d4bb27ddc4ff9385fd46fc7554af2af16ef40558
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187289"
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Создание отдельной базы данных SQL Azure с помощью Azure CLI
 
@@ -25,7 +26,7 @@ Azure CLI используется для создания ресурсов Azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать CLI локально, для выполнения инструкций в этом руководстве потребуется Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="define-variables"></a>Определение переменных
 
@@ -78,7 +79,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Создание базы данных на сервере с образцами данных
 
-Создайте на сервере базу данных с [уровнем производительности S0](sql-database-service-tiers.md) с помощью команды [az sql db create](/cli/azure/sql/db#az_sql_db_create). В следующем примере создается база данных с именем `mySampleDatabase`, в которую загружается образец данных AdventureWorksLT. При необходимости замените эти предопределенные значения (другие краткие руководства в этой коллекции созданы на основе этого документа).
+Создайте на сервере базу данных с [уровнем производительности S0](sql-database-service-tiers-dtu.md) с помощью команды [az sql db create](/cli/azure/sql/db#az_sql_db_create). В следующем примере создается база данных с именем `mySampleDatabase`, в которую загружается образец данных AdventureWorksLT. При необходимости замените эти предопределенные значения (другие краткие руководства в этой коллекции созданы на основе этого документа).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \

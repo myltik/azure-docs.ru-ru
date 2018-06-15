@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179560"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Полный конвейер средств непрерывной интеграции и доставки для развертывания многоконтейнерного приложения в Службе контейнеров Azure с Docker Swarm с использованием Visual Studio Team Services
 

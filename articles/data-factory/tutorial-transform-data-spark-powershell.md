@@ -17,6 +17,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168696"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Преобразование данных в облаке с помощью действия Spark в фабрике данных Azure
 В этом руководстве вы используете Azure PowerShell для создания конвейера фабрики данных, который преобразовывает данные с помощью действия Spark и служба, связанная по запросу HDInsight. В этом руководстве вы выполните следующие шаги:
