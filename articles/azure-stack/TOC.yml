@@ -130,8 +130,6 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Изменение владельца пользовательской подписки
           href: azure-stack-change-subscription-owner.md
-        - name: Управление виртуальными машинами Windows Azure Pack
-          href: azure-stack-manage-windows-azure-pack.md
         - name: Запуск и остановка Azure Stack
           href: azure-stack-start-and-stop.md
         - name: Управление емкостями
